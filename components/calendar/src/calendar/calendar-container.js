@@ -1,4 +1,4 @@
-import { colors } from '@dhis2/ui-constants'
+import { colors, elevations } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
 import { CalendarTable, CalendarTableProps } from './calendar-table.js'
@@ -7,8 +7,7 @@ import {
     NavigationContainerProps,
 } from './navigation-container.js'
 
-const wrapperBorderColor = colors.grey300
-const backgroundColor = 'none'
+const backgroundColor = colors.white
 
 export const CalendarContainer = React.memo(function CalendarContainer({
     date,
@@ -22,6 +21,10 @@ export const CalendarContainer = React.memo(function CalendarContainer({
     nextYear,
     prevMonth,
     prevYear,
+    navigateToYear,
+    navigateToMonth,
+    months,
+    years,
     languageDirection,
     calendarRef,
 }) {
@@ -34,6 +37,10 @@ export const CalendarContainer = React.memo(function CalendarContainer({
             prevMonth,
             prevYear,
             languageDirection,
+            navigateToYear,
+            navigateToMonth,
+            months,
+            years,
         }
     }, [
         currMonth,
@@ -43,6 +50,10 @@ export const CalendarContainer = React.memo(function CalendarContainer({
         nextYear,
         prevMonth,
         prevYear,
+        navigateToYear,
+        navigateToMonth,
+        months,
+        years,
     ])
     return (
         <div>
@@ -70,12 +81,10 @@ export const CalendarContainer = React.memo(function CalendarContainer({
                     background-color: ${backgroundColor};
                     display: flex;
                     flex-direction: column;
-                    border: 1px solid ${wrapperBorderColor};
                     border-radius: 3px;
                     min-width: ${width};
                     width: max-content;
-                    box-shadow: 0px 4px 6px -2px #2129340d;
-                    box-shadow: 0px 10px 15px -3px #2129341a;
+                    box-shadow: ${elevations.popover};
                 }
             `}</style>
         </div>

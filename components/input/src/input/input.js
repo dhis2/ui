@@ -174,6 +174,9 @@ export class Input extends Component {
             width,
         } = this.props
 
+        const statusIcon = error || loading || valid || warning
+        const clearButtonPadding = statusIcon ? '40px' : '10px'
+
         return (
             <div
                 className={cx(
@@ -235,7 +238,7 @@ export class Input extends Component {
                 <style jsx>{styles}</style>
                 <style jsx>{`
                     .input {
-                        width: ${width ? width : `100%`};
+                        width: ${width || `100%`};
                     }
 
                     input {
@@ -255,7 +258,7 @@ export class Input extends Component {
                         display: flex;
                         align-items: center;
                         pointer-events: none;
-                        left: 10px;
+                        inset-inline-start: 10px;
                         padding: 0;
                         color: ${colors.grey600};
                     }
@@ -270,7 +273,7 @@ export class Input extends Component {
                         height: 16px;
                         width: 16px;
                         border-radius: 50%;
-                        right: 10px;
+                        inset-inline-end: ${clearButtonPadding};
                         background: ${colors.grey500};
                         padding: 1px;
                     }

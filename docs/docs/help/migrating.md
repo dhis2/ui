@@ -2,7 +2,7 @@
 
 ## Migrating from < v5
 
-A number of important changes were introduced in UI version 5.0.0. To see more about these changes and how to migrate from older versions, see [this blog post](https://developers.dhis2.org/blog/ui-5-release) at the developer portal.
+A number of important changes were introduced in UI version 5.0.0. To see more about these changes and how to migrate from older versions, see [this blog post](/blog/2020/05/ui-5-release/) at the developer portal.
 
 ## Migrating from < v6
 

@@ -3,15 +3,13 @@ title: Icons
 ---
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
-import {Box } from '@dhis2/ui'
 
 # Icons
 
-<Demo>
-    <Box>
-    <p><a href="https://ui.dhis2.nu/demo/?path=/story/icons--complete-icon-set" target="_blank">Storybook demo: List of all icons</a>.</p> 
-    </Box>
-</Demo>
+<Demo 
+    path="icons--complete-icon-set" 
+    height="310px"
+/>
 
 Icons are used to help communicate information to users. Icons can provide supporting information and help users to recognize common ideas, concepts and actions. Icons are visual cues and should not be used alone, they are supporting elements.
 

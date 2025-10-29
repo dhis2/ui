@@ -72,6 +72,7 @@ export const IconDimensionEventDataItem16: React.FC<IconProps>
 export const IconDimensionIndicator16: React.FC<IconProps>
 export const IconDimensionOrgUnit16: React.FC<IconProps>
 export const IconDimensionOrgUnitGroupset16: React.FC<IconProps>
+export const IconDimensionProgramAttribute16: React.FC<IconProps>
 export const IconDimensionProgramIndicator16: React.FC<IconProps>
 export const IconDimensionValidationRule16: React.FC<IconProps>
 export const IconDirectionNorth16: React.FC<IconProps>
@@ -130,6 +131,8 @@ export const IconLegend16: React.FC<IconProps>
 export const IconLegend24: React.FC<IconProps>
 export const IconLink16: React.FC<IconProps>
 export const IconLink24: React.FC<IconProps>
+export const IconLinkOff16: React.FC<IconProps>
+export const IconLinkOff24: React.FC<IconProps>
 export const IconList16: React.FC<IconProps>
 export const IconList24: React.FC<IconProps>
 export const IconLocation16: React.FC<IconProps>
@@ -244,8 +247,14 @@ export const IconVisualizationLine16: React.FC<IconProps>
 export const IconVisualizationLine24: React.FC<IconProps>
 export const IconVisualizationLineMulti16: React.FC<IconProps>
 export const IconVisualizationLineMulti24: React.FC<IconProps>
+export const IconVisualizationLinelist16: React.FC<IconProps>
+export const IconVisualizationLinelist24: React.FC<IconProps>
+export const IconVisualizationOutlierTable16: React.FC<IconProps>
+export const IconVisualizationOutlierTable24: React.FC<IconProps>
 export const IconVisualizationPie16: React.FC<IconProps>
 export const IconVisualizationPie24: React.FC<IconProps>
+export const IconVisualizationPivotTable16: React.FC<IconProps>
+export const IconVisualizationPivotTable24: React.FC<IconProps>
 export const IconVisualizationRadar16: React.FC<IconProps>
 export const IconVisualizationRadar24: React.FC<IconProps>
 export const IconVisualizationScatter16: React.FC<IconProps>

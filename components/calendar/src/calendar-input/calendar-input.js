@@ -4,7 +4,6 @@ import {
     validateDateString,
 } from '@dhis2/multi-calendar-dates'
 import { Button } from '@dhis2-ui/button'
-import { Card } from '@dhis2-ui/card'
 import { InputField } from '@dhis2-ui/input'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
@@ -38,10 +37,12 @@ export const CalendarInput = ({
     strictValidation,
     inputWidth,
     dataTest = 'dhis2-uiwidgets-calendar-inputfield',
+    pastOnly,
     ...rest
 } = {}) => {
     const ref = useRef()
     const calendarRef = useRef()
+    const popperRef = useRef()
     const [open, setOpen] = useState(false)
     const [partialDate, setPartialDate] = useState(date)
 
@@ -53,8 +54,9 @@ export const CalendarInput = ({
             locale,
             numberingSystem,
             weekDayFormat,
+            pastOnly,
         }),
-        [calendar, locale, numberingSystem, weekDayFormat]
+        [calendar, locale, numberingSystem, weekDayFormat, pastOnly]
     )
 
     const onChooseDate = (date, validationOptions) => {
@@ -100,7 +102,11 @@ export const CalendarInput = ({
     }
 
     const handleBlur = (_, e) => {
-        if (e.relatedTarget && calendarRef.current?.contains(e.relatedTarget)) {
+        if (
+            e.relatedTarget &&
+            (calendarRef.current?.contains(e.relatedTarget) ||
+                popperRef.current === e.relatedTarget)
+        ) {
             return
         }
 
@@ -129,6 +135,10 @@ export const CalendarInput = ({
             nextYear: pickerResults.nextYear,
             prevMonth: pickerResults.prevMonth,
             prevYear: pickerResults.prevYear,
+            navigateToYear: pickerResults.navigateToYear,
+            navigateToMonth: pickerResults.navigateToMonth,
+            months: pickerResults.months,
+            years: pickerResults.years,
             languageDirection,
         }),
         [cellSize, date, pickerResults, width, languageDirection]
@@ -177,13 +187,14 @@ export const CalendarInput = ({
                         reference={ref}
                         placement="bottom-start"
                         modifiers={[offsetModifier]}
+                        onFirstUpdate={(component) => {
+                            popperRef.current = component?.elements?.popper
+                        }}
                     >
-                        <Card>
-                            <CalendarContainer
-                                {...calendarProps}
-                                calendarRef={calendarRef}
-                            />
-                        </Card>
+                        <CalendarContainer
+                            {...calendarProps}
+                            calendarRef={calendarRef}
+                        />
                     </Popper>
                 </Layer>
             )}
@@ -240,6 +251,8 @@ CalendarInput.propTypes = {
     minDate: PropTypes.string,
     /** numbering system to use - full list here https://github.com/dhis2/multi-calendar-dates/blob/main/src/constants/numberingSystems.ts */
     numberingSystem: PropTypes.string,
+    /** When true, only shows years in the past (current year and earlier) */
+    pastOnly: PropTypes.bool,
     /** Whether to use strict validation by showing errors for out-of-range dates when enabled (default), and warnings when disabled */
     strictValidation: PropTypes.bool,
     /** the format to display for the week day, i.e. Monday (long), Mon (short), M (narrow) */

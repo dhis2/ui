@@ -128,8 +128,6 @@ export class Select extends Component {
             return
         }
 
-        e.stopPropagation()
-
         const { open } = this.state
         const { keyCode } = e
         const shouldOpen =
@@ -138,6 +136,13 @@ export class Select extends Component {
                 keyCode === UP_KEY ||
                 keyCode === DOWN_KEY)
         const shouldClose = open && keyCode === ESCAPE_KEY
+
+        /* Do not block event propagation when the Select is closed unless
+         * the key to open it is pressed, so that other components like
+         * the Modal can still respond to keypresses (i.e. ESC to close) */
+        if (open || shouldOpen) {
+            e.stopPropagation()
+        }
 
         if (shouldClose) {
             return this.handleClose()

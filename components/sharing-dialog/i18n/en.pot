@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-11-07T15:20:34.373Z\n"
-"PO-Revision-Date: 2024-11-07T15:20:34.375Z\n"
+"POT-Creation-Date: 2025-06-24T11:04:00.759Z\n"
+"PO-Revision-Date: 2025-06-24T11:04:00.761Z\n"
 
 msgid "View only"
 msgstr "View only"
@@ -160,6 +160,9 @@ msgstr "Sharing and access"
 
 msgid "Close"
 msgstr "Close"
+
+msgid "This action would remove your metadata write access, which is not allowed"
+msgstr "This action would remove your metadata write access, which is not allowed"
 
 msgid "Dashboard sharing"
 msgstr "Dashboard sharing"

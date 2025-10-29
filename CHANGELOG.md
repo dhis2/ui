@@ -1,3 +1,234 @@
+## [10.9.1](https://github.com/dhis2/ui/compare/v10.9.0...v10.9.1) (2025-09-18)
+
+
+### Bug Fixes
+
+* adjust type definitions to align with prop-types ([#1703](https://github.com/dhis2/ui/issues/1703)) ([a8fbf1d](https://github.com/dhis2/ui/commit/a8fbf1dfc15c9f5433649d76715031b1fb750a74))
+
+# [10.9.0](https://github.com/dhis2/ui/compare/v10.8.2...v10.9.0) (2025-08-22)
+
+
+### Features
+
+* add program attribute icon size 16 ([#1702](https://github.com/dhis2/ui/issues/1702)) ([30943cf](https://github.com/dhis2/ui/commit/30943cf99477341a5e34da95b4b59bd698bad69d))
+
+## [10.8.2](https://github.com/dhis2/ui/compare/v10.8.1...v10.8.2) (2025-07-29)
+
+
+### Bug Fixes
+
+* **icons:** add missing exports for icon types ([#1701](https://github.com/dhis2/ui/issues/1701)) ([6e20640](https://github.com/dhis2/ui/commit/6e20640ae8d6e4b631697205cc0e20a6f6bdd8fc))
+
+## [10.8.1](https://github.com/dhis2/ui/compare/v10.8.0...v10.8.1) (2025-07-16)
+
+
+### Bug Fixes
+
+* add preventUsersFromRemovingMetadataWriteAccess to type def ([#1699](https://github.com/dhis2/ui/issues/1699)) ([e438803](https://github.com/dhis2/ui/commit/e4388036319e45abe90ce1a0e9331c0c42e9064d))
+
+# [10.8.0](https://github.com/dhis2/ui/compare/v10.7.8...v10.8.0) (2025-07-16)
+
+
+### Features
+
+* sharing dialog prevent users from removing metadata write access [DHIS2-18430] ([#1694](https://github.com/dhis2/ui/issues/1694)) ([a267689](https://github.com/dhis2/ui/commit/a267689b3189c5ca867b126a5d7cd06f853f67c7))
+
+## [10.7.8](https://github.com/dhis2/ui/compare/v10.7.7...v10.7.8) (2025-07-10)
+
+
+### Bug Fixes
+
+* **transfer:** allow any number for maxSelections prop ([#1698](https://github.com/dhis2/ui/issues/1698)) ([e87eebd](https://github.com/dhis2/ui/commit/e87eebdb5a2fc026fad98603ad48c66efb7cd955))
+
+## [10.7.7](https://github.com/dhis2/ui/compare/v10.7.6...v10.7.7) (2025-07-03)
+
+
+### Bug Fixes
+
+* **select:** do not block event propagation unless needed ([#1696](https://github.com/dhis2/ui/issues/1696)) ([3dd6679](https://github.com/dhis2/ui/commit/3dd6679d74e0619fe1963ba006ad18a2ea4319c3))
+
+## [10.7.6](https://github.com/dhis2/ui/compare/v10.7.5...v10.7.6) (2025-07-03)
+
+
+### Bug Fixes
+
+* calendar input onBlur in Safari ([#1697](https://github.com/dhis2/ui/issues/1697)) ([639ba79](https://github.com/dhis2/ui/commit/639ba794d51ddcdebfc6c9985cb562e9c44d736a))
+
+## [10.7.5](https://github.com/dhis2/ui/compare/v10.7.4...v10.7.5) (2025-06-30)
+
+
+### Bug Fixes
+
+* upgrade react-popper and popperjs core to ensure react 18 compatability ([#1695](https://github.com/dhis2/ui/issues/1695)) ([2418bbc](https://github.com/dhis2/ui/commit/2418bbc0380198f9f5ed2b9c6931af2420421385))
+
+## [10.7.4](https://github.com/dhis2/ui/compare/v10.7.3...v10.7.4) (2025-06-09)
+
+
+### Bug Fixes
+
+* ensure publishing docs ([#1692](https://github.com/dhis2/ui/issues/1692)) ([4ee19b8](https://github.com/dhis2/ui/commit/4ee19b8b100dff0c9fb445e734ccd6e84b0e7c0c))
+
+## [10.7.3](https://github.com/dhis2/ui/compare/v10.7.2...v10.7.3) (2025-06-09)
+
+
+### Bug Fixes
+
+* bump multi-calendar-dates ([#1691](https://github.com/dhis2/ui/issues/1691)) ([5ac3347](https://github.com/dhis2/ui/commit/5ac3347c9b10625770394be81654b21ae85f9e1c))
+
+## [10.7.2](https://github.com/dhis2/ui/compare/v10.7.1...v10.7.2) (2025-05-28)
+
+
+### Bug Fixes
+
+* trigger release ([e417220](https://github.com/dhis2/ui/commit/e41722024d7cec9056606d3f1825797b4fe9880f))
+
+## [10.7.1](https://github.com/dhis2/ui/compare/v10.7.0...v10.7.1) (2025-05-21)
+
+
+### Bug Fixes
+
+* **header-bar:** profile menu title ([#1686](https://github.com/dhis2/ui/issues/1686)) ([8bc8da0](https://github.com/dhis2/ui/commit/8bc8da0b94d83fe396445290e66ebccd410d8ea5))
+
+# [10.7.0](https://github.com/dhis2/ui/compare/v10.6.0...v10.7.0) (2025-05-19)
+
+
+### Features
+
+* **button:** add controlled component functionality to SplitButton ([#1685](https://github.com/dhis2/ui/issues/1685)) ([f027b0b](https://github.com/dhis2/ui/commit/f027b0b84bc4d0d5cb5b587d9007629caa768d52))
+
+# [10.6.0](https://github.com/dhis2/ui/compare/v10.5.1...v10.6.0) (2025-05-05)
+
+
+### Bug Fixes
+
+* **button:** adjust dropdown arrow spacing for small buttons ([d80205a](https://github.com/dhis2/ui/commit/d80205a7414acd3a9e5a76ef8efd66ee4c84393a))
+* **calendar:** use popover elevation constant ([1459551](https://github.com/dhis2/ui/commit/14595510ad8c5130029c81b8817db6192f4eb45b))
+* **flyoutMenu:** use popover elevation constant ([11451be](https://github.com/dhis2/ui/commit/11451bef9612509055a0416389e966198fb06a28))
+* **popover:** use popover elevation constant ([103020b](https://github.com/dhis2/ui/commit/103020b43c8399afaebb80dc1b9e1c0c706a3520))
+* **select:** adjust padding and spacing ([67bdd29](https://github.com/dhis2/ui/commit/67bdd2977f4a0d0596f9556fce56ac109e1ae8c9))
+* **select:** prevent clear icon from shrinking ([6e6d163](https://github.com/dhis2/ui/commit/6e6d1634b181bd49f845d37ad79e6e842e05ce1d))
+* **select:** use popover elevation constant ([e47a530](https://github.com/dhis2/ui/commit/e47a530cae30653f64acafe9a1b3b6f86ebe8be1))
+* **translations:** sync translations from transifex (master) ([90bffb1](https://github.com/dhis2/ui/commit/90bffb11b26fb8c172a014fc440d46514d814a02))
+
+
+### Features
+
+* **constants:** introduce popover elevation constant ([32fdb17](https://github.com/dhis2/ui/commit/32fdb1774124d40a7b358f0b614c51369e5fb762))
+
+## [10.5.1](https://github.com/dhis2/ui/compare/v10.5.0...v10.5.1) (2025-03-18)
+
+
+### Bug Fixes
+
+* **input:** adjust icon prefix and clear button padding and position ([#1678](https://github.com/dhis2/ui/issues/1678)) ([0b144aa](https://github.com/dhis2/ui/commit/0b144aaa77ec28bda312fa78f86aa1846177e117))
+
+# [10.5.0](https://github.com/dhis2/ui/compare/v10.4.0...v10.5.0) (2025-03-18)
+
+
+### Features
+
+* add datastore sharing dialog type ([#1677](https://github.com/dhis2/ui/issues/1677)) ([ef61920](https://github.com/dhis2/ui/commit/ef61920e26b9a38a8137619730d2fc2dbb54fbf7))
+
+# [10.4.0](https://github.com/dhis2/ui/compare/v10.3.1...v10.4.0) (2025-03-12)
+
+
+### Features
+
+* add year month selector to calendar component ([#1663](https://github.com/dhis2/ui/issues/1663)) ([b643b16](https://github.com/dhis2/ui/commit/b643b16cf927bca885d67eb5113639abf71c1ebe))
+
+## [10.3.1](https://github.com/dhis2/ui/compare/v10.3.0...v10.3.1) (2025-03-06)
+
+
+### Bug Fixes
+
+* **multiSelect:** adjust active item style ([48334db](https://github.com/dhis2/ui/commit/48334dbd7bb0d75b77408653049db8246d38d905))
+* **singleSelect:** adjust active item style ([e11ccb6](https://github.com/dhis2/ui/commit/e11ccb64985bccfb396b07e6c8a7c2b9e1908ec7))
+
+# [10.3.0](https://github.com/dhis2/ui/compare/v10.2.0...v10.3.0) (2025-02-26)
+
+
+### Features
+
+* **sharing-dialog:** allow sharing dashboards without cascading sharing ([#1674](https://github.com/dhis2/ui/issues/1674)) ([18af4f7](https://github.com/dhis2/ui/commit/18af4f7ba560b28fae2366258b17cdb73fab22f8))
+
+# [10.2.0](https://github.com/dhis2/ui/compare/v10.1.13...v10.2.0) (2025-02-24)
+
+
+### Features
+
+* add dataStore to SharingDialog types ([#1664](https://github.com/dhis2/ui/issues/1664)) ([853f7e4](https://github.com/dhis2/ui/commit/853f7e4f358ae4a95582dd66d58e72c745e69870))
+
+## [10.1.13](https://github.com/dhis2/ui/compare/v10.1.12...v10.1.13) (2025-02-16)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([94b01cc](https://github.com/dhis2/ui/commit/94b01cc3c8916bff26dd3424e09b6ce7aa7e98fa))
+
+## [10.1.12](https://github.com/dhis2/ui/compare/v10.1.11...v10.1.12) (2025-02-09)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([0d45048](https://github.com/dhis2/ui/commit/0d4504855ae5a2e683950c0b62a1e448a9987e44))
+
+## [10.1.11](https://github.com/dhis2/ui/compare/v10.1.10...v10.1.11) (2025-02-04)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([5af9182](https://github.com/dhis2/ui/commit/5af918224eebcf8996200f41e9f024342c8d1535))
+
+## [10.1.10](https://github.com/dhis2/ui/compare/v10.1.9...v10.1.10) (2024-12-22)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([ab8e62e](https://github.com/dhis2/ui/commit/ab8e62ebc248abec13307e39988879c7f926bd76))
+
+## [10.1.9](https://github.com/dhis2/ui/compare/v10.1.8...v10.1.9) (2024-12-18)
+
+
+### Bug Fixes
+
+* **transfer:** apply margin to first and last items, remove container padding ([7fbb161](https://github.com/dhis2/ui/commit/7fbb161fdffc9a9326e119c83ff4cf90a6f2ebab))
+* **transfer:** use dense inputs for filtering ([e62f9e7](https://github.com/dhis2/ui/commit/e62f9e78982f8fa155779f147bea02894d55c5fc))
+
+## [10.1.8](https://github.com/dhis2/ui/compare/v10.1.7...v10.1.8) (2024-12-08)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([7c24711](https://github.com/dhis2/ui/commit/7c24711ca2e07198fa513debf6792710b9034efb))
+
+## [10.1.7](https://github.com/dhis2/ui/compare/v10.1.6...v10.1.7) (2024-12-05)
+
+
+### Bug Fixes
+
+* **deps:** remove testing-library from selector-bar prod deps ([#1648](https://github.com/dhis2/ui/issues/1648)) ([e8ea894](https://github.com/dhis2/ui/commit/e8ea894eb57d394b5d819e78f8b6700fc5b37205))
+
+## [10.1.6](https://github.com/dhis2/ui/compare/v10.1.5...v10.1.6) (2024-12-03)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([6377b62](https://github.com/dhis2/ui/commit/6377b62bdfef810bb39b26c6dcd3d663d8da149b))
+
+## [10.1.5](https://github.com/dhis2/ui/compare/v10.1.4...v10.1.5) (2024-12-02)
+
+
+### Bug Fixes
+
+* **types:** fix missing width type for input ([#1644](https://github.com/dhis2/ui/issues/1644)) ([15fa0f9](https://github.com/dhis2/ui/commit/15fa0f96528b74d568d05d374a2dfac7f6ba309a))
+
+## [10.1.4](https://github.com/dhis2/ui/compare/v10.1.3...v10.1.4) (2024-11-28)
+
+
+### Bug Fixes
+
+* use flexbox instead of font-size to ensure the icon is centered ([#1643](https://github.com/dhis2/ui/issues/1643)) ([939f5fa](https://github.com/dhis2/ui/commit/939f5fad0861570ec0003dd893dc2bc28d4258e6))
+
 ## [10.1.3](https://github.com/dhis2/ui/compare/v10.1.2...v10.1.3) (2024-11-26)
 
 

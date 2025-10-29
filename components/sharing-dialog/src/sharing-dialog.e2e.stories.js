@@ -29,3 +29,13 @@ export const Data = () => (
         <SharingDialog type="visualization" id="id" dataSharing={true} />
     </Provider>
 )
+
+export const Prevent = () => (
+    <Provider config={config}>
+        <SharingDialog
+            type="visualization"
+            id="id"
+            preventUsersFromRemovingMetadataWriteAccess={true}
+        />
+    </Provider>
+)

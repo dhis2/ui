@@ -154,12 +154,12 @@ Read more about the `useAlert()` hook at the [App Runtime documentation](https:/
 
 -   Alert bar labels should be clear, concise, and easy to understand. Remember, `info` and `success` alert bars dismiss automatically.
 -   Don't use unclear labels like _Success_, _Failed_, or vague descriptions like _There was a problem_. Be clear and precise.
--   Check the [A-Z glossary](../patterns/glossary.md) and [communication guidelines](../principles/content-communication.md) for more tips for writing useful labels.
+-   Check the [A-Z glossary](/design-system/patterns/glossary) and [communication guidelines](/design-system/principles/content-communication) for more tips for writing useful labels.
 
 #### Display
 
 -   Several alert bars can be shown at the same time.
--   Alert bars are automatically shown in the correct size and spacings when using an [`AlertStack`](https://ui.dhis2.nu/demo/?path=/story/feedback-alerts-alert-stack--default).
+-   Alert bars are automatically shown in the correct size and spacings when using an [`AlertStack`](pathname:///demo/?path=/story/feedback-alerts-alert-stack--default).
 
 ## Options
 

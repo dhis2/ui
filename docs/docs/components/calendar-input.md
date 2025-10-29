@@ -4,6 +4,8 @@ title: Calendar Input
 
 import { Demo } from '@site/src/components/DemoComponent.jsx'
 import API from '../../../components/calendar/API.md'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
 
 ## Calendar Input
 

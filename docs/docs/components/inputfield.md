@@ -132,12 +132,12 @@ Inputs width should reflect the expected content.
 ```
 
 -   Use a `Textarea` if more than a single sentence of content is expected.
--   [`Textarea`](https://ui.dhis2.nu/demo/?path=/story/forms-text-area-text-area-field--no-placeholder-no-value) is available as a standalone component.
+-   [`Textarea`](pathname:///demo/?path=/story/forms-text-area-text-area-field--no-placeholder-no-value) is available as a standalone component.
 
 ### Validation
 
 -   Validating the type of data entered isn't part of the components themselves.
--   Read more about [form handling in DHIS2](../utilities/forms/react-final-form.md).
+-   Read more about [form handling in DHIS2](/design-system/utilities/forms/react-final-form).
 
 ### Read-only
 
@@ -174,7 +174,7 @@ Inputs width should reflect the expected content.
 
 -   Use an error state if there's a problem with the content of the input, or if it's required but empty.
 -   Don't show an error too early, give the user a chance to finish entering data.
--   The error text should help the user fix the problem. Refer to the [error writing guidelines](../principles/content-communication.md) for examples.
+-   The error text should help the user fix the problem. Refer to the [error writing guidelines](/design-system/principles/content-communication) for examples.
 
 ### State: Disabled
 

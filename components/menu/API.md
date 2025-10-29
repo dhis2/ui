@@ -17,10 +17,10 @@ import { FlyoutMenu } from '@dhis2/ui'
 |children|node|||Typically, but not limited to, `MenuItem` components|
 |className|string||||
 |closeMenu|function|||when Escape key is pressed, this function is called to close the flyout menu|
-|dataTest|string|`'dhis2-uicore-menu'`|||
+|dataTest|string|``'dhis2-uicore-menu'``|||
 |dense|boolean|||Menu uses smaller dimensions|
-|maxHeight|string|`'auto'`|||
-|maxWidth|string|`'380px'`|||
+|maxHeight|string|``'auto'``|||
+|maxWidth|string|``'380px'``|||
 
 ### Menu
 
@@ -40,7 +40,7 @@ import { Menu } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node|||Typically `MenuItem`, `MenuDivider`, and `MenuSectionHeader`|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-menulist'`|||
+|dataTest|string|``'dhis2-uicore-menulist'``|||
 |dense|boolean|||Applies `dense` property to all child components unless already specified|
 
 ### MenuDivider
@@ -60,7 +60,7 @@ import { MenuDivider } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-menudivider'`|||
+|dataTest|string|``'dhis2-uicore-menudivider'``|||
 |dense|boolean||||
 
 ### MenuItem
@@ -86,7 +86,7 @@ import { MenuItem } from '@dhis2/ui'
 |chevron|boolean||||
 |children|node|||Nested menu items can become submenus.<br/>See `showSubMenu` and `toggleSubMenu` props, and 'Children' demo|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-menuitem'`|||
+|dataTest|string|``'dhis2-uicore-menuitem'``|||
 |dense|boolean||||
 |destructive|boolean||||
 |disabled|boolean||||
@@ -118,7 +118,7 @@ import { MenuSectionHeader } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |className|string||||
-|dataTest|string|`'dhis2-uicore-menusectionheader'`|||
+|dataTest|string|``'dhis2-uicore-menusectionheader'``|||
 |dense|boolean||||
 |hideDivider|boolean||||
 |label|node||||

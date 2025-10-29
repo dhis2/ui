@@ -18,7 +18,7 @@ import { UserAvatar } from '@dhis2/ui'
 |ariaLabel|string||||
 |avatarId|string||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-useravatar'`|||
+|dataTest|string|``'dhis2-uicore-useravatar'``|||
 |extralarge|custom||||
 |extrasmall|custom||||
 |large|custom||||

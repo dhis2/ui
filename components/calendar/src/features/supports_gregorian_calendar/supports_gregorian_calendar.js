@@ -32,12 +32,21 @@ Then('months should be rendered in "{word}" with navigation', (language) => {
             ? { current: 'October', previous: 'September', next: 'November' }
             : { current: 'أكتوبر', previous: 'سبتمبر', next: 'نوفمبر' }
 
-    cy.contains(months.current).should('be.visible')
+    cy.get('[data-test="calendar-month-select"] option:selected').should(
+        'have.text',
+        months.current
+    )
     cy.get('[data-test="calendar-next-month"]').click()
-    cy.contains(months.next).should('be.visible')
+    cy.get('[data-test="calendar-month-select"] option:selected').should(
+        'have.text',
+        months.next
+    )
     cy.get('[data-test="calendar-previous-month"]').click()
     cy.get('[data-test="calendar-previous-month"]').click()
-    cy.contains(months.previous).should('be.visible')
+    cy.get('[data-test="calendar-month-select"] option:selected').should(
+        'have.text',
+        months.previous
+    )
 })
 
 Then('we should be able to select a day', () => {

@@ -16,7 +16,7 @@ import { Field } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-field'`|||
+|dataTest|string|``'dhis2-uicore-field'``|||
 |disabled|boolean|||Disabled status, shown when mouse is over label|
 |error|custom|||Field status. Mutually exclusive with `valid` and `warning` props|
 |helpText|string|||Useful text within the field|
@@ -46,7 +46,7 @@ import { FieldGroup } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uiwidgets-fieldsetfield'`|||
+|dataTest|string|``'dhis2-uiwidgets-fieldsetfield'``|||
 |disabled|boolean|||Disables the form controls within|
 |error|custom|||Applies 'error' styling to validation text for feedback. Mutually exclusive with `warning` and `valid` props|
 |helpText|string|||Useful instructions for the user|
@@ -75,4 +75,4 @@ import { FieldSet } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-fieldset'`|||
+|dataTest|string|``'dhis2-uicore-fieldset'``|||

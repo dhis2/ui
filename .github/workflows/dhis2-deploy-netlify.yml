@@ -24,14 +24,16 @@ jobs:
         if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
         steps:
             - uses: actions/checkout@v2
-            - uses: actions/setup-node@v1
+            - uses: actions/setup-node@v3
               with:
                   node-version: 20.x
 
-            - uses: c-hive/gha-yarn-cache@v1
-            - run: yarn install --frozen-lockfile
+            # We use Netlify only for deploy previews, production docs are hosted at developers.dhis2.org
+            # Don't build anything, just copy the _redirects file into the dist directory
 
-            - run: yarn build
+            - run: |
+                  mkdir dist
+                  cp _redirects dist/_redirects
 
             - uses: nwtgck/actions-netlify@v1.1
               with:

@@ -105,13 +105,13 @@ SwitchField.propTypes = {
     value: PropTypes.string,
     /** Applies 'warning' styling to switch and validation text for feedback. Mutually exclusive with `valid` and `error` props */
     warning: sharedPropTypes.statusPropType,
-    /** Called with signature ({ name: string, value: string, checked: bool }, event) */
+    /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
     onBlur: PropTypes.func,
-    /** Called with signature ({ name: string, value: string, checked: bool }, event) */
+    /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
     onChange: PropTypes.func,
-    /** Called with signature ({ name: string, value: string, checked: bool }, event) */
+    /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
     onFocus: PropTypes.func,
-    /** Called with signature ({ name: string, value: string, checked: bool }, event) */
+    /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
     onKeyDown: PropTypes.func,
 }
 

@@ -1,4 +1,4 @@
-import { colors } from '@dhis2/ui-constants'
+import { colors, spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useRef } from 'react'
@@ -65,6 +65,14 @@ export const TransferOption = ({
                 div.disabled {
                     color: ${colors.grey600};
                     cursor: not-allowed;
+                }
+
+                div:first-child {
+                    margin-block-start: ${spacers.dp4};
+                }
+
+                div:last-child {
+                    margin-block-end: ${spacers.dp4};
                 }
             `}</style>
         </div>

@@ -236,7 +236,7 @@ Use a multi select if the user can choose one or more options.
 
 -   Use an error state if there's a problem with the chosen option, or if it's required but empty.
 -   Don't show an error too early, give the user a chance to make a choice.
--   The error text should help the user fix the problem. Refer to the [error writing guidelines](../principles/content-communication.md) for examples.
+-   The error text should help the user fix the problem. Refer to the [error writing guidelines](/design-system/principles/content-communication) for examples.
 
 ### State: Disabled
 

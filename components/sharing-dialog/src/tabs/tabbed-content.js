@@ -24,10 +24,11 @@ export const TabbedContent = ({
     onChange,
     onRemove,
     dataSharing,
+    cascadeDashboardSharing,
 }) => {
     const [activeTabIndex, setActiveTabIndex] = useState(0)
 
-    if (type === DIALOG_TYPES.DASHBOARD) {
+    if (type === DIALOG_TYPES.DASHBOARD && cascadeDashboardSharing) {
         return (
             <>
                 <TabBar>
@@ -91,6 +92,7 @@ export const TabbedContent = ({
 
 TabbedContent.propTypes = {
     allowPublicAccess: PropTypes.bool.isRequired,
+    cascadeDashboardSharing: PropTypes.bool.isRequired,
     dataSharing: PropTypes.bool.isRequired,
     groups: PropTypes.arrayOf(
         PropTypes.shape({

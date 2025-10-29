@@ -14,10 +14,10 @@ import { FileInput } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|accept|string|`'*'`||The `accept` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept)|
+|accept|string|``'*'``||The `accept` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept)|
 |buttonLabel|string||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-fileinput'`|||
+|dataTest|string|``'dhis2-uicore-fileinput'``|||
 |disabled|boolean||||
 |error|custom|||Input status. Mutually exclusive with `warning` and `valid`|
 |initialFocus|boolean||||
@@ -49,11 +49,11 @@ import { FileInputField } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|accept|string|`'*'`||The `accept` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept)|
-|buttonLabel|string │ function|`() => i18n.t('Upload a file')`||Text on the button|
+|accept|string|``'*'``||The `accept` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept)|
+|buttonLabel|string │ function|``() => i18n.t('Upload a file')``||Text on the button|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uiwidgets-fileinputfield'`|||
+|dataTest|string|``'dhis2-uiwidgets-fileinputfield'``|||
 |disabled|boolean|||Disables the button|
 |error|custom|||Applies 'error' styling to the validation text. Mutually exclusive with `warning` and `valid` props|
 |helpText|string|||Useful guiding text for the user|
@@ -62,7 +62,7 @@ import { FileInputField } from '@dhis2/ui'
 |large|custom|||Size of the button. Mutually exclusive with the `small` prop|
 |multiple|boolean|||The `multiple` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple)|
 |name|string|||Name associated with input. Passed to event handler callbacks|
-|placeholder|string │ function|`() => i18n.t('No file uploaded yet')`||Placeholder below the button|
+|placeholder|string │ function|``() => i18n.t('No file uploaded yet')``||Placeholder below the button|
 |required|boolean|||Adds an asterisk to indicate this field is required|
 |small|custom|||Size of the button. Mutually exclusive with the `large` prop|
 |tabIndex|string||||
@@ -91,21 +91,21 @@ import { FileInputFieldWithList } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |onChange|function||*|Called with signature `({ name: string, files: [File] }, event)`|
-|accept|string|`'*'`||The `accept` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept)|
-|buttonLabel|string │ function|`() => i18n.t('Upload a file')`||Text on the button|
+|accept|string|``'*'``||The `accept` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept)|
+|buttonLabel|string │ function|``() => i18n.t('Upload a file')``||Text on the button|
 |className|string||||
-|dataTest|string|`'dhis2-uiwidgets-fileinputfield'`|||
+|dataTest|string|``'dhis2-uiwidgets-fileinputfield'``|||
 |disabled|boolean|||Disables the button|
 |error|custom|||Applies 'error' styling to the button and validation text. Mutually exclusive with `warning` and `valid` props|
-|files|arrayOf(instanceOf(File))||||
+|files|`arrayOf(instanceOf(File))`||||
 |helpText|string|||Useful guiding text for the user|
 |initialFocus|boolean||||
 |label|string|||A descriptive label above the button|
 |large|custom|||Size of the button. Mutually exclusive with the `small` prop|
 |multiple|boolean|||The `multiple` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple)|
 |name|string|||Name associated with input. Passed to event handler callbacks|
-|placeholder|string │ function|`() => i18n.t('No file uploaded yet')`||Placeholder below the button|
-|removeText|string │ function|`() => i18n.t('Remove')`||Text used for the button that removes a file from the list|
+|placeholder|string │ function|``() => i18n.t('No file uploaded yet')``||Placeholder below the button|
+|removeText|string │ function|``() => i18n.t('Remove')``||Text used for the button that removes a file from the list|
 |required|boolean|||Adds an asterisk to indicate this field is required|
 |small|custom|||Size of the button. Mutually exclusive with the `large` prop|
 |tabIndex|string||||
@@ -135,7 +135,7 @@ import { FileListItem } from '@dhis2/ui'
 |onRemove|function||*||
 |cancelText|string||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-filelistitem'`|||
+|dataTest|string|``'dhis2-uicore-filelistitem'``|||
 |label|string||||
 |loading|boolean||||
 |removeText|string||||
@@ -158,7 +158,7 @@ import { FileListPlaceholder } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |children|string||||
-|dataTest|string|`'dhis2-uicore-filelistplaceholder'`|||
+|dataTest|string|``'dhis2-uicore-filelistplaceholder'``|||
 
 ### FileList
 
@@ -178,4 +178,4 @@ import { FileList } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-filelist'`|||
+|dataTest|string|``'dhis2-uicore-filelist'``|||

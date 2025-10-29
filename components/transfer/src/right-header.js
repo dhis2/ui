@@ -1,7 +1,6 @@
-import { spacers } from '@dhis2/ui-constants'
+import { colors, spacers } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { borderColor } from './common/index.js'
 
 export const RightHeader = ({ children, dataTest }) => (
     <div data-test={dataTest}>
@@ -9,7 +8,7 @@ export const RightHeader = ({ children, dataTest }) => (
 
         <style jsx>{`
             div {
-                border-bottom: 1px solid ${borderColor};
+                border-bottom: 1px solid ${colors.grey400};
                 flex-grow: 0;
                 padding: 0 ${spacers.dp8};
             }

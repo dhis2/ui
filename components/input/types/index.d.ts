@@ -116,6 +116,10 @@ export interface InputProps {
      */
     warning?: boolean
     /**
+     * Defines the width of the input. Can be any valid CSS measurement
+     */
+    width?: string
+    /**
      * Called with signature `({ name: string, value: string }, event)`
      */
     onBlur?: InputFocusHandler

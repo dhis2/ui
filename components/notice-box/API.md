@@ -16,7 +16,7 @@ import { NoticeBox } from '@dhis2/ui'
 |---|---|---|---|---|
 |children|node||||
 |className|string||||
-|dataTest|string|`'dhis2-uicore-noticebox'`|||
+|dataTest|string|``'dhis2-uicore-noticebox'``|||
 |error|custom|||Applies 'error' message styles. Mutually exclusive with the `valid` and `warning` props|
 |title|string||||
 |valid|custom|||Applies 'valid' message styles. Mutually exclusive with the `error` and `warning` props|

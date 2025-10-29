@@ -24,18 +24,27 @@ Then('months should be rendered in "{word}" with navigation', (language) => {
             ? { current: 'ጥቅምት', previous: 'መስከረም', next: 'ኅዳር' }
             : { current: 'Tekemt', previous: 'Meskerem', next: 'Hedar' }
 
-    cy.contains(months.current).should('be.visible')
+    cy.get('[data-test="calendar-month-select"] option:selected').should(
+        'have.text',
+        months.current
+    )
     cy.get('[data-test="calendar-next-month"]').click()
-    cy.contains(months.next).should('be.visible')
+    cy.get('[data-test="calendar-month-select"] option:selected').should(
+        'have.text',
+        months.next
+    )
     cy.get('[data-test="calendar-previous-month"]').click()
     cy.get('[data-test="calendar-previous-month"]').click()
-    cy.contains(months.previous).should('be.visible')
+    cy.get('[data-test="calendar-month-select"] option:selected').should(
+        'have.text',
+        months.previous
+    )
 })
 
 Then('the era should not be displayed in the year', () => {
-    cy.get('[data-test="calendar-current-year"]').should(
+    cy.get('[data-test="calendar-year-select"] option:selected').should(
         'not.contain.text',
-        'ERA1'
+        'ERA'
     )
 })
 
