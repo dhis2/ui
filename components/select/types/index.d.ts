@@ -308,12 +308,12 @@ export const SingleSelect: React.FC<SingleSelectProps>
 /**
  * ====================
  *
- * <SingleSelectA11y />
+ * <SimpleSingleSelect />
  *
  * ====================
  **/
 
-type SingleSelectA11yCustomOptionProp = (props: {
+type SimpleSingleSelectCustomOptionProp = (props: {
     value: string
     label: string
     index: number
@@ -321,7 +321,7 @@ type SingleSelectA11yCustomOptionProp = (props: {
     highlighted: boolean
 }) => JSX.Element
 
-export interface SingleSelectA11yProps {
+export interface SimpleSingleSelectProps {
     /** necessary for IDs that are required for accessibility **/
     idPrefix: string.isRequired
 
@@ -329,7 +329,7 @@ export interface SingleSelectA11yProps {
     options: Array<{
         label: string
         value: string
-        component?: SingleSelectA11yCustomOptionProp
+        component?: SimpleSingleSelectCustomOptionProp
         disabled?: boolean
     }>
 
@@ -350,7 +350,7 @@ export interface SingleSelectA11yProps {
 
     /** Allows to override what's rendered inside the `button[role="option"]`.
      * Can be overriden on an individual option basis **/
-    customOption?: SingleSelectA11yCustomOptionProp
+    customOption?: SimpleSingleSelectCustomOptionProp
 
     /** A value for a `data-test` attribute on the root element **/
     dataTest?: string
@@ -438,7 +438,7 @@ export interface SingleSelectA11yProps {
     onFocus?: (e: React.FocusEvent<HTMLElement>) => void
 }
 
-export const SingleSelectA11y: React.FC<SingleSelectA11yProps>
+export const SimpleSingleSelect: React.FC<SimpleSingleSelectProps>
 
 /**
  * ====================
