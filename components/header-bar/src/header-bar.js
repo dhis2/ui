@@ -55,11 +55,30 @@ export const HeaderBar = ({
         }))
     }, [data, baseUrl])
 
+    // sources
+    // 1. App Platform: /adapter/src/utils/localeUtils.js#L15
+    // 2. https://developer.mozilla.org/en-US/docs/Glossary/BCP_47_language_tag
+    const parseLocale = (locale) => {
+        const [language, region, script] = locale.split('_')
+
+        let languageTag = language
+        if (script) {
+            languageTag += `-${script}`
+        }
+        if (region) {
+            languageTag += `-${region}`
+        }
+        return new Intl.Locale(languageTag)
+    }
+
     // See https://jira.dhis2.org/browse/LIBS-180
     if (!loading && !error) {
         // TODO: This will run every render which is probably wrong!
         // Also, setting the global locale shouldn't be done in the headerbar
-        const locale = data.user.settings.keyUiLocale || 'en'
+
+        // ensures the locale/variant is separated by hyphens before being passed to changeLanguage
+        const locale =
+            parseLocale(data.user.settings.keyUiLocale)?.baseName || 'en'
         i18n.setDefaultNamespace('default')
         i18n.changeLanguage(locale)
     }
