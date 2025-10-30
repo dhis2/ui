@@ -66,7 +66,7 @@ export {
     MultiSelectField,
     MultiSelectOption,
     SingleSelect,
-    SingleSelectA11y,
+    SimpleSingleSelect,
     SingleSelectField,
     SingleSelectOption,
 } from '@dhis2-ui/select'

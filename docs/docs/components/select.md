@@ -16,7 +16,7 @@ These components do not support re-ordering, in that case the [`Transfer`](trans
 ### Single select
 
 <span style={{ fontSize: 20 }}>⚠️⚠️⚠️</span><br/>
-This component will be <b>deprecated</b> in favor of the new `SingleSelectA11y` component,
+This component will be <b>deprecated</b> in favor of the new `SimpleSingleSelect` component,
 which is also describe in this document. We have not decided when we'll remove
 this component from the library to give developers the chance to migrate over time
 while being able to upgrade the library's version without being forced to migrate to the new component.<br/>
@@ -37,17 +37,17 @@ while being able to upgrade the library's version without being forced to migrat
 </SingleSelectField>
 ```
 
-### SingleSelectA11y
+### SimpleSingleSelect
 
-Use the `<SingleSelectA11y/>` if the user can only choose one option.
+Use the `<SimpleSingleSelect/>` if the user can only choose one option.
 
 <Demo
-    path="single-select-a11y--without-selection"
+    path="simple-single-select--without-selection"
     height="200px"
 />
 
 ```jsx
-<SingleSelectA11y
+<SimpleSingleSelect
     idPrefix="required-prefix-value"
     value={value}
     onChange={onChange}
