@@ -1,14 +1,11 @@
 # 
 # Translators:
-# Philip Larsen Donnelly, 2021
-# Elise Desailly, 2024
-# Cyrille Kabrane, 2025
 # Esther Tokouli, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-05-10T11:56:32.496Z\n"
+"POT-Creation-Date: 2021-06-15T13:35:03.608Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
 "Last-Translator: Esther Tokouli, 2025\n"
 "Language-Team: French (https://app.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -18,17 +15,8 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
-msgid "Clear"
-msgstr "Effacer"
+msgid "Toggle filter"
+msgstr "Changer de filtre"
 
-msgid "No data found"
-msgstr "Aucune valeur trouvée"
-
-msgid "Type to filter options"
-msgstr "Tapez pour filtrer les options"
-
-msgid "Loading options"
-msgstr "Chargement des options"
-
-msgid "No options found"
-msgstr "Pas d'options trouvées"
+msgid "Sort items"
+msgstr "Trier les éléments"
