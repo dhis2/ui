@@ -1,3 +1,10 @@
+## [10.9.2](https://github.com/dhis2/ui/compare/v10.9.1...v10.9.2) (2025-11-11)
+
+
+### Bug Fixes
+
+* **header-bar:** allow bypassing i18n logic ([#1708](https://github.com/dhis2/ui/issues/1708)) ([34c571c](https://github.com/dhis2/ui/commit/34c571c10ed78bf4803db26ac9ad4f88d61c5a46))
+
 ## [10.9.1](https://github.com/dhis2/ui/compare/v10.9.0...v10.9.1) (2025-09-18)
 
 
