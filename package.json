@@ -39,7 +39,9 @@
         "lint:staged": "d2-style check --staged",
         "test": "d2-app-scripts test",
         "start": "yarn workspace ui-storybook start",
-        "start:docs": "yarn workspace ui-docusaurus start"
+        "start:docs": "yarn workspace ui-docusaurus start",
+        "link:app-runtime": "yarn link @dhis2/app-runtime @dhis2/app-service-alerts @dhis2/app-service-config @dhis2/app-service-data @dhis2/app-service-offline",
+        "unlink:app-runtime": "yarn unlink @dhis2/app-runtime @dhis2/app-service-alerts @dhis2/app-service-config @dhis2/app-service-data @dhis2/app-service-offline"
     },
     "dependencies": {
         "@dhis2/d2-i18n": "^1.1.0",
