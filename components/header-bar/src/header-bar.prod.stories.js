@@ -1,5 +1,5 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     createDecoratorProvider,
     mockOfflineInterface,
@@ -7,6 +7,7 @@ import {
 } from './__e2e__/stories/common.js'
 import { OnlineStatusMessageUpdate } from './__e2e__/stories/online-status-message.js'
 import { HeaderBar } from './header-bar.js'
+import i18n from './locales/index.js'
 
 const subtitle = 'The common navigation bar used in all DHIS2 apps'
 
@@ -196,6 +197,25 @@ export const NonEnglishUserLocale = () => (
     </CustomDataProvider>
 )
 NonEnglishUserLocale.storyName = 'Non-english user locale'
+
+export const NonEnglishUserLocaleIgnoringI18n = () => {
+    const [language, setLanguage] = useState()
+    useEffect(() => {
+        console.log('custom effect to set language from consumer')
+
+        i18n.setDefaultNamespace('default')
+        i18n.changeLanguage('es')
+        setLanguage('es')
+    }, [])
+
+    return language ? (
+        <CustomDataProvider data={customLocaleData}>
+            <HeaderBar appName="Exemple!" skipI18n />
+        </CustomDataProvider>
+    ) : null
+}
+NonEnglishUserLocaleIgnoringI18n.storyName =
+    'Custom locale initialisation (spanish) from the consumer'
 
 export const NoAuthorityForInterpretationsApp = () => (
     <CustomDataProvider data={customAuthoritiesData}>
