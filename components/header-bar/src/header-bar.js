@@ -1,7 +1,7 @@
 import { useDataQuery, useConfig } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
-import React, { useMemo } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import Apps from './apps.js'
 import { HeaderBarContextProvider } from './header-bar-context.js'
 import { joinPath } from './join-path.js'
@@ -38,6 +38,7 @@ export const HeaderBar = ({
     className,
     updateAvailable,
     onApplyAvailableUpdate,
+    skipI18n,
 }) => {
     const { appName: configAppName, baseUrl, pwaEnabled } = useConfig()
     const { loading, error, data } = useDataQuery(query)
@@ -55,14 +56,17 @@ export const HeaderBar = ({
         }))
     }, [data, baseUrl])
 
-    // See https://jira.dhis2.org/browse/LIBS-180
-    if (!loading && !error) {
-        // TODO: This will run every render which is probably wrong!
-        // Also, setting the global locale shouldn't be done in the headerbar
-        const locale = data.user.settings.keyUiLocale || 'en'
-        i18n.setDefaultNamespace('default')
-        i18n.changeLanguage(locale)
-    }
+    useEffect(() => {
+        if (!loading && !error && !skipI18n) {
+            // This is the "legacy" way of localising the header bar, which is necesasry for external (non-platform) apps
+            // For platform apps, setting i18n is handled by the app-shell so this logic is redundant (and running it twice caused issues)
+            // For external apps, this logic is kept for backwards compatibility, but they also have the option of passing `skipI18n`
+            // and initialising i18n in the consumer
+            const locale = data?.user?.settings?.keyUiLocale || 'en'
+            i18n.setDefaultNamespace('default')
+            i18n.changeLanguage(locale)
+        }
+    }, [data?.user?.settings?.keyUiLocale, error, loading, skipI18n])
 
     return (
         <HeaderBarContextProvider
@@ -130,6 +134,12 @@ export const HeaderBar = ({
 HeaderBar.propTypes = {
     appName: PropTypes.string,
     className: PropTypes.string,
+    /**
+     * `skipI18n` skips initalising internationalisation in the UI component
+     * This is useful for app-platform apps, as the platform already sets i18n, so it can skip i18n (and avoid race conditions).
+     * For non-platform apps, they can continue relying on this logic running for backwards compatibility.
+     * */
+    skipI18n: PropTypes.bool,
     updateAvailable: PropTypes.bool,
     onApplyAvailableUpdate: PropTypes.func,
 }

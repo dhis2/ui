@@ -5,6 +5,7 @@ export interface HeaderBarProps {
     className?: string
     updateAvailable?: boolean
     onApplyAvailableUpdate?: () => void
+    skipI18n?: boolean
 }
 
 export const HeaderBar: React.FC<HeaderBarProps>
