@@ -8,25 +8,20 @@ import API from '../../../components/select/API.md'
 
 # Select
 
-Selects are used to choose one or more items from a list of options.
-<Demo
-    path="single-select--with-options-and-a-selection"
-    height="200px"
-/>
+The select components are meant to be used when there are many options the user can choose from, especially when there's not much space available.
+These components do not support re-ordering, in that case the [`Transfer`](transfer.md) component might be a better fit.
 
-## Usage
+## Variants
 
-### When to use
+### Single select
 
--   **Choosing one or several options from a list of many**. Use a select if there are many options to choose from, especially in compact layouts.
-
-### When not to use
-
--   **Ordering selections**. Don't use a select to choose options when their order is important. Use a [`Transfer`](transfer.md) instead.
-
-### Variants
-
-#### Single select
+<span style={{ fontSize: 20 }}>⚠️⚠️⚠️</span><br/>
+This component will be <b>deprecated</b> in favor of the new `SimpleSingleSelect` component,
+which is also describe in this document. We have not decided when we'll remove
+this component from the library to give developers the chance to migrate over time
+while being able to upgrade the library's version without being forced to migrate to the new component.<br/>
+<span style={{ fontSize: 20 }}>⚠️⚠️⚠️</span><br/>
+<br/>
 
 <Demo
     path="single-select-field--with-help-text"
@@ -42,9 +37,31 @@ Selects are used to choose one or more items from a list of options.
 </SingleSelectField>
 ```
 
--   Use a single select if the user can only choose one option.
+### SimpleSingleSelect
 
-#### Multi select
+Use the `<SimpleSingleSelect/>` if the user can only choose one option.
+
+<Demo
+    path="simple-single-select--without-selection"
+    height="200px"
+/>
+
+```jsx
+<SimpleSingleSelect
+    idPrefix="required-prefix-value"
+    value={value}
+    onChange={onChange}
+    options={[
+        { value: '1', label: 'One' },
+        { value: '2', label: 'Two' },
+        { value: '3', label: 'Three' },
+    ]}
+/>
+```
+
+### Multi select
+
+Use a multi select if the user can choose one or more options.
 
 <Demo
     path="multi-select-field--default"
@@ -61,17 +78,15 @@ Selects are used to choose one or more items from a list of options.
 </MultiSelectField>
 ```
 
--   Use a multi select if the user can choose one or more options.
+## Format
 
-### Format
-
-#### Label
+### Label
 
 -   Show a label above the select to show what it's for.
 -   Labels should clearly describe the selection to be made. Don't use long sentences.
 -   A noun is often the simplest choice of label, rather than a verb. For example, _Period type_ is more concise in a layout than _Choose a period type_. Only use a verb if the use of the control is ambiguous.
 
-##### Placeholder
+### Placeholder
 
 <Demo
     path="single-select--with-placeholder"
@@ -92,7 +107,7 @@ Selects are used to choose one or more items from a list of options.
 -   Always use placeholder text if a label isn't used.
 -   Placeholder text disappears when choosing an option, so make sure it's not critical.
 
-##### Help text
+### Help text
 
 <Demo
     path="single-select-field--with-help-text"
@@ -114,7 +129,7 @@ Selects are used to choose one or more items from a list of options.
 -   Use help text to tell the user about any limitations or expectations for the content.
 -   Help text can also be used to clarify what the input is for if it's a complex concept.
 
-#### Size
+### Size
 
 <Demo
     path="single-select--dense"
@@ -131,7 +146,7 @@ Selects are used to choose one or more items from a list of options.
 
 -   Selects are available in two sizes, regular and `dense`. Regular sized selects are useful when there's space available. Use `dense` sized selects in compact, information-dense interfaces.
 
-#### Width
+### Width
 
 -   A selects width should reflect the expected content.
 -   Avoid full-width selects, which can be visually unclear.
