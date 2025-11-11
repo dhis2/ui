@@ -1,7 +1,8 @@
 import { CircularLoader } from '@dhis2-ui/loader'
 import PropTypes from 'prop-types'
-import React, { Fragment, useRef } from 'react'
+import React, { useRef } from 'react'
 import { EndIntersectionDetector } from './end-intersection-detector.js'
+import { useOptionsNavigation } from './use-options-navigation.js'
 import { useResizeCounter } from './use-resize-counter.js'
 
 export const OptionsContainer = ({
@@ -18,7 +19,9 @@ export const OptionsContainer = ({
     toggleHighlightedOption,
 }) => {
     const optionsRef = useRef(null)
-    const wrapperRef = useRef(null)
+    const { wrapperRef, focusedOptionIndex, onOptionFocusedHandler } =
+        useOptionsNavigation(options)
+
     const resizeCounter = useResizeCounter(wrapperRef.current)
 
     return (
@@ -28,29 +31,39 @@ export const OptionsContainer = ({
                     <CircularLoader />
                 </div>
             )}
-
             <div className="container" data-test={dataTest} ref={optionsRef}>
                 <div className="content-container" ref={wrapperRef}>
                     {!options.length && emptyComponent}
-                    {options.map((option) => {
+                    {options.map((option, index) => {
                         const highlighted = !!highlightedOptions.find(
                             (highlightedSourceOption) =>
                                 highlightedSourceOption === option.value
                         )
 
+                        const optionsClickHandlers = getOptionClickHandlers(
+                            option,
+                            selectionHandler,
+                            toggleHighlightedOption
+                        )
+
+                        const isFocused =
+                            focusedOptionIndex !== null
+                                ? index === focusedOptionIndex
+                                : index === 0
+
                         return (
-                            <Fragment key={option.value}>
+                            <span
+                                key={option.value}
+                                tabIndex={isFocused ? 0 : -1}
+                                onFocus={() => onOptionFocusedHandler(index)}
+                            >
                                 {renderOption({
                                     ...option,
-                                    ...getOptionClickHandlers(
-                                        option,
-                                        selectionHandler,
-                                        toggleHighlightedOption
-                                    ),
+                                    ...optionsClickHandlers,
                                     highlighted,
                                     selected,
                                 })}
-                            </Fragment>
+                            </span>
                         )
                     })}
 
