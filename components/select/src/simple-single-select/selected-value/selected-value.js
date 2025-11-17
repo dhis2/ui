@@ -60,7 +60,7 @@ export function SelectedValue({
                 <Prefix dataTest={`${dataTestPrefix}-prefix`} prefix={prefix} />
             )}
 
-            <div className="selected-option-label">
+            <div className="selected-option-label" tabIndex="-1">
                 {!selectedLabel && !prefix && placeholder && (
                     <Placeholder
                         dataTest={`${dataTestPrefix}-placeholder`}
