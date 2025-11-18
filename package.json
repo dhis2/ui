@@ -64,7 +64,7 @@
         "@dhis2/cypress-plugins": "^10.0.5",
         "@manypkg/cli": "^0.18.0",
         "@svgr/cli": "^5.5.0",
-        "@testing-library/cypress": "^8",
+        "@testing-library/cypress": "^10",
         "@testing-library/dom": "^10.4.0",
         "@testing-library/jest-dom": "^6.6.3",
         "@testing-library/react": "^16.0.1",
