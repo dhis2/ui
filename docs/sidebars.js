@@ -82,7 +82,12 @@ const sidebars = {
             ],
         },
         {
-            Recipes: ['recipes/transfer-infinite-loading-all-options-selected'],
+            Recipes: [
+                'recipes/recipes',
+                'recipes/simple-single-select-simple-filtering',
+                'recipes/simple-single-select-server-side-filtering',
+                'recipes/transfer-infinite-loading-all-options-selected',
+            ],
         },
         {
             Help: [

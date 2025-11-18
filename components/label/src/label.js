@@ -26,14 +26,16 @@ const constructClassName = ({ disabled, className }) =>
     })
 
 export const Label = ({
-    htmlFor,
     children,
-    required,
-    disabled,
     className,
     dataTest = 'dhis2-uicore-label',
+    disabled,
+    htmlFor,
+    id,
+    required,
 }) => (
     <label
+        id={id}
         htmlFor={htmlFor}
         className={constructClassName({ className, disabled })}
         data-test={dataTest}
@@ -52,5 +54,6 @@ Label.propTypes = {
     dataTest: PropTypes.string,
     disabled: PropTypes.bool,
     htmlFor: PropTypes.string,
+    id: PropTypes.string,
     required: PropTypes.bool,
 }

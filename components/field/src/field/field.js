@@ -7,10 +7,11 @@ import React from 'react'
 
 const Field = ({
     children,
-    disabled,
     className,
+    disabled,
     helpText,
     label,
+    labelId,
     name,
     validationText,
     required,
@@ -22,6 +23,7 @@ const Field = ({
     <Box className={className} dataTest={dataTest}>
         {label && (
             <Label
+                id={labelId}
                 dataTest={`${dataTest}-label`}
                 required={required}
                 disabled={disabled}
@@ -52,24 +54,38 @@ const Field = ({
 
 Field.propTypes = {
     children: PropTypes.node,
+
     className: PropTypes.string,
+
     dataTest: PropTypes.string,
+
     /** Disabled status, shown when mouse is over label */
     disabled: PropTypes.bool,
+
     /** Field status. Mutually exclusive with `valid` and `warning` props */
     error: sharedPropTypes.statusPropType,
+
     /** Useful text within the field */
     helpText: PropTypes.string,
+
     /** Label at the top of the field */
     label: PropTypes.string,
+
+    /** id passed to the label element */
+    labelId: PropTypes.string,
+
     /** `name` will become the target of the `for`/`htmlFor` attribute on the `<label>` element */
     name: PropTypes.string,
+
     /** Inidcates this field is required */
     required: PropTypes.bool,
+
     /** Field status. Mutually exclusive with `error` and `warning` props */
     valid: sharedPropTypes.statusPropType,
+
     /** Feedback given related to validation status of field */
     validationText: PropTypes.string,
+
     /** Field status. Mutually exclusive with `valid` and `error` props */
     warning: sharedPropTypes.statusPropType,
 }
