@@ -1,3 +1,35 @@
+# [10.10.0-alpha.1](https://github.com/dhis2/ui/compare/v10.9.2...v10.10.0-alpha.1) (2025-11-18)
+
+
+### Bug Fixes
+
+* ensure selected div does not get focus on tab ([776eaf7](https://github.com/dhis2/ui/commit/776eaf7616e8d471c948f2642c8615bd975d925c))
+* **select a11y:** give loading indicator space when no options ([87e444c](https://github.com/dhis2/ui/commit/87e444c2915eb26e54d30e52e299e9ff6d648bda))
+* **select a11y:** handle focussed option index separately when filtering ([c0d0d09](https://github.com/dhis2/ui/commit/c0d0d09eadc337d2a6e4826bfdef2e90b7a820d6))
+* **select a11y:** handle remaining TODO comments & rename internal components ([356bd4f](https://github.com/dhis2/ui/commit/356bd4f46328be6d884ab0758193f65d9fd7aca4))
+* **select a11y:** make PageDown keypress respect disabled options ([4f412a7](https://github.com/dhis2/ui/commit/4f412a712bde2b7558d2e0c0847a64d852e2ae57))
+* **select a11y:** start writing recipes & fix things found along the way ([1673079](https://github.com/dhis2/ui/commit/1673079cb648e22a67620c398c06b3dcff6f6c03))
+* handle keyboard input on filter input; + code org cleanup ([4cce702](https://github.com/dhis2/ui/commit/4cce702c2355249a11334399548f908fd81fbc81))
+* **select a11y:** make PageUp keypress respect disabled options ([50c6755](https://github.com/dhis2/ui/commit/50c6755b35c0f214715d956fe58b5337c3c6bf3a))
+* **select a11y:** make remaining keypress logic respect disabled options ([76fa698](https://github.com/dhis2/ui/commit/76fa69836d123db113f63cfa4fd1cd6aaafac7d4))
+
+
+### Features
+
+* **input:** allow aria-label attribute ([930efa8](https://github.com/dhis2/ui/commit/930efa8ebfce12d50b3a6ae4d5037b1282e25f69))
+* **select a11y:** add <SingleSelectA11yField/> ([4debf99](https://github.com/dhis2/ui/commit/4debf9921caf0f30863faeda3932203e537452e4))
+* **select a11y:** add <SingleSelectA11yFieldFF/> ([8e1152b](https://github.com/dhis2/ui/commit/8e1152b55789ca9e6dc266e2733a4330cdcbea85))
+* **select a11y:** add onEndReached prop ([e6a8833](https://github.com/dhis2/ui/commit/e6a883308112bdccd4bc914927514d1afad4ff54))
+* **select a11y:** add some keyboard handling ([285fa70](https://github.com/dhis2/ui/commit/285fa70ebeaced950e288ee19d516976cbf13aaa))
+* **select a11y:** allow to specify aria-busy update strategy ([583ca45](https://github.com/dhis2/ui/commit/583ca45d998cae3d9be3c0af5a49cb581bf40704))
+* **select a11y:** allow to specify custom option generally ([ee3ab42](https://github.com/dhis2/ui/commit/ee3ab423fced35ad9146f47118465d810b665bf3))
+* **select a11y:** close menu when tabbing ([51c1c60](https://github.com/dhis2/ui/commit/51c1c60aaf13a4f812fe225862f671ab1921041e))
+* **select a11y:** handle pageUp and pageDown keys ([7903410](https://github.com/dhis2/ui/commit/79034103f60d799d9d397136170e2970e9e38d3f))
+* **select a11y:** implement <SingleSelectA11y/> ([01f5fa3](https://github.com/dhis2/ui/commit/01f5fa35fe9c2259c9c59ba9c9348d1dce6b46cb))
+* **select a11y:** implement typing while menu is open ([3266f86](https://github.com/dhis2/ui/commit/3266f8679ad44cb4a0eea651f7e52d372e54eec4))
+* **select a11y:** scroll highlighted option into view ([31285c6](https://github.com/dhis2/ui/commit/31285c6682662db89cb52871ac9c943f521c0503))
+* **ui collection:** export SingleSelectA11y ([fe8496f](https://github.com/dhis2/ui/commit/fe8496fa7ce51c59cb3b2def2a56afdae1ec2a35))
+
 ## [10.9.2](https://github.com/dhis2/ui/compare/v10.9.1...v10.9.2) (2025-11-11)
 
 
