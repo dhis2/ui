@@ -124,6 +124,10 @@ export function SimpleSingleSelect({
             setFocussedOptionIndex(selectedOptionIndex)
         }
 
+        if (selectedOptionIndex === -1) {
+            setFocussedOptionIndex(0)
+        }
+
         setExpanded(true)
     }, [options, selectedValue, focussedOptionIndex, setFocussedOptionIndex])
 
