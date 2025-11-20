@@ -1,3 +1,11 @@
+# [10.10.0-alpha.2](https://github.com/dhis2/ui/compare/v10.10.0-alpha.1...v10.10.0-alpha.2) (2025-11-20)
+
+
+### Bug Fixes
+
+* ensure container does not scroll with arrow down ([50a0262](https://github.com/dhis2/ui/commit/50a02621ef1b73eafa8afb3baa894797a5496ea7))
+* update SimpleSelect type ([2a71734](https://github.com/dhis2/ui/commit/2a71734cc3d622917298dad9aebd20bbf71cc587))
+
 # [10.10.0-alpha.1](https://github.com/dhis2/ui/compare/v10.9.2...v10.10.0-alpha.1) (2025-11-18)
 
 
