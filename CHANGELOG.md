@@ -1,3 +1,10 @@
+# [10.10.0-alpha.3](https://github.com/dhis2/ui/compare/v10.10.0-alpha.2...v10.10.0-alpha.3) (2025-11-20)
+
+
+### Bug Fixes
+
+* ensure first item selected even if its value is not empty string ([faf5b95](https://github.com/dhis2/ui/commit/faf5b95ff9b91e1682877529f1c02fd963757c1d))
+
 # [10.10.0-alpha.2](https://github.com/dhis2/ui/compare/v10.10.0-alpha.1...v10.10.0-alpha.2) (2025-11-20)
 
 
