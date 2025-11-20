@@ -105,7 +105,8 @@ export function useHandleKeyPressOnCombobox({
     })
 
     const handleKeyPress = useCallback(
-        ({ key, altKey, ctrlKey, metaKey }) => {
+        (event) => {
+            const { key, altKey, ctrlKey, metaKey } = event
             if (disabled || loading) {
                 return
             }
@@ -123,6 +124,12 @@ export function useHandleKeyPressOnCombobox({
             if (expanded && key === 'Tab') {
                 closeMenu()
                 return
+            }
+
+            // ! This is necessary for cases where the parent window is scrollable
+            // ! otherwise the ArrowDown/Up would change the combo but also scroll the window
+            if (key === 'ArrowDown' || key === 'ArrowUp' || key === ' ') {
+                event.preventDefault()
             }
 
             if (
