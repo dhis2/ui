@@ -323,7 +323,7 @@ type SimpleSingleSelectCustomOptionProp = (props: {
 
 export interface SimpleSingleSelectProps {
     /** necessary for IDs that are required for accessibility **/
-    idPrefix: string.isRequired
+    name: string.isRequired
 
     /** An array of options **/
     options: Array<{
