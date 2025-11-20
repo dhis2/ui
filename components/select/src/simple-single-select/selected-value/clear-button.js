@@ -1,5 +1,4 @@
 import { colors, theme } from '@dhis2/ui-constants'
-import { Tooltip } from '@dhis2-ui/tooltip'
 import PropTypes from 'prop-types'
 import React from 'react'
 import i18n from '../../locales/index.js'
@@ -8,7 +7,14 @@ function ClearButton({ onClear, clearText, dataTest }) {
     return (
         <button
             aria-label={i18n.t('{{clearText}}', { clearText })}
+            title={i18n.t('{{clearText}}', { clearText })}
             data-test={dataTest}
+            onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === 'space') {
+                    // otherwise, Enter propagates to parent menu and opens the combo
+                    e.stopPropagation()
+                }
+            }}
             onClick={(e) => {
                 e.stopPropagation()
                 onClear()
@@ -61,30 +67,4 @@ ClearButton.propTypes = {
     dataTest: PropTypes.string,
 }
 
-function ClearButtonWithTooltip({ onClear, clearText, dataTest }) {
-    const clearButton = (
-        <ClearButton
-            onClear={onClear}
-            dataTest={dataTest}
-            clearText={clearText}
-        />
-    )
-
-    if (!clearText) {
-        return clearButton
-    }
-
-    return (
-        <Tooltip openDelay={500} content={clearText}>
-            {clearButton}
-        </Tooltip>
-    )
-}
-
-ClearButtonWithTooltip.propTypes = {
-    clearText: PropTypes.string.isRequired,
-    onClear: PropTypes.func.isRequired,
-    dataTest: PropTypes.string,
-}
-
-export { ClearButtonWithTooltip as ClearButton }
+export { ClearButton }
