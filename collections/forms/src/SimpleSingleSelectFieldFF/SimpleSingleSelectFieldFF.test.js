@@ -1,0 +1,82 @@
+import '@testing-library/jest-dom'
+import { Button } from '@dhis2-ui/button'
+import { render, fireEvent, screen } from '@testing-library/react'
+import React from 'react'
+import { Field, Form } from 'react-final-form'
+import { hasValue } from '../validators/index.js'
+import { SimpleSingleSelectFieldFF } from './SimpleSingleSelectFieldFF.js'
+
+describe('<SimpleSingleSelectFieldFF/>', () => {
+    beforeEach(jest.resetAllMocks)
+    it("should use FF's input for value selection", () => {
+        const onSubmit = jest.fn()
+
+        render(
+            <Form onSubmit={onSubmit}>
+                {(formRenderProps) => (
+                    <form onSubmit={formRenderProps.handleSubmit}>
+                        <Field
+                            component={SimpleSingleSelectFieldFF}
+                            name="story"
+                            label="Label text"
+                            options={[
+                                { value: '', label: 'None' },
+                                { value: 'foo', label: 'Foo' },
+                                { value: 'bar', label: 'Bar' },
+                            ]}
+                        />
+
+                        <Button primary type="submit">
+                            Submit
+                        </Button>
+                    </form>
+                )}
+            </Form>
+        )
+
+        fireEvent.click(screen.getByRole('combobox'))
+        fireEvent.click(screen.getByText('Foo'))
+        fireEvent.click(screen.getByRole('button'))
+
+        expect(onSubmit).toHaveBeenCalledTimes(1)
+        expect(onSubmit).toHaveBeenCalledWith(
+            { story: { value: 'foo', label: 'Foo' } },
+            expect.anything(),
+            expect.anything()
+        )
+    })
+
+    it('should display the validation error', () => {
+        const onSubmit = jest.fn()
+
+        render(
+            <Form onSubmit={onSubmit}>
+                {(formRenderProps) => (
+                    <form onSubmit={formRenderProps.handleSubmit}>
+                        <Field
+                            required
+                            component={SimpleSingleSelectFieldFF}
+                            name="story"
+                            label="Label text"
+                            validate={hasValue}
+                            options={[
+                                { value: '', label: 'None' },
+                                { value: 'foo', label: 'Foo' },
+                                { value: 'bar', label: 'Bar' },
+                            ]}
+                        />
+
+                        <Button primary type="submit">
+                            Submit
+                        </Button>
+                    </form>
+                )}
+            </Form>
+        )
+
+        fireEvent.click(screen.getByRole('button'))
+
+        const error = screen.getByText('Please provide a value')
+        expect(error).not.toBeNull()
+    })
+})

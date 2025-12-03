@@ -15,7 +15,7 @@ module.exports = defineConfig({
     e2e: {
         setupNodeEvents,
         baseUrl: 'http://localhost:5000',
-        specPattern: '**/src/**/*.feature',
+        specPattern: '**/src/**/*{.feature,.test.e2e.js}',
         experimentalRunAllSpecs: true,
     },
 })

@@ -1,4 +1,5 @@
 import '@dhis2/cypress-commands'
+import '@testing-library/cypress/add-commands'
 
 // Add additional support functions here
 import './all.js'

@@ -21,6 +21,7 @@ import { Field } from '@dhis2/ui'
 |error|custom|||Field status. Mutually exclusive with `valid` and `warning` props|
 |helpText|string|||Useful text within the field|
 |label|string|||Label at the top of the field|
+|labelId|string|||id passed to the label element|
 |name|string|||`name` will become the target of the `for`/`htmlFor` attribute on the `<label>` element|
 |required|boolean|||Inidcates this field is required|
 |valid|custom|||Field status. Mutually exclusive with `error` and `warning` props|
