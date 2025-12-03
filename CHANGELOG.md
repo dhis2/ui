@@ -1,3 +1,10 @@
+# [10.10.0](https://github.com/dhis2/ui/compare/v10.9.2...v10.10.0) (2025-12-03)
+
+
+### Features
+
+* **select accessibility:** add < SimpleSingleSelect/> component ([#1620](https://github.com/dhis2/ui/issues/1620)) ([1edb1fa](https://github.com/dhis2/ui/commit/1edb1fa97a2d77b045d35f24a8937f7b8487c3c6))
+
 ## [10.9.2](https://github.com/dhis2/ui/compare/v10.9.1...v10.9.2) (2025-11-11)
 
 
