@@ -102,6 +102,7 @@ export const SharingDialog = ({
     initialSharingSettings = defaultInitialSharingSettings,
     dataTest = 'dhis2-uicore-sharingdialog',
     dataSharing = false,
+    metadataSharing = true,
     cascadeDashboardSharing = true,
     preventUsersFromRemovingMetadataWriteAccess = false,
 }) => {
@@ -278,6 +279,7 @@ export const SharingDialog = ({
                     onChange={onChange}
                     onRemove={onRemove}
                     dataSharing={dataSharing}
+                    metadataSharing={metadataSharing}
                     cascadeDashboardSharing={cascadeDashboardSharing}
                 />
             </Modal>
@@ -369,6 +371,7 @@ SharingDialog.propTypes = {
             })
         ),
     }),
+    metadataSharing: PropTypes.bool,
     /** Whether to disallow users from removing their metadata write access */
     preventUsersFromRemovingMetadataWriteAccess: PropTypes.bool,
     onClose: PropTypes.func,

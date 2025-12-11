@@ -21,6 +21,7 @@ export const AccessList = ({
     users,
     groups,
     dataSharing,
+    metadataSharing = true,
 }) => {
     const accessOptions = [ACCESS_NONE, ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT]
     return (
@@ -31,18 +32,18 @@ export const AccessList = ({
             <div className="header">
                 <div
                     className={
-                        dataSharing
-                            ? 'header-start-column-data'
-                            : 'header-start-column-metadata'
+                        dataSharing && metadataSharing
+                            ? 'header-start-column-small'
+                            : 'header-start-column-big'
                     }
                 >
                     {i18n.t('User / Group')}
                 </div>
                 <div
                     className={
-                        dataSharing
-                            ? 'header-end-column-data'
-                            : 'header-end-column-metadata'
+                        dataSharing && metadataSharing
+                            ? 'header-end-column-big'
+                            : 'header-end-column-small'
                     }
                 >
                     <span className="hea">{i18n.t('Access level')}</span>
@@ -59,6 +60,7 @@ export const AccessList = ({
                         onChange({ type: 'public', access: newAccess })
                     }
                     dataSharing={dataSharing}
+                    metadataSharing={metadataSharing}
                     allUsersItem={true}
                 />
 
@@ -78,6 +80,7 @@ export const AccessList = ({
                         }
                         onRemove={() => onRemove({ type: 'group', id })}
                         dataSharing={dataSharing}
+                        metadataSharing={metadataSharing}
                     />
                 ))}
                 {users.map(
@@ -99,6 +102,7 @@ export const AccessList = ({
                                 }
                                 onRemove={() => onRemove({ type: 'user', id })}
                                 dataSharing={dataSharing}
+                                metadataSharing={metadataSharing}
                             />
                         )
                 )}
@@ -113,20 +117,20 @@ export const AccessList = ({
                     font-size: 13px;
                 }
 
-                .header-start-column-metadata {
+                .header-start-column-big {
                     width: 65%;
                 }
 
-                .header-end-column-metadata {
+                .header-end-column-small {
                     margin-inline-start: auto;
                     width: 35%;
                 }
 
-                .header-start-column-data {
+                .header-start-column-small {
                     width: 35%;
                 }
 
-                .header-end-column-data {
+                .header-end-column-big {
                     margin-inline-start: auto;
                     width: 65%;
                 }
@@ -199,4 +203,5 @@ AccessList.propTypes = {
     ).isRequired,
     onChange: PropTypes.func.isRequired,
     onRemove: PropTypes.func.isRequired,
+    metadataSharing: PropTypes.bool,
 }

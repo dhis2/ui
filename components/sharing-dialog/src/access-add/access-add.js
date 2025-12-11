@@ -14,7 +14,7 @@ import { FetchingContext } from '../fetching-context/index.js'
 import i18n from '../locales/index.js'
 import { Title } from '../text/index.js'
 
-export const AccessAdd = ({ onAdd, dataSharing }) => {
+export const AccessAdd = ({ onAdd, dataSharing, metadataSharing = true }) => {
     const isFetching = useContext(FetchingContext)
     const [entity, setEntity] = useState(null)
     const [dataAccess, setDataAccess] = useState('')
@@ -61,9 +61,9 @@ export const AccessAdd = ({ onAdd, dataSharing }) => {
             <form onSubmit={onSubmit}>
                 <div
                     className={
-                        dataSharing
-                            ? 'startWrapperData'
-                            : 'startWrapperMetadata'
+                        dataSharing && metadataSharing
+                            ? 'startWrapperSmall'
+                            : 'startWrapperBig'
                     }
                 >
                     <SharingAutocomplete
@@ -73,9 +73,9 @@ export const AccessAdd = ({ onAdd, dataSharing }) => {
                 </div>
                 <div
                     className={
-                        dataSharing
-                            ? 'endWrapper endWrapperData'
-                            : 'endWrapper endWrapperMetadata'
+                        dataSharing && metadataSharing
+                            ? 'endWrapper endWrapperBig'
+                            : 'endWrapper endWrapperSmall'
                     }
                 >
                     {dataSharing && (
@@ -105,36 +105,40 @@ export const AccessAdd = ({ onAdd, dataSharing }) => {
                             </SingleSelectField>
                         </div>
                     )}
-                    <div className="select-wrapper">
-                        <SingleSelectField
-                            label={
-                                dataSharing
-                                    ? i18n.t('Metadata access level')
-                                    : i18n.t('Access level')
-                            }
-                            placeholder={i18n.t('Choose a level')}
-                            disabled={offline}
-                            selected={metadataAccess}
-                            helpText={
-                                offline ? i18n.t('Not available offline') : ''
-                            }
-                            onChange={({ selected }) =>
-                                setMetadataAccess(selected)
-                            }
-                        >
-                            {(dataSharing
-                                ? accessOptionsData
-                                : accessOptionsMetadata
-                            ).map(({ value, label }) => (
-                                <SingleSelectOption
-                                    key={value}
-                                    label={label}
-                                    value={value}
-                                    active={value === metadataAccess}
-                                />
-                            ))}
-                        </SingleSelectField>
-                    </div>
+                    {metadataSharing && (
+                        <div className="select-wrapper">
+                            <SingleSelectField
+                                label={
+                                    dataSharing
+                                        ? i18n.t('Metadata access level')
+                                        : i18n.t('Access level')
+                                }
+                                placeholder={i18n.t('Choose a level')}
+                                disabled={offline}
+                                selected={metadataAccess}
+                                helpText={
+                                    offline
+                                        ? i18n.t('Not available offline')
+                                        : ''
+                                }
+                                onChange={({ selected }) =>
+                                    setMetadataAccess(selected)
+                                }
+                            >
+                                {(dataSharing
+                                    ? accessOptionsData
+                                    : accessOptionsMetadata
+                                ).map(({ value, label }) => (
+                                    <SingleSelectOption
+                                        key={value}
+                                        label={label}
+                                        value={value}
+                                        active={value === metadataAccess}
+                                    />
+                                ))}
+                            </SingleSelectField>
+                        </div>
+                    )}
                     <Button
                         type="submit"
                         disabled={
@@ -169,10 +173,10 @@ export const AccessAdd = ({ onAdd, dataSharing }) => {
                 .select-wrapper {
                     flex: 1;
                 }
-                .startWrapperData {
+                .startWrapperSmall {
                     width: 35%;
                 }
-                .startWrapperMetadata {
+                .startWrapperBig {
                     width: 55%;
                 }
                 .endWrapper {
@@ -181,10 +185,10 @@ export const AccessAdd = ({ onAdd, dataSharing }) => {
                     align-items: flex-end;
                     gap: ${spacers.dp8};
                 }
-                .endWrapperMetadata {
+                .endWrapperSmall {
                     width: 45%;
                 }
-                .endWrapperData {
+                .endWrapperBig {
                     width: 65%;
                 }
             `}</style>
@@ -195,4 +199,5 @@ export const AccessAdd = ({ onAdd, dataSharing }) => {
 AccessAdd.propTypes = {
     onAdd: PropTypes.func.isRequired,
     dataSharing: PropTypes.bool,
+    metadataSharing: PropTypes.bool,
 }

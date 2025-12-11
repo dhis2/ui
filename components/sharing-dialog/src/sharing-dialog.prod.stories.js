@@ -206,8 +206,20 @@ export const WithDataUserAndGroupAccesses = (args) => (
     </CustomDataProvider>
 )
 WithDataUserAndGroupAccesses.storyName =
-    'With data sharing, user and group accesses'
+    'With metadata and data sharing, user and group accesses'
 WithDataUserAndGroupAccesses.args = { dataSharing: true }
+
+export const WithOnlyDataUserAndGroupAccesses = (args) => (
+    <CustomDataProvider data={customDataWithUserGroupAccesses}>
+        <SharingDialog {...args} />
+    </CustomDataProvider>
+)
+WithOnlyDataUserAndGroupAccesses.storyName =
+    'With only data sharing, user and group accesses'
+WithOnlyDataUserAndGroupAccesses.args = {
+    metadataSharing: false,
+    dataSharing: true,
+}
 
 export const ForDashboard = (args) => (
     <CustomDataProvider data={dashboardData}>
