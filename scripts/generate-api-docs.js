@@ -63,7 +63,8 @@ const format_type = (type) => {
                 rst[key] = format_type(shape[key])
             })
 
-            return JSON.stringify(rst, null, 2).replace(/\n/g, '<br/>')
+            // This needs a '\' to escape the first `{`, which breaks docusaurus for some reason
+            return '\\' + JSON.stringify(rst, null, 2).replace(/\n/g, '<br/>')
         }
         default: {
             return `${type?.name}`
