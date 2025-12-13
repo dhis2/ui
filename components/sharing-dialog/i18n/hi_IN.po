@@ -65,7 +65,7 @@ msgid "User"
 msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "डेटा"
 
 msgid "Remove access"
 msgstr ""
