@@ -39,7 +39,7 @@ import { Transfer } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|options|`arrayOf({<br/>  "label": "string",<br/>  "value": "string",<br/>  "disabled": "boolean"<br/>})`||*||
+|options|`arrayOf(\{<br/>  "label": "string",<br/>  "value": "string",<br/>  "disabled": "boolean"<br/>})`||*||
 |onChange|function||*||
 |addAllText|string||||
 |addIndividualText|string||||

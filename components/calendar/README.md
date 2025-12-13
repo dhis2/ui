@@ -7,4 +7,4 @@
 
 ToDo
 
-For usage instructions see [the documentation for this component](https://ui.dhis2.nu/components/calendar).
+For usage instructions see [the documentation for this component](https://developers.dhis2.org/docs/ui/components/calendar).

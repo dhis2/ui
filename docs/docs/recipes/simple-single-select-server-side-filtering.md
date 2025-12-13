@@ -2,13 +2,13 @@
 title: Simple Single Select - Server-side filtering
 ---
 
-import { ServerSideFilteringSelect } from './simple-single-select-server-side-filtering.js'
+import { Demo } from '@site/src/components/DemoComponent.jsx'
 
 # Simple Single Select - Server-side filtering
 
 ## Demo
 
-<ServerSideFilteringSelect />
+<Demo path="simple-single-select--with-server-side-filtering-demo" height="410px" />
 
 ## Summary
 

@@ -6,4 +6,4 @@ A number of important changes were introduced in UI version 5.0.0. To see more a
 
 ## Migrating from < v6
 
-A number of icons (intended for internal use) were deprecated. See the full [changelog here](https://ui.dhis2.nu/#/CHANGELOG?id=_600-2020-12-10).
+A number of icons (intended for internal use) were deprecated. See the full [changelog here](https://github.com/dhis2/ui/blob/master/CHANGELOG.md#600-2020-12-10).

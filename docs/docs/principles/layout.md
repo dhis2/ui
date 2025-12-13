@@ -102,7 +102,7 @@ The incorrect example on the right is difficult to understand at a glance. Which
 
 ![example of 8 point grid spacing](/images/layout-8grid.png)
 
-Working on an [8 point grid](https://spec.fm/specifics/8-pt-grid) helps to keep spacing and layout consistent throughout an application. In the example above each element is spaced according to the 8 point grid - 8, 16, 32 and so on. [Learn more about the 8 point grid here](https://spec.fm/specifics/8-pt-grid). The DHIS2 Design System also defines a spacing scale of values based on this grid that fit most situations. Instead of deciding between single pixel values, use values from the spacing scale. Consistent use of the spacing system creates vertical rhythm on a screen. The spacing scale is available as part of the [DHIS2 ui library](https://ui.dhis2.nu/#/api) as ready-to-use 'spacers'.
+Working on an [8 point grid](https://spec.fm/specifics/8-pt-grid) helps to keep spacing and layout consistent throughout an application. In the example above each element is spaced according to the 8 point grid - 8, 16, 32 and so on. [Learn more about the 8 point grid here](https://spec.fm/specifics/8-pt-grid). The DHIS2 Design System also defines a spacing scale of values based on this grid that fit most situations. Instead of deciding between single pixel values, use values from the spacing scale. Consistent use of the spacing system creates vertical rhythm on a screen. The spacing scale is available as part of the [DHIS2 ui library](https://developers.dhis2.org/design-system/utilities/constants) as ready-to-use 'spacers'.
 
 ![spacing scale](/images/layout-spacing-scale.png)
 

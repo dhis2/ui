@@ -1,5 +1,5 @@
-import { SimpleSingleSelect } from '@dhis2/ui'
 import React, { useMemo, useState } from 'react'
+import { SimpleSingleSelect } from '../simple-single-select.js'
 
 const options = [
     { label: 'No selection', value: '' },
@@ -22,7 +22,7 @@ function filterOptions(options, searchTerm) {
     })
 }
 
-export const SimpleFilterSelect = () => {
+export const WithSimpleFilteringDemo = () => {
     // Handle actual value changes
     const [selected, setSelected] = useState({
         value: '',

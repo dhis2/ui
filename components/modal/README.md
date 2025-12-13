@@ -5,4 +5,4 @@
 > guide](https://github.com/dhis2/ui/blob/master/docs/getting-started.md)
 > for more information.
 
-For usage instructions see [the documentation for this component](https://ui.dhis2.nu/components/modal).
+For usage instructions see [the documentation for this component](https://developers.dhis2.org/docs/ui/components/modal).

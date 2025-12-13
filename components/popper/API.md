@@ -17,7 +17,7 @@ import { Popper } from '@dhis2/ui'
 |children|node||*|Content inside the Popper|
 |className|string||||
 |dataTest|string|``'dhis2-uicore-popper'``|||
-|modifiers|`arrayOf({<br/>  "name": "string",<br/>  "options": "object"<br/>})`|``[]``||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
+|modifiers|`arrayOf(\{<br/>  "name": "string",<br/>  "options": "object"<br/>})`|``[]``||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
 |observePopperResize|boolean|||Makes the Popper update position when the **Popper content** changes size|
 |observeReferenceResize|boolean|||Makes the Popper update position when the **reference element** changes size|
 |placement|custom|``'auto'``||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
