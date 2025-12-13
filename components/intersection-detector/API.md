@@ -14,7 +14,7 @@ import { IntersectionDetector } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|rootRef|{<br/>  "current": "instanceOf(HTMLElement)"<br/>}||*|React ref on other component to detect intersections with|
+|rootRef|\{<br/>  "current": "instanceOf(HTMLElement)"<br/>}||*|React ref on other component to detect intersections with|
 |onChange|function||*|Called with signature `({ isIntersecting: bool })`|
 |children|any||||
 |className|string||||

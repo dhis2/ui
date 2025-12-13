@@ -158,7 +158,7 @@ import { SimpleSingleSelect } from '@dhis2/ui'
 |optionUpdateStrategy|'off' │ 'polite' │ 'assertive'|``'polite'``||For a11y: How aggressively the user should be updated about changes in options *|
 |placeholder|string|``''``||String to show when there's no selected option *|
 |prefix|string|``''``||String that will be displayed before the label of the selected option *|
-|selected|{<br/>  "label": "string",<br/>  "value": "string"<br/>}|``{ label: '', value: '' }``|||
+|selected|\{<br/>  "label": "string",<br/>  "value": "string"<br/>}|``{ label: '', value: '' }``|||
 |tabIndex|string │ number|``'0'``||Standard HTML tab-index attribute that will be put on the combobox's root element *|
 |valid|custom|``false``||Applies 'valid' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props *|
 |warning|custom|``false``||Applies 'warning' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props *|

@@ -880,7 +880,7 @@ import { IntersectionDetector } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|rootRef|{<br/>  "current": "instanceOf(HTMLElement)"<br/>}||*|React ref on other component to detect intersections with|
+|rootRef|\{<br/>  "current": "instanceOf(HTMLElement)"<br/>}||*|React ref on other component to detect intersections with|
 |onChange|function||*|Called with signature `({ isIntersecting: bool })`|
 |children|any||||
 |className|string||||
@@ -1435,7 +1435,7 @@ import { Label } from '@dhis2/ui'
 |fullPath|string||*||
 |hasChildren|boolean||*||
 |loading|boolean||*||
-|node|{<br/>  "displayName": "string",<br/>  "id": "string",<br/>  "children": "number",<br/>  "path": "string"<br/>}||*||
+|node|\{<br/>  "displayName": "string",<br/>  "id": "string",<br/>  "children": "number",<br/>  "path": "string"<br/>}||*||
 |open|boolean||*||
 |rootId|string||*||
 |onChange|function||*||
@@ -1531,7 +1531,7 @@ import { Popper } from '@dhis2/ui'
 |children|node||*|Content inside the Popper|
 |className|string||||
 |dataTest|string|``'dhis2-uicore-popper'``|||
-|modifiers|`arrayOf({<br/>  "name": "string",<br/>  "options": "object"<br/>})`|``[]``||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
+|modifiers|`arrayOf(\{<br/>  "name": "string",<br/>  "options": "object"<br/>})`|``[]``||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
 |observePopperResize|boolean|||Makes the Popper update position when the **Popper content** changes size|
 |observeReferenceResize|boolean|||Makes the Popper update position when the **reference element** changes size|
 |placement|custom|``'auto'``||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
@@ -1607,7 +1607,7 @@ import { SegmentedControl } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|options|`arrayOf({<br/>  "label": "string",<br/>  "value": "string",<br/>  "disabled": "boolean"<br/>})`||*|Options to populate the segmented control|
+|options|`arrayOf(\{<br/>  "label": "string",<br/>  "value": "string",<br/>  "disabled": "boolean"<br/>})`||*|Options to populate the segmented control|
 |selected|string||*|An option to select; should match the `value` property of the option to be selected|
 |onChange|function||*|Called with the signature `({ value: string }, event)`|
 |ariaLabel|string|||Used to provide an accessible label to a segmented control without a visible label|
@@ -1822,7 +1822,7 @@ import { SimpleSingleSelect } from '@dhis2/ui'
 |optionUpdateStrategy|'off' │ 'polite' │ 'assertive'|``'polite'``||For a11y: How aggressively the user should be updated about changes in options *|
 |placeholder|string|``''``||String to show when there's no selected option *|
 |prefix|string|``''``||String that will be displayed before the label of the selected option *|
-|selected|{<br/>  "label": "string",<br/>  "value": "string"<br/>}|``{ label: '', value: '' }``|||
+|selected|\{<br/>  "label": "string",<br/>  "value": "string"<br/>}|``{ label: '', value: '' }``|||
 |tabIndex|string │ number|``'0'``||Standard HTML tab-index attribute that will be put on the combobox's root element *|
 |valid|custom|``false``||Applies 'valid' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props *|
 |warning|custom|``false``||Applies 'warning' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props *|
@@ -2019,7 +2019,7 @@ import { Menu } from '@dhis2/ui'
 |---|---|---|---|---|
 |comboBoxId|string||*||
 |focussedOptionIndex|number||*||
-|listBoxRef|{<br/>  "current": "instanceOf(HTMLElement)"<br/>}||*||
+|listBoxRef|\{<br/>  "current": "instanceOf(HTMLElement)"<br/>}||*||
 |name|string||*||
 |options|`arrayOf(custom)`||*||
 |onChange|function||*||
@@ -2120,7 +2120,7 @@ import { SharingDialog } from '@dhis2/ui'
 |cascadeDashboardSharing|boolean|``true``||Whether to show the tabbed sharing interface for applying cascade sharing of dashboard items|
 |dataSharing|boolean|``false``||Whether to expose the ability to set data sharing (in addition to metadata sharing)|
 |dataTest|string|``'dhis2-uicore-sharingdialog'``|||
-|initialSharingSettings|{<br/>  "allowPublic": "boolean",<br/>  "groups": "objectOf",<br/>  "name": "string",<br/>  "public": "{<br/>  \"data\": \"import {\\n    ACCESS_NONE,\\n    ACCESS_VIEW_ONLY,\\n    ACCESS_VIEW_AND_EDIT,\\n    DIALOG_TYPES_LIST,\\n} from './constants.js' │ import {\\n    ACCESS_NONE,\\n    ACCESS_VIEW_ONLY,\\n    ACCESS_VIEW_AND_EDIT,\\n    DIALOG_TYPES_LIST,\\n} from './constants.js' │ import {\\n    ACCESS_NONE,\\n    ACCESS_VIEW_ONLY,\\n    ACCESS_VIEW_AND_EDIT,\\n    DIALOG_TYPES_LIST,\\n} from './constants.js'\",<br/>  \"metadata\": \"import {\\n    ACCESS_NONE,\\n    ACCESS_VIEW_ONLY,\\n    ACCESS_VIEW_AND_EDIT,\\n    DIALOG_TYPES_LIST,\\n} from './constants.js' │ import {\\n    ACCESS_NONE,\\n    ACCESS_VIEW_ONLY,\\n    ACCESS_VIEW_AND_EDIT,\\n    DIALOG_TYPES_LIST,\\n} from './constants.js' │ import {\\n    ACCESS_NONE,\\n    ACCESS_VIEW_ONLY,\\n    ACCESS_VIEW_AND_EDIT,\\n    DIALOG_TYPES_LIST,\\n} from './constants.js'\"<br/>} │ import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    DIALOG_TYPES_LIST,\n} from './constants.js' │ import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    DIALOG_TYPES_LIST,\n} from './constants.js' │ import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    DIALOG_TYPES_LIST,\n} from './constants.js'",<br/>  "users": "objectOf"<br/>}|``{
+|initialSharingSettings|\{<br/>  "allowPublic": "boolean",<br/>  "groups": "objectOf",<br/>  "name": "string",<br/>  "public": "\\{<br/>  \"data\": \"import {\\n    ACCESS_NONE,\\n    ACCESS_VIEW_ONLY,\\n    ACCESS_VIEW_AND_EDIT,\\n    DIALOG_TYPES_LIST,\\n} from './constants.js' │ import {\\n    ACCESS_NONE,\\n    ACCESS_VIEW_ONLY,\\n    ACCESS_VIEW_AND_EDIT,\\n    DIALOG_TYPES_LIST,\\n} from './constants.js' │ import {\\n    ACCESS_NONE,\\n    ACCESS_VIEW_ONLY,\\n    ACCESS_VIEW_AND_EDIT,\\n    DIALOG_TYPES_LIST,\\n} from './constants.js'\",<br/>  \"metadata\": \"import {\\n    ACCESS_NONE,\\n    ACCESS_VIEW_ONLY,\\n    ACCESS_VIEW_AND_EDIT,\\n    DIALOG_TYPES_LIST,\\n} from './constants.js' │ import {\\n    ACCESS_NONE,\\n    ACCESS_VIEW_ONLY,\\n    ACCESS_VIEW_AND_EDIT,\\n    DIALOG_TYPES_LIST,\\n} from './constants.js' │ import {\\n    ACCESS_NONE,\\n    ACCESS_VIEW_ONLY,\\n    ACCESS_VIEW_AND_EDIT,\\n    DIALOG_TYPES_LIST,\\n} from './constants.js'\"<br/>} │ import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    DIALOG_TYPES_LIST,\n} from './constants.js' │ import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    DIALOG_TYPES_LIST,\n} from './constants.js' │ import {\n    ACCESS_NONE,\n    ACCESS_VIEW_ONLY,\n    ACCESS_VIEW_AND_EDIT,\n    DIALOG_TYPES_LIST,\n} from './constants.js'",<br/>  "users": "objectOf"<br/>}|``{
     name: '',
     allowPublic: true,
     public: { data: ACCESS_NONE, metadata: ACCESS_NONE },
@@ -3049,7 +3049,7 @@ import { Transfer } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
-|options|`arrayOf({<br/>  "label": "string",<br/>  "value": "string",<br/>  "disabled": "boolean"<br/>})`||*||
+|options|`arrayOf(\{<br/>  "label": "string",<br/>  "value": "string",<br/>  "disabled": "boolean"<br/>})`||*||
 |onChange|function||*||
 |addAllText|string||||
 |addIndividualText|string||||
