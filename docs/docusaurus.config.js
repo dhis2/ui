@@ -2,6 +2,10 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula')
 const lightCodeTheme = require('prism-react-renderer/themes/github')
 const { webpackConfig } = require('../storybook/src/webpack-config.js')
 
+/**
+ * This site is deprecated; use the Developer Portal instead
+ */
+
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
@@ -9,7 +13,8 @@ const { webpackConfig } = require('../storybook/src/webpack-config.js')
 const config = {
     title: 'DHIS2 UI',
     tagline: 'React Components for DHIS2 Web Applications',
-    url: 'https://ui.dhis2.nu',
+    // (This is not correct)
+    url: 'https://developers.dhis2.org/docs/ui',
     baseUrl: '/',
     onBrokenLinks: 'warn',
     onBrokenMarkdownLinks: 'warn',
@@ -101,7 +106,7 @@ const config = {
                             },
                             {
                                 label: 'Storybook',
-                                href: 'https://ui.dhis2.nu/demo',
+                                href: 'https://developers.dhis2.org/demo/',
                             },
                             {
                                 label: 'Figma',
