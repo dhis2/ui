@@ -37,14 +37,12 @@ Use the `<SimpleSingleSelect/>` if the user can only choose one option.
 
 ### Single select
 
-> ⚠️⚠️⚠️
->
-> This component will be <b>deprecated</b> in favor of the `SimpleSingleSelect` component,
-> which is also described in this document. We have not decided when we'll remove
-> this component from the library to give developers the chance to migrate over time
-> while being able to upgrade the library's version without being forced to migrate to the new component.
->
-> ⚠️⚠️⚠️
+:::warning
+This component will be <b>deprecated</b> in favor of the `SimpleSingleSelect` component,
+which is also described in this document. We have not decided when we'll remove
+this component from the library to give developers the chance to migrate over time
+while being able to upgrade the library's version without being forced to migrate to the new component.
+:::
 
 <Demo
     path="single-select-field--with-help-text"
