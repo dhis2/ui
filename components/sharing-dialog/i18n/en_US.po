@@ -1,6 +1,5 @@
 # 
 # Translators:
-# Siddharth Agarwal, 2025
 # Rohit Wadhwani, 2025
 # 
 msgid ""
@@ -9,11 +8,11 @@ msgstr ""
 "POT-Creation-Date: 2025-06-24T11:04:00.759Z\n"
 "PO-Revision-Date: 2021-10-01 23:39+0000\n"
 "Last-Translator: Rohit Wadhwani, 2025\n"
-"Language-Team: Hindi (India) (https://app.transifex.com/hisp-uio/teams/100509/hi_IN/)\n"
+"Language-Team: English (United States) (https://app.transifex.com/hisp-uio/teams/100509/en_US/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hi_IN\n"
+"Language: en_US\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "View only"
@@ -65,7 +64,7 @@ msgid "User"
 msgstr ""
 
 msgid "Data"
-msgstr "डेटा"
+msgstr ""
 
 msgid "Remove access"
 msgstr ""
@@ -77,13 +76,13 @@ msgid "User or group"
 msgstr ""
 
 msgid "Search"
-msgstr "सर्च करें / खोजें"
+msgstr "खोज"
 
 msgid "Apply dashboard sharing settings to visualizations"
 msgstr ""
 
 msgid "Something went wrong"
-msgstr "कुछ गलत हुआ"
+msgstr ""
 
 msgid "Apply sharing to dashboard visualizations"
 msgstr ""
@@ -146,7 +145,7 @@ msgid "Sharing and access"
 msgstr ""
 
 msgid "Close"
-msgstr "बंद करें"
+msgstr "बंद करे"
 
 msgid ""
 "This action would remove your metadata write access, which is not allowed"
