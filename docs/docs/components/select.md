@@ -13,30 +13,6 @@ These components do not support re-ordering, in that case the [`Transfer`](trans
 
 ## Variants
 
-### Single select
-
-<span style={{ fontSize: 20 }}>⚠️⚠️⚠️</span><br/>
-This component will be <b>deprecated</b> in favor of the new `SimpleSingleSelect` component,
-which is also describe in this document. We have not decided when we'll remove
-this component from the library to give developers the chance to migrate over time
-while being able to upgrade the library's version without being forced to migrate to the new component.<br/>
-<span style={{ fontSize: 20 }}>⚠️⚠️⚠️</span><br/>
-<br/>
-
-<Demo
-    path="single-select-field--with-help-text"
-    height="200px"
-    args="label:Aggregation type;children[0].key:1;children[0].props.value:1;children[0].props.label:one;children[1].key:2;children[1].props.value:2;children[1].props.label:two;children[2].key:3;children[2].props.value:3;children[2].props.label:three;children[3]:!undefined;children[4]:!undefined;children[5]:!undefined;children[6]:!undefined;children[7]:!undefined;children[8]:!undefined;children[9]:!undefined"
-/>
-
-```jsx
-<SingleSelectField label="Aggregation type">
-    <SingleSelectOption label="One" value="1" />
-    <SingleSelectOption label="Two" value="2" />
-    <SingleSelectOption label="Three" value="3" />
-</SingleSelectField>
-```
-
 ### SimpleSingleSelect
 
 Use the `<SimpleSingleSelect/>` if the user can only choose one option.
@@ -57,6 +33,29 @@ Use the `<SimpleSingleSelect/>` if the user can only choose one option.
         { value: '3', label: 'Three' },
     ]}
 />
+```
+
+### Single select
+
+:::warning
+This component will be <b>deprecated</b> in favor of the `SimpleSingleSelect` component,
+which is also described in this document. We have not decided when we'll remove
+this component from the library to give developers the chance to migrate over time
+while being able to upgrade the library's version without being forced to migrate to the new component.
+:::
+
+<Demo
+    path="single-select-field--with-help-text"
+    height="200px"
+    args="label:Aggregation type;children[0].key:1;children[0].props.value:1;children[0].props.label:one;children[1].key:2;children[1].props.value:2;children[1].props.label:two;children[2].key:3;children[2].props.value:3;children[2].props.label:three;children[3]:!undefined;children[4]:!undefined;children[5]:!undefined;children[6]:!undefined;children[7]:!undefined;children[8]:!undefined;children[9]:!undefined"
+/>
+
+```jsx
+<SingleSelectField label="Aggregation type">
+    <SingleSelectOption label="One" value="1" />
+    <SingleSelectOption label="Two" value="2" />
+    <SingleSelectOption label="Three" value="3" />
+</SingleSelectField>
 ```
 
 ### Multi select

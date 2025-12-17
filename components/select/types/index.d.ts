@@ -323,7 +323,7 @@ type SimpleSingleSelectCustomOptionProp = (props: {
 
 export interface SimpleSingleSelectProps {
     /** necessary for IDs that are required for accessibility **/
-    name: string.isRequired
+    name: string
 
     /** An array of options **/
     options: Array<{
@@ -350,7 +350,7 @@ export interface SimpleSingleSelectProps {
 
     /** Allows to override what's rendered inside the `button[role="option"]`.
      * Can be overriden on an individual option basis **/
-    customOption?: SimpleSingleSelectCustomOptionProp
+    optionComponent?: SimpleSingleSelectCustomOptionProp
 
     /** A value for a `data-test` attribute on the root element **/
     dataTest?: string
@@ -382,6 +382,11 @@ export interface SimpleSingleSelectProps {
     /** Whether the select should display a filter input **/
     filterable?: boolean
 
+    /**
+     * Constrains the height of the input
+     */
+    inputMaxHeight?: string | number
+
     /** Should contain the id of the element that labels the select, if applicable **/
     labelledBy?: string
 
@@ -391,7 +396,7 @@ export interface SimpleSingleSelectProps {
     /** Text that will be displayed next to the loading indicator **/
     menuLoadingText?: string
 
-    /** Allows to modify the max height of the menu **/
+    /** Allows to modify the max height of the menu - Default is 288px **/
     menuMaxHeight?: string
 
     /** String that will be displayed when the select is being filtered but the options array is empty **/
@@ -412,8 +417,10 @@ export interface SimpleSingleSelectProps {
     /** Applies 'valid' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props **/
     valid?: boolean
 
-    /** As of now, this component does not support being uncontrolled **/
-    value?: string
+    selected?: {
+        label: string
+        value: string
+    }
 
     /**
      * When the option is not in the options list (e.g. not loaded or list is
@@ -427,6 +434,9 @@ export interface SimpleSingleSelectProps {
 
     /** Will be called when the combobox is loses focus **/
     onBlur?: (e: React.FocusEvent<HTMLElement>) => void
+
+    /** Will be called when the combobox is loses focus **/
+    onClear?: () => void
 
     /** Will be called when the last option is scrolled into the visible area **/
     onEndReached?: () => void
