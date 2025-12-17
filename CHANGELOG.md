@@ -1,3 +1,10 @@
+## [10.10.2](https://github.com/dhis2/ui/compare/v10.10.1...v10.10.2) (2025-12-17)
+
+
+### Bug Fixes
+
+* **SimpleSingleSelect:** update TS types, export and docs  ([#1713](https://github.com/dhis2/ui/issues/1713)) ([d3e7ed4](https://github.com/dhis2/ui/commit/d3e7ed4b581e04d4b5f61cbcffaaef4194b6c19b))
+
 ## [10.10.1](https://github.com/dhis2/ui/compare/v10.10.0...v10.10.1) (2025-12-16)
 
 
