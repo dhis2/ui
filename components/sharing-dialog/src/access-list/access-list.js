@@ -24,6 +24,8 @@ export const AccessList = ({
     metadataSharing = true,
 }) => {
     const accessOptions = [ACCESS_NONE, ACCESS_VIEW_ONLY, ACCESS_VIEW_AND_EDIT]
+    const showDataAndMetadataSharing = dataSharing && metadataSharing
+
     return (
         <>
             <Title>
@@ -32,7 +34,7 @@ export const AccessList = ({
             <div className="header">
                 <div
                     className={
-                        dataSharing && metadataSharing
+                        showDataAndMetadataSharing
                             ? 'header-start-column-small'
                             : 'header-start-column-big'
                     }
@@ -41,7 +43,7 @@ export const AccessList = ({
                 </div>
                 <div
                     className={
-                        dataSharing && metadataSharing
+                        showDataAndMetadataSharing
                             ? 'header-end-column-big'
                             : 'header-end-column-small'
                     }

@@ -54,6 +54,7 @@ export const AccessAdd = ({ onAdd, dataSharing, metadataSharing = true }) => {
             label: i18n.t('No access'),
         },
     ]
+    const showDataAndMetadataSharing = dataSharing && metadataSharing
 
     return (
         <>
@@ -61,7 +62,7 @@ export const AccessAdd = ({ onAdd, dataSharing, metadataSharing = true }) => {
             <form onSubmit={onSubmit}>
                 <div
                     className={
-                        dataSharing && metadataSharing
+                        showDataAndMetadataSharing
                             ? 'startWrapperSmall'
                             : 'startWrapperBig'
                     }
@@ -73,7 +74,7 @@ export const AccessAdd = ({ onAdd, dataSharing, metadataSharing = true }) => {
                 </div>
                 <div
                     className={
-                        dataSharing && metadataSharing
+                        showDataAndMetadataSharing
                             ? 'endWrapper endWrapperBig'
                             : 'endWrapper endWrapperSmall'
                     }

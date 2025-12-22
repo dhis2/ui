@@ -46,13 +46,14 @@ export const ListItem = ({
         ACCESS_VIEW_ONLY: i18n.t('View only'),
         ACCESS_VIEW_AND_EDIT: i18n.t('View and edit'),
     }
+    const showDataAndMetadataSharing = dataSharing && metadataSharing
 
     return (
         <>
             <div className="wrapper">
                 <div
                     className={
-                        dataSharing && metadataSharing
+                        showDataAndMetadataSharing
                             ? 'detailsWithSmall'
                             : 'detailsBig'
                     }
@@ -65,7 +66,7 @@ export const ListItem = ({
                 </div>
                 <div
                     className={
-                        dataSharing && metadataSharing
+                        showDataAndMetadataSharing
                             ? 'selectWrapperWithBig'
                             : 'selectWrapperSmall'
                     }
