@@ -25,6 +25,7 @@ export const TabbedContent = ({
     onRemove,
     dataSharing,
     cascadeDashboardSharing,
+    metadataSharing = true,
 }) => {
     const [activeTabIndex, setActiveTabIndex] = useState(0)
 
@@ -60,6 +61,7 @@ export const TabbedContent = ({
                                 onChange={onChange}
                                 onRemove={onRemove}
                                 dataSharing={dataSharing}
+                                metadataSharing={metadataSharing}
                             />
                         </>
                     )}
@@ -76,7 +78,11 @@ export const TabbedContent = ({
 
     return (
         <>
-            <AccessAdd onAdd={onAdd} dataSharing={dataSharing} />
+            <AccessAdd
+                onAdd={onAdd}
+                dataSharing={dataSharing}
+                metadataSharing={metadataSharing}
+            />
             <AccessList
                 users={users}
                 groups={groups}
@@ -85,6 +91,7 @@ export const TabbedContent = ({
                 onChange={onChange}
                 onRemove={onRemove}
                 dataSharing={dataSharing}
+                metadataSharing={metadataSharing}
             />
         </>
     )
@@ -147,4 +154,5 @@ TabbedContent.propTypes = {
     onAdd: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
     onRemove: PropTypes.func.isRequired,
+    metadataSharing: PropTypes.bool,
 }

@@ -89,3 +89,10 @@ Feature: Setting data sharing is possible when sharing dialog is set to include 
         | target | data-access-level | metadata-access-level  | type |
         | user   | "View only"          | "View only" | "Data" |
         | group   | "View only"          | "View and edit" | "Data" |
+
+# Scenario: metadata fields are hidden when metadataSharing is false
+
+    Scenario: Metadata fields are not visible when metadataSharing is disabled
+        Given a sharing dialog with only data sharing is visible
+        Then the metadata access level field should not be visible
+        And the data access level field should be visible

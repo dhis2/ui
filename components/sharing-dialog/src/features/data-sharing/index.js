@@ -800,3 +800,24 @@ Then(
         cy.contains('Remove access').should('not.exist')
     }
 )
+
+Given('a sharing dialog with only data sharing is visible', () => {
+    cy.intercept('GET', '/api/38/sharing?type=visualization&id=id', {
+        body: noAccess,
+    })
+    cy.intercept('GET', '/api/38/me?fields=id,userGroups%5Bid%5D,authorities', {
+        body: userAllAuthority,
+    })
+
+    cy.visitStory('sharing-dialog', 'data-only')
+    cy.contains('Give access to a user or group').should('be.visible')
+})
+
+Then('the metadata access level field should not be visible', () => {
+    cy.contains('Metadata access level').should('not.exist')
+    cy.contains('Metadata').should('not.exist')
+})
+
+Then('the data access level field should be visible', () => {
+    cy.contains('Data access level').should('be.visible')
+})

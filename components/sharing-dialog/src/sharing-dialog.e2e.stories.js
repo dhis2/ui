@@ -30,6 +30,17 @@ export const Data = () => (
     </Provider>
 )
 
+export const DataOnly = () => (
+    <Provider config={config}>
+        <SharingDialog
+            type="visualization"
+            id="id"
+            dataSharing={true}
+            metadataSharing={false}
+        />
+    </Provider>
+)
+
 export const Prevent = () => (
     <Provider config={config}>
         <SharingDialog

@@ -36,6 +36,7 @@ export const ListItem = ({
     onChange,
     onRemove,
     dataSharing,
+    metadataSharing = true,
     allUsersItem = false,
 }) => {
     const isFetching = useContext(FetchingContext)
@@ -45,13 +46,16 @@ export const ListItem = ({
         ACCESS_VIEW_ONLY: i18n.t('View only'),
         ACCESS_VIEW_AND_EDIT: i18n.t('View and edit'),
     }
+    const showDataAndMetadataSharing = dataSharing && metadataSharing
 
     return (
         <>
             <div className="wrapper">
                 <div
                     className={
-                        dataSharing ? 'detailsWithData' : 'detailsMetadata'
+                        showDataAndMetadataSharing
+                            ? 'detailsWithSmall'
+                            : 'detailsBig'
                     }
                 >
                     <ListItemIcon target={target} name={name} />
@@ -62,9 +66,9 @@ export const ListItem = ({
                 </div>
                 <div
                     className={
-                        dataSharing
-                            ? 'selectWrapperWithData'
-                            : 'selectWrapperMetadata'
+                        showDataAndMetadataSharing
+                            ? 'selectWrapperWithBig'
+                            : 'selectWrapperSmall'
                     }
                 >
                     {dataSharing && (
@@ -103,43 +107,47 @@ export const ListItem = ({
                             </SingleSelectField>
                         </div>
                     )}
-                    <div className="select">
-                        <SingleSelectField
-                            disabled={disabled || offline || isFetching}
-                            prefix={i18n.t('Metadata')}
-                            selected={access.metadata}
-                            helpText={
-                                offline ? i18n.t('Not available offline') : ''
-                            }
-                            onChange={({ selected }) =>
-                                onChange({ ...access, metadata: selected })
-                            }
-                        >
-                            {accessOptions.map((value) => (
-                                <SingleSelectOption
-                                    key={value}
-                                    label={valueToLabel[value]}
-                                    value={value}
-                                    active={value === access.metadata}
-                                    disabled={
-                                        !allUsersItem &&
-                                        value === ACCESS_NONE &&
-                                        !dataSharing
-                                    }
-                                />
-                            ))}
-                            {isRemovableTarget(target) &&
-                                isRemoveEnabled({
-                                    accessOtherField: access.data,
-                                    dataSharing,
-                                }) && (
-                                    <DestructiveSelectOption
-                                        onClick={onRemove}
-                                        label={i18n.t('Remove access')}
+                    {metadataSharing && (
+                        <div className="select">
+                            <SingleSelectField
+                                disabled={disabled || offline || isFetching}
+                                prefix={i18n.t('Metadata')}
+                                selected={access.metadata}
+                                helpText={
+                                    offline
+                                        ? i18n.t('Not available offline')
+                                        : ''
+                                }
+                                onChange={({ selected }) =>
+                                    onChange({ ...access, metadata: selected })
+                                }
+                            >
+                                {accessOptions.map((value) => (
+                                    <SingleSelectOption
+                                        key={value}
+                                        label={valueToLabel[value]}
+                                        value={value}
+                                        active={value === access.metadata}
+                                        disabled={
+                                            !allUsersItem &&
+                                            value === ACCESS_NONE &&
+                                            !dataSharing
+                                        }
                                     />
-                                )}
-                        </SingleSelectField>
-                    </div>
+                                ))}
+                                {isRemovableTarget(target) &&
+                                    isRemoveEnabled({
+                                        accessOtherField: access.data,
+                                        dataSharing,
+                                    }) && (
+                                        <DestructiveSelectOption
+                                            onClick={onRemove}
+                                            label={i18n.t('Remove access')}
+                                        />
+                                    )}
+                            </SingleSelectField>
+                        </div>
+                    )}
                 </div>
             </div>
             <Divider />
@@ -150,12 +158,12 @@ export const ListItem = ({
                     justify-content: space-between;
                 }
 
-                .detailsMetadata {
+                .detailsBig {
                     display: flex;
                     width: 65%;
                 }
 
-                .detailsWithData {
+                .detailsSmall {
                     display: flex;
                     width: 35%;
                 }
@@ -172,14 +180,16 @@ export const ListItem = ({
                     padding: 0;
                 }
 
-                .selectWrapperMetadata {
+                .selectWrapperSmall {
                     display: flex;
                     width: 35%;
                 }
-                .selectWrapperWithData {
+
+                .selectWrapperWithBig {
                     display: flex;
                     width: 65%;
                 }
+
                 .select {
                     margin-inline-start: 8px;
                     flex: 1;
@@ -216,5 +226,6 @@ ListItem.propTypes = {
     allUsersItem: PropTypes.bool,
     disabled: PropTypes.bool,
     id: PropTypes.string,
+    metadataSharing: PropTypes.bool,
     onRemove: PropTypes.func,
 }
