@@ -1,3 +1,12 @@
+# [10.11.0](https://github.com/dhis2/ui/compare/v10.10.2...v10.11.0) (2025-12-22)
+
+
+### Features
+
+* add test for data only sharing modal ([c393a56](https://github.com/dhis2/ui/commit/c393a56102a0b3ba0d3ced29f16058eb2a8ef432))
+* allow sharing dialog to only show data sharing ([56dc592](https://github.com/dhis2/ui/commit/56dc59278808ff31702f11c899d0990d0ec6b50f))
+* allow shring disalog to only show data sharing and hide metadata sharing ([ef5d4b4](https://github.com/dhis2/ui/commit/ef5d4b4132d65ebc9c2e6cbebf8ca60e3ca646c1))
+
 ## [10.10.2](https://github.com/dhis2/ui/compare/v10.10.1...v10.10.2) (2025-12-17)
 
 
