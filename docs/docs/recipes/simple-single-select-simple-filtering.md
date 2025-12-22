@@ -2,7 +2,7 @@
 title: Simple Single Select - Simple filtering
 ---
 
-import { SimpleFilterSelect } from './simple-single-select-simple-filtering.js'
+import { Demo } from '@site/src/components/DemoComponent.jsx'
 
 # Simple Single Select - Simple filtering
 
@@ -10,7 +10,7 @@ import { SimpleFilterSelect } from './simple-single-select-simple-filtering.js'
 
 In this recipe we'll re-create the following searchable version of the `SimpleSingleSelect`:
 
-<SimpleFilterSelect />
+<Demo path="simple-single-select--with-simple-filtering-demo" height="300px" />
 
 ## Summary
 

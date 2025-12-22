@@ -1,3 +1,17 @@
+## [10.10.2](https://github.com/dhis2/ui/compare/v10.10.1...v10.10.2) (2025-12-17)
+
+
+### Bug Fixes
+
+* **SimpleSingleSelect:** update TS types, export and docs  ([#1713](https://github.com/dhis2/ui/issues/1713)) ([d3e7ed4](https://github.com/dhis2/ui/commit/d3e7ed4b581e04d4b5f61cbcffaaef4194b6c19b))
+
+## [10.10.1](https://github.com/dhis2/ui/compare/v10.10.0...v10.10.1) (2025-12-16)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([bd30b86](https://github.com/dhis2/ui/commit/bd30b8654ce21c48ca192b8e235ecaf4c8512213))
+
 # [10.10.0](https://github.com/dhis2/ui/compare/v10.9.2...v10.10.0) (2025-12-03)
 
 

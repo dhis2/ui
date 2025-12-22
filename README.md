@@ -24,9 +24,9 @@ We recommend that you use `@dhis2/ui` as the entrypoint for all imports of our f
 
 `@dhis2/ui` is based on the specifications in our design-system: https://github.com/dhis2/design-system. See the documentation there for more information.
 
--   Docs: [ui.dhis2.nu](https://ui.dhis2.nu)
--   Live demo: [ui.dhis2.nu/demo](https://ui.dhis2.nu/demo)
--   API reference: [ui.dhis2.nu/api](https://ui.dhis2.nu/#/api)
+-   Docs: [Developer Portal](https://developers.dhis2.org/docs/tutorials/ui-library)
+-   Live demo: [Demo](https://developers.dhis2.org/demo/)
+-   Components reference: [Components](https://developers.dhis2.org/docs/ui/webcomponents)
 
 ## Bundled packages
 
@@ -45,7 +45,7 @@ This package provides access to shared constants, such as colors, spacers and el
 import { colors } from '@dhis2/ui'
 ```
 
-See our [api docs](https://ui.dhis2.nu/#/api) for a full list of the available constants.
+See our [docs on the Developer Portal](https://developers.dhis2.org/design-system/utilities/constants) for a full list of the available constants.
 
 ### `@dhis2/ui-icons`
 
@@ -71,7 +71,7 @@ This package provides several components that allow for easy integration of our 
 import { TextAreaFieldFF } from '@dhis2/ui'
 ```
 
-The `FF` suffix ensures that these components don't clash with our regular field components from the widgets package and is an abbreviation of `final-form`. See our [api docs](https://ui.dhis2.nu/#/api) or the [live docs](https://ui.dhis2.nu/demo) for a full list of the available components and validators.
+The `FF` suffix ensures that these components don't clash with our regular field components from the widgets package and is an abbreviation of `final-form`. See our [component documentation](https://developers.dhis2.org/docs/ui/webcomponents) or the [live docs](https://developers.dhis2.org/demo/) for a full list of the available components and validators.
 
 ## Development
 

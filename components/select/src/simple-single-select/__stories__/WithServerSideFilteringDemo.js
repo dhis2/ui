@@ -1,6 +1,6 @@
 import { useDataEngine, useDataQuery } from '@dhis2/app-runtime'
-import { SimpleSingleSelect } from '@dhis2/ui'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { SimpleSingleSelect } from '../simple-single-select.js'
 import { CustomDataProvider } from './simple-single-select-server-side-filtering/index.js'
 
 function dataElementToOption({ id, displayName }) {
@@ -242,4 +242,4 @@ const Wrapper = () => (
     </CustomDataProvider>
 )
 
-export { Wrapper as ServerSideFilteringSelect }
+export { Wrapper as WithServerSideFilteringDemo }

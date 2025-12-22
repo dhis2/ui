@@ -1,15 +1,16 @@
 # 
 # Translators:
-# phil_dhis2, 2021
+# Philip Larsen Donnelly, 2021
 # Mai Nguyen <thanhmai.jica@gmail.com>, 2021
+# Em Le <em.hispvietnam@gmail.com>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-02-11T13:37:19.312Z\n"
+"POT-Creation-Date: 2025-05-12T17:16:33.390Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
-"Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2021\n"
-"Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
+"Last-Translator: Em Le <em.hispvietnam@gmail.com>, 2025\n"
+"Language-Team: Vietnamese (https://app.transifex.com/hisp-uio/teams/100509/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -46,7 +47,7 @@ msgid "Please enter a number with a maximum of {{upperBound}}"
 msgstr ""
 
 msgid "Please enter at least {{lowerBound}} characters"
-msgstr ""
+msgstr "Hãy nhập ít nhất {{lowerBound}} ký tự."
 
 msgid "Please enter a number of at least {{lowerBound}}"
 msgstr ""
@@ -80,9 +81,6 @@ msgstr "Mật khẩu phải chứa ít nhất một số"
 msgid "Password should have at least one special character"
 msgstr "Mật khẩu phải có ít nhất một ký tự đặc biệt"
 
-msgid "Please provide a username between 4 and 255 characters"
-msgstr ""
-
 msgid "Please provide a valid email address"
 msgstr "Vui lòng cung cấp một địa chỉ email hợp lệ"
 
@@ -103,3 +101,9 @@ msgstr ""
 
 msgid "Please provide a valid url"
 msgstr "Vui lòng cung cấp một url hợp lệ"
+
+msgctxt " - or @"
+msgid ""
+"Please provide a username between 4 and 255 characters long and possibly "
+"separated by . "
+msgstr ""
