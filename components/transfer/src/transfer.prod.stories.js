@@ -563,6 +563,51 @@ LoadingPicked.args = {
     initiallySelected: options.slice(0, 2).map(({ value }) => value),
 }
 
+export const WithOnOptionsContainerResize = (_, { onChange, selected }) => {
+    const [myOptions, setMyOptions] = useState(options.slice(0, 2))
+
+    return (
+        <>
+            <label htmlFor="options-length">Number options:</label>
+            <input
+                type="number"
+                id="options-length"
+                name="options-length"
+                step="1"
+                min="1"
+                max="20"
+                value={myOptions.length.toString()}
+                onChange={(event) => {
+                    setMyOptions(options.slice(0, parseInt(event.target.value)))
+                }}
+            />
+            <StatefulTemplate
+                filterable
+                selected={selected}
+                onChange={onChange}
+                options={myOptions}
+                onEndReached={() => {
+                    console.log(
+                        'onEndReached - I fire at first render and when scrolling down'
+                    )
+                }}
+                onOptionsContainerResize={({ scrollBoxNode, listNode }) => {
+                    console.log(
+                        'onOptionsContainerResize - I fire after options are inserted into the DOM'
+                    )
+                    /* When the options-list is still very short once the intial items have been added
+                     * we may want to add more, but the onEndReached will not fire, because the
+                     * EndIntersectionDetector (with 50px height) does not intersect with the scroll-box
+                     * bottom  */
+                    const shouldFetchMore =
+                        scrollBoxNode.clientHeight > listNode.offsetHeight + 50
+                    console.log('shouldFetchMore: ', shouldFetchMore)
+                }}
+            />
+        </>
+    )
+}
+
 export const RTL = (args) => (
     <div dir="rtl">
         <Multiple {...args} />

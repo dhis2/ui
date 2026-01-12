@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 /*
  * The initial call is irrelevant as there has been
@@ -9,26 +9,20 @@ import { useEffect, useState } from 'react'
  * @returns {number}
  */
 export const useResizeCounter = (element) => {
-    const [counter, setCounter] = useState(-1)
+    const [counter, setCounter] = useState(0)
+    const resizeObserverRef = useRef(
+        new ResizeObserver(() => {
+            setCounter((currentCounter) => currentCounter + 1)
+        })
+    )
 
     useEffect(() => {
-        // using an internal counter as using the one from `useState`
-        // would cause an infinite loop as this `useEffect` would
-        // both depend on that value as well as change it every time
-        // it's executed as the callback passed to `ResizeObserver`
-        // will be executed on construction
-        let internalCounter = counter
-
         if (element) {
-            const observer = new ResizeObserver(() => {
-                ++internalCounter
-                setCounter(internalCounter)
-            })
-
+            const observer = resizeObserverRef.current
             observer.observe(element)
             return () => observer.disconnect()
         }
-    }, [element, setCounter])
+    }, [element])
 
-    return counter < 1 ? 0 : counter
+    return counter
 }

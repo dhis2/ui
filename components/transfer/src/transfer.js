@@ -79,6 +79,8 @@ export const Transfer = ({
     onFilterChangePicked,
     onEndReached,
     onEndReachedPicked,
+    onOptionsContainerResize,
+    onOptionsContainerResizePicked,
 }) => {
     /* Source options search value:
      * Depending on whether the onFilterChange callback has been provided
@@ -228,6 +230,7 @@ export const Transfer = ({
                     selectionHandler={selectSingleOption}
                     toggleHighlightedOption={toggleHighlightedSourceOption}
                     onEndReached={onEndReached}
+                    onOptionsContainerResize={onOptionsContainerResize}
                 />
 
                 {leftFooter && (
@@ -336,6 +339,7 @@ export const Transfer = ({
                     selectionHandler={deselectSingleOption}
                     toggleHighlightedOption={toggleHighlightedPickedOption}
                     onEndReached={onEndReachedPicked}
+                    onOptionsContainerResize={onOptionsContainerResizePicked}
                 />
 
                 {(rightFooter || enableOrderChange) && (
@@ -428,4 +432,6 @@ Transfer.propTypes = {
     onEndReachedPicked: PropTypes.func,
     onFilterChange: PropTypes.func,
     onFilterChangePicked: PropTypes.func,
+    onOptionsContainerResize: PropTypes.func,
+    onOptionsContainerResizePicked: PropTypes.func,
 }

@@ -50,6 +50,14 @@ export interface TransferProps {
     onEndReachedPicked?: () => void
     onFilterChange?: InputChangeHandler
     onFilterChangePicked?: InputChangeHandler
+    onOptionsContainerResize?: (options: {
+        scrollBoxNode: HTMLDivElement
+        listNode: HTMLDivElement
+    }) => void
+    onOptionsContainerResizePicked?: (options: {
+        scrollBoxNode: HTMLDivElement
+        listNode: HTMLDivElement
+    }) => void
 }
 
 export const Transfer: React.FC<TransferProps>
