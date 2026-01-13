@@ -381,7 +381,13 @@ const TransferComponent = ({
 
 const defaultRenderOption = (option) => <TransferOption {...option} />
 
-TransferComponent.propTypes = {
+export const Transfer = (props) => (
+    <TransferProvider>
+        <TransferComponent {...props} />
+    </TransferProvider>
+)
+
+Transfer.propTypes = {
     options: PropTypes.arrayOf(
         PropTypes.shape({
             label: PropTypes.string.isRequired,
@@ -433,10 +439,4 @@ TransferComponent.propTypes = {
     onFilterChangePicked: PropTypes.func,
 }
 
-export const Transfer = (props) => (
-    <TransferProvider>
-        <TransferComponent {...props} />
-    </TransferProvider>
-)
-
-Transfer.propTypes = TransferComponent.propTypes
+TransferComponent.propTypes = Transfer.propTypes
