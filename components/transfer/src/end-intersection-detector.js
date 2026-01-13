@@ -10,12 +10,7 @@ export const EndIntersectionDetector = ({
     <div data-test={dataTest}>
         <IntersectionDetector
             rootRef={rootRef}
-            onChange={({ isIntersecting }) => {
-                if (isIntersecting) {
-                    console.log('Called from intersection detector')
-                    onEndReached()
-                }
-            }}
+            onChange={({ isIntersecting }) => isIntersecting && onEndReached()}
         />
 
         <style jsx>{`
