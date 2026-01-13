@@ -29,13 +29,15 @@ import {
     removeIndividualPickedOptions,
     useFilter,
     useHighlightedOptions,
+    useOptionsListMonitor,
 } from './transfer/index.js'
 import { TransferOption } from './transfer-option.js'
+import { TransferProvider } from './transfer-provider.js'
 
 const identity = (value) => value
 const defaultSelected = []
 
-export const Transfer = ({
+const TransferComponent = ({
     options,
     onChange,
 
@@ -79,8 +81,6 @@ export const Transfer = ({
     onFilterChangePicked,
     onEndReached,
     onEndReachedPicked,
-    onOptionsContainerResize,
-    onOptionsContainerResizePicked,
 }) => {
     /* Source options search value:
      * Depending on whether the onFilterChange callback has been provided
@@ -96,6 +96,7 @@ export const Transfer = ({
         filterable,
         filterCallback,
     })
+    useOptionsListMonitor(options.length, onEndReached)
 
     /*
      * Actual source options:
@@ -230,7 +231,6 @@ export const Transfer = ({
                     selectionHandler={selectSingleOption}
                     toggleHighlightedOption={toggleHighlightedSourceOption}
                     onEndReached={onEndReached}
-                    onOptionsContainerResize={onOptionsContainerResize}
                 />
 
                 {leftFooter && (
@@ -339,7 +339,6 @@ export const Transfer = ({
                     selectionHandler={deselectSingleOption}
                     toggleHighlightedOption={toggleHighlightedPickedOption}
                     onEndReached={onEndReachedPicked}
-                    onOptionsContainerResize={onOptionsContainerResizePicked}
                 />
 
                 {(rightFooter || enableOrderChange) && (
@@ -382,7 +381,7 @@ export const Transfer = ({
 
 const defaultRenderOption = (option) => <TransferOption {...option} />
 
-Transfer.propTypes = {
+TransferComponent.propTypes = {
     options: PropTypes.arrayOf(
         PropTypes.shape({
             label: PropTypes.string.isRequired,
@@ -432,6 +431,12 @@ Transfer.propTypes = {
     onEndReachedPicked: PropTypes.func,
     onFilterChange: PropTypes.func,
     onFilterChangePicked: PropTypes.func,
-    onOptionsContainerResize: PropTypes.func,
-    onOptionsContainerResizePicked: PropTypes.func,
 }
+
+export const Transfer = (props) => (
+    <TransferProvider>
+        <TransferComponent {...props} />
+    </TransferProvider>
+)
+
+Transfer.propTypes = TransferComponent.propTypes

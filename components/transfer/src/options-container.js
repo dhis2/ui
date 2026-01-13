@@ -1,8 +1,8 @@
 import { CircularLoader } from '@dhis2-ui/loader'
 import PropTypes from 'prop-types'
-import React, { Fragment, useEffect, useRef } from 'react'
+import React, { Fragment } from 'react'
 import { EndIntersectionDetector } from './end-intersection-detector.js'
-import { useResizeCounter } from './use-resize-counter.js'
+import { useOptionsListRefs } from './transfer-provider.js'
 
 export const OptionsContainer = ({
     dataTest,
@@ -16,33 +16,8 @@ export const OptionsContainer = ({
     selected = false,
     selectionHandler,
     toggleHighlightedOption,
-    onOptionsContainerResize,
 }) => {
-    const optionsRef = useRef(null)
-    const wrapperRef = useRef(null)
-    const resizeCounter = useResizeCounter(wrapperRef.current)
-    /* Store the callback in a stable mutable ref to prefent the effect hook
-     * from running when the function ref changes. This is a precaution
-     * that avoids the callback from being called multiple times by a consumer
-     * that has not wrapped the callback in useCallback and therefore produces
-     * a new function each render. */
-    const onOptionsContainerResizeRef = useRef(onOptionsContainerResize)
-    onOptionsContainerResizeRef.current = onOptionsContainerResize
-
-    useEffect(() => {
-        if (
-            onOptionsContainerResizeRef.current &&
-            resizeCounter > 0 &&
-            optionsRef.current &&
-            wrapperRef.current
-        ) {
-            onOptionsContainerResizeRef.current({
-                scrollBoxNode: optionsRef.current,
-                listNode: wrapperRef.current,
-            })
-        }
-    }, [resizeCounter])
-
+    const { scrollBoxRef, listRef } = useOptionsListRefs(selected)
     return (
         <div className="optionsContainer">
             {loading && (
@@ -51,8 +26,8 @@ export const OptionsContainer = ({
                 </div>
             )}
 
-            <div className="container" data-test={dataTest} ref={optionsRef}>
-                <div className="content-container" ref={wrapperRef}>
+            <div className="container" data-test={dataTest} ref={scrollBoxRef}>
+                <div className="content-container" ref={listRef}>
                     {!options.length && emptyComponent}
                     {options.map((option) => {
                         const highlighted = !!highlightedOptions.find(
@@ -79,7 +54,7 @@ export const OptionsContainer = ({
                     {onEndReached && (
                         <EndIntersectionDetector
                             dataTest={`${dataTest}-endintersectiondetector`}
-                            rootRef={optionsRef}
+                            rootRef={scrollBoxRef}
                             onEndReached={onEndReached}
                         />
                     )}
@@ -140,5 +115,4 @@ OptionsContainer.propTypes = {
     selectionHandler: PropTypes.func,
     toggleHighlightedOption: PropTypes.func,
     onEndReached: PropTypes.func,
-    onOptionsContainerResize: PropTypes.func,
 }

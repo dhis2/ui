@@ -587,21 +587,7 @@ export const WithOnOptionsContainerResize = (_, { onChange, selected }) => {
                 onChange={onChange}
                 options={myOptions}
                 onEndReached={() => {
-                    console.log(
-                        'onEndReached - I fire at first render and when scrolling down'
-                    )
-                }}
-                onOptionsContainerResize={({ scrollBoxNode, listNode }) => {
-                    console.log(
-                        'onOptionsContainerResize - I fire after options are inserted into the DOM'
-                    )
-                    /* When the options-list is still very short once the intial items have been added
-                     * we may want to add more, but the onEndReached will not fire, because the
-                     * EndIntersectionDetector (with 50px height) does not intersect with the scroll-box
-                     * bottom  */
-                    const shouldFetchMore =
-                        scrollBoxNode.clientHeight > listNode.offsetHeight + 50
-                    console.log('shouldFetchMore: ', shouldFetchMore)
+                    console.log('onEndReached', Date.now())
                 }}
             />
         </>
