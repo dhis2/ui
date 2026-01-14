@@ -138,22 +138,20 @@ export const Transfer = ({
      * Actual picked options:
      * Extract the selected options. Can't use `options.filter`
      * because we need to keep the order of `selected`
+     * Note: Only map if selected is an array
      */
-    let pickedOptions = []
-
-    // Only map if selected is an array
-    if (Array.isArray(selected)) {
-        pickedOptions = actualFilterPickedCallback(
-            selected
-                .map((value) =>
-                    options.find((option) => value === option.value)
-                )
-                // filter -> in case a selected value has been provided
-                // that does not exist as option
-                .filter(identity),
-            actualFilterPicked
-        )
-    }
+    const pickedOptions = Array.isArray(selected)
+        ? actualFilterPickedCallback(
+              selected
+                  .map((value) =>
+                      options.find((option) => value === option.value)
+                  )
+                  // filter -> in case a selected value has been provided
+                  // that does not exist as option
+                  .filter(identity),
+              actualFilterPicked
+          )
+        : []
 
     /*
      * Source options highlighting:
