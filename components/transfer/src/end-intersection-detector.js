@@ -2,6 +2,8 @@ import { IntersectionDetector } from '@dhis2-ui/intersection-detector'
 import PropTypes from 'prop-types'
 import React from 'react'
 
+export const INTERSECTION_DETECTOR_HEIGHT = 50
+
 export const EndIntersectionDetector = ({
     rootRef,
     onEndReached,
@@ -16,7 +18,7 @@ export const EndIntersectionDetector = ({
         <style jsx>{`
             div {
                 width: 100%;
-                height: 50px;
+                height: ${INTERSECTION_DETECTOR_HEIGHT}px;
                 position: absolute;
                 z-index: -1;
                 bottom: 0;

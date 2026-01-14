@@ -1,4 +1,14 @@
-import { useCallback, useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
+import { INTERSECTION_DETECTOR_HEIGHT } from '../end-intersection-detector.js'
+
+const isEndIntersectionDetectorWithinScrollBox = (scrollBoxRef, listRef) => {
+    if (!scrollBoxRef.current || !listRef.current) {
+        return false
+    }
+    const scrollBoxRect = scrollBoxRef.current.getBoundingClientRect()
+    const listRect = listRef.current.getBoundingClientRect()
+    return listRect.bottom - scrollBoxRect.bottom < INTERSECTION_DETECTOR_HEIGHT
+}
 
 export const useOptionsLengthMonitor = ({
     scrollBoxRef,
@@ -10,13 +20,6 @@ export const useOptionsLengthMonitor = ({
      * function reference */
     const onEndReachRef = useRef(onEndReached)
     const prevAllOptionsLength = useRef(allOptionsLength)
-    const isSourceOptionsListEndVisible = useCallback(() => {
-        return (
-            scrollBoxRef.current &&
-            listRef.current &&
-            scrollBoxRef.current.clientHeight > listRef.current.offsetHeight
-        )
-    }, [scrollBoxRef, listRef])
 
     useEffect(() => {
         /* When new options are loaded and the list end is (still) in
@@ -26,13 +29,12 @@ export const useOptionsLengthMonitor = ({
         if (
             onEndReachRef.current &&
             prevAllOptionsLength.current < allOptionsLength &&
-            isSourceOptionsListEndVisible()
+            isEndIntersectionDetectorWithinScrollBox(scrollBoxRef, listRef)
         ) {
             onEndReachRef.current()
         }
         prevAllOptionsLength.current = allOptionsLength
-        /* This effect will run on mount and when allOptionsLength changes
-         * isSourceOptionsListEndVisible has two dependencies, but these are
-         * both refs, so it actually is a fully stable callback */
-    }, [isSourceOptionsListEndVisible, allOptionsLength])
+        /* This effect will only run on mount and when allOptionsLength
+         * changes because scrollBoxRef, listRef are stable references */
+    }, [scrollBoxRef, listRef, allOptionsLength])
 }
