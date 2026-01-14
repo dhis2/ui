@@ -325,7 +325,7 @@ export const Transfer = ({
 
                 <OptionsContainer
                     selected
-                    allOptionsLength={pickedOptions}
+                    allOptionsLength={pickedOptions.length}
                     dataTest={`${dataTest}-pickedoptions`}
                     emptyComponent={selectedEmptyComponent}
                     getOptionClickHandlers={getOptionClickHandlers}
