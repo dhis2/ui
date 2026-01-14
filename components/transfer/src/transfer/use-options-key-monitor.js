@@ -10,16 +10,16 @@ const isEndIntersectionDetectorWithinScrollBox = (scrollBoxRef, listRef) => {
     return listRect.bottom - scrollBoxRect.bottom < INTERSECTION_DETECTOR_HEIGHT
 }
 
-export const useOptionsLengthMonitor = ({
+export const useOptionsKeyMonitor = ({
     scrollBoxRef,
     listRef,
-    allOptionsLength,
+    allOptionsKey,
     onEndReached,
 }) => {
     /* Store in ref so this works even if a consumer does not pass a stable
      * function reference */
     const onEndReachRef = useRef(onEndReached)
-    const prevAllOptionsLength = useRef(allOptionsLength)
+    const prevAllOptionsKey = useRef(allOptionsKey)
 
     useEffect(() => {
         /* When new options are loaded and the list end is (still) in
@@ -28,13 +28,13 @@ export const useOptionsLengthMonitor = ({
          * up on this */
         if (
             onEndReachRef.current &&
-            prevAllOptionsLength.current < allOptionsLength &&
+            prevAllOptionsKey.current !== allOptionsKey &&
             isEndIntersectionDetectorWithinScrollBox(scrollBoxRef, listRef)
         ) {
             onEndReachRef.current()
         }
-        prevAllOptionsLength.current = allOptionsLength
-        /* This effect will only run on mount and when allOptionsLength
+        prevAllOptionsKey.current = allOptionsKey
+        /* This effect will only run on mount and when allOptionsKey
          * changes because scrollBoxRef, listRef are stable references */
-    }, [scrollBoxRef, listRef, allOptionsLength])
+    }, [scrollBoxRef, listRef, allOptionsKey])
 }

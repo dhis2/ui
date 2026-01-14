@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Actions } from './actions.js'
 import { AddAll } from './add-all.js'
 import { AddIndividual } from './add-individual.js'
@@ -191,6 +191,15 @@ export const Transfer = ({
     const isRemoveIndividualDisabled =
         disabled || !highlightedPickedOptions.length
 
+    const allOptionsKey = useMemo(
+        () => options.map(({ value }) => value).join('|'),
+        [options]
+    )
+    const pickedOptionsKey = useMemo(
+        () => pickedOptions.map(({ value }) => value).join('|'),
+        [pickedOptions]
+    )
+
     return (
         <Container dataTest={dataTest} className={className} height={height}>
             <LeftSide dataTest={`${dataTest}-leftside`} width={optionsWidth}>
@@ -216,7 +225,7 @@ export const Transfer = ({
                 )}
 
                 <OptionsContainer
-                    allOptionsLength={options.length}
+                    allOptionsKey={allOptionsKey}
                     dataTest={`${dataTest}-sourceoptions`}
                     emptyComponent={sourceEmptyPlaceholder}
                     getOptionClickHandlers={getOptionClickHandlers}
@@ -325,7 +334,7 @@ export const Transfer = ({
 
                 <OptionsContainer
                     selected
-                    allOptionsLength={pickedOptions.length}
+                    allOptionsKey={pickedOptionsKey}
                     dataTest={`${dataTest}-pickedoptions`}
                     emptyComponent={selectedEmptyComponent}
                     getOptionClickHandlers={getOptionClickHandlers}

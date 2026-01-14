@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { Transfer } from '../transfer.js'
 import { options } from './common/options.js'
 import { statefulDecorator } from './common/stateful-decorator.js'
@@ -69,31 +69,32 @@ PartialPickedList.story = {
 }
 
 export const OptionChangesForShortList = (_, { onChange, selected }) => {
-    const [myOptions, setMyOptions] = useState(options.slice(0, 2))
+    const [optionsCount, setOptionsCount] = useState(7)
+    const myOptions = useMemo(() => {
+        let counter = 1
+        const newOptions = []
+        while (counter <= optionsCount) {
+            newOptions.push({
+                value: `val-${counter}`,
+                label: `Option nr. ${counter}`,
+            })
+            counter++
+        }
+        return newOptions
+    }, [optionsCount])
 
     return (
         <>
-            <label htmlFor="options-length">Number options:</label>
-            <input
-                type="number"
-                id="options-length"
-                name="options-length"
-                step="1"
-                min="1"
-                max="20"
-                value={myOptions.length.toString()}
-                onChange={(event) => {
-                    setMyOptions(options.slice(0, parseInt(event.target.value)))
-                }}
-            />
+            <button onClick={() => setOptionsCount((curr) => curr + 1)}>
+                Increment options lists
+            </button>
             <Transfer
                 filterable
                 selected={selected}
                 onChange={onChange}
                 options={myOptions}
-                onEndReached={() => {
-                    console.log('onEndReached', Date.now())
-                }}
+                onEndReached={window.onEndReached}
+                onEndReachedPicked={window.onEndReachedPicked}
             />
         </>
     )
@@ -101,7 +102,7 @@ export const OptionChangesForShortList = (_, { onChange, selected }) => {
 OptionChangesForShortList.story = {
     decorators: [
         statefulDecorator({
-            initialState: [],
+            initialState: ['val-9'],
         }),
     ],
 }

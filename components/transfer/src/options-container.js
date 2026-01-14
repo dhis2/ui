@@ -2,10 +2,10 @@ import { CircularLoader } from '@dhis2-ui/loader'
 import PropTypes from 'prop-types'
 import React, { Fragment, useRef } from 'react'
 import { EndIntersectionDetector } from './end-intersection-detector.js'
-import { useOptionsLengthMonitor } from './transfer/use-options-length-monitor.js'
+import { useOptionsKeyMonitor } from './transfer/use-options-key-monitor.js'
 
 export const OptionsContainer = ({
-    allOptionsLength,
+    allOptionsKey,
     dataTest,
     emptyComponent,
     onEndReached,
@@ -20,10 +20,10 @@ export const OptionsContainer = ({
 }) => {
     const scrollBoxRef = useRef(null)
     const listRef = useRef(null)
-    useOptionsLengthMonitor({
+    useOptionsKeyMonitor({
         scrollBoxRef,
         listRef,
-        allOptionsLength,
+        allOptionsKey,
         onEndReached,
     })
     return (
@@ -107,7 +107,7 @@ export const OptionsContainer = ({
 }
 
 OptionsContainer.propTypes = {
-    allOptionsLength: PropTypes.number.isRequired,
+    allOptionsKey: PropTypes.string.isRequired,
     dataTest: PropTypes.string.isRequired,
     getOptionClickHandlers: PropTypes.func.isRequired,
     emptyComponent: PropTypes.node,
