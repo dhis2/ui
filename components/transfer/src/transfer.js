@@ -29,15 +29,13 @@ import {
     removeIndividualPickedOptions,
     useFilter,
     useHighlightedOptions,
-    useOptionsListMonitor,
 } from './transfer/index.js'
 import { TransferOption } from './transfer-option.js'
-import { TransferProvider } from './transfer-provider.js'
 
 const identity = (value) => value
 const defaultSelected = []
 
-const TransferComponent = ({
+export const Transfer = ({
     options,
     onChange,
 
@@ -96,7 +94,6 @@ const TransferComponent = ({
         filterable,
         filterCallback,
     })
-    useOptionsListMonitor(options.length, onEndReached)
 
     /*
      * Actual source options:
@@ -221,6 +218,7 @@ const TransferComponent = ({
                 )}
 
                 <OptionsContainer
+                    allOptionsLength={options.length}
                     dataTest={`${dataTest}-sourceoptions`}
                     emptyComponent={sourceEmptyPlaceholder}
                     getOptionClickHandlers={getOptionClickHandlers}
@@ -329,6 +327,7 @@ const TransferComponent = ({
 
                 <OptionsContainer
                     selected
+                    allOptionsLength={pickedOptions}
                     dataTest={`${dataTest}-pickedoptions`}
                     emptyComponent={selectedEmptyComponent}
                     getOptionClickHandlers={getOptionClickHandlers}
@@ -381,12 +380,6 @@ const TransferComponent = ({
 
 const defaultRenderOption = (option) => <TransferOption {...option} />
 
-export const Transfer = (props) => (
-    <TransferProvider>
-        <TransferComponent {...props} />
-    </TransferProvider>
-)
-
 Transfer.propTypes = {
     options: PropTypes.arrayOf(
         PropTypes.shape({
@@ -438,5 +431,3 @@ Transfer.propTypes = {
     onFilterChange: PropTypes.func,
     onFilterChangePicked: PropTypes.func,
 }
-
-TransferComponent.propTypes = Transfer.propTypes
