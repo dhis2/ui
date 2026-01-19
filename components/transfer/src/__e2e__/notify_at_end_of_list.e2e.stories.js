@@ -68,6 +68,13 @@ PartialPickedList.story = {
     ],
 }
 
+const selectedOptionsLookup = {
+    'val-9': {
+        value: 'val-9',
+        label: 'Option nr. 9',
+    },
+}
+
 export const OptionChangesForShortList = (_, { onChange, selected }) => {
     const [optionsCount, setOptionsCount] = useState(7)
     const myOptions = useMemo(() => {
@@ -91,6 +98,7 @@ export const OptionChangesForShortList = (_, { onChange, selected }) => {
             <Transfer
                 filterable
                 selected={selected}
+                selectedOptionsLookup={selectedOptionsLookup}
                 onChange={onChange}
                 options={myOptions}
                 onEndReached={window.onEndReached}

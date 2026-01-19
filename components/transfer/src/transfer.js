@@ -34,6 +34,7 @@ import { TransferOption } from './transfer-option.js'
 
 const identity = (value) => value
 const defaultSelected = []
+const defaultSelectedOptionsLookup = {}
 
 export const Transfer = ({
     options,
@@ -58,6 +59,7 @@ export const Transfer = ({
     hideFilterInputPicked,
     initialSearchTerm = '',
     initialSearchTermPicked = '',
+    selectedOptionsLookup = defaultSelectedOptionsLookup,
     leftFooter,
     leftHeader,
     loadingPicked,
@@ -140,18 +142,32 @@ export const Transfer = ({
      * because we need to keep the order of `selected`
      * Note: Only map if selected is an array
      */
-    const pickedOptions = Array.isArray(selected)
-        ? actualFilterPickedCallback(
-              selected
-                  .map((value) =>
-                      options.find((option) => value === option.value)
+    const pickedOptions = useMemo(
+        () =>
+            Array.isArray(selected)
+                ? actualFilterPickedCallback(
+                      selected
+                          .map(
+                              (value) =>
+                                  selectedOptionsLookup[value] ??
+                                  options.find(
+                                      (option) => value === option.value
+                                  )
+                          )
+                          // filter -> in case a selected value has been provided
+                          // that does not exist as option
+                          .filter(identity),
+                      actualFilterPicked
                   )
-                  // filter -> in case a selected value has been provided
-                  // that does not exist as option
-                  .filter(identity),
-              actualFilterPicked
-          )
-        : []
+                : [],
+        [
+            selected,
+            options,
+            actualFilterPicked,
+            actualFilterPickedCallback,
+            selectedOptionsLookup,
+        ]
+    )
 
     /*
      * Source options highlighting:
@@ -386,15 +402,14 @@ export const Transfer = ({
 }
 
 const defaultRenderOption = (option) => <TransferOption {...option} />
+const OptionPropType = PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
+})
 
 Transfer.propTypes = {
-    options: PropTypes.arrayOf(
-        PropTypes.shape({
-            label: PropTypes.string.isRequired,
-            value: PropTypes.string.isRequired,
-            disabled: PropTypes.bool,
-        })
-    ).isRequired,
+    options: PropTypes.arrayOf(OptionPropType).isRequired,
     onChange: PropTypes.func.isRequired,
 
     addAllText: PropTypes.string,
@@ -431,6 +446,7 @@ Transfer.propTypes = {
     searchTermPicked: PropTypes.string,
     selected: PropTypes.arrayOf(PropTypes.string),
     selectedEmptyComponent: PropTypes.node,
+    selectedOptionsLookup: PropTypes.objectOf(OptionPropType),
     selectedWidth: PropTypes.string,
     sourceEmptyPlaceholder: PropTypes.node,
     onEndReached: PropTypes.func,

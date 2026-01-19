@@ -34,6 +34,8 @@ Feature: The source and picked option lists notify the consumer when the end has
         Then the list end indicator of the source list should be visible
         Then the callback for reaching the end of the source list should be called 1 times
         Then the callback for reaching the end of the picked list should be called 1 times
+        # Selected item is not in the options array but is present in the `selectedOptionsLookup`
+        Then the selected item is being displayed in the picked list
         When the user adds an item by clicking the button
         # The indicator is still just in view
         Then the list end indicator of the source list should be visible
@@ -43,8 +45,8 @@ Feature: The source and picked option lists notify the consumer when the end has
         # not source options, but the callback is still called
         Then the list end indicator of the source list should be visible
         Then the callback for reaching the end of the source list should be called 3 times
-        # The picked list callback also gets called because the selected item was added
-        Then the callback for reaching the end of the picked list should be called 2 times
+        # The picked list callback does not get called because the picked item was already present
+        Then the callback for reaching the end of the picked list should be called 1 times
         When the user adds an item by clicking the button
         # The indicator is still in view but only just
         Then the list end indicator of the source list should be visible
@@ -59,4 +61,4 @@ Feature: The source and picked option lists notify the consumer when the end has
         Then the callback for reaching the end of the source list should be called 5 times
         # And selecting an item triggers a call in the picked list
         When the user selects option nr. 11
-        Then the callback for reaching the end of the picked list should be called 3 times
+        Then the callback for reaching the end of the picked list should be called 2 times

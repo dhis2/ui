@@ -107,6 +107,11 @@ Then(
         })
     }
 )
+Then('the selected item is being displayed in the picked list', () => {
+    cy.get('[data-test="dhis2-uicore-transfer-pickedoptions"]')
+        .contains('Option nr. 9')
+        .should('be.visible')
+})
 When('the user selects option nr. {}', function (int) {
     cy.contains(`Option nr. ${int}`).dblclick()
 })
