@@ -447,6 +447,11 @@ Transfer.propTypes = {
     searchTermPicked: PropTypes.string,
     selected: PropTypes.arrayOf(PropTypes.string),
     selectedEmptyComponent: PropTypes.node,
+    /**
+     * To be used in scenarios where selected options may not be present
+     * in the options array. Like when having options that lazy load or can
+     * be filtered async.
+     */
     selectedOptionsLookup: PropTypes.objectOf(
         PropTypes.shape({
             label: PropTypes.string.isRequired,
