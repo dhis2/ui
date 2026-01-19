@@ -402,14 +402,15 @@ export const Transfer = ({
 }
 
 const defaultRenderOption = (option) => <TransferOption {...option} />
-const OptionPropType = PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    disabled: PropTypes.bool,
-})
 
 Transfer.propTypes = {
-    options: PropTypes.arrayOf(OptionPropType).isRequired,
+    options: PropTypes.arrayOf(
+        PropTypes.shape({
+            label: PropTypes.string.isRequired,
+            value: PropTypes.string.isRequired,
+            disabled: PropTypes.bool,
+        })
+    ).isRequired,
     onChange: PropTypes.func.isRequired,
 
     addAllText: PropTypes.string,
@@ -446,7 +447,13 @@ Transfer.propTypes = {
     searchTermPicked: PropTypes.string,
     selected: PropTypes.arrayOf(PropTypes.string),
     selectedEmptyComponent: PropTypes.node,
-    selectedOptionsLookup: PropTypes.objectOf(OptionPropType),
+    selectedOptionsLookup: PropTypes.objectOf(
+        PropTypes.shape({
+            label: PropTypes.string.isRequired,
+            value: PropTypes.string.isRequired,
+            disabled: PropTypes.bool,
+        })
+    ),
     selectedWidth: PropTypes.string,
     sourceEmptyPlaceholder: PropTypes.node,
     onEndReached: PropTypes.func,
