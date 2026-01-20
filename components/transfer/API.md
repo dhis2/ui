@@ -75,7 +75,7 @@ import { Transfer } from '@dhis2/ui'
 |searchTermPicked|string||||
 |selected|`arrayOf(string)`|``[]``|||
 |selectedEmptyComponent|node||||
-|selectedOptionsLookup|objectOf|``{}``|||
+|selectedOptionsLookup|objectOf|``{}``||To be used in scenarios where selected options may not be present<br/>in the options array. Like when having options that lazy load or can<br/>be filtered async.|
 |selectedWidth|string|``'320px'``|||
 |sourceEmptyPlaceholder|node||||
 |onEndReached|function||||

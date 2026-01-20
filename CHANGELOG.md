@@ -1,3 +1,10 @@
+# [10.12.0](https://github.com/dhis2/ui/compare/v10.11.0...v10.12.0) (2026-01-20)
+
+
+### Features
+
+* **transfer:** add `selectedOptionsLookup` prop and ensure `onEndReached` is called consistently ([#1715](https://github.com/dhis2/ui/issues/1715)) ([ff4efe6](https://github.com/dhis2/ui/commit/ff4efe6a00728314ad2836e8dab919c20c129a4a))
+
 # [10.11.0](https://github.com/dhis2/ui/compare/v10.10.2...v10.11.0) (2025-12-22)
 
 
