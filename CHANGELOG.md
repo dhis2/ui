@@ -1,3 +1,10 @@
+## [10.12.2](https://github.com/dhis2/ui/compare/v10.12.1...v10.12.2) (2026-01-20)
+
+
+### Bug Fixes
+
+* adjust transfer infinite loading demo path ([#1717](https://github.com/dhis2/ui/issues/1717)) ([cca6b95](https://github.com/dhis2/ui/commit/cca6b9565ab38db8329f5b28143c253c82f64de9))
+
 ## [10.12.1](https://github.com/dhis2/ui/compare/v10.12.0...v10.12.1) (2026-01-20)
 
 
