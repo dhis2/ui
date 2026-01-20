@@ -23,6 +23,9 @@ export const IntersectionDetector = ({
     // @prop {HTMLElement} current
     const intersectionRef = useRef()
 
+    const onChangeRef = useRef(onChange)
+    onChangeRef.current = onChange
+
     useEffect(() => {
         const rootEl = rootRef.current
         const intersectionEl = intersectionRef.current
@@ -40,7 +43,7 @@ export const IntersectionDetector = ({
 
                 if (intersectionChange) {
                     isIntersecting.current = entry.isIntersecting
-                    onChange({
+                    onChangeRef.current({
                         isIntersecting: entry.isIntersecting,
                     })
                 }
@@ -59,7 +62,7 @@ export const IntersectionDetector = ({
             // the disconnect function for better readability.
             return () => intersectionObserver.disconnect()
         }
-    }, [rootRef.current, intersectionRef.current])
+    }, [rootRef, threshold])
 
     return (
         <div ref={intersectionRef} className={className} data-test={dataTest}>
