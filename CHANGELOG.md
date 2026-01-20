@@ -1,3 +1,10 @@
+## [10.12.1](https://github.com/dhis2/ui/compare/v10.12.0...v10.12.1) (2026-01-20)
+
+
+### Bug Fixes
+
+* repair broken CI pipeline by addressing unit tests that were timing out ([#1716](https://github.com/dhis2/ui/issues/1716)) ([10dfe83](https://github.com/dhis2/ui/commit/10dfe83285ab6d0942ce2ff218ccf850d5b72924))
+
 # [10.12.0](https://github.com/dhis2/ui/compare/v10.11.0...v10.12.0) (2026-01-20)
 
 
