@@ -154,7 +154,7 @@ The footer component is as follows:
 #### Infinite/lazy loading
 
 <Demo
-    path="transfer--transfer--infinite-loading"
+    path="transfer--infinite-loading"
     height="320px"
 />
 
