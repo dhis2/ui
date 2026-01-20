@@ -18,8 +18,9 @@ export const useOptionsKeyMonitor = ({
 }) => {
     /* Store in ref so this works even if a consumer does not pass a stable
      * function reference */
-    const onEndReachRef = useRef(onEndReached)
+    const onEndReachedRef = useRef(onEndReached)
     const prevAllOptionsKey = useRef(allOptionsKey)
+    onEndReachedRef.current = onEndReached
 
     useEffect(() => {
         /* When new options are loaded and the list end is (still) in
@@ -27,11 +28,11 @@ export const useOptionsKeyMonitor = ({
          * has indeed been reached but the interception detector will not pick
          * up on this */
         if (
-            onEndReachRef.current &&
+            onEndReachedRef.current &&
             prevAllOptionsKey.current !== allOptionsKey &&
             isEndIntersectionDetectorWithinScrollBox(scrollBoxRef, listRef)
         ) {
-            onEndReachRef.current()
+            onEndReachedRef.current()
         }
         prevAllOptionsKey.current = allOptionsKey
         /* This effect will only run on mount and when allOptionsKey
