@@ -1,7 +1,7 @@
 import { SingleSelectField, SingleSelectOption } from '@dhis2-ui/select'
 import { Tab, TabBar } from '@dhis2-ui/tab'
 import PropTypes from 'prop-types'
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { TransferOption } from './transfer-option.js'
 import { Transfer } from './transfer.js'
 
@@ -474,6 +474,8 @@ const pageSize = 5
  * To keep the code as small as possible, handling selecting items is not
    included
  */
+const preSelectedOptions = optionsPool.slice(optionsPool.length - 4)
+const waitMs = async (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 export const InfiniteLoading = (args) => {
     useEffect(() => {
         console.clear()
@@ -481,62 +483,43 @@ export const InfiniteLoading = (args) => {
 
     // state for whether the next page's options are being loaded
     const [loading, setLoading] = useState(false)
-    // captures the current page
-    const [page, setPage] = useState(0)
-    // all options (incl. available AND selected options)
+    // prevent fetches after list is complete
+    const [isOptionsListComplete, setIsOptionsListComplete] = useState(false)
     const [options, setOptions] = useState([])
     // selected options
     const [selected] = useState(
-        // second page is already selected
-        optionsPool.slice(pageSize, pageSize * 2).map(({ value }) => value)
+        // Last 4 options preselected
+        preSelectedOptions.map(({ value }) => value)
+    )
+    const selectedOptionsLookup = useMemo(
+        () =>
+            preSelectedOptions.reduce((lookup, option) => {
+                lookup[option.value] = option
+                return lookup
+            }, {}),
+        []
     )
 
-    const onEndReached = () => {
-        // do nothing when loading already
-        if (loading) {
-            return
-        }
-        setPage(page + 1)
-    }
-
-    // fake fetch request
-    const fetchOptions = (nextPage) =>
-        new Promise((resolve) =>
-            setTimeout(() => {
-                const nextOptions = optionsPool.slice(
-                    options.length,
-                    nextPage * pageSize
-                )
-                resolve(nextOptions)
-            }, 2000)
-        )
-
-    const loadNextOptions = async () => {
+    const loadMoreOptions = useCallback(async () => {
         setLoading(true)
-
-        const nextOptions = await fetchOptions(page)
-        setOptions([...options, ...nextOptions])
-
+        await waitMs(2000)
+        const newOptions = optionsPool.slice(
+            options.length,
+            Math.min(options.length + pageSize, optionsPool.length)
+        )
+        const combinedOptions = [...options, ...newOptions]
+        setOptions(combinedOptions)
+        if (combinedOptions.length === optionsPool.length) {
+            setIsOptionsListComplete(true)
+        }
         setLoading(false)
+    }, [options])
 
-        const allAlreadySelected =
-            nextOptions.length !== 0 &&
-            nextOptions.every((nextOption) => {
-                const { value } = nextOption
-                return selected.includes(value)
-            })
-
-        if (allAlreadySelected) {
-            onEndReached()
+    const onEndReached = useCallback(() => {
+        if (!isOptionsListComplete) {
+            loadMoreOptions()
         }
-    }
-
-    useEffect(() => {
-        // prevent initial call
-        if (page > 0) {
-            loadNextOptions()
-        }
-    }, [page])
+    }, [loadMoreOptions, isOptionsListComplete])
 
     return (
         <Transfer
@@ -546,6 +529,7 @@ export const InfiniteLoading = (args) => {
             selected={selected}
             onChange={() => null /* noop */}
             onEndReached={onEndReached}
+            selectedOptionsLookup={selectedOptionsLookup}
         />
     )
 }

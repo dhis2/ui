@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Actions } from './actions.js'
 import { AddAll } from './add-all.js'
 import { AddIndividual } from './add-individual.js'
@@ -34,6 +34,7 @@ import { TransferOption } from './transfer-option.js'
 
 const identity = (value) => value
 const defaultSelected = []
+const defaultSelectedOptionsLookup = {}
 
 export const Transfer = ({
     options,
@@ -58,6 +59,7 @@ export const Transfer = ({
     hideFilterInputPicked,
     initialSearchTerm = '',
     initialSearchTermPicked = '',
+    selectedOptionsLookup = defaultSelectedOptionsLookup,
     leftFooter,
     leftHeader,
     loadingPicked,
@@ -138,22 +140,34 @@ export const Transfer = ({
      * Actual picked options:
      * Extract the selected options. Can't use `options.filter`
      * because we need to keep the order of `selected`
+     * Note: Only map if selected is an array
      */
-    let pickedOptions = []
-
-    // Only map if selected is an array
-    if (Array.isArray(selected)) {
-        pickedOptions = actualFilterPickedCallback(
-            selected
-                .map((value) =>
-                    options.find((option) => value === option.value)
-                )
-                // filter -> in case a selected value has been provided
-                // that does not exist as option
-                .filter(identity),
-            actualFilterPicked
-        )
-    }
+    const pickedOptions = useMemo(
+        () =>
+            Array.isArray(selected)
+                ? actualFilterPickedCallback(
+                      selected
+                          .map(
+                              (value) =>
+                                  selectedOptionsLookup[value] ??
+                                  options.find(
+                                      (option) => value === option.value
+                                  )
+                          )
+                          // filter -> in case a selected value has been provided
+                          // that does not exist as option
+                          .filter(identity),
+                      actualFilterPicked
+                  )
+                : [],
+        [
+            selected,
+            options,
+            actualFilterPicked,
+            actualFilterPickedCallback,
+            selectedOptionsLookup,
+        ]
+    )
 
     /*
      * Source options highlighting:
@@ -193,6 +207,15 @@ export const Transfer = ({
     const isRemoveIndividualDisabled =
         disabled || !highlightedPickedOptions.length
 
+    const allOptionsKey = useMemo(
+        () => options.map(({ value }) => value).join('|'),
+        [options]
+    )
+    const pickedOptionsKey = useMemo(
+        () => pickedOptions.map(({ value }) => value).join('|'),
+        [pickedOptions]
+    )
+
     return (
         <Container dataTest={dataTest} className={className} height={height}>
             <LeftSide dataTest={`${dataTest}-leftside`} width={optionsWidth}>
@@ -218,6 +241,7 @@ export const Transfer = ({
                 )}
 
                 <OptionsContainer
+                    allOptionsKey={allOptionsKey}
                     dataTest={`${dataTest}-sourceoptions`}
                     emptyComponent={sourceEmptyPlaceholder}
                     getOptionClickHandlers={getOptionClickHandlers}
@@ -326,6 +350,7 @@ export const Transfer = ({
 
                 <OptionsContainer
                     selected
+                    allOptionsKey={pickedOptionsKey}
                     dataTest={`${dataTest}-pickedoptions`}
                     emptyComponent={selectedEmptyComponent}
                     getOptionClickHandlers={getOptionClickHandlers}
@@ -422,6 +447,18 @@ Transfer.propTypes = {
     searchTermPicked: PropTypes.string,
     selected: PropTypes.arrayOf(PropTypes.string),
     selectedEmptyComponent: PropTypes.node,
+    /**
+     * To be used in scenarios where selected options may not be present
+     * in the options array. Like when having options that lazy load or can
+     * be filtered async.
+     */
+    selectedOptionsLookup: PropTypes.objectOf(
+        PropTypes.shape({
+            label: PropTypes.string.isRequired,
+            value: PropTypes.string.isRequired,
+            disabled: PropTypes.bool,
+        })
+    ),
     selectedWidth: PropTypes.string,
     sourceEmptyPlaceholder: PropTypes.node,
     onEndReached: PropTypes.func,

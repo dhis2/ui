@@ -2,9 +2,10 @@ import { CircularLoader } from '@dhis2-ui/loader'
 import PropTypes from 'prop-types'
 import React, { Fragment, useRef } from 'react'
 import { EndIntersectionDetector } from './end-intersection-detector.js'
-import { useResizeCounter } from './use-resize-counter.js'
+import { useOptionsKeyMonitor } from './transfer/use-options-key-monitor.js'
 
 export const OptionsContainer = ({
+    allOptionsKey,
     dataTest,
     emptyComponent,
     onEndReached,
@@ -17,10 +18,14 @@ export const OptionsContainer = ({
     selectionHandler,
     toggleHighlightedOption,
 }) => {
-    const optionsRef = useRef(null)
-    const wrapperRef = useRef(null)
-    const resizeCounter = useResizeCounter(wrapperRef.current)
-
+    const scrollBoxRef = useRef(null)
+    const listRef = useRef(null)
+    useOptionsKeyMonitor({
+        scrollBoxRef,
+        listRef,
+        allOptionsKey,
+        onEndReached,
+    })
     return (
         <div className="optionsContainer">
             {loading && (
@@ -29,8 +34,8 @@ export const OptionsContainer = ({
                 </div>
             )}
 
-            <div className="container" data-test={dataTest} ref={optionsRef}>
-                <div className="content-container" ref={wrapperRef}>
+            <div className="container" data-test={dataTest} ref={scrollBoxRef}>
+                <div className="content-container" ref={listRef}>
                     {!options.length && emptyComponent}
                     {options.map((option) => {
                         const highlighted = !!highlightedOptions.find(
@@ -57,8 +62,7 @@ export const OptionsContainer = ({
                     {onEndReached && (
                         <EndIntersectionDetector
                             dataTest={`${dataTest}-endintersectiondetector`}
-                            key={`key-${resizeCounter}`}
-                            rootRef={optionsRef}
+                            rootRef={scrollBoxRef}
                             onEndReached={onEndReached}
                         />
                     )}
@@ -103,6 +107,7 @@ export const OptionsContainer = ({
 }
 
 OptionsContainer.propTypes = {
+    allOptionsKey: PropTypes.string.isRequired,
     dataTest: PropTypes.string.isRequired,
     getOptionClickHandlers: PropTypes.func.isRequired,
     emptyComponent: PropTypes.node,

@@ -44,6 +44,12 @@ export interface TransferProps {
     searchTermPicked?: string
     selected?: string[]
     selectedEmptyComponent?: React.ReactNode
+    /**
+     * To be used in scenarios where selected options may not be present
+     * in the options array. Like when having options that lazy load or can
+     * be filtered async.
+     */
+    selectedOptionsLookup?: Record<string, TransferOption>
     selectedWidth?: string
     sourceEmptyPlaceholder?: React.ReactNode
     onEndReached?: () => void

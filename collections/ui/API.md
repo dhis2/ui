@@ -3086,6 +3086,7 @@ import { Transfer } from '@dhis2/ui'
 |searchTermPicked|string||||
 |selected|`arrayOf(string)`|``[]``|||
 |selectedEmptyComponent|node||||
+|selectedOptionsLookup|objectOf|``{}``|||
 |selectedWidth|string|``'320px'``|||
 |sourceEmptyPlaceholder|node||||
 |onEndReached|function||||
