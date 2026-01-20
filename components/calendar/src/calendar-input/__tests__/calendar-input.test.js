@@ -1,18 +1,14 @@
 import { Button } from '@dhis2-ui/button'
-import { fireEvent, render, waitFor, within } from '@testing-library/react'
-import { userEvent } from '@testing-library/user-event'
+import { act, fireEvent, render, waitFor, within } from '@testing-library/react'
 import React, { useState } from 'react'
 import { Field, Form } from 'react-final-form'
 import { CalendarInput } from '../calendar-input.js'
 
 describe('Calendar Input', () => {
-    beforeEach(() => {
+    it('allow selection of a date through the calendar widget', async () => {
         jest.useFakeTimers()
         jest.setSystemTime(new Date('2024-10-22T09:05:00.000Z'))
-    })
-    afterEach(jest.useRealTimers)
 
-    it('allow selection of a date through the calendar widget', async () => {
         const onDateSelectMock = jest.fn()
         const screen = render(
             <CalendarInput calendar="gregory" onDateSelect={onDateSelectMock} />
@@ -21,7 +17,9 @@ describe('Calendar Input', () => {
         const dateInput = within(
             screen.getByTestId('dhis2-uicore-input')
         ).getByRole('textbox')
+
         fireEvent.focus(dateInput)
+
         const calendar = await screen.findByTestId('calendar')
         expect(calendar).toBeInTheDocument()
 
@@ -38,6 +36,8 @@ describe('Calendar Input', () => {
                 calendarDateString: todayString,
             })
         )
+
+        jest.useRealTimers()
     })
 
     it('allow selection of a date through the input', async () => {
@@ -62,8 +62,7 @@ describe('Calendar Input', () => {
     })
 
     describe('validation', () => {
-        beforeEach(jest.useRealTimers)
-        it('should validate minimum date', async () => {
+        it('should validate minimum date', () => {
             const onDateSelectMock = jest.fn()
             const screen = render(
                 <CalendarWithValidation
@@ -78,20 +77,19 @@ describe('Calendar Input', () => {
                 screen.getByTestId('dhis2-uicore-input')
             ).getByRole('textbox')
 
-            await userEvent.clear(dateInput)
-            await userEvent.type(dateInput, dateInputString)
-            await userEvent.tab()
+            fireEvent.change(dateInput, { target: { value: dateInputString } })
+            fireEvent.blur(dateInput)
 
             expect(
-                await screen.findByText(
+                screen.getByText(
                     'Date 2023-10-12 is less than the minimum allowed date 2024-01-01.'
                 )
-            )
+            ).toBeInTheDocument()
             expect(onDateSelectMock).toHaveBeenCalledTimes(1)
         })
         // skipping since test times out - reference issue: https://dhis2.atlassian.net/browse/LIBS-763
-        it.skip('should validate maximum date', async () => {
-            const { getByTestId, findByText } = render(
+        it('should validate maximum date', () => {
+            const { getByTestId, getByText } = render(
                 <CalendarWithValidation
                     calendar="gregory"
                     maxDate="2024-01-01"
@@ -103,115 +101,103 @@ describe('Calendar Input', () => {
                 getByTestId('dhis2-uicore-input')
             ).getByRole('textbox')
 
-            await userEvent.clear(dateInput)
-            await userEvent.type(dateInput, dateInputString)
-            await userEvent.tab()
+            fireEvent.change(dateInput, { target: { value: dateInputString } })
+            fireEvent.blur(dateInput)
 
             expect(
-                await findByText(
+                getByText(
                     'Date 2024-10-12 is greater than the maximum allowed date 2024-01-01.'
                 )
-            )
+            ).toBeInTheDocument()
         })
-        it(
-            'should validate date in ethiopic calendar',
-            async () => {
-                const onDateSelectMock = jest.fn()
-                const { getByTestId, findByText, queryByText } = render(
-                    <CalendarWithValidation
-                        calendar="ethiopian"
-                        minDate="2018-13-04"
-                        onDateSelect={onDateSelectMock}
-                    />
-                )
+        it('should validate date in ethiopic calendar', () => {
+            const onDateSelectMock = jest.fn()
+            const { getByTestId, getByText, queryByText } = render(
+                <CalendarWithValidation
+                    calendar="ethiopian"
+                    minDate="2018-13-04"
+                    onDateSelect={onDateSelectMock}
+                />
+            )
 
-                let dateInputString = '2018-13-02'
-                const dateInput = within(
-                    getByTestId('dhis2-uicore-input')
-                ).getByRole('textbox')
+            let dateInputString = '2018-13-02'
+            const dateInput = within(
+                getByTestId('dhis2-uicore-input')
+            ).getByRole('textbox')
 
-                await userEvent.clear(dateInput)
-                await userEvent.type(dateInput, dateInputString)
-                await userEvent.tab()
+            fireEvent.change(dateInput, { target: { value: dateInputString } })
+            fireEvent.blur(dateInput)
 
-                await findByText(
+            expect(
+                getByTestId('dhis2-uiwidgets-calendar-inputfield-validation')
+            ).toBeInTheDocument()
+            expect(
+                getByText(
                     'Date 2018-13-02 is less than the minimum allowed date 2018-13-04.'
                 )
+            ).toBeInTheDocument()
 
-                dateInputString = '2018-13-05'
-                await userEvent.clear(dateInput)
-                await userEvent.click(dateInput)
-                await userEvent.type(dateInput, dateInputString)
+            dateInputString = '2018-13-05'
+            fireEvent.change(dateInput, { target: { value: dateInputString } })
+            fireEvent.blur(dateInput)
 
-                await userEvent.tab()
+            expect(
+                queryByText(
+                    'Date 2018-13-04 is less than the minimum allowed date 2018-13-05.'
+                )
+            ).not.toBeInTheDocument()
 
-                expect(
-                    queryByText(
-                        'Date 2018-13-04 is less than the minimum allowed date 2018-13-05.'
-                    )
-                ).not.toBeInTheDocument()
+            dateInputString = '2018-13-07'
+            fireEvent.change(dateInput, { target: { value: dateInputString } })
+            fireEvent.blur(dateInput)
 
-                dateInputString = '2018-13-07'
-                await userEvent.clear(dateInput)
-                await userEvent.type(dateInput, dateInputString)
-                await userEvent.tab()
-
-                expect(
-                    await findByText('Invalid date in specified calendar')
-                ).toBeInTheDocument()
-            },
-            20 * 1000
-        )
+            expect(
+                getByText('Invalid date in specified calendar')
+            ).toBeInTheDocument()
+        })
         // ToDo: these scenarios seem to work but they timeout on CI sporadically - ticket: https://dhis2.atlassian.net/browse/LIBS-763
-        it.skip(
-            'should validate date in nepali calendar',
-            async () => {
-                const onDateSelectMock = jest.fn()
-                const { getByTestId, findByText, queryByText } = render(
-                    <CalendarWithValidation
-                        calendar="nepali"
-                        maxDate="2080-05-30"
-                        onDateSelect={onDateSelectMock}
-                    />
+        it('should validate date in nepali calendar', () => {
+            const onDateSelectMock = jest.fn()
+            const { getByTestId, getByText, queryByText } = render(
+                <CalendarWithValidation
+                    calendar="nepali"
+                    maxDate="2080-05-30"
+                    onDateSelect={onDateSelectMock}
+                />
+            )
+
+            let dateInputString = '2080-06-01'
+            const dateInput = within(
+                getByTestId('dhis2-uicore-input')
+            ).getByRole('textbox')
+
+            fireEvent.change(dateInput, { target: { value: dateInputString } })
+            fireEvent.blur(dateInput)
+
+            expect(
+                getByText(
+                    'Date 2080-06-01 is greater than the maximum allowed date 2080-05-30.'
                 )
+            ).toBeInTheDocument()
 
-                let dateInputString = '2080-06-01'
-                const dateInput = within(
-                    getByTestId('dhis2-uicore-input')
-                ).getByRole('textbox')
+            dateInputString = '2080-04-32'
+            fireEvent.change(dateInput, { target: { value: dateInputString } })
+            fireEvent.blur(dateInput)
 
-                await userEvent.clear(dateInput)
-                await userEvent.type(dateInput, dateInputString)
-                await userEvent.tab()
+            expect(
+                queryByText(/greater than the maximum allowed date/)
+            ).not.toBeInTheDocument()
 
-                expect(
-                    await findByText(
-                        'Date 2080-06-01 is greater than the maximum allowed date 2080-05-30.'
-                    )
-                )
+            dateInputString = '2080-01-32'
+            fireEvent.change(dateInput, { target: { value: dateInputString } })
+            fireEvent.blur(dateInput)
 
-                dateInputString = '2080-04-32'
-                await userEvent.clear(dateInput)
-                await userEvent.type(dateInput, dateInputString)
-                await userEvent.tab()
-
-                expect(
-                    queryByText(/greater than the maximum allowed date/)
-                ).not.toBeInTheDocument()
-
-                dateInputString = '2080-01-32'
-                await userEvent.clear(dateInput)
-                await userEvent.type(dateInput, dateInputString)
-                await userEvent.tab()
-
-                expect(
-                    await findByText('Invalid date in specified calendar')
-                ).toBeInTheDocument()
-            },
-            20 * 1000
-        )
+            expect(
+                getByText('Invalid date in specified calendar')
+            ).toBeInTheDocument()
+        })
         it.skip('should validate from date picker', async () => {
-            jest.useFakeTimers('modern')
+            jest.useFakeTimers()
             jest.setSystemTime(new Date('2024-10-22T09:05:00.000Z'))
 
             const onDateSelectMock = jest.fn()
@@ -227,8 +213,14 @@ describe('Calendar Input', () => {
                 getByTestId('dhis2-uicore-input')
             ).getByRole('textbox')
 
-            await fireEvent.focusIn(dateInput)
-            await fireEvent.click(getByText('17'))
+            act(() => {
+                fireEvent.focusIn(dateInput)
+            })
+
+            act(() => {
+                fireEvent.click(getByText('17'))
+            })
+
             expect(queryByText('17')).not.toBeInTheDocument()
 
             // Checking fix for Bug where callback used to be called twice - first with undefined
@@ -237,9 +229,11 @@ describe('Calendar Input', () => {
                 calendarDateString: '2024-10-17',
                 validation: { error: false, valid: true, warning: false },
             })
+
+            jest.useRealTimers()
         })
 
-        it('should validate with Clear', async () => {
+        it('should validate with Clear', () => {
             const onDateSelectMock = jest.fn()
             const { queryByText, getByText, getByTestId } = render(
                 <CalendarWithValidation
@@ -255,15 +249,14 @@ describe('Calendar Input', () => {
                 getByTestId('dhis2-uicore-input')
             ).getByRole('textbox')
 
-            await userEvent.clear(dateInput)
-            await userEvent.type(dateInput, dateInputString)
-            await userEvent.tab()
+            fireEvent.change(dateInput, { target: { value: dateInputString } })
+            fireEvent.blur(dateInput)
 
             expect(
                 getByTestId('dhis2-uiwidgets-calendar-inputfield-validation')
             ).toBeInTheDocument()
 
-            await userEvent.click(getByText('Clear'))
+            fireEvent.click(getByText('Clear'))
             expect(queryByText('17')).not.toBeInTheDocument()
 
             expect(onDateSelectMock).toHaveBeenLastCalledWith({
@@ -272,7 +265,7 @@ describe('Calendar Input', () => {
             })
         })
 
-        it('should validate when Clearing manually (i.e. deleting text not using clear button)', async () => {
+        it('should validate when Clearing manually (i.e. deleting text not using clear button)', () => {
             const onDateSelectMock = jest.fn()
             const { getByTestId } = render(
                 <CalendarWithValidation
@@ -288,16 +281,15 @@ describe('Calendar Input', () => {
                 getByTestId('dhis2-uicore-input')
             ).getByRole('textbox')
 
-            await userEvent.clear(dateInput)
-            await userEvent.type(dateInput, dateInputString)
-            await userEvent.tab()
+            fireEvent.change(dateInput, { target: { value: dateInputString } })
+            fireEvent.blur(dateInput)
 
             expect(
                 getByTestId('dhis2-uiwidgets-calendar-inputfield-validation')
             ).toBeInTheDocument()
 
-            await userEvent.clear(dateInput)
-            await userEvent.tab()
+            fireEvent.change(dateInput, { target: { value: '' } })
+            fireEvent.blur(dateInput)
 
             expect(onDateSelectMock).toHaveBeenCalledWith({
                 calendarDateString: null,
