@@ -1,5 +1,5 @@
 import { Button } from '@dhis2-ui/button'
-import { act, fireEvent, render, waitFor, within } from '@testing-library/react'
+import { fireEvent, render, waitFor, within } from '@testing-library/react'
 import React, { useState } from 'react'
 import { Field, Form } from 'react-final-form'
 import { CalendarInput } from '../calendar-input.js'
@@ -87,7 +87,6 @@ describe('Calendar Input', () => {
             ).toBeInTheDocument()
             expect(onDateSelectMock).toHaveBeenCalledTimes(1)
         })
-        // skipping since test times out - reference issue: https://dhis2.atlassian.net/browse/LIBS-763
         it('should validate maximum date', () => {
             const { getByTestId, getByText } = render(
                 <CalendarWithValidation
@@ -196,7 +195,7 @@ describe('Calendar Input', () => {
                 getByText('Invalid date in specified calendar')
             ).toBeInTheDocument()
         })
-        it.skip('should validate from date picker', async () => {
+        it('should validate from date picker', () => {
             jest.useFakeTimers()
             jest.setSystemTime(new Date('2024-10-22T09:05:00.000Z'))
 
@@ -213,13 +212,8 @@ describe('Calendar Input', () => {
                 getByTestId('dhis2-uicore-input')
             ).getByRole('textbox')
 
-            act(() => {
-                fireEvent.focusIn(dateInput)
-            })
-
-            act(() => {
-                fireEvent.click(getByText('17'))
-            })
+            fireEvent.focusIn(dateInput)
+            fireEvent.click(getByText('17'))
 
             expect(queryByText('17')).not.toBeInTheDocument()
 
