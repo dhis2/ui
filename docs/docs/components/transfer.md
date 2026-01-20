@@ -149,8 +149,22 @@ The footer component is as follows:
 />
 
 -   Different types of data will need different loading strategies.
--   Use a [`Loader`](loading.md) to block interaction if using the transfer while loading is taking place can cause problems.
--   A common pattern is loading more options as a user scrolls. See the [Transfer: Infinite Loading recipe](/docs/ui/recipes/transfer-infinite-loading-all-options-selected) for more information.
+-   Set the `loading` or `loadingPicked` prop to `true` to block interaction with the transfer while loading is taking place.
+
+#### Infinite/lazy loading
+
+<Demo
+    path="transfer--transfer--infinite-loading"
+    height="320px"
+/>
+
+Load more options as a user scrolls down. Use the following props together:
+
+-   `loading`: Set to `true` when fetching data, `false` when complete.
+-   `onEndReached`: Called when the user scrolls to the end of the list or when the end of the list is already visible after the `options` array changes.
+-   `selectedOptionsLookup`: Provide a lookup object for selected items that aren't in the current `options` array.
+
+Server-side filtering is another common pattern. Use the `loading` and `selectedOptionsLookup` props together, since not all selected options will be present in the filtered options list. Server-side filtering can be combined with lazy loading.
 
 ## API Reference
 
