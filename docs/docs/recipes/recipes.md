@@ -8,4 +8,3 @@ Recipes in this section are guides for composing components from the UI library 
 
 -   [**Simple Single Select - Simple filtering**](recipes/simple-single-select-simple-filtering)
 -   [**Simple Single Select - Server-side filtering**](recipes/simple-single-select-server-side-filtering)
--   [**Transfer: Infinite loading - All loaded options are already selected**](recipes/transfer-infinite-loading-all-options-selected)
