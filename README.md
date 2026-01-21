@@ -86,7 +86,7 @@ yarn start
 yarn start --no-manager-cache
 ```
 
-For the `yarn start` command, you can run it at the top-level directory if you are interested in looking at the StoryBook for all components, or navigate to a single component and run it there, which is usually much quicker if you're working on one component.
+For the `yarn start` command, you can run it at the top-level directory if you are interested in looking at the StoryBook for all components, or navigate to a single component and run it there, which will usually start up StoryBook faster if you're working on one component.
 
 ## Conditional E2E Test Recording
 

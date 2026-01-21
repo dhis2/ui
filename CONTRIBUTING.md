@@ -23,7 +23,7 @@ Once you picked the issue, please indicate (in a comment on the ticket or by con
 
 For contributions, we follow [Github Flow](https://docs.github.com/en/get-started/using-github/github-flow) process. This is a high-level description of how the process looks like in the context of contributions to DHIS2 projects:
 
-1. Clone the repo to your personal GitHub
+1. Fork the repo to your personal GitHub
 1. Create a branch for your work `git checkout -b JIRA_TICKET_NUMBER/ticket-short-description` - while we don't enforce branch names, it is a good practice to include the ticket number, so if you are working on this [ticket LIBS-813](https://dhis2.atlassian.net/browse/LIBS-813) on Jira, your branch name can be `LIBS-813/clear-button-fix` (and the command `git checkout -b LIBS-813/clear-button-fix`).
 1. Work on your ticket. You can find instructions on how to run the project in the README.
     1. Commit your work - Your Commits should follow [conventional commtis](https://www.conventionalcommits.org/en/v1.0.0/) specification.
@@ -33,11 +33,11 @@ For contributions, we follow [Github Flow](https://docs.github.com/en/get-starte
 
 #### Good commit messages
 
-Our commit messages standard is one of the areas that trips first-time contributors, so make sure to understand it and pay attention to having _good_ commit messages that follow the [conventional commtis](https://www.conventionalcommits.org/en/v1.0.0/) specification.
+Our commit message standard is one of the areas that trips up first-time contributors, so make sure to understand it and pay attention to having _good_ commit messages that follow the [conventional commtis](https://www.conventionalcommits.org/en/v1.0.0/) specification.
 
 In practice, this means that you should have a prefix and a description, i.e. `fix: make clear button not focusable`, notice:
 
--   The `fix` (or `feat` or `docts` etc..) prefix, followed by a colon `:` and a `space` - all of these parts are important, even the space! Otherwise your PR will fail on CI checks.
+-   The `fix` (or `feat` or `docs` etc..) prefix, followed by a colon `:` and a `space`, then the message starts with a lower-case letter - all of these parts are important, even the space! Otherwise your PR will fail on CI checks.
 
 -   You can optionally - and we encourage you to do so - add a scope to the prefix, this can be the UI component you worked on, so `fix(transfer): make clear button not focusable`. Some people also choose to use the JIRA ticket number for the scope.
 
@@ -81,8 +81,8 @@ Make sure you followed our coding conventions in the repo. While this might vary
 
 -   Your code is well formatted - run `yarn format` at the end of your work
     -   This should be done automatically in your IDE, but some of our legacy repos are not well configured.
--   Ensure that the tests are passing, and that you added relevant tests to your PR.
--   Ensure sure the documentation was updated, especially for library projects (like UI or app-plaatform).
+-   Add relevant tests to your PR, and ensure that all tests are passing
+-   Ensure sure the documentation was updated, especially for library projects (like UI or app-platform).
 
 ## Report an issue
 
