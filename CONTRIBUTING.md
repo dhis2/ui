@@ -7,6 +7,7 @@ The process from a high-level is:
 1. Find or create a Jira ticket for the issue you want to work on
 1. Create a PR for the contribution according to our guidelines (described below)
 1. The core team will review the PR and raise comments; then you should:
+    1. Keep an eye on CI (continuous integration) failures and fix them
     1. Respond to comments on the PR
     1. Update the PR, until it is approved
 1. Once approved, the PR will be merged, and it will be part of the next release!
