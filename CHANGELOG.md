@@ -1,3 +1,10 @@
+## [10.12.3](https://github.com/dhis2/ui/compare/v10.12.2...v10.12.3) (2026-01-21)
+
+
+### Bug Fixes
+
+* make clear button untabbable ([#1718](https://github.com/dhis2/ui/issues/1718)) ([b619d49](https://github.com/dhis2/ui/commit/b619d49318b45229771df8f2f4be78f013b7be4a))
+
 ## [10.12.2](https://github.com/dhis2/ui/compare/v10.12.1...v10.12.2) (2026-01-20)
 
 
