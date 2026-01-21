@@ -19,6 +19,7 @@ function ClearButton({ onClear, clearText, dataTest }) {
                 e.stopPropagation()
                 onClear()
             }}
+            tabIndex="-1"
         >
             <svg
                 width="16"
