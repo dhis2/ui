@@ -79,13 +79,14 @@ The `FF` suffix ensures that these components don't clash with our regular field
 git clone git@github.com:dhis2/ui.git && cd ui
 
 yarn install
-yarn d2-style install
-yarn setup
+yarn build # make sure to run this at the top-level the first time
 yarn start
 
 # in case manager complains about the main.manager.bundle.js, e.g. cannot import @dhis2/ui-constants, then use:
 yarn start --no-manager-cache
 ```
+
+For the `yarn start` command, you can run it at the top-level directory if you are interested in looking at the StoryBook for all components, or navigate to a single component and run it there, which is usually much quicker if you're working on one component.
 
 ## Conditional E2E Test Recording
 
