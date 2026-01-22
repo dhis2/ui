@@ -1,3 +1,10 @@
+## [10.12.4](https://github.com/dhis2/ui/compare/v10.12.3...v10.12.4) (2026-01-22)
+
+
+### Bug Fixes
+
+* expose SimpleSingleSelectField ([#1721](https://github.com/dhis2/ui/issues/1721)) ([9c230a2](https://github.com/dhis2/ui/commit/9c230a28e49a0b165e4077a6a650782c8740ff9f))
+
 ## [10.12.3](https://github.com/dhis2/ui/compare/v10.12.2...v10.12.3) (2026-01-21)
 
 
