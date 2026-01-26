@@ -41,6 +41,9 @@ export { Pagination, PaginationProps } from '@dhis2-ui/pagination'
 export * from '@dhis2-ui/sharing-dialog'
 export {
     SimpleSingleSelect,
+    SimpleSingleSelectProps,
+    SimpleSingleSelectField,
+    SimpleSingleSelectFieldProps,
     SingleSelect,
     SingleSelectField,
     SingleSelectOption,
