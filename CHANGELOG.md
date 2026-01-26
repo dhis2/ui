@@ -1,3 +1,10 @@
+## [10.12.5](https://github.com/dhis2/ui/compare/v10.12.4...v10.12.5) (2026-01-26)
+
+
+### Bug Fixes
+
+* export additional simple select types ([#1722](https://github.com/dhis2/ui/issues/1722)) ([6d016dc](https://github.com/dhis2/ui/commit/6d016dc184a171d6da47fffd709a726fc1a95286))
+
 ## [10.12.4](https://github.com/dhis2/ui/compare/v10.12.3...v10.12.4) (2026-01-22)
 
 
