@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom'
 import { render, fireEvent, screen } from '@testing-library/react'
-import React from 'react'
+import React, { useState } from 'react'
 import { SimpleSingleSelect } from './simple-single-select.js'
 
 describe('<SimpleSingleSelect />', () => {
@@ -602,6 +602,38 @@ describe('<SimpleSingleSelect />', () => {
         expect(screen.queryByRole('listbox')).toBeNull()
         expect(onChange).toHaveBeenCalledTimes(1)
         expect(onChange).toHaveBeenCalledWith({ value: 'foo', label: 'Foo' })
+    })
+
+    it('should clear the selected value when closed, clearable and user presses Escape', () => {
+        function TestSelect() {
+            const [selected, setSelected] = useState({
+                label: 'Foo',
+                value: 'foo',
+            })
+
+            return (
+                <SimpleSingleSelect
+                    clearable
+                    name="simple"
+                    selected={selected}
+                    onClear={() => setSelected({
+                        label: '',
+                        value: ''
+                    })}
+                    options={[
+                        { value: '', label: 'None' },
+                        { value: 'foo', label: 'Foo' },
+                        { value: 'bar', label: 'Bar' },
+                    ]}
+                />
+            )
+        }
+        render(<TestSelect />)
+
+        expect(screen.queryByRole('listbox')).toBeNull()
+        expect(screen.getByText('Foo')).toBeInTheDocument()
+        fireEvent.keyDown(screen.getByRole('combobox'), { key: 'Escape' })
+        expect(screen.queryByText("Foo")).toBeNull()
     })
 
     it('should not select the next option when closed, disabled and user presses ArrowDown', () => {

@@ -85,7 +85,7 @@ export function SimpleSingleSelect({
     valid = false,
     warning = false,
     onBlur = () => undefined,
-    onClear = () => undefined,
+    onClear,
     onEndReached = () => undefined,
     onFilterChange = () => undefined,
     onFocus = () => undefined,
@@ -165,6 +165,8 @@ export function SimpleSingleSelect({
         focussedOptionIndex,
         setFocussedOptionIndex,
         selectFocussedOption,
+        clearable,
+        onClear
     })
 
     const handleKeyDownOnFilterInput = useHandleKeyPressOnFilterInput({
