@@ -47,7 +47,7 @@ export function useHandleKeyPressOnCombobox({
     selectFocussedOption,
     onChange,
     clearable,
-    onClear
+    onClear,
 }) {
     const { onTyping, typing } = useHandleTyping({
         expanded,

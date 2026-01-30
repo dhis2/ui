@@ -617,10 +617,12 @@ describe('<SimpleSingleSelect />', () => {
                         clearable
                         name="simple"
                         selected={selected}
-                        onClear={() => setSelected({
-                            label: '',
-                            value: ''
-                        })}
+                        onClear={() =>
+                            setSelected({
+                                label: '',
+                                value: '',
+                            })
+                        }
                         options={[
                             { value: '', label: 'None' },
                             { value: 'foo', label: 'Foo' },
@@ -637,11 +639,11 @@ describe('<SimpleSingleSelect />', () => {
             // there are selected value
             expect(screen.getByText('Foo')).toBeInTheDocument()
 
-            // press Escape once to clear the selected value 
+            // press Escape once to clear the selected value
             fireEvent.keyDown(screen.getByRole('combobox'), { key: 'Escape' })
 
             // the value is cleared
-            expect(screen.queryByText("Foo")).toBeNull()
+            expect(screen.queryByText('Foo')).toBeNull()
         })
 
         it('should clear the selected value when open and ESCAPE is pressed twice', () => {
@@ -652,7 +654,7 @@ describe('<SimpleSingleSelect />', () => {
                     clearable
                     name="simple"
                     selected={{ value: 'bar', label: 'Bar' }}
-                    onChange={() => { }}
+                    onChange={() => {}}
                     onClear={onClear}
                     clearText="Clear"
                     options={[
@@ -666,19 +668,19 @@ describe('<SimpleSingleSelect />', () => {
             const comboBox = screen.getByRole('combobox')
 
             // open the menu
-            expect(comboBox.attributes.getNamedItem('aria-expanded').value).toBe(
-                'false'
-            )
+            expect(
+                comboBox.attributes.getNamedItem('aria-expanded').value
+            ).toBe('false')
             fireEvent.click(comboBox)
-            expect(comboBox.attributes.getNamedItem('aria-expanded').value).toBe(
-                'true'
-            )
+            expect(
+                comboBox.attributes.getNamedItem('aria-expanded').value
+            ).toBe('true')
 
             // The first escape should close the combo BUT not call clear
             fireEvent.keyDown(screen.getByRole('combobox'), { key: 'Escape' })
-            expect(comboBox.attributes.getNamedItem('aria-expanded').value).toBe(
-                'false'
-            )
+            expect(
+                comboBox.attributes.getNamedItem('aria-expanded').value
+            ).toBe('false')
             expect(onClear).not.toHaveBeenCalledWith()
 
             // The second escape should call clear
@@ -686,7 +688,6 @@ describe('<SimpleSingleSelect />', () => {
             expect(onClear).toHaveBeenCalledWith()
         })
     })
-
 
     it('should not select the next option when closed, disabled and user presses ArrowDown', () => {
         const onChange = jest.fn()
