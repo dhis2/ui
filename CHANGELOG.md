@@ -1,3 +1,10 @@
+## [10.12.6](https://github.com/dhis2/ui/compare/v10.12.5...v10.12.6) (2026-01-30)
+
+
+### Bug Fixes
+
+* **simple-single-select:** clear selected option on ESC ([#1723](https://github.com/dhis2/ui/issues/1723)) ([65299b1](https://github.com/dhis2/ui/commit/65299b16f63f18f2e93b1dee2b8afc4b80426dd8))
+
 ## [10.12.5](https://github.com/dhis2/ui/compare/v10.12.4...v10.12.5) (2026-01-26)
 
 
