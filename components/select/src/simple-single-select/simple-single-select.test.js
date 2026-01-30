@@ -604,22 +604,57 @@ describe('<SimpleSingleSelect />', () => {
         expect(onChange).toHaveBeenCalledWith({ value: 'foo', label: 'Foo' })
     })
 
-    it('should clear the selected value when closed, clearable and user presses Escape', () => {
-        function TestSelect() {
-            const [selected, setSelected] = useState({
-                label: 'Foo',
-                value: 'foo',
-            })
+    describe('Clear the selected value when ESCAPE is pressed', () => {
+        it('should clear the selected value when closed, clearable and user presses Escape', () => {
+            function TestSelect() {
+                const [selected, setSelected] = useState({
+                    label: 'Foo',
+                    value: 'foo',
+                })
 
-            return (
+                return (
+                    <SimpleSingleSelect
+                        clearable
+                        name="simple"
+                        selected={selected}
+                        onClear={() => setSelected({
+                            label: '',
+                            value: ''
+                        })}
+                        options={[
+                            { value: '', label: 'None' },
+                            { value: 'foo', label: 'Foo' },
+                            { value: 'bar', label: 'Bar' },
+                        ]}
+                    />
+                )
+            }
+            render(<TestSelect />)
+
+            // menu is closed
+            expect(screen.queryByRole('listbox')).toBeNull()
+
+            // there are selected value
+            expect(screen.getByText('Foo')).toBeInTheDocument()
+
+            // press Escape once to clear the selected value 
+            fireEvent.keyDown(screen.getByRole('combobox'), { key: 'Escape' })
+
+            // the value is cleared
+            expect(screen.queryByText("Foo")).toBeNull()
+        })
+
+        it('should clear the selected value when open and ESCAPE is pressed twice', () => {
+            const onClear = jest.fn()
+
+            render(
                 <SimpleSingleSelect
                     clearable
                     name="simple"
-                    selected={selected}
-                    onClear={() => setSelected({
-                        label: '',
-                        value: ''
-                    })}
+                    selected={{ value: 'bar', label: 'Bar' }}
+                    onChange={() => { }}
+                    onClear={onClear}
+                    clearText="Clear"
                     options={[
                         { value: '', label: 'None' },
                         { value: 'foo', label: 'Foo' },
@@ -627,14 +662,31 @@ describe('<SimpleSingleSelect />', () => {
                     ]}
                 />
             )
-        }
-        render(<TestSelect />)
 
-        expect(screen.queryByRole('listbox')).toBeNull()
-        expect(screen.getByText('Foo')).toBeInTheDocument()
-        fireEvent.keyDown(screen.getByRole('combobox'), { key: 'Escape' })
-        expect(screen.queryByText("Foo")).toBeNull()
+            const comboBox = screen.getByRole('combobox')
+
+            // open the menu
+            expect(comboBox.attributes.getNamedItem('aria-expanded').value).toBe(
+                'false'
+            )
+            fireEvent.click(comboBox)
+            expect(comboBox.attributes.getNamedItem('aria-expanded').value).toBe(
+                'true'
+            )
+
+            // The first escape should close the combo BUT not call clear
+            fireEvent.keyDown(screen.getByRole('combobox'), { key: 'Escape' })
+            expect(comboBox.attributes.getNamedItem('aria-expanded').value).toBe(
+                'false'
+            )
+            expect(onClear).not.toHaveBeenCalledWith()
+
+            // The second escape should call clear
+            fireEvent.keyDown(screen.getByRole('combobox'), { key: 'Escape' })
+            expect(onClear).toHaveBeenCalledWith()
+        })
     })
+
 
     it('should not select the next option when closed, disabled and user presses ArrowDown', () => {
         const onChange = jest.fn()

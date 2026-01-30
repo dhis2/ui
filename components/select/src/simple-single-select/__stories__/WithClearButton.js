@@ -17,7 +17,6 @@ export const WithClearButton = () => {
                 value: '',
             })}
             selected={selected}
-            setSelectedValue={setSelected}
             onChange={setSelected}
             options={fiveOptions}
         />

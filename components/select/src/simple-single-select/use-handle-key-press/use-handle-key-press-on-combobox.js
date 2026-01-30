@@ -151,7 +151,7 @@ export function useHandleKeyPressOnCombobox({
             }
 
             if (!expanded && clearable && key === 'Escape') {
-                onClear()
+                onClear?.()
                 return
             }
 

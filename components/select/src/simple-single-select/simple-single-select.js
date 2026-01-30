@@ -85,7 +85,7 @@ export function SimpleSingleSelect({
     valid = false,
     warning = false,
     onBlur = () => undefined,
-    onClear,
+    onClear = () => undefined,
     onEndReached = () => undefined,
     onFilterChange = () => undefined,
     onFocus = () => undefined,
