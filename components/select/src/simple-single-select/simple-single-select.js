@@ -165,6 +165,8 @@ export function SimpleSingleSelect({
         focussedOptionIndex,
         setFocussedOptionIndex,
         selectFocussedOption,
+        clearable,
+        onClear,
     })
 
     const handleKeyDownOnFilterInput = useHandleKeyPressOnFilterInput({
