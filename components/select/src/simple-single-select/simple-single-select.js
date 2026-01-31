@@ -103,6 +103,7 @@ export function SimpleSingleSelect({
 
     const comboBoxRef = useRef()
     const listBoxRef = useRef()
+    const filterRef = useRef()
     const [focussedOptionIndex, setFocussedOptionIndex] =
         useFocussedOptionIndex({
             filterable,
@@ -165,6 +166,7 @@ export function SimpleSingleSelect({
         focussedOptionIndex,
         setFocussedOptionIndex,
         selectFocussedOption,
+        filterRef,
     })
 
     const handleKeyDownOnFilterInput = useHandleKeyPressOnFilterInput({
@@ -260,6 +262,8 @@ export function SimpleSingleSelect({
                 onClose={closeMenu}
                 onEndReached={onEndReached}
                 onFilterChange={onFilterChange}
+                filterRef={filterRef}
+                onOptionsKeyDown={handleKeyDown}
             />
         </div>
     )
