@@ -1832,6 +1832,61 @@ import { SimpleSingleSelect } from '@dhis2/ui'
 |onFilterChange|function|``() => undefined``||Will be called when the filter value changes *|
 |onFocus|function|``() => undefined``||Will be called when the combobox is being focused *|
 
+### SimpleSingleSelectField
+
+#### Usage
+
+To use `SimpleSingleSelectField`, you can import the component from the `@dhis2/ui` library  
+
+
+```js
+import { SimpleSingleSelectField } from '@dhis2/ui'
+```
+
+
+#### Props
+
+|Name|Type|Default|Required|Description|
+|---|---|---|---|---|
+|label|string||*|Label displayed above the input *|
+|name|string||*|necessary for IDs that are required for accessibility *|
+|options|`arrayOf(custom)`||*|An array of options *|
+|onChange|function||*|A callback that will be called with the new value or an empty string *|
+|autoFocus|boolean|||Will focus the select initially *|
+|className|string|||Additional class names that will be applied to the root element *|
+|clearText|custom|||This will allow us to put an aria-label on the clear button *|
+|clearable|boolean|||Whether a clear button should be displayed or not *|
+|dataTest|string|||A value for a `data-test` attribute on the root element *|
+|dense|boolean|||Renders a select with lower height *|
+|disabled|boolean|||Disables all interactions with the select (except focussing) *|
+|empty|node|||Text or component to display when there are no options *|
+|error|custom|||Applies 'error' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props *|
+|filterHelpText|string|||Help text that will be displayed below the input *|
+|filterLabel|string|||Value will be used as aria-label attribute on the filter input *|
+|filterPlaceholder|string|||Placeholder for the filter input *|
+|filterValue|string|||Value of the filter input *|
+|filterable|boolean|||Whether the select should display a filter input *|
+|helpText|string|||Help text, displayed below the input *|
+|loading|boolean|||Will show a loading indicator at the end of the options-list *|
+|menuLoadingText|string|||Text that will be displayed next to the loading indicator *|
+|menuMaxHeight|string|||Allows to modify the max height of the menu *|
+|noMatchText|custom|||String that will be displayed when the select is being filtered but the options array is empty *|
+|optionComponent|elementType|||Allows to override what's rendered inside the `button[role="option"]`.<br/>Can be overriden on an individual option basis *|
+|optionUpdateStrategy|'off' │ 'polite' │ 'assertive'|||For a11y: How aggressively the user should be updated about changes in options *|
+|placeholder|string|||String to show when there's no value and no valueLabel *|
+|prefix|string|||String that will be displayed before the label of the selected option *|
+|required|boolean|||Whether a value is required or not *|
+|tabIndex|string │ number|||Standard HTML tab-index attribute that will be put on the combobox's root element *|
+|valid|custom|||Applies 'valid' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props *|
+|validationText|string|||Text shown below input when `props.error` is true *|
+|value|string|||As of now, this component does not support being uncontrolled *|
+|valueLabel|custom|||When the option is not in the options list (e.g. not loaded or list is<br/>filtered), but a selected value needs to be displayed, then this prop can<br/>be used to supply the text to be shown.|
+|warning|custom|||Applies 'warning' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props *|
+|onBlur|function|||Will be called when the combobox is loses focus *|
+|onEndReached|function|||Will be called when the last option is scrolled into the visible area *|
+|onFilterChange|function|||Will be called when the filter value changes *|
+|onFocus|function|||Will be called when the combobox is being focused *|
+
 ### Input
 
 #### Usage

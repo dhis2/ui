@@ -1,3 +1,24 @@
+## [10.12.6](https://github.com/dhis2/ui/compare/v10.12.5...v10.12.6) (2026-01-30)
+
+
+### Bug Fixes
+
+* **simple-single-select:** clear selected option on ESC ([#1723](https://github.com/dhis2/ui/issues/1723)) ([65299b1](https://github.com/dhis2/ui/commit/65299b16f63f18f2e93b1dee2b8afc4b80426dd8))
+
+## [10.12.5](https://github.com/dhis2/ui/compare/v10.12.4...v10.12.5) (2026-01-26)
+
+
+### Bug Fixes
+
+* export additional simple select types ([#1722](https://github.com/dhis2/ui/issues/1722)) ([6d016dc](https://github.com/dhis2/ui/commit/6d016dc184a171d6da47fffd709a726fc1a95286))
+
+## [10.12.4](https://github.com/dhis2/ui/compare/v10.12.3...v10.12.4) (2026-01-22)
+
+
+### Bug Fixes
+
+* expose SimpleSingleSelectField ([#1721](https://github.com/dhis2/ui/issues/1721)) ([9c230a2](https://github.com/dhis2/ui/commit/9c230a28e49a0b165e4077a6a650782c8740ff9f))
+
 ## [10.12.3](https://github.com/dhis2/ui/compare/v10.12.2...v10.12.3) (2026-01-21)
 
 

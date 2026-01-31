@@ -450,6 +450,128 @@ export interface SimpleSingleSelectProps {
 
 export const SimpleSingleSelect: React.FC<SimpleSingleSelectProps>
 
+export interface SimpleSingleSelectFieldProps {
+    /** Label displayed above the input **/
+    label: string
+
+    /** necessary for IDs that are required for accessibility **/
+    name: string
+
+    /** An array of options **/
+    options: optionProp[]
+
+    /** A callback that will be called with the new value or an empty string **/
+    onChange: (value: string) => void
+
+    /** Will focus the select initially **/
+    autoFocus?: boolean
+
+    /** Additional class names that will be applied to the root element **/
+    className?: string
+
+    /** This will allow us to put an aria-label on the clear button **/
+    clearText?: string
+
+    /** Whether a clear button should be displayed or not **/
+    clearable?: boolean
+
+    /** A value for a `data-test` attribute on the root element **/
+    dataTest?: string
+
+    /** Renders a select with lower height **/
+    dense?: boolean
+
+    /** Disables all interactions with the select (except focussing) **/
+    disabled?: boolean
+
+    /** Text or component to display when there are no options **/
+    empty?: React.ReactNode
+
+    /** Applies 'error' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props **/
+    error?: boolean
+
+    /** Help text that will be displayed below the input **/
+    filterHelpText?: string
+
+    /** Value will be used as aria-label attribute on the filter input **/
+    filterLabel?: string
+
+    /** Placeholder for the filter input **/
+    filterPlaceholder?: string
+
+    /** Value of the filter input **/
+    filterValue?: string
+
+    /** Whether the select should display a filter input **/
+    filterable?: boolean
+
+    /** Help text, displayed below the input **/
+    helpText?: string
+
+    /** Will show a loading indicator at the end of the options-list **/
+    loading?: boolean
+
+    /** Text that will be displayed next to the loading indicator **/
+    menuLoadingText?: string
+
+    /** Allows to modify the max height of the menu **/
+    menuMaxHeight?: string
+
+    /** String that will be displayed when the select is being filtered but the options array is empty **/
+    noMatchText?: string
+
+    /** Allows to override what's rendered inside the `button[role="option"]`.
+     * Can be overriden on an individual option basis **/
+    optionComponent?: React.ReactNode
+
+    /** For a11y: How aggressively the user should be updated about changes in options **/
+    optionUpdateStrategy?: 'off' | 'polite' | 'assertive'
+
+    /** String to show when there's no value and no valueLabel **/
+    placeholder?: string
+
+    /** String that will be displayed before the label of the selected option **/
+    prefix?: string
+
+    /** Whether a value is required or not **/
+    required?: boolean
+
+    /** Standard HTML tab-index attribute that will be put on the combobox's root element **/
+    tabIndex?: string | number
+
+    /** Applies 'valid' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props **/
+    valid?: boolean
+
+    /** Text shown below input when `props.error` is true **/
+    validationText?: string
+
+    /** As of now, this component does not support being uncontrolled **/
+    value?: string
+
+    /**
+     * When the option is not in the options list (e.g. not loaded or list is
+     * filtered), but a selected value needs to be displayed, then this prop can
+     * be used to supply the text to be shown.
+     **/
+    valueLabel?: string
+
+    /** Applies 'warning' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props **/
+    warning?: boolean
+
+    /** Will be called when the combobox is loses focus **/
+    onBlur?: (e: React.FocusEvent<HTMLElement>) => void
+
+    /** Will be called when the last option is scrolled into the visible area **/
+    onEndReached?: () => void
+
+    /** Will be called when the filter value changes **/
+    onFilterChange?: (value: string) => void
+
+    /** Will be called when the combobox is being focused **/
+    onFocus?: (e: React.FocusEvent<HTMLElement>) => void
+}
+
+export const SimpleSingleSelectField: React.FC<SimpleSingleSelectFieldProps>
 /**
  * ====================
  *
