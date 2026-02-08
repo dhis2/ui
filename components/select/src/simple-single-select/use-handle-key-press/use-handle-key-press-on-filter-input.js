@@ -87,6 +87,7 @@ export function useHandleKeyPressOnFilterInput({
             if (key === 'ArrowDown') {
                 e.preventDefault() // Disable moving cursor to end
                 focusNextOption()
+                listBoxRef.current?.focus()
                 return
             }
 
@@ -134,6 +135,7 @@ export function useHandleKeyPressOnFilterInput({
             focusLastOption,
             pageDown,
             pageUp,
+            listBoxRef,
         ]
     )
 

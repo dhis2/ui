@@ -1,23 +1,28 @@
 import { colors, spacers } from '@dhis2/ui-constants'
 import { Input } from '@dhis2-ui/input'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { forwardRef } from 'react'
 import i18n from '../../locales/index.js'
 
-export function Filter({
-    ariaControls,
-    dataTest,
-    label,
-    placeholder,
-    tabIndex,
-    value,
-    onChange,
-    onKeyDown,
-}) {
+export const Filter = forwardRef(function Filter(
+    {
+        ariaControls,
+        dataTest,
+        label,
+        placeholder,
+        tabIndex,
+        value,
+        onChange,
+        onKeyDown,
+        onFocus,
+    },
+    ref
+) {
     return (
         <div data-test={dataTest}>
             <Input
                 dense
+                ref={ref}
                 tabIndex={tabIndex}
                 ariaControls={ariaControls}
                 ariaHaspopup="listbox"
@@ -29,6 +34,7 @@ export function Filter({
                 name="filter"
                 placeholder={placeholder}
                 onKeyDown={(_, e) => onKeyDown(e)}
+                onFocus={onFocus}
             />
 
             <style jsx>{`
@@ -44,7 +50,7 @@ export function Filter({
             `}</style>
         </div>
     )
-}
+})
 
 Filter.propTypes = {
     ariaControls: PropTypes.string.isRequired,
@@ -54,5 +60,6 @@ Filter.propTypes = {
     label: PropTypes.string,
     placeholder: PropTypes.string,
     tabIndex: PropTypes.string,
+    onFocus: PropTypes.func,
     onKeyDown: PropTypes.func,
 }

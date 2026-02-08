@@ -40,6 +40,8 @@ export function Menu({
     onEndReached,
     onFilterChange,
     onFilterInputKeyDown,
+    filterRef,
+    onOptionsKeyDown,
 }) {
     const [menuWidth, setWidth] = useState('auto')
     const dataTestPrefix = `${dataTest}-menu`
@@ -78,6 +80,7 @@ export function Menu({
                     {filterable && (
                         <div className="filter-container">
                             <Filter
+                                ref={filterRef}
                                 dataTest={`${dataTestPrefix}-filter`}
                                 value={filterValue}
                                 label={filterLabel}
@@ -98,6 +101,7 @@ export function Menu({
                         <div className="listbox-wrapper">
                             <OptionsList
                                 ref={listBoxRef}
+                                onKeyDown={onOptionsKeyDown}
                                 comboBoxId={comboBoxId}
                                 optionComponent={optionComponent}
                                 dataTest={`${dataTestPrefix}-list`}
@@ -196,4 +200,8 @@ Menu.propTypes = {
     onEndReached: PropTypes.func,
     onFilterChange: PropTypes.func,
     onFilterInputKeyDown: PropTypes.func,
+    onOptionsKeyDown: PropTypes.func,
+    filterRef: PropTypes.shape({
+        current: PropTypes.instanceOf(HTMLElement),
+    }),
 }
