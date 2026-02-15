@@ -1,13 +1,12 @@
 # 
 # Translators:
-# Siddharth Agarwal, 2025
 # Rohit Wadhwani, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-06-04T18:40:29.413Z\n"
-"PO-Revision-Date: 2021-06-24 12:50+0000\n"
+"POT-Creation-Date: 2021-12-07T14:09:16.792Z\n"
+"PO-Revision-Date: 2023-06-08 13:23+0000\n"
 "Last-Translator: Rohit Wadhwani, 2026\n"
 "Language-Team: Hindi (India) (https://app.transifex.com/hisp-uio/teams/100509/hi_IN/)\n"
 "MIME-Version: 1.0\n"
@@ -16,11 +15,5 @@ msgstr ""
 "Language: hi_IN\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "Upload a file"
-msgstr "फ़ाइल अपलोड करें"
-
-msgid "No file uploaded yet"
-msgstr "अभी तक कोई फ़ाइल अपलोड नहीं की गई है"
-
-msgid "Remove"
-msgstr "हटाएं"
+msgid "Clear selections"
+msgstr "चयन साफ़ करें"

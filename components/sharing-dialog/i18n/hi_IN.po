@@ -1,29 +1,29 @@
 # 
 # Translators:
 # Siddharth Agarwal, 2025
-# Rohit Wadhwani, 2025
+# Rohit Wadhwani, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2025-06-24T11:04:00.759Z\n"
 "PO-Revision-Date: 2021-10-01 23:39+0000\n"
-"Last-Translator: Rohit Wadhwani, 2025\n"
+"Last-Translator: Rohit Wadhwani, 2026\n"
 "Language-Team: Hindi (India) (https://app.transifex.com/hisp-uio/teams/100509/hi_IN/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hi_IN\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "View only"
-msgstr ""
+msgstr "केवल देखें"
 
 msgid "View and edit"
-msgstr ""
+msgstr "देखें और संपादित करें"
 
 msgid "No access"
-msgstr ""
+msgstr "कोई एक्सेस नहीं"
 
 msgid "Give access to a user or group"
 msgstr ""
@@ -62,13 +62,13 @@ msgid "User group"
 msgstr ""
 
 msgid "User"
-msgstr ""
+msgstr "यूज़र"
 
 msgid "Data"
 msgstr "डेटा"
 
 msgid "Remove access"
-msgstr ""
+msgstr "एक्सेस हटाएँ"
 
 msgid "Metadata"
 msgstr ""
