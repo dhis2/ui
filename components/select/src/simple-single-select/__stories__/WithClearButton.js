@@ -12,6 +12,12 @@ export const WithClearButton = () => {
         <SimpleSingleSelect
             clearable
             name="simple"
+            onClear={() =>
+                setSelected({
+                    label: '',
+                    value: '',
+                })
+            }
             selected={selected}
             onChange={setSelected}
             options={fiveOptions}

@@ -47,6 +47,8 @@ export function useHandleKeyPressOnCombobox({
     selectFocussedOption,
     onChange,
     filterRef,
+    clearable,
+    onClear,
 }) {
     const { onTyping, typing } = useHandleTyping({
         expanded,
@@ -146,6 +148,11 @@ export function useHandleKeyPressOnCombobox({
                 }
 
                 closeMenu()
+                return
+            }
+
+            if (!expanded && clearable && key === 'Escape') {
+                onClear?.()
                 return
             }
 
