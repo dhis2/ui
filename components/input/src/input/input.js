@@ -106,7 +106,7 @@ export class Input extends Component {
     }
 
     focus() {
-        this.inputRef.current.focus()
+        this.inputRef.current?.focus?.()
     }
 
     handleChange = (e) => {
