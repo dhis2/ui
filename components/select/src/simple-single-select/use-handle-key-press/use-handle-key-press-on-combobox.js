@@ -46,6 +46,7 @@ export function useHandleKeyPressOnCombobox({
     setFocussedOptionIndex,
     selectFocussedOption,
     onChange,
+    filterRef,
     clearable,
     onClear,
 }) {
@@ -182,6 +183,11 @@ export function useHandleKeyPressOnCombobox({
             }
 
             if (key === 'ArrowUp') {
+                if (filterRef?.current && focussedOptionIndex === 0) {
+                    filterRef.current.focus()
+                    return
+                }
+
                 focusPrevOption()
                 return
             }
@@ -242,6 +248,7 @@ export function useHandleKeyPressOnCombobox({
             pageDown,
             pageUp,
             onTyping,
+            filterRef,
         ]
     )
 

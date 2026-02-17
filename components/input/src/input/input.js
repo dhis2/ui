@@ -105,6 +105,10 @@ export class Input extends Component {
         }
     }
 
+    focus() {
+        this.inputRef.current?.focus?.()
+    }
+
     handleChange = (e) => {
         if (this.props.onChange) {
             this.props.onChange(this.createHandlerPayload(e), e)

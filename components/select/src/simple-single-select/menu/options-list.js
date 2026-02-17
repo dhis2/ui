@@ -20,6 +20,7 @@ export const OptionsList = forwardRef(function OptionsList(
         onChange,
         onBlur,
         onEndReached,
+        onKeyDown,
     },
     ref
 ) {
@@ -47,12 +48,14 @@ export const OptionsList = forwardRef(function OptionsList(
         <div
             ref={ref}
             role="listbox"
+            tabIndex="-1"
             id={id}
             aria-labelledby={labelledBy}
             aria-live={optionUpdateStrategy}
             aria-busy={loading.toString()}
             data-test={dataTest}
             onBlur={onBlur}
+            onKeyDown={onKeyDown}
         >
             {options.map(
                 (
@@ -85,6 +88,11 @@ export const OptionsList = forwardRef(function OptionsList(
                     )
                 }
             )}
+            <style jsx>{`
+                div {
+                    outline: none;
+                }
+            `}</style>
         </div>
     )
 })
@@ -94,7 +102,6 @@ OptionsList.propTypes = {
     focussedOptionIndex: PropTypes.number.isRequired,
     id: PropTypes.string.isRequired,
     options: PropTypes.arrayOf(optionProp).isRequired,
-    onChange: PropTypes.func.isRequired,
     dataTest: PropTypes.string,
     disabled: PropTypes.bool,
     labelledBy: PropTypes.string,
@@ -103,5 +110,7 @@ OptionsList.propTypes = {
     optionUpdateStrategy: PropTypes.oneOf(['off', 'polite', 'assertive']),
     selectedValue: PropTypes.string,
     onBlur: PropTypes.func,
+    onChange: PropTypes.func,
     onEndReached: PropTypes.func,
+    onKeyDown: PropTypes.func,
 }
