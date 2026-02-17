@@ -2077,12 +2077,12 @@ import { Menu } from '@dhis2/ui'
 |listBoxRef|\{<br/>  "current": "instanceOf(HTMLElement)"<br/>}||*||
 |name|string||*||
 |options|`arrayOf(custom)`||*||
-|onChange|function||*||
 |dataTest|string||||
 |disabled|boolean||||
 |empty|node||||
 |filterLabel|string||||
 |filterPlaceholder|string||||
+|filterRef|\{<br/>  "current": "instanceOf(HTMLElement)"<br/>}||||
 |filterValue|string||||
 |filterable|boolean||||
 |hidden|boolean||||
@@ -2097,10 +2097,12 @@ import { Menu } from '@dhis2/ui'
 |selectedValue|string||||
 |tabIndex|string||||
 |onBlur|function||||
+|onChange|function||||
 |onClose|function||||
 |onEndReached|function||||
 |onFilterChange|function||||
 |onFilterInputKeyDown|function||||
+|onOptionsKeyDown|function||||
 
 ### SelectorBar
 

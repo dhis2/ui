@@ -1,3 +1,10 @@
+# [10.13.0-alpha.1](https://github.com/dhis2/ui/compare/v10.12.8...v10.13.0-alpha.1) (2026-02-17)
+
+
+### Features
+
+* **select:** improve keyboard navigation in single select ([#1724](https://github.com/dhis2/ui/issues/1724)) ([88dc95d](https://github.com/dhis2/ui/commit/88dc95dfc649abc65d8b1df5d18685aba718141a))
+
 ## [10.12.8](https://github.com/dhis2/ui/compare/v10.12.7...v10.12.8) (2026-02-15)
 
 
