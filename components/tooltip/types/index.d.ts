@@ -1,13 +1,18 @@
 import * as React from 'react'
 
 type OnMouseEvent = React.MouseEventHandler<HTMLSpanElement>
+type onFocusEvent = React.FocusEventHandler<HTMLSpanElement>
 
 type TooltipRenderProps = {
+    onBlur: onFocusEvent
+    onFocus: onFocusEvent
     onMouseOver: OnMouseEvent
     onMouseOut: OnMouseEvent
     ref: React.MutableRefObject<HTMLSpanElement>
 }
 export type TooltipRenderFunc = ({
+    onBlur,
+    onFocus,
     onMouseOver,
     onMouseOut,
     ref,
