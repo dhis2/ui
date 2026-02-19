@@ -18,6 +18,7 @@ export function Filter({
                 ref={inputRef}
                 className="filter-input"
                 type="text"
+                name="filter"
                 value={value}
                 placeholder={placeholder}
                 aria-label={label || i18n.t('Search options')}

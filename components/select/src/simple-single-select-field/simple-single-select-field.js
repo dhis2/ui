@@ -17,12 +17,33 @@ export function SimpleSingleSelectField(props) {
         helpText,
         label,
         name,
+        onChange,
+        options,
         required,
         valid,
         validationText,
+        value,
+        valueLabel,
         warning,
     } = props
     const labelId = `${name}-label`
+
+    const selectedOption = options.find((opt) => opt.value === value)
+    const selected =
+        value != null && value !== ''
+            ? {
+                  value,
+                  label: selectedOption?.label ?? valueLabel ?? '',
+              }
+            : undefined
+
+    const handleChange = (option) => {
+        onChange(option?.value ?? '')
+    }
+
+    const handleClear = () => {
+        onChange('')
+    }
 
     return (
         <Field
@@ -38,7 +59,13 @@ export function SimpleSingleSelectField(props) {
             warning={warning}
             valid={valid}
         >
-            <SimpleSingleSelect {...props} labelledBy={labelId} />
+            <SimpleSingleSelect
+                {...props}
+                labelledBy={labelId}
+                selected={selected}
+                onChange={handleChange}
+                onClear={handleClear}
+            />
         </Field>
     )
 }
