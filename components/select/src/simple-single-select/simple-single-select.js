@@ -2,13 +2,7 @@ import { requiredIf } from '@dhis2/prop-types'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, {
-    useCallback,
-    useEffect,
-    useMemo,
-    useRef,
-    useState,
-} from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import i18n from '../locales/index.js'
 import { Menu } from './menu/index.js'
 import { SelectedValue } from './selected-value/index.js'
