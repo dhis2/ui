@@ -1,3 +1,10 @@
+## [10.12.9](https://github.com/dhis2/ui/compare/v10.12.8...v10.12.9) (2026-02-19)
+
+
+### Bug Fixes
+
+* **tooltip:** add missing onBlur, onFocus props in type definition ([#1727](https://github.com/dhis2/ui/issues/1727)) ([a5be770](https://github.com/dhis2/ui/commit/a5be770cf203f1d0b512d6a5e7ff9b346e3606aa))
+
 ## [10.12.8](https://github.com/dhis2/ui/compare/v10.12.7...v10.12.8) (2026-02-15)
 
 
