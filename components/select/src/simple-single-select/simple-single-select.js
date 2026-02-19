@@ -2,7 +2,13 @@ import { requiredIf } from '@dhis2/prop-types'
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import React, {
+    useCallback,
+    useEffect,
+    useMemo,
+    useRef,
+    useState,
+} from 'react'
 import i18n from '../locales/index.js'
 import { Menu } from './menu/index.js'
 import { SelectedValue } from './selected-value/index.js'
@@ -66,7 +72,6 @@ export function SimpleSingleSelect({
     disabled = false,
     empty: _empty = false,
     error = false,
-    filterHelpText = '',
     filterLabel = '',
     filterPlaceholder: _filterPlaceholder = '',
     filterValue = '',
@@ -103,6 +108,7 @@ export function SimpleSingleSelect({
 
     const comboBoxRef = useRef()
     const listBoxRef = useRef()
+    const filterInputRef = useRef()
     const [focussedOptionIndex, setFocussedOptionIndex] =
         useFocussedOptionIndex({
             filterable,
@@ -112,6 +118,15 @@ export function SimpleSingleSelect({
 
     const [selectRef, setSelectRef] = useState()
     const [expanded, setExpanded] = useState(false)
+
+    useEffect(() => {
+        if (expanded && filterable) {
+            requestAnimationFrame(() => {
+                filterInputRef.current?.focus()
+            })
+        }
+    }, [expanded, filterable])
+
     const closeMenu = useCallback(() => setExpanded(false), [])
 
     const selectedValue = selected?.value || ''
@@ -212,6 +227,11 @@ export function SimpleSingleSelect({
                 disabled={disabled}
                 error={error}
                 expanded={expanded}
+                filterLabel={filterLabel}
+                filterPlaceholder={filterPlaceholder}
+                filterRef={filterInputRef}
+                filterable={filterable}
+                filterValue={filterValue}
                 hasSelection={!!selectedValue}
                 inputMaxHeight={inputMaxHeight}
                 labelledBy={labelledBy}
@@ -225,6 +245,8 @@ export function SimpleSingleSelect({
                 onBlur={onBlur}
                 onClear={onClear}
                 onClick={toggleMenu}
+                onFilterChange={onFilterChange}
+                onFilterInputKeyDown={handleKeyDownOnFilterInput}
                 onFocus={onFocus}
                 onKeyDown={handleKeyDown}
             />
@@ -234,13 +256,8 @@ export function SimpleSingleSelect({
                 optionComponent={optionComponent}
                 disabled={disabled}
                 empty={empty}
-                filterHelpText={filterHelpText}
-                filterLabel={filterLabel}
-                filterable={filterable}
                 filterValue={filterValue}
-                filterPlaceholder={filterPlaceholder}
                 focussedOptionIndex={focussedOptionIndex}
-                onFilterInputKeyDown={handleKeyDownOnFilterInput}
                 hidden={!expanded}
                 name={name}
                 labelledBy={labelledBy}
@@ -253,7 +270,6 @@ export function SimpleSingleSelect({
                 options={options}
                 selectRef={selectRef}
                 selectedValue={selectedValue}
-                tabIndex={tabIndex.toString()}
                 onBlur={onBlur}
                 onChange={(nextValue) => {
                     onChange(nextValue)
@@ -261,7 +277,6 @@ export function SimpleSingleSelect({
                 }}
                 onClose={closeMenu}
                 onEndReached={onEndReached}
-                onFilterChange={onFilterChange}
             />
         </div>
     )
@@ -303,9 +318,6 @@ SimpleSingleSelect.propTypes = {
 
     /** Applies 'error' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props **/
     error: sharedPropTypes.statusPropType,
-
-    /** Help text that will be displayed below the input **/
-    filterHelpText: PropTypes.string,
 
     /** Value will be used as aria-label attribute on the filter input **/
     filterLabel: PropTypes.string,
