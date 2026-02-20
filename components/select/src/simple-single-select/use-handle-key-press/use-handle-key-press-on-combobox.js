@@ -10,6 +10,10 @@ import {
     findLastOptionIndex,
 } from './utils.js'
 
+function isUnmodifiedCharacterKey({ key, altKey, ctrlKey, metaKey }) {
+    return key.length === 1 && key !== ' ' && !altKey && !ctrlKey && !metaKey
+}
+
 function useSelectOption(findIndexCallback, { options, onChange, value }) {
     return useCallback(() => {
         const currentOptionIndex = options.findIndex(
@@ -48,6 +52,8 @@ export function useHandleKeyPressOnCombobox({
     onChange,
     clearable,
     onClear,
+    filterable,
+    onFilterChange,
 }) {
     const { onTyping, typing } = useHandleTyping({
         expanded,
@@ -108,7 +114,7 @@ export function useHandleKeyPressOnCombobox({
 
     const handleKeyPress = useCallback(
         (event) => {
-            const { key, altKey, ctrlKey, metaKey } = event
+            const { key, altKey } = event
             if (disabled || loading) {
                 return
             }
@@ -196,14 +202,16 @@ export function useHandleKeyPressOnCombobox({
                 return
             }
 
+            if (filterable && !expanded && isUnmodifiedCharacterKey(event)) {
+                openMenu()
+                onFilterChange?.(key)
+                return
+            }
+
             if (
                 key === 'Backspace' ||
                 key === 'Clear' ||
-                (key.length === 1 &&
-                    key !== ' ' &&
-                    !altKey &&
-                    !ctrlKey &&
-                    !metaKey) ||
+                isUnmodifiedCharacterKey(event) ||
                 (key === ' ' && typing)
             ) {
                 onTyping(key)
@@ -242,6 +250,8 @@ export function useHandleKeyPressOnCombobox({
             pageDown,
             pageUp,
             onTyping,
+            filterable,
+            onFilterChange,
         ]
     )
 

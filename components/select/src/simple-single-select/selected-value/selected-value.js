@@ -1,6 +1,7 @@
 import { IconChevronDown16 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { Filter } from '../menu/filter.js'
 import { ClearButton } from './clear-button.js'
 import { Container } from './container.js'
 import { Placeholder } from './placeholder.js'
@@ -20,6 +21,11 @@ export function SelectedValue({
     disabled,
     error,
     expanded,
+    filterLabel,
+    filterPlaceholder,
+    filterRef,
+    filterable,
+    filterValue,
     hasSelection,
     inputMaxHeight,
     labelledBy,
@@ -31,9 +37,12 @@ export function SelectedValue({
     onBlur,
     onClear,
     onClick,
+    onFilterChange,
+    onFilterInputKeyDown,
     onFocus,
 }) {
     const dataTestPrefix = `${dataTest}-selectedvalue`
+    const showFilter = filterable && expanded
 
     return (
         <Container
@@ -60,16 +69,29 @@ export function SelectedValue({
                 <Prefix dataTest={`${dataTestPrefix}-prefix`} prefix={prefix} />
             )}
 
-            <div className="selected-option-label" tabIndex="-1">
-                {!selectedLabel && !prefix && placeholder && (
-                    <Placeholder
-                        dataTest={`${dataTestPrefix}-placeholder`}
-                        placeholder={placeholder}
-                    />
-                )}
+            {showFilter ? (
+                <Filter
+                    inputRef={filterRef}
+                    ariaControls={`${name}-listbox`}
+                    dataTest={`${dataTestPrefix}-filter`}
+                    label={filterLabel}
+                    placeholder={filterPlaceholder}
+                    value={filterValue}
+                    onChange={onFilterChange}
+                    onKeyDown={onFilterInputKeyDown}
+                />
+            ) : (
+                <div className="selected-option-label" tabIndex="-1">
+                    {!selectedLabel && !prefix && placeholder && (
+                        <Placeholder
+                            dataTest={`${dataTestPrefix}-placeholder`}
+                            placeholder={placeholder}
+                        />
+                    )}
 
-                {selectedLabel}
-            </div>
+                    {selectedLabel}
+                </div>
+            )}
 
             {hasSelection && clearable && !disabled && (
                 <div className="clear-button-container">
@@ -117,6 +139,7 @@ export function SelectedValue({
 SelectedValue.propTypes = {
     clearText: PropTypes.string.isRequired,
     comboBoxId: PropTypes.string.isRequired,
+    filterRef: PropTypes.object.isRequired,
     name: PropTypes.string.isRequired,
     selectedLabel: PropTypes.string.isRequired,
     onKeyDown: PropTypes.func.isRequired,
@@ -130,6 +153,10 @@ SelectedValue.propTypes = {
     disabled: PropTypes.bool,
     error: PropTypes.bool,
     expanded: PropTypes.bool,
+    filterLabel: PropTypes.string,
+    filterPlaceholder: PropTypes.string,
+    filterValue: PropTypes.string,
+    filterable: PropTypes.bool,
     hasSelection: PropTypes.bool,
     inputMaxHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     labelledBy: PropTypes.string,
@@ -141,5 +168,7 @@ SelectedValue.propTypes = {
     onBlur: PropTypes.func,
     onClear: PropTypes.func,
     onClick: PropTypes.func,
+    onFilterChange: PropTypes.func,
+    onFilterInputKeyDown: PropTypes.func,
     onFocus: PropTypes.func,
 }

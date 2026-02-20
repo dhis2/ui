@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import { optionProp } from '../shared-prop-types.js'
 import { Empty } from './empty.js'
-import { Filter } from './filter.js'
 import { Loading } from './loading.js'
 import { NoMatch } from './no-match.js'
 import { OptionsList } from './options-list.js'
@@ -20,10 +19,7 @@ export function Menu({
     dataTest,
     disabled,
     empty,
-    filterLabel,
-    filterPlaceholder,
     filterValue,
-    filterable,
     hidden,
     labelledBy,
     listBoxRef,
@@ -34,12 +30,9 @@ export function Menu({
     optionUpdateStrategy,
     selectRef,
     selectedValue,
-    tabIndex,
     onBlur,
     onClose,
     onEndReached,
-    onFilterChange,
-    onFilterInputKeyDown,
 }) {
     const [menuWidth, setWidth] = useState('auto')
     const dataTestPrefix = `${dataTest}-menu`
@@ -75,21 +68,6 @@ export function Menu({
                 observeReferenceResize
             >
                 <div className="menu" style={{ width: menuWidth, maxHeight }}>
-                    {filterable && (
-                        <div className="filter-container">
-                            <Filter
-                                dataTest={`${dataTestPrefix}-filter`}
-                                value={filterValue}
-                                label={filterLabel}
-                                ariaControls={`${name}-listbox`}
-                                placeholder={filterPlaceholder}
-                                tabIndex={tabIndex}
-                                onChange={onFilterChange}
-                                onKeyDown={onFilterInputKeyDown}
-                            />
-                        </div>
-                    )}
-
                     {isEmpty && <Empty>{empty}</Empty>}
 
                     {hasNoFilterMatch && <NoMatch>{noMatchText}</NoMatch>}
@@ -176,10 +154,7 @@ Menu.propTypes = {
     dataTest: PropTypes.string,
     disabled: PropTypes.bool,
     empty: PropTypes.node,
-    filterLabel: PropTypes.string,
-    filterPlaceholder: PropTypes.string,
     filterValue: PropTypes.string,
-    filterable: PropTypes.bool,
     hidden: PropTypes.bool,
     labelledBy: PropTypes.string,
     loading: PropTypes.bool,
@@ -190,10 +165,7 @@ Menu.propTypes = {
     optionUpdateStrategy: PropTypes.oneOf(['off', 'polite', 'assertive']),
     selectRef: PropTypes.instanceOf(HTMLElement),
     selectedValue: PropTypes.string,
-    tabIndex: PropTypes.string,
     onBlur: PropTypes.func,
     onClose: PropTypes.func,
     onEndReached: PropTypes.func,
-    onFilterChange: PropTypes.func,
-    onFilterInputKeyDown: PropTypes.func,
 }
