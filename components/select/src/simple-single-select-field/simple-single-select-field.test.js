@@ -22,7 +22,7 @@ describe('<SimpleSingleSelectField />', () => {
     it('should forward props to the SimpleSingleSelect component', () => {
         const options = []
         const optionComponent = () => null
-        const onChange = () => null
+        const onChange = jest.fn()
         const onBlur = () => null
         const onEndReached = () => null
         const onFilterChange = () => null
@@ -69,7 +69,8 @@ describe('<SimpleSingleSelectField />', () => {
 
         expect(SimpleSingleSelect.mock.calls[0][0].name).toBe('foo')
         expect(SimpleSingleSelect.mock.calls[0][0].options).toBe(options)
-        expect(SimpleSingleSelect.mock.calls[0][0].onChange).toBe(onChange)
+        SimpleSingleSelect.mock.calls[0][0].onChange({ value: 'test' })
+        expect(onChange).toHaveBeenCalledWith('test')
         expect(SimpleSingleSelect.mock.calls[0][0].autoFocus).toBe(false)
         expect(SimpleSingleSelect.mock.calls[0][0].className).toBe('')
         expect(SimpleSingleSelect.mock.calls[0][0].clearText).toBe('')
