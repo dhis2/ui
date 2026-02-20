@@ -40,7 +40,7 @@ describe('<SimpleSingleSelectFieldFF/>', () => {
 
         expect(onSubmit).toHaveBeenCalledTimes(1)
         expect(onSubmit).toHaveBeenCalledWith(
-            { story: { value: 'foo', label: 'Foo' } },
+            { story: 'foo' },
             expect.anything(),
             expect.anything()
         )
