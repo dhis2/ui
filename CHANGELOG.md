@@ -1,3 +1,10 @@
+## [10.12.10](https://github.com/dhis2/ui/compare/v10.12.9...v10.12.10) (2026-02-20)
+
+
+### Bug Fixes
+
+* **simple-single-select:** move filter input field into trigger ([#1728](https://github.com/dhis2/ui/issues/1728)) ([d7d3f41](https://github.com/dhis2/ui/commit/d7d3f412a499ba5300974e82c54d2ef106ca96c6))
+
 ## [10.12.9](https://github.com/dhis2/ui/compare/v10.12.8...v10.12.9) (2026-02-19)
 
 

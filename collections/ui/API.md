@@ -1807,7 +1807,6 @@ import { SimpleSingleSelect } from '@dhis2/ui'
 |disabled|boolean|``false``||Disables all interactions with the select (except focussing) *|
 |empty|node|``false``||Text or component to display when there are no options *|
 |error|custom|``false``||Applies 'error' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props *|
-|filterHelpText|string|``''``||Help text that will be displayed below the input *|
 |filterLabel|string|``''``||Value will be used as aria-label attribute on the filter input *|
 |filterPlaceholder|string|``''``||Placeholder for the filter input *|
 |filterValue|string|``''``||Value of the filter input *|
@@ -2081,10 +2080,7 @@ import { Menu } from '@dhis2/ui'
 |dataTest|string||||
 |disabled|boolean||||
 |empty|node||||
-|filterLabel|string||||
-|filterPlaceholder|string||||
 |filterValue|string||||
-|filterable|boolean||||
 |hidden|boolean||||
 |labelledBy|string||||
 |loading|boolean||||
@@ -2095,12 +2091,9 @@ import { Menu } from '@dhis2/ui'
 |optionUpdateStrategy|'off' │ 'polite' │ 'assertive'||||
 |selectRef|instanceOf(HTMLElement)||||
 |selectedValue|string||||
-|tabIndex|string||||
 |onBlur|function||||
 |onClose|function||||
 |onEndReached|function||||
-|onFilterChange|function||||
-|onFilterInputKeyDown|function||||
 
 ### SelectorBar
 
