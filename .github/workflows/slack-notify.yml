@@ -1,0 +1,40 @@
+name: Reusable workflow example
+
+on:
+    workflow_call:
+        inputs:
+            notification_status:
+                required: true
+                type: string
+        # secrets:
+        #   webhook:
+        #     default: ${{ secrets.SLACK_EXTENSIBILITY_WEBHOOK }}
+        # required: true
+
+jobs:
+    send-slack-message:
+        runs-on: ubuntu-latest
+        # if: |
+        #   always() &&
+        #   github.ref == 'refs/heads/fix/action-slack'
+        # # needs: [build, lint, test, e2e, publish]
+        # needs: [build, lint]
+        steps:
+            - uses: rtCamp/action-slack-notify@v2
+              with:
+                  SLACK_USERNAME: 'dhis2-bot'
+                  SLACK_CHANNEL: 'team-extensibility-notifications'
+                  SLACK_MESSAGE: ${{ inputs.notification_status }}
+                  SLACK_MESSAGE_ON_FAILURE: 'Master branch failed to build or publish the UI library.'
+                  SLACK_COLOR: ${{ inputs.notification_status }}
+              env:
+                  SLACK_WEBHOOK: ${{ secrets.SLACK_EXTENSIBILITY_WEBHOOK }}
+
+    # triage:
+    #   runs-on: ubuntu-latest
+    #   steps:
+    #   - uses: actions/labeler@v4
+    #     with:
+    #       repo-token: ${{ secrets.token }}
+    #       configuration-path: ${{ inputs.config-path }}
+    
