@@ -193,3 +193,102 @@ export const ClearableInput = (args) => {
         />
     )
 }
+
+export const WithcharacterCountLimit = (args) => {
+    const [value, setValue] = useState('')
+    return (
+        <InputField
+            {...args}
+            name="characterCountLimit-input"
+            label="Description"
+            helpText="Maximum of 50 characters"
+            placeholder="Enter a description"
+            value={value}
+            onChange={(e) => setValue(e.value)}
+            characterCountLimit={50}
+        />
+    )
+}
+WithcharacterCountLimit.storyName = 'With characterCountLimit counter'
+
+export const WithcharacterCountLimitExceeded = () => (
+    <InputField
+        name="characterCountLimit-exceeded"
+        label="Short title"
+        value="This text exceeds the maximum character limit set on this field"
+        characterCountLimit={20}
+        onChange={() => {}}
+    />
+)
+WithcharacterCountLimitExceeded.storyName = 'With characterCountLimit exceeded'
+
+export const CharacterCountLimitDense = (args) => {
+    const [value, setValue] = useState('')
+    return (
+        <InputField
+            {...args}
+            name="characterCountLimit-dense"
+            label="Dense with counter"
+            dense
+            characterCountLimit={30}
+            placeholder="Dense input"
+            value={value}
+            onChange={(e) => setValue(e.value)}
+        />
+    )
+}
+CharacterCountLimitDense.storyName = 'characterCountLimit + dense'
+
+export const CharacterCountLimitClearable = (args) => {
+    const [value, setValue] = useState('Some text')
+    return (
+        <InputField
+            {...args}
+            name="characterCountLimit-clearable"
+            label="Clearable with counter"
+            characterCountLimit={40}
+            clearable
+            value={value}
+            onChange={(e) => setValue(e.value)}
+        />
+    )
+}
+CharacterCountLimitClearable.storyName = 'characterCountLimit + clearable'
+
+export const CharacterCountLimitWithValidation = (args) => {
+    const [value, setValue] = useState('Invalid value')
+    return (
+        <InputField
+            {...args}
+            name="characterCountLimit-validation"
+            label="With error status"
+            characterCountLimit={50}
+            error
+            validationText="This field has a validation error"
+            value={value}
+            onChange={(e) => setValue(e.value)}
+        />
+    )
+}
+CharacterCountLimitWithValidation.storyName =
+    'characterCountLimit + error + validationText'
+
+export const CharacterCountLimitClearableError = (args) => {
+    const [value, setValue] = useState('Text with all options')
+    return (
+        <InputField
+            {...args}
+            name="characterCountLimit-all"
+            label="All options combined"
+            characterCountLimit={30}
+            clearable
+            error
+            validationText="Too many characters"
+            helpText="Keep it short"
+            value={value}
+            onChange={(e) => setValue(e.value)}
+        />
+    )
+}
+CharacterCountLimitClearableError.storyName =
+    'characterCountLimit + clearable + error'
