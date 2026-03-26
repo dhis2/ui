@@ -147,6 +147,8 @@ const Tooltip = ({
             <style jsx>{`
                 div {
                     max-width: ${maxWidth}px;
+                    word-break: normal;
+                    overflow-wrap: break-word;
                 }
                 div {
                     padding: 4px 6px;
