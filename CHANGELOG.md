@@ -1,3 +1,10 @@
+## [10.12.12](https://github.com/dhis2/ui/compare/v10.12.11...v10.12.12) (2026-03-26)
+
+
+### Bug Fixes
+
+* **tooltip:** improve text wrapping in tooltip component ([f7d3f04](https://github.com/dhis2/ui/commit/f7d3f04e37b06da03e22e75c228c2fd339e172f1))
+
 ## [10.12.11](https://github.com/dhis2/ui/compare/v10.12.10...v10.12.11) (2026-03-01)
 
 
