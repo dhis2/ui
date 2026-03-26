@@ -11,6 +11,45 @@ describe('NoticeBoxIcon', () => {
         expect(wrapper.find('SvgInfoFilled24')).toHaveLength(1)
     })
 
+    it('should render 16px info icon when dense', () => {
+        const wrapper = shallow(<NoticeBoxIcon dense dataTest="test" />)
+
+        expect(wrapper.find('SvgInfoFilled16')).toHaveLength(1)
+        expect(wrapper.find('SvgInfoFilled24')).toHaveLength(0)
+    })
+
+    it('should render 16px error icon when dense and error', () => {
+        const wrapper = shallow(<NoticeBoxIcon dense error dataTest="test" />)
+
+        expect(wrapper.find('SvgErrorFilled16')).toHaveLength(1)
+        expect(wrapper.find('SvgErrorFilled24')).toHaveLength(0)
+    })
+
+    it('should render custom icon when icon is set', () => {
+        const wrapper = shallow(
+            <NoticeBoxIcon
+                icon={<span className="custom">x</span>}
+                dataTest="test"
+            />
+        )
+
+        expect(wrapper.find('.custom')).toHaveLength(1)
+        expect(wrapper.find('SvgInfoFilled24')).toHaveLength(0)
+    })
+
+    it('should ignore status props when custom icon is set', () => {
+        const wrapper = shallow(
+            <NoticeBoxIcon
+                error
+                icon={<span className="custom">x</span>}
+                dataTest="test"
+            />
+        )
+
+        expect(wrapper.find('.custom')).toHaveLength(1)
+        expect(wrapper.find('SvgErrorFilled24')).toHaveLength(0)
+    })
+
     it('should log errors when both warning and error flag are set', () => {
         const spy = jest
             .spyOn(global.console, 'error')

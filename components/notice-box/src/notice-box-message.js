@@ -2,7 +2,7 @@ import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export const NoticeBoxMessage = ({ children, dataTest }) => {
+export const NoticeBoxMessage = ({ children, dataTest, dense = false }) => {
     if (!children) {
         return null
     }
@@ -14,8 +14,8 @@ export const NoticeBoxMessage = ({ children, dataTest }) => {
             <style jsx>{`
                 div {
                     color: ${colors.grey900};
-                    font-size: 14px;
-                    line-height: 19px;
+                    font-size: ${dense ? '13px' : '14px'};
+                    line-height: ${dense ? '18px' : '19px'};
                 }
             `}</style>
         </div>
@@ -25,4 +25,5 @@ export const NoticeBoxMessage = ({ children, dataTest }) => {
 NoticeBoxMessage.propTypes = {
     dataTest: PropTypes.string.isRequired,
     children: PropTypes.node,
+    dense: PropTypes.bool,
 }
