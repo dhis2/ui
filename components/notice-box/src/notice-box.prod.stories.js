@@ -1,4 +1,5 @@
-import { sharedPropTypes } from '@dhis2/ui-constants'
+import { colors, sharedPropTypes } from '@dhis2/ui-constants'
+import { IconCalendar24 } from '@dhis2/ui-icons'
 import React from 'react'
 import { NoticeBox } from './notice-box.js'
 
@@ -25,6 +26,12 @@ import { NoticeBox } from '@dhis2/ui'
 \`\`\`
 `
 
+const text =
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ' +
+    'Ut semper interdum scelerisque. Suspendisse ut velit sed ' +
+    'lacus pretium convallis vitae sit amet purus. Nam ut ' +
+    'libero rhoncus, consectetur sem a, sollicitudin lectus.'
+
 export default {
     title: 'Notice Box',
     component: NoticeBox,
@@ -33,19 +40,32 @@ export default {
         docs: { description: { component: description } },
     },
     argTypes: {
+        dense: { control: 'boolean' },
         error: { ...sharedPropTypes.statusArgType },
         warning: { ...sharedPropTypes.statusArgType },
         valid: { ...sharedPropTypes.statusArgType },
     },
 }
 
-export const Default = (args) => (
+const dashboardUpdateNotice = (args) => (
     <NoticeBox {...args}>
         Data shown in this dashboard may take a few hours to update. Scheduled
         dashboard updates can be managed in the scheduler app.
     </NoticeBox>
 )
+
+export const Default = dashboardUpdateNotice
 Default.args = { title: 'Your database was updated in the last 24 hours' }
+
+export const WithCustomIcon = (args) => (
+    <NoticeBox {...args}>
+        Dashboard updates can be managed in the scheduler app.
+    </NoticeBox>
+)
+WithCustomIcon.args = {
+    title: 'Scheduled maintenance',
+    icon: <IconCalendar24 color={colors.grey900} />,
+}
 
 export const Valid = (args) => (
     <NoticeBox {...args}>
@@ -79,12 +99,6 @@ Error.args = {
     title: "Access rules for this instance are set to 'Public'",
 }
 
-const text =
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' +
-    'Ut semper interdum scelerisque. Suspendisse ut velit sed' +
-    'lacus pretium convallis vitae sit amet purus. Nam ut' +
-    'libero rhoncus, consectetur sem a, sollicitudin lectus.'
-
 export const WithALongTitle = (args) => (
     <NoticeBox {...args}>The title text will wrap</NoticeBox>
 )
@@ -98,10 +112,35 @@ export const TitleOnly = () => (
     <NoticeBox title="This noticebox has only a title"></NoticeBox>
 )
 
-export const RTL = (args) => (
+const rtlNotice = (args) => (
     <div dir="rtl">
         <NoticeBox {...args}>هذه رسالة باللغة العربية.</NoticeBox>
     </div>
 )
+
+export const RTL = rtlNotice
 RTL.args = { title: 'مثال على العنوان' }
 RTL.storyName = 'RTL Text'
+
+export const Dense = dashboardUpdateNotice
+Dense.args = {
+    dense: true,
+    title: 'Your database was updated in the last 24 hours',
+}
+
+export const DenseWithALongTitle = (args) => (
+    <NoticeBox {...args}>The title text will wrap</NoticeBox>
+)
+DenseWithALongTitle.args = { dense: true, error: true, title: text }
+
+export const DenseWithoutTitle = (args) => (
+    <NoticeBox {...args}>This noticebox does not have a title.</NoticeBox>
+)
+DenseWithoutTitle.args = { dense: true }
+
+export const DenseTitleOnly = (args) => <NoticeBox {...args}></NoticeBox>
+DenseTitleOnly.args = { dense: true, title: 'This noticebox has only a title' }
+
+export const DenseRTL = rtlNotice
+DenseRTL.args = { dense: true, title: 'مثال على العنوان' }
+DenseRTL.storyName = 'Dense RTL Text'

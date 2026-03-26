@@ -14,8 +14,10 @@ export const NoticeBox = ({
     warning,
     error,
     valid,
+    dense = false,
+    icon,
 }) => {
-    const classnames = cx(className, 'root', { warning, error, valid })
+    const classnames = cx(className, 'root', { warning, error, valid, dense })
 
     return (
         <div className={classnames} data-test={dataTest}>
@@ -23,11 +25,14 @@ export const NoticeBox = ({
                 error={error}
                 warning={warning}
                 valid={valid}
+                dense={dense}
+                icon={icon}
                 dataTest={`${dataTest}-icon`}
             />
             <div>
                 <NoticeBoxContent
                     title={title}
+                    dense={dense}
                     dataTest={`${dataTest}-content`}
                 >
                     {children}
@@ -42,6 +47,11 @@ export const NoticeBox = ({
                     display: flex;
                     padding-block: ${spacers.dp12};
                     padding-inline: ${spacers.dp16};
+                }
+
+                .root.dense {
+                    padding-block: ${spacers.dp8};
+                    padding-inline: ${spacers.dp8};
                 }
 
                 .root.warning {
@@ -67,8 +77,12 @@ NoticeBox.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     dataTest: PropTypes.string,
+    /** Uses 16px icons and tighter padding and internal spacing */
+    dense: PropTypes.bool,
     /** Applies 'error' message styles. Mutually exclusive with the `valid` and `warning` props */
     error: mutuallyExclusive(['error', 'valid', 'warning'], PropTypes.bool),
+    /** Replaces the default status icon; `error`, `warning`, and `valid` still set box colors */
+    icon: PropTypes.node,
     title: PropTypes.string,
     /** Applies 'valid' message styles. Mutually exclusive with the `error` and `warning` props */
     valid: mutuallyExclusive(['error', 'valid', 'warning'], PropTypes.bool),
