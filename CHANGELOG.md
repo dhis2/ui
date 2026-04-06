@@ -1,3 +1,10 @@
+## [10.12.13](https://github.com/dhis2/ui/compare/v10.12.12...v10.12.13) (2026-04-06)
+
+
+### Bug Fixes
+
+* add overflow to sharing dialog menu popup ([#1733](https://github.com/dhis2/ui/issues/1733)) ([d43b977](https://github.com/dhis2/ui/commit/d43b9778a402e399d43dda79e824eda73f574541))
+
 ## [10.12.12](https://github.com/dhis2/ui/compare/v10.12.11...v10.12.12) (2026-03-26)
 
 
