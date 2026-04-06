@@ -27,6 +27,7 @@ export const MenuPopup = ({
                 .card {
                     width: ${menuWidth};
                     max-height: ${maxHeight};
+                    overflow-y: auto;
                 }
             `}</style>
         </Layer>
