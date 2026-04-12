@@ -3,6 +3,7 @@ import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
+import i18n from '../locales/index.js'
 import {
     InputClearButton,
     InputPlaceholder,
@@ -22,6 +23,7 @@ const Input = ({
     className,
     disabled,
     inputMaxHeight = '100px',
+    collapsedSelection,
 }) => {
     const hasSelection = selected.length > 0
     const onClear = (e) => {
@@ -40,7 +42,15 @@ const Input = ({
                     dataTest={`${dataTest}-placeholder`}
                 />
             )}
-            {hasSelection && (
+            {hasSelection && collapsedSelection && (
+                <span
+                    className="collapsed-selection-text"
+                    data-test={`${dataTest}-selection-count`}
+                >
+                    {i18n.t('{{count}} selected', { count: selected.length })}
+                </span>
+            )}
+            {hasSelection && !collapsedSelection && (
                 <div className="root-input">
                     {/* the wrapper div above is necessary to enforce wrapping on overflow */}
                     <SelectionList
@@ -81,6 +91,11 @@ const Input = ({
                 .root-right {
                     margin-inline-start: auto;
                 }
+
+                .collapsed-selection-text {
+                    flex: 1;
+                    user-select: none;
+                }
             `}</style>
 
             <style jsx>{`
@@ -97,6 +112,7 @@ Input.propTypes = {
     className: PropTypes.string,
     clearText: requiredIf((props) => props.clearable, PropTypes.string),
     clearable: PropTypes.bool,
+    collapsedSelection: PropTypes.bool,
     disabled: PropTypes.bool,
     inputMaxHeight: PropTypes.string,
     options: PropTypes.node,
