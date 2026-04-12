@@ -37,6 +37,7 @@ const MultiSelect = ({
     noMatchText,
     initialFocus,
     dense,
+    collapseSelectionAfter,
     dataTest = 'dhis2-uicore-multiselect',
 }) => {
     // If the select is filterable, use a filterable menu
@@ -65,6 +66,7 @@ const MultiSelect = ({
                             placeholder={placeholder}
                             prefix={prefix}
                             inputMaxHeight={inputMaxHeight}
+                            collapseSelectionAfter={collapseSelectionAfter}
                         />
                     }
                     menu={menu}
@@ -114,6 +116,8 @@ MultiSelect.propTypes = {
     clearText: requiredIf((props) => props.clearable, PropTypes.string),
     /** Adds a 'clear' option to the menu */
     clearable: PropTypes.bool,
+    /** When the number of selected items exceeds this threshold, chips are replaced with "X selected" text */
+    collapseSelectionAfter: PropTypes.number,
     dataTest: PropTypes.string,
     dense: PropTypes.bool,
     disabled: PropTypes.bool,
