@@ -1,7 +1,7 @@
 import { Checkbox } from '@dhis2-ui/checkbox'
 import { CircularLoader } from '@dhis2-ui/loader'
 import React from 'react'
-import { Node } from './node.js'
+import { Node } from './node.tsx'
 
 const description = `
 A tool for creating hierarchical, multi-level selectors.  Applied in the Organisation Unit Tree component, for example.

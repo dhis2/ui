@@ -1,6 +1,5 @@
 import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React from 'react'
 
 const ArrowDown = () => (
@@ -20,14 +19,29 @@ const ArrowDown = () => (
     </div>
 )
 
-export const Toggle = ({ open, onOpen, onClose, dataTest }) => {
+export interface ToggleProps {
+    dataTest: string
+    open?: boolean
+    onClose?: (
+        payload: { open: boolean },
+        event: React.MouseEvent<HTMLDivElement>
+    ) => void
+    onOpen?: (
+        payload: { open: boolean },
+        event: React.MouseEvent<HTMLDivElement>
+    ) => void
+}
+
+export const Toggle = ({ open, onOpen, onClose, dataTest }: ToggleProps) => {
     const onClick = open ? onClose : onOpen
 
     return (
         <div
             className={cx({ open })}
             data-test={dataTest}
-            onClick={(event) => onClick && onClick({ open: !open }, event)}
+            onClick={(event) =>
+                onClick && onClick({ open: !open }, event)
+            }
         >
             <span>
                 <ArrowDown />
@@ -83,11 +97,4 @@ export const Toggle = ({ open, onOpen, onClose, dataTest }) => {
             `}</style>
         </div>
     )
-}
-
-Toggle.propTypes = {
-    dataTest: PropTypes.string.isRequired,
-    open: PropTypes.bool,
-    onClose: PropTypes.func,
-    onOpen: PropTypes.func,
 }

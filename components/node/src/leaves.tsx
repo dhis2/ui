@@ -1,8 +1,13 @@
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React from 'react'
 
-export const Leaves = ({ children, open, dataTest }) => (
+export interface LeavesProps {
+    children?: React.ReactNode
+    dataTest?: string
+    open?: boolean
+}
+
+export const Leaves = ({ children, open, dataTest }: LeavesProps) => (
     <div className={cx({ open })} data-test={dataTest}>
         {children}
 
@@ -19,9 +24,3 @@ export const Leaves = ({ children, open, dataTest }) => (
         `}</style>
     </div>
 )
-
-Leaves.propTypes = {
-    children: PropTypes.node,
-    dataTest: PropTypes.string,
-    open: PropTypes.bool,
-}

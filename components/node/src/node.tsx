@@ -1,9 +1,28 @@
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React from 'react'
-import { Leaves } from './leaves.js'
-import { Spacer } from './spacer.js'
-import { Toggle } from './toggle.js'
+import { Leaves } from './leaves.tsx'
+import { Spacer } from './spacer.tsx'
+import { Toggle } from './toggle.tsx'
+
+export interface NodeProps {
+    /** Content below this level of the hierarchy; children are revealed when this leaf is 'open' */
+    children?: React.ReactNode
+    className?: string
+    /** Content/label for this leaf, for example a checkbox */
+    component?: React.ReactElement
+    dataTest?: string
+    /** A custom icon to use instead of a toggle arrow */
+    icon?: React.ReactNode
+    open?: boolean
+    onClose?: (
+        payload: { open: boolean },
+        event: React.MouseEvent<HTMLDivElement>
+    ) => void
+    onOpen?: (
+        payload: { open: boolean },
+        event: React.MouseEvent<HTMLDivElement>
+    ) => void
+}
 
 export const Node = ({
     open,
@@ -14,7 +33,7 @@ export const Node = ({
     onOpen,
     onClose,
     dataTest = 'dhis2-uicore-node',
-}) => {
+}: NodeProps) => {
     const hasLeaves = !!React.Children.toArray(children).filter((i) => i).length
     const showArrow = !icon && hasLeaves
     const showSpacer = !icon && !hasLeaves
@@ -49,18 +68,4 @@ export const Node = ({
             `}</style>
         </div>
     )
-}
-
-Node.propTypes = {
-    /** Content below this level of the hierarchy; children are revealed when this leaf is 'open' */
-    children: PropTypes.node,
-    className: PropTypes.string,
-    /** Content/label for this leaf, for example a checkbox */
-    component: PropTypes.element,
-    dataTest: PropTypes.string,
-    /** A custom icon to use instead of a toggle arrow */
-    icon: PropTypes.node,
-    open: PropTypes.bool,
-    onClose: PropTypes.func,
-    onOpen: PropTypes.func,
 }
