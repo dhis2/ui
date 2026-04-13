@@ -4,14 +4,27 @@ import { Card } from '@dhis2-ui/card'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React, { useRef } from 'react'
 
 const offsetModifier = {
-    name: 'offset',
+    name: 'offset' as const,
     options: {
-        offset: [0, 2],
+        offset: [0, 2] as [number, number],
     },
+}
+
+export interface SelectorBarItemProps {
+    label: string
+    children?: React.ReactNode
+    className?: string
+    dataTest?: string
+    disabled?: boolean
+    displayOnly?: boolean
+    noValueMessage?: string
+    open?: boolean
+    setOpen?: (open: boolean) => void
+    value?: string
+    onClearSelectionClick?: () => void
 }
 
 /**
@@ -36,8 +49,8 @@ export const SelectorBarItem = ({
     setOpen,
     value,
     onClearSelectionClick,
-}) => {
-    const buttonRef = useRef()
+}: SelectorBarItemProps) => {
+    const buttonRef = useRef<HTMLButtonElement>(null)
     const Icon = open ? IconChevronUp24 : IconChevronDown24
 
     return (
@@ -90,7 +103,7 @@ export const SelectorBarItem = ({
                 <Layer
                     onBackdropClick={(_, evt) => {
                         evt.stopPropagation()
-                        setOpen(false)
+                        setOpen?.(false)
                     }}
                 >
                     <Popper
@@ -164,18 +177,4 @@ export const SelectorBarItem = ({
             `}</style>
         </button>
     )
-}
-
-SelectorBarItem.propTypes = {
-    label: PropTypes.string.isRequired,
-    children: PropTypes.any,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    disabled: PropTypes.bool,
-    displayOnly: PropTypes.bool,
-    noValueMessage: PropTypes.string,
-    open: PropTypes.bool,
-    setOpen: PropTypes.func,
-    value: PropTypes.string,
-    onClearSelectionClick: PropTypes.func,
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { SelectorBar, SelectorBarItem } from '../../index.js'
+import { SelectorBar, SelectorBarItem } from '../../index.ts'
 import {
     OrgUnitSelect,
     MenuSelect,

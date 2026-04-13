@@ -1,11 +1,15 @@
 import { colors, spacers } from '@dhis2/ui-constants'
 import { Button } from '@dhis2-ui/button'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React, { useRef, useState, useEffect } from 'react'
 import i18n from '../locales/index.js'
 
-const ClearSelection = ({ disabled, onClick }) => {
+interface ClearSelectionProps {
+    disabled?: boolean
+    onClick?: () => void
+}
+
+const ClearSelection = ({ disabled, onClick }: ClearSelectionProps) => {
     return (
         <div className="clear-selections">
             <Button small secondary disabled={disabled} onClick={onClick}>
@@ -24,9 +28,14 @@ const ClearSelection = ({ disabled, onClick }) => {
     )
 }
 
-ClearSelection.propTypes = {
-    disabled: PropTypes.bool,
-    onClick: PropTypes.func,
+export interface SelectorBarProps {
+    children: React.ReactNode
+    additionalContent?: React.ReactNode
+    ariaLabel?: string
+    className?: string
+    dataTest?: string
+    disableClearSelections?: boolean
+    onClearSelectionClick?: () => void
 }
 
 export const SelectorBar = ({
@@ -37,10 +46,10 @@ export const SelectorBar = ({
     disableClearSelections,
     additionalContent,
     ariaLabel,
-}) => {
-    const container = useRef(null)
+}: SelectorBarProps) => {
+    const container = useRef<HTMLDivElement>(null)
 
-    const [childrenToFocus, setChildrenToFocus] = useState([])
+    const [childrenToFocus, setChildrenToFocus] = useState<Element[]>([])
 
     useEffect(() => {
         if (container.current) {
@@ -48,19 +57,19 @@ export const SelectorBar = ({
             if (controlsDiv) {
                 const childElements = Array.from(controlsDiv.children)
                 childElements.forEach((child) => {
-                    child.tabIndex = -1
+                    ;(child as HTMLElement).tabIndex = -1
                 })
                 setChildrenToFocus(childElements)
             }
         }
     }, [children])
 
-    const handleKeyDown = (event) => {
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
         const currentFocus = document.activeElement
 
         if (container.current && container.current === currentFocus) {
             if (childrenToFocus.length > 0 && childrenToFocus[0]) {
-                childrenToFocus[0].focus()
+                ;(childrenToFocus[0] as HTMLElement).focus()
             }
             return
         }
@@ -79,7 +88,7 @@ export const SelectorBar = ({
         if (event.key === 'ArrowRight') {
             event.preventDefault()
             const nextIndex = (currentIndex + 1) % childrenToFocus.length
-            childrenToFocus[nextIndex].focus()
+            ;(childrenToFocus[nextIndex] as HTMLElement).focus()
         }
 
         if (event.key === 'ArrowLeft') {
@@ -87,7 +96,7 @@ export const SelectorBar = ({
             const prevIndex =
                 (currentIndex - 1 + childrenToFocus.length) %
                 childrenToFocus.length
-            childrenToFocus[prevIndex].focus()
+            ;(childrenToFocus[prevIndex] as HTMLElement).focus()
         }
     }
 
@@ -107,11 +116,6 @@ export const SelectorBar = ({
                 aria-label={ariaLabel}
             >
                 <div className="controls">
-                    {/*                     {React.Children.map(children, (child, index) =>
-                        React.cloneElement(child, {
-                            ref: childrenRefs[index],
-                        })
-                    )} */}
                     {children}
                     {onClearSelectionClick && (
                         <ClearSelection
@@ -158,14 +162,4 @@ export const SelectorBar = ({
             </div>
         </>
     )
-}
-
-SelectorBar.propTypes = {
-    children: PropTypes.any.isRequired,
-    additionalContent: PropTypes.any,
-    ariaLabel: PropTypes.string,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    disableClearSelections: PropTypes.bool,
-    onClearSelectionClick: PropTypes.func,
 }
