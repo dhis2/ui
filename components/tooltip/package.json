@@ -23,8 +23,9 @@
     },
     "scripts": {
         "start": "storybook dev -c ../../storybook/config --port 5000",
-        "build": "d2-app-scripts build",
-        "test": "d2-app-scripts test --jestConfig ../../jest.config.shared.js"
+        "build": "d2-app-scripts build && node ../../scripts/post-build-rename.js",
+        "test": "d2-app-scripts test --jestConfig ../../jest.config.shared.js",
+        "typecheck": "tsc --noEmit"
     },
     "peerDependencies": {
         "react": "^16.13 || ^18",
