@@ -1,9 +1,13 @@
 import { spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React from 'react'
 
-export const Content = ({ children, overflow }) => (
+export interface ContentProps {
+    children?: React.ReactNode
+    overflow?: boolean
+}
+
+export const Content = ({ children, overflow }: ContentProps) => (
     <span className={cx({ overflow })}>
         {children}
 
@@ -22,8 +26,3 @@ export const Content = ({ children, overflow }) => (
         `}</style>
     </span>
 )
-
-Content.propTypes = {
-    children: PropTypes.any,
-    overflow: PropTypes.bool,
-}

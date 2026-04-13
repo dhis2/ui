@@ -1,12 +1,43 @@
 import { colors, theme } from '@dhis2/ui-constants'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React from 'react'
-import { Content } from './content.js'
-import { Icon } from './icon.js'
-import { Remove } from './remove.js'
+import { Content } from './content.tsx'
+import { Icon } from './icon.tsx'
+import { Remove } from './remove.tsx'
 
 const DEFAULT_INLINE_MARGIN = '4'
+
+export interface ChipProps {
+    children?: React.ReactNode
+    className?: string
+    dataTest?: string
+    dense?: boolean
+    disabled?: boolean
+    dragging?: boolean
+    icon?: React.ReactElement
+    /** `margin-bottom` value, applied in `px` */
+    marginBottom?: number
+    /** `margin-inline-end` value, applied in `px` */
+    marginInlineEnd?: number
+    /** `margin-inline-start` value, applied in `px` */
+    marginInlineStart?: number
+    /** `margin-inline-start` value, applied in `px` */
+    marginLeft?: number
+    /** `margin-inline-end` value, applied in `px` */
+    marginRight?: number
+    /** `margin-top` value, applied in `px` */
+    marginTop?: number
+    overflow?: boolean
+    selected?: boolean
+    onClick?: (
+        payload: Record<string, never>,
+        event: React.MouseEvent<HTMLSpanElement>
+    ) => void
+    onRemove?: (
+        payload: Record<string, never>,
+        event: React.MouseEvent<HTMLSpanElement>
+    ) => void
+}
 
 const Chip = ({
     selected,
@@ -26,7 +57,7 @@ const Chip = ({
     marginTop = 4,
     marginInlineStart,
     marginInlineEnd,
-}) => (
+}: ChipProps) => (
     <span
         onClick={(e) => {
             if (!disabled && onClick) {
@@ -113,31 +144,5 @@ const Chip = ({
         `}</style>
     </span>
 )
-
-Chip.propTypes = {
-    children: PropTypes.any,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    dense: PropTypes.bool,
-    disabled: PropTypes.bool,
-    dragging: PropTypes.bool,
-    icon: PropTypes.element,
-    /** `margin-bottom` value, applied in `px`  */
-    marginBottom: PropTypes.number,
-    /** `margin-inline-end` value, applied in `px`  */
-    marginInlineEnd: PropTypes.number,
-    /** `margin-inline-start` value, applied in `px`  */
-    marginInlineStart: PropTypes.number,
-    /** `margin-inline-start` value, applied in `px`  */
-    marginLeft: PropTypes.number,
-    /** `margin-inline-end` value, applied in `px`  */
-    marginRight: PropTypes.number,
-    /** `margin-top` value, applied in `px`  */
-    marginTop: PropTypes.number,
-    overflow: PropTypes.bool,
-    selected: PropTypes.bool,
-    onClick: PropTypes.func,
-    onRemove: PropTypes.func,
-}
 
 export { Chip }

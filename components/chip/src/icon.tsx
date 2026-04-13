@@ -1,8 +1,13 @@
 import { spacers } from '@dhis2/ui-constants'
-import PropTypes from 'prop-types'
 import React from 'react'
 
-export const Icon = ({ icon, dataTest }) => {
+export interface IconProps {
+    dataTest: string
+    /** the slot for an icon is 24x24px, bigger elements will be clipped */
+    icon?: React.ReactElement
+}
+
+export const Icon = ({ icon, dataTest }: IconProps) => {
     if (!icon) {
         return null
     }
@@ -28,10 +33,4 @@ export const Icon = ({ icon, dataTest }) => {
             `}</style>
         </span>
     )
-}
-
-Icon.propTypes = {
-    dataTest: PropTypes.string.isRequired,
-    /** the slot for an icon is 24x24px, bigger elements will be clipped */
-    icon: PropTypes.element,
 }

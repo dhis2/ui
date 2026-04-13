@@ -1,5 +1,5 @@
 import React from 'react'
-import { Chip } from './chip.js'
+import { Chip } from './chip.tsx'
 
 const subtitle = `Chips are useful for displaying a selection of defined choices and filters to the user.`
 
