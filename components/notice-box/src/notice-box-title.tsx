@@ -1,8 +1,12 @@
 import { colors } from '@dhis2/ui-constants'
-import PropTypes from 'prop-types'
 import React from 'react'
 
-export const NoticeBoxTitle = ({ title, dataTest }) => {
+export interface NoticeBoxTitleProps {
+    dataTest: string
+    title?: string
+}
+
+export const NoticeBoxTitle = ({ title, dataTest }: NoticeBoxTitleProps) => {
     if (!title) {
         return null
     }
@@ -21,9 +25,4 @@ export const NoticeBoxTitle = ({ title, dataTest }) => {
             `}</style>
         </h6>
     )
-}
-
-NoticeBoxTitle.propTypes = {
-    dataTest: PropTypes.string.isRequired,
-    title: PropTypes.string,
 }

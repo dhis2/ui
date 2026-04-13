@@ -1,10 +1,21 @@
-import { mutuallyExclusive } from '@dhis2/prop-types'
 import { spacers, colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React from 'react'
-import { NoticeBoxContent } from './notice-box-content.js'
-import { NoticeBoxIcon } from './notice-box-icon.js'
+import { NoticeBoxContent } from './notice-box-content.tsx'
+import { NoticeBoxIcon } from './notice-box-icon.tsx'
+
+export interface NoticeBoxProps {
+    children?: React.ReactNode
+    className?: string
+    dataTest?: string
+    /** Applies 'error' message styles. Mutually exclusive with the `valid` and `warning` props */
+    error?: boolean
+    title?: string
+    /** Applies 'valid' message styles. Mutually exclusive with the `error` and `warning` props */
+    valid?: boolean
+    /** Applies 'warning' message styles. Mutually exclusive with the `error` and `valid` props */
+    warning?: boolean
+}
 
 export const NoticeBox = ({
     className,
@@ -14,7 +25,7 @@ export const NoticeBox = ({
     warning,
     error,
     valid,
-}) => {
+}: NoticeBoxProps) => {
     const classnames = cx(className, 'root', { warning, error, valid })
 
     return (
@@ -61,17 +72,4 @@ export const NoticeBox = ({
             `}</style>
         </div>
     )
-}
-
-NoticeBox.propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    /** Applies 'error' message styles. Mutually exclusive with the `valid` and `warning` props */
-    error: mutuallyExclusive(['error', 'valid', 'warning'], PropTypes.bool),
-    title: PropTypes.string,
-    /** Applies 'valid' message styles. Mutually exclusive with the `error` and `warning` props */
-    valid: mutuallyExclusive(['error', 'valid', 'warning'], PropTypes.bool),
-    /** Applies 'warning' message styles. Mutually exclusive with the `error` and `valid` props */
-    warning: mutuallyExclusive(['error', 'valid', 'warning'], PropTypes.bool),
 }

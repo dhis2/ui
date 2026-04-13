@@ -1,4 +1,3 @@
-import { mutuallyExclusive } from '@dhis2/prop-types'
 import { colors, spacers } from '@dhis2/ui-constants'
 import {
     IconErrorFilled24,
@@ -6,13 +5,24 @@ import {
     IconInfoFilled24,
     IconCheckmarkCircle24,
 } from '@dhis2/ui-icons'
-import PropTypes from 'prop-types'
 import React from 'react'
 
-export const NoticeBoxIcon = ({ valid, warning, error, dataTest }) => {
+export interface NoticeBoxIconProps {
+    dataTest: string
+    error?: boolean
+    valid?: boolean
+    warning?: boolean
+}
+
+export const NoticeBoxIcon = ({
+    valid,
+    warning,
+    error,
+    dataTest,
+}: NoticeBoxIconProps) => {
     // Info is the default icon
     let color = colors.blue900
-    let Icon = IconInfoFilled24
+    let Icon: typeof IconInfoFilled24 = IconInfoFilled24
 
     if (valid) {
         color = colors.green700
@@ -39,11 +49,4 @@ export const NoticeBoxIcon = ({ valid, warning, error, dataTest }) => {
             `}</style>
         </div>
     )
-}
-
-NoticeBoxIcon.propTypes = {
-    dataTest: PropTypes.string.isRequired,
-    error: mutuallyExclusive(['error', 'valid', 'warning'], PropTypes.bool),
-    valid: mutuallyExclusive(['error', 'valid', 'warning'], PropTypes.bool),
-    warning: mutuallyExclusive(['error', 'valid', 'warning'], PropTypes.bool),
 }

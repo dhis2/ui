@@ -1,14 +1,19 @@
 import { spacers } from '@dhis2/ui-constants'
-import PropTypes from 'prop-types'
 import React from 'react'
-import { NoticeBoxMessage } from './notice-box-message.js'
-import { NoticeBoxTitle } from './notice-box-title.js'
+import { NoticeBoxMessage } from './notice-box-message.tsx'
+import { NoticeBoxTitle } from './notice-box-title.tsx'
+
+export interface NoticeBoxContentProps {
+    children?: React.ReactNode
+    dataTest?: string
+    title?: string
+}
 
 export const NoticeBoxContent = ({
     children,
     dataTest = 'dhis2-uicore-noticebox-content',
     title,
-}) => {
+}: NoticeBoxContentProps) => {
     return (
         <div data-test={dataTest}>
             <NoticeBoxTitle title={title} dataTest={`${dataTest}-title`} />
@@ -25,10 +30,4 @@ export const NoticeBoxContent = ({
             `}</style>
         </div>
     )
-}
-
-NoticeBoxContent.propTypes = {
-    children: PropTypes.node,
-    dataTest: PropTypes.string,
-    title: PropTypes.string,
 }
