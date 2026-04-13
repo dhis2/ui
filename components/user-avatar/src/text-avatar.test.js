@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { getInitials, TextAvatar } from './text-avatar.js'
+import { getInitials, TextAvatar } from './text-avatar.tsx'
 
 describe('TextAvatar', () => {
     describe('sizes', () => {

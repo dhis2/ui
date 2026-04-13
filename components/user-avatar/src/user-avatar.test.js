@@ -1,8 +1,8 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { ImageAvatar } from './image-avatar.js'
-import { TextAvatar } from './text-avatar.js'
-import { UserAvatar } from './user-avatar.js'
+import { ImageAvatar } from './image-avatar.tsx'
+import { TextAvatar } from './text-avatar.tsx'
+import { UserAvatar } from './user-avatar.tsx'
 
 describe('UserAvatar', () => {
     it('renders an ImageAvatar when a avatarId is provided', () => {
