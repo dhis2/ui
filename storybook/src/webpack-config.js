@@ -99,8 +99,8 @@ function modify_internal_package_resolutions(cfg) {
 
         const pathToResolve =
             process.env.NODE_ENV === 'production'
-                ? `node_modules/${name}/build/es/**/index.js`
-                : `node_modules/${name}/src/**/index.js`
+                ? `node_modules/${name}/build/es/**/index.{js,ts}`
+                : `node_modules/${name}/src/**/index.{js,ts}`
 
         const index = fg.sync(pathToResolve, {
             depth: 1,
@@ -108,7 +108,9 @@ function modify_internal_package_resolutions(cfg) {
             cwd: PROJECT_ROOT,
             absolute: true,
         })
-        cfg.resolve.alias[name] = path.resolve(PROJECT_ROOT, index[0])
+        if (index[0]) {
+            cfg.resolve.alias[name] = path.resolve(PROJECT_ROOT, index[0])
+        }
     }
 
     console.info('custom => Resolve aliases for internal packages:')
