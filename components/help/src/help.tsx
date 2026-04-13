@@ -1,7 +1,15 @@
-import { spacers, theme, colors, sharedPropTypes } from '@dhis2/ui-constants'
+import { spacers, theme, colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React from 'react'
+
+export interface HelpProps {
+    children?: string
+    className?: string
+    dataTest?: string
+    error?: boolean
+    valid?: boolean
+    warning?: boolean
+}
 
 const Help = ({
     children,
@@ -10,7 +18,7 @@ const Help = ({
     warning,
     className,
     dataTest = 'dhis2-uicore-help',
-}) => (
+}: HelpProps) => (
     <p
         className={cx(className, {
             valid,
@@ -46,14 +54,5 @@ const Help = ({
         `}</style>
     </p>
 )
-
-Help.propTypes = {
-    children: PropTypes.string,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    error: sharedPropTypes.statusPropType,
-    valid: sharedPropTypes.statusPropType,
-    warning: sharedPropTypes.statusPropType,
-}
 
 export { Help }
