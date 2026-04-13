@@ -1,8 +1,29 @@
-import { deprecated } from '@dhis2/prop-types'
 import { Portal } from '@dhis2-ui/portal'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React from 'react'
+
+export interface LayerProps {
+    children?: React.ReactNode
+    className?: string
+    dataTest?: string
+    /** Disable the Portal, useful for nesting layers */
+    disablePortal?: boolean
+    /** Z-index level */
+    level?: number | string
+    position?: 'absolute' | 'fixed'
+    /** Adds a semi-transparent background */
+    translucent?: boolean
+    /** Backdrop click handler */
+    onBackdropClick?: (
+        payload: Record<string, never>,
+        event: React.MouseEvent<HTMLDivElement>
+    ) => void
+    /** Click handler - DEPRECATED: use onBackdropClick instead */
+    onClick?: (
+        payload: Record<string, never>,
+        event: React.MouseEvent<HTMLDivElement>
+    ) => void
+}
 
 const Layer = ({
     children,
@@ -14,7 +35,7 @@ const Layer = ({
     onClick,
     position = 'fixed',
     translucent,
-}) => {
+}: LayerProps) => {
     const resolvedOnClick = onBackdropClick || onClick
 
     return (
@@ -68,23 +89,6 @@ const Layer = ({
             </div>
         </Portal>
     )
-}
-
-Layer.propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    /** Disable the Portal, useful for nesting layers */
-    disablePortal: PropTypes.bool,
-    /** Z-index level */
-    level: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    position: PropTypes.oneOf(['absolute', 'fixed']),
-    /** Adds a semi-transparent background */
-    translucent: PropTypes.bool,
-    /** Backdrop click handler */
-    onBackdropClick: PropTypes.func,
-    /** Click handler - DEPRECATED */
-    onClick: deprecated(PropTypes.func, 'Please use "onBackdropClick" instead'),
 }
 
 export { Layer }
