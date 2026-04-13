@@ -1,12 +1,18 @@
 import { UserAvatar } from '@dhis2-ui/user-avatar'
-import PropTypes from 'prop-types'
 import React, { useCallback, useRef, useState } from 'react'
-import { DebugInfoModal } from './debug-info/debug-info-modal.js'
+import { DebugInfoModal } from './debug-info/debug-info-modal.tsx'
 import i18n from './locales/index.js'
-import { useOnDocClick } from './profile/use-on-doc-click.js'
-import { ProfileMenu } from './profile-menu/index.js'
+import { useOnDocClick } from './profile/use-on-doc-click.ts'
+import { ProfileMenu } from './profile-menu/index.ts'
 
-const Profile = ({ name, email, avatarId, helpUrl }) => {
+export interface ProfileProps {
+    name: string
+    avatarId?: string
+    email?: string
+    helpUrl?: string
+}
+
+const Profile = ({ name, email, avatarId, helpUrl }: ProfileProps) => {
     const [showProfileMenu, setShowProfileMenu] = useState(false)
     const [showDebugInfoModal, setShowDebugInfoModal] = useState(false)
     const hideProfileMenu = useCallback(
@@ -17,7 +23,7 @@ const Profile = ({ name, email, avatarId, helpUrl }) => {
         () => setShowProfileMenu((show) => !show),
         [setShowProfileMenu]
     )
-    const containerRef = useRef(null)
+    const containerRef = useRef<HTMLDivElement>(null)
 
     useOnDocClick(containerRef, hideProfileMenu)
 
@@ -89,13 +95,6 @@ const Profile = ({ name, email, avatarId, helpUrl }) => {
             `}</style>
         </div>
     )
-}
-
-Profile.propTypes = {
-    name: PropTypes.string.isRequired,
-    avatarId: PropTypes.string,
-    email: PropTypes.string,
-    helpUrl: PropTypes.string,
 }
 
 export default Profile

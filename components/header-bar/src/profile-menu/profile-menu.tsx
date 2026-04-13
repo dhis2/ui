@@ -13,13 +13,12 @@ import { Divider } from '@dhis2-ui/divider'
 import { Layer } from '@dhis2-ui/layer'
 import { CircularLoader } from '@dhis2-ui/loader'
 import { MenuDivider, MenuItem } from '@dhis2-ui/menu'
-import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import { DebugInfoMenuItem } from '../debug-info/debug-info-menu-item.js'
-import { joinPath } from '../join-path.js'
+import { DebugInfoMenuItem } from '../debug-info/debug-info-menu-item.tsx'
+import { joinPath } from '../join-path.ts'
 import i18n from '../locales/index.js'
-import { ProfileHeader } from './profile-header.js'
-import { UpdateNotification } from './update-notification.js'
+import { ProfileHeader } from './profile-header.tsx'
+import { UpdateNotification } from './update-notification.tsx'
 
 const LoadingMask = () => (
     <Layer
@@ -33,6 +32,15 @@ const LoadingMask = () => (
     </Layer>
 )
 
+interface ProfileContentsProps {
+    name?: string
+    email?: string
+    avatarId?: string
+    helpUrl?: string
+    hideProfileMenu: () => void
+    showDebugInfoModal: () => void
+}
+
 const ProfileContents = ({
     name,
     email,
@@ -40,7 +48,7 @@ const ProfileContents = ({
     helpUrl,
     hideProfileMenu,
     showDebugInfoModal,
-}) => {
+}: ProfileContentsProps) => {
     const { baseUrl } = useConfig()
     const [loading, setLoading] = useState(false)
 
@@ -143,16 +151,16 @@ const ProfileContents = ({
     )
 }
 
-ProfileContents.propTypes = {
-    hideProfileMenu: PropTypes.func.isRequired,
-    showDebugInfoModal: PropTypes.func.isRequired,
-    avatarId: PropTypes.string,
-    email: PropTypes.string,
-    helpUrl: PropTypes.string,
-    name: PropTypes.string,
+export interface ProfileMenuProps {
+    name?: string
+    email?: string
+    avatarId?: string
+    helpUrl?: string
+    hideProfileMenu: () => void
+    showDebugInfoModal: () => void
 }
 
-export const ProfileMenu = ({ ...props }) => (
+export const ProfileMenu = ({ ...props }: ProfileMenuProps) => (
     <div data-test="headerbar-profile-menu">
         <ProfileContents {...props} />
         <style jsx>{`
@@ -165,12 +173,3 @@ export const ProfileMenu = ({ ...props }) => (
         `}</style>
     </div>
 )
-
-ProfileMenu.propTypes = {
-    hideProfileMenu: PropTypes.func.isRequired,
-    showDebugInfoModal: PropTypes.func.isRequired,
-    avatarId: PropTypes.string,
-    email: PropTypes.string,
-    helpUrl: PropTypes.string,
-    name: PropTypes.string,
-}

@@ -1,8 +1,8 @@
 import { colors } from '@dhis2/ui-constants'
 import React from 'react'
-import { useDebugInfo } from './use-debug-info.js'
+import { useDebugInfo } from './use-debug-info.ts'
 
-const formatDebugInfoKey = (key) => {
+const formatDebugInfoKey = (key: string): string => {
     const tokens = key.split('_')
     return tokens
         .map((token) => {
@@ -25,7 +25,7 @@ export function DebugInfoTable() {
                         <td className="debug-info-key">
                             {formatDebugInfoKey(key)}
                         </td>
-                        <td>{debugInfo[key]}</td>
+                        <td>{debugInfo[key as keyof typeof debugInfo]}</td>
                     </tr>
                 ))}
             </tbody>

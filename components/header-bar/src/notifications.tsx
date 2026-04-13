@@ -1,26 +1,34 @@
 import { useConfig } from '@dhis2/app-runtime'
-import PropTypes from 'prop-types'
 import React from 'react'
-import { joinPath } from './join-path.js'
+import { joinPath } from './join-path.ts'
 import i18n from './locales/index.js'
-import { NotificationIcon } from './notification-icon.js'
+import { NotificationIcon } from './notification-icon.tsx'
 
-const hasAuthority = (userAuthorities, authId) =>
+const hasAuthority = (userAuthorities: string[], authId: string): boolean =>
     Array.isArray(userAuthorities) &&
     userAuthorities.some(
         (userAuthId) => userAuthId === 'ALL' || userAuthId === authId
     )
 
+export interface NotificationsProps {
+    interpretations?: number
+    messages?: number
+    userAuthorities?: string[]
+}
+
 export const Notifications = ({
     interpretations,
     messages,
     userAuthorities,
-}) => {
+}: NotificationsProps) => {
     const { baseUrl } = useConfig()
 
     return (
         <div data-test="headerbar-notifications">
-            {hasAuthority(userAuthorities, 'M_dhis-web-interpretation') && (
+            {hasAuthority(
+                userAuthorities || [],
+                'M_dhis-web-interpretation'
+            ) && (
                 <NotificationIcon
                     count={interpretations}
                     href={joinPath(baseUrl, 'dhis-web-interpretation')}
@@ -31,9 +39,11 @@ export const Notifications = ({
                 />
             )}
 
-            {hasAuthority(userAuthorities, 'M_dhis-web-messaging') && (
+            {hasAuthority(
+                userAuthorities || [],
+                'M_dhis-web-messaging'
+            ) && (
                 <NotificationIcon
-                    message="email"
                     count={messages}
                     href={joinPath(baseUrl, 'dhis-web-messaging')}
                     kind="interpretation"
@@ -54,10 +64,4 @@ export const Notifications = ({
             `}</style>
         </div>
     )
-}
-
-Notifications.propTypes = {
-    interpretations: PropTypes.number,
-    messages: PropTypes.number,
-    userAuthorities: PropTypes.arrayOf(PropTypes.string),
 }

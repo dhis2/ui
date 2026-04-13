@@ -3,13 +3,17 @@ import {
     useOnlineStatusMessage,
 } from '@dhis2/app-runtime'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React from 'react'
 import i18n from './locales/index.js'
-import styles from './online-status.styles.js'
+import styles from './online-status.styles.ts'
+
+export interface OnlineStatusProps {
+    /** If true, displays as a sub-bar instead of a badge */
+    dense?: boolean
+}
 
 /** A badge to display online/offline status in the header bar */
-export function OnlineStatus({ dense }) {
+export function OnlineStatus({ dense }: OnlineStatusProps) {
     const { isConnected: online } = useDhis2ConnectionStatus()
     const { onlineStatusMessage } = useOnlineStatusMessage()
 
@@ -33,8 +37,4 @@ export function OnlineStatus({ dense }) {
             <style jsx>{styles}</style>
         </div>
     )
-}
-OnlineStatus.propTypes = {
-    /** If true, displays as a sub-bar instead of a badge */
-    dense: PropTypes.bool,
 }

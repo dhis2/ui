@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { HeaderBar } from '../../header-bar.js'
+import { HeaderBar } from '../../header-bar.tsx'
 import {
     createDecoratorCustomDataProviderHeaderBar,
     createDecoratorProvider,

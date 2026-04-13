@@ -1,7 +1,11 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 
-export const Title = ({ app, instance }) => (
+export interface TitleProps {
+    app?: string
+    instance?: string
+}
+
+export const Title = ({ app, instance }: TitleProps) => (
     <div data-test="headerbar-title">
         {app ? `${instance} - ${app}` : `${instance}`}
 
@@ -17,7 +21,3 @@ export const Title = ({ app, instance }) => (
         `}</style>
     </div>
 )
-Title.propTypes = {
-    app: PropTypes.string,
-    instance: PropTypes.string,
-}

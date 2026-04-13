@@ -1,11 +1,18 @@
 import { colors } from '@dhis2/ui-constants'
 import { MenuItem } from '@dhis2-ui/menu'
-import PropTypes from 'prop-types'
 import React from 'react'
 import i18n from '../locales/index.js'
-import { useDebugInfo } from './use-debug-info.js'
+import { useDebugInfo } from './use-debug-info.ts'
 
-export const DebugInfoMenuItem = ({ hideProfileMenu, showDebugInfoModal }) => {
+export interface DebugInfoMenuItemProps {
+    hideProfileMenu: () => void
+    showDebugInfoModal: () => void
+}
+
+export const DebugInfoMenuItem = ({
+    hideProfileMenu,
+    showDebugInfoModal,
+}: DebugInfoMenuItemProps) => {
     const debugInfo = useDebugInfo()
 
     const openDebugModal = () => {
@@ -64,9 +71,4 @@ export const DebugInfoMenuItem = ({ hideProfileMenu, showDebugInfoModal }) => {
             dataTest="dhis2-ui-headerbar-debuginfo"
         />
     )
-}
-
-DebugInfoMenuItem.propTypes = {
-    hideProfileMenu: PropTypes.func.isRequired,
-    showDebugInfoModal: PropTypes.func.isRequired,
 }

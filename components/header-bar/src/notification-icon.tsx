@@ -1,15 +1,23 @@
 import { colors, theme, spacers } from '@dhis2/ui-constants'
 import { IconMessages24, IconMail24 } from '@dhis2/ui-icons'
-import PropTypes from 'prop-types'
 import React from 'react'
 import i18n from './locales/index.js'
 
-function icon(kind) {
+function icon(kind: string) {
     if (kind === 'message') {
         return <IconMessages24 color={colors.white} />
     } else {
         return <IconMail24 color={colors.white} />
     }
+}
+
+export interface NotificationIconProps {
+    'aria-label': string
+    href: string
+    title: string
+    count?: number
+    dataTestId?: string
+    kind?: 'interpretation' | 'message'
 }
 
 export const NotificationIcon = ({
@@ -19,7 +27,7 @@ export const NotificationIcon = ({
     dataTestId,
     title,
     'aria-label': ariaLabel,
-}) => (
+}: NotificationIconProps) => (
     <a
         dir="ltr"
         href={href}
@@ -28,7 +36,7 @@ export const NotificationIcon = ({
         title={i18n.t(title)}
         aria-label={i18n.t(ariaLabel)}
     >
-        {icon(kind)}
+        {icon(kind || 'interpretation')}
 
         {count > 0 && <span data-test={`${dataTestId}-count`}>{count}</span>}
 
@@ -80,12 +88,3 @@ export const NotificationIcon = ({
         `}</style>
     </a>
 )
-
-NotificationIcon.propTypes = {
-    'aria-label': PropTypes.string.isRequired,
-    href: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    count: PropTypes.number,
-    dataTestId: PropTypes.string,
-    kind: PropTypes.oneOf(['interpretation', 'message']),
-}

@@ -3,20 +3,24 @@ import { colors, spacers, theme } from '@dhis2/ui-constants'
 import { IconApps24, IconSettings24 } from '@dhis2/ui-icons'
 import { Card } from '@dhis2-ui/card'
 import { InputField } from '@dhis2-ui/input'
-import PropTypes from 'prop-types'
 import React, { useState, useEffect, useCallback, useRef } from 'react'
-import { joinPath } from './join-path.js'
+import { joinPath } from './join-path.ts'
 import i18n from './locales/index.js'
 
 /**
  * Copied from here:
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Escaping
  */
-function escapeRegExpCharacters(text) {
+function escapeRegExpCharacters(text: string): string {
     return text.replace(/[/.*+?^${}()|[\]\\]/g, '\\$&')
 }
 
-function Search({ value, onChange }) {
+interface SearchProps {
+    value: string
+    onChange: (payload: { value: string | undefined; name: string | undefined }, event: React.ChangeEvent<HTMLInputElement>) => void
+}
+
+function Search({ value, onChange }: SearchProps) {
     const { baseUrl } = useConfig()
 
     return (
@@ -59,12 +63,13 @@ function Search({ value, onChange }) {
     )
 }
 
-Search.propTypes = {
-    value: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
+interface ItemProps {
+    name?: string
+    path?: string
+    img?: string
 }
 
-function Item({ name, path, img }) {
+function Item({ name, path, img }: ItemProps) {
     return (
         <a href={path}>
             <img src={img} alt="app logo" />
@@ -118,23 +123,30 @@ function Item({ name, path, img }) {
     )
 }
 
-Item.propTypes = {
-    img: PropTypes.string,
-    name: PropTypes.string,
-    path: PropTypes.string,
+interface AppItem {
+    displayName?: string
+    name: string
+    defaultAction: string
+    icon: string
 }
 
-function List({ apps, filter }) {
+interface ListProps {
+    apps?: AppItem[]
+    filter?: string
+}
+
+function List({ apps, filter }: ListProps) {
     return (
         <div data-test="headerbar-apps-menu-list">
-            {apps
+            {(apps || [])
                 .filter(({ displayName, name }) => {
                     const appName = displayName || name
                     const formattedAppName = appName.toLowerCase()
-                    const formattedFilter =
-                        escapeRegExpCharacters(filter).toLowerCase()
+                    const formattedFilter = escapeRegExpCharacters(
+                        filter || ''
+                    ).toLowerCase()
 
-                    return filter.length > 0
+                    return (filter || '').length > 0
                         ? formattedAppName.match(formattedFilter)
                         : true
                 })
@@ -172,12 +184,14 @@ function List({ apps, filter }) {
         </div>
     )
 }
-List.propTypes = {
-    apps: PropTypes.array,
-    filter: PropTypes.string,
+
+interface AppMenuProps {
+    apps: AppItem[]
+    filter: string
+    onFilterChange: (payload: { value: string | undefined; name: string | undefined }, event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const AppMenu = ({ apps, filter, onFilterChange }) => (
+const AppMenu = ({ apps, filter, onFilterChange }: AppMenuProps) => (
     <div data-test="headerbar-apps-menu">
         <Card>
             <Search value={filter} onChange={onFilterChange} />
@@ -194,22 +208,23 @@ const AppMenu = ({ apps, filter, onFilterChange }) => (
     </div>
 )
 
-AppMenu.propTypes = {
-    apps: PropTypes.array.isRequired,
-    onFilterChange: PropTypes.func.isRequired,
-    filter: PropTypes.string,
+export interface AppsProps {
+    apps: AppItem[]
 }
 
-const Apps = ({ apps }) => {
+const Apps = ({ apps }: AppsProps) => {
     const [show, setShow] = useState(false)
     const [filter, setFilter] = useState('')
 
     const handleVisibilityToggle = useCallback(() => setShow(!show), [show])
-    const handleFilterChange = useCallback(({ value }) => setFilter(value), [])
+    const handleFilterChange = useCallback(
+        ({ value }: { value: string | undefined }) => setFilter(value || ''),
+        []
+    )
 
-    const containerEl = useRef(null)
-    const onDocClick = useCallback((evt) => {
-        if (containerEl.current && !containerEl.current.contains(evt.target)) {
+    const containerEl = useRef<HTMLDivElement>(null)
+    const onDocClick = useCallback((evt: MouseEvent) => {
+        if (containerEl.current && !containerEl.current.contains(evt.target as Node)) {
             setShow(false)
         }
     }, [])
@@ -267,10 +282,6 @@ const Apps = ({ apps }) => {
             `}</style>
         </div>
     )
-}
-
-Apps.propTypes = {
-    apps: PropTypes.array.isRequired,
 }
 
 export default Apps

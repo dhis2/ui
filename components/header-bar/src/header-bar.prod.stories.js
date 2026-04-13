@@ -6,7 +6,7 @@ import {
     providerConfig,
 } from './__e2e__/stories/common.js'
 import { OnlineStatusMessageUpdate } from './__e2e__/stories/online-status-message.js'
-import { HeaderBar } from './header-bar.js'
+import { HeaderBar } from './header-bar.tsx'
 import i18n from './locales/index.js'
 
 const subtitle = 'The common navigation bar used in all DHIS2 apps'

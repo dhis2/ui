@@ -1,11 +1,14 @@
 import { useConfig } from '@dhis2/app-runtime'
 import { UserAvatar } from '@dhis2-ui/user-avatar'
-import PropTypes from 'prop-types'
 import React from 'react'
-import { joinPath } from '../join-path.js'
+import { joinPath } from '../join-path.ts'
 import i18n from '../locales/index.js'
 
-const ProfileName = ({ children }) => (
+interface ProfileNameProps {
+    children?: string
+}
+
+const ProfileName = ({ children }: ProfileNameProps) => (
     <div data-test="headerbar-profile-username">
         {children}
 
@@ -18,11 +21,12 @@ const ProfileName = ({ children }) => (
         `}</style>
     </div>
 )
-ProfileName.propTypes = {
-    children: PropTypes.string,
+
+interface ProfileEmailProps {
+    children?: string
 }
 
-const ProfileEmail = ({ children }) => (
+const ProfileEmail = ({ children }: ProfileEmailProps) => (
     <div data-test="headerbar-profile-user-email">
         {children}
 
@@ -35,11 +39,12 @@ const ProfileEmail = ({ children }) => (
         `}</style>
     </div>
 )
-ProfileEmail.propTypes = {
-    children: PropTypes.string,
+
+interface ProfileEditProps {
+    children?: string
 }
 
-const ProfileEdit = ({ children }) => {
+const ProfileEdit = ({ children }: ProfileEditProps) => {
     const { baseUrl } = useConfig()
 
     return (
@@ -62,11 +67,12 @@ const ProfileEdit = ({ children }) => {
     )
 }
 
-ProfileEdit.propTypes = {
-    children: PropTypes.string,
+interface ProfileDetailsProps {
+    name?: string
+    email?: string
 }
 
-const ProfileDetails = ({ name, email }) => (
+const ProfileDetails = ({ name, email }: ProfileDetailsProps) => (
     <div>
         <ProfileName>{name}</ProfileName>
         <ProfileEmail>{email}</ProfileEmail>
@@ -85,16 +91,17 @@ const ProfileDetails = ({ name, email }) => (
     </div>
 )
 
-ProfileDetails.propTypes = {
-    email: PropTypes.string,
-    name: PropTypes.string,
+export interface ProfileHeaderProps {
+    avatarId?: string
+    email?: string
+    name?: string
 }
 
-export const ProfileHeader = ({ name, email, avatarId }) => (
+export const ProfileHeader = ({ name, email, avatarId }: ProfileHeaderProps) => (
     <div>
         <UserAvatar
             avatarId={avatarId}
-            name={name}
+            name={name || ''}
             dataTest="headerbar-profile-menu-icon"
             large
         />
@@ -110,9 +117,3 @@ export const ProfileHeader = ({ name, email, avatarId }) => (
         `}</style>
     </div>
 )
-
-ProfileHeader.propTypes = {
-    avatarId: PropTypes.string,
-    email: PropTypes.string,
-    name: PropTypes.string,
-}

@@ -22,7 +22,15 @@ const query = {
     },
 }
 
-const pathExists = (data) =>
+interface LogoData {
+    customLogo?: {
+        images?: {
+            png?: string
+        }
+    }
+}
+
+const pathExists = (data: LogoData) =>
     data &&
     data.customLogo &&
     data.customLogo.images &&
@@ -36,11 +44,11 @@ export const LogoImage = () => {
     }
 
     let Logo
-    if (!error && pathExists(data)) {
+    if (!error && pathExists(data as LogoData)) {
         Logo = (
             <img
                 alt="Headerbar Logo"
-                src={data.customLogo.images.png}
+                src={(data as LogoData).customLogo!.images!.png}
                 className={logoStyles.className}
             />
         )

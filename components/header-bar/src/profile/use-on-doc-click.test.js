@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react'
-import { useOnDocClick } from './use-on-doc-click.js'
+import { useOnDocClick } from './use-on-doc-click.ts'
 
 describe('useOnDocClick', () => {
     let eventListenerMap = {}

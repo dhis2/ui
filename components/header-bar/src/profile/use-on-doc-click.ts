@@ -1,13 +1,16 @@
 import { useEffect, useMemo } from 'react'
 
-export const useOnDocClick = (containerRef, hide) => {
+export const useOnDocClick = (
+    containerRef: React.RefObject<HTMLElement | null>,
+    hide: () => void
+) => {
     const onDocClick = useMemo(() => {
-        return (evt) => {
+        return (evt: MouseEvent) => {
             if (!containerRef.current) {
                 return null
             }
 
-            if (!containerRef.current.contains(evt.target)) {
+            if (!containerRef.current.contains(evt.target as Node)) {
                 hide()
             }
         }

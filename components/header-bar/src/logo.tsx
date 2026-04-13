@@ -1,6 +1,6 @@
 import { useConfig } from '@dhis2/app-runtime'
 import React from 'react'
-import { LogoImage } from './logo-image.js'
+import { LogoImage } from './logo-image.tsx'
 
 export const Logo = () => {
     const { baseUrl } = useConfig()
