@@ -1,11 +1,78 @@
-import { theme, colors, spacers, sharedPropTypes } from '@dhis2/ui-constants'
+import { theme, colors, spacers } from '@dhis2/ui-constants'
 import { IconCross16 } from '@dhis2/ui-icons'
 import { StatusIcon } from '@dhis2-ui/status-icon'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import css from 'styled-jsx/css'
-import { inputTypes } from './inputTypes.js'
+import { inputTypes, InputType } from './inputTypes.ts'
+
+export { inputTypes }
+export type { InputType }
+
+interface InputEventPayload {
+    value: string
+    name?: string
+}
+
+export interface InputProps {
+    /** Add an aria-controls attribute to the input element **/
+    ariaControls?: string
+    /** Add an aria-haspopup attribute to the input element **/
+    ariaHaspopup?: boolean | 'false' | 'true' | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog'
+    /** Add an aria-label attribute to the input element **/
+    ariaLabel?: string
+    /** The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete) */
+    autoComplete?: string
+    className?: string
+    /** Makes the input field clearable */
+    clearable?: boolean
+    dataTest?: string
+    /** Makes the input smaller */
+    dense?: boolean
+    /** Disables the input */
+    disabled?: boolean
+    /** Applies 'error' appearance for validation feedback. Mutually exclusive with `valid` and `warning` props */
+    error?: boolean
+    /** The input grabs initial focus on the page */
+    initialFocus?: boolean
+    /** Adds a loading indicator beside the input */
+    loading?: boolean
+    /** The [native `max` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-max), for use when `type` is `'number'` */
+    max?: string
+    /** The [native `min` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-min), for use when `type` is `'number'` */
+    min?: string
+    /** Name associated with the input. Passed to event handler callbacks in object */
+    name?: string
+    /** Placeholder text for the input */
+    placeholder?: string
+    /** Add prefix icon */
+    prefixIcon?: React.ReactElement
+    /** Makes the input read-only */
+    readOnly?: boolean
+    /** Sets a role attribute on the input */
+    role?: string
+    /** The [native `step` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-step), for use when `type` is `'number'` */
+    step?: string
+    tabIndex?: string
+    /** The native input `type` attribute */
+    type?: InputType
+    /** Applies 'valid' appearance for validation feedback. Mutually exclusive with `error` and `warning` props */
+    valid?: boolean
+    /** Value in the input. Can be used to control the component (recommended). Passed to event handler callbacks in object */
+    value?: string
+    /** Applies 'warning' appearance for validation feedback. Mutually exclusive with `valid` and `error` props */
+    warning?: boolean
+    /** Defines the width of the input. Can be any valid CSS measurement */
+    width?: string
+    /** Called with signature `({ name: string, value: string }, event)` */
+    onBlur?: (payload: InputEventPayload, event: React.FocusEvent<HTMLInputElement>) => void
+    /** Called with signature `({ name: string, value: string }, event)` */
+    onChange?: (payload: InputEventPayload, event?: React.ChangeEvent<HTMLInputElement>) => void
+    /** Called with signature `({ name: string, value: string }, event)` */
+    onFocus?: (payload: InputEventPayload, event: React.FocusEvent<HTMLInputElement>) => void
+    /** Called with signature `({ name: string, value: string }, event)` */
+    onKeyDown?: (payload: InputEventPayload, event: React.KeyboardEvent<HTMLInputElement>) => void
+}
 
 const styles = css`
     .input {
@@ -91,39 +158,39 @@ const styles = css`
     }
 `
 
-export class Input extends Component {
+export class Input extends Component<InputProps> {
     static defaultProps = {
-        type: 'text',
+        type: 'text' as const,
         dataTest: 'dhis2-uicore-input',
     }
 
-    inputRef = React.createRef()
+    inputRef = React.createRef<HTMLInputElement>()
 
     componentDidMount() {
         if (this.props.initialFocus) {
-            this.inputRef.current.focus()
+            this.inputRef.current?.focus()
         }
     }
 
-    handleChange = (e) => {
+    handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (this.props.onChange) {
             this.props.onChange(this.createHandlerPayload(e), e)
         }
     }
 
-    handleBlur = (e) => {
+    handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
         if (this.props.onBlur) {
             this.props.onBlur(this.createHandlerPayload(e), e)
         }
     }
 
-    handleFocus = (e) => {
+    handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
         if (this.props.onFocus) {
             this.props.onFocus(this.createHandlerPayload(e), e)
         }
     }
 
-    handleKeyDown = (e) => {
+    handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (this.props.onKeyDown) {
             this.props.onKeyDown(this.createHandlerPayload(e), e)
         }
@@ -138,9 +205,9 @@ export class Input extends Component {
         }
     }
 
-    createHandlerPayload(e) {
+    createHandlerPayload(e: React.SyntheticEvent<HTMLInputElement>): InputEventPayload {
         return {
-            value: e.target.value,
+            value: (e.target as HTMLInputElement).value,
             name: this.props.name,
         }
     }
@@ -204,7 +271,7 @@ export class Input extends Component {
                     step={step}
                     disabled={disabled}
                     readOnly={readOnly}
-                    tabIndex={tabIndex}
+                    tabIndex={tabIndex != null ? Number(tabIndex) : undefined}
                     autoComplete={autoComplete}
                     onFocus={this.handleFocus}
                     onBlur={this.handleBlur}
@@ -281,64 +348,4 @@ export class Input extends Component {
             </div>
         )
     }
-}
-
-Input.propTypes = {
-    /** Add an aria-controls attribute to the input element **/
-    ariaControls: PropTypes.string,
-    /** Add an aria-haspopup attribute to the input element **/
-    ariaHaspopup: PropTypes.string,
-    /** Add an aria-label attribute to the input element **/
-    ariaLabel: PropTypes.string,
-    /** The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete) */
-    autoComplete: PropTypes.string,
-    className: PropTypes.string,
-    /** Makes the input field clearable */
-    clearable: PropTypes.bool,
-    dataTest: PropTypes.string,
-    /** Makes the input smaller */
-    dense: PropTypes.bool,
-    /** Disables the input */
-    disabled: PropTypes.bool,
-    /** Applies 'error' appearance for validation feedback. Mutually exclusive with `valid` and `warning` props */
-    error: sharedPropTypes.statusPropType,
-    /** The input grabs initial focus on the page */
-    initialFocus: PropTypes.bool,
-    /** Adds a loading indicator beside the input */
-    loading: PropTypes.bool,
-    /** The [native `max` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-max), for use when `type` is `'number'` */
-    max: PropTypes.string,
-    /** The [native `min` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-min), for use when `type` is `'number'` */
-    min: PropTypes.string,
-    /** Name associated with the input. Passed to event handler callbacks in object */
-    name: PropTypes.string,
-    /** Placeholder text for the input */
-    placeholder: PropTypes.string,
-    /** Add prefix icon */
-    prefixIcon: PropTypes.element,
-    /** Makes the input read-only */
-    readOnly: PropTypes.bool,
-    /** Sets a role attribute on the input */
-    role: PropTypes.string,
-    /** The [native `step` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-step), for use when `type` is `'number'` */
-    step: PropTypes.string,
-    tabIndex: PropTypes.string,
-    /** The native input `type` attribute */
-    type: PropTypes.oneOf(inputTypes),
-    /** Applies 'valid' appearance for validation feedback. Mutually exclusive with `error` and `warning` props */
-    valid: sharedPropTypes.statusPropType,
-    /** Value in the input. Can be used to control the component (recommended). Passed to event handler callbacks in object */
-    value: PropTypes.string,
-    /** Applies 'warning' appearance for validation feedback. Mutually exclusive with `valid` and `error` props */
-    warning: sharedPropTypes.statusPropType,
-    /** Defines the width of the input. Can be any valid CSS measurement */
-    width: PropTypes.string,
-    /** Called with signature `({ name: string, value: string }, event)` */
-    onBlur: PropTypes.func,
-    /** Called with signature `({ name: string, value: string }, event)` */
-    onChange: PropTypes.func,
-    /** Called with signature `({ name: string, value: string }, event)` */
-    onFocus: PropTypes.func,
-    /** Called with signature `({ name: string, value: string }, event)` */
-    onKeyDown: PropTypes.func,
 }

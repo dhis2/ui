@@ -12,4 +12,6 @@ export const inputTypes = [
     'week',
     'time',
     'search',
-]
+] as const
+
+export type InputType = (typeof inputTypes)[number]

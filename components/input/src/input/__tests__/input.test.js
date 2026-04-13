@@ -1,7 +1,7 @@
 import { render, fireEvent, screen } from '@testing-library/react'
 import { shallow } from 'enzyme'
 import React from 'react'
-import { Input } from '../input.js'
+import { Input } from '../input.tsx'
 
 describe('<Input>', () => {
     it('passes min, max, and step props as attributes to the native <input> element', () => {
