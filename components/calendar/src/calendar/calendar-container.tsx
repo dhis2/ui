@@ -1,4 +1,4 @@
-import { colors } from '@dhis2/ui-constants'
+import { colors, elevations } from '@dhis2/ui-constants'
 import React, { useMemo } from 'react'
 import { CalendarTable } from './calendar-table.tsx'
 import type { CalendarTableProps } from './calendar-table.tsx'
@@ -89,7 +89,7 @@ export const CalendarContainer = React.memo(function CalendarContainer({
                     border-radius: 3px;
                     min-width: ${width};
                     width: max-content;
-                    box-shadow: 0 4px 12px rgba(12, 14, 16, 0.15), 0 0 0 1px rgba(12, 14, 16, 0.05);
+                    box-shadow: ${(elevations as Record<string, string>).popover};
                 }
             `}</style>
         </div>
