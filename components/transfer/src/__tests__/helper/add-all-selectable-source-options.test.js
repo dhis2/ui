@@ -1,4 +1,4 @@
-import { addAllSelectableSourceOptions } from '../../transfer/add-all-selectable-source-options.js'
+import { addAllSelectableSourceOptions } from '../../transfer/add-all-selectable-source-options.ts'
 
 describe('Transfer - addAllSelectableSourceOptions', () => {
     const onChange = jest.fn()
