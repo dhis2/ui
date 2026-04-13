@@ -1,7 +1,7 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
-import { SingleSelectOption } from '../index.js'
-import { SingleSelectField } from './index.js'
+import { SingleSelectOption } from '../index.ts'
+import { SingleSelectField } from './index.ts'
 
 const description = `
 \`SingleSelectField\` is a wrapper around a \`SingleSelect\` component that adds a label, help text, validation text, and other features.

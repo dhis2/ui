@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 import React from 'react'
-import { MultiSelectOption } from '../../multi-select-option/index.js'
-import { SelectionList } from '../selection-list.js'
+import { MultiSelectOption } from '../../multi-select-option/index.ts'
+import { SelectionList } from '../selection-list.tsx'
 import '@testing-library/jest-dom'
 
 describe('<SelectionList />', () => {

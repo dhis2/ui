@@ -1,6 +1,6 @@
 import React from 'react'
-import { SingleSelectOption } from '../index.js'
-import { SingleSelectField } from './index.js'
+import { SingleSelectOption } from '../index.ts'
+import { SingleSelectField } from './index.ts'
 
 export default { title: 'SingleSelectField' }
 export const WithLabel = () => (

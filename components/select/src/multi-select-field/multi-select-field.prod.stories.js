@@ -1,7 +1,7 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
-import { MultiSelectOption } from '../index.js'
-import { MultiSelectField } from './index.js'
+import { MultiSelectOption } from '../index.ts'
+import { MultiSelectField } from './index.ts'
 
 const description = `
 \`MultiSelectField\` is a wrapper around a \`MultiSelect\` component that adds a label, help text, validation text, and other features.

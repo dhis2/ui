@@ -1,6 +1,6 @@
 import { render, fireEvent, screen } from '@testing-library/react'
 import React from 'react'
-import { MultiSelectField } from '../multi-select-field.js'
+import { MultiSelectField } from '../multi-select-field.tsx'
 
 describe('<MultiSelect />', () => {
     it('should call the onKeyDown callback when provided', () => {
