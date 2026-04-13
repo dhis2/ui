@@ -29,7 +29,7 @@ export interface SwitchProps {
     name?: string
     /** Sets a role attribute on the input */
     role?: string
-    tabIndex?: number
+    tabIndex?: string
     /** Applies 'valid' styles for validation feedback. Mutually exclusive with `error` and `warning` prop types */
     valid?: boolean
     /** Value associated with the switch. Passed to event handlers in object */
@@ -137,7 +137,7 @@ class Switch extends Component<SwitchProps> {
                     value={value}
                     checked={checked}
                     disabled={disabled}
-                    tabIndex={tabIndex}
+                    tabIndex={tabIndex != null ? Number(tabIndex) : undefined}
                     onChange={this.handleChange}
                     onFocus={this.handleFocus}
                     onKeyDown={this.handleKeyDown}

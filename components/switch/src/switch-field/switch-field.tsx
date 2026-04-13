@@ -41,7 +41,7 @@ export interface SwitchFieldProps {
     name?: string
     /** Adds an asterisk to indicate this field is required */
     required?: boolean
-    tabIndex?: number
+    tabIndex?: string
     /** Applies 'valid' styling to switch and validation text for feedback. Mutually exclusive with `warning` and `error` props */
     valid?: boolean
     /** Adds text below the switch to provide validation feedback. Acquires styles from `valid`, `warning` and `error` statuses */
