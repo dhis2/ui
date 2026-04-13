@@ -1,9 +1,18 @@
 import { colors, elevations } from '@dhis2/ui-constants'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React from 'react'
 
-const Card = ({ className, children, dataTest = 'dhis2-uicore-card' }) => (
+export interface CardProps {
+    children?: React.ReactNode
+    className?: string
+    dataTest?: string
+}
+
+const Card = ({
+    className,
+    children,
+    dataTest = 'dhis2-uicore-card',
+}: CardProps) => (
     <div className={cx(className)} data-test={dataTest}>
         {children}
 
@@ -22,11 +31,5 @@ const Card = ({ className, children, dataTest = 'dhis2-uicore-card' }) => (
         `}</style>
     </div>
 )
-
-Card.propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-}
 
 export { Card }
