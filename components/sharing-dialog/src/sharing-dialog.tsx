@@ -44,9 +44,8 @@ const mutation = {
         id,
     }),
     type: 'update' as const,
-    id: 'placeholder',
     data: ({ data }: Record<string, unknown>) => data,
-}
+} as unknown as Parameters<typeof useDataMutation>[0]
 
 const emptyFunction = () => {}
 
