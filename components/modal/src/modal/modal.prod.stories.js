@@ -14,8 +14,8 @@ import { NoticeBox } from '@dhis2-ui/notice-box'
 import { SingleSelect, SingleSelectOption } from '@dhis2-ui/select'
 import { Tooltip } from '@dhis2-ui/tooltip'
 import React, { useEffect, useState } from 'react'
-import { ModalActions, ModalContent, ModalTitle } from '../index.js'
-import { Modal } from './modal.js'
+import { ModalActions, ModalContent, ModalTitle } from '../index.ts'
+import { Modal } from './modal.tsx'
 
 const description = `
 _**Note**: For performance reasons, only one representative example is shown here. For more (interactive) examples, see individual stories in the Canvas tab._

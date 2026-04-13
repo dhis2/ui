@@ -1,7 +1,7 @@
 import { Button, ButtonStrip } from '@dhis2-ui/button'
 import React, { useState } from 'react'
-import { ModalActions, ModalContent, ModalTitle } from '../index.js'
-import { Modal } from './modal.js'
+import { ModalActions, ModalContent, ModalTitle } from '../index.ts'
+import { Modal } from './modal.tsx'
 
 window.onClose = window.Cypress && window.Cypress.cy.stub()
 

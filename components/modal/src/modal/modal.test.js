@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import React from 'react'
-import { CloseButton } from './close-button.js'
-import { Modal } from './modal.js'
+import { CloseButton } from './close-button.tsx'
+import { Modal } from './modal.tsx'
 
 describe('Modal', () => {
     describe('Modal Accessibility', () => {
