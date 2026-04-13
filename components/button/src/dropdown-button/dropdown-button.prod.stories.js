@@ -1,7 +1,7 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import { FlyoutMenu, MenuItem } from '@dhis2-ui/menu'
 import React, { useState } from 'react'
-import { DropdownButton } from './index.js'
+import { DropdownButton } from './index.ts'
 
 const description = `
 Presents several actions to a user in a small space. Can replace single, individual buttons. Should only be used for actions that are related to one another. Ensure the button has a useful level that communicates that actions are contained within. Dropdown buttons do not have an explicit action, only expanding the list of contained actions.

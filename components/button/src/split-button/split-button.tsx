@@ -1,13 +1,11 @@
-import { requiredIf } from '@dhis2/prop-types'
-import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
+import { spacers } from '@dhis2/ui-constants'
 import { IconChevronUp16, IconChevronDown16 } from '@dhis2/ui-icons'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import css from 'styled-jsx/css'
-import { Button } from '../button/index.js'
+import { Button } from '../button/index.ts'
 import i18n from '../locales/index.js'
 
 const rightButton = css.resolve`
@@ -16,8 +14,69 @@ const rightButton = css.resolve`
     }
 `
 
-class SplitButton extends Component {
-    state = {
+interface SplitButtonCallbackPayload {
+    name?: string
+    value?: string
+    open: boolean
+}
+
+export interface SplitButtonProps {
+    children?: string
+    className?: string
+    /** Component to render when the dropdown is opened */
+    component?: React.ReactElement
+    dataTest?: string
+    /**
+     * Applies 'destructive' button appearance, implying a dangerous action.
+     */
+    destructive?: boolean
+    /** Disables the button and makes it uninteractive */
+    disabled?: boolean
+    /** An icon to add inside the button */
+    icon?: React.ReactElement
+    /** Grants the button the initial focus */
+    initialFocus?: boolean
+    /** Changes button size. Mutually exclusive with `small` prop */
+    large?: boolean
+    name?: string
+    /**
+     * Controls popper visibility. When implementing this prop the component becomes a controlled component
+     */
+    open?: boolean
+    /**
+     * Applies 'primary' button appearance, implying the most important action.
+     */
+    primary?: boolean
+    /**
+     * Applies 'secondary' button appearance.
+     */
+    secondary?: boolean
+    /** Changes button size. Mutually exclusive with `large` prop */
+    small?: boolean
+    tabIndex?: string
+    /** Type of button. Applied to html `button` element */
+    type?: 'submit' | 'reset' | 'button'
+    /** Value associated with the button. Passed in object to onClick handler */
+    value?: string
+    /**
+     * Callback triggered when the main button is clicked.
+     * Called with signature `({ name: string, value: string, open: bool }, event)`
+     */
+    onClick?: (payload: SplitButtonCallbackPayload, event: React.MouseEvent<HTMLButtonElement> | React.SyntheticEvent) => void
+    /**
+     * Callback triggered when the dropdown is toggled (by clicking the chevron, pressing Escape, or clicking the backdrop).
+     * Called with signature `({ name: string, value: string, open: bool }, event)`.
+     * Required if `open` prop is used (controlled component).
+     */
+    onToggle?: (payload: SplitButtonCallbackPayload, event: React.MouseEvent<HTMLButtonElement> | React.SyntheticEvent | KeyboardEvent) => void
+}
+
+interface SplitButtonState {
+    open: boolean
+}
+
+class SplitButton extends Component<SplitButtonProps, SplitButtonState> {
+    state: SplitButtonState = {
         open: false,
     }
 
@@ -25,7 +84,7 @@ class SplitButton extends Component {
         dataTest: 'dhis2-uicore-splitbutton',
     }
 
-    anchorRef = React.createRef()
+    anchorRef = React.createRef<HTMLDivElement>()
 
     isControlled = () => typeof this.props.open === 'boolean'
 
@@ -37,7 +96,7 @@ class SplitButton extends Component {
         document.removeEventListener('keydown', this.handleKeyDown)
     }
 
-    handleKeyDown = (event) => {
+    handleKeyDown = (event: KeyboardEvent) => {
         const open = this.isControlled() ? this.props.open : this.state.open
         if (event.key === 'Escape' && open) {
             event.preventDefault()
@@ -60,14 +119,14 @@ class SplitButton extends Component {
         }
     }
 
-    handlePrimaryAction = (payload, event) => {
+    handlePrimaryAction = (payload: { name?: string; value?: string }, event: React.MouseEvent<HTMLButtonElement> | React.SyntheticEvent) => {
         if (this.props.onClick) {
             this.props.onClick(
                 {
                     name: payload.name,
                     value: payload.value,
                     open: this.isControlled()
-                        ? this.props.open
+                        ? this.props.open!
                         : this.state.open,
                 },
                 event
@@ -75,7 +134,7 @@ class SplitButton extends Component {
         }
     }
 
-    handleToggle = (payload, event) => {
+    handleToggle = (payload: { name?: string; value?: string }, event: React.MouseEvent<HTMLButtonElement> | React.SyntheticEvent) => {
         if (this.isControlled()) {
             if (this.props.onToggle) {
                 this.props.onToggle(
@@ -92,7 +151,7 @@ class SplitButton extends Component {
         }
     }
 
-    handleBackdropClick = (event) => {
+    handleBackdropClick = (_payload: Record<string, never>, event: React.MouseEvent<HTMLDivElement>) => {
         if (this.isControlled()) {
             if (this.props.onToggle) {
                 this.props.onToggle(
@@ -177,7 +236,6 @@ class SplitButton extends Component {
                 {open && (
                     <Layer
                         onBackdropClick={this.handleBackdropClick}
-                        transparent
                     >
                         <Popper
                             dataTest={`${dataTest}-menu`}
@@ -214,60 +272,6 @@ class SplitButton extends Component {
             </div>
         )
     }
-}
-
-SplitButton.propTypes = {
-    children: PropTypes.string,
-    className: PropTypes.string,
-    /** Component to render when the dropdown is opened */
-    component: PropTypes.element,
-    dataTest: PropTypes.string,
-    /**
-     * Applies 'destructive' button appearance, implying a dangerous action.
-     */
-    destructive: PropTypes.bool,
-    /** Disables the button and makes it uninteractive */
-    disabled: PropTypes.bool,
-    /** An icon to add inside the button */
-    icon: PropTypes.element,
-    /** Grants the button the initial focus */
-    initialFocus: PropTypes.bool,
-    /** Changes button size. Mutually exclusive with `small` prop */
-    large: sharedPropTypes.sizePropType,
-    name: PropTypes.string,
-    /**
-     * Controls popper visibility. When implementing this prop the component becomes a controlled component
-     */
-    open: PropTypes.bool,
-    /**
-     * Applies 'primary' button appearance, implying the most important action.
-     */
-    primary: PropTypes.bool,
-    /**
-     * Applies 'secondary' button appearance.
-     */
-    secondary: PropTypes.bool,
-    /** Changes button size. Mutually exclusive with `large` prop */
-    small: sharedPropTypes.sizePropType,
-    tabIndex: PropTypes.string,
-    /** Type of button. Applied to html `button` element */
-    type: PropTypes.oneOf(['submit', 'reset', 'button']),
-    /** Value associated with the button. Passed in object to onClick handler */
-    value: PropTypes.string,
-    /**
-     * Callback triggered when the main button is clicked.
-     * Called with signature `({ name: string, value: string, open: bool }, event)`
-     */
-    onClick: PropTypes.func,
-    /**
-     * Callback triggered when the dropdown is toggled (by clicking the chevron, pressing Escape, or clicking the backdrop).
-     * Called with signature `({ name: string, value: string, open: bool }, event)`.
-     * Required if `open` prop is used (controlled component).
-     */
-    onToggle: requiredIf(
-        (props) => typeof props.open === 'boolean',
-        PropTypes.func
-    ),
 }
 
 export { SplitButton }

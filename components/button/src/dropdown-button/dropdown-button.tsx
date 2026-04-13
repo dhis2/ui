@@ -1,12 +1,14 @@
-import { requiredIf } from '@dhis2/prop-types'
-import { spacers, sharedPropTypes } from '@dhis2/ui-constants'
+import { spacers } from '@dhis2/ui-constants'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
-import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { Button } from '../button/index.js'
+import { Button } from '../button/index.ts'
 
-function ArrowDown({ className }) {
+interface ArrowDownProps {
+    className?: string
+}
+
+function ArrowDown({ className }: ArrowDownProps) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -26,11 +28,12 @@ function ArrowDown({ className }) {
         </svg>
     )
 }
-ArrowDown.propTypes = {
-    className: PropTypes.string,
+
+interface ArrowUpProps {
+    className?: string
 }
 
-function ArrowUp({ className }) {
+function ArrowUp({ className }: ArrowUpProps) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -53,12 +56,62 @@ function ArrowUp({ className }) {
         </svg>
     )
 }
-ArrowUp.propTypes = {
-    className: PropTypes.string,
+
+interface DropdownButtonCallbackPayload {
+    name?: string
+    value?: string
+    open: boolean
 }
 
-class DropdownButton extends Component {
-    state = {
+export interface DropdownButtonProps {
+    /** Children to render inside the button */
+    children?: React.ReactNode
+    className?: string
+    /** Component to show/hide when button is clicked */
+    component?: React.ReactElement
+    dataTest?: string
+    /**
+     * Applies 'destructive' button appearance, implying a dangerous action.
+     */
+    destructive?: boolean
+    /** Make the button non-interactive */
+    disabled?: boolean
+    icon?: React.ReactElement
+    /** Grants button initial focus on the page */
+    initialFocus?: boolean
+    /** Button size. Mutually exclusive with `small` prop */
+    large?: boolean
+    name?: string
+    /** Controls popper visibility. When implementing this prop the component becomes a controlled component */
+    open?: boolean
+    /**
+     * Applies 'primary' button appearance, implying the most important action.
+     */
+    primary?: boolean
+    /**
+     * Applies 'secondary' button appearance.
+     */
+    secondary?: boolean
+    /** Button size. Mutually exclusive with `large` prop */
+    small?: boolean
+    tabIndex?: string
+    /** Type of button. Can take advantage of different default behavior */
+    type?: 'submit' | 'reset' | 'button'
+    value?: string
+    /**
+     * Callback triggered on click.
+     * Called with signature `({ name: string, value: string, open: bool }, event)`
+     * Is required when using the `open` prop to override the internal state.
+     */
+    onClick?: (payload: DropdownButtonCallbackPayload, event: React.MouseEvent<HTMLButtonElement> | React.SyntheticEvent) => void
+}
+
+interface DropdownButtonState {
+    open: boolean
+}
+
+class DropdownButton extends Component<DropdownButtonProps, DropdownButtonState> {
+    state: DropdownButtonState = {
         open: false,
     }
 
@@ -66,7 +119,7 @@ class DropdownButton extends Component {
         dataTest: 'dhis2-uicore-dropdownbutton',
     }
 
-    anchorRef = React.createRef()
+    anchorRef = React.createRef<HTMLDivElement>()
 
     componentDidMount() {
         document.addEventListener('keydown', this.handleKeyDown)
@@ -76,7 +129,7 @@ class DropdownButton extends Component {
         document.removeEventListener('keydown', this.handleKeyDown)
     }
 
-    handleKeyDown = (event) => {
+    handleKeyDown = (event: KeyboardEvent) => {
         if (event.key === 'Escape' && this.state.open) {
             event.preventDefault()
             event.stopPropagation()
@@ -84,8 +137,8 @@ class DropdownButton extends Component {
         }
     }
 
-    onClickHandler = ({ name, value }, event) => {
-        const handleClick = (open) => {
+    onClickHandler = ({ name, value }: { name?: string; value?: string }, event: React.MouseEvent<HTMLButtonElement> | React.SyntheticEvent) => {
+        const handleClick = (open: boolean) => {
             if (this.props.onClick) {
                 this.props.onClick(
                     {
@@ -157,7 +210,7 @@ class DropdownButton extends Component {
                 </Button>
 
                 {open && (
-                    <Layer onBackdropClick={this.onClickHandler} transparent>
+                    <Layer onBackdropClick={(_payload, event) => this.onClickHandler({}, event as unknown as React.SyntheticEvent)}>
                         <Popper
                             dataTest={`${dataTest}-popper`}
                             placement="bottom-start"
@@ -187,53 +240,6 @@ class DropdownButton extends Component {
             </div>
         )
     }
-}
-
-DropdownButton.propTypes = {
-    /** Children to render inside the buton */
-    children: PropTypes.node,
-    className: PropTypes.string,
-    /** Component to show/hide when button is clicked */
-    component: PropTypes.element,
-    dataTest: PropTypes.string,
-    /**
-     * Applies 'destructive' button appearance, implying a dangerous action.
-     */
-    destructive: PropTypes.bool,
-    /** Make the button non-interactive */
-    disabled: PropTypes.bool,
-    icon: PropTypes.element,
-    /** Grants button initial focus on the page */
-    initialFocus: PropTypes.bool,
-    /** Button size. Mutually exclusive with `small` prop */
-    large: sharedPropTypes.sizePropType,
-    name: PropTypes.string,
-    /** Controls popper visibility. When implementing this prop the component becomes a controlled component */
-    open: PropTypes.bool,
-    /**
-     * Applies 'primary' button appearance, implying the most important action.
-     */
-    primary: PropTypes.bool,
-    /**
-     * Applies 'secondary' button appearance.
-     */
-    secondary: PropTypes.bool,
-    /** Button size. Mutually exclusive with `large` prop */
-    small: sharedPropTypes.sizePropType,
-    tabIndex: PropTypes.string,
-    /** Type of button. Can take advantage of different default behavior */
-    type: PropTypes.oneOf(['submit', 'reset', 'button']),
-    value: PropTypes.string,
-    /**
-     * Callback triggered on click.
-     * Called with signature `({ name: string, value: string, open: bool }, event)`
-     * Is required when using the `open` prop to override the internal
-     * state.
-     */
-    onClick: requiredIf(
-        (props) => typeof props.open === 'boolean',
-        PropTypes.func
-    ),
 }
 
 export { DropdownButton }

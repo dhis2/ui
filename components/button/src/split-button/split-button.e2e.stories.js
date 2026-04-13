@@ -1,5 +1,5 @@
 import React from 'react'
-import { SplitButton } from './split-button.js'
+import { SplitButton } from './split-button.tsx'
 
 window.onClick = window.Cypress && window.Cypress.cy.stub()
 

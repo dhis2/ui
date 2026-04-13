@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from './button.js'
+import { Button } from './button.tsx'
 
 window.onClick = window.Cypress && window.Cypress.cy.stub()
 window.onBlur = window.Cypress && window.Cypress.cy.stub()

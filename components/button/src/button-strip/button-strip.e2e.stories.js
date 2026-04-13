@@ -1,6 +1,6 @@
 import React from 'react'
-import { Button } from '../index.js'
-import { ButtonStrip } from './index.js'
+import { Button } from '../index.ts'
+import { ButtonStrip } from './index.ts'
 
 export default { title: 'ButtonStrip' }
 

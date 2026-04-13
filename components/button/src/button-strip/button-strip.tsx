@@ -1,8 +1,17 @@
-import { mutuallyExclusive } from '@dhis2/prop-types'
 import { spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React, { Children } from 'react'
+
+export interface ButtonStripProps {
+    /** Content to render inside the button strip */
+    children?: React.ReactNode
+    className?: string
+    dataTest?: string
+    /** Horizontal alignment for buttons. Mutually exclusive with `middle` prop */
+    end?: boolean
+    /** Horizontal alignment. Mutually exclusive with `end` prop */
+    middle?: boolean
+}
 
 const ButtonStrip = ({
     className,
@@ -10,7 +19,7 @@ const ButtonStrip = ({
     middle,
     end,
     dataTest = 'dhis2-uicore-buttonstrip',
-}) => (
+}: ButtonStripProps) => (
     <div
         className={cx(className, { start: !middle && !end, middle, end })}
         data-test={dataTest}
@@ -42,17 +51,5 @@ const ButtonStrip = ({
         `}</style>
     </div>
 )
-
-const alignmentPropType = mutuallyExclusive(['middle', 'end'], PropTypes.bool)
-
-ButtonStrip.propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    /** Horizontal alignment for buttons. Mutually exclusive with `middle` prop */
-    end: alignmentPropType,
-    /** Horizontal alignment. Mutually exclusive with `end` prop */
-    middle: alignmentPropType,
-}
 
 export { ButtonStrip }

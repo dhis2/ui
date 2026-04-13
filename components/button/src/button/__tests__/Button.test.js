@@ -1,7 +1,7 @@
 import { render, fireEvent, screen } from '@testing-library/react'
 import { mount } from 'enzyme'
 import React from 'react'
-import { Button } from '../button.js'
+import { Button } from '../button.tsx'
 
 describe('<Button>', () => {
     let consoleSpy
