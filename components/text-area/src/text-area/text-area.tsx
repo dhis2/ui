@@ -204,7 +204,7 @@ export class TextArea extends Component<TextAreaProps, TextAreaState> {
                     value={value}
                     disabled={disabled}
                     readOnly={readOnly}
-                    tabIndex={tabIndex as unknown as number}
+                    tabIndex={tabIndex != null ? Number(tabIndex) : undefined}
                     onFocus={this.handleFocus}
                     onKeyDown={this.handleKeyDown}
                     onBlur={this.handleBlur}
