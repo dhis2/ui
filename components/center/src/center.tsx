@@ -1,8 +1,15 @@
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
 
-export const Center = forwardRef(
+export interface CenterProps {
+    children?: React.ReactNode
+    className?: string
+    dataTest?: string
+    /** Vertical alignment */
+    position?: 'top' | 'middle' | 'bottom'
+}
+
+export const Center = forwardRef<HTMLDivElement, CenterProps>(
     (
         {
             className,
@@ -44,11 +51,3 @@ export const Center = forwardRef(
 )
 
 Center.displayName = 'Center'
-
-Center.propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    /** Vertical alignment */
-    position: PropTypes.oneOf(['top', 'middle', 'bottom']),
-}

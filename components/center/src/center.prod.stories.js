@@ -1,5 +1,5 @@
 import React from 'react'
-import { Center } from './center.js'
+import { Center } from './center.tsx'
 
 const description = `
 Centers children horizontally, and by default, vertically.
