@@ -27,7 +27,7 @@ export interface ModalProps {
     /** Callback used when the Modal closes */
     onClose?: (
         payload: Record<string, never>,
-        event: React.MouseEvent<HTMLDivElement> | React.MouseEvent<HTMLButtonElement>
+        event?: React.MouseEvent<HTMLDivElement> | React.MouseEvent<HTMLButtonElement>
     ) => void
 }
 
@@ -53,10 +53,7 @@ export const Modal = ({
             if (event.key === 'Escape' && onClose) {
                 event.preventDefault()
                 event.stopPropagation()
-                onClose(
-                    {} as Record<string, never>,
-                    event as unknown as React.MouseEvent<HTMLDivElement>
-                )
+                onClose({})
             }
         }
 
