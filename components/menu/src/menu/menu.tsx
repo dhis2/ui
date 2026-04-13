@@ -1,14 +1,22 @@
-import PropTypes from 'prop-types'
 import React, { Children, cloneElement, isValidElement, useMemo } from 'react'
-import { hasMenuItemRole } from './helpers.js'
-import { useMenuNavigation } from './use-menu.js'
+import { hasMenuItemRole } from './helpers.ts'
+import { useMenuNavigation } from './use-menu.ts'
+
+export interface MenuProps {
+    /** Typically `MenuItem`, `MenuDivider`, and `MenuSectionHeader` */
+    children?: React.ReactNode
+    className?: string
+    dataTest?: string
+    /** Applies `dense` property to all child components unless already specified */
+    dense?: boolean
+}
 
 const Menu = ({
     children,
     className,
     dataTest = 'dhis2-uicore-menulist',
     dense,
-}) => {
+}: MenuProps) => {
     const { menuRef, focusedIndex } = useMenuNavigation(children)
 
     const childrenToRender = useMemo(
@@ -19,42 +27,59 @@ const Menu = ({
                 }
                 const tabIndex = index === focusedIndex ? 0 : -1
 
-                const childProps = {
+                const childProps: Record<string, unknown> = {
                     ...child.props,
                 }
 
                 // this check is based on the type of child.
                 // if it is a native HTML element, like li, a, span, only apply its child props
                 // if it is a functional (React) component, it applies custom props, like dense, hideDivider, etc
+                const typedChild = child as React.ReactElement<
+                    Record<string, unknown>
+                >
+
                 if (typeof child.type === 'string') {
                     // if the native HTML element child is not li, then wrap it in an li tag
                     // apply the tabindex prop if a child has the menuitem role to make it focusable
                     if (child.type === 'li') {
-                        return hasMenuItemRole(child.props.children[0])
-                            ? cloneElement(child, { ...childProps, tabIndex })
-                            : cloneElement(child, childProps)
+                        return hasMenuItemRole(
+                            (childProps as { children?: React.ReactElement[] })
+                                .children?.[0] as React.ReactElement
+                        )
+                            ? cloneElement(typedChild, {
+                                  ...childProps,
+                                  tabIndex,
+                              })
+                            : cloneElement(typedChild, childProps)
                     } else {
                         return (
                             <li
                                 tabIndex={
-                                    hasMenuItemRole(child) ? tabIndex : null
+                                    hasMenuItemRole(
+                                        child as React.ReactElement
+                                    )
+                                        ? tabIndex
+                                        : undefined
                                 }
                             >
-                                {cloneElement(child, childProps)}
+                                {cloneElement(typedChild, childProps)}
                             </li>
                         )
                     }
                 } else {
                     childProps.dense =
-                        typeof child.props.dense === 'boolean'
-                            ? child.props.dense
+                        typeof typedChild.props.dense === 'boolean'
+                            ? typedChild.props.dense
                             : dense
                     childProps.hideDivider =
-                        typeof child.props.hideDivider !== 'boolean' &&
+                        typeof typedChild.props.hideDivider !== 'boolean' &&
                         index === 0
                             ? true
-                            : child.props.hideDivider
-                    return cloneElement(child, { ...childProps, tabIndex })
+                            : typedChild.props.hideDivider
+                    return cloneElement(typedChild, {
+                        ...childProps,
+                        tabIndex,
+                    })
                 }
             }),
         [children, dense, focusedIndex]
@@ -82,15 +107,6 @@ const Menu = ({
             `}</style>
         </ul>
     )
-}
-
-Menu.propTypes = {
-    /** Typically `MenuItem`, `MenuDivider`, and `MenuSectionHeader` */
-    children: PropTypes.node,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    /** Applies `dense` property to all child components unless already specified */
-    dense: PropTypes.bool,
 }
 
 export { Menu }

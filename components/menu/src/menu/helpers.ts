@@ -1,8 +1,10 @@
-const isMenuItem = (role) => {
-    return ['menuitem', 'menuitemcheckbox', 'menuitemradio'].includes(role)
+const isMenuItem = (role: string | null): boolean => {
+    return ['menuitem', 'menuitemcheckbox', 'menuitemradio'].includes(
+        role as string
+    )
 }
 
-const isValidMenuItemNode = (node) => {
+const isValidMenuItemNode = (node: Element): boolean | undefined => {
     if (node.nodeName === 'LI' && node.firstElementChild) {
         return isValidMenuItemNode(node.firstElementChild)
     }
@@ -21,8 +23,8 @@ const isValidMenuItemNode = (node) => {
     }
 }
 
-export const getFocusableItemsIndices = (elements) => {
-    const focusableIndices = []
+export const getFocusableItemsIndices = (elements: Element[]): number[] => {
+    const focusableIndices: number[] = []
     elements.forEach((node, index) => {
         if (isValidMenuItemNode(node)) {
             focusableIndices.push(index)
@@ -31,6 +33,10 @@ export const getFocusableItemsIndices = (elements) => {
     return focusableIndices
 }
 
-export const hasMenuItemRole = (component) => {
-    return isMenuItem(component?.props?.['role'])
+export const hasMenuItemRole = (
+    component: React.ReactElement | undefined | null
+): boolean => {
+    return isMenuItem(
+        (component as React.ReactElement)?.props?.['role'] ?? null
+    )
 }

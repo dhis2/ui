@@ -1,16 +1,20 @@
-import { useRef, useState, useEffect, useCallback } from 'react'
-import { getFocusableItemsIndices } from './helpers.js'
+import React, { useRef, useState, useEffect, useCallback } from 'react'
+import { getFocusableItemsIndices } from './helpers.ts'
 
-export const useMenuNavigation = (children) => {
-    const menuRef = useRef(null)
-    const [focusableItemsIndices, setFocusableItemsIndices] = useState(null)
+export const useMenuNavigation = (children: React.ReactNode) => {
+    const menuRef = useRef<HTMLUListElement>(null)
+    const [focusableItemsIndices, setFocusableItemsIndices] = useState<
+        number[] | null
+    >(null)
     const [activeItemIndex, setActiveItemIndex] = useState(-1)
 
     // Initializes the indices for focusable items
     // focusable items have the role of menuitem || menuitemcheckbox || menuitemradio
     useEffect(() => {
         if (menuRef) {
-            const menuItems = Array.from(menuRef.current.children)
+            const menuItems = Array.from(
+                menuRef.current!.children
+            ) as Element[]
             const itemsIndices = getFocusableItemsIndices(menuItems)
             setFocusableItemsIndices(itemsIndices)
         }
@@ -21,7 +25,9 @@ export const useMenuNavigation = (children) => {
         if (menuRef) {
             if (focusableItemsIndices?.length && activeItemIndex > -1) {
                 const currentIndex = focusableItemsIndices[activeItemIndex]
-                menuRef.current.children[currentIndex].focus()
+                ;(
+                    menuRef.current!.children[currentIndex] as HTMLElement
+                ).focus()
             }
         }
     }, [activeItemIndex, focusableItemsIndices])
@@ -29,7 +35,7 @@ export const useMenuNavigation = (children) => {
     // Navigate through focusable children using arrow keys
     // Trigger actionable items
     const handleKeyDown = useCallback(
-        (event) => {
+        (event: KeyboardEvent) => {
             const totalFocusablePositions = focusableItemsIndices?.length
             if (totalFocusablePositions) {
                 const lastIndex = totalFocusablePositions - 1
@@ -53,9 +59,14 @@ export const useMenuNavigation = (children) => {
                         break
                     case 'Enter':
                     case ' ':
-                        if (event.target.nodeName === 'LI') {
+                        if (
+                            (event.target as HTMLElement).nodeName === 'LI'
+                        ) {
                             event.preventDefault()
-                            event.target.children?.[0]?.click()
+                            ;(
+                                (event.target as HTMLElement)
+                                    .children?.[0] as HTMLElement
+                            )?.click()
                         }
                         break
                     default:
@@ -72,14 +83,18 @@ export const useMenuNavigation = (children) => {
             return
         }
 
-        const menu = menuRef.current
+        const menu = menuRef.current!
 
         // Focus the first menu item when the menu receives focus
-        const handleFocus = (event) => {
+        const handleFocus = (event: FocusEvent) => {
             if (event.target === menuRef.current) {
                 const firstItemIndex = focusableItemsIndices?.[0]
                 firstItemIndex &&
-                    menuRef.current.children[firstItemIndex].focus()
+                    (
+                        menuRef.current!.children[
+                            firstItemIndex
+                        ] as HTMLElement
+                    ).focus()
                 setActiveItemIndex(0)
             }
         }

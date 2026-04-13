@@ -2,17 +2,71 @@ import { IconChevronRight24 } from '@dhis2/ui-icons'
 import { Popper } from '@dhis2-ui/popper'
 import { Portal } from '@dhis2-ui/portal'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState, useMemo } from 'react'
-import { FlyoutMenu } from '../flyout-menu/index.js'
-import styles from './menu-item.styles.js'
+import { FlyoutMenu } from '../flyout-menu/index.ts'
+import styles from './menu-item.styles.ts'
 
-const isModifiedEvent = (evt) =>
+export interface MenuItemProps {
+    active?: boolean
+    /**
+     * By default, the label prop is used for the aria-label attribute on the
+     * underlying HTML element. If this prop is defined, it will be used as the
+     * aria-label instead
+     */
+    ariaLabel?: string
+    checkbox?: boolean
+    checked?: boolean
+    chevron?: boolean
+    /**
+     * Nested menu items can become submenus.
+     * See `showSubMenu` and `toggleSubMenu` props, and 'Children' demo
+     */
+    children?: React.ReactNode
+    className?: string
+    dataTest?: string
+    dense?: boolean
+    destructive?: boolean
+    disabled?: boolean
+    /** For using menu item as a link */
+    href?: string
+    /** An icon for the left side of the menu item */
+    icon?: React.ReactNode
+    /** Text in the menu item. If it's a string, will be used as aria-label */
+    label?: React.ReactNode
+    /** When true, nested menu items are shown in a Popper */
+    showSubMenu?: boolean
+    /** A supporting element shown at the end of the menu item */
+    suffix?: React.ReactNode
+    tabIndex?: number
+    /** For using menu item as a link */
+    target?: string
+    /** On click, this function is called (without args) */
+    toggleSubMenu?: () => void
+    /** Value associated with item. Passed as an argument to onClick handler. */
+    value?: string
+    /** Click handler called with signature `({ value: string }, event)` */
+    onClick?: (
+        payload: { value?: string },
+        event: React.MouseEvent<HTMLAnchorElement>
+    ) => void
+}
+
+const isModifiedEvent = (evt: React.MouseEvent) =>
     evt.metaKey || evt.altKey || evt.ctrlKey || evt.shiftKey
 
 const createOnClickHandler =
-    ({ onClick, toggleSubMenu, isLink, value }) =>
-    (evt) => {
+    ({
+        onClick,
+        toggleSubMenu,
+        isLink,
+        value,
+    }: {
+        onClick?: MenuItemProps['onClick']
+        toggleSubMenu?: () => void
+        isLink: boolean
+        value?: string
+    }) =>
+    (evt: React.MouseEvent<HTMLAnchorElement>) => {
         if ((isLink && isModifiedEvent(evt)) || !(onClick || toggleSubMenu)) {
             return
         }
@@ -22,6 +76,7 @@ const createOnClickHandler =
         onClick && onClick({ value }, evt)
         toggleSubMenu && toggleSubMenu()
     }
+
 const MenuItem = ({
     href,
     onClick,
@@ -44,9 +99,11 @@ const MenuItem = ({
     checkbox,
     checked,
     tabIndex,
-}) => {
-    const menuItemRef = useRef()
-    const [openSubMenus, setOpenSubMenus] = useState([])
+}: MenuItemProps) => {
+    const menuItemRef = useRef<HTMLLIElement>(null)
+    const [openSubMenus, setOpenSubMenus] = useState<NodeListOf<Element>>(
+        document.querySelectorAll('[data-submenu-open=true]')
+    )
 
     useEffect(() => {
         // track open submenus
@@ -60,22 +117,29 @@ const MenuItem = ({
 
         const menuItem = menuItemRef.current
 
-        const handleKeyDown = (event) => {
-            const firstChild = event.target.children[0]
+        const handleKeyDown = (event: KeyboardEvent) => {
+            const firstChild = (event.target as HTMLElement)
+                .children[0] as HTMLElement | undefined
             const hasSubMenu = firstChild?.getAttribute('aria-haspopup')
             switch (event.key) {
                 // for submenus
                 case 'ArrowRight':
                     event.preventDefault()
                     if (hasSubMenu) {
-                        firstChild.click()
+                        firstChild?.click()
                     }
                     break
                 case 'ArrowLeft':
                 case 'Escape': // close flyout menu
                     event.preventDefault()
-                    openSubMenus[openSubMenus.length - 1]?.focus()
-                    openSubMenus[openSubMenus.length - 1]?.children[0].click()
+                    ;(
+                        openSubMenus[openSubMenus.length - 1] as HTMLElement
+                    )?.focus()
+                    ;(
+                        (
+                            openSubMenus[openSubMenus.length - 1] as HTMLElement
+                        )?.children[0] as HTMLElement
+                    )?.click()
                     break
             }
         }
@@ -127,9 +191,9 @@ const MenuItem = ({
                             : undefined
                     }
                     role={checkbox ? 'menuitemcheckbox' : 'menuitem'}
-                    aria-checked={checkbox ? checked : null}
+                    aria-checked={checkbox ? checked : undefined}
                     aria-disabled={disabled}
-                    aria-haspopup={children && 'menu'}
+                    aria-haspopup={children ? 'menu' : undefined}
                     aria-expanded={showSubMenu}
                     aria-label={resolvedAriaLabel}
                 >
@@ -157,48 +221,6 @@ const MenuItem = ({
             )}
         </>
     )
-}
-
-MenuItem.propTypes = {
-    active: PropTypes.bool,
-    /**
-     * By default, the label prop is used for the aria-label attribute on the
-     * underlying HTML element. If this prop is defined, it will be used as the
-     * aria-label instead
-     */
-    ariaLabel: PropTypes.string,
-    checkbox: PropTypes.bool,
-    checked: PropTypes.bool,
-    chevron: PropTypes.bool,
-    /**
-     * Nested menu items can become submenus.
-     * See `showSubMenu` and `toggleSubMenu` props, and 'Children' demo
-     */
-    children: PropTypes.node,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    dense: PropTypes.bool,
-    destructive: PropTypes.bool,
-    disabled: PropTypes.bool,
-    /** For using menu item as a link */
-    href: PropTypes.string,
-    /** An icon for the left side of the menu item */
-    icon: PropTypes.node,
-    /** Text in the menu item. If it's a string, will be used as aria-label */
-    label: PropTypes.node,
-    /** When true, nested menu items are shown in a Popper */
-    showSubMenu: PropTypes.bool,
-    /** A supporting element shown at the end of the menu item */
-    suffix: PropTypes.node,
-    tabIndex: PropTypes.number,
-    /** For using menu item as a link */
-    target: PropTypes.string,
-    /** On click, this function is called (without args) */
-    toggleSubMenu: PropTypes.func,
-    /** Value associated with item. Passed as an argument to onClick handler. */
-    value: PropTypes.string,
-    /** Click handler called with signature `({ value: string }, event)` */
-    onClick: PropTypes.func,
 }
 
 export { MenuItem }

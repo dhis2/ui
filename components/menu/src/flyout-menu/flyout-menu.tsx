@@ -1,5 +1,4 @@
-import { colors, elevations, spacers } from '@dhis2/ui-constants'
-import PropTypes from 'prop-types'
+import { colors, elevations as elevationsTyped, spacers } from '@dhis2/ui-constants'
 import React, {
     Children,
     cloneElement,
@@ -8,7 +7,22 @@ import React, {
     useRef,
     useState,
 } from 'react'
-import { Menu } from '../menu/index.js'
+import { Menu } from '../menu/index.ts'
+
+const elevations = elevationsTyped as Record<string, string>
+
+export interface FlyoutMenuProps {
+    /** Typically, but not limited to, `MenuItem` components */
+    children?: React.ReactNode
+    className?: string
+    /** when Escape key is pressed, this function is called to close the flyout menu */
+    closeMenu?: () => void
+    dataTest?: string
+    /** Menu uses smaller dimensions */
+    dense?: boolean
+    maxHeight?: string
+    maxWidth?: string
+}
 
 const FlyoutMenu = ({
     children,
@@ -18,14 +32,14 @@ const FlyoutMenu = ({
     maxHeight = 'auto',
     maxWidth = '380px',
     closeMenu,
-}) => {
-    const [openedSubMenu, setOpenedSubMenu] = useState(null)
-    const toggleSubMenu = (index) => {
+}: FlyoutMenuProps) => {
+    const [openedSubMenu, setOpenedSubMenu] = useState<number | null>(null)
+    const toggleSubMenu = (index: number) => {
         const toggleValue = index === openedSubMenu ? null : index
         setOpenedSubMenu(toggleValue)
     }
 
-    const divRef = useRef(null)
+    const divRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         if (!divRef.current) {
@@ -33,15 +47,15 @@ const FlyoutMenu = ({
         }
         const div = divRef.current
 
-        const handleFocus = (event) => {
+        const handleFocus = (event: FocusEvent) => {
             if (event.target === div) {
                 if (div?.children && div.children.length > 0) {
-                    div.children[0].focus()
+                    ;(div.children[0] as HTMLElement).focus()
                 }
             }
         }
 
-        const handleKeyDown = (event) => {
+        const handleKeyDown = (event: KeyboardEvent) => {
             if (event.key === 'Escape') {
                 event.preventDefault()
                 closeMenu && closeMenu()
@@ -69,8 +83,8 @@ const FlyoutMenu = ({
                     isValidElement(child)
                         ? cloneElement(child, {
                               showSubMenu: openedSubMenu === index,
-                              toggleSubMenu: toggleSubMenu.bind(this, index),
-                          })
+                              toggleSubMenu: toggleSubMenu.bind(null, index),
+                          } as Record<string, unknown>)
                         : child
                 )}
             </Menu>
@@ -90,19 +104,6 @@ const FlyoutMenu = ({
             `}</style>
         </div>
     )
-}
-
-FlyoutMenu.propTypes = {
-    /** Typically, but not limited to, `MenuItem` components */
-    children: PropTypes.node,
-    className: PropTypes.string,
-    /** when Escape key is pressed, this function is called to close the flyout menu */
-    closeMenu: PropTypes.func,
-    dataTest: PropTypes.string,
-    /** Menu uses smaller dimensions */
-    dense: PropTypes.bool,
-    maxHeight: PropTypes.string,
-    maxWidth: PropTypes.string,
 }
 
 export { FlyoutMenu }

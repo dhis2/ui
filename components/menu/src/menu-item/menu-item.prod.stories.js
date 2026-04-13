@@ -6,8 +6,8 @@ import {
     IconLaunch16,
 } from '@dhis2/ui-icons'
 import React, { useState } from 'react'
-import { Menu } from '../index.js'
-import { MenuItem } from './menu-item.js'
+import { Menu } from '../index.ts'
+import { MenuItem } from './menu-item.tsx'
 
 const description = `
 Menu Items are intended to be children of Menu and Flyout Menu components. They can be nested to create submenus.
