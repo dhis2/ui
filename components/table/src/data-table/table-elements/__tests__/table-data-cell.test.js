@@ -1,6 +1,6 @@
 import { shallow, mount } from 'enzyme'
 import React from 'react'
-import { TableDataCell } from '../table-data-cell/table-data-cell.js'
+import { TableDataCell } from '../table-data-cell/table-data-cell.tsx'
 
 describe('<TableDataCell>', () => {
     it('renders children', () => {

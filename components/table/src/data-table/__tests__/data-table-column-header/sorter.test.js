@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { Sorter, ASC, DESC } from '../../data-table-column-header/sorter.js'
-import { TableHeaderCellAction } from '../../table-elements/index.js'
+import { Sorter, ASC, DESC } from '../../data-table-column-header/sorter.tsx'
+import { TableHeaderCellAction } from '../../table-elements/index.ts'
 
 describe('<Sorter>', () => {
     it('accepts a sortDirection prop', () => {

@@ -1,6 +1,6 @@
 import { shallow, mount } from 'enzyme'
 import React from 'react'
-import { TableScrollBox } from '../table-scroll-box.js'
+import { TableScrollBox } from '../table-scroll-box.tsx'
 
 describe('<TableScrollBox>', () => {
     it('renders children', () => {

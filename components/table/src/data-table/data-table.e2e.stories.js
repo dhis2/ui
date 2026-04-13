@@ -1,10 +1,10 @@
 import React from 'react'
-import { DataTableBody } from './data-table-body.js'
-import { DataTableCell } from './data-table-cell.js'
-import { DataTableColumnHeader } from './data-table-column-header/data-table-column-header.js'
-import { DataTableHead } from './data-table-head.js'
-import { DataTableRow } from './data-table-row/data-table-row.js'
-import { DataTable } from './data-table.js'
+import { DataTableBody } from './data-table-body.ts'
+import { DataTableCell } from './data-table-cell.tsx'
+import { DataTableColumnHeader } from './data-table-column-header/data-table-column-header.tsx'
+import { DataTableHead } from './data-table-head.ts'
+import { DataTableRow } from './data-table-row/data-table-row.tsx'
+import { DataTable } from './data-table.tsx'
 
 export default {
     title: 'DataTable',

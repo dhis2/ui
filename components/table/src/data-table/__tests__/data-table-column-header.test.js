@@ -1,12 +1,12 @@
 import { shallow, mount } from 'enzyme'
 import React from 'react'
-import { DataTableColumnHeader } from '../data-table-column-header/data-table-column-header.js'
-import { FilterHandle } from '../data-table-column-header/filter-handle.js'
-import { Sorter } from '../data-table-column-header/sorter.js'
+import { DataTableColumnHeader } from '../data-table-column-header/data-table-column-header.tsx'
+import { FilterHandle } from '../data-table-column-header/filter-handle.tsx'
+import { Sorter } from '../data-table-column-header/sorter.tsx'
 import {
     TableHeaderCell,
     TableHeaderCellAction,
-} from '../table-elements/index.js'
+} from '../table-elements/index.ts'
 
 describe('<DataTableColumnHeader>', () => {
     it('renders children', () => {

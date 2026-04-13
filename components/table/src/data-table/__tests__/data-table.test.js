@@ -1,7 +1,7 @@
 import { shallow, mount } from 'enzyme'
 import React from 'react'
-import { DataTable } from '../data-table.js'
-import { Table, TableScrollBox } from '../table-elements/index.js'
+import { DataTable } from '../data-table.tsx'
+import { Table, TableScrollBox } from '../table-elements/index.ts'
 
 describe('<DataTable>', () => {
     it('renders children', () => {

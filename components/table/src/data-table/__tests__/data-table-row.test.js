@@ -1,10 +1,10 @@
 import { shallow, mount } from 'enzyme'
 import React from 'react'
-import { DataTableRow } from '../data-table-row/data-table-row.js'
-import { DragHandleCell } from '../data-table-row/drag-handle-cell.js'
-import { ExpandHandleCell } from '../data-table-row/expand-handle-cell.js'
-import { ExpandedRow } from '../data-table-row/expanded-row.js'
-import { TableRow } from '../table-elements/index.js'
+import { DataTableRow } from '../data-table-row/data-table-row.tsx'
+import { DragHandleCell } from '../data-table-row/drag-handle-cell.tsx'
+import { ExpandHandleCell } from '../data-table-row/expand-handle-cell.tsx'
+import { ExpandedRow } from '../data-table-row/expanded-row.tsx'
+import { TableRow } from '../table-elements/index.ts'
 
 describe('<DataTableRow>', () => {
     it('renders children', () => {

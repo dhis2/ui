@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { ExpandedRow } from '../../data-table-row/expanded-row.js'
-import { TableRow, TableDataCell } from '../../table-elements/index.js'
+import { ExpandedRow } from '../../data-table-row/expanded-row.tsx'
+import { TableRow, TableDataCell } from '../../table-elements/index.ts'
 
 describe('<ExpandedRow>', () => {
     it('renders children', () => {

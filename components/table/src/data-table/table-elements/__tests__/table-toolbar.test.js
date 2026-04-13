@@ -1,6 +1,6 @@
 import { shallow, mount } from 'enzyme'
 import React from 'react'
-import { TableToolbar } from '../table-toolbar.js'
+import { TableToolbar } from '../table-toolbar.tsx'
 
 describe('<TableToolbar>', () => {
     it('renders children', () => {

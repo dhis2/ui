@@ -2,8 +2,8 @@ import { colors } from '@dhis2/ui-constants'
 import { IconSearch16 } from '@dhis2/ui-icons'
 import { shallow } from 'enzyme'
 import React from 'react'
-import { FilterHandle } from '../../data-table-column-header/filter-handle.js'
-import { TableHeaderCellAction } from '../../table-elements/index.js'
+import { FilterHandle } from '../../data-table-column-header/filter-handle.tsx'
+import { TableHeaderCellAction } from '../../table-elements/index.ts'
 
 describe('<FilterHandle>', () => {
     it('accepts an active prop', () => {

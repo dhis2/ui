@@ -1,11 +1,11 @@
 import React from 'react'
-import { TableBody } from './table-body.js'
-import { TableDataCell } from './table-data-cell/table-data-cell.js'
-import { TableHead } from './table-head.js'
-import { TableHeaderCell } from './table-header-cell/table-header-cell.js'
-import { TableRow } from './table-row.js'
-import { TableScrollBox } from './table-scroll-box.js'
-import { Table } from './table.js'
+import { TableBody } from './table-body.tsx'
+import { TableDataCell } from './table-data-cell/table-data-cell.tsx'
+import { TableHead } from './table-head.tsx'
+import { TableHeaderCell } from './table-header-cell/table-header-cell.tsx'
+import { TableRow } from './table-row.tsx'
+import { TableScrollBox } from './table-scroll-box.tsx'
+import { Table } from './table.tsx'
 
 export default {
     title: 'Table',

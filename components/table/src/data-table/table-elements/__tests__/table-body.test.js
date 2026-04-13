@@ -1,6 +1,6 @@
 import { shallow, mount } from 'enzyme'
 import React from 'react'
-import { TableBody } from '../table-body.js'
+import { TableBody } from '../table-body.tsx'
 
 describe('<TableBody>', () => {
     it('renders children', () => {
