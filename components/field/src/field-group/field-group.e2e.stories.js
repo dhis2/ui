@@ -1,6 +1,6 @@
 import { Checkbox } from '@dhis2-ui/checkbox'
 import React from 'react'
-import { FieldGroup } from './field-group.js'
+import { FieldGroup } from './field-group.tsx'
 
 export default { title: 'FieldGroup' }
 export const WithLabelAndRequired = () => (

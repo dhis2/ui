@@ -1,11 +1,16 @@
-import PropTypes from 'prop-types'
 import React from 'react'
+
+export interface FieldSetProps {
+    children?: React.ReactNode
+    className?: string
+    dataTest?: string
+}
 
 const FieldSet = ({
     className,
     children,
     dataTest = 'dhis2-uicore-fieldset',
-}) => (
+}: FieldSetProps) => (
     <fieldset className={className} data-test={dataTest}>
         {children}
         <style jsx>{`
@@ -17,11 +22,5 @@ const FieldSet = ({
         `}</style>
     </fieldset>
 )
-
-FieldSet.propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-}
 
 export { FieldSet }
