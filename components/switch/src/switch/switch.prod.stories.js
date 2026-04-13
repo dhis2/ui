@@ -1,6 +1,6 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React, { useEffect } from 'react'
-import { Switch } from './index.js'
+import { Switch } from './index.ts'
 
 const subtitle = 'An input control that allows an on and an off state'
 

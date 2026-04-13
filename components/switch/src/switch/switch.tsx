@@ -1,43 +1,85 @@
-import { colors, theme, sharedPropTypes } from '@dhis2/ui-constants'
+import { colors, theme } from '@dhis2/ui-constants'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React, { Component, createRef } from 'react'
-import { SwitchRegular } from './switch-icons.js'
+import { SwitchRegular } from './switch-icons.tsx'
 
-class Switch extends Component {
-    ref = createRef()
+interface SwitchHandlerPayload {
+    value?: string
+    name?: string
+    checked: boolean
+}
+
+export interface SwitchProps {
+    /** Sets an aria-label attribute on the input */
+    'aria-label'?: string
+    checked?: boolean
+    className?: string
+    dataTest?: string
+    /** Makes the switch smaller for information-dense layouts */
+    dense?: boolean
+    /** Disables the switch */
+    disabled?: boolean
+    /** Applies 'error' styles for validation feedback. Mutually exclusive with `valid` and `warning` prop types */
+    error?: boolean
+    /** Grab initial focus on the page */
+    initialFocus?: boolean
+    /** Label for the switch. Can be a string or an element, for example an image */
+    label?: React.ReactNode
+    /** Name associated with the switch. Passed to event handlers in object */
+    name?: string
+    /** Sets a role attribute on the input */
+    role?: string
+    tabIndex?: number
+    /** Applies 'valid' styles for validation feedback. Mutually exclusive with `error` and `warning` prop types */
+    valid?: boolean
+    /** Value associated with the switch. Passed to event handlers in object */
+    value?: string
+    /** Applies 'warning' styles for validation feedback. Mutually exclusive with `valid` and `error` prop types */
+    warning?: boolean
+    /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
+    onBlur?: (payload: SwitchHandlerPayload, event: React.FocusEvent<HTMLInputElement>) => void
+    /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
+    onChange?: (payload: SwitchHandlerPayload, event: React.ChangeEvent<HTMLInputElement>) => void
+    /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
+    onFocus?: (payload: SwitchHandlerPayload, event: React.FocusEvent<HTMLInputElement>) => void
+    /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
+    onKeyDown?: (payload: SwitchHandlerPayload, event: React.KeyboardEvent<HTMLInputElement>) => void
+}
+
+class Switch extends Component<SwitchProps> {
+    ref = createRef<HTMLInputElement>()
 
     componentDidMount() {
         if (this.props.initialFocus) {
-            this.ref.current.focus()
+            this.ref.current?.focus()
         }
     }
 
-    handleChange = (e) => {
+    handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (this.props.onChange) {
             this.props.onChange(this.createHandlerPayload(), e)
         }
     }
 
-    handleBlur = (e) => {
+    handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
         if (this.props.onBlur) {
             this.props.onBlur(this.createHandlerPayload(), e)
         }
     }
 
-    handleFocus = (e) => {
+    handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
         if (this.props.onFocus) {
             this.props.onFocus(this.createHandlerPayload(), e)
         }
     }
 
-    handleKeyDown = (e) => {
+    handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (this.props.onKeyDown) {
             this.props.onKeyDown(this.createHandlerPayload(), e)
         }
     }
 
-    createHandlerPayload() {
+    createHandlerPayload(): SwitchHandlerPayload {
         return {
             value: this.props.value,
             name: this.props.name,
@@ -168,43 +210,6 @@ class Switch extends Component {
             </label>
         )
     }
-}
-
-Switch.propTypes = {
-    /** Sets an aria-label attribute on the input */
-    'aria-label': PropTypes.string,
-    checked: PropTypes.bool,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    /** Makes the switch smaller for information-dense layouts */
-    dense: PropTypes.bool,
-    /** Disables the switch */
-    disabled: PropTypes.bool,
-    /** Applies 'error' styles for validation feedback. Mutually exclusive with `valid` and `warning` prop types */
-    error: sharedPropTypes.statusPropType,
-    /** Grab initial focus on the page */
-    initialFocus: PropTypes.bool,
-    /** Label for the switch. Can be a string or an element, for example an image */
-    label: PropTypes.node,
-    /** Name associated with the switch. Passed to event handlers in object */
-    name: PropTypes.string,
-    /** Sets a role attribute on the input */
-    role: PropTypes.string,
-    tabIndex: PropTypes.string,
-    /** Applies 'valid' styles for validation feedback. Mutually exclusive with `error` and `warning` prop types */
-    valid: sharedPropTypes.statusPropType,
-    /** Value associated with the switch. Passed to event handlers in object */
-    value: PropTypes.string,
-    /** Applies 'warning' styles for validation feedback. Mutually exclusive with `valid` and `error` prop types */
-    warning: sharedPropTypes.statusPropType,
-    /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
-    onBlur: PropTypes.func,
-    /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
-    onChange: PropTypes.func,
-    /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
-    onFocus: PropTypes.func,
-    /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
-    onKeyDown: PropTypes.func,
 }
 
 export { Switch }

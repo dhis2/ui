@@ -1,5 +1,5 @@
 import React from 'react'
-import { SwitchField } from './index.js'
+import { SwitchField } from './index.ts'
 
 export default { title: 'SwitchField' }
 export const WithLabelAndRequired = () => (
