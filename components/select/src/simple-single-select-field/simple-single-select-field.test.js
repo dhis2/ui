@@ -5,7 +5,7 @@ import React from 'react'
 import { SimpleSingleSelect } from '../simple-single-select/simple-single-select.tsx'
 import { SimpleSingleSelectField } from './simple-single-select-field.tsx'
 
-jest.mock('../simple-single-select/simple-single-select.js', () => ({
+jest.mock('../simple-single-select/simple-single-select.tsx', () => ({
     SimpleSingleSelect: jest.fn(() => <div />),
 }))
 
