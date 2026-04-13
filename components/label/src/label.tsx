@@ -1,7 +1,6 @@
 import { colors } from '@dhis2/ui-constants'
 import { Required } from '@dhis2-ui/required'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React from 'react'
 import css from 'styled-jsx/css'
 
@@ -20,7 +19,23 @@ const styles = css`
     }
 `
 
-const constructClassName = ({ disabled, className }) =>
+export interface LabelProps {
+    children?: string
+    className?: string
+    dataTest?: string
+    disabled?: boolean
+    htmlFor?: string
+    id?: string
+    required?: boolean
+}
+
+const constructClassName = ({
+    disabled,
+    className,
+}: {
+    disabled?: boolean
+    className?: string
+}) =>
     cx(className, {
         disabled: disabled,
     })
@@ -33,7 +48,7 @@ export const Label = ({
     htmlFor,
     id,
     required,
-}) => (
+}: LabelProps) => (
     <label
         id={id}
         htmlFor={htmlFor}
@@ -47,13 +62,3 @@ export const Label = ({
         <style jsx>{styles}</style>
     </label>
 )
-
-Label.propTypes = {
-    children: PropTypes.string,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    disabled: PropTypes.bool,
-    htmlFor: PropTypes.string,
-    id: PropTypes.string,
-    required: PropTypes.bool,
-}
