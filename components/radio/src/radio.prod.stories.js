@@ -1,6 +1,6 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
-import { Radio } from './radio.js'
+import { Radio } from './radio.tsx'
 
 const subtitle = `A control that allows a user to select a single option from a choice of several`
 

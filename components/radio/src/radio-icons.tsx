@@ -1,7 +1,10 @@
 import { colors, theme } from '@dhis2/ui-constants'
-import PropTypes from 'prop-types'
 import React from 'react'
 import css from 'styled-jsx/css'
+
+interface RadioIconProps {
+    className?: string
+}
 
 const styles = css`
     svg {
@@ -43,7 +46,7 @@ const styles = css`
     }
 `
 
-export function RadioRegular({ className }) {
+export function RadioRegular({ className }: RadioIconProps) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -70,11 +73,8 @@ export function RadioRegular({ className }) {
         </svg>
     )
 }
-RadioRegular.propTypes = {
-    className: PropTypes.string,
-}
 
-export function RadioDense({ className }) {
+export function RadioDense({ className }: RadioIconProps) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +100,4 @@ export function RadioDense({ className }) {
             <style jsx>{styles}</style>
         </svg>
     )
-}
-RadioDense.propTypes = {
-    className: PropTypes.string,
 }

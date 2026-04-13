@@ -1,5 +1,5 @@
 import React from 'react'
-import { Radio } from './radio.js'
+import { Radio } from './radio.tsx'
 
 window.onChange = window.Cypress && window.Cypress.cy.stub()
 window.onBlur = window.Cypress && window.Cypress.cy.stub()

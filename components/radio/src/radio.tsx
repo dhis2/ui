@@ -1,52 +1,88 @@
-import { colors, spacers, theme, sharedPropTypes } from '@dhis2/ui-constants'
+import { colors, spacers, theme } from '@dhis2/ui-constants'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React, { Component, createRef } from 'react'
-import { RadioRegular, RadioDense } from './radio-icons.js'
+import { RadioRegular, RadioDense } from './radio-icons.tsx'
 
-class Radio extends Component {
-    ref = createRef()
+interface RadioHandlerPayload {
+    value?: string
+    name?: string
+    checked: boolean
+}
+
+type RadioEventHandler<E> = (payload: RadioHandlerPayload, event: E) => void
+
+export interface RadioProps {
+    checked?: boolean
+    className?: string
+    dataTest?: string
+    dense?: boolean
+    disabled?: boolean
+    /** Adds 'error' styling for feedback. Mutually exclusive with `valid` and `warning` props */
+    error?: boolean
+    initialFocus?: boolean
+    label?: React.ReactNode
+    /** Name associated with this element. Passed in object to event handler functions */
+    name?: string
+    tabIndex?: string
+    /** Adds 'valid' styling for feedback. Mutually exclusive with `error` and `warning` props */
+    valid?: boolean
+    /** Value associated with this element. Passed in object to event handler functions */
+    value?: string
+    /** Adds 'warning' styling for feedback. Mutually exclusive with `valid` and `error` props */
+    warning?: boolean
+    /** Called with the signature `({ name: string, value: string, checked: bool }, event)` */
+    onBlur?: RadioEventHandler<React.FocusEvent<HTMLInputElement>>
+    /** Called with the signature `({ name: string, value: string, checked: bool }, event)` */
+    onChange?: RadioEventHandler<React.ChangeEvent<HTMLInputElement>>
+    /** Called with the signature `({ name: string, value: string, checked: bool }, event)` */
+    onFocus?: RadioEventHandler<React.FocusEvent<HTMLInputElement>>
+    /** Called with the signature `({ name: string, value: string, checked: bool }, event)` */
+    onKeyDown?: RadioEventHandler<React.KeyboardEvent<HTMLInputElement>>
+}
+
+class Radio extends Component<RadioProps> {
+    ref = createRef<HTMLInputElement>()
+
+    static defaultProps = {
+        dataTest: 'dhis2-uicore-radio',
+    }
 
     componentDidMount() {
         if (this.props.initialFocus) {
-            this.ref.current.focus()
+            this.ref.current?.focus()
         }
     }
 
-    handleChange = (e) => {
+    handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (this.props.onChange) {
             this.props.onChange(this.createHandlerPayload(), e)
         }
     }
 
-    handleBlur = (e) => {
+    handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
         if (this.props.onBlur) {
             this.props.onBlur(this.createHandlerPayload(), e)
         }
     }
 
-    handleFocus = (e) => {
+    handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
         if (this.props.onFocus) {
             this.props.onFocus(this.createHandlerPayload(), e)
         }
     }
 
-    handleKeyDown = (e) => {
+    handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (this.props.onKeyDown) {
             this.props.onKeyDown(this.createHandlerPayload(), e)
         }
     }
 
-    createHandlerPayload() {
+    createHandlerPayload(): RadioHandlerPayload {
         return {
             value: this.props.value,
             name: this.props.name,
             checked: !this.props.checked,
         }
-    }
-
-    static defaultProps = {
-        dataTest: 'dhis2-uicore-radio',
     }
 
     render() {
@@ -88,7 +124,7 @@ class Radio extends Component {
                     value={value}
                     checked={checked}
                     disabled={disabled}
-                    tabIndex={tabIndex}
+                    tabIndex={tabIndex != null ? Number(tabIndex) : undefined}
                     onChange={this.handleChange}
                     onFocus={this.handleFocus}
                     onKeyDown={this.handleKeyDown}
@@ -165,35 +201,6 @@ class Radio extends Component {
             </label>
         )
     }
-}
-
-Radio.propTypes = {
-    checked: PropTypes.bool,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    dense: PropTypes.bool,
-    disabled: PropTypes.bool,
-    /** Adds 'error' styling for feedback. Mutually exclusive with `valid` and `warning` props */
-    error: sharedPropTypes.statusPropType,
-    initialFocus: PropTypes.bool,
-    label: PropTypes.node,
-    /** Name associated with this element. Passed in object to event handler functions  */
-    name: PropTypes.string,
-    tabIndex: PropTypes.string,
-    /** Adds 'valid' styling for feedback. Mutually exclusive with `error` and `warning` props */
-    valid: sharedPropTypes.statusPropType,
-    /** Value associated with this element. Passed in object to event handler functions */
-    value: PropTypes.string,
-    /** Adds 'warning' styling for feedback. Mutually exclusive with `valid` and `error` props */
-    warning: sharedPropTypes.statusPropType,
-    /** Called with the signature `({ name: string, value: string, checked: bool }, event)` */
-    onBlur: PropTypes.func,
-    /** Called with the signature `({ name: string, value: string, checked: bool }, event)` */
-    onChange: PropTypes.func,
-    /** Called with the signature `({ name: string, value: string, checked: bool }, event)` */
-    onFocus: PropTypes.func,
-    /** Called with the signature `({ name: string, value: string, checked: bool }, event)` */
-    onKeyDown: PropTypes.func,
 }
 
 export { Radio }
