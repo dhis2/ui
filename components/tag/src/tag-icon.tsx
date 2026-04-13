@@ -1,7 +1,11 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 
-export const TagIcon = ({ children, dataTest }) => (
+interface TagIconProps {
+    dataTest: string
+    children?: React.ReactNode
+}
+
+export const TagIcon = ({ children, dataTest }: TagIconProps) => (
     <div data-test={dataTest}>
         {children}
         <style jsx>{`
@@ -13,8 +17,3 @@ export const TagIcon = ({ children, dataTest }) => (
         `}</style>
     </div>
 )
-
-TagIcon.propTypes = {
-    dataTest: PropTypes.string.isRequired,
-    children: PropTypes.node,
-}

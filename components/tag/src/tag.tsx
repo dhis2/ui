@@ -1,10 +1,25 @@
-import { mutuallyExclusive } from '@dhis2/prop-types'
 import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React from 'react'
-import { TagIcon } from './tag-icon.js'
-import { TagText } from './tag-text.js'
+import { TagIcon } from './tag-icon.tsx'
+import { TagText } from './tag-text.tsx'
+
+export interface TagProps {
+    /** Use bold tags where it is important that the tag is seen by the user in an information dense interface. Bold tags should be reserved for edge cases and not overused. */
+    bold?: boolean
+    children?: React.ReactNode
+    className?: string
+    dataTest?: string
+    /** Tags can contain icons. Use icons where they will help users easily identify the content of the tag. Tags must have a text label and cannot display only an icon. */
+    icon?: React.ReactNode
+    maxWidth?: string
+    /** Red 'negative' tags imply an error or a problem. `neutral`, `positive`, and `negative` are mutually exclusive props */
+    negative?: boolean
+    /** Blue 'neutral' tags are used when a tag _could_ have valid or error status but is currently neutral. `neutral`, `positive`, and `negative` are mutually exclusive props */
+    neutral?: boolean
+    /** Green 'valid' tags should be used to indicate validity or success. `neutral`, `positive`, and `negative` are mutually exclusive props */
+    positive?: boolean
+}
 
 export const Tag = ({
     maxWidth = '240px',
@@ -16,7 +31,7 @@ export const Tag = ({
     className,
     dataTest = 'dhis2-uicore-tag',
     children,
-}) => (
+}: TagProps) => (
     <div
         data-test={dataTest}
         className={cx(className, {
@@ -88,25 +103,3 @@ export const Tag = ({
         </style>
     </div>
 )
-
-const tagVariantPropType = mutuallyExclusive(
-    ['neutral', 'positive', 'negative'],
-    PropTypes.bool
-)
-
-Tag.propTypes = {
-    /** Use bold tags where it is important that the tag is seen by the user in an information dense interface. Bold tags should be reserved for edge cases and not overused. */
-    bold: PropTypes.bool,
-    children: PropTypes.node,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    /** Tags can contain icons. Use icons where they will help users easily identify the content of the tag. Tags must have a text label and cannot display only an icon. */
-    icon: PropTypes.node,
-    maxWidth: PropTypes.string,
-    /** Red 'negative' tags imply an error or a problem. `neutral`, `positive`, and `negative` are mutually exclusive props */
-    negative: tagVariantPropType,
-    /** Blue 'neutral' tags are used when a tag _could_ have valid or error status but is currently neutral. `neutral`, `positive`, and `negative` are mutually exclusive props */
-    neutral: tagVariantPropType,
-    /** Green 'valid' tags should be used to indicate validity or success. `neutral`, `positive`, and `negative` are mutually exclusive props */
-    positive: tagVariantPropType,
-}

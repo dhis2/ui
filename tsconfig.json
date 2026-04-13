@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "target": "ES2018",
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "jsx": "react-jsx",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "noEmit": true,
+        "allowImportingTsExtensions": true,
+        "allowJs": false,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "baseUrl": ".",
+        "types": ["styled-jsx"],
+        "paths": {
+            "@dhis2/ui-constants": ["./constants/types/index.d.ts"],
+            "@dhis2-ui/*": ["./components/*/types/index.d.ts"],
+            "classnames": ["./node_modules/@types/classnames/index.d.ts"]
+        }
+    },
+    "include": [],
+    "exclude": ["node_modules", "build", "dist"]
+}

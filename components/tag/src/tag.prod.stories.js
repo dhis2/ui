@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tag } from './tag.js'
+import { Tag } from './tag.tsx'
 
 const subtitle =
     'Used to display categorizing labels or information for other elements in a collection.'

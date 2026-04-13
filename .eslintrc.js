@@ -39,6 +39,37 @@ const config = {
                 'import/no-extraneous-dependencies': 'error',
             },
         },
+        // TypeScript overrides for migrated components
+        {
+            files: ['**/*.ts', '**/*.tsx'],
+            parser: '@typescript-eslint/parser',
+            parserOptions: {
+                ecmaVersion: 2018,
+                sourceType: 'module',
+                ecmaFeatures: { jsx: true },
+            },
+            plugins: ['@typescript-eslint'],
+            extends: [
+                'plugin:@typescript-eslint/recommended',
+            ],
+            settings: {
+                'import/resolver': {
+                    typescript: {
+                        project: './tsconfig.json',
+                    },
+                },
+            },
+            rules: {
+                // Disable JS-only rules that conflict with TS
+                'react/prop-types': 'off',
+                'no-unused-vars': 'off',
+                '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+                // Keep consistent with existing code style
+                'react/no-unknown-property': ['error', { ignore: ['jsx', 'global'] }],
+                // Allow .js extension imports in TS files (Babel resolves .tsx -> .js)
+                'import/extensions': 'off',
+            },
+        },
     ],
 }
 

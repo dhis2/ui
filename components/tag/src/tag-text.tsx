@@ -1,7 +1,11 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 
-export const TagText = ({ children, dataTest }) => (
+interface TagTextProps {
+    dataTest: string
+    children?: React.ReactNode
+}
+
+export const TagText = ({ children, dataTest }: TagTextProps) => (
     <span data-test={dataTest}>
         {children}
         <style jsx>{`
@@ -11,8 +15,3 @@ export const TagText = ({ children, dataTest }) => (
         `}</style>
     </span>
 )
-
-TagText.propTypes = {
-    dataTest: PropTypes.string.isRequired,
-    children: PropTypes.node,
-}
