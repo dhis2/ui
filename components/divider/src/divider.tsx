@@ -1,8 +1,7 @@
 import { colors, spacers } from '@dhis2/ui-constants'
-import PropTypes from 'prop-types'
 import React from 'react'
 
-const flipMargin = (margin) => {
+const flipMargin = (margin: string): string => {
     const splitMargin = margin.split(/\s+/)
     if (splitMargin?.length === 4) {
         return [
@@ -15,12 +14,19 @@ const flipMargin = (margin) => {
     return margin
 }
 
+export interface DividerProps {
+    className?: string
+    dataTest?: string
+    dense?: boolean
+    margin?: string
+}
+
 const Divider = ({
     className,
     dataTest = 'dhis2-uicore-divider',
     dense,
     margin = `${spacers.dp8} 0`,
-}) => {
+}: DividerProps) => {
     return (
         <div className={className} data-test={dataTest} role="separator">
             <style jsx>{`
@@ -41,13 +47,6 @@ const Divider = ({
             `}</style>
         </div>
     )
-}
-
-Divider.propTypes = {
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    dense: PropTypes.bool,
-    margin: PropTypes.string,
 }
 
 export { Divider }
