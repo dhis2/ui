@@ -1,15 +1,27 @@
 import { spacers } from '@dhis2/ui-constants'
 import { IconChevronLeft16, IconChevronRight16 } from '@dhis2/ui-icons'
 import { Button } from '@dhis2-ui/button'
-import PropTypes from 'prop-types'
 import React from 'react'
 
-const translate = (prop, interpolationObject) => {
+const translate = (
+    prop: string | ((interpolationObject?: Record<string, unknown>) => string),
+    interpolationObject?: Record<string, unknown>
+): string => {
     if (typeof prop === 'function') {
         return prop(interpolationObject)
     }
 
     return prop
+}
+
+export interface PageControlsProps {
+    dataTest: string
+    nextPageText: string | ((interpolationObject?: Record<string, unknown>) => string)
+    page: number
+    previousPageText: string | ((interpolationObject?: Record<string, unknown>) => string)
+    onClick: (page: number) => void
+    isNextDisabled?: boolean
+    isPreviousDisabled?: boolean
 }
 
 const PageControls = ({
@@ -20,7 +32,7 @@ const PageControls = ({
     page,
     previousPageText,
     onClick,
-}) => (
+}: PageControlsProps) => (
     <div data-test={`${dataTest}-pagecontrols`}>
         <Button
             secondary
@@ -67,17 +79,5 @@ const PageControls = ({
         `}</style>
     </div>
 )
-
-PageControls.propTypes = {
-    dataTest: PropTypes.string.isRequired,
-    nextPageText: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
-        .isRequired,
-    page: PropTypes.number.isRequired,
-    previousPageText: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
-        .isRequired,
-    onClick: PropTypes.func.isRequired,
-    isNextDisabled: PropTypes.bool,
-    isPreviousDisabled: PropTypes.bool,
-}
 
 export { PageControls }

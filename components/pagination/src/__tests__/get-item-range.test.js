@@ -1,5 +1,5 @@
 import * as mockPagers from '../__fixtures__/index.js'
-import { getItemRange } from '../get-item-range.js'
+import { getItemRange } from '../get-item-range.ts'
 
 describe('getItemRange', () => {
     it('calculates the firstItem and lastItem correctly', () => {

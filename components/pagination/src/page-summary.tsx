@@ -1,14 +1,27 @@
 import { colors, spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React from 'react'
 
-const translate = (prop, interpolationObject) => {
+const translate = (
+    prop: string | ((...args: never[]) => string),
+    interpolationObject: Record<string, unknown>
+): string => {
     if (typeof prop === 'function') {
-        return prop(interpolationObject)
+        return (prop as (interpolationObject: Record<string, unknown>) => string)(interpolationObject)
     }
 
     return prop
+}
+
+export interface PageSummaryProps {
+    dataTest: string
+    page: number
+    pageSummaryText: string | ((...args: never[]) => string)
+    firstItem?: number
+    inactive?: boolean
+    lastItem?: number
+    pageCount?: number
+    total?: number
 }
 
 const PageSummary = ({
@@ -20,7 +33,7 @@ const PageSummary = ({
     pageCount,
     pageSummaryText,
     total,
-}) => {
+}: PageSummaryProps) => {
     const summary = translate(pageSummaryText, {
         firstItem,
         lastItem,
@@ -50,18 +63,6 @@ const PageSummary = ({
             `}</style>
         </div>
     )
-}
-
-PageSummary.propTypes = {
-    dataTest: PropTypes.string.isRequired,
-    page: PropTypes.number.isRequired,
-    pageSummaryText: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
-        .isRequired,
-    firstItem: PropTypes.number,
-    inactive: PropTypes.bool,
-    lastItem: PropTypes.number,
-    pageCount: PropTypes.number,
-    total: PropTypes.number,
 }
 
 export { PageSummary }

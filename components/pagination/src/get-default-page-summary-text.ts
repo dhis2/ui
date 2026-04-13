@@ -1,6 +1,15 @@
 import i18n from './locales/index.js'
 
-const isValidNumber = (input) => typeof input === 'number' && !isNaN(input)
+const isValidNumber = (input: unknown): input is number =>
+    typeof input === 'number' && !isNaN(input)
+
+export interface PageSummaryTextOptions {
+    firstItem?: number
+    lastItem?: number
+    page: number
+    pageCount?: number
+    total?: number
+}
 
 export const getDefaultPageSummaryText = ({
     firstItem,
@@ -8,7 +17,7 @@ export const getDefaultPageSummaryText = ({
     page,
     pageCount,
     total,
-}) => {
+}: PageSummaryTextOptions): string => {
     if (isValidNumber(total) && isValidNumber(lastItem)) {
         return i18n.t(
             'Page {{page}} of {{pageCount}}, items {{firstItem}}-{{lastItem}} of {{total}}',

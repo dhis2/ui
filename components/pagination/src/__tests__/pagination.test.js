@@ -2,7 +2,7 @@ import '@testing-library/dom'
 import { render } from '@testing-library/react'
 import React from 'react'
 import * as mockPagers from '../__fixtures__/index.js'
-import { Pagination } from '../pagination.js'
+import { Pagination } from '../pagination.tsx'
 
 describe('<Pagination />', () => {
     describe('Pagination with total and totalPages', () => {

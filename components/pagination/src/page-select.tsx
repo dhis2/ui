@@ -1,10 +1,11 @@
 import { spacers } from '@dhis2/ui-constants'
 import { SingleSelect, SingleSelectOption } from '@dhis2-ui/select'
-import PropTypes from 'prop-types'
 import React from 'react'
 
-// TODO: i18n translate
-const translate = (prop, interpolationObject) => {
+const translate = (
+    prop: string | ((interpolationObject?: Record<string, unknown>) => string),
+    interpolationObject?: Record<string, unknown>
+): string => {
     if (typeof prop === 'function') {
         return prop(interpolationObject)
     }
@@ -12,8 +13,17 @@ const translate = (prop, interpolationObject) => {
     return prop
 }
 
-const createAvailablePages = (length) =>
+const createAvailablePages = (length: number): string[] =>
     Array.from({ length }, (_x, i) => (i + 1).toString())
+
+export interface PageSelectProps {
+    dataTest: string
+    page: number
+    pageCount: number
+    pageSelectText: string | ((interpolationObject?: Record<string, unknown>) => string)
+    onChange: (page: number) => void
+    disabled?: boolean
+}
 
 const PageSelect = ({
     dataTest,
@@ -22,13 +32,15 @@ const PageSelect = ({
     onChange,
     page,
     pageCount,
-}) => (
+}: PageSelectProps) => (
     <div data-test={`${dataTest}-gotopage`}>
         <SingleSelect
             dense
             disabled={disabled}
             selected={page.toString()}
-            onChange={({ selected }) => onChange(parseInt(selected, 10))}
+            onChange={({ selected }: { selected: string }) =>
+                onChange(parseInt(selected, 10))
+            }
             className="select"
             dataTest={`${dataTest}-page-select`}
             prefix={translate(pageSelectText)}
@@ -48,15 +60,5 @@ const PageSelect = ({
         `}</style>
     </div>
 )
-
-PageSelect.propTypes = {
-    dataTest: PropTypes.string.isRequired,
-    page: PropTypes.number.isRequired,
-    pageCount: PropTypes.number.isRequired,
-    pageSelectText: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
-        .isRequired,
-    onChange: PropTypes.func.isRequired,
-    disabled: PropTypes.bool,
-}
 
 export { PageSelect, createAvailablePages }

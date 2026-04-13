@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { getDefaultPageSummaryText } from '../get-default-page-summary-text.js'
-import { PageSummary } from '../page-summary.js'
+import { getDefaultPageSummaryText } from '../get-default-page-summary-text.ts'
+import { PageSummary } from '../page-summary.tsx'
 
 describe('<PageSummary />', () => {
     const props = {
