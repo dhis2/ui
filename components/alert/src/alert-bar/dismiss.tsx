@@ -1,9 +1,13 @@
 import { spacers } from '@dhis2/ui-constants'
 import { IconCross24 } from '@dhis2/ui-icons'
-import PropTypes from 'prop-types'
 import React from 'react'
 
-const Dismiss = ({ onClick, dataTest }) => (
+interface DismissProps {
+    dataTest: string
+    onClick: (event: React.MouseEvent<HTMLDivElement>) => void
+}
+
+const Dismiss = ({ onClick, dataTest }: DismissProps) => (
     <div onClick={onClick} data-test={dataTest}>
         <IconCross24 />
         <style jsx>{`
@@ -30,10 +34,5 @@ const Dismiss = ({ onClick, dataTest }) => (
         `}</style>
     </div>
 )
-
-Dismiss.propTypes = {
-    dataTest: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
-}
 
 export { Dismiss }

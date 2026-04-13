@@ -1,9 +1,15 @@
 import { spacers } from '@dhis2/ui-constants'
-import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
-class Action extends Component {
-    onClick = (event) => {
+export interface ActionProps {
+    dataTest: string
+    hide: (event: React.MouseEvent<HTMLSpanElement>) => void
+    label: string
+    onClick: (event: React.MouseEvent<HTMLSpanElement>) => void
+}
+
+class Action extends Component<ActionProps> {
+    onClick = (event: React.MouseEvent<HTMLSpanElement>) => {
         this.props.onClick(event)
         this.props.hide(event)
     }
@@ -25,13 +31,6 @@ class Action extends Component {
             </span>
         )
     }
-}
-
-Action.propTypes = {
-    dataTest: PropTypes.string.isRequired,
-    hide: PropTypes.func.isRequired,
-    label: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
 }
 
 export { Action }

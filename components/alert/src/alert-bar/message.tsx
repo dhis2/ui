@@ -1,7 +1,10 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 
-const Message = ({ children }) => (
+interface MessageProps {
+    children: string
+}
+
+const Message = ({ children }: MessageProps) => (
     <div>
         {children}
         <style jsx>{`
@@ -11,9 +14,5 @@ const Message = ({ children }) => (
         `}</style>
     </div>
 )
-
-Message.propTypes = {
-    children: PropTypes.string.isRequired,
-}
 
 export { Message }

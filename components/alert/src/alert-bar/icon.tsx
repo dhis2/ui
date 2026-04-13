@@ -1,4 +1,3 @@
-import { mutuallyExclusive } from '@dhis2/prop-types'
 import { spacers, colors } from '@dhis2/ui-constants'
 import {
     IconErrorFilled24,
@@ -6,10 +5,23 @@ import {
     IconWarningFilled24,
     IconCheckmark24,
 } from '@dhis2/ui-icons'
-import PropTypes from 'prop-types'
 import React from 'react'
 
-const StatusIcon = ({ error, warning, valid, info, defaultTo = null }) => {
+interface StatusIconProps {
+    defaultTo?: React.ReactElement | null
+    error?: boolean
+    info?: boolean
+    valid?: boolean
+    warning?: boolean
+}
+
+const StatusIcon = ({
+    error,
+    warning,
+    valid,
+    info,
+    defaultTo = null,
+}: StatusIconProps) => {
     if (error) {
         return <IconErrorFilled24 color={colors.white} />
     }
@@ -26,15 +38,16 @@ const StatusIcon = ({ error, warning, valid, info, defaultTo = null }) => {
     return defaultTo
 }
 
-StatusIcon.propTypes = {
-    defaultTo: PropTypes.element,
-    error: PropTypes.bool,
-    info: PropTypes.bool,
-    valid: PropTypes.bool,
-    warning: PropTypes.bool,
+interface IconProps {
+    dataTest: string
+    critical?: boolean
+    icon?: boolean | React.ReactElement
+    info?: boolean
+    success?: boolean
+    warning?: boolean
 }
 
-const Icon = ({ icon, success, warning, critical, info, dataTest }) => {
+const Icon = ({ icon, success, warning, critical, info, dataTest }: IconProps) => {
     if (icon === false) {
         return null
     }
@@ -60,19 +73,5 @@ const Icon = ({ icon, success, warning, critical, info, dataTest }) => {
     )
 }
 
-const iconPropType = PropTypes.oneOfType([PropTypes.bool, PropTypes.element])
-const alertStatePropType = mutuallyExclusive(
-    ['success', 'warning', 'critical', 'info'],
-    PropTypes.bool
-)
-
-Icon.propTypes = {
-    dataTest: PropTypes.string.isRequired,
-    critical: alertStatePropType,
-    icon: iconPropType,
-    info: alertStatePropType,
-    success: alertStatePropType,
-    warning: alertStatePropType,
-}
-
-export { Icon, iconPropType }
+export { Icon }
+export type { IconProps }

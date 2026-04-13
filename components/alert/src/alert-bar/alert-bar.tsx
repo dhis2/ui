@@ -1,12 +1,37 @@
-import { mutuallyExclusive } from '@dhis2/prop-types'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React, { useRef, useState, useEffect } from 'react'
-import { Actions, actionsPropType } from './actions.js'
-import styles, { ANIMATION_TIME } from './alert-bar.styles.js'
-import { Dismiss } from './dismiss.js'
-import { Icon, iconPropType } from './icon.js'
-import { Message } from './message.js'
+import { Actions } from './actions.tsx'
+import type { AlertBarAction } from './actions.tsx'
+import styles, { ANIMATION_TIME } from './alert-bar.styles.ts'
+import { Dismiss } from './dismiss.tsx'
+import { Icon } from './icon.tsx'
+import { Message } from './message.tsx'
+
+export interface AlertBarProps {
+    /** An array of 0-2 action objects `[{label: "Save", onClick: clickHandler}]` */
+    actions?: AlertBarAction[]
+    /** The message string for the alert */
+    children?: string
+    className?: string
+    /** Alert bars with `critical` will not autohide */
+    critical?: boolean
+    dataTest?: string
+    /** How long you want the notification to display, in `ms`, when it's not permanent */
+    duration?: number
+    /** AlertBar will be hidden on creation when this is set to true */
+    hidden?: boolean
+    /**
+     * A specific icon to override the default icon in the bar.
+     * If `false` is provided, no icon will be shown.
+     */
+    icon?: boolean | React.ReactElement
+    /** When set, AlertBar will not autohide */
+    permanent?: boolean
+    success?: boolean
+    /** Alert bars with `warning` will not autohide */
+    warning?: boolean
+    onHidden?: (payload: Record<string, never>, event: null) => void
+}
 
 const AlertBar = ({
     actions,
@@ -21,14 +46,14 @@ const AlertBar = ({
     success,
     warning,
     onHidden,
-}) => {
+}: AlertBarProps) => {
     const [inViewport, setInViewport] = useState(!hidden)
     const [inDOM, setInDOM] = useState(!hidden)
-    const showTimeout = useRef(null)
-    const displayTimeout = useRef(null)
-    const hideTimeout = useRef(null)
-    const displayStartTime = useRef(null)
-    const displayTimeRemaining = useRef(null)
+    const showTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
+    const displayTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
+    const hideTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
+    const displayStartTime = useRef<number | null>(null)
+    const displayTimeRemaining = useRef<number | null>(null)
     const info = !critical && !success && !warning
     const shouldAutoHide = !(permanent || warning || critical)
     const show = () => {
@@ -45,9 +70,9 @@ const AlertBar = ({
         onHidden && onHidden({}, null)
     }
     const clearAllTimeouts = () => {
-        clearTimeout(showTimeout.current)
-        clearTimeout(displayTimeout.current)
-        clearTimeout(hideTimeout.current)
+        clearTimeout(showTimeout.current as ReturnType<typeof setTimeout>)
+        clearTimeout(displayTimeout.current as ReturnType<typeof setTimeout>)
+        clearTimeout(hideTimeout.current as ReturnType<typeof setTimeout>)
     }
     const runHideAnimation = () => {
         clearAllTimeouts()
@@ -73,8 +98,9 @@ const AlertBar = ({
     const pauseDisplayTimeout = () => {
         if (shouldAutoHide) {
             clearAllTimeouts()
-            const elapsedTime = Date.now() - displayStartTime.current
-            displayTimeRemaining.current -= elapsedTime
+            const elapsedTime = Date.now() - (displayStartTime.current as number)
+            displayTimeRemaining.current =
+                (displayTimeRemaining.current as number) - elapsedTime
         }
     }
     const resumeDisplayTimeout = () => {
@@ -82,7 +108,7 @@ const AlertBar = ({
             clearAllTimeouts()
             displayTimeout.current = setTimeout(
                 runHideAnimation,
-                displayTimeRemaining.current
+                displayTimeRemaining.current as number
             )
         }
     }
@@ -121,7 +147,7 @@ const AlertBar = ({
                 warning={warning}
                 info={info}
             />
-            <Message>{children}</Message>
+            <Message>{children as string}</Message>
             <Actions
                 actions={actions}
                 hide={runHideAnimation}
@@ -135,38 +161,6 @@ const AlertBar = ({
             <style jsx>{styles}</style>
         </div>
     )
-}
-
-const alertTypePropType = mutuallyExclusive(
-    ['success', 'warning', 'critical'],
-    PropTypes.bool
-)
-
-AlertBar.propTypes = {
-    /** An array of 0-2 action objects 
-`[{label: "Save", onClick: clickHandler}]`*/
-    actions: actionsPropType,
-    /** The message string for the alert */
-    children: PropTypes.string,
-    className: PropTypes.string,
-    /** Alert bars with `critical` will not autohide */
-    critical: alertTypePropType,
-    dataTest: PropTypes.string,
-    /** How long you want the notification to display, in `ms`, when it's not permanent */
-    duration: PropTypes.number,
-    /** AlertBar will be hidden on creation when this is set to true */
-    hidden: PropTypes.bool,
-    /**
-     * A specific icon to override the default icon in the bar.
-     * If `false` is provided, no icon will be shown.
-     */
-    icon: iconPropType,
-    /** When set, AlertBar will not autohide */
-    permanent: PropTypes.bool,
-    success: alertTypePropType,
-    /** Alert bars with `warning` will not autohide */
-    warning: alertTypePropType,
-    onHidden: PropTypes.func,
 }
 
 export { AlertBar }

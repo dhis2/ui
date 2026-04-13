@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { AlertBar } from './index.js'
+import { AlertBar } from './index.ts'
 
 window.onHidden = window.Cypress && window.Cypress.cy.stub()
 

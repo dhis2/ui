@@ -1,10 +1,19 @@
-import { arrayWithLength } from '@dhis2/prop-types'
 import { spacers } from '@dhis2/ui-constants'
-import PropTypes from 'prop-types'
 import React from 'react'
-import { Action } from './action.js'
+import { Action } from './action.tsx'
 
-const Actions = ({ actions, hide, dataTest }) => {
+export interface AlertBarAction {
+    label: string
+    onClick: (event: React.MouseEvent<HTMLSpanElement>) => void
+}
+
+interface ActionsProps {
+    dataTest: string
+    hide: (event: React.MouseEvent<HTMLSpanElement>) => void
+    actions?: AlertBarAction[]
+}
+
+const Actions = ({ actions, hide, dataTest }: ActionsProps) => {
     if (!actions) {
         return null
     }
@@ -29,19 +38,4 @@ const Actions = ({ actions, hide, dataTest }) => {
     )
 }
 
-const actionsPropType = arrayWithLength(
-    0,
-    2,
-    PropTypes.shape({
-        label: PropTypes.string.isRequired,
-        onClick: PropTypes.func.isRequired,
-    })
-)
-
-Actions.propTypes = {
-    dataTest: PropTypes.string.isRequired,
-    hide: PropTypes.func.isRequired,
-    actions: actionsPropType,
-}
-
-export { Actions, actionsPropType }
+export { Actions }
