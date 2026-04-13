@@ -25,7 +25,10 @@ export interface ModalProps {
     position?: 'top' | 'middle' | 'bottom'
     small?: boolean
     /** Callback used when the Modal closes */
-    onClose?: () => void
+    onClose?: (
+        payload: Record<string, never>,
+        event: React.MouseEvent<HTMLDivElement> | React.MouseEvent<HTMLButtonElement>
+    ) => void
 }
 
 export const Modal = ({
@@ -50,7 +53,10 @@ export const Modal = ({
             if (event.key === 'Escape' && onClose) {
                 event.preventDefault()
                 event.stopPropagation()
-                onClose()
+                onClose(
+                    {} as Record<string, never>,
+                    event as unknown as React.MouseEvent<HTMLDivElement>
+                )
             }
         }
 
@@ -75,7 +81,7 @@ export const Modal = ({
                     className={cx(className, { small, large, fluid })}
                 >
                     <Card>
-                        {onClose && <CloseButton onClick={() => onClose()} />}
+                        {onClose && <CloseButton onClick={onClose} />}
                         <div>{children}</div>
                     </Card>
                 </aside>

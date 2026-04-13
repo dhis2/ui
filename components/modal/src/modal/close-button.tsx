@@ -4,7 +4,10 @@ import React from 'react'
 import i18n from '../locales/index.js'
 
 export interface CloseButtonProps {
-    onClick?: (payload: Record<string, never>, event: React.MouseEvent<HTMLButtonElement>) => void
+    onClick?: (
+        payload: Record<string, never>,
+        event: React.MouseEvent<HTMLButtonElement>
+    ) => void
 }
 
 const createClickHandler =
