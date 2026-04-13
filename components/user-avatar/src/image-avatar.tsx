@@ -1,19 +1,23 @@
 import { useConfig } from '@dhis2/app-runtime'
-import PropTypes from 'prop-types'
 import React from 'react'
 
-export const useAvatarImgSrc = (avatarId) => {
-    const { baseUrl } = useConfig()
+export const useAvatarImgSrc = (avatarId: string): string | undefined => {
+    const { baseUrl } = useConfig() as { baseUrl: string }
 
     return avatarId
         ? [baseUrl, 'api/fileResources', avatarId, 'data']
               .filter((part) => !!part)
               .map((part) => part.replace(/^\/+|\/+$/g, ''))
               .join('/')
-        : null
+        : undefined
 }
 
-export const ImageAvatar = ({ avatarId, dataTest }) => {
+export interface ImageAvatarProps {
+    avatarId: string
+    dataTest?: string
+}
+
+export const ImageAvatar = ({ avatarId, dataTest }: ImageAvatarProps) => {
     const src = useAvatarImgSrc(avatarId)
 
     return (
@@ -29,9 +33,4 @@ export const ImageAvatar = ({ avatarId, dataTest }) => {
             `}</style>
         </>
     )
-}
-
-ImageAvatar.propTypes = {
-    avatarId: PropTypes.string.isRequired,
-    dataTest: PropTypes.string,
 }

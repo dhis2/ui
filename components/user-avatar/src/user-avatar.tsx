@@ -1,9 +1,7 @@
-import { sharedPropTypes } from '@dhis2/ui-constants'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React from 'react'
-import { ImageAvatar } from './image-avatar.js'
-import { TextAvatar } from './text-avatar.js'
+import { ImageAvatar } from './image-avatar.tsx'
+import { TextAvatar } from './text-avatar.tsx'
 
 /**
 An avatar is a visual icon that represents a user.
@@ -17,6 +15,19 @@ import { UserAvatar } from '@dhis2/ui'
 ```
 */
 
+export interface UserAvatarProps {
+    name: string
+    ariaLabel?: string
+    avatarId?: string
+    className?: string
+    dataTest?: string
+    extralarge?: boolean
+    extrasmall?: boolean
+    large?: boolean
+    medium?: boolean
+    small?: boolean
+}
+
 const UserAvatar = ({
     name,
     avatarId,
@@ -28,7 +39,7 @@ const UserAvatar = ({
     medium,
     small,
     ariaLabel,
-}) => (
+}: UserAvatarProps) => (
     <div
         className={cx(className, {
             extrasmall,
@@ -83,21 +94,5 @@ const UserAvatar = ({
         `}</style>
     </div>
 )
-
-UserAvatar.propTypes = {
-    // Name could stop being required if we implement an
-    // SVG fallback with a `IconUser24`.
-    // This has been discussed and deferred
-    name: PropTypes.string.isRequired,
-    ariaLabel: PropTypes.string,
-    avatarId: PropTypes.string,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    extralarge: sharedPropTypes.sizePropType,
-    extrasmall: sharedPropTypes.sizePropType,
-    large: sharedPropTypes.sizePropType,
-    medium: sharedPropTypes.sizePropType,
-    small: sharedPropTypes.sizePropType,
-}
 
 export { UserAvatar }

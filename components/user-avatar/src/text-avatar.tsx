@@ -1,18 +1,27 @@
-import { sharedPropTypes, colors } from '@dhis2/ui-constants'
+import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React from 'react'
 
-export const getInitials = (name) => {
+export const getInitials = (name: string): string => {
     const nameParts = name.split(' ')
 
-    let initials = nameParts.shift().charAt(0)
+    let initials = nameParts.shift()!.charAt(0)
 
     if (nameParts.length) {
-        initials += nameParts.pop().charAt(0)
+        initials += nameParts.pop()!.charAt(0)
     }
 
     return initials
+}
+
+export interface TextAvatarProps {
+    name: string
+    dataTest?: string
+    extralarge?: boolean
+    extrasmall?: boolean
+    large?: boolean
+    medium?: boolean
+    small?: boolean
 }
 
 export const TextAvatar = ({
@@ -23,7 +32,7 @@ export const TextAvatar = ({
     large,
     medium,
     small,
-}) => (
+}: TextAvatarProps) => (
     <div className="text-avatar" data-test={dataTest} aria-label={name}>
         <div
             className={cx('text-avatar-initials', {
@@ -81,13 +90,3 @@ export const TextAvatar = ({
         `}</style>
     </div>
 )
-
-TextAvatar.propTypes = {
-    name: PropTypes.string.isRequired,
-    dataTest: PropTypes.string,
-    extralarge: sharedPropTypes.sizePropType,
-    extrasmall: sharedPropTypes.sizePropType,
-    large: sharedPropTypes.sizePropType,
-    medium: sharedPropTypes.sizePropType,
-    small: sharedPropTypes.sizePropType,
-}
