@@ -43,13 +43,25 @@ export interface TextAreaProps {
     /** Width of the text area. Can be any valid CSS measurement */
     width?: string
     /** Called with signature `({ name: string, value: string }, event)` */
-    onBlur?: (payload: TextAreaEventPayload, event: React.FocusEvent<HTMLTextAreaElement>) => void
+    onBlur?: (
+        payload: TextAreaEventPayload,
+        event: React.FocusEvent<HTMLTextAreaElement>
+    ) => void
     /** Called with signature `({ name: string, value: string }, event)` */
-    onChange?: (payload: TextAreaEventPayload, event: React.ChangeEvent<HTMLTextAreaElement>) => void
+    onChange?: (
+        payload: TextAreaEventPayload,
+        event: React.ChangeEvent<HTMLTextAreaElement>
+    ) => void
     /** Called with signature `({ name: string, value: string }, event)` */
-    onFocus?: (payload: TextAreaEventPayload, event: React.FocusEvent<HTMLTextAreaElement>) => void
+    onFocus?: (
+        payload: TextAreaEventPayload,
+        event: React.FocusEvent<HTMLTextAreaElement>
+    ) => void
     /** Called with signature `({ name: string, value: string }, event)` */
-    onKeyDown?: (payload: TextAreaEventPayload, event: React.KeyboardEvent<HTMLTextAreaElement>) => void
+    onKeyDown?: (
+        payload: TextAreaEventPayload,
+        event: React.KeyboardEvent<HTMLTextAreaElement>
+    ) => void
 }
 
 interface TextAreaState {
@@ -100,7 +112,10 @@ export class TextArea extends Component<TextAreaProps, TextAreaState> {
     removeResizeListener() {
         const textarea = this.textareaRef.current
         if (textarea) {
-            textarea.removeEventListener('mousedown', this.setTextareaDimensions)
+            textarea.removeEventListener(
+                'mousedown',
+                this.setTextareaDimensions
+            )
             textarea.removeEventListener('mouseup', this.hasUserResized)
         }
     }
@@ -166,7 +181,9 @@ export class TextArea extends Component<TextAreaProps, TextAreaState> {
         }
     }
 
-    createHandlerPayload(e: React.SyntheticEvent<HTMLTextAreaElement>): TextAreaEventPayload {
+    createHandlerPayload(
+        e: React.SyntheticEvent<HTMLTextAreaElement>
+    ): TextAreaEventPayload {
         return {
             value: e.currentTarget.value,
             name: this.props.name,

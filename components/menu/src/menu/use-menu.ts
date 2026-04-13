@@ -12,9 +12,7 @@ export const useMenuNavigation = (children: React.ReactNode) => {
     // focusable items have the role of menuitem || menuitemcheckbox || menuitemradio
     useEffect(() => {
         if (menuRef) {
-            const menuItems = Array.from(
-                menuRef.current!.children
-            ) as Element[]
+            const menuItems = Array.from(menuRef.current!.children) as Element[]
             const itemsIndices = getFocusableItemsIndices(menuItems)
             setFocusableItemsIndices(itemsIndices)
         }
@@ -59,9 +57,7 @@ export const useMenuNavigation = (children: React.ReactNode) => {
                         break
                     case 'Enter':
                     case ' ':
-                        if (
-                            (event.target as HTMLElement).nodeName === 'LI'
-                        ) {
+                        if ((event.target as HTMLElement).nodeName === 'LI') {
                             event.preventDefault()
                             ;(
                                 (event.target as HTMLElement)
@@ -91,9 +87,7 @@ export const useMenuNavigation = (children: React.ReactNode) => {
                 const firstItemIndex = focusableItemsIndices?.[0]
                 firstItemIndex &&
                     (
-                        menuRef.current!.children[
-                            firstItemIndex
-                        ] as HTMLElement
+                        menuRef.current!.children[firstItemIndex] as HTMLElement
                     ).focus()
                 setActiveItemIndex(0)
             }

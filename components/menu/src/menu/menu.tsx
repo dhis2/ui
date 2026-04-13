@@ -55,9 +55,7 @@ const Menu = ({
                         return (
                             <li
                                 tabIndex={
-                                    hasMenuItemRole(
-                                        child as React.ReactElement
-                                    )
+                                    hasMenuItemRole(child as React.ReactElement)
                                         ? tabIndex
                                         : undefined
                                 }

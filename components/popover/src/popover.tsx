@@ -62,7 +62,9 @@ const Popover = ({
     const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
         null
     )
-    const [arrowElement, setArrowElement] = useState<HTMLDivElement | null>(null)
+    const [arrowElement, setArrowElement] = useState<HTMLDivElement | null>(
+        null
+    )
     const modifiers = useMemo(
         () =>
             combineModifiers(arrow, arrowElement, {

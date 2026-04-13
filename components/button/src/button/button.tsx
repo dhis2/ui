@@ -62,16 +62,28 @@ export interface ButtonProps {
      * Callback to trigger on de-focus (blur).
      * Called with same args as `onClick`
      */
-    onBlur?: (payload: ButtonCallbackPayload, event: React.FocusEvent<HTMLButtonElement>) => void
+    onBlur?: (
+        payload: ButtonCallbackPayload,
+        event: React.FocusEvent<HTMLButtonElement>
+    ) => void
     /**
      * Callback to trigger on click.
      * Called with args `({ value, name }, event)`
      */
-    onClick?: (payload: ButtonCallbackPayload, event: React.MouseEvent<HTMLButtonElement>) => void
+    onClick?: (
+        payload: ButtonCallbackPayload,
+        event: React.MouseEvent<HTMLButtonElement>
+    ) => void
     /** Callback to trigger on focus. Called with same args as `onClick` */
-    onFocus?: (payload: ButtonCallbackPayload, event: React.FocusEvent<HTMLButtonElement>) => void
+    onFocus?: (
+        payload: ButtonCallbackPayload,
+        event: React.FocusEvent<HTMLButtonElement>
+    ) => void
     /** Callback to trigger on key-down. Called with same args as `onClick` */
-    onKeyDown?: (payload: ButtonCallbackPayload, event: React.KeyboardEvent<HTMLButtonElement>) => void
+    onKeyDown?: (
+        payload: ButtonCallbackPayload,
+        event: React.KeyboardEvent<HTMLButtonElement>
+    ) => void
     [key: string]: unknown
 }
 
@@ -107,7 +119,10 @@ export const Button = ({
         }
     }, [initialFocus, ref.current])
 
-    const { 'aria-label': ariaLabel, title } = otherProps as Record<string, unknown>
+    const { 'aria-label': ariaLabel, title } = otherProps as Record<
+        string,
+        unknown
+    >
 
     if (!children && !title && !ariaLabel) {
         console.debug(

@@ -3,9 +3,7 @@ import React, { useState } from 'react'
 import { AccessAdd } from '../access-add/index.ts'
 import { AccessList } from '../access-list/index.ts'
 import { CascadeSharing } from '../cascade-sharing/index.ts'
-import {
-    DIALOG_TYPES,
-} from '../constants.ts'
+import { DIALOG_TYPES } from '../constants.ts'
 import type { AccessType, DialogType } from '../constants.ts'
 import i18n from '../locales/index.js'
 

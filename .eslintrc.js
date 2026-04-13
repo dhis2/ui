@@ -49,9 +49,7 @@ const config = {
                 ecmaFeatures: { jsx: true },
             },
             plugins: ['@typescript-eslint'],
-            extends: [
-                'plugin:@typescript-eslint/recommended',
-            ],
+            extends: ['plugin:@typescript-eslint/recommended'],
             settings: {
                 'import/resolver': {
                     typescript: {
@@ -63,9 +61,15 @@ const config = {
                 // Disable JS-only rules that conflict with TS
                 'react/prop-types': 'off',
                 'no-unused-vars': 'off',
-                '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+                '@typescript-eslint/no-unused-vars': [
+                    'error',
+                    { argsIgnorePattern: '^_' },
+                ],
                 // Keep consistent with existing code style
-                'react/no-unknown-property': ['error', { ignore: ['jsx', 'global'] }],
+                'react/no-unknown-property': [
+                    'error',
+                    { ignore: ['jsx', 'global'] },
+                ],
                 // Allow .js extension imports in TS files (Babel resolves .tsx -> .js)
                 'import/extensions': 'off',
             },

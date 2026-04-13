@@ -120,9 +120,11 @@ export const AccessAdd = ({
                                         ? i18n.t('Not available offline')
                                         : ''
                                 }
-                                onChange={({ selected }: { selected: string }) =>
-                                    setDataAccess(selected)
-                                }
+                                onChange={({
+                                    selected,
+                                }: {
+                                    selected: string
+                                }) => setDataAccess(selected)}
                             >
                                 {accessOptionsData.map(({ value, label }) => (
                                     <SingleSelectOption
@@ -151,9 +153,11 @@ export const AccessAdd = ({
                                         ? i18n.t('Not available offline')
                                         : ''
                                 }
-                                onChange={({ selected }: { selected: string }) =>
-                                    setMetadataAccess(selected)
-                                }
+                                onChange={({
+                                    selected,
+                                }: {
+                                    selected: string
+                                }) => setMetadataAccess(selected)}
                             >
                                 {(dataSharing
                                     ? accessOptionsData

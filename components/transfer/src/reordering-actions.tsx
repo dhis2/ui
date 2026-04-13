@@ -22,7 +22,9 @@ export const ReorderingActions = ({
         <Button
             small
             disabled={disabledDown}
-            onClick={() => !disabledDown && onChangeDown(event as unknown as Event)}
+            onClick={() =>
+                !disabledDown && onChangeDown(event as unknown as Event)
+            }
             dataTest={`${dataTest}-buttonmovedown`}
             icon={
                 <IconMoveDown

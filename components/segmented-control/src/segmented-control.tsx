@@ -14,7 +14,10 @@ export interface SegmentedControlProps {
     /** An option to select; should match the `value` property of the option to be selected */
     selected: string
     /** Called with the signature `({ value: string }, event)` */
-    onChange: (payload: { value: string }, event: React.MouseEvent<HTMLButtonElement>) => void
+    onChange: (
+        payload: { value: string },
+        event: React.MouseEvent<HTMLButtonElement>
+    ) => void
     /** Used to provide an accessible label to a segmented control without a visible label */
     ariaLabel?: string
 }

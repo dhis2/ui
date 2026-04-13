@@ -85,7 +85,9 @@ export const NavigationContainer = ({
                             onClick={prevMonth?.navigateTo}
                             name="previous-month"
                             data-test="calendar-previous-month"
-                            aria-label={`${i18n.t(`Go to ${prevMonth?.label}`)}`}
+                            aria-label={`${i18n.t(
+                                `Go to ${prevMonth?.label}`
+                            )}`}
                             type="button"
                         >
                             <PreviousIcon />
@@ -122,7 +124,9 @@ export const NavigationContainer = ({
                             onClick={nextMonth?.navigateTo}
                             data-test="calendar-next-month"
                             name="next-month"
-                            aria-label={`${i18n.t(`Go to ${nextMonth?.label}`)}`}
+                            aria-label={`${i18n.t(
+                                `Go to ${nextMonth?.label}`
+                            )}`}
                             type="button"
                         >
                             <NextIcon />

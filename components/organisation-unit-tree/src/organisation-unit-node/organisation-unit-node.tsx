@@ -45,7 +45,12 @@ export interface OrganisationUnitNodeProps {
     selected?: string[]
     singleSelection?: boolean
     suppressAlphabeticalSorting?: boolean
-    onChildrenLoaded?: (node: { id: string; displayName: string; path: string; children: OrgUnitChild[] }) => void
+    onChildrenLoaded?: (node: {
+        id: string
+        displayName: string
+        path: string
+        children: OrgUnitChild[]
+    }) => void
     onCollapse?: (args: { path: string }) => void
     onExpand?: (args: { path: string }) => void
 }

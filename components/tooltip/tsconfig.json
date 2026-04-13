@@ -4,5 +4,11 @@
         "rootDir": "./src"
     },
     "include": ["src/**/*.ts", "src/**/*.tsx"],
-    "exclude": ["node_modules", "build", "**/*.stories.*", "**/*.test.*", "**/*.e2e.*"]
+    "exclude": [
+        "node_modules",
+        "build",
+        "**/*.stories.*",
+        "**/*.test.*",
+        "**/*.e2e.*"
+    ]
 }

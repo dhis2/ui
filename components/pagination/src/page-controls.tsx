@@ -16,9 +16,13 @@ const translate = (
 
 export interface PageControlsProps {
     dataTest: string
-    nextPageText: string | ((interpolationObject?: Record<string, unknown>) => string)
+    nextPageText:
+        | string
+        | ((interpolationObject?: Record<string, unknown>) => string)
     page: number
-    previousPageText: string | ((interpolationObject?: Record<string, unknown>) => string)
+    previousPageText:
+        | string
+        | ((interpolationObject?: Record<string, unknown>) => string)
     onClick: (page: number) => void
     isNextDisabled?: boolean
     isPreviousDisabled?: boolean

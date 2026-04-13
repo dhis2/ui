@@ -103,14 +103,20 @@ export interface DropdownButtonProps {
      * Called with signature `({ name: string, value: string, open: bool }, event)`
      * Is required when using the `open` prop to override the internal state.
      */
-    onClick?: (payload: DropdownButtonCallbackPayload, event: React.MouseEvent<HTMLButtonElement> | React.SyntheticEvent) => void
+    onClick?: (
+        payload: DropdownButtonCallbackPayload,
+        event: React.MouseEvent<HTMLButtonElement> | React.SyntheticEvent
+    ) => void
 }
 
 interface DropdownButtonState {
     open: boolean
 }
 
-class DropdownButton extends Component<DropdownButtonProps, DropdownButtonState> {
+class DropdownButton extends Component<
+    DropdownButtonProps,
+    DropdownButtonState
+> {
     state: DropdownButtonState = {
         open: false,
     }
@@ -137,7 +143,10 @@ class DropdownButton extends Component<DropdownButtonProps, DropdownButtonState>
         }
     }
 
-    onClickHandler = ({ name, value }: { name?: string; value?: string }, event: React.MouseEvent<HTMLButtonElement> | React.SyntheticEvent) => {
+    onClickHandler = (
+        { name, value }: { name?: string; value?: string },
+        event: React.MouseEvent<HTMLButtonElement> | React.SyntheticEvent
+    ) => {
         const handleClick = (open: boolean) => {
             if (this.props.onClick) {
                 this.props.onClick(
@@ -210,7 +219,14 @@ class DropdownButton extends Component<DropdownButtonProps, DropdownButtonState>
                 </Button>
 
                 {open && (
-                    <Layer onBackdropClick={(_payload, event) => this.onClickHandler({}, event as unknown as React.SyntheticEvent)}>
+                    <Layer
+                        onBackdropClick={(_payload, event) =>
+                            this.onClickHandler(
+                                {},
+                                event as unknown as React.SyntheticEvent
+                            )
+                        }
+                    >
                         <Popper
                             dataTest={`${dataTest}-popper`}
                             placement="bottom-start"

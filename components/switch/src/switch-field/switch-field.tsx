@@ -51,13 +51,25 @@ export interface SwitchFieldProps {
     /** Applies 'warning' styling to switch and validation text for feedback. Mutually exclusive with `valid` and `error` props */
     warning?: boolean
     /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
-    onBlur?: (payload: SwitchFieldHandlerPayload, event: React.FocusEvent<HTMLInputElement>) => void
+    onBlur?: (
+        payload: SwitchFieldHandlerPayload,
+        event: React.FocusEvent<HTMLInputElement>
+    ) => void
     /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
-    onChange?: (payload: SwitchFieldHandlerPayload, event: React.ChangeEvent<HTMLInputElement>) => void
+    onChange?: (
+        payload: SwitchFieldHandlerPayload,
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => void
     /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
-    onFocus?: (payload: SwitchFieldHandlerPayload, event: React.FocusEvent<HTMLInputElement>) => void
+    onFocus?: (
+        payload: SwitchFieldHandlerPayload,
+        event: React.FocusEvent<HTMLInputElement>
+    ) => void
     /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
-    onKeyDown?: (payload: SwitchFieldHandlerPayload, event: React.KeyboardEvent<HTMLInputElement>) => void
+    onKeyDown?: (
+        payload: SwitchFieldHandlerPayload,
+        event: React.KeyboardEvent<HTMLInputElement>
+    ) => void
 }
 
 const SwitchField = ({

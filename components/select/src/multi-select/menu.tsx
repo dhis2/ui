@@ -20,7 +20,10 @@ const createHandler =
         value,
     }: {
         isActive: boolean
-        onChange?: (data: { selected: string[] }, e: React.SyntheticEvent) => void
+        onChange?: (
+            data: { selected: string[] },
+            e: React.SyntheticEvent
+        ) => void
         selected: string[]
         value: string
     }) =>
@@ -50,7 +53,13 @@ export interface MultiSelectMenuProps {
     onChange?: (data: { selected: string[] }, e: React.SyntheticEvent) => void
 }
 
-const Menu = ({ options, onChange, selected, empty = '', dataTest }: MultiSelectMenuProps) => {
+const Menu = ({
+    options,
+    onChange,
+    selected,
+    empty = '',
+    dataTest,
+}: MultiSelectMenuProps) => {
     const renderedOptions = filterIgnored(options)
 
     if (React.Children.count(renderedOptions) === 0) {
@@ -71,7 +80,11 @@ const Menu = ({ options, onChange, selected, empty = '', dataTest }: MultiSelect
             return child
         }
 
-        const { value, label, disabled: isDisabled } = (child as React.ReactElement).props
+        const {
+            value,
+            label,
+            disabled: isDisabled,
+        } = (child as React.ReactElement).props
 
         // Active means the option is currently selected
         const isActive = !!findOption(value, selected || [])
@@ -87,7 +100,10 @@ const Menu = ({ options, onChange, selected, empty = '', dataTest }: MultiSelect
                   label,
               } as {
                   isActive: boolean
-                  onChange?: (data: { selected: string[] }, e: React.SyntheticEvent) => void
+                  onChange?: (
+                      data: { selected: string[] },
+                      e: React.SyntheticEvent
+                  ) => void
                   selected: string[]
                   value: string
               })

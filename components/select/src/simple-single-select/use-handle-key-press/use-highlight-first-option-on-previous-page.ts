@@ -14,7 +14,9 @@ export function useHighlightFirstOptionOnPreviousPage({
 }) {
     return useCallback(() => {
         const listBoxParent = listBoxRef.current!.parentNode as HTMLElement
-        const optionElements = Array.from(listBoxRef.current!.childNodes) as HTMLElement[]
+        const optionElements = Array.from(
+            listBoxRef.current!.childNodes
+        ) as HTMLElement[]
         const visibleOptionsAmount = Math.floor(
             listBoxParent.offsetHeight / optionElements[0].offsetHeight
         )

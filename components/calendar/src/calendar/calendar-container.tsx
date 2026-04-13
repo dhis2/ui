@@ -89,7 +89,8 @@ export const CalendarContainer = React.memo(function CalendarContainer({
                     border-radius: 3px;
                     min-width: ${width};
                     width: max-content;
-                    box-shadow: ${(elevations as Record<string, string>).popover};
+                    box-shadow: ${(elevations as Record<string, string>)
+                        .popover};
                 }
             `}</style>
         </div>

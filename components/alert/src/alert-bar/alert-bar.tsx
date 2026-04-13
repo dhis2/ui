@@ -98,7 +98,8 @@ const AlertBar = ({
     const pauseDisplayTimeout = () => {
         if (shouldAutoHide) {
             clearAllTimeouts()
-            const elapsedTime = Date.now() - (displayStartTime.current as number)
+            const elapsedTime =
+                Date.now() - (displayStartTime.current as number)
             displayTimeRemaining.current =
                 (displayTimeRemaining.current as number) - elapsedTime
         }

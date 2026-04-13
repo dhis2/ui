@@ -78,8 +78,7 @@ export const Controls = ({ id, entityAmount }: ControlsProps) => {
             })
     }
 
-    const hasErrors =
-        (mutationResult?.errorReports?.length ?? 0) > 0
+    const hasErrors = (mutationResult?.errorReports?.length ?? 0) > 0
     const updatedItems = mutationResult?.countUpdatedDashboardItems
 
     return (

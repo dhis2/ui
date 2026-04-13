@@ -28,13 +28,25 @@ interface FileInputProps {
     /** Input status. Mutually exclusive with `valid` and `error` */
     warning?: boolean
     /** Called with signature `(object, event)` */
-    onBlur?: (payload: { files: FileList; name?: string }, event: React.FocusEvent) => void
+    onBlur?: (
+        payload: { files: FileList; name?: string },
+        event: React.FocusEvent
+    ) => void
     /** Called with signature `(object, event)` */
-    onChange?: (payload: { files: FileList; name?: string }, event: React.ChangeEvent) => void
+    onChange?: (
+        payload: { files: FileList; name?: string },
+        event: React.ChangeEvent
+    ) => void
     /** Called with signature `(object, event)` */
-    onFocus?: (payload: { files: FileList; name?: string }, event: React.FocusEvent) => void
+    onFocus?: (
+        payload: { files: FileList; name?: string },
+        event: React.FocusEvent
+    ) => void
     /** Called with signature `(object, event)` */
-    onKeyDown?: (payload: { files: FileList; name?: string }, event: React.KeyboardEvent) => void
+    onKeyDown?: (
+        payload: { files: FileList; name?: string },
+        event: React.KeyboardEvent
+    ) => void
 }
 
 class FileInput extends Component<FileInputProps> {
@@ -61,19 +73,28 @@ class FileInput extends Component<FileInputProps> {
         }
     }
 
-    handleBlur = (_payload: ButtonEventPayload, e: React.FocusEvent<HTMLButtonElement>) => {
+    handleBlur = (
+        _payload: ButtonEventPayload,
+        e: React.FocusEvent<HTMLButtonElement>
+    ) => {
         if (this.props.onBlur) {
             this.props.onBlur(this.createHandlerPayload(), e)
         }
     }
 
-    handleFocus = (_payload: ButtonEventPayload, e: React.FocusEvent<HTMLButtonElement>) => {
+    handleFocus = (
+        _payload: ButtonEventPayload,
+        e: React.FocusEvent<HTMLButtonElement>
+    ) => {
         if (this.props.onFocus) {
             this.props.onFocus(this.createHandlerPayload(), e)
         }
     }
 
-    handleKeyDown = (_payload: ButtonEventPayload, e: React.KeyboardEvent<HTMLButtonElement>) => {
+    handleKeyDown = (
+        _payload: ButtonEventPayload,
+        e: React.KeyboardEvent<HTMLButtonElement>
+    ) => {
         if (this.props.onKeyDown) {
             this.props.onKeyDown(this.createHandlerPayload(), e)
         }

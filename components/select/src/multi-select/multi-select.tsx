@@ -33,7 +33,10 @@ export interface MultiSelectProps {
     onBlur?: (payload: { selected: string[] }, e: React.SyntheticEvent) => void
     onChange?: (data: { selected: string[] }, e: React.SyntheticEvent) => void
     onFocus?: (payload: { selected: string[] }, e: React.FocusEvent) => void
-    onKeyDown?: (payload: { selected: string[] }, e: React.KeyboardEvent) => void
+    onKeyDown?: (
+        payload: { selected: string[] },
+        e: React.KeyboardEvent
+    ) => void
 }
 
 // stable object reference

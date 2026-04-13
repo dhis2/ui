@@ -18,7 +18,15 @@ export interface InputProps {
     /** Add an aria-controls attribute to the input element **/
     ariaControls?: string
     /** Add an aria-haspopup attribute to the input element **/
-    ariaHaspopup?: boolean | 'false' | 'true' | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog'
+    ariaHaspopup?:
+        | boolean
+        | 'false'
+        | 'true'
+        | 'menu'
+        | 'listbox'
+        | 'tree'
+        | 'grid'
+        | 'dialog'
     /** Add an aria-label attribute to the input element **/
     ariaLabel?: string
     /** The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete) */
@@ -65,13 +73,25 @@ export interface InputProps {
     /** Defines the width of the input. Can be any valid CSS measurement */
     width?: string
     /** Called with signature `({ name: string, value: string }, event)` */
-    onBlur?: (payload: InputEventPayload, event: React.FocusEvent<HTMLInputElement>) => void
+    onBlur?: (
+        payload: InputEventPayload,
+        event: React.FocusEvent<HTMLInputElement>
+    ) => void
     /** Called with signature `({ name: string, value: string }, event)` */
-    onChange?: (payload: InputEventPayload, event?: React.ChangeEvent<HTMLInputElement>) => void
+    onChange?: (
+        payload: InputEventPayload,
+        event?: React.ChangeEvent<HTMLInputElement>
+    ) => void
     /** Called with signature `({ name: string, value: string }, event)` */
-    onFocus?: (payload: InputEventPayload, event: React.FocusEvent<HTMLInputElement>) => void
+    onFocus?: (
+        payload: InputEventPayload,
+        event: React.FocusEvent<HTMLInputElement>
+    ) => void
     /** Called with signature `({ name: string, value: string }, event)` */
-    onKeyDown?: (payload: InputEventPayload, event: React.KeyboardEvent<HTMLInputElement>) => void
+    onKeyDown?: (
+        payload: InputEventPayload,
+        event: React.KeyboardEvent<HTMLInputElement>
+    ) => void
 }
 
 const styles = css`
@@ -205,7 +225,9 @@ export class Input extends Component<InputProps> {
         }
     }
 
-    createHandlerPayload(e: React.SyntheticEvent<HTMLInputElement>): InputEventPayload {
+    createHandlerPayload(
+        e: React.SyntheticEvent<HTMLInputElement>
+    ): InputEventPayload {
         return {
             value: (e.target as HTMLInputElement).value,
             name: this.props.name,

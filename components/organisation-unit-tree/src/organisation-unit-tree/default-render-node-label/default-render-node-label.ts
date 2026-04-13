@@ -1,5 +1,2 @@
-export const defaultRenderNodeLabel = ({
-    label,
-}: {
-    label: string
-}): string => label
+export const defaultRenderNodeLabel = ({ label }: { label: string }): string =>
+    label

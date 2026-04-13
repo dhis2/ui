@@ -59,7 +59,10 @@ export interface LabelProps {
     rootId: string
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onChange: (...args: any[]) => void
-    onToggleOpen: (payload: { checked: boolean }, event: React.MouseEvent) => void
+    onToggleOpen: (
+        payload: { checked: boolean },
+        event: React.MouseEvent
+    ) => void
     checked?: boolean
     disableSelection?: boolean
     hasSelectedDescendants?: boolean
@@ -86,7 +89,10 @@ const Label = ({
     selected = [],
     singleSelection,
 }: LabelProps) => {
-    const onClick = ({ checked }: { checked: boolean }, event: React.SyntheticEvent) => {
+    const onClick = (
+        { checked }: { checked: boolean },
+        event: React.SyntheticEvent
+    ) => {
         const newSelected = createNewSelected({
             path: fullPath,
             selected,

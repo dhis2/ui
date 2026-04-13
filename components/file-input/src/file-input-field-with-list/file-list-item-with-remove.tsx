@@ -4,13 +4,19 @@ import { FileListItem } from '../file-list/index.ts'
 interface FileListItemWithRemoveProps {
     label: string
     removeText: string
-    onRemove: (payload: { file: File }, event: React.MouseEvent | React.KeyboardEvent) => void
+    onRemove: (
+        payload: { file: File },
+        event: React.MouseEvent | React.KeyboardEvent
+    ) => void
     className?: string
     file?: File
 }
 
 class FileListItemWithRemove extends Component<FileListItemWithRemoveProps> {
-    handleRemove = (_payload: Record<string, never>, event: React.MouseEvent | React.KeyboardEvent) => {
+    handleRemove = (
+        _payload: Record<string, never>,
+        event: React.MouseEvent | React.KeyboardEvent
+    ) => {
         const { onRemove, file } = this.props
 
         onRemove({ file: file! }, event)

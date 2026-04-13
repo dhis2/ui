@@ -24,10 +24,22 @@ export interface CheckboxProps {
     valid?: boolean
     value?: string
     warning?: boolean
-    onBlur?: (payload: CheckboxHandlerPayload, event: React.FocusEvent<HTMLInputElement>) => void
-    onChange?: (payload: CheckboxHandlerPayload, event: React.ChangeEvent<HTMLInputElement>) => void
-    onFocus?: (payload: CheckboxHandlerPayload, event: React.FocusEvent<HTMLInputElement>) => void
-    onKeyDown?: (payload: CheckboxHandlerPayload, event: React.KeyboardEvent<HTMLInputElement>) => void
+    onBlur?: (
+        payload: CheckboxHandlerPayload,
+        event: React.FocusEvent<HTMLInputElement>
+    ) => void
+    onChange?: (
+        payload: CheckboxHandlerPayload,
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => void
+    onFocus?: (
+        payload: CheckboxHandlerPayload,
+        event: React.FocusEvent<HTMLInputElement>
+    ) => void
+    onKeyDown?: (
+        payload: CheckboxHandlerPayload,
+        event: React.KeyboardEvent<HTMLInputElement>
+    ) => void
 }
 
 interface CheckboxState {}
@@ -134,7 +146,9 @@ class Checkbox extends Component<CheckboxProps, CheckboxState> {
                     value={value}
                     checked={checked}
                     disabled={disabled}
-                    tabIndex={tabIndex !== undefined ? Number(tabIndex) : undefined}
+                    tabIndex={
+                        tabIndex !== undefined ? Number(tabIndex) : undefined
+                    }
                     onChange={this.handleChange}
                     onFocus={this.handleFocus}
                     onKeyDown={this.handleKeyDown}

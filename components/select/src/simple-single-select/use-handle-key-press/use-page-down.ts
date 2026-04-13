@@ -30,7 +30,9 @@ export function usePageDown({
 
     return useCallback(() => {
         const listBoxParent = listBoxRef.current!.parentNode as HTMLElement
-        const optionElements = Array.from(listBoxRef.current!.childNodes) as HTMLElement[]
+        const optionElements = Array.from(
+            listBoxRef.current!.childNodes
+        ) as HTMLElement[]
         const highestVisibleIndex = optionElements.findLastIndex(
             (option) => !isOptionHidden(option, listBoxParent)
         )

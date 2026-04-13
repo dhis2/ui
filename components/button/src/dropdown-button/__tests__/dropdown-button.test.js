@@ -4,7 +4,7 @@ import { render, fireEvent, waitFor } from '@testing-library/react'
 import { mount } from 'enzyme'
 import React from 'react'
 import { act } from 'react-dom/test-utils'
-import { Modal } from '../../../../modal/src/modal/modal.js'
+import { Modal } from '../../../../modal/src/modal/modal.tsx'
 import { Button } from '../../index.ts'
 import { DropdownButton } from '../dropdown-button.tsx'
 

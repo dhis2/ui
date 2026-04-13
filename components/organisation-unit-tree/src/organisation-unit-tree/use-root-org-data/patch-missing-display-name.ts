@@ -10,7 +10,10 @@ export const patchMissingDisplayName = (
     nodes: Record<string, { displayName?: string; [key: string]: unknown }>
 ): Record<string, { displayName: string; [key: string]: unknown }> => {
     const nodeEntries = Object.entries(nodes)
-    const result: Record<string, { displayName: string; [key: string]: unknown }> = {}
+    const result: Record<
+        string,
+        { displayName: string; [key: string]: unknown }
+    > = {}
 
     for (const [id, node] of nodeEntries) {
         const displayName = node.displayName || ''

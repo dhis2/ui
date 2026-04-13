@@ -1,8 +1,6 @@
 import { useAlert, useDataQuery, useDataMutation } from '@dhis2/app-runtime'
 import React, { useEffect } from 'react'
-import {
-    ACCESS_NONE,
-} from './constants.ts'
+import { ACCESS_NONE } from './constants.ts'
 import type { AccessType, DialogType } from './constants.ts'
 import { FetchingContext } from './fetching-context/index.ts'
 import {
@@ -91,9 +89,7 @@ const mapInitialSharingSettings = (
         }
     }
     const mappedGroups: Record<string, InitialSharingEntity> = {}
-    for (const [key, group] of Object.entries(
-        originalSharingSettings.groups
-    )) {
+    for (const [key, group] of Object.entries(originalSharingSettings.groups)) {
         if (group.access && typeof group.access === 'string') {
             mappedGroups[key] = {
                 ...group,
@@ -276,7 +272,9 @@ export const SharingDialog = ({
     const publicAccess = convertAccessToConstantObject(object.publicAccess)
     const users = object.userAccesses.map(
         (u) =>
-            replaceAccessWithConstant(u as { access: string | boolean; [key: string]: unknown }) as unknown as {
+            replaceAccessWithConstant(
+                u as { access: string | boolean; [key: string]: unknown }
+            ) as unknown as {
                 id: string
                 name: string
                 access: AccessObject
@@ -284,14 +282,26 @@ export const SharingDialog = ({
     )
     const groups = object.userGroupAccesses.map(
         (g) =>
-            replaceAccessWithConstant(g as { access: string | boolean; [key: string]: unknown }) as unknown as {
+            replaceAccessWithConstant(
+                g as { access: string | boolean; [key: string]: unknown }
+            ) as unknown as {
                 id: string
                 name: string
                 access: AccessObject
             }
     )
 
-    const currentUser = (userData as { me: { id: string; userGroups: Array<{ id: string }>; authorities: string[] } } | undefined)?.me
+    const currentUser = (
+        userData as
+            | {
+                  me: {
+                      id: string
+                      userGroups: Array<{ id: string }>
+                      authorities: string[]
+                  }
+              }
+            | undefined
+    )?.me
 
     /**
      * Handlers

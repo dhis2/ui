@@ -101,9 +101,9 @@ const MenuItem = ({
     tabIndex,
 }: MenuItemProps) => {
     const menuItemRef = useRef<HTMLLIElement>(null)
-    const [openSubMenus, setOpenSubMenus] = useState<
-        NodeListOf<Element> | []
-    >([])
+    const [openSubMenus, setOpenSubMenus] = useState<NodeListOf<Element> | []>(
+        []
+    )
 
     useEffect(() => {
         // track open submenus
@@ -118,8 +118,9 @@ const MenuItem = ({
         const menuItem = menuItemRef.current
 
         const handleKeyDown = (event: KeyboardEvent) => {
-            const firstChild = (event.target as HTMLElement)
-                .children[0] as HTMLElement | undefined
+            const firstChild = (event.target as HTMLElement).children[0] as
+                | HTMLElement
+                | undefined
             const hasSubMenu = firstChild?.getAttribute('aria-haspopup')
             switch (event.key) {
                 // for submenus
@@ -136,9 +137,8 @@ const MenuItem = ({
                         openSubMenus[openSubMenus.length - 1] as HTMLElement
                     )?.focus()
                     ;(
-                        (
-                            openSubMenus[openSubMenus.length - 1] as HTMLElement
-                        )?.children[0] as HTMLElement
+                        (openSubMenus[openSubMenus.length - 1] as HTMLElement)
+                            ?.children[0] as HTMLElement
                     )?.click()
                     break
             }

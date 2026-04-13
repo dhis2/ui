@@ -9,7 +9,9 @@ export interface UpdateNotificationProps {
     hideProfileMenu: () => void
 }
 
-export function UpdateNotification({ hideProfileMenu }: UpdateNotificationProps) {
+export function UpdateNotification({
+    hideProfileMenu,
+}: UpdateNotificationProps) {
     const { appName } = useConfig()
     const { updateAvailable, onApplyAvailableUpdate } = useHeaderBarContext()
     const onClick = () => {

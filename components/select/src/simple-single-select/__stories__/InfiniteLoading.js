@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react'
-import { SimpleSingleSelect } from '../simple-single-select.js'
+import { SimpleSingleSelect } from '../simple-single-select.tsx'
 import { options } from './options.js'
 
 // The select displays exactly 9 options per page,

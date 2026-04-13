@@ -17,7 +17,10 @@ function escapeRegExpCharacters(text: string): string {
 
 interface SearchProps {
     value: string
-    onChange: (payload: { value: string | undefined; name: string | undefined }, event: React.ChangeEvent<HTMLInputElement>) => void
+    onChange: (
+        payload: { value: string | undefined; name: string | undefined },
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => void
 }
 
 function Search({ value, onChange }: SearchProps) {
@@ -188,7 +191,10 @@ function List({ apps, filter }: ListProps) {
 interface AppMenuProps {
     apps: AppItem[]
     filter: string
-    onFilterChange: (payload: { value: string | undefined; name: string | undefined }, event: React.ChangeEvent<HTMLInputElement>) => void
+    onFilterChange: (
+        payload: { value: string | undefined; name: string | undefined },
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => void
 }
 
 const AppMenu = ({ apps, filter, onFilterChange }: AppMenuProps) => (
@@ -224,7 +230,10 @@ const Apps = ({ apps }: AppsProps) => {
 
     const containerEl = useRef<HTMLDivElement>(null)
     const onDocClick = useCallback((evt: MouseEvent) => {
-        if (containerEl.current && !containerEl.current.contains(evt.target as Node)) {
+        if (
+            containerEl.current &&
+            !containerEl.current.contains(evt.target as Node)
+        ) {
             setShow(false)
         }
     }, [])

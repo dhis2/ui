@@ -39,10 +39,7 @@ export const Notifications = ({
                 />
             )}
 
-            {hasAuthority(
-                userAuthorities || [],
-                'M_dhis-web-messaging'
-            ) && (
+            {hasAuthority(userAuthorities || [], 'M_dhis-web-messaging') && (
                 <NotificationIcon
                     count={messages}
                     href={joinPath(baseUrl, 'dhis-web-messaging')}

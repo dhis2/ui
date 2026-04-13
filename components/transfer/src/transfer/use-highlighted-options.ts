@@ -11,7 +11,10 @@ interface UseHighlightedOptionsArgs {
 interface UseHighlightedOptionsResult {
     highlightedOptions: string[]
     setHighlightedOptions: (options: string[]) => void
-    toggleHighlightedOption: (args: { option: TransferOptionObject; mode: string }) => void
+    toggleHighlightedOption: (args: {
+        option: TransferOptionObject
+        mode: string
+    }) => void
 }
 
 export const useHighlightedOptions = ({

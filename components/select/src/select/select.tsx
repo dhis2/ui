@@ -24,10 +24,22 @@ export interface SelectProps {
     tabIndex?: string
     valid?: boolean
     warning?: boolean
-    onBlur?: (payload: { selected: string | string[] }, e: React.SyntheticEvent) => void
-    onChange?: (data: { selected: string | string[] }, e: React.SyntheticEvent) => void
-    onFocus?: (payload: { selected: string | string[] }, e: React.FocusEvent) => void
-    onKeyDown?: (payload: { selected: string | string[] }, e: React.KeyboardEvent) => void
+    onBlur?: (
+        payload: { selected: string | string[] },
+        e: React.SyntheticEvent
+    ) => void
+    onChange?: (
+        data: { selected: string | string[] },
+        e: React.SyntheticEvent
+    ) => void
+    onFocus?: (
+        payload: { selected: string | string[] },
+        e: React.FocusEvent
+    ) => void
+    onKeyDown?: (
+        payload: { selected: string | string[] },
+        e: React.KeyboardEvent
+    ) => void
 }
 
 interface SelectState {

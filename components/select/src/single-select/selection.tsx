@@ -11,7 +11,9 @@ export interface SelectionProps {
 
 const Selection = ({ options, selected, className }: SelectionProps) => {
     const isProduction = process.env.NODE_ENV === 'production'
-    const selectedOption = selected ? findOptionChild(selected, options) : undefined
+    const selectedOption = selected
+        ? findOptionChild(selected, options)
+        : undefined
 
     if (selected && !selectedOption) {
         const message =

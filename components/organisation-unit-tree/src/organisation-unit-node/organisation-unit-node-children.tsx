@@ -48,7 +48,9 @@ export interface OrganisationUnitNodeChildrenProps {
     selected?: string[]
     singleSelection?: boolean
     suppressAlphabeticalSorting?: boolean
-    onChildrenLoaded?: (node: OrgUnitNodeChildrenNode & { children: OrgUnitChild[] }) => void
+    onChildrenLoaded?: (
+        node: OrgUnitNodeChildrenNode & { children: OrgUnitChild[] }
+    ) => void
     onCollapse?: (args: { path: string }) => void
     onExpand?: (args: { path: string }) => void
 }
@@ -65,7 +67,9 @@ interface OrganisationUnitNodeComponentProps {
     isUserDataViewFallback?: boolean
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onChange: (...args: any[]) => void
-    onChildrenLoaded?: (node: OrgUnitNodeChildrenNode & { children: OrgUnitChild[] }) => void
+    onChildrenLoaded?: (
+        node: OrgUnitNodeChildrenNode & { children: OrgUnitChild[] }
+    ) => void
     onCollapse?: (args: { path: string }) => void
     onExpand?: (args: { path: string }) => void
     path: string

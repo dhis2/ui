@@ -40,7 +40,10 @@ const FieldGroup = ({
     error,
     warning,
 }: FieldGroupProps) => (
-    <FieldSet {...({ classname: className } as Record<string, unknown>)} dataTest={dataTest}>
+    <FieldSet
+        {...({ classname: className } as Record<string, unknown>)}
+        dataTest={dataTest}
+    >
         <Field
             label={label}
             disabled={disabled}

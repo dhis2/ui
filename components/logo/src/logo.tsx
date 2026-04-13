@@ -20,7 +20,10 @@ export interface LogoIconProps {
     dataTest?: string
 }
 
-export const LogoIcon = ({ className, dataTest = 'dhis2-uicore-logoicon' }: LogoIconProps) => (
+export const LogoIcon = ({
+    className,
+    dataTest = 'dhis2-uicore-logoicon',
+}: LogoIconProps) => (
     <LogoIconSvg iconColor={blue} className={className} dataTest={dataTest} />
 )
 
@@ -41,7 +44,10 @@ export interface LogoProps {
     dataTest?: string
 }
 
-export const Logo = ({ className, dataTest = 'dhis2-uicore-logo' }: LogoProps) => (
+export const Logo = ({
+    className,
+    dataTest = 'dhis2-uicore-logo',
+}: LogoProps) => (
     <LogoSvg
         iconColor={blue}
         textColor={dark}

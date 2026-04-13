@@ -55,7 +55,9 @@ export const useOrgChildren = ({
             return []
         }
 
-        const { orgUnit } = data as unknown as { orgUnit: { children: OrgUnitChild[] } }
+        const { orgUnit } = data as unknown as {
+            orgUnit: { children: OrgUnitChild[] }
+        }
 
         return suppressAlphabeticalSorting
             ? orgUnit.children

@@ -7,7 +7,12 @@ export interface ContainerProps {
     dataTest?: string
 }
 
-export const Container = ({ children, dataTest, className, height }: ContainerProps) => (
+export const Container = ({
+    children,
+    dataTest,
+    className,
+    height,
+}: ContainerProps) => (
     <div data-test={dataTest} className={className}>
         {children}
 

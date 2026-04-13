@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react'
-import { SimpleSingleSelect } from '../simple-single-select.js'
+import { SimpleSingleSelect } from '../simple-single-select.tsx'
 
 export const WithNoMatchText = () => {
     const [selected, setSelected] = useState({

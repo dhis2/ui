@@ -61,13 +61,25 @@ export interface InputFieldProps {
     /** Applies 'warning' appearance for validation feedback. Mutually exclusive with `valid` and `error` props */
     warning?: boolean
     /** Called with signature `({ name: string, value: string }, event)` */
-    onBlur?: (payload: InputEventPayload, event: React.FocusEvent<HTMLInputElement>) => void
+    onBlur?: (
+        payload: InputEventPayload,
+        event: React.FocusEvent<HTMLInputElement>
+    ) => void
     /** Called with signature `({ name: string, value: string }, event)` */
-    onChange?: (payload: InputEventPayload, event?: React.ChangeEvent<HTMLInputElement>) => void
+    onChange?: (
+        payload: InputEventPayload,
+        event?: React.ChangeEvent<HTMLInputElement>
+    ) => void
     /** Called with signature `({ name: string, value: string }, event)` */
-    onFocus?: (payload: InputEventPayload, event: React.FocusEvent<HTMLInputElement>) => void
+    onFocus?: (
+        payload: InputEventPayload,
+        event: React.FocusEvent<HTMLInputElement>
+    ) => void
     /** Called with signature `({ name: string, value: string }, event)` */
-    onKeyDown?: (payload: InputEventPayload, event: React.KeyboardEvent<HTMLInputElement>) => void
+    onKeyDown?: (
+        payload: InputEventPayload,
+        event: React.KeyboardEvent<HTMLInputElement>
+    ) => void
 }
 
 class InputField extends React.Component<InputFieldProps> {

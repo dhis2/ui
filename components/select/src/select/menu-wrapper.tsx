@@ -39,7 +39,8 @@ const MenuWrapper = ({
                             background: ${colors.white};
                             border: 1px solid ${colors.grey200};
                             border-radius: 3px;
-                            box-shadow: ${(elevations as Record<string, string>).popover};
+                            box-shadow: ${(elevations as Record<string, string>)
+                                .popover};
                         }
                     `}</style>
                 </div>

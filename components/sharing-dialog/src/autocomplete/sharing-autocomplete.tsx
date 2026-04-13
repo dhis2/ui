@@ -50,8 +50,9 @@ export const SharingAutocomplete = ({
 
     const debouncedRefetch = useCallback(
         debounce(
-            ((...args: unknown[]) =>
-                refetch(...(args as []))) as (...args: unknown[]) => void,
+            ((...args: unknown[]) => refetch(...(args as []))) as (
+                ...args: unknown[]
+            ) => void,
             250
         ),
         [refetch]
@@ -115,9 +116,7 @@ export const SharingAutocomplete = ({
             onClose={() => setShowResults(false)}
             onSearch={setSearch}
             onSelect={(id: string) => {
-                onSelection(
-                    results.find((result) => result.id === id) ?? null
-                )
+                onSelection(results.find((result) => result.id === id) ?? null)
                 setShowResults(false)
             }}
         />

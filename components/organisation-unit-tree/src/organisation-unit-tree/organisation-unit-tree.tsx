@@ -31,7 +31,10 @@ export interface OrganisationUnitTreeProps {
 
     /** Will be called with the following object:
      * `{ id: string, displayName: string, path: string, checked: boolean, selected: string[] }` */
-    onChange: (payload: Record<string, unknown>, event: React.MouseEvent) => void
+    onChange: (
+        payload: Record<string, unknown>,
+        event: React.MouseEvent
+    ) => void
 
     /** When set, the error when loading children fails will be shown automatically */
     autoExpandLoadingError?: boolean
@@ -85,7 +88,12 @@ export interface OrganisationUnitTreeProps {
     suppressAlphabeticalSorting?: boolean
 
     /** Called with the children's data that was loaded */
-    onChildrenLoaded?: (node: { id: string; displayName: string; path: string; children: OrgUnitChild[] }) => void
+    onChildrenLoaded?: (node: {
+        id: string
+        displayName: string
+        path: string
+        children: OrgUnitChild[]
+    }) => void
 
     /** Called with `{ path: string }` with the path of the parent of the level closed */
     onCollapse?: (args: { path: string }) => void
@@ -158,7 +166,9 @@ const OrganisationUnitTree = ({
     return (
         <div data-test={dataTest}>
             {isLoading && <OrganisationUnitTreeRootLoading />}
-            {error && <OrganisationUnitTreeRootError error={error.toString()} />}
+            {error && (
+                <OrganisationUnitTreeRootError error={error.toString()} />
+            )}
             {!error &&
                 !isLoading &&
                 data &&

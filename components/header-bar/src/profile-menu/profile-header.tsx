@@ -97,7 +97,11 @@ export interface ProfileHeaderProps {
     name?: string
 }
 
-export const ProfileHeader = ({ name, email, avatarId }: ProfileHeaderProps) => (
+export const ProfileHeader = ({
+    name,
+    email,
+    avatarId,
+}: ProfileHeaderProps) => (
     <div>
         <UserAvatar
             avatarId={avatarId}

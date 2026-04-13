@@ -9,9 +9,13 @@ export interface CssVariablesProps {
     elevations?: boolean
 }
 
-const toPrefixedThemeSection = (themeSectionKey: string): Record<string, string> =>
+const toPrefixedThemeSection = (
+    themeSectionKey: string
+): Record<string, string> =>
     Object.entries(
-        (themeModule as unknown as Record<string, Record<string, string>>)[themeSectionKey]
+        (themeModule as unknown as Record<string, Record<string, string>>)[
+            themeSectionKey
+        ]
     ).reduce<Record<string, string>>((prefixed, [key, value]) => {
         prefixed[`${themeSectionKey}-${key}`] = value
 
@@ -30,7 +34,13 @@ const CssVariables = ({
     spacers = false,
     elevations = false,
 }: CssVariablesProps): React.ReactElement => {
-    const allowedProps: Record<string, boolean> = { colors, theme, layers, spacers, elevations }
+    const allowedProps: Record<string, boolean> = {
+        colors,
+        theme,
+        layers,
+        spacers,
+        elevations,
+    }
     const variables = Object.keys(allowedProps)
         // Filter all props that are false
         .filter((prop) => allowedProps[prop])

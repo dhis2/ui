@@ -1,4 +1,8 @@
-import { colors, elevations as elevationsTyped, spacers } from '@dhis2/ui-constants'
+import {
+    colors,
+    elevations as elevationsTyped,
+    spacers,
+} from '@dhis2/ui-constants'
 import React, {
     Children,
     cloneElement,

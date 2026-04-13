@@ -164,10 +164,7 @@ export const CalendarInput = ({
         setPartialDate(e.value)
     }
 
-    const handleBlur = (
-        _: unknown,
-        e: React.FocusEvent<HTMLInputElement>
-    ) => {
+    const handleBlur = (_: unknown, e: React.FocusEvent<HTMLInputElement>) => {
         if (
             e.relatedTarget &&
             (calendarRef.current?.contains(e.relatedTarget as Node) ||

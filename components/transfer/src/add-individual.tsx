@@ -9,7 +9,12 @@ export interface AddIndividualProps {
     label?: string
 }
 
-export const AddIndividual = ({ label, dataTest, disabled, onClick }: AddIndividualProps) => (
+export const AddIndividual = ({
+    label,
+    dataTest,
+    disabled,
+    onClick,
+}: AddIndividualProps) => (
     <Button
         dataTest={dataTest}
         disabled={disabled}

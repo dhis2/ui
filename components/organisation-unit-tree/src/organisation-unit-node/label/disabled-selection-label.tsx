@@ -3,7 +3,10 @@ import { SingleSelectionLabel } from './single-selection-label.tsx'
 
 export interface DisabledSelectionLabelProps {
     children: React.ReactNode
-    onToggleOpen: (payload: { checked: boolean }, event: React.MouseEvent) => void
+    onToggleOpen: (
+        payload: { checked: boolean },
+        event: React.MouseEvent
+    ) => void
     loading?: boolean
 }
 

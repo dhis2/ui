@@ -71,7 +71,9 @@ if (checkAll) {
 }
 
 if (components.length === 0) {
-    console.log('No migrated components found (no tsconfig.json in any component dir).')
+    console.log(
+        'No migrated components found (no tsconfig.json in any component dir).'
+    )
     process.exit(0)
 }
 
@@ -105,9 +107,7 @@ for (const name of components) {
     // 2. ESLint
     heading(`2/3  ESLint${fix ? ' (with --fix)' : ''}`)
     const glob = `"${compDir}/src/**/*.{ts,tsx}"`
-    const eslintCmd = fix
-        ? `npx eslint --fix ${glob}`
-        : `npx eslint ${glob}`
+    const eslintCmd = fix ? `npx eslint --fix ${glob}` : `npx eslint ${glob}`
     const eslint = run(eslintCmd)
     if (eslint.ok) {
         console.log('  PASS — no lint issues')

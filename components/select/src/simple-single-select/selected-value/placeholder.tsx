@@ -7,7 +7,11 @@ export interface PlaceholderProps {
     placeholder?: string
 }
 
-export function Placeholder({ placeholder, className, dataTest }: PlaceholderProps) {
+export function Placeholder({
+    placeholder,
+    className,
+    dataTest,
+}: PlaceholderProps) {
     return (
         <div className={className} data-test={dataTest}>
             {placeholder}

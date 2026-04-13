@@ -27,7 +27,8 @@ export const StackedTableCell: React.FC<StackedTableCellProps> = ({
     rowSpan,
     title,
 }) => {
-    const cellTitle = title || (column !== undefined ? headerLabels[column] : '') || ''
+    const cellTitle =
+        title || (column !== undefined ? headerLabels[column] : '') || ''
     const realTitle = hideTitle ? '' : cellTitle
 
     return (

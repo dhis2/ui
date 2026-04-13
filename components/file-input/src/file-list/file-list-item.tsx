@@ -5,7 +5,10 @@ import cx from 'classnames'
 import React from 'react'
 
 interface FileListItemProps {
-    onRemove: (payload: Record<string, never>, event: React.MouseEvent | React.KeyboardEvent) => void
+    onRemove: (
+        payload: Record<string, never>,
+        event: React.MouseEvent | React.KeyboardEvent
+    ) => void
     cancelText?: string
     className?: string
     dataTest?: string

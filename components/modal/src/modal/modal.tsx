@@ -27,7 +27,9 @@ export interface ModalProps {
     /** Callback used when the Modal closes */
     onClose?: (
         payload: Record<string, never>,
-        event?: React.MouseEvent<HTMLDivElement> | React.MouseEvent<HTMLButtonElement>
+        event?:
+            | React.MouseEvent<HTMLDivElement>
+            | React.MouseEvent<HTMLButtonElement>
     ) => void
 }
 

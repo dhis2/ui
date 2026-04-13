@@ -1,4 +1,8 @@
-import { ADD_MODE, RANGE_MODE, TransferOptionObject } from '../../common/index.ts'
+import {
+    ADD_MODE,
+    RANGE_MODE,
+    TransferOptionObject,
+} from '../../common/index.ts'
 import { toggleAdd } from './toggle-add.ts'
 import { toggleRange } from './toggle-range.ts'
 import { toggleReplace } from './toggle-replace.ts'
@@ -23,7 +27,13 @@ export const createToggleHighlightedOption =
         options,
         lastClicked,
     }: CreateToggleHighlightedOptionArgs) =>
-    ({ option, mode }: { option: TransferOptionObject; mode: string }): void => {
+    ({
+        option,
+        mode,
+    }: {
+        option: TransferOptionObject
+        mode: string
+    }): void => {
         if (disabled) {
             return
         }

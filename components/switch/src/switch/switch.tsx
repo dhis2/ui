@@ -37,13 +37,25 @@ export interface SwitchProps {
     /** Applies 'warning' styles for validation feedback. Mutually exclusive with `valid` and `error` prop types */
     warning?: boolean
     /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
-    onBlur?: (payload: SwitchHandlerPayload, event: React.FocusEvent<HTMLInputElement>) => void
+    onBlur?: (
+        payload: SwitchHandlerPayload,
+        event: React.FocusEvent<HTMLInputElement>
+    ) => void
     /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
-    onChange?: (payload: SwitchHandlerPayload, event: React.ChangeEvent<HTMLInputElement>) => void
+    onChange?: (
+        payload: SwitchHandlerPayload,
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => void
     /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
-    onFocus?: (payload: SwitchHandlerPayload, event: React.FocusEvent<HTMLInputElement>) => void
+    onFocus?: (
+        payload: SwitchHandlerPayload,
+        event: React.FocusEvent<HTMLInputElement>
+    ) => void
     /** Called with signature `({ name: string, value: string, checked: bool }, event)` */
-    onKeyDown?: (payload: SwitchHandlerPayload, event: React.KeyboardEvent<HTMLInputElement>) => void
+    onKeyDown?: (
+        payload: SwitchHandlerPayload,
+        event: React.KeyboardEvent<HTMLInputElement>
+    ) => void
 }
 
 class Switch extends Component<SwitchProps> {

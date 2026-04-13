@@ -20,7 +20,9 @@ export interface PageSelectProps {
     dataTest: string
     page: number
     pageCount: number
-    pageSelectText: string | ((interpolationObject?: Record<string, unknown>) => string)
+    pageSelectText:
+        | string
+        | ((interpolationObject?: Record<string, unknown>) => string)
     onChange: (page: number) => void
     disabled?: boolean
 }

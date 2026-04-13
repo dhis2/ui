@@ -9,8 +9,14 @@ interface OptionObject {
     disabled?: boolean
 }
 
-type OptionClickHandler = (payload: { value: string }, event: React.MouseEvent<HTMLDivElement>) => void
-type OptionDoubleClickHandler = (payload: { value: string }, ...args: unknown[]) => void
+type OptionClickHandler = (
+    payload: { value: string },
+    event: React.MouseEvent<HTMLDivElement>
+) => void
+type OptionDoubleClickHandler = (
+    payload: { value: string },
+    ...args: unknown[]
+) => void
 
 interface OptionClickHandlers {
     onClick: OptionClickHandler | undefined
@@ -23,16 +29,25 @@ export interface OptionsContainerProps {
     getOptionClickHandlers: (
         option: OptionObject,
         selectionHandler: ((payload: { value: string }) => void) | undefined,
-        toggleHighlightedOption: (args: { option: OptionObject; mode: string }) => void
+        toggleHighlightedOption: (args: {
+            option: OptionObject
+            mode: string
+        }) => void
     ) => OptionClickHandlers
     emptyComponent?: React.ReactNode
     highlightedOptions?: string[]
     loading?: boolean
     options?: OptionObject[]
-    renderOption?: (option: OptionObject & OptionClickHandlers & { highlighted: boolean; selected: boolean }) => React.ReactNode
+    renderOption?: (
+        option: OptionObject &
+            OptionClickHandlers & { highlighted: boolean; selected: boolean }
+    ) => React.ReactNode
     selected?: boolean
     selectionHandler?: (payload: { value: string }) => void
-    toggleHighlightedOption?: (args: { option: OptionObject; mode: string }) => void
+    toggleHighlightedOption?: (args: {
+        option: OptionObject
+        mode: string
+    }) => void
     onEndReached?: () => void
 }
 
@@ -94,7 +109,9 @@ export const OptionsContainer = ({
                     {onEndReached && (
                         <EndIntersectionDetector
                             dataTest={`${dataTest}-endintersectiondetector`}
-                            rootRef={scrollBoxRef as React.RefObject<HTMLElement>}
+                            rootRef={
+                                scrollBoxRef as React.RefObject<HTMLElement>
+                            }
                             onEndReached={onEndReached}
                         />
                     )}

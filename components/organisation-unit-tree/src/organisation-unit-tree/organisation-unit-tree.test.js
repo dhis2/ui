@@ -4,74 +4,29 @@ import React from 'react'
 import { OrganisationUnitTree } from './organisation-unit-tree.tsx'
 
 describe('OrganisationUnitTree', () => {
-    const origError = console.error.bind(console)
-    const errorMock = jest.fn()
+    it('should render without crashing when all required props are provided', () => {
+        const wrapper = shallow(
+            <CustomDataProvider data={{}}>
+                <OrganisationUnitTree roots="/A001" onChange={() => {}} />
+            </CustomDataProvider>
+        )
 
-    beforeEach(() => {
-        console.error = errorMock
+        expect(wrapper.exists()).toBe(true)
     })
 
-    afterEach(() => {
-        console.error = origError
-        errorMock.mockClear()
-    })
+    it('should render with controlled expanded props', () => {
+        const wrapper = shallow(
+            <CustomDataProvider data={{}}>
+                <OrganisationUnitTree
+                    roots="/A001"
+                    expanded={[]}
+                    onChange={() => {}}
+                    handleExpand={() => {}}
+                    handleCollapse={() => {}}
+                />
+            </CustomDataProvider>
+        )
 
-    describe('Controlled expanded props', () => {
-        describe('Missing props', () => {
-            it('should throw a prop-types error when "handleCollapse" is missing', () => {
-                shallow(
-                    <CustomDataProvider data={{}}>
-                        <OrganisationUnitTree
-                            roots="/A001"
-                            expanded={[]}
-                            onChange={() => {}}
-                            handleExpand={() => {}}
-                        />
-                    </CustomDataProvider>
-                )
-
-                expect(errorMock).toHaveBeenCalledTimes(1)
-                expect(errorMock.mock.calls[0][2]).toMatch(
-                    /Invalid prop `handleCollapse` supplied to `OrganisationUnitTree`/,
-                    {}
-                )
-            })
-
-            it('should throw a prop-types error when "handleExpand" is missing', () => {
-                shallow(
-                    <CustomDataProvider data={{}}>
-                        <OrganisationUnitTree
-                            roots="/A001"
-                            expanded={[]}
-                            onChange={() => {}}
-                            handleCollapse={() => {}}
-                        />
-                    </CustomDataProvider>
-                )
-
-                expect(errorMock).toHaveBeenCalledTimes(1)
-                expect(errorMock.mock.calls[0][2]).toMatch(
-                    /Invalid prop `handleExpand` supplied to `OrganisationUnitTree`/
-                )
-            })
-
-            it('should throw a prop-types error when "expanded" is missing', () => {
-                shallow(
-                    <CustomDataProvider data={{}}>
-                        <OrganisationUnitTree
-                            roots="/A001"
-                            onChange={() => {}}
-                            handleCollapse={() => {}}
-                            handleExpand={() => {}}
-                        />
-                    </CustomDataProvider>
-                )
-
-                expect(errorMock).toHaveBeenCalledTimes(1)
-                expect(errorMock.mock.calls[0][2]).toMatch(
-                    'Invalid prop `expanded` supplied to `OrganisationUnitTree`, this prop is conditionally required but has value `undefined`. The condition that made this prop required is: `props => !!props.handleExpand || !!props.handleCollapse`.'
-                )
-            })
-        })
+        expect(wrapper.exists()).toBe(true)
     })
 })

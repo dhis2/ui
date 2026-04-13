@@ -17,7 +17,9 @@ export const EndIntersectionDetector = ({
     <div data-test={dataTest}>
         <IntersectionDetector
             rootRef={rootRef as React.MutableRefObject<HTMLElement>}
-            onChange={({ isIntersecting }: { isIntersecting: boolean }) => isIntersecting && onEndReached()}
+            onChange={({ isIntersecting }: { isIntersecting: boolean }) =>
+                isIntersecting && onEndReached()
+            }
         />
 
         <style jsx>{`

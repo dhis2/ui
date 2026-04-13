@@ -10,7 +10,10 @@ export interface SingleSelectOptionProps {
     dataTest?: string
     disabled?: boolean
     icon?: React.ReactNode
-    onClick?: (payload: Record<string, never>, e: React.MouseEvent<HTMLDivElement>) => void
+    onClick?: (
+        payload: Record<string, never>,
+        e: React.MouseEvent<HTMLDivElement>
+    ) => void
 }
 
 const SingleSelectOption = ({

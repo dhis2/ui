@@ -12,7 +12,10 @@ export interface IconizedCheckboxProps {
     name: string
     open: boolean
     value: string
-    onChange: (payload: { checked: boolean }, event: React.ChangeEvent<HTMLInputElement>) => void
+    onChange: (
+        payload: { checked: boolean },
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => void
 }
 
 export const IconizedCheckbox = ({

@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import { TransferOptionObject } from '../common/index.ts'
 
-type FilterCallback = (options: TransferOptionObject[], filter: string) => TransferOptionObject[]
+type FilterCallback = (
+    options: TransferOptionObject[],
+    filter: string
+) => TransferOptionObject[]
 
 interface UseFilterArgs {
     initialSearchTerm: string
@@ -13,11 +16,13 @@ interface UseFilterArgs {
 
 interface UseFilterResult {
     filterValue: string | undefined
-    filter: FilterCallback | ((value: TransferOptionObject[]) => TransferOptionObject[])
+    filter:
+        | FilterCallback
+        | ((value: TransferOptionObject[]) => TransferOptionObject[])
     setInternalFilter: React.Dispatch<React.SetStateAction<string>>
 }
 
-const identity = <T,>(value: T): T => value
+const identity = <T>(value: T): T => value
 
 export const useFilter = ({
     initialSearchTerm,

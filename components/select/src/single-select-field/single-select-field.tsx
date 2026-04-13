@@ -131,7 +131,9 @@ class SingleSelectField extends React.Component<SingleSelectFieldProps> {
                         clearable={clearable}
                         clearText={translate(clearText) as string}
                         filterable={filterable}
-                        filterPlaceholder={translate(filterPlaceholder as string)}
+                        filterPlaceholder={translate(
+                            filterPlaceholder as string
+                        )}
                         placeholder={placeholder}
                         prefix={prefix}
                         empty={translate(empty as string)}

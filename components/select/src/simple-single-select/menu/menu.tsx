@@ -102,7 +102,9 @@ export function Menu({
                     <div className="listbox-container">
                         <div className="listbox-wrapper">
                             <OptionsList
-                                ref={listBoxRef as React.RefObject<HTMLDivElement>}
+                                ref={
+                                    listBoxRef as React.RefObject<HTMLDivElement>
+                                }
                                 comboBoxId={comboBoxId}
                                 optionComponent={optionComponent}
                                 dataTest={`${dataTestPrefix}-list`}

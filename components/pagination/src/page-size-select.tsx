@@ -16,7 +16,9 @@ const translate = (
 export interface PageSizeSelectProps {
     dataTest: string
     pageSize: number
-    pageSizeSelectText: string | ((interpolationObject?: Record<string, unknown>) => string)
+    pageSizeSelectText:
+        | string
+        | ((interpolationObject?: Record<string, unknown>) => string)
     pageSizes: string[]
     onChange: (pageSize: number) => void
     disabled?: boolean

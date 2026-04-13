@@ -52,7 +52,7 @@ export const Container = forwardRef<HTMLDivElement, ContainerProps>(
         useEffect(
             () => {
                 if (autoFocus) {
-                    (ref as React.RefObject<HTMLDivElement>).current?.focus()
+                    ;(ref as React.RefObject<HTMLDivElement>).current?.focus()
                 }
             },
             // We want to run this only once:

@@ -7,7 +7,9 @@ const translate = (
     interpolationObject: Record<string, unknown>
 ): string => {
     if (typeof prop === 'function') {
-        return (prop as (interpolationObject: Record<string, unknown>) => string)(interpolationObject)
+        return (
+            prop as (interpolationObject: Record<string, unknown>) => string
+        )(interpolationObject)
     }
 
     return prop

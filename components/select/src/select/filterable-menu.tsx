@@ -13,14 +13,20 @@ export interface FilterableMenuProps {
     handleFocusInput?: () => void
     options?: React.ReactNode
     placeholder?: string
-    onChange?: (data: { selected: string | string[] }, e: React.SyntheticEvent) => void
+    onChange?: (
+        data: { selected: string | string[] },
+        e: React.SyntheticEvent
+    ) => void
 }
 
 interface FilterableMenuState {
     filter: string
 }
 
-export class FilterableMenu extends Component<FilterableMenuProps, FilterableMenuState> {
+export class FilterableMenu extends Component<
+    FilterableMenuProps,
+    FilterableMenuState
+> {
     state: FilterableMenuState = {
         filter: '',
     }

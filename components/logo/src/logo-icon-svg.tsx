@@ -6,7 +6,11 @@ export interface LogoIconSvgProps {
     dataTest?: string
 }
 
-export function LogoIconSvg({ iconColor, className, dataTest }: LogoIconSvgProps) {
+export function LogoIconSvg({
+    iconColor,
+    className,
+    dataTest,
+}: LogoIconSvgProps) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"

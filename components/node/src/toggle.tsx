@@ -39,9 +39,7 @@ export const Toggle = ({ open, onOpen, onClose, dataTest }: ToggleProps) => {
         <div
             className={cx({ open })}
             data-test={dataTest}
-            onClick={(event) =>
-                onClick && onClick({ open: !open }, event)
-            }
+            onClick={(event) => onClick && onClick({ open: !open }, event)}
         >
             <span>
                 <ArrowDown />

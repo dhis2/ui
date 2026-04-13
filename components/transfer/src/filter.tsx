@@ -11,7 +11,13 @@ export interface FilterProps {
     placeholder?: string
 }
 
-export const Filter = ({ dataTest, filter, onChange, label, placeholder }: FilterProps) => (
+export const Filter = ({
+    dataTest,
+    filter,
+    onChange,
+    label,
+    placeholder,
+}: FilterProps) => (
     <div data-test={dataTest}>
         <Field label={label} name={dataTest} dataTest={`${dataTest}-field`}>
             <Input
@@ -20,7 +26,15 @@ export const Filter = ({ dataTest, filter, onChange, label, placeholder }: Filte
                 type="search"
                 placeholder={placeholder}
                 value={filter}
-                onChange={onChange as (payload: { value: string | undefined; name: string | undefined }, event: React.ChangeEvent<HTMLInputElement>) => void}
+                onChange={
+                    onChange as (
+                        payload: {
+                            value: string | undefined
+                            name: string | undefined
+                        },
+                        event: React.ChangeEvent<HTMLInputElement>
+                    ) => void
+                }
             />
         </Field>
 

@@ -1,7 +1,10 @@
 import type { Modifier } from '@popperjs/core'
 import React, { useState, useMemo, useEffect } from 'react'
 import { usePopper } from 'react-popper'
-import { getReferenceElement, PopperReference } from './get-reference-element.ts'
+import {
+    getReferenceElement,
+    PopperReference,
+} from './get-reference-element.ts'
 import { deduplicateModifiers, PopperModifier } from './modifiers.ts'
 
 type Placement =
@@ -88,10 +91,9 @@ const Popper = ({
             document.documentElement.dir === 'rtl'
                 ? flipPlacement(placement)
                 : placement,
-        modifiers:
-            deduplicatedModifiers as unknown as readonly Partial<
-                Modifier<string, object>
-            >[],
+        modifiers: deduplicatedModifiers as unknown as readonly Partial<
+            Modifier<string, object>
+        >[],
     })
 
     useEffect(() => {

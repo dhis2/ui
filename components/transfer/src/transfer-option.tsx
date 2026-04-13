@@ -12,8 +12,14 @@ export interface TransferOptionProps {
     disabled?: boolean
     highlighted?: boolean
     selected?: boolean
-    onClick?: (payload: { value: string }, event: React.MouseEvent<HTMLDivElement>) => void
-    onDoubleClick?: (payload: { value: string }, event: React.MouseEvent<HTMLDivElement>) => void
+    onClick?: (
+        payload: { value: string },
+        event: React.MouseEvent<HTMLDivElement>
+    ) => void
+    onDoubleClick?: (
+        payload: { value: string },
+        event: React.MouseEvent<HTMLDivElement>
+    ) => void
 }
 
 export const TransferOption = ({
@@ -21,14 +27,15 @@ export const TransferOption = ({
     disabled,
     dataTest = 'dhis2-uicore-transferoption',
     highlighted,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     selected: _selected,
     onClick,
     onDoubleClick,
     label,
     value,
 }: TransferOptionProps) => {
-    const doubleClickTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
+    const doubleClickTimeout = useRef<ReturnType<typeof setTimeout> | null>(
+        null
+    )
 
     return (
         <div

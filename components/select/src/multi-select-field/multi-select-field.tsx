@@ -48,7 +48,10 @@ export interface MultiSelectFieldProps {
     onBlur?: (payload: { selected: string[] }, e: React.SyntheticEvent) => void
     onChange?: (data: { selected: string[] }, e: React.SyntheticEvent) => void
     onFocus?: (payload: { selected: string[] }, e: React.SyntheticEvent) => void
-    onKeyDown?: (payload: { selected: string[] }, e: React.SyntheticEvent) => void
+    onKeyDown?: (
+        payload: { selected: string[] },
+        e: React.SyntheticEvent
+    ) => void
 }
 
 class MultiSelectField extends React.Component<MultiSelectFieldProps> {
@@ -130,7 +133,9 @@ class MultiSelectField extends React.Component<MultiSelectFieldProps> {
                         clearable={clearable}
                         clearText={translate(clearText) as string}
                         filterable={filterable}
-                        filterPlaceholder={translate(filterPlaceholder as string)}
+                        filterPlaceholder={translate(
+                            filterPlaceholder as string
+                        )}
                         placeholder={placeholder}
                         prefix={prefix}
                         empty={translate(empty as string)}

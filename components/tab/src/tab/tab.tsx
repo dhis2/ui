@@ -14,7 +14,9 @@ export interface TabProps {
     /** Called with the signature `({}, event)` */
     onClick?: (
         payload: Record<string, never>,
-        event: React.MouseEvent<HTMLButtonElement> | React.FocusEvent<HTMLButtonElement>
+        event:
+            | React.MouseEvent<HTMLButtonElement>
+            | React.FocusEvent<HTMLButtonElement>
     ) => void
 }
 

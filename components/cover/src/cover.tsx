@@ -15,7 +15,9 @@ export interface CoverProps {
 }
 
 const createClickHandler =
-    (onClick?: CoverProps['onClick']): React.MouseEventHandler<HTMLDivElement> =>
+    (
+        onClick?: CoverProps['onClick']
+    ): React.MouseEventHandler<HTMLDivElement> =>
     (event) => {
         // don't respond to clicks that originated in the children
         if (onClick && event.target === event.currentTarget) {

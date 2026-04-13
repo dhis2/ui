@@ -3,15 +3,32 @@ import { useMemo } from 'react'
 import { patchMissingDisplayName } from './patch-missing-display-name.ts'
 
 export const createRootQuery = (ids: string[]) =>
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    ids.reduce<Record<string, { id: string; resource: string; params: (vars: Record<string, any>) => Record<string, string | string[] | boolean | undefined> }>>(
+    ids.reduce<
+        Record<
+            string,
+            {
+                id: string
+                resource: string
+                params: (
+                    vars: Record<
+                        string,
+                        string | string[] | boolean | undefined
+                    >
+                ) => Record<string, string | string[] | boolean | undefined>
+            }
+        >
+    >(
         (query, id) => ({
             ...query,
             [id]: {
                 id,
                 resource: `organisationUnits`,
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                params: (variables: Record<string, any>) => ({
+                params: (
+                    variables: Record<
+                        string,
+                        string | string[] | boolean | undefined
+                    >
+                ) => ({
                     isUserDataViewFallback: variables.isUserDataViewFallback,
                     fields: ['displayName', 'path', 'id'],
                 }),
@@ -46,7 +63,11 @@ export const useRootOrgData = (
     const { called, loading, error, data, refetch } = rootOrgUnits
 
     const patchedData = useMemo(() => {
-        return data ? patchMissingDisplayName(data as unknown as Record<string, { displayName?: string }>) : data
+        return data
+            ? patchMissingDisplayName(
+                  data as unknown as Record<string, { displayName?: string }>
+              )
+            : data
     }, [data])
 
     return {

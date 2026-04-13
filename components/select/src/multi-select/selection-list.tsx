@@ -9,7 +9,10 @@ const createRemoveHandler =
         value,
     }: {
         selected: string[]
-        onChange?: (data: { selected: string[] }, e: React.SyntheticEvent) => void
+        onChange?: (
+            data: { selected: string[] },
+            e: React.SyntheticEvent
+        ) => void
         value: string
     }) =>
     (_: Record<string, never>, e: React.SyntheticEvent) => {
@@ -26,7 +29,12 @@ export interface SelectionListProps {
     onChange?: (data: { selected: string[] }, e: React.SyntheticEvent) => void
 }
 
-const SelectionList = ({ selected, onChange, disabled, options }: SelectionListProps) => (
+const SelectionList = ({
+    selected,
+    onChange,
+    disabled,
+    options,
+}: SelectionListProps) => (
     <React.Fragment>
         {(selected || []).map((value) => {
             const isProduction = process.env.NODE_ENV === 'production'

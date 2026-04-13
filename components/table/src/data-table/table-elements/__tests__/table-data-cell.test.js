@@ -49,7 +49,7 @@ describe('<TableDataCell>', () => {
         const colSpan = '3'
         const wrapper = shallow(<TableDataCell colSpan={colSpan} />)
 
-        expect(wrapper.find('td').prop('colSpan')).toBe(colSpan)
+        expect(wrapper.find('td').prop('colSpan')).toBe(Number(colSpan))
     })
     it('accepts a dataTest prop', () => {
         const dataTest = 'test'
@@ -88,7 +88,7 @@ describe('<TableDataCell>', () => {
         const rowSpan = '3'
         const wrapper = shallow(<TableDataCell rowSpan={rowSpan} />)
 
-        expect(wrapper.find('td').prop('rowSpan')).toBe(rowSpan)
+        expect(wrapper.find('td').prop('rowSpan')).toBe(Number(rowSpan))
     })
     it('accepts a scope prop', () => {
         const scope = 'row'

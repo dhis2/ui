@@ -6,7 +6,10 @@ import { FileList, FileListPlaceholder } from '../file-list/index.ts'
 import i18n from '../locales/index.js'
 
 // TODO: i18n
-const translate = (prop: string | ((...args: unknown[]) => string), interpolationObject?: Record<string, unknown>) => {
+const translate = (
+    prop: string | ((...args: unknown[]) => string),
+    interpolationObject?: Record<string, unknown>
+) => {
     if (typeof prop === 'function') {
         return prop(interpolationObject)
     }
@@ -53,13 +56,25 @@ interface FileInputFieldProps {
     validationText?: string
     /** Applies 'warning' styling to the validation text. Mutually exclusive with `valid` and `error` props */
     warning?: boolean
-    onBlur?: (payload: { files: FileList; name?: string }, event: React.FocusEvent) => void
+    onBlur?: (
+        payload: { files: FileList; name?: string },
+        event: React.FocusEvent
+    ) => void
     /** Called with signature `({ name: string, files: [] }, event)` */
-    onChange?: (payload: { files: FileList; name?: string }, event: React.ChangeEvent) => void
+    onChange?: (
+        payload: { files: FileList; name?: string },
+        event: React.ChangeEvent
+    ) => void
     /** Called with signature `({ name: string, files: [] }, event)` */
-    onFocus?: (payload: { files: FileList; name?: string }, event: React.FocusEvent) => void
+    onFocus?: (
+        payload: { files: FileList; name?: string },
+        event: React.FocusEvent
+    ) => void
     /** Called with signature `({ name: string, files: [] }, event)` */
-    onKeyDown?: (payload: { files: FileList; name?: string }, event: React.KeyboardEvent) => void
+    onKeyDown?: (
+        payload: { files: FileList; name?: string },
+        event: React.KeyboardEvent
+    ) => void
 }
 
 const FileInputField = ({

@@ -1,6 +1,6 @@
 import { useDataEngine, useDataQuery } from '@dhis2/app-runtime'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import { SimpleSingleSelect } from '../simple-single-select.js'
+import { SimpleSingleSelect } from '../simple-single-select.tsx'
 import { CustomDataProvider } from './simple-single-select-server-side-filtering/index.js'
 
 function dataElementToOption({ id, displayName }) {

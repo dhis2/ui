@@ -45,7 +45,8 @@ const Menu = ({
             return child
         }
 
-        const { value, disabled: isDisabled } = (child as React.ReactElement).props
+        const { value, disabled: isDisabled } = (child as React.ReactElement)
+            .props
 
         // Active means the option is currently selected
         const isActive = value === selected

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { SimpleSingleSelect } from '../simple-single-select.js'
+import { SimpleSingleSelect } from '../simple-single-select.tsx'
 import { fiveOptions as originalOptions } from './options.js'
 
 // simulating when the first option value is not empty string

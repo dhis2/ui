@@ -47,7 +47,14 @@ interface IconProps {
     warning?: boolean
 }
 
-const Icon = ({ icon, success, warning, critical, info, dataTest }: IconProps) => {
+const Icon = ({
+    icon,
+    success,
+    warning,
+    critical,
+    info,
+    dataTest,
+}: IconProps) => {
     if (icon === false) {
         return null
     }

@@ -3,15 +3,20 @@ import { StackedTableHead } from './stacked-table-head.tsx'
 
 const isChildTableHead = (child: React.ReactNode): boolean =>
     React.isValidElement(child) && child.type === StackedTableHead
-const extractChildrenProp = (component: React.ReactElement<{ children?: React.ReactNode }>) =>
-    component.props.children
+const extractChildrenProp = (
+    component: React.ReactElement<{ children?: React.ReactNode }>
+) => component.props.children
 
 const extractRowsFromTableChildren = (children: React.ReactNode) =>
     React.Children.toArray(children)
         .filter(isChildTableHead)
 
         // extract table head children (rows)
-        .map((child) => extractChildrenProp(child as React.ReactElement<{ children?: React.ReactNode }>))
+        .map((child) =>
+            extractChildrenProp(
+                child as React.ReactElement<{ children?: React.ReactNode }>
+            )
+        )
 
         // when there are multiple header rows,
         // children will come as arrays
@@ -25,7 +30,11 @@ const extractRowsFromTableChildren = (children: React.ReactNode) =>
 
         // extract table row children (cells),
         // will return an array with arrays of cells
-        .map((row) => extractChildrenProp(row as React.ReactElement<{ children?: React.ReactNode }>))
+        .map((row) =>
+            extractChildrenProp(
+                row as React.ReactElement<{ children?: React.ReactNode }>
+            )
+        )
 
 const calculateColumnCount = (row: React.ReactNode) =>
     Array.isArray(row)

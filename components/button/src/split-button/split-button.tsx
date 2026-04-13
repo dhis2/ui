@@ -62,13 +62,22 @@ export interface SplitButtonProps {
      * Callback triggered when the main button is clicked.
      * Called with signature `({ name: string, value: string, open: bool }, event)`
      */
-    onClick?: (payload: SplitButtonCallbackPayload, event: React.MouseEvent<HTMLButtonElement> | React.SyntheticEvent) => void
+    onClick?: (
+        payload: SplitButtonCallbackPayload,
+        event: React.MouseEvent<HTMLButtonElement> | React.SyntheticEvent
+    ) => void
     /**
      * Callback triggered when the dropdown is toggled (by clicking the chevron, pressing Escape, or clicking the backdrop).
      * Called with signature `({ name: string, value: string, open: bool }, event)`.
      * Required if `open` prop is used (controlled component).
      */
-    onToggle?: (payload: SplitButtonCallbackPayload, event: React.MouseEvent<HTMLButtonElement> | React.SyntheticEvent | KeyboardEvent) => void
+    onToggle?: (
+        payload: SplitButtonCallbackPayload,
+        event:
+            | React.MouseEvent<HTMLButtonElement>
+            | React.SyntheticEvent
+            | KeyboardEvent
+    ) => void
 }
 
 interface SplitButtonState {
@@ -119,7 +128,10 @@ class SplitButton extends Component<SplitButtonProps, SplitButtonState> {
         }
     }
 
-    handlePrimaryAction = (payload: { name?: string; value?: string }, event: React.MouseEvent<HTMLButtonElement> | React.SyntheticEvent) => {
+    handlePrimaryAction = (
+        payload: { name?: string; value?: string },
+        event: React.MouseEvent<HTMLButtonElement> | React.SyntheticEvent
+    ) => {
         if (this.props.onClick) {
             this.props.onClick(
                 {
@@ -134,7 +146,10 @@ class SplitButton extends Component<SplitButtonProps, SplitButtonState> {
         }
     }
 
-    handleToggle = (payload: { name?: string; value?: string }, event: React.MouseEvent<HTMLButtonElement> | React.SyntheticEvent) => {
+    handleToggle = (
+        payload: { name?: string; value?: string },
+        event: React.MouseEvent<HTMLButtonElement> | React.SyntheticEvent
+    ) => {
         if (this.isControlled()) {
             if (this.props.onToggle) {
                 this.props.onToggle(
@@ -151,7 +166,10 @@ class SplitButton extends Component<SplitButtonProps, SplitButtonState> {
         }
     }
 
-    handleBackdropClick = (_payload: Record<string, never>, event: React.MouseEvent<HTMLDivElement>) => {
+    handleBackdropClick = (
+        _payload: Record<string, never>,
+        event: React.MouseEvent<HTMLDivElement>
+    ) => {
         if (this.isControlled()) {
             if (this.props.onToggle) {
                 this.props.onToggle(
@@ -234,9 +252,7 @@ class SplitButton extends Component<SplitButtonProps, SplitButtonState> {
                 </Button>
 
                 {open && (
-                    <Layer
-                        onBackdropClick={this.handleBackdropClick}
-                    >
+                    <Layer onBackdropClick={this.handleBackdropClick}>
                         <Popper
                             dataTest={`${dataTest}-menu`}
                             placement="bottom-end"

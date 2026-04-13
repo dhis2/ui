@@ -31,7 +31,9 @@ export function usePageUp({
 
     return useCallback(() => {
         const listBoxParent = listBoxRef.current!.parentNode as HTMLElement
-        const optionElements = Array.from(listBoxRef.current!.childNodes) as HTMLElement[]
+        const optionElements = Array.from(
+            listBoxRef.current!.childNodes
+        ) as HTMLElement[]
         const lowestVisibleIndex = optionElements.findIndex(
             (optionElement) => !isOptionHidden(optionElement, listBoxParent)
         )

@@ -76,7 +76,11 @@ export const HeaderBar = ({
     onApplyAvailableUpdate,
     skipI18n,
 }: HeaderBarProps) => {
-    const { appName: configAppName, baseUrl, pwaEnabled } = useConfig() as ReturnType<typeof useConfig> & { pwaEnabled?: boolean }
+    const {
+        appName: configAppName,
+        baseUrl,
+        pwaEnabled,
+    } = useConfig() as ReturnType<typeof useConfig> & { pwaEnabled?: boolean }
     const { loading, error, data } = useDataQuery(query)
 
     const typedData = data as unknown as QueryData | undefined
@@ -100,8 +104,7 @@ export const HeaderBar = ({
             // For platform apps, setting i18n is handled by the app-shell so this logic is redundant (and running it twice caused issues)
             // For external apps, this logic is kept for backwards compatibility, but they also have the option of passing `skipI18n`
             // and initialising i18n in the consumer
-            const locale =
-                typedData?.user?.settings?.keyUiLocale || 'en'
+            const locale = typedData?.user?.settings?.keyUiLocale || 'en'
             i18n.setDefaultNamespace('default')
             i18n.changeLanguage(locale)
         }

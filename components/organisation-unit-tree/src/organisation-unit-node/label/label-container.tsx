@@ -7,7 +7,10 @@ export interface LabelContainerProps {
     highlighted?: boolean
 }
 
-export const LabelContainer = ({ highlighted, children }: LabelContainerProps) => (
+export const LabelContainer = ({
+    highlighted,
+    children,
+}: LabelContainerProps) => (
     <div className={cx({ highlighted })}>
         <span>{children}</span>
 

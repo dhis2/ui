@@ -21,7 +21,9 @@ const defaultProps = {
     previousPageText: () => i18n.t('Previous'),
 }
 
-type TextProp = string | ((interpolationObject?: Record<string, unknown>) => string)
+type TextProp =
+    | string
+    | ((interpolationObject?: Record<string, unknown>) => string)
 type SummaryTextProp = string | ((...args: never[]) => string)
 
 export interface PaginationProps {

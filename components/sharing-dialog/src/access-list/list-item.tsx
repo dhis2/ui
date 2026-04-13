@@ -108,8 +108,15 @@ export const ListItem = ({
                                         ? i18n.t('Not available offline')
                                         : ''
                                 }
-                                onChange={({ selected }: { selected: string }) =>
-                                    onChange({ ...access, data: selected as AccessType })
+                                onChange={({
+                                    selected,
+                                }: {
+                                    selected: string
+                                }) =>
+                                    onChange({
+                                        ...access,
+                                        data: selected as AccessType,
+                                    })
                                 }
                             >
                                 {accessOptions.map((value) => (
@@ -145,8 +152,15 @@ export const ListItem = ({
                                         ? i18n.t('Not available offline')
                                         : ''
                                 }
-                                onChange={({ selected }: { selected: string }) =>
-                                    onChange({ ...access, metadata: selected as AccessType })
+                                onChange={({
+                                    selected,
+                                }: {
+                                    selected: string
+                                }) =>
+                                    onChange({
+                                        ...access,
+                                        metadata: selected as AccessType,
+                                    })
                                 }
                             >
                                 {accessOptions.map((value) => (

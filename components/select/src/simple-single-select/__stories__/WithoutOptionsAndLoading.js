@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { SimpleSingleSelect } from '../simple-single-select.js'
+import { SimpleSingleSelect } from '../simple-single-select.tsx'
 
 export const WithoutOptionsAndLoading = () => {
     const [selected, setSelected] = useState(null)

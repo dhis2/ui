@@ -9,7 +9,12 @@ export interface RemoveAllProps {
     label?: string
 }
 
-export const RemoveAll = ({ label, dataTest, disabled, onClick }: RemoveAllProps) => (
+export const RemoveAll = ({
+    label,
+    dataTest,
+    disabled,
+    onClick,
+}: RemoveAllProps) => (
     <Button
         dataTest={dataTest}
         disabled={disabled}

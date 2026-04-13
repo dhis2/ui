@@ -46,13 +46,25 @@ export interface TextAreaFieldProps {
     /** Applies 'warning' styles for validation feedback. Mutually exclusive with `valid` and `error` props */
     warning?: boolean
     /** Called with signature `({ name: string, value: string }, event)` */
-    onBlur?: (payload: { name?: string; value: string }, event: React.FocusEvent<HTMLTextAreaElement>) => void
+    onBlur?: (
+        payload: { name?: string; value: string },
+        event: React.FocusEvent<HTMLTextAreaElement>
+    ) => void
     /** Called with signature `({ name: string, value: string }, event)` */
-    onChange?: (payload: { name?: string; value: string }, event: React.ChangeEvent<HTMLTextAreaElement>) => void
+    onChange?: (
+        payload: { name?: string; value: string },
+        event: React.ChangeEvent<HTMLTextAreaElement>
+    ) => void
     /** Called with signature `({ name: string, value: string }, event)` */
-    onFocus?: (payload: { name?: string; value: string }, event: React.FocusEvent<HTMLTextAreaElement>) => void
+    onFocus?: (
+        payload: { name?: string; value: string },
+        event: React.FocusEvent<HTMLTextAreaElement>
+    ) => void
     /** Called with signature `({ name: string, value: string }, event)` */
-    onKeyDown?: (payload: { name?: string; value: string }, event: React.KeyboardEvent<HTMLTextAreaElement>) => void
+    onKeyDown?: (
+        payload: { name?: string; value: string },
+        event: React.KeyboardEvent<HTMLTextAreaElement>
+    ) => void
 }
 
 const TextAreaField = ({

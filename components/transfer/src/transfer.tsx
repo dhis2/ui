@@ -51,8 +51,14 @@ export interface TransferProps {
     dataTest?: string
     disabled?: boolean
     enableOrderChange?: boolean
-    filterCallback?: (options: TransferOptionType[], filter: string) => TransferOptionType[]
-    filterCallbackPicked?: (options: TransferOptionType[], filter: string) => TransferOptionType[]
+    filterCallback?: (
+        options: TransferOptionType[],
+        filter: string
+    ) => TransferOptionType[]
+    filterCallbackPicked?: (
+        options: TransferOptionType[],
+        filter: string
+    ) => TransferOptionType[]
     filterLabel?: string
     filterLabelPicked?: string
     filterPlaceholder?: string
@@ -73,12 +79,20 @@ export interface TransferProps {
     optionsWidth?: string
     removeAllText?: string
     removeIndividualText?: string
-    renderOption?: (option: TransferOptionType & {
-        onClick?: (payload: { value: string }, event: React.MouseEvent<HTMLDivElement>) => void
-        onDoubleClick?: (payload: { value: string }, ...args: unknown[]) => void
-        highlighted: boolean
-        selected: boolean
-    }) => React.ReactNode
+    renderOption?: (
+        option: TransferOptionType & {
+            onClick?: (
+                payload: { value: string },
+                event: React.MouseEvent<HTMLDivElement>
+            ) => void
+            onDoubleClick?: (
+                payload: { value: string },
+                ...args: unknown[]
+            ) => void
+            highlighted: boolean
+            selected: boolean
+        }
+    ) => React.ReactNode
     rightFooter?: React.ReactNode
     rightHeader?: React.ReactNode
     searchTerm?: string
@@ -156,7 +170,12 @@ export const Transfer = ({
         filterCallback,
     })
 
-    const sourceOptions = (actualFilterCallback as (options: TransferOptionType[], filter: string) => TransferOptionType[])(
+    const sourceOptions = (
+        actualFilterCallback as (
+            options: TransferOptionType[],
+            filter: string
+        ) => TransferOptionType[]
+    )(
         options.filter(({ value }) => !selected.includes(value)),
         actualFilter as string
     )
@@ -186,7 +205,12 @@ export const Transfer = ({
     const pickedOptions = useMemo(
         () =>
             Array.isArray(selected)
-                ? (actualFilterPickedCallback as (options: TransferOptionType[], filter: string) => TransferOptionType[])(
+                ? (
+                      actualFilterPickedCallback as (
+                          options: TransferOptionType[],
+                          filter: string
+                      ) => TransferOptionType[]
+                  )(
                       selected
                           .map(
                               (value) =>
@@ -429,9 +453,14 @@ export const Transfer = ({
     )
 }
 
-const defaultRenderOption = (option: TransferOptionType & {
-    onClick?: (payload: { value: string }, event: React.MouseEvent<HTMLDivElement>) => void
-    onDoubleClick?: (payload: { value: string }, ...args: unknown[]) => void
-    highlighted: boolean
-    selected: boolean
-}) => <TransferOption {...option} />
+const defaultRenderOption = (
+    option: TransferOptionType & {
+        onClick?: (
+            payload: { value: string },
+            event: React.MouseEvent<HTMLDivElement>
+        ) => void
+        onDoubleClick?: (payload: { value: string }, ...args: unknown[]) => void
+        highlighted: boolean
+        selected: boolean
+    }
+) => <TransferOption {...option} />

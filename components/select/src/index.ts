@@ -17,7 +17,10 @@ export { SingleSelectOption } from './single-select-option/index.ts'
 export type { SingleSelectOptionProps } from './single-select-option/index.ts'
 
 export { SimpleSingleSelect } from './simple-single-select/index.ts'
-export type { SimpleSingleSelectProps, OptionType } from './simple-single-select/index.ts'
+export type {
+    SimpleSingleSelectProps,
+    OptionType,
+} from './simple-single-select/index.ts'
 
 export { SimpleSingleSelectField } from './simple-single-select-field/index.ts'
 export type { SimpleSingleSelectFieldProps } from './simple-single-select-field/index.ts'

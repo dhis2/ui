@@ -22,10 +22,22 @@ export interface CheckboxFieldProps {
     name?: string
     className?: string
     tabIndex?: string
-    onChange?: (payload: { name?: string; value?: string; checked: boolean }, event: React.ChangeEvent<HTMLInputElement>) => void
-    onFocus?: (payload: { name?: string; value?: string; checked: boolean }, event: React.FocusEvent<HTMLInputElement>) => void
-    onKeyDown?: (payload: { name?: string; value?: string; checked: boolean }, event: React.KeyboardEvent<HTMLInputElement>) => void
-    onBlur?: (payload: { name?: string; value?: string; checked: boolean }, event: React.FocusEvent<HTMLInputElement>) => void
+    onChange?: (
+        payload: { name?: string; value?: string; checked: boolean },
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => void
+    onFocus?: (
+        payload: { name?: string; value?: string; checked: boolean },
+        event: React.FocusEvent<HTMLInputElement>
+    ) => void
+    onKeyDown?: (
+        payload: { name?: string; value?: string; checked: boolean },
+        event: React.KeyboardEvent<HTMLInputElement>
+    ) => void
+    onBlur?: (
+        payload: { name?: string; value?: string; checked: boolean },
+        event: React.FocusEvent<HTMLInputElement>
+    ) => void
     checked?: boolean
     disabled?: boolean
     valid?: boolean

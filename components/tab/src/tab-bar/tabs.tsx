@@ -63,7 +63,9 @@ const Tabs = ({ children, fixed, dataTest }: TabsProps) => {
             {React.Children.map(children, (child, index) => {
                 if (React.isValidElement(child)) {
                     return React.cloneElement(
-                        child as React.ReactElement<{ ref?: React.Ref<HTMLElement> }>,
+                        child as React.ReactElement<{
+                            ref?: React.Ref<HTMLElement>
+                        }>,
                         {
                             ref: childrenRefs[index],
                         }

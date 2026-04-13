@@ -81,7 +81,11 @@ interface EaseOptions {
     change: number
 }
 
-function easeInOutQuad({ currentTime, startValue, change }: EaseOptions): number {
+function easeInOutQuad({
+    currentTime,
+    startValue,
+    change,
+}: EaseOptions): number {
     let t = currentTime / (DURATION / 2)
     if (t < 1) {
         return (change / 2) * t * t + startValue

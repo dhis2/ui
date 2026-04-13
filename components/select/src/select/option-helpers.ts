@@ -40,10 +40,7 @@ export const findOption = (
     optionArray.find((optionValue) => value === optionValue)
 
 // Remove a specific option from an array of options
-export const removeOption = (
-    value: string,
-    optionArray: string[]
-): string[] =>
+export const removeOption = (value: string, optionArray: string[]): string[] =>
     optionArray.filter((optionValue) => {
         return optionValue !== value
     })

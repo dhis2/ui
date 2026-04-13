@@ -4,7 +4,10 @@ import i18n from '../locales/index.js'
 import { FileListItemWithRemove } from './file-list-item-with-remove.tsx'
 
 // TODO: i18n
-const translate = (prop: string | ((...args: unknown[]) => string), interpolationObject?: Record<string, unknown>) => {
+const translate = (
+    prop: string | ((...args: unknown[]) => string),
+    interpolationObject?: Record<string, unknown>
+) => {
     if (typeof prop === 'function') {
         return prop(interpolationObject)
     }
@@ -14,7 +17,10 @@ const translate = (prop: string | ((...args: unknown[]) => string), interpolatio
 
 interface FileInputFieldWithListProps {
     /** Called with signature `({ name: string, files: [File] }, event)` */
-    onChange: (payload: { files: File[]; name?: string }, event: React.SyntheticEvent) => void
+    onChange: (
+        payload: { files: File[]; name?: string },
+        event: React.SyntheticEvent
+    ) => void
     /** The `accept` attribute of the native file input */
     accept?: string
     /** Text on the button */
@@ -53,11 +59,20 @@ interface FileInputFieldWithListProps {
     /** Applies 'warning' styling to the button and validation text. Mutually exclusive with `valid` and `error` props */
     warning?: boolean
     /** Called with signature `({ name: string, files: [] }, event)` */
-    onBlur?: (payload: { files: FileList; name?: string }, event: React.FocusEvent) => void
+    onBlur?: (
+        payload: { files: FileList; name?: string },
+        event: React.FocusEvent
+    ) => void
     /** Called with signature `({ name: string, files: [] }, event)` */
-    onFocus?: (payload: { files: FileList; name?: string }, event: React.FocusEvent) => void
+    onFocus?: (
+        payload: { files: FileList; name?: string },
+        event: React.FocusEvent
+    ) => void
     /** Called with signature `({ name: string, files: [] }, event)` */
-    onKeyDown?: (payload: { files: FileList; name?: string }, event: React.KeyboardEvent) => void
+    onKeyDown?: (
+        payload: { files: FileList; name?: string },
+        event: React.KeyboardEvent
+    ) => void
 }
 
 class FileInputFieldWithList extends Component<FileInputFieldWithListProps> {
@@ -70,7 +85,10 @@ class FileInputFieldWithList extends Component<FileInputFieldWithListProps> {
         removeText: () => i18n.t('Remove'),
     }
 
-    handleChange = ({ files: fileList }: { files: FileList }, event: React.SyntheticEvent) => {
+    handleChange = (
+        { files: fileList }: { files: FileList },
+        event: React.SyntheticEvent
+    ) => {
         const { onChange, name } = this.props
 
         onChange({ files: this.updateFileArray(fileList), name: name }, event)
@@ -99,7 +117,10 @@ class FileInputFieldWithList extends Component<FileInputFieldWithListProps> {
             .concat(newFiles)
     }
 
-    handleRemove = ({ file: fileToRemove }: { file: File }, event: React.SyntheticEvent) => {
+    handleRemove = (
+        { file: fileToRemove }: { file: File },
+        event: React.SyntheticEvent
+    ) => {
         const { files, onChange, name } = this.props
 
         onChange(

@@ -5,8 +5,11 @@ export const supplyHeaderLabelsToChildren = (
     children: React.ReactNode
 ) => {
     return Children.map(children, (child) => {
-        return cloneElement(child as ReactElement<{ headerLabels?: string[] }>, {
-            headerLabels,
-        })
+        return cloneElement(
+            child as ReactElement<{ headerLabels?: string[] }>,
+            {
+                headerLabels,
+            }
+        )
     })
 }
