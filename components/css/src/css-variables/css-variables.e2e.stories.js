@@ -1,5 +1,5 @@
 import React from 'react'
-import { CssVariables } from './index.js'
+import { CssVariables } from './index.ts'
 
 export default { title: 'CssVariables' }
 export const WithColors = () => (

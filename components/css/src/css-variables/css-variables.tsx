@@ -1,16 +1,24 @@
-import * as theme from '@dhis2/ui-constants'
-import PropTypes from 'prop-types'
+import * as themeModule from '@dhis2/ui-constants'
 import React from 'react'
 
-const toPrefixedThemeSection = (themeSectionKey) =>
-    // eslint-disable-next-line import/namespace
-    Object.entries(theme[themeSectionKey]).reduce((prefixed, [key, value]) => {
+export interface CssVariablesProps {
+    colors?: boolean
+    theme?: boolean
+    layers?: boolean
+    spacers?: boolean
+    elevations?: boolean
+}
+
+const toPrefixedThemeSection = (themeSectionKey: string): Record<string, string> =>
+    Object.entries(
+        (themeModule as unknown as Record<string, Record<string, string>>)[themeSectionKey]
+    ).reduce<Record<string, string>>((prefixed, [key, value]) => {
         prefixed[`${themeSectionKey}-${key}`] = value
 
         return prefixed
     }, {})
 
-const toCustomPropertyString = (themeSection) =>
+const toCustomPropertyString = (themeSection: Record<string, string>): string =>
     Object.entries(themeSection)
         .map(([key, value]) => `--${key}: ${value};`)
         .join('\n')
@@ -21,8 +29,8 @@ const CssVariables = ({
     layers = false,
     spacers = false,
     elevations = false,
-}) => {
-    const allowedProps = { colors, theme, layers, spacers, elevations }
+}: CssVariablesProps): React.ReactElement => {
+    const allowedProps: Record<string, boolean> = { colors, theme, layers, spacers, elevations }
     const variables = Object.keys(allowedProps)
         // Filter all props that are false
         .filter((prop) => allowedProps[prop])
@@ -40,14 +48,6 @@ const CssVariables = ({
             }
         `}</style>
     )
-}
-
-CssVariables.propTypes = {
-    colors: PropTypes.bool,
-    elevations: PropTypes.bool,
-    layers: PropTypes.bool,
-    spacers: PropTypes.bool,
-    theme: PropTypes.bool,
 }
 
 export { CssVariables }

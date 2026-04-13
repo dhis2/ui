@@ -1,7 +1,7 @@
 import { theme } from '@dhis2/ui-constants'
 import React from 'react'
 
-const CssReset = () => (
+const CssReset = (): React.ReactElement => (
     <style jsx global>{`
         html {
             line-height: 1.15; /* 1 */
