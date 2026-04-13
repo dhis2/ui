@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box } from './box.js'
+import { Box } from './box.tsx'
 
 export default { title: 'Box' }
 export const WithChildren = () => <Box>I am a child</Box>

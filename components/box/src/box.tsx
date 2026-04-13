@@ -1,5 +1,18 @@
-import PropTypes from 'prop-types'
 import React from 'react'
+
+export interface BoxProps {
+    children?: React.ReactNode
+    className?: string
+    dataTest?: string
+    height?: string
+    marginTop?: string
+    maxHeight?: string
+    maxWidth?: string
+    minHeight?: string
+    minWidth?: string
+    overflow?: string
+    width?: string
+}
 
 export const Box = ({
     overflow,
@@ -13,7 +26,7 @@ export const Box = ({
     children,
     dataTest = 'dhis2-uicore-box',
     className,
-}) => (
+}: BoxProps) => (
     <div data-test={dataTest} className={className}>
         {children}
         <style jsx>{`
@@ -30,17 +43,3 @@ export const Box = ({
         `}</style>
     </div>
 )
-
-Box.propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    height: PropTypes.string,
-    marginTop: PropTypes.string,
-    maxHeight: PropTypes.string,
-    maxWidth: PropTypes.string,
-    minHeight: PropTypes.string,
-    minWidth: PropTypes.string,
-    overflow: PropTypes.string,
-    width: PropTypes.string,
-}
