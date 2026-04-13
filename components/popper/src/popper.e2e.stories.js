@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { useRef, useState } from 'react'
-import { Popper } from './popper.js'
+import { Popper } from './popper.tsx'
 
 const PopperPlacement = ({ placement }) => {
     const ref = useRef()

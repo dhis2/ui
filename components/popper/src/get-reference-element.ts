@@ -1,4 +1,13 @@
-export const getReferenceElement = (reference) => {
+export type PopperReference =
+    | Element
+    | { getBoundingClientRect: () => DOMRect }
+    | React.RefObject<Element>
+    | null
+    | undefined
+
+export const getReferenceElement = (
+    reference: PopperReference
+): Element | { getBoundingClientRect: () => DOMRect } | null => {
     // Elements or virtualElements
     if (
         reference instanceof Element ||
