@@ -1,8 +1,11 @@
 import { spacers } from '@dhis2/ui-constants'
-import PropTypes from 'prop-types'
 import React from 'react'
 
-export const Required = ({ dataTest }) => (
+export interface RequiredProps {
+    dataTest: string
+}
+
+export const Required = ({ dataTest }: RequiredProps) => (
     <span data-test={dataTest}>
         *
         <style jsx>{`
@@ -12,7 +15,3 @@ export const Required = ({ dataTest }) => (
         `}</style>
     </span>
 )
-
-Required.propTypes = {
-    dataTest: PropTypes.string.isRequired,
-}
