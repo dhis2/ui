@@ -1,6 +1,6 @@
 import { Provider } from '@dhis2/app-runtime'
 import React from 'react'
-import { SharingDialog } from './sharing-dialog.js'
+import { SharingDialog } from './sharing-dialog.tsx'
 
 export default {
     title: 'Sharing Dialog',

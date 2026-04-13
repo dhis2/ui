@@ -1,6 +1,6 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import React, { useEffect } from 'react'
-import { SharingDialog } from './sharing-dialog.js'
+import { SharingDialog } from './sharing-dialog.tsx'
 
 const subtitle = 'The common dialog for managing object sharing in DHIS2 apps'
 
