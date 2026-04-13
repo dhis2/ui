@@ -1,7 +1,16 @@
-import { colors, sharedPropTypes } from '@dhis2/ui-constants'
+import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React from 'react'
+
+export interface CircularLoaderProps {
+    small?: boolean
+    large?: boolean
+    extrasmall?: boolean
+    invert?: boolean
+    className?: string
+    dataTest?: string
+    'aria-label'?: string
+}
 
 const CircularLoader = ({
     small,
@@ -11,7 +20,7 @@ const CircularLoader = ({
     className,
     dataTest = 'dhis2-uicore-circularloader',
     'aria-label': ariaLabel,
-}) => (
+}: CircularLoaderProps) => (
     <div
         role="progressbar"
         className={cx(className, {
@@ -63,15 +72,5 @@ const CircularLoader = ({
         `}</style>
     </div>
 )
-
-CircularLoader.propTypes = {
-    'aria-label': PropTypes.string,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    extrasmall: sharedPropTypes.sizePropType,
-    invert: PropTypes.bool,
-    large: sharedPropTypes.sizePropType,
-    small: sharedPropTypes.sizePropType,
-}
 
 export { CircularLoader }

@@ -1,9 +1,14 @@
 import { colors, theme, spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React from 'react'
 
-const Progress = ({ amount, invert, className }) => {
+interface ProgressProps {
+    amount: number
+    invert?: boolean
+    className?: string
+}
+
+const Progress = ({ amount, invert, className }: ProgressProps) => {
     return (
         <div className={cx(className, { invert })}>
             <style jsx>{`
@@ -25,10 +30,18 @@ const Progress = ({ amount, invert, className }) => {
     )
 }
 
-Progress.propTypes = {
-    amount: PropTypes.number.isRequired,
-    className: PropTypes.string,
-    invert: PropTypes.bool,
+export interface LinearLoaderProps {
+    /** The progression in percent without the '%' sign */
+    amount: number
+    'aria-label'?: string
+    className?: string
+    dataTest?: string
+    /** Use inverted color scheme */
+    invert?: boolean
+    /** The margin around the loader, can be a full shorthand */
+    margin?: string
+    /** The width of the entire indicator */
+    width?: string
 }
 
 const LinearLoader = ({
@@ -39,7 +52,7 @@ const LinearLoader = ({
     className,
     dataTest = 'dhis2-uicore-linearloader',
     'aria-label': ariaLabel,
-}) => {
+}: LinearLoaderProps) => {
     return (
         <div
             role="progressbar"
@@ -70,20 +83,6 @@ const LinearLoader = ({
             `}</style>
         </div>
     )
-}
-
-LinearLoader.propTypes = {
-    /** The progression in percent without the '%' sign */
-    amount: PropTypes.number.isRequired,
-    'aria-label': PropTypes.string,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    /** Use inverted color scheme */
-    invert: PropTypes.bool,
-    /** The margin around the loader, can be a full shorthand */
-    margin: PropTypes.string,
-    /** The width of the entire indicator */
-    width: PropTypes.string,
 }
 
 export { LinearLoader }
