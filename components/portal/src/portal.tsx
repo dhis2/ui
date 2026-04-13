@@ -1,5 +1,4 @@
-import PropTypes from 'prop-types'
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect, ReactNode } from 'react'
 import { createPortal } from 'react-dom'
 
 /*
@@ -13,25 +12,25 @@ import { createPortal } from 'react-dom'
  *
  * This needs to be a function so that it works in tests as well.
  */
-const getDefaultNode = () =>
+const getDefaultNode = (): Element =>
     document.getElementById('dhis2-portal-root') || document.body
 
-export const Portal = ({ children, node, disable }) => {
-    const [mountNode, setMountNode] = useState(null)
+export interface PortalProps {
+    children?: ReactNode
+    node?: Element
+    disable?: boolean
+}
+
+export const Portal = ({ children, node, disable }: PortalProps) => {
+    const [mountNode, setMountNode] = useState<Element | null>(null)
 
     useEffect(() => {
         setMountNode(node || getDefaultNode())
     }, [node])
 
     if (disable) {
-        return children
+        return <>{children}</>
     }
 
-    return mountNode ? createPortal(children, mountNode) : mountNode
-}
-
-Portal.propTypes = {
-    children: PropTypes.node,
-    disable: PropTypes.bool,
-    node: PropTypes.node,
+    return mountNode ? createPortal(children, mountNode) : null
 }
