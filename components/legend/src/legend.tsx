@@ -1,14 +1,21 @@
 import { colors } from '@dhis2/ui-constants'
 import { Required } from '@dhis2-ui/required'
-import PropTypes from 'prop-types'
 import React from 'react'
+
+export interface LegendProps {
+    children?: React.ReactNode
+    className?: string
+    dataTest?: string
+    /** Indicates the associated field set is required */
+    required?: boolean
+}
 
 const Legend = ({
     className,
     children,
     required,
     dataTest = 'dhis2-uicore-legend',
-}) => (
+}: LegendProps) => (
     <legend className={className} data-test={dataTest}>
         {children}
 
@@ -23,13 +30,5 @@ const Legend = ({
         `}</style>
     </legend>
 )
-
-Legend.propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    /** Indicates the associated field set is required */
-    required: PropTypes.bool,
-}
 
 export { Legend }
