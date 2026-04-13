@@ -101,9 +101,9 @@ const MenuItem = ({
     tabIndex,
 }: MenuItemProps) => {
     const menuItemRef = useRef<HTMLLIElement>(null)
-    const [openSubMenus, setOpenSubMenus] = useState<NodeListOf<Element>>(
-        document.querySelectorAll('[data-submenu-open=true]')
-    )
+    const [openSubMenus, setOpenSubMenus] = useState<
+        NodeListOf<Element> | []
+    >([])
 
     useEffect(() => {
         // track open submenus
