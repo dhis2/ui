@@ -1,5 +1,5 @@
 import React from 'react'
-import { TextArea } from './index.js'
+import { TextArea } from './index.ts'
 
 window.onChange = window.Cypress && window.Cypress.cy.stub()
 window.onBlur = window.Cypress && window.Cypress.cy.stub()

@@ -1,6 +1,6 @@
 import { render, fireEvent, screen } from '@testing-library/react'
 import React from 'react'
-import { TextArea } from '../text-area.js'
+import { TextArea } from '../text-area.tsx'
 
 describe('<TextArea>', () => {
     it('should call the onKeyDown callback when provided', () => {
