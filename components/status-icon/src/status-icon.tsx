@@ -5,10 +5,21 @@ import {
     IconCheckmark24,
 } from '@dhis2/ui-icons'
 import { CircularLoader } from '@dhis2-ui/loader'
-import PropTypes from 'prop-types'
 import React from 'react'
 
-export const StatusIcon = ({ error, warning, valid, loading }) => {
+export interface StatusIconProps {
+    error?: boolean
+    warning?: boolean
+    valid?: boolean
+    loading?: boolean
+}
+
+export const StatusIcon: React.FC<StatusIconProps> = ({
+    error,
+    warning,
+    valid,
+    loading,
+}) => {
     if (error) {
         return <IconErrorFilled24 color={theme.error} />
     }
@@ -23,11 +34,4 @@ export const StatusIcon = ({ error, warning, valid, loading }) => {
     }
 
     return null
-}
-
-StatusIcon.propTypes = {
-    error: PropTypes.bool,
-    loading: PropTypes.bool,
-    valid: PropTypes.bool,
-    warning: PropTypes.bool,
 }
