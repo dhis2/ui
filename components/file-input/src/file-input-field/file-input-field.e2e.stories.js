@@ -1,5 +1,5 @@
 import React from 'react'
-import { FileInputField } from './file-input-field.js'
+import { FileInputField } from './file-input-field.tsx'
 
 export default { title: 'FileInputField' }
 export const WithLabelAndRequired = () => (

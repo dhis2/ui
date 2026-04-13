@@ -1,6 +1,6 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
-import { FileInputFieldWithList } from './file-input-field-with-list.js'
+import { FileInputFieldWithList } from './file-input-field-with-list.tsx'
 
 const description = `
 A FileInputField with logic for creating a dynamic list of removable files from an array of \`File\` objects.

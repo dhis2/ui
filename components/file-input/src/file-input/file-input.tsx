@@ -1,46 +1,79 @@
-import { colors, spacers, sharedPropTypes } from '@dhis2/ui-constants'
+import { colors, spacers } from '@dhis2/ui-constants'
 import { IconUpload24 } from '@dhis2/ui-icons'
-import { Button } from '@dhis2-ui/button'
+import { Button, ButtonEventPayload } from '@dhis2-ui/button'
 import { StatusIcon } from '@dhis2-ui/status-icon'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React, { createRef, Component } from 'react'
 
-class FileInput extends Component {
+interface FileInputProps {
+    /** The `accept` attribute of the native file input */
+    accept?: string
+    buttonLabel?: string
+    className?: string
+    dataTest?: string
+    disabled?: boolean
+    /** Input status. Mutually exclusive with `warning` and `valid` */
+    error?: boolean
+    initialFocus?: boolean
+    /** Button size. Mutually exclusive with `small` */
+    large?: boolean
+    /** The `multiple` attribute of the native file input */
+    multiple?: boolean
+    name?: string
+    /** Button size. Mutually exclusive with `large` */
+    small?: boolean
+    tabIndex?: string
+    /** Input status. Mutually exclusive with `warning` and `error` */
+    valid?: boolean
+    /** Input status. Mutually exclusive with `valid` and `error` */
+    warning?: boolean
+    /** Called with signature `(object, event)` */
+    onBlur?: (payload: { files: FileList; name?: string }, event: React.FocusEvent) => void
+    /** Called with signature `(object, event)` */
+    onChange?: (payload: { files: FileList; name?: string }, event: React.ChangeEvent) => void
+    /** Called with signature `(object, event)` */
+    onFocus?: (payload: { files: FileList; name?: string }, event: React.FocusEvent) => void
+    /** Called with signature `(object, event)` */
+    onKeyDown?: (payload: { files: FileList; name?: string }, event: React.KeyboardEvent) => void
+}
+
+class FileInput extends Component<FileInputProps> {
     static defaultProps = {
         accept: '*',
         dataTest: 'dhis2-uicore-fileinput',
     }
 
-    ref = createRef()
+    ref = createRef<HTMLInputElement>()
 
     handleClick = () => {
-        this.ref.current.click()
+        this.ref.current?.click()
     }
 
-    handleChange = (e) => {
+    handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (this.props.onChange) {
             this.props.onChange(this.createHandlerPayload(), e)
         }
 
         // reset the file input so it won't prevent on-change
         // if the same file was added in a second attempt
-        this.ref.current.value = ''
+        if (this.ref.current) {
+            this.ref.current.value = ''
+        }
     }
 
-    handleBlur = (e) => {
+    handleBlur = (_payload: ButtonEventPayload, e: React.FocusEvent<HTMLButtonElement>) => {
         if (this.props.onBlur) {
             this.props.onBlur(this.createHandlerPayload(), e)
         }
     }
 
-    handleFocus = (e) => {
+    handleFocus = (_payload: ButtonEventPayload, e: React.FocusEvent<HTMLButtonElement>) => {
         if (this.props.onFocus) {
             this.props.onFocus(this.createHandlerPayload(), e)
         }
     }
 
-    handleKeyDown = (e) => {
+    handleKeyDown = (_payload: ButtonEventPayload, e: React.KeyboardEvent<HTMLButtonElement>) => {
         if (this.props.onKeyDown) {
             this.props.onKeyDown(this.createHandlerPayload(), e)
         }
@@ -48,7 +81,7 @@ class FileInput extends Component {
 
     createHandlerPayload() {
         return {
-            files: this.ref.current.files,
+            files: this.ref.current!.files!,
             name: this.props.name,
         }
     }
@@ -120,40 +153,5 @@ class FileInput extends Component {
     }
 }
 
-FileInput.propTypes = {
-    /**
-     * The `accept` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept)
-     */
-    accept: PropTypes.string,
-    buttonLabel: PropTypes.string,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    disabled: PropTypes.bool,
-    /** Input status. Mutually exclusive with `warning` and `valid` */
-    error: sharedPropTypes.statusPropType,
-    initialFocus: PropTypes.bool,
-    /** Button size. Mutually exclusive with `small` */
-    large: sharedPropTypes.sizePropType,
-    /**
-     * The `multiple` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple)
-     */
-    multiple: PropTypes.bool,
-    name: PropTypes.string,
-    /** Button size. Mutually exclusive with `large` */
-    small: sharedPropTypes.sizePropType,
-    tabIndex: PropTypes.string,
-    /** Input status. Mutually exclusive with `warning` and `error` */
-    valid: sharedPropTypes.statusPropType,
-    /** Input status. Mutually exclusive with `valid` and `error` */
-    warning: sharedPropTypes.statusPropType,
-    /** Called with signature `(object, event)` */
-    onBlur: PropTypes.func,
-    /** Called with signature `(object, event)` */
-    onChange: PropTypes.func,
-    /** Called with signature `(object, event)` */
-    onFocus: PropTypes.func,
-    /** Called with signature `(object, event)` */
-    onKeyDown: PropTypes.func,
-}
-
 export { FileInput }
+export type { FileInputProps }

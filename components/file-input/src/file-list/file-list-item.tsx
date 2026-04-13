@@ -2,8 +2,18 @@ import { theme, colors, spacers } from '@dhis2/ui-constants'
 import { IconAttachment16 } from '@dhis2/ui-icons'
 import { CircularLoader } from '@dhis2-ui/loader'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React from 'react'
+
+interface FileListItemProps {
+    onRemove: (payload: Record<string, never>, event: React.MouseEvent | React.KeyboardEvent) => void
+    cancelText?: string
+    className?: string
+    dataTest?: string
+    label?: string
+    loading?: boolean
+    removeText?: string
+    onCancel?: (payload: Record<string, never>, event: React.MouseEvent) => void
+}
 
 const FileListItem = ({
     className,
@@ -14,8 +24,8 @@ const FileListItem = ({
     onCancel,
     cancelText,
     dataTest = 'dhis2-uicore-filelistitem',
-}) => {
-    const handleKeyDown = (event) => {
+}: FileListItemProps) => {
+    const handleKeyDown = (event: React.KeyboardEvent) => {
         if (!onRemove) {
             return
         }
@@ -117,15 +127,5 @@ const FileListItem = ({
     )
 }
 
-FileListItem.propTypes = {
-    onRemove: PropTypes.func.isRequired,
-    cancelText: PropTypes.string,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    label: PropTypes.string,
-    loading: PropTypes.bool,
-    removeText: PropTypes.string,
-    onCancel: PropTypes.func,
-}
-
 export { FileListItem }
+export type { FileListItemProps }

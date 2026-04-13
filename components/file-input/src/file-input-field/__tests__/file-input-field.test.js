@@ -1,6 +1,6 @@
 import { render, fireEvent, screen } from '@testing-library/react'
 import React from 'react'
-import { FileInputField } from '../file-input-field.js'
+import { FileInputField } from '../file-input-field.tsx'
 
 describe('<FileInputField />', () => {
     it('should call the onKeyDown callback when provided', () => {

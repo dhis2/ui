@@ -1,11 +1,15 @@
 import { colors, spacers } from '@dhis2/ui-constants'
-import PropTypes from 'prop-types'
 import React from 'react'
+
+interface FileListPlaceholderProps {
+    children?: string
+    dataTest?: string
+}
 
 const FileListPlaceholder = ({
     children,
     dataTest = 'dhis2-uicore-filelistplaceholder',
-}) => (
+}: FileListPlaceholderProps) => (
     <p data-test={dataTest}>
         {children}
         <style jsx>{`
@@ -19,9 +23,5 @@ const FileListPlaceholder = ({
     </p>
 )
 
-FileListPlaceholder.propTypes = {
-    children: PropTypes.string,
-    dataTest: PropTypes.string,
-}
-
 export { FileListPlaceholder }
+export type { FileListPlaceholderProps }
