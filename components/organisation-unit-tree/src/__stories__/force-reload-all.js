@@ -1,6 +1,6 @@
 import { Button } from '@dhis2/ui'
 import React, { useState } from 'react'
-import { OrganisationUnitTree } from '../index.js'
+import { OrganisationUnitTree } from '../index.ts'
 import { onChange } from './shared.js'
 
 export const ForceReloadAll = () => {

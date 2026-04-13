@@ -1,5 +1,5 @@
 import React from 'react'
-import { OrganisationUnitTree } from '../index.js'
+import { OrganisationUnitTree } from '../index.ts'
 import {
     createDecoratorCustomDataProvider,
     createDecoratorStatefulMultiSelection,

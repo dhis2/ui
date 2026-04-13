@@ -1,4 +1,4 @@
-import { getAllExpandedPaths } from './get-all-expanded-paths.js'
+import { getAllExpandedPaths } from './get-all-expanded-paths.ts'
 
 describe('OrganisationUnitTree - getAllExpandedPaths', () => {
     const initiallyExpanded = ['/foo/bar/baz', '/foobar/barbaz/bazfoo']

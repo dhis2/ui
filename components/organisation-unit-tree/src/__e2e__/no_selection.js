@@ -1,6 +1,6 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import React from 'react'
-import { OrganisationUnitTree } from '../index.js'
+import { OrganisationUnitTree } from '../index.ts'
 import { StatefulMultiSelectionWrapper, dataProviderData } from './common.js'
 
 export const NoSelectionClosed = () => (

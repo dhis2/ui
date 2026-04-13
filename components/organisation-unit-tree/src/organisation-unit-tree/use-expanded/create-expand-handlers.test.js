@@ -1,4 +1,4 @@
-import { createExpandHandlers } from './create-expand-handlers.js'
+import { createExpandHandlers } from './create-expand-handlers.ts'
 
 describe('OrganisationUnitTree - useExpanded - createExpandHandlers', () => {
     const initiallyExpanded = ['/foo/bar/baz', '/foobar/barbaz/bazfoo']

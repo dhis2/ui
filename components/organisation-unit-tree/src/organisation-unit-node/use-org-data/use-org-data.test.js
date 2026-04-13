@@ -1,7 +1,7 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import { renderHook, waitFor } from '@testing-library/react'
 import React from 'react'
-import { useOrgData } from './use-org-data.js'
+import { useOrgData } from './use-org-data.ts'
 
 describe('OrganisationUnitTree - useOrgData', () => {
     // @TODO: Figure out why this is necessary at all...

@@ -1,7 +1,7 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import { shallow } from 'enzyme'
 import React from 'react'
-import { OrganisationUnitTree } from './organisation-unit-tree.js'
+import { OrganisationUnitTree } from './organisation-unit-tree.tsx'
 
 describe('OrganisationUnitTree', () => {
     const origError = console.error.bind(console)

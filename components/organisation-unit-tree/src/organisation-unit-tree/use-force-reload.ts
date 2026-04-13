@@ -1,0 +1,19 @@
+import { useEffect, useState } from 'react'
+
+/**
+ * This will create a new reloadId everytime "forceReload" changes to true,
+ * which can be used as the "key" prop on the org unit tree.
+ * When that id changes, the whole tree rerenders
+ * and therefore triggers all "useDataQuery"s to
+ * run the query again
+ */
+export const useForceReload = (forceReload?: boolean): number => {
+    const [reloadId, setReloadId] = useState(0)
+
+    useEffect(() => {
+        const nextReloadId = reloadId + 1
+        forceReload === true && setReloadId(nextReloadId)
+    }, [forceReload])
+
+    return reloadId
+}
