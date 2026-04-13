@@ -1,5 +1,5 @@
 import React from 'react'
-import { Cover } from './cover.js'
+import { Cover } from './cover.tsx'
 
 window.onButtonClick = window.Cypress && window.Cypress.cy.stub()
 window.onCover = window.Cypress && window.Cypress.cy.stub()

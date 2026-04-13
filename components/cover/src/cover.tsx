@@ -1,14 +1,27 @@
 import { layers } from '@dhis2/ui-constants'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React from 'react'
 
-const createClickHandler = (onClick) => (event) => {
-    // don't respond to clicks that originated in the children
-    if (onClick && event.target === event.currentTarget) {
-        onClick({}, event)
-    }
+export interface CoverProps {
+    children?: React.ReactNode
+    className?: string
+    dataTest?: string
+    /** Adds a semi-transparent background to the cover */
+    translucent?: boolean
+    onClick?: (
+        payload: Record<string, never>,
+        event: React.MouseEvent<HTMLDivElement>
+    ) => void
 }
+
+const createClickHandler =
+    (onClick?: CoverProps['onClick']): React.MouseEventHandler<HTMLDivElement> =>
+    (event) => {
+        // don't respond to clicks that originated in the children
+        if (onClick && event.target === event.currentTarget) {
+            onClick({}, event)
+        }
+    }
 
 const Cover = ({
     children,
@@ -16,7 +29,7 @@ const Cover = ({
     dataTest = 'dhis2-uicore-componentcover',
     onClick,
     translucent,
-}) => (
+}: CoverProps) => (
     <div
         className={cx(className, { translucent })}
         onClick={createClickHandler(onClick)}
@@ -38,14 +51,5 @@ const Cover = ({
         `}</style>
     </div>
 )
-
-Cover.propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    /** Adds a semi-transparent background to the cover */
-    translucent: PropTypes.bool,
-    onClick: PropTypes.func,
-}
 
 export { Cover }

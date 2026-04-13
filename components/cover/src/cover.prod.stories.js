@@ -1,7 +1,7 @@
 import { Center } from '@dhis2-ui/center'
 import { CircularLoader } from '@dhis2-ui/loader'
 import React from 'react'
-import { Cover } from './cover.js'
+import { Cover } from './cover.tsx'
 
 const description = `
 Covers sibling components.  Useful for covering a component while it is loading.
