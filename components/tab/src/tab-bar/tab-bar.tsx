@@ -1,7 +1,16 @@
-import PropTypes from 'prop-types'
 import React from 'react'
-import { ScrollBar } from './scroll-bar.js'
-import { Tabs } from './tabs.js'
+import { ScrollBar } from './scroll-bar.tsx'
+import { Tabs } from './tabs.tsx'
+
+export interface TabBarProps {
+    children?: React.ReactNode
+    className?: string
+    dataTest?: string
+    /** Fixed tabs fill the width of their container. If false (i.e. fluid), tabs take up an amount of space defined by the tab name. Fluid tabs should be used most of the time. */
+    fixed?: boolean
+    /** Enables horizontal scrolling for many tabs that don't fit the width of the container */
+    scrollable?: boolean
+}
 
 const TabBar = ({
     fixed,
@@ -9,7 +18,7 @@ const TabBar = ({
     className,
     scrollable,
     dataTest = 'dhis2-uicore-tabbar',
-}) => {
+}: TabBarProps) => {
     if (scrollable) {
         return (
             <div className={className} data-test={dataTest}>
@@ -29,16 +38,6 @@ const TabBar = ({
             </Tabs>
         </div>
     )
-}
-
-TabBar.propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    /** Fixed tabs fill the width of their container. If false (i.e. fluid), tabs take up an amount of space defined by the tab name. Fluid tabs should be used most of the time. */
-    fixed: PropTypes.bool,
-    /** Enables horizontal scrolling for many tabs that don't fit the width of the container */
-    scrollable: PropTypes.bool,
 }
 
 export { TabBar }

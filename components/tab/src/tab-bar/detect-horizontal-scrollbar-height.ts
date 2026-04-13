@@ -1,4 +1,4 @@
-let horizontalScrollbarHeight
+let horizontalScrollbarHeight: number | undefined
 const className = '__vertical-scrollbar-height-test__'
 const styles = `
     .${className} {
@@ -13,7 +13,7 @@ const styles = `
     }
 `
 
-export function detectHorizontalScrollbarHeight() {
+export function detectHorizontalScrollbarHeight(): number {
     if (horizontalScrollbarHeight) {
         return horizontalScrollbarHeight
     }

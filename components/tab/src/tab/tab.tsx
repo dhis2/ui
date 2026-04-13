@@ -1,10 +1,24 @@
 import { colors, theme } from '@dhis2/ui-constants'
 import { Tooltip } from '@dhis2-ui/tooltip'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React, { useState, useEffect, useRef } from 'react'
 
-export const Tab = React.forwardRef(
+export interface TabProps {
+    children?: React.ReactNode
+    className?: string
+    dataTest?: string
+    disabled?: boolean
+    icon?: React.ReactElement
+    /** Indicates this tab is selected */
+    selected?: boolean
+    /** Called with the signature `({}, event)` */
+    onClick?: (
+        payload: Record<string, never>,
+        event: React.MouseEvent<HTMLButtonElement> | React.FocusEvent<HTMLButtonElement>
+    ) => void
+}
+
+export const Tab = React.forwardRef<HTMLButtonElement, TabProps>(
     (
         {
             icon,
@@ -17,17 +31,19 @@ export const Tab = React.forwardRef(
         },
         ref
     ) => {
-        let tabRef = useRef(null)
+        let tabRef = useRef<HTMLButtonElement>(null)
         if (ref) {
-            tabRef = ref
+            tabRef = ref as React.MutableRefObject<HTMLButtonElement | null>
         }
         const [isOverflowing, setIsOverflowing] = useState(false)
 
         useEffect(() => {
             const checkOverflow = () => {
-                const isOverflow =
-                    tabRef.current.scrollWidth > tabRef.current.clientWidth
-                setIsOverflowing(isOverflow)
+                if (tabRef.current) {
+                    const isOverflow =
+                        tabRef.current.scrollWidth > tabRef.current.clientWidth
+                    setIsOverflowing(isOverflow)
+                }
             }
             checkOverflow()
         }, [])
@@ -38,18 +54,28 @@ export const Tab = React.forwardRef(
                     selected,
                     disabled,
                 })}`}
-                onClick={disabled ? undefined : (event) => onClick({}, event)}
+                onClick={
+                    disabled
+                        ? undefined
+                        : (event: React.MouseEvent<HTMLButtonElement>) =>
+                              onClick?.({} as Record<string, never>, event)
+                }
                 data-test={dataTest}
                 ref={tabRef}
                 role="tab"
                 aria-selected={selected ? 'true' : 'false'}
                 aria-disabled={disabled ? 'true' : 'false'}
-                onFocus={disabled ? undefined : (event) => onClick({}, event)}
+                onFocus={
+                    disabled
+                        ? undefined
+                        : (event: React.FocusEvent<HTMLButtonElement>) =>
+                              onClick?.({} as Record<string, never>, event)
+                }
                 tabIndex={-1}
             >
                 {icon}
                 {isOverflowing ? (
-                    <Tooltip content={children} maxWidth={'100%'}>
+                    <Tooltip content={children} maxWidth={320}>
                         <span ref={tabRef}>{children}</span>
                     </Tooltip>
                 ) : (
@@ -168,17 +194,5 @@ export const Tab = React.forwardRef(
         )
     }
 )
-
-Tab.propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    disabled: PropTypes.bool,
-    icon: PropTypes.element,
-    /** Indicates this tab is selected */
-    selected: PropTypes.bool,
-    /** Called with the signature `({}, event)` */
-    onClick: PropTypes.func,
-}
 
 Tab.displayName = 'Tab'

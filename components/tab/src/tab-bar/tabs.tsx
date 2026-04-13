@@ -1,17 +1,25 @@
 import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React, { useRef, useMemo } from 'react'
 
-const Tabs = ({ children, fixed, dataTest }) => {
-    const tabContainer = useRef(null)
+export interface TabsProps {
+    dataTest: string
+    children?: React.ReactNode
+    fixed?: boolean
+}
+
+const Tabs = ({ children, fixed, dataTest }: TabsProps) => {
+    const tabContainer = useRef<HTMLDivElement>(null)
 
     const childrenRefs = useMemo(
-        () => React.Children.map(children, () => React.createRef()),
+        () =>
+            React.Children.map(children, () =>
+                React.createRef<HTMLElement>()
+            ) ?? [],
         [children]
     )
 
-    const handleKeyDown = (event) => {
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
         const currentFocus = document.activeElement
 
         if (tabContainer.current && tabContainer.current === currentFocus) {
@@ -32,14 +40,14 @@ const Tabs = ({ children, fixed, dataTest }) => {
         if (event.key === 'ArrowRight') {
             event.preventDefault()
             const nextIndex = (currentIndex + 1) % childrenRefs.length
-            childrenRefs[nextIndex].current.focus()
+            childrenRefs[nextIndex].current?.focus()
         }
 
         if (event.key === 'ArrowLeft') {
             event.preventDefault()
             const prevIndex =
                 (currentIndex - 1 + childrenRefs.length) % childrenRefs.length
-            childrenRefs[prevIndex].current.focus()
+            childrenRefs[prevIndex].current?.focus()
         }
     }
 
@@ -54,9 +62,12 @@ const Tabs = ({ children, fixed, dataTest }) => {
         >
             {React.Children.map(children, (child, index) => {
                 if (React.isValidElement(child)) {
-                    return React.cloneElement(child, {
-                        ref: childrenRefs[index],
-                    })
+                    return React.cloneElement(
+                        child as React.ReactElement<{ ref?: React.Ref<HTMLElement> }>,
+                        {
+                            ref: childrenRefs[index],
+                        }
+                    )
                 }
                 // Wrap non-element children e.g string in a <span>
                 return (
@@ -80,12 +91,6 @@ const Tabs = ({ children, fixed, dataTest }) => {
             `}</style>
         </div>
     )
-}
-
-Tabs.propTypes = {
-    dataTest: PropTypes.string.isRequired,
-    children: PropTypes.node,
-    fixed: PropTypes.bool,
 }
 
 export { Tabs }

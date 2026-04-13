@@ -1,9 +1,20 @@
 import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React from 'react'
 
-export const ScrollButton = ({ children, disabled, hidden, onClick }) => (
+export interface ScrollButtonProps {
+    children: React.ReactNode
+    disabled?: boolean
+    hidden?: boolean
+    onClick?: () => void
+}
+
+export const ScrollButton = ({
+    children,
+    disabled,
+    hidden,
+    onClick,
+}: ScrollButtonProps) => (
     <button
         onClick={disabled ? undefined : onClick}
         className={cx('scroll-button', { disabled, hidden })}
@@ -63,10 +74,3 @@ export const ScrollButton = ({ children, disabled, hidden, onClick }) => (
 )
 
 ScrollButton.displayName = 'ScrollButton'
-
-ScrollButton.propTypes = {
-    children: PropTypes.any.isRequired,
-    disabled: PropTypes.bool,
-    hidden: PropTypes.bool,
-    onClick: PropTypes.func,
-}

@@ -1,18 +1,30 @@
 import { IconChevronRight16, IconChevronLeft16 } from '@dhis2/ui-icons'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React, { Component, createRef } from 'react'
-import { animatedSideScroll } from './animated-side-scroll.js'
-import { detectHorizontalScrollbarHeight } from './detect-horizontal-scrollbar-height.js'
-import { ScrollButton } from './scroll-button.js'
+import { animatedSideScroll } from './animated-side-scroll.ts'
+import { detectHorizontalScrollbarHeight } from './detect-horizontal-scrollbar-height.ts'
+import { ScrollButton } from './scroll-button.tsx'
 
-class ScrollBar extends Component {
-    scrollBox = createRef()
-    scrollArea = createRef()
+export interface ScrollBarProps {
+    children: React.ReactNode
+    dataTest: string
+    className?: string
+}
+
+interface ScrollBarState {
+    scrolledToStart: boolean
+    scrolledToEnd: boolean
+    hideScrollButtonsInitialized: boolean
+    hideScrollButtons: boolean
+}
+
+class ScrollBar extends Component<ScrollBarProps, ScrollBarState> {
+    scrollBox = createRef<HTMLDivElement>()
+    scrollArea = createRef<HTMLDivElement>()
     horizontalScrollBarHeight = detectHorizontalScrollbarHeight()
-    scrollBoxResizeObserver = null
+    scrollBoxResizeObserver: ResizeObserver | null = null
 
-    constructor(props) {
+    constructor(props: ScrollBarProps) {
         super(props)
         this.state = {
             scrolledToStart: true,
@@ -35,12 +47,14 @@ class ScrollBar extends Component {
 
     componentWillUnmount() {
         this.removeSideScrollListener()
-        this.scrollBoxResizeObserver.disconnect()
+        this.scrollBoxResizeObserver?.disconnect()
     }
 
     manageShouldHideButtons() {
         const { current: scrollBox } = this.scrollBox
-        this.scrollBoxResizeObserver.observe(scrollBox)
+        if (scrollBox) {
+            this.scrollBoxResizeObserver?.observe(scrollBox)
+        }
         this.calculateShouldHideButtons()
     }
 
@@ -49,6 +63,10 @@ class ScrollBar extends Component {
 
         const { current: scrollBox } = this.scrollBox
         const { current: scrollArea } = this.scrollArea
+
+        if (!scrollBox || !scrollArea) {
+            return
+        }
 
         const areaWidth = scrollArea.offsetWidth
         const boxWidth = scrollBox.offsetWidth
@@ -73,14 +91,16 @@ class ScrollBar extends Component {
 
     scrollLeft = () => this.scroll(true)
 
-    scroll(goBackwards) {
+    scroll(goBackwards?: boolean) {
         this.removeSideScrollListener()
 
-        animatedSideScroll(
-            this.scrollBox.current,
-            this.animatedScrollCallback,
-            goBackwards
-        )
+        if (this.scrollBox.current) {
+            animatedSideScroll(
+                this.scrollBox.current,
+                this.animatedScrollCallback,
+                goBackwards
+            )
+        }
     }
 
     animatedScrollCallback = () => {
@@ -89,8 +109,15 @@ class ScrollBar extends Component {
     }
 
     updateScrolledToStates = () => {
-        const { scrollLeft, offsetWidth } = this.scrollBox.current
-        const { offsetWidth: areaOffsetWidth } = this.scrollArea.current
+        const scrollBox = this.scrollBox.current
+        const scrollArea = this.scrollArea.current
+
+        if (!scrollBox || !scrollArea) {
+            return
+        }
+
+        const { scrollLeft, offsetWidth } = scrollBox
+        const { offsetWidth: areaOffsetWidth } = scrollArea
         const scrolledToStart = scrollLeft <= 0
         const scrolledToEnd = scrollLeft + offsetWidth >= areaOffsetWidth
 
@@ -107,7 +134,12 @@ class ScrollBar extends Component {
 
     scrollSelectedTabIntoView() {
         const scrollBoxEl = this.scrollBox.current
-        const tab = scrollBoxEl.querySelector('.tab.selected')
+
+        if (!scrollBoxEl) {
+            return
+        }
+
+        const tab = scrollBoxEl.querySelector<HTMLElement>('.tab.selected')
 
         if (tab) {
             const tabEnd = tab.offsetLeft + tab.offsetWidth
@@ -119,14 +151,14 @@ class ScrollBar extends Component {
     }
 
     attachSideScrollListener() {
-        this.scrollBox.current.addEventListener(
+        this.scrollBox.current?.addEventListener(
             'scroll',
             this.updateScrolledToStates
         )
     }
 
     removeSideScrollListener() {
-        this.scrollBox.current.removeEventListener(
+        this.scrollBox.current?.removeEventListener(
             'scroll',
             this.updateScrolledToStates
         )
@@ -208,12 +240,6 @@ class ScrollBar extends Component {
             </div>
         )
     }
-}
-
-ScrollBar.propTypes = {
-    children: PropTypes.node.isRequired,
-    dataTest: PropTypes.string.isRequired,
-    className: PropTypes.string,
 }
 
 export { ScrollBar }
