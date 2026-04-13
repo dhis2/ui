@@ -1,7 +1,12 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 
-export function LogoIconSvg({ iconColor, className, dataTest }) {
+export interface LogoIconSvgProps {
+    iconColor: string
+    className?: string
+    dataTest?: string
+}
+
+export function LogoIconSvg({ iconColor, className, dataTest }: LogoIconSvgProps) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -24,10 +29,4 @@ export function LogoIconSvg({ iconColor, className, dataTest }) {
             />
         </svg>
     )
-}
-
-LogoIconSvg.propTypes = {
-    iconColor: PropTypes.string.isRequired,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
 }

@@ -1,7 +1,6 @@
-import PropTypes from 'prop-types'
 import React from 'react'
-import { LogoIconSvg } from './logo-icon-svg.js'
-import { LogoSvg } from './logo-svg.js'
+import { LogoIconSvg } from './logo-icon-svg.tsx'
+import { LogoSvg } from './logo-svg.tsx'
 
 /*
  * These are official colors for dhis2 logos.
@@ -16,28 +15,33 @@ const blue = '#0080d4'
 const white = '#ffffff'
 const dark = '#212225'
 
-export const LogoIcon = ({ className, dataTest = 'dhis2-uicore-logoicon' }) => (
+export interface LogoIconProps {
+    className?: string
+    dataTest?: string
+}
+
+export const LogoIcon = ({ className, dataTest = 'dhis2-uicore-logoicon' }: LogoIconProps) => (
     <LogoIconSvg iconColor={blue} className={className} dataTest={dataTest} />
 )
 
-LogoIcon.propTypes = {
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
+export interface LogoIconWhiteProps {
+    className?: string
+    dataTest?: string
 }
 
 export const LogoIconWhite = ({
     className,
     dataTest = 'dhis2-uicore-logoiconwhite',
-}) => (
+}: LogoIconWhiteProps) => (
     <LogoIconSvg iconColor={white} className={className} dataTest={dataTest} />
 )
 
-LogoIconWhite.propTypes = {
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
+export interface LogoProps {
+    className?: string
+    dataTest?: string
 }
 
-export const Logo = ({ className, dataTest = 'dhis2-uicore-logo' }) => (
+export const Logo = ({ className, dataTest = 'dhis2-uicore-logo' }: LogoProps) => (
     <LogoSvg
         iconColor={blue}
         textColor={dark}
@@ -46,15 +50,15 @@ export const Logo = ({ className, dataTest = 'dhis2-uicore-logo' }) => (
     />
 )
 
-Logo.propTypes = {
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
+export interface LogoWhiteProps {
+    className?: string
+    dataTest?: string
 }
 
 export const LogoWhite = ({
     className,
     dataTest = 'dhis2-uicore-logowhite',
-}) => (
+}: LogoWhiteProps) => (
     <LogoSvg
         iconColor={white}
         textColor={white}
@@ -62,8 +66,3 @@ export const LogoWhite = ({
         dataTest={dataTest}
     />
 )
-
-LogoWhite.propTypes = {
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-}

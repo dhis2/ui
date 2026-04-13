@@ -1,7 +1,13 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 
-export function LogoSvg({ iconColor, textColor, className, dataTest }) {
+export interface LogoSvgProps {
+    iconColor: string
+    textColor: string
+    className?: string
+    dataTest?: string
+}
+
+export function LogoSvg({ iconColor, textColor, className, dataTest }: LogoSvgProps) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -50,11 +56,4 @@ export function LogoSvg({ iconColor, textColor, className, dataTest }) {
             />
         </svg>
     )
-}
-
-LogoSvg.propTypes = {
-    iconColor: PropTypes.string.isRequired,
-    textColor: PropTypes.string.isRequired,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
 }
