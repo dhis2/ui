@@ -1,5 +1,5 @@
 import React from 'react'
-import { CalendarInput as component } from '../index.js'
+import { CalendarInput as component } from '../index.ts'
 import { CalendarWithClearButton } from '../stories/calendar-input.prod.stories.js'
 export default { title: 'CalendarInputTesting', component }
 

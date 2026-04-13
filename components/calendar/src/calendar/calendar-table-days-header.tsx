@@ -1,15 +1,20 @@
 import { colors } from '@dhis2/ui-constants'
-import PropTypes from 'prop-types'
 import React from 'react'
 
-export const CalendarTableDaysHeader = ({ weekDayLabels }) => {
+export interface CalendarTableDaysHeaderProps {
+    weekDayLabels?: string[]
+}
+
+export const CalendarTableDaysHeader = ({
+    weekDayLabels,
+}: CalendarTableDaysHeaderProps) => {
     const dayNamesColor = colors.grey700
 
     return (
         <>
             <thead>
                 <tr>
-                    {weekDayLabels.map((label, i) => (
+                    {weekDayLabels?.map((label, i) => (
                         <th scope="col" key={`weekday-${i}`}>
                             {label}
                         </th>
@@ -33,8 +38,4 @@ export const CalendarTableDaysHeader = ({ weekDayLabels }) => {
             `}</style>
         </>
     )
-}
-
-CalendarTableDaysHeader.propTypes = {
-    weekDayLabels: PropTypes.arrayOf(PropTypes.string),
 }

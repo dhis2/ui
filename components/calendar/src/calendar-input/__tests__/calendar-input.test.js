@@ -2,7 +2,7 @@ import { Button } from '@dhis2-ui/button'
 import { fireEvent, render, waitFor, within } from '@testing-library/react'
 import React, { useState } from 'react'
 import { Field, Form } from 'react-final-form'
-import { CalendarInput } from '../calendar-input.js'
+import { CalendarInput } from '../calendar-input.tsx'
 
 describe('Calendar Input', () => {
     it('allow selection of a date through the calendar widget', async () => {

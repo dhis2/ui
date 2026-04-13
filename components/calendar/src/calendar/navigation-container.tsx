@@ -1,11 +1,47 @@
 import { colors, spacers } from '@dhis2/ui-constants'
 import { IconChevronLeft16, IconChevronRight16 } from '@dhis2/ui-icons'
-import PropTypes from 'prop-types'
 import React from 'react'
 import i18n from '../locales/index.js'
 
 const wrapperBorderColor = colors.grey300
 const headerBackground = colors.grey100
+
+export interface NavigationContainerProps {
+    languageDirection?: 'ltr' | 'rtl'
+    currMonth?: {
+        label?: string | number
+    }
+    currYear?: {
+        label?: string | number
+        value?: string | number
+    }
+    nextMonth?: {
+        label?: string | number
+        navigateTo?: () => void
+    }
+    nextYear?: {
+        label?: string | number
+        navigateTo?: () => void
+    }
+    prevMonth?: {
+        label?: string | number
+        navigateTo?: () => void
+    }
+    prevYear?: {
+        label?: string | number
+        navigateTo?: () => void
+    }
+    navigateToYear?: (year: number) => void
+    navigateToMonth?: (month: number) => void
+    months?: Array<{
+        label: string
+        value: number
+    }>
+    years?: Array<{
+        label: string
+        value: number
+    }>
+}
 
 export const NavigationContainer = ({
     languageDirection,
@@ -19,24 +55,24 @@ export const NavigationContainer = ({
     navigateToMonth,
     months,
     years,
-}) => {
+}: NavigationContainerProps) => {
     const PreviousIcon =
         languageDirection === 'ltr' ? IconChevronLeft16 : IconChevronRight16
     const NextIcon =
         languageDirection === 'ltr' ? IconChevronRight16 : IconChevronLeft16
 
-    const handleYearChange = (e) => {
+    const handleYearChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const targetYear = parseInt(e.target.value)
-        navigateToYear(targetYear)
+        navigateToYear?.(targetYear)
     }
 
-    const handleMonthChange = (e) => {
-        const selectedMonth = months.find(
+    const handleMonthChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        const selectedMonth = months?.find(
             (month) => month.label === e.target.value
         )
 
         if (selectedMonth) {
-            navigateToMonth(selectedMonth.value)
+            navigateToMonth?.(selectedMonth.value)
         }
     }
 
@@ -46,10 +82,10 @@ export const NavigationContainer = ({
                 <div className="month">
                     <div className="prev">
                         <button
-                            onClick={prevMonth.navigateTo}
+                            onClick={prevMonth?.navigateTo}
                             name="previous-month"
                             data-test="calendar-previous-month"
-                            aria-label={`${i18n.t(`Go to ${prevMonth.label}`)}`}
+                            aria-label={`${i18n.t(`Go to ${prevMonth?.label}`)}`}
                             type="button"
                         >
                             <PreviousIcon />
@@ -57,12 +93,12 @@ export const NavigationContainer = ({
                     </div>
                     <div className="monthList">
                         <select
-                            value={currMonth.label}
+                            value={currMonth?.label}
                             onChange={handleMonthChange}
                             className="month-select"
                             data-test="calendar-month-select"
                         >
-                            {months.map((month) => (
+                            {months?.map((month) => (
                                 <option key={month.value} value={month.label}>
                                     {month.label}
                                 </option>
@@ -83,10 +119,10 @@ export const NavigationContainer = ({
                     </div>
                     <div className="next">
                         <button
-                            onClick={nextMonth.navigateTo}
+                            onClick={nextMonth?.navigateTo}
                             data-test="calendar-next-month"
                             name="next-month"
-                            aria-label={`${i18n.t(`Go to ${nextMonth.label}`)}`}
+                            aria-label={`${i18n.t(`Go to ${nextMonth?.label}`)}`}
                             type="button"
                         >
                             <NextIcon />
@@ -96,7 +132,7 @@ export const NavigationContainer = ({
                 <div className="year">
                     <div className="prev">
                         <button
-                            onClick={prevYear.navigateTo}
+                            onClick={prevYear?.navigateTo}
                             name="previous-year"
                             aria-label={`${i18n.t('Go to previous year')}`}
                             type="button"
@@ -106,12 +142,12 @@ export const NavigationContainer = ({
                     </div>
                     <div className="yearList">
                         <select
-                            value={currYear.value}
+                            value={currYear?.value}
                             onChange={handleYearChange}
                             className="year-select"
                             data-test="calendar-year-select"
                         >
-                            {years.map((year) => (
+                            {years?.map((year) => (
                                 <option key={year.value} value={year.value}>
                                     {/* ToDo: this is a workaround for Ethiopic years showing the era
                                     The workaround is needed but should be done in multi-calendar lib */}
@@ -134,7 +170,7 @@ export const NavigationContainer = ({
                     </div>
                     <div className="next">
                         <button
-                            onClick={nextYear.navigateTo}
+                            onClick={nextYear?.navigateTo}
                             name="next-year"
                             aria-label={`${i18n.t('Go to next year')}`}
                             type="button"
@@ -250,46 +286,3 @@ export const NavigationContainer = ({
         </>
     )
 }
-
-export const NavigationContainerProps = {
-    currMonth: PropTypes.shape({
-        label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    }),
-    currYear: PropTypes.shape({
-        label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        value: PropTypes.number,
-    }),
-    languageDirection: PropTypes.oneOf(['ltr', 'rtl']),
-    months: PropTypes.arrayOf(
-        PropTypes.shape({
-            label: PropTypes.string.isRequired,
-            value: PropTypes.number.isRequired,
-        })
-    ),
-    navigateToMonth: PropTypes.func,
-    navigateToYear: PropTypes.func,
-    nextMonth: PropTypes.shape({
-        label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        navigateTo: PropTypes.func,
-    }),
-    nextYear: PropTypes.shape({
-        label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        navigateTo: PropTypes.func,
-    }),
-    prevMonth: PropTypes.shape({
-        label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        navigateTo: PropTypes.func,
-    }),
-    prevYear: PropTypes.shape({
-        label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        navigateTo: PropTypes.func,
-    }),
-    years: PropTypes.arrayOf(
-        PropTypes.shape({
-            label: PropTypes.string.isRequired,
-            value: PropTypes.number.isRequired,
-        })
-    ),
-}
-
-NavigationContainer.propTypes = NavigationContainerProps

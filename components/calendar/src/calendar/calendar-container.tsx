@@ -1,13 +1,19 @@
-import { colors, elevations } from '@dhis2/ui-constants'
-import PropTypes from 'prop-types'
+import { colors } from '@dhis2/ui-constants'
 import React, { useMemo } from 'react'
-import { CalendarTable, CalendarTableProps } from './calendar-table.js'
-import {
-    NavigationContainer,
-    NavigationContainerProps,
-} from './navigation-container.js'
+import { CalendarTable } from './calendar-table.tsx'
+import type { CalendarTableProps } from './calendar-table.tsx'
+import { NavigationContainer } from './navigation-container.tsx'
+import type { NavigationContainerProps } from './navigation-container.tsx'
 
 const backgroundColor = colors.white
+
+export interface CalendarContainerProps
+    extends CalendarTableProps,
+        NavigationContainerProps {
+    date?: string
+    width?: string
+    calendarRef?: React.Ref<HTMLDivElement>
+}
 
 export const CalendarContainer = React.memo(function CalendarContainer({
     date,
@@ -27,7 +33,7 @@ export const CalendarContainer = React.memo(function CalendarContainer({
     years,
     languageDirection,
     calendarRef,
-}) {
+}: CalendarContainerProps) {
     const navigationProps = useMemo(() => {
         return {
             currMonth,
@@ -69,7 +75,6 @@ export const CalendarContainer = React.memo(function CalendarContainer({
                         calendarWeekDays={calendarWeekDays}
                         weekDayLabels={weekDayLabels}
                         cellSize={cellSize}
-                        width={width}
                     />
                 </div>
             </div>
@@ -84,16 +89,9 @@ export const CalendarContainer = React.memo(function CalendarContainer({
                     border-radius: 3px;
                     min-width: ${width};
                     width: max-content;
-                    box-shadow: ${elevations.popover};
+                    box-shadow: 0 4px 12px rgba(12, 14, 16, 0.15), 0 0 0 1px rgba(12, 14, 16, 0.05);
                 }
             `}</style>
         </div>
     )
 })
-
-CalendarContainer.propTypes = {
-    /** the currently selected date using an iso-like format YYYY-MM-DD, in the calendar system provided (not iso8601) */
-    date: PropTypes.string,
-    ...CalendarTableProps,
-    ...NavigationContainerProps,
-}

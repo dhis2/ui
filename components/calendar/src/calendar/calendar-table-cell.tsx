@@ -1,9 +1,27 @@
 import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React from 'react'
 
-export const CalendarTableCell = ({ day, cellSize, selectedDate }) => {
+export interface CalendarDay {
+    dateValue?: string
+    label?: string | number
+    onClick?: () => void
+    isSelected?: boolean
+    isToday?: boolean
+    isInCurrentMonth?: boolean
+}
+
+export interface CalendarTableCellProps {
+    day: CalendarDay
+    cellSize?: string
+    selectedDate?: string
+}
+
+export const CalendarTableCell = ({
+    day,
+    cellSize,
+    selectedDate,
+}: CalendarTableCellProps) => {
     const dayHoverBackgroundColor = colors.grey200
     const selectedDayBackgroundColor = colors.teal700
 
@@ -81,17 +99,4 @@ export const CalendarTableCell = ({ day, cellSize, selectedDate }) => {
             `}</style>
         </td>
     )
-}
-
-CalendarTableCell.propTypes = {
-    cellSize: PropTypes.string,
-    day: PropTypes.shape({
-        dateValue: PropTypes.string,
-        isInCurrentMonth: PropTypes.bool,
-        isSelected: PropTypes.bool,
-        isToday: PropTypes.bool,
-        label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        onClick: PropTypes.func,
-    }),
-    selectedDate: PropTypes.string,
 }

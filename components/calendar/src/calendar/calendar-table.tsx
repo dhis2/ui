@@ -1,16 +1,22 @@
 import { spacers } from '@dhis2/ui-constants'
-import PropTypes from 'prop-types'
 import React from 'react'
-import { CalendarTableCell } from './calendar-table-cell.js'
-import { CalendarTableDaysHeader } from './calendar-table-days-header.js'
+import type { CalendarDay } from './calendar-table-cell.tsx'
+import { CalendarTableCell } from './calendar-table-cell.tsx'
+import { CalendarTableDaysHeader } from './calendar-table-days-header.tsx'
+
+export interface CalendarTableProps {
+    calendarWeekDays: CalendarDay[][]
+    cellSize?: string
+    selectedDate?: string
+    weekDayLabels?: string[]
+}
 
 export const CalendarTable = ({
     weekDayLabels,
     calendarWeekDays,
-    width,
     cellSize,
     selectedDate,
-}) => (
+}: CalendarTableProps) => (
     <div className="calendar-table-wrapper">
         <table className="calendar-table">
             <CalendarTableDaysHeader weekDayLabels={weekDayLabels} />
@@ -23,7 +29,6 @@ export const CalendarTable = ({
                                 day={day}
                                 key={day?.dateValue}
                                 cellSize={cellSize}
-                                width={width}
                             />
                         ))}
                     </tr>
@@ -47,28 +52,3 @@ export const CalendarTable = ({
         `}</style>
     </div>
 )
-
-export const CalendarTableProps = {
-    calendarWeekDays: PropTypes.arrayOf(
-        PropTypes.arrayOf(
-            PropTypes.shape({
-                calendarDate: PropTypes.string,
-                isInCurrentMonth: PropTypes.bool,
-                isSelected: PropTypes.bool,
-                isToday: PropTypes.bool,
-                label: PropTypes.oneOfType([
-                    PropTypes.string,
-                    PropTypes.number,
-                ]),
-                zdt: PropTypes.object,
-                onClick: PropTypes.func,
-            }).isRequired
-        ).isRequired
-    ).isRequired,
-    cellSize: PropTypes.string,
-    selectedDate: PropTypes.string,
-    weekDayLabels: PropTypes.arrayOf(PropTypes.string),
-    width: PropTypes.string,
-}
-
-CalendarTable.propTypes = CalendarTableProps
