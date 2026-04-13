@@ -1,67 +1,96 @@
-import { mutuallyExclusive } from '@dhis2/prop-types'
-import { colors, spacers, theme, sharedPropTypes } from '@dhis2/ui-constants'
+import { colors, spacers, theme } from '@dhis2/ui-constants'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React, { Component, createRef } from 'react'
-import { CheckboxRegular, CheckboxDense } from './checkbox-icon.js'
+import { CheckboxRegular, CheckboxDense } from './checkbox-icon.tsx'
 
-class Checkbox extends Component {
-    ref = createRef()
+interface CheckboxHandlerPayload {
+    value?: string
+    name?: string
+    checked: boolean
+}
 
-    componentDidMount() {
-        if (this.props.initialFocus) {
-            this.ref.current.focus()
-        }
+export interface CheckboxProps {
+    checked?: boolean
+    indeterminate?: boolean
+    className?: string
+    dataTest?: string
+    dense?: boolean
+    disabled?: boolean
+    error?: boolean
+    initialFocus?: boolean
+    label?: React.ReactNode
+    name?: string
+    tabIndex?: string
+    valid?: boolean
+    value?: string
+    warning?: boolean
+    onBlur?: (payload: CheckboxHandlerPayload, event: React.FocusEvent<HTMLInputElement>) => void
+    onChange?: (payload: CheckboxHandlerPayload, event: React.ChangeEvent<HTMLInputElement>) => void
+    onFocus?: (payload: CheckboxHandlerPayload, event: React.FocusEvent<HTMLInputElement>) => void
+    onKeyDown?: (payload: CheckboxHandlerPayload, event: React.KeyboardEvent<HTMLInputElement>) => void
+}
 
-        this.setIndeterminate(this.props.indeterminate)
-    }
+interface CheckboxState {}
 
-    componentDidUpdate(prevProps) {
-        if (prevProps.indeterminate !== this.props.indeterminate) {
-            this.setIndeterminate(this.props.indeterminate)
-        }
-    }
-
-    setIndeterminate(indeterminate) {
-        this.ref.current.indeterminate = indeterminate
-    }
-
-    handleChange = (e) => {
-        if (this.props.onChange) {
-            this.props.onChange(this.createHandlerPayload(), e)
-        }
-    }
-
-    handleBlur = (e) => {
-        if (this.props.onBlur) {
-            this.props.onBlur(this.createHandlerPayload(), e)
-        }
-    }
-
-    handleFocus = (e) => {
-        if (this.props.onFocus) {
-            this.props.onFocus(this.createHandlerPayload(), e)
-        }
-    }
-
-    handleKeyDown = (e) => {
-        if (this.props.onKeyDown) {
-            this.props.onKeyDown(this.createHandlerPayload(), e)
-        }
-    }
-
-    createHandlerPayload() {
-        return {
-            value: this.props.value,
-            name: this.props.name,
-            checked: !this.props.checked,
-        }
-    }
+class Checkbox extends Component<CheckboxProps, CheckboxState> {
+    ref = createRef<HTMLInputElement>()
 
     static defaultProps = {
         checked: false,
         indeterminate: false,
         dataTest: 'dhis2-uicore-checkbox',
+    }
+
+    componentDidMount() {
+        if (this.props.initialFocus) {
+            this.ref.current?.focus()
+        }
+
+        this.setIndeterminate(this.props.indeterminate)
+    }
+
+    componentDidUpdate(prevProps: CheckboxProps) {
+        if (prevProps.indeterminate !== this.props.indeterminate) {
+            this.setIndeterminate(this.props.indeterminate)
+        }
+    }
+
+    setIndeterminate(indeterminate?: boolean) {
+        if (this.ref.current) {
+            this.ref.current.indeterminate = !!indeterminate
+        }
+    }
+
+    handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (this.props.onChange) {
+            this.props.onChange(this.createHandlerPayload(), e)
+        }
+    }
+
+    handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+        if (this.props.onBlur) {
+            this.props.onBlur(this.createHandlerPayload(), e)
+        }
+    }
+
+    handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+        if (this.props.onFocus) {
+            this.props.onFocus(this.createHandlerPayload(), e)
+        }
+    }
+
+    handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (this.props.onKeyDown) {
+            this.props.onKeyDown(this.createHandlerPayload(), e)
+        }
+    }
+
+    createHandlerPayload(): CheckboxHandlerPayload {
+        return {
+            value: this.props.value,
+            name: this.props.name,
+            checked: !this.props.checked,
+        }
     }
 
     render() {
@@ -105,7 +134,7 @@ class Checkbox extends Component {
                     value={value}
                     checked={checked}
                     disabled={disabled}
-                    tabIndex={tabIndex}
+                    tabIndex={tabIndex !== undefined ? Number(tabIndex) : undefined}
                     onChange={this.handleChange}
                     onFocus={this.handleFocus}
                     onKeyDown={this.handleKeyDown}
@@ -182,33 +211,6 @@ class Checkbox extends Component {
             </label>
         )
     }
-}
-
-const uniqueOnStatePropType = mutuallyExclusive(
-    ['checked', 'indeterminate'],
-    PropTypes.bool
-)
-
-Checkbox.propTypes = {
-    checked: uniqueOnStatePropType,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    dense: PropTypes.bool,
-    disabled: PropTypes.bool,
-    error: sharedPropTypes.statusPropType,
-    indeterminate: uniqueOnStatePropType,
-    initialFocus: PropTypes.bool,
-    label: PropTypes.node,
-    name: PropTypes.string,
-    tabIndex: PropTypes.string,
-    valid: sharedPropTypes.statusPropType,
-    value: PropTypes.string,
-    warning: sharedPropTypes.statusPropType,
-    onBlur: PropTypes.func,
-    /** Called with signature `(object, event)` */
-    onChange: PropTypes.func,
-    onFocus: PropTypes.func,
-    onKeyDown: PropTypes.func,
 }
 
 export { Checkbox }

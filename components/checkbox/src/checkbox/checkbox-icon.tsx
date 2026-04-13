@@ -1,5 +1,4 @@
 import { colors } from '@dhis2/ui-constants'
-import PropTypes from 'prop-types'
 import React from 'react'
 import css from 'styled-jsx/css'
 
@@ -45,7 +44,11 @@ const commonStyles = css`
     }
 `
 
-export function CheckboxRegular({ className }) {
+interface CheckboxIconProps {
+    className?: string
+}
+
+export function CheckboxRegular({ className }: CheckboxIconProps) {
     return (
         <svg
             viewBox="0 0 18 18"
@@ -117,11 +120,8 @@ export function CheckboxRegular({ className }) {
         </svg>
     )
 }
-CheckboxRegular.propTypes = {
-    className: PropTypes.string,
-}
 
-export function CheckboxDense({ className }) {
+export function CheckboxDense({ className }: CheckboxIconProps) {
     return (
         <svg
             viewBox="0 0 14 14"
@@ -195,7 +195,4 @@ export function CheckboxDense({ className }) {
             `}</style>
         </svg>
     )
-}
-CheckboxDense.propTypes = {
-    className: PropTypes.string,
 }

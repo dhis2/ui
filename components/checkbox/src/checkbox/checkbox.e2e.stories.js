@@ -1,5 +1,5 @@
 import React from 'react'
-import { Checkbox } from './index.js'
+import { Checkbox } from './index.tsx'
 
 window.onClick = window.Cypress && window.Cypress.cy.stub()
 window.onChange = window.Cypress && window.Cypress.cy.stub()
