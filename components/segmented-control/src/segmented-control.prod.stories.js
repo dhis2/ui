@@ -1,5 +1,5 @@
 import React from 'react'
-import { SegmentedControl } from './segmented-control.js'
+import { SegmentedControl } from './segmented-control.tsx'
 
 const logger = ({ value }) => console.log(`Selected value: ${value}`)
 

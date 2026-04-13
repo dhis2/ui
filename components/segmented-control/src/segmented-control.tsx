@@ -1,7 +1,23 @@
 import { colors, elevations, spacers, theme } from '@dhis2/ui-constants'
 import cx from 'classnames'
-import { PropTypes } from 'prop-types'
 import React from 'react'
+
+export interface SegmentedControlOption {
+    label: string
+    value: string
+    disabled?: boolean
+}
+
+export interface SegmentedControlProps {
+    /** Options to populate the segmented control */
+    options: SegmentedControlOption[]
+    /** An option to select; should match the `value` property of the option to be selected */
+    selected: string
+    /** Called with the signature `({ value: string }, event)` */
+    onChange: (payload: { value: string }, event: React.MouseEvent<HTMLButtonElement>) => void
+    /** Used to provide an accessible label to a segmented control without a visible label */
+    ariaLabel?: string
+}
 
 /**
 A segmented control is used to select between options that relate to another
@@ -23,7 +39,7 @@ export const SegmentedControl = ({
     selected,
     onChange,
     ariaLabel,
-}) => {
+}: SegmentedControlProps) => {
     if (!options.map(({ value }) => value).includes(selected)) {
         const message =
             `There is no option with the value: "${selected}". ` +
@@ -104,21 +120,4 @@ export const SegmentedControl = ({
             `}</style>
         </ul>
     )
-}
-
-SegmentedControl.propTypes = {
-    /** Options to populate the segmented control */
-    options: PropTypes.arrayOf(
-        PropTypes.shape({
-            label: PropTypes.string.isRequired,
-            value: PropTypes.string.isRequired,
-            disabled: PropTypes.bool,
-        })
-    ).isRequired,
-    /** An option to select; should match the `value` property of the option to be selected */
-    selected: PropTypes.string.isRequired,
-    /** Called with the signature `({ value: string }, event)` */
-    onChange: PropTypes.func.isRequired,
-    /** Used to provide an accessible label to a segmented control without a visible label */
-    ariaLabel: PropTypes.string,
 }
