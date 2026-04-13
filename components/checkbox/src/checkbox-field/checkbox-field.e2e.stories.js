@@ -1,5 +1,5 @@
 import React from 'react'
-import { CheckboxField } from './index.tsx'
+import { CheckboxField } from './index.ts'
 
 export default { title: 'CheckboxField' }
 export const WithLabelAndRequired = () => (
