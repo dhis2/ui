@@ -1,10 +1,49 @@
-import { colors, elevations, sharedPropTypes } from '@dhis2/ui-constants'
+import { colors, elevations } from '@dhis2/ui-constants'
 import { Layer } from '@dhis2-ui/layer'
-import { getReferenceElement, usePopper } from '@dhis2-ui/popper'
-import PropTypes from 'prop-types'
+import {
+    getReferenceElement,
+    usePopper,
+    PopperReference,
+} from '@dhis2-ui/popper'
+import type { Modifier } from '@popperjs/core'
 import React, { useState, useMemo } from 'react'
-import { Arrow } from './arrow.js'
-import { combineModifiers } from './modifiers.js'
+import { Arrow } from './arrow.tsx'
+import { combineModifiers } from './modifiers.ts'
+
+type Placement =
+    | 'auto'
+    | 'auto-start'
+    | 'auto-end'
+    | 'top'
+    | 'top-start'
+    | 'top-end'
+    | 'bottom'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'right'
+    | 'right-start'
+    | 'right-end'
+    | 'left'
+    | 'left-start'
+    | 'left-end'
+
+export interface PopoverProps {
+    /** Content inside the Popover */
+    children: React.ReactNode
+    /** Show or hide the arrow */
+    arrow?: boolean
+    className?: string
+    dataTest?: string
+    /** Box-shadow to create appearance of elevation. Use `elevations` constants from the UI library. */
+    elevation?: string
+    maxWidth?: number
+    observePopperResize?: boolean
+    observeReferenceResize?: boolean
+    placement?: Placement
+    /** A React ref that refers to the element the Popover should position against */
+    reference?: PopperReference
+    onClickOutside?: () => void
+}
 
 const Popover = ({
     children,
@@ -12,16 +51,18 @@ const Popover = ({
     arrow = true,
     className,
     dataTest = 'dhis2-uicore-popover',
-    elevation = elevations.popover,
+    elevation = (elevations as Record<string, string>).popover,
     maxWidth = 360,
     observePopperResize,
     observeReferenceResize,
     placement = 'top',
     onClickOutside,
-}) => {
+}: PopoverProps) => {
     const referenceElement = getReferenceElement(reference)
-    const [popperElement, setPopperElement] = useState(null)
-    const [arrowElement, setArrowElement] = useState(null)
+    const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
+        null
+    )
+    const [arrowElement, setArrowElement] = useState<HTMLDivElement | null>(null)
     const modifiers = useMemo(
         () =>
             combineModifiers(arrow, arrowElement, {
@@ -32,7 +73,9 @@ const Popover = ({
     )
     const { styles, attributes } = usePopper(referenceElement, popperElement, {
         placement,
-        modifiers,
+        modifiers: modifiers as unknown as readonly Partial<
+            Modifier<string, object>
+        >[],
     })
 
     return (
@@ -49,7 +92,7 @@ const Popover = ({
                     <Arrow
                         hidden={
                             attributes.arrow &&
-                            attributes.arrow['data-arrow-hidden']
+                            !!attributes.arrow['data-arrow-hidden']
                         }
                         popperPlacement={
                             attributes.popper &&
@@ -70,23 +113,6 @@ const Popover = ({
             </div>
         </Layer>
     )
-}
-
-Popover.propTypes = {
-    children: PropTypes.node.isRequired,
-    /** Show or hide the arrow */
-    arrow: PropTypes.bool,
-    className: PropTypes.string,
-    dataTest: PropTypes.string,
-    /** Box-shadow to create appearance of elevation.  Use `elevations` constants from the UI library. */
-    elevation: PropTypes.string,
-    maxWidth: PropTypes.number,
-    observePopperResize: PropTypes.bool,
-    observeReferenceResize: PropTypes.bool,
-    placement: sharedPropTypes.popperPlacementPropType,
-    /** A React ref that refers to the element the Popover should position against */
-    reference: sharedPropTypes.popperReferencePropType,
-    onClickOutside: PropTypes.func,
 }
 
 export { Popover }

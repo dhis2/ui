@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component, createRef } from 'react'
-import { Popover } from './popover.js'
+import { Popover } from './popover.tsx'
 
 const boxStyle = {
     display: 'flex',

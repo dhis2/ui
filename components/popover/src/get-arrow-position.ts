@@ -1,4 +1,4 @@
-const getArrowPosition = (popperPlacement) => {
+const getArrowPosition = (popperPlacement: string | undefined): string => {
     const direction =
         typeof popperPlacement === 'string' ? popperPlacement.split('-')[0] : ''
 
