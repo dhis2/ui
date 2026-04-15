@@ -1,5 +1,5 @@
 import React from 'react'
-import { TextAreaField } from './index.js'
+import { TextAreaField } from './index.ts'
 
 export default { title: 'TextAreaField' }
 export const WithLabelAndRequired = () => (

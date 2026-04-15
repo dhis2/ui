@@ -1,7 +1,7 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import React from 'react'
 import { customData } from './__stories__/shared.js'
-import { OrganisationUnitTree } from './index.js'
+import { OrganisationUnitTree } from './index.ts'
 
 const subtitle =
     'Display, manipulate and select organization units displayed in a hierarchical tree'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { SimpleSingleSelect } from '../simple-single-select.js'
+import { SimpleSingleSelect } from '../simple-single-select.tsx'
 import { options } from './options.js'
 
 export const Loading = () => {

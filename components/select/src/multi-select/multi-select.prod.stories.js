@@ -1,8 +1,8 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
-import { MultiSelectOption } from '../index.js'
-import { MultiSelect } from './index.js'
+import { MultiSelectOption } from '../index.ts'
+import { MultiSelect } from './index.ts'
 
 const description = `
 Multiple selection allows the user to select more than one option from the list. Checkboxes are used to highlight the possibility of making more than one selection. Selected options are displayed as chips inside the input. Make sure to communicate clearly to the user if there is a limit to the number of selectable elements.

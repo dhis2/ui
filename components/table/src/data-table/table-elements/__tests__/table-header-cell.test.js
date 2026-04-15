@@ -1,6 +1,6 @@
 import { shallow, mount } from 'enzyme'
 import React from 'react'
-import { TableHeaderCell } from '../table-header-cell/table-header-cell.js'
+import { TableHeaderCell } from '../table-header-cell/table-header-cell.tsx'
 
 describe('<TableHeaderCell>', () => {
     it('renders children', () => {
@@ -49,7 +49,7 @@ describe('<TableHeaderCell>', () => {
         const colSpan = '3'
         const wrapper = shallow(<TableHeaderCell colSpan={colSpan} />)
 
-        expect(wrapper.find('th').prop('colSpan')).toBe(colSpan)
+        expect(wrapper.find('th').prop('colSpan')).toBe(Number(colSpan))
     })
     it('accepts a dataTest prop', () => {
         const dataTest = 'test'
@@ -94,7 +94,7 @@ describe('<TableHeaderCell>', () => {
         const rowSpan = '3'
         const wrapper = shallow(<TableHeaderCell rowSpan={rowSpan} />)
 
-        expect(wrapper.find('th').prop('rowSpan')).toBe(rowSpan)
+        expect(wrapper.find('th').prop('rowSpan')).toBe(Number(rowSpan))
     })
     it('accepts a scope prop', () => {
         const scope = 'row'

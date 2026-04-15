@@ -1,6 +1,6 @@
 import { SingleSelectField, SingleSelectOption } from '@dhis2-ui/select'
 import React, { useState } from 'react'
-import { SelectorBarItem } from './selector-bar-item.js'
+import { SelectorBarItem } from './selector-bar-item.tsx'
 
 const options = [
     { value: 'value 1', label: 'label 1' },

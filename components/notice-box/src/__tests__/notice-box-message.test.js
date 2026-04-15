@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { NoticeBoxMessage } from '../notice-box-message.js'
+import { NoticeBoxMessage } from '../notice-box-message.tsx'
 
 describe('NoticeBoxMessage', () => {
     it('should return null when there are no children', () => {

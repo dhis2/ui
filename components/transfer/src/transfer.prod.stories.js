@@ -2,8 +2,8 @@ import { SingleSelectField, SingleSelectOption } from '@dhis2-ui/select'
 import { Tab, TabBar } from '@dhis2-ui/tab'
 import PropTypes from 'prop-types'
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
-import { TransferOption } from './transfer-option.js'
-import { Transfer } from './transfer.js'
+import { TransferOption } from './transfer-option.tsx'
+import { Transfer } from './transfer.tsx'
 
 const subtitle = 'Allows users to select options from a list'
 

@@ -1,8 +1,8 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import React from 'react'
-import { SelectorBarItem } from '../selector-bar-item/index.js'
-import { SelectorBar } from './selector-bar.js'
+import { SelectorBarItem } from '../selector-bar-item/index.ts'
+import { SelectorBar } from './selector-bar.tsx'
 
 const noop = () => null
 

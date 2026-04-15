@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch } from './index.js'
+import { Switch } from './index.ts'
 
 window.onChange = window.Cypress && window.Cypress.cy.stub()
 window.onBlur = window.Cypress && window.Cypress.cy.stub()

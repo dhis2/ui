@@ -1,5 +1,5 @@
 import React from 'react'
-import { Transfer } from '../transfer.js'
+import { Transfer } from '../transfer.tsx'
 import { options } from './common/options.js'
 
 export default { title: 'Transfer Loading Lists' }

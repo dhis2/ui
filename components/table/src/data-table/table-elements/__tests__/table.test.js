@@ -1,6 +1,6 @@
 import { shallow, mount } from 'enzyme'
 import React from 'react'
-import { Table } from '../table.js'
+import { Table } from '../table.tsx'
 
 describe('<Table>', () => {
     it('renders children', () => {

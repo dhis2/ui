@@ -1,7 +1,7 @@
 import i18n from '@dhis2/d2-i18n'
 import React from 'react'
 import * as pagers from './__fixtures__/index.js'
-import { Pagination } from './pagination.js'
+import { Pagination } from './pagination.tsx'
 
 const subtitle = 'Allows navigation through data displayed over several pages'
 

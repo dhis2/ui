@@ -1,6 +1,6 @@
 import { IconFile16 } from '@dhis2/ui-icons'
 import React, { useState } from 'react'
-import { AlertBar } from './index.js'
+import { AlertBar } from './index.ts'
 
 const subtitle = `
 A floating alert that informs the user about temporary information

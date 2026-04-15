@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import { AlertBar } from '../alert-bar/index.js'
-import { AlertStack } from './alert-stack.js'
+import { AlertBar } from '../alert-bar/index.ts'
+import { AlertStack } from './alert-stack.tsx'
 
 const description = `
 A container for Alert Bars.

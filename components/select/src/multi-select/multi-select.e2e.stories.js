@@ -2,8 +2,8 @@ import { Button } from '@dhis2-ui/button'
 import { Modal, ModalTitle, ModalContent } from '@dhis2-ui/modal'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import { MultiSelectOption } from '../index.js'
-import { MultiSelect } from './multi-select.js'
+import { MultiSelectOption } from '../index.ts'
+import { MultiSelect } from './multi-select.tsx'
 
 window.onChange = window.Cypress && window.Cypress.cy.stub()
 window.onFocus = window.Cypress && window.Cypress.cy.stub()

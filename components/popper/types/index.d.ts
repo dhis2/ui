@@ -2,8 +2,26 @@ import * as React from 'react'
 import { StrictModifier } from 'react-popper'
 import { VirtualElement, Options as PopperOptions } from '@popperjs/core'
 
-type PopperReference = VirtualElement | Element
-type ReferenceElement = PopperReference | React.RefObject<PopperReference>
+type PopperReference =
+    | Element
+    | { getBoundingClientRect: () => DOMRect }
+    | React.RefObject<Element>
+    | null
+    | undefined
+type ReferenceElement = PopperReference
+
+export interface PopperModifier {
+    name: string
+    options?: Record<string, unknown>
+    enabled?: boolean
+    phase?: string
+    fn?: (...args: unknown[]) => void
+    effect?: (args: {
+        state: { elements: Record<string, Element> }
+        options: Record<string, boolean | undefined>
+        instance: { update: () => void }
+    }) => (() => void) | void
+}
 
 export interface PopperProps {
     /**
@@ -40,3 +58,16 @@ export interface PopperProps {
 }
 
 export const Popper: React.FC<PopperProps>
+
+export type { PopperReference }
+
+export function getReferenceElement(
+    reference: PopperReference
+): Element | { getBoundingClientRect: () => DOMRect } | null
+
+export function getBaseModifiers(options: {
+    observePopperResize?: boolean
+    observeReferenceResize?: boolean
+}): PopperModifier[]
+
+export { usePopper } from 'react-popper'

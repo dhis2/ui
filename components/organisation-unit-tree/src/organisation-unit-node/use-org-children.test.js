@@ -1,7 +1,7 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import { renderHook, waitFor } from '@testing-library/react'
 import React from 'react'
-import { useOrgChildren } from './use-org-children.js'
+import { useOrgChildren } from './use-org-children.ts'
 
 describe('OrganisationUnitTree - useOrgChildren', () => {
     const dataProviderData = {

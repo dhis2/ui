@@ -1,5 +1,5 @@
 import { useConfig } from '@dhis2/app-runtime'
-import { useAvatarImgSrc } from './image-avatar.js'
+import { useAvatarImgSrc } from './image-avatar.tsx'
 
 jest.mock('@dhis2/app-runtime', () => ({
     useConfig: jest.fn(),

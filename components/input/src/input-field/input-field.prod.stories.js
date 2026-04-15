@@ -1,7 +1,7 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import { IconLocation16, IconSearch16 } from '@dhis2/ui-icons'
 import React, { useState } from 'react'
-import { InputField } from './index.js'
+import { InputField } from './index.ts'
 
 const subtitle = 'Allows a user to enter data, usually text'
 

@@ -1,4 +1,4 @@
-import { patchMissingDisplayName } from './patch-missing-display-name.js'
+import { patchMissingDisplayName } from './patch-missing-display-name.ts'
 
 describe('patchMissingDisplayName', () => {
     it('should add an empty string as displayName if the prop is falsy', () => {

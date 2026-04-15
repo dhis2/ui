@@ -1,4 +1,4 @@
-import { toggleAdd } from '../../../transfer/use-highlighted-options/toggle-add.js'
+import { toggleAdd } from '../../../transfer/use-highlighted-options/toggle-add.ts'
 
 describe('Transfer - useHighlightedOptions - toggleAdd', () => {
     const setHighlightedOptions = jest.fn()

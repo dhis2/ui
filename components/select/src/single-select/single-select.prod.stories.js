@@ -1,8 +1,8 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
-import { SingleSelectOption } from '../index.js'
-import { SingleSelect } from './index.js'
+import { SingleSelectOption } from '../index.ts'
+import { SingleSelect } from './index.ts'
 
 const description = `
 Use a select component wherever the user needs to make a selection of one or more options from a list of 6 or more options. If there are less than 6 options to choose from and space permits, use checkboxes for multiple selection and radio buttons for single selection. If the user needs to make a complex selection with a specific ordering, use a transfer instead.

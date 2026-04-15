@@ -3,7 +3,7 @@ import { Layer } from '@dhis2-ui/layer'
 import { MenuDivider, MenuItem, MenuSectionHeader } from '@dhis2-ui/menu'
 import { Popper } from '@dhis2-ui/popper'
 import React, { useState, useRef } from 'react'
-import { FlyoutMenu } from './flyout-menu.js'
+import { FlyoutMenu } from './flyout-menu.tsx'
 
 const description = `
 Use menus to provide access to options and actions where space is limited and displaying all the options would be impractical. For example, providing access to a range of actions for every dashboard item displayed. Containing all those actions in menus keeps the page manageable.

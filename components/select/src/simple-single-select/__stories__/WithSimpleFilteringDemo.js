@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react'
-import { SimpleSingleSelect } from '../simple-single-select.js'
+import { SimpleSingleSelect } from '../simple-single-select.tsx'
 
 const options = [
     { label: 'No selection', value: '' },

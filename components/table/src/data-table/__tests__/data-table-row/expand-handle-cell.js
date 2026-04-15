@@ -1,7 +1,7 @@
 import { IconChevronDown24, IconChevronUp24 } from '@dhis2/ui-icons'
 import { shallow } from 'enzyme'
 import React from 'react'
-import { ExpandHandleCell } from '../../data-table-row/expand-handle-cell.js'
+import { ExpandHandleCell } from '../../data-table-row/expand-handle-cell.tsx'
 
 describe('<ExpandHandleCell>', () => {
     it('renders an <IconChevronUp24> when expanded is true', () => {

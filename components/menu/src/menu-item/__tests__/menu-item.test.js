@@ -1,6 +1,6 @@
 import { mount } from 'enzyme'
 import React from 'react'
-import { MenuItem } from '../menu-item.js'
+import { MenuItem } from '../menu-item.tsx'
 
 describe('Menu Component', () => {
     it('Default menu item has role', () => {

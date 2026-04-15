@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input } from './index.js'
+import { Input } from './index.ts'
 
 window.onChange = window.Cypress && window.Cypress.cy.stub()
 window.onBlur = window.Cypress && window.Cypress.cy.stub()

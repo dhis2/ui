@@ -1,17 +1,17 @@
 import { useState } from 'react'
-import { getAllExpandedPaths } from '../../get-all-expanded-paths/index.js'
-import { createExpandHandlers } from './create-expand-handlers.js'
-import { useExpanded } from './use-expanded.js'
+import { getAllExpandedPaths } from '../../get-all-expanded-paths/index.ts'
+import { createExpandHandlers } from './create-expand-handlers.ts'
+import { useExpanded } from './use-expanded.ts'
 
 jest.mock('react', () => ({
     useState: jest.fn((initialValue) => [initialValue, () => null]),
 }))
 
-jest.mock('../../get-all-expanded-paths/index.js', () => ({
+jest.mock('../../get-all-expanded-paths/index.ts', () => ({
     getAllExpandedPaths: jest.fn((input) => input),
 }))
 
-jest.mock('./create-expand-handlers.js', () => ({
+jest.mock('./create-expand-handlers.ts', () => ({
     createExpandHandlers: jest.fn(() => ({
         handleCollapse: () => null,
         handleExpand: () => null,

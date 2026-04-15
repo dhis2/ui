@@ -1,6 +1,6 @@
 import { Box } from '@dhis2-ui/box'
 import React from 'react'
-import { Card } from './card.js'
+import { Card } from './card.tsx'
 
 const subtitle = `
 A card is a container element for grouping together

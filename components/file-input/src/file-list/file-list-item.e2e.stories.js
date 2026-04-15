@@ -1,5 +1,5 @@
 import React from 'react'
-import { FileListItem } from './file-list-item.js'
+import { FileListItem } from './file-list-item.tsx'
 
 window.onRemove = window.Cypress && window.Cypress.cy.stub()
 window.onCancel = window.Cypress && window.Cypress.cy.stub()

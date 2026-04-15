@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 import { mount } from 'enzyme'
 import React from 'react'
-import { StackedTableBody } from './stacked-table-body.js'
-import { StackedTableCellHead } from './stacked-table-cell-head.js'
-import { StackedTableCell } from './stacked-table-cell.js'
-import { StackedTableHead } from './stacked-table-head.js'
-import { StackedTableRowHead } from './stacked-table-row-head.js'
-import { StackedTableRow } from './stacked-table-row.js'
-import { StackedTable } from './stacked-table.js'
+import { StackedTableBody } from './stacked-table-body.tsx'
+import { StackedTableCellHead } from './stacked-table-cell-head.tsx'
+import { StackedTableCell } from './stacked-table-cell.tsx'
+import { StackedTableHead } from './stacked-table-head.tsx'
+import { StackedTableRowHead } from './stacked-table-row-head.tsx'
+import { StackedTableRow } from './stacked-table-row.tsx'
+import { StackedTable } from './stacked-table.tsx'
 
 const Table = ({ headerLabels, bodyLabels }) => (
     <StackedTable>

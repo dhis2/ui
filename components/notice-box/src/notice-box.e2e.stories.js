@@ -1,5 +1,5 @@
 import React from 'react'
-import { NoticeBox } from './notice-box.js'
+import { NoticeBox } from './notice-box.tsx'
 
 export default { title: 'NoticeBox' }
 export const WithChildren = () => <NoticeBox>The noticebox content</NoticeBox>

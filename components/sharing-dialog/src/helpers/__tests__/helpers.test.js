@@ -4,13 +4,13 @@ import {
     ACCESS_VIEW_AND_EDIT,
     SHARE_TARGET_EXTERNAL,
     SHARE_TARGET_PUBLIC,
-} from '../../constants.js'
+} from '../../constants.ts'
 import {
     convertAccessToConstantObject,
     convertConstantObjectToAccess,
     isRemovableTarget,
     isMetadataWriteAccessRemoved,
-} from '../helpers.js'
+} from '../helpers.ts'
 
 describe('helpers', () => {
     describe('convertAccessToConstantObject', () => {

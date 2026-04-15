@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Tooltip } from './tooltip.js'
+import { Tooltip } from './tooltip.tsx'
 
 const subtitle = 'Displayed when a user hovers over the element'
 

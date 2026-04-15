@@ -1,4 +1,4 @@
-import { getResultMessage, getInfoMessage } from '../helpers.js'
+import { getResultMessage, getInfoMessage } from '../helpers.ts'
 
 describe('getResultMessage', () => {
     it('returns the expected message when there are errors and no updates', () => {

@@ -1,7 +1,7 @@
 import { shallow, mount } from 'enzyme'
 import React from 'react'
-import { DataTableCell } from '../data-table-cell.js'
-import { TableDataCell, TableHeaderCell } from '../table-elements/index.js'
+import { DataTableCell } from '../data-table-cell.tsx'
+import { TableDataCell, TableHeaderCell } from '../table-elements/index.ts'
 
 describe('<DataTableCell>', () => {
     it('renders children', () => {

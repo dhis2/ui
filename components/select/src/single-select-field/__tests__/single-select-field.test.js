@@ -1,6 +1,6 @@
 import { render, fireEvent, screen } from '@testing-library/react'
 import React from 'react'
-import { SingleSelectField } from '../single-select-field.js'
+import { SingleSelectField } from '../single-select-field.tsx'
 
 describe('<SingleSelect />', () => {
     it('should call the onKeyDown callback when provided', () => {

@@ -1,4 +1,4 @@
-import { moveHighlightedPickedOptionUp } from '../../transfer/move-highlighted-picked-option-up.js'
+import { moveHighlightedPickedOptionUp } from '../../transfer/move-highlighted-picked-option-up.ts'
 
 describe('Transfer - moveHighlightedPickedOptionUp', () => {
     const onChange = jest.fn()

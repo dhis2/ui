@@ -1,6 +1,6 @@
 import { mount } from 'enzyme'
 import React from 'react'
-import { CircularLoader } from '../circular-loader.js'
+import { CircularLoader } from '../circular-loader.tsx'
 
 describe('Circular Loader', () => {
     it('renders the circular loader with aria label', () => {

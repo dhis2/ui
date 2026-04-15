@@ -1,5 +1,5 @@
 import React from 'react'
-import { FileInputFieldWithList } from './index.js'
+import { FileInputFieldWithList } from './index.ts'
 
 window.onChange = window.Cypress && window.Cypress.cy.stub()
 

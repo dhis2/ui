@@ -1,5 +1,5 @@
 import React from 'react'
-import { FileListPlaceholder } from './file-list-placeholder.js'
+import { FileListPlaceholder } from './file-list-placeholder.tsx'
 
 export default { title: 'FileListPlaceholder' }
 export const WithChildren = () => (

@@ -1,6 +1,6 @@
 import { mount } from 'enzyme'
 import React from 'react'
-import { LinearLoader } from '../linear-loader.js'
+import { LinearLoader } from '../linear-loader.tsx'
 
 describe('Linear Loader', () => {
     it('renders the linear loader with provided aria attributes', () => {

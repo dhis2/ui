@@ -2,9 +2,9 @@ import { sharedPropTypes } from '@dhis2/ui-constants'
 import { FlyoutMenu, MenuItem } from '@dhis2-ui/menu'
 import { Modal, ModalContent, ModalTitle, ModalActions } from '@dhis2-ui/modal'
 import React from 'react'
-import { Button } from '../button/button.js'
-import { ButtonStrip } from '../button-strip/button-strip.js'
-import { SplitButton } from './split-button.js'
+import { Button } from '../button/button.tsx'
+import { ButtonStrip } from '../button-strip/button-strip.tsx'
+import { SplitButton } from './split-button.tsx'
 
 const description = `
 Similar to the dropdown button, but can be triggered independently of opening the contained action list. The main action may be 'Save' and the contained actions may be "Save and add another" and "Save and open".

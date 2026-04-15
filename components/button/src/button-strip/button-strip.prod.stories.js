@@ -1,6 +1,6 @@
 import React from 'react'
-import { Button, SplitButton } from '../index.js'
-import { ButtonStrip } from './index.js'
+import { Button, SplitButton } from '../index.ts'
+import { ButtonStrip } from './index.ts'
 
 const description = `
 A wrapper for buttons to add spacing and alignment.

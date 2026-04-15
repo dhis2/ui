@@ -1,4 +1,4 @@
-import { isReorderDownDisabled } from '../../transfer/is-reorder-down-disabled.js'
+import { isReorderDownDisabled } from '../../transfer/is-reorder-down-disabled.ts'
 
 describe('Transfer - isReorderDownDisabled', () => {
     const selected = ['foo', 'bar', 'baz']

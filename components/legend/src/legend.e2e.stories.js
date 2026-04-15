@@ -1,5 +1,5 @@
 import React from 'react'
-import { Legend } from './legend.js'
+import { Legend } from './legend.tsx'
 
 export default { title: 'Legend' }
 export const WithContentAndRequired = () => (

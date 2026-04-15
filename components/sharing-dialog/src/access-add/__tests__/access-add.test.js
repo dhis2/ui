@@ -1,7 +1,7 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import { mount } from 'enzyme'
 import React from 'react'
-import { AccessAdd } from '../access-add.js'
+import { AccessAdd } from '../access-add.tsx'
 
 describe('<AccessAdd />', () => {
     it('renders a button with "Give access"', () => {

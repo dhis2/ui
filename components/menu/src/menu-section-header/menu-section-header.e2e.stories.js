@@ -1,6 +1,6 @@
 import React from 'react'
-import { Menu } from '../index.js'
-import { MenuSectionHeader } from './index.js'
+import { Menu } from '../index.ts'
+import { MenuSectionHeader } from './index.ts'
 
 export default {
     title: 'MenuSectionHeader',

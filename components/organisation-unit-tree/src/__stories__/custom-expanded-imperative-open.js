@@ -1,6 +1,6 @@
 import { Button } from '@dhis2-ui/button'
 import React, { useState } from 'react'
-import { OrganisationUnitTree, getAllExpandedOrgUnitPaths } from '../index.js'
+import { OrganisationUnitTree, getAllExpandedOrgUnitPaths } from '../index.ts'
 import { onChange } from './shared.js'
 
 export const CustomExpandedImperativeOpen = () => {

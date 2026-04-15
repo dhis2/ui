@@ -1,6 +1,6 @@
 import { shallow, mount } from 'enzyme'
 import React from 'react'
-import { TableHeaderCellAction } from '../table-header-cell-action.js'
+import { TableHeaderCellAction } from '../table-header-cell-action.tsx'
 
 describe('<TableHeaderCellAction>', () => {
     it('renders children', () => {

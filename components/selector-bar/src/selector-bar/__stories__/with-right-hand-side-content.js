@@ -1,6 +1,6 @@
 import { Button } from '@dhis2-ui/button'
 import React from 'react'
-import { SelectorBar, SelectorBarItem } from '../../index.js'
+import { SelectorBar, SelectorBarItem } from '../../index.ts'
 import {
     OrgUnitSelect,
     MenuSelect,

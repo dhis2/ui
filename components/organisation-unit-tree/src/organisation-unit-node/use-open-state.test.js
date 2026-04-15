@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react'
-import { useOpenState } from './use-open-state.js'
+import { useOpenState } from './use-open-state.ts'
 
 describe('OrganisationUnitTree - useOpenState', () => {
     const onExpand = jest.fn()

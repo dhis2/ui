@@ -44,7 +44,7 @@ export const spacersNum: Record<SpacerVariant, number>
 export const spacers: Record<SpacerVariant, string>
 
 export type LayerVariant = 'applicationTop' | 'blocking' | 'alert'
-export const layer: Record<LayerVariant, number>
+export const layers: Record<LayerVariant, number>
 
 export type ThemeBase = 'primary' | 'secondary'
 export type ThemeVariant =

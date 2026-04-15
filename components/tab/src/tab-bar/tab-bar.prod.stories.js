@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Tab } from '../tab/index.js'
-import { TabBar } from './index.js'
+import { Tab } from '../tab/index.ts'
+import { TabBar } from './index.ts'
 
 function AttachFile({ className }) {
     return (

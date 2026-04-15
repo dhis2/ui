@@ -1,5 +1,5 @@
 import React from 'react'
-import { Transfer } from '../transfer.js'
+import { Transfer } from '../transfer.tsx'
 import { options } from './common/options.js'
 import { statefulDecorator } from './common/stateful-decorator.js'
 

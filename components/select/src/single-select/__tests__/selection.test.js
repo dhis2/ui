@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 import React from 'react'
-import { SingleSelectOption } from '../../single-select-option/index.js'
-import { Selection } from '../selection.js'
+import { SingleSelectOption } from '../../single-select-option/index.ts'
+import { Selection } from '../selection.tsx'
 import '@testing-library/jest-dom'
 
 describe('<Selection />', () => {

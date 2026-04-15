@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tag } from './tag.js'
+import { Tag } from './tag.tsx'
 
 export default { title: 'Tag' }
 export const WithoutIcon = () => <Tag>Default</Tag>

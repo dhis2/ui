@@ -1,5 +1,5 @@
 import React from 'react'
-import { UserAvatar } from './user-avatar.js'
+import { UserAvatar } from './user-avatar.tsx'
 
 export default {
     title: 'User Avatar',

@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 import React from 'react'
-import { MenuItem } from '../../menu-item/menu-item.js'
-import { FlyoutMenu } from '../flyout-menu.js'
+import { MenuItem } from '../../menu-item/menu-item.tsx'
+import { FlyoutMenu } from '../flyout-menu.tsx'
 
 describe('Flyout Menu Component', () => {
     it('can handle navigation of submenus', async () => {

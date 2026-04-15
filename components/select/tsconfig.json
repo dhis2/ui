@@ -1,0 +1,16 @@
+{
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "rootDir": "./src",
+        "lib": ["ES2023", "DOM", "DOM.Iterable"],
+        "types": ["styled-jsx", "node"]
+    },
+    "include": ["src/**/*.ts", "src/**/*.tsx"],
+    "exclude": [
+        "node_modules",
+        "build",
+        "**/*.stories.*",
+        "**/*.test.*",
+        "**/*.e2e.*"
+    ]
+}

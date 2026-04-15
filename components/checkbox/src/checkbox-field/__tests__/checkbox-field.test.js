@@ -1,6 +1,6 @@
 import { render, fireEvent, screen } from '@testing-library/react'
 import React from 'react'
-import { CheckboxField } from '../checkbox-field.js'
+import { CheckboxField } from '../checkbox-field.tsx'
 
 describe('<CheckboxField />', () => {
     it('should call the onKeyDown callback when provided', () => {

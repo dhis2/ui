@@ -1,6 +1,6 @@
 import React from 'react'
-import { Tab } from '../tab/index.js'
-import { TabBar } from './index.js'
+import { Tab } from '../tab/index.ts'
+import { TabBar } from './index.ts'
 
 export default { title: 'TabBar' }
 export const WithChildren = () => <TabBar>I am a child</TabBar>

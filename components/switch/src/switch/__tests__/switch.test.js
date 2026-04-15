@@ -1,6 +1,6 @@
 import { render, fireEvent, screen } from '@testing-library/react'
 import React from 'react'
-import { Switch } from '../switch.js'
+import { Switch } from '../switch.tsx'
 
 describe('<Switch />', () => {
     it('should call the onKeyDown callback when provided', () => {

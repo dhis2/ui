@@ -3,9 +3,9 @@ import { render, screen, waitFor } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 import '@testing-library/jest-dom'
 import React, { useState } from 'react'
-import { SharingAutocomplete } from './sharing-autocomplete.js'
+import { SharingAutocomplete } from './sharing-autocomplete.tsx'
 
-jest.mock('../helpers/index.js', () => ({
+jest.mock('../helpers/index.ts', () => ({
     debounce: (fn) => fn,
 }))
 

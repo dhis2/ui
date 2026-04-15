@@ -2,10 +2,10 @@ import '@testing-library/jest-dom'
 import { Field } from '@dhis2-ui/field'
 import { render } from '@testing-library/react'
 import React from 'react'
-import { SimpleSingleSelect } from '../simple-single-select/simple-single-select.js'
-import { SimpleSingleSelectField } from './simple-single-select-field.js'
+import { SimpleSingleSelect } from '../simple-single-select/simple-single-select.tsx'
+import { SimpleSingleSelectField } from './simple-single-select-field.tsx'
 
-jest.mock('../simple-single-select/simple-single-select.js', () => ({
+jest.mock('../simple-single-select/simple-single-select.tsx', () => ({
     SimpleSingleSelect: jest.fn(() => <div />),
 }))
 

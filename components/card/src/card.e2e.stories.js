@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card } from './card.js'
+import { Card } from './card.tsx'
 
 export default { title: 'Card' }
 export const WithChildren = () => (

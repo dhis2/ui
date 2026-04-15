@@ -1,6 +1,6 @@
 import { OrganisationUnitTree } from '@dhis2-ui/organisation-unit-tree'
 import React, { useState } from 'react'
-import { SelectorBar, SelectorBarItem } from '../../index.js'
+import { SelectorBar, SelectorBarItem } from '../../index.ts'
 import {
     createStatefulDecorator,
     decoratorCommonStyles,

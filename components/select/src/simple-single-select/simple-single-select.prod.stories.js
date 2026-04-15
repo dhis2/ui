@@ -1,4 +1,4 @@
-import { SimpleSingleSelect } from './simple-single-select.js'
+import { SimpleSingleSelect } from './simple-single-select.tsx'
 
 export default {
     title: 'Simple Single Select',

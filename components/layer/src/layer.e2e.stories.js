@@ -1,6 +1,6 @@
 import { layers } from '@dhis2/ui-constants'
 import React from 'react'
-import { Layer } from './layer.js'
+import { Layer } from './layer.tsx'
 
 window.onButtonClick = window.Cypress && window.Cypress.cy.stub()
 window.onLayerClick = window.Cypress && window.Cypress.cy.stub()

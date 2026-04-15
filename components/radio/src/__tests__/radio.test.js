@@ -1,6 +1,6 @@
 import { render, fireEvent, screen } from '@testing-library/react'
 import React from 'react'
-import { Radio } from '../radio.js'
+import { Radio } from '../radio.tsx'
 
 describe('<Radio />', () => {
     it('should call the onKeyDown callback when provided', () => {

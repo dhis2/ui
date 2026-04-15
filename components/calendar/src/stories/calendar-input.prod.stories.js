@@ -1,7 +1,7 @@
 import { Button } from '@dhis2-ui/button'
 import React, { useState } from 'react'
 import { Field, Form } from 'react-final-form'
-import { CalendarInput } from '../calendar-input/calendar-input.js'
+import { CalendarInput } from '../calendar-input/calendar-input.tsx'
 import { CalendarStoryWrapper } from './calendar-story-wrapper.js'
 
 const subtitle = `[Experimental] Calendar Input is a wrapper around Calendar displaying an input that triggers the calendar`

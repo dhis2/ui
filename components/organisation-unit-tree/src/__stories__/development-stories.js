@@ -1,6 +1,6 @@
 import { DataProvider } from '@dhis2/app-runtime'
 import React, { useState } from 'react'
-import { OrganisationUnitTree } from '../index.js'
+import { OrganisationUnitTree } from '../index.ts'
 
 const DX_onChange =
     (selected, setSelected, singleSelection) =>

@@ -1,6 +1,6 @@
 import { render, fireEvent, cleanup, waitFor } from '@testing-library/react'
 import React from 'react'
-import { SplitButton } from './split-button.js'
+import { SplitButton } from './split-button.tsx'
 
 describe('SplitButton', () => {
     afterEach(cleanup)

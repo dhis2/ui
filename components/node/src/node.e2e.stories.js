@@ -1,5 +1,5 @@
 import React from 'react'
-import { Node } from './node.js'
+import { Node } from './node.tsx'
 
 window.onClose = window.Cypress && window.Cypress.cy.stub()
 window.onOpen = window.Cypress && window.Cypress.cy.stub()

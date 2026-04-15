@@ -1,6 +1,6 @@
 import React from 'react'
-import { MultiSelectOption } from '../index.js'
-import { MultiSelectField } from './index.js'
+import { MultiSelectOption } from '../index.ts'
+import { MultiSelectField } from './index.ts'
 
 export default { title: 'MultiSelectField' }
 export const WithLabel = () => (

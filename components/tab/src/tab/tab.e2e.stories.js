@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tab } from './tab.js'
+import { Tab } from './tab.tsx'
 
 window.onClick = window.Cypress && window.Cypress.cy.stub()
 

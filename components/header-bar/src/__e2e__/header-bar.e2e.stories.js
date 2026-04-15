@@ -1,4 +1,4 @@
-import { HeaderBar as component } from '../index.js'
+import { HeaderBar as component } from '../index.ts'
 
 export default { title: 'HeaderBarTesting', component }
 export { Default } from './stories/default.js'

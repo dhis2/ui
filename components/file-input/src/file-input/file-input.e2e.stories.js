@@ -1,5 +1,5 @@
 import React from 'react'
-import { FileInput } from './index.js'
+import { FileInput } from './index.ts'
 
 window.onBlur = window.Cypress && window.Cypress.cy.stub()
 window.onFocus = window.Cypress && window.Cypress.cy.stub()

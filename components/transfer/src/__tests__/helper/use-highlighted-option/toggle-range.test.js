@@ -1,4 +1,4 @@
-import { toggleRange } from '../../../transfer/use-highlighted-options/toggle-range.js'
+import { toggleRange } from '../../../transfer/use-highlighted-options/toggle-range.ts'
 
 describe('Transfer- useHighlightedOptions - toggleRange', () => {
     const setHighlightedOptions = jest.fn()

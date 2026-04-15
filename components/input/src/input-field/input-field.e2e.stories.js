@@ -1,5 +1,5 @@
 import React from 'react'
-import { InputField } from './index.js'
+import { InputField } from './index.ts'
 
 export default { title: 'InputField' }
 export const WithLabelAndRequired = () => (

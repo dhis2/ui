@@ -1,5 +1,5 @@
 import React from 'react'
-import { Chip } from './chip.js'
+import { Chip } from './chip.tsx'
 
 window.onClick = window.Cypress && window.Cypress.cy.stub()
 window.onRemove = window.Cypress && window.Cypress.cy.stub()

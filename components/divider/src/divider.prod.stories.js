@@ -1,5 +1,5 @@
 import React from 'react'
-import { Divider } from './divider.js'
+import { Divider } from './divider.tsx'
 
 const description = `
 A light divider to separate content.

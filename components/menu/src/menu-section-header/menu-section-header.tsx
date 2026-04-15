@@ -1,0 +1,51 @@
+import { colors, spacers } from '@dhis2/ui-constants'
+import { Divider } from '@dhis2-ui/divider'
+import cx from 'classnames'
+import React from 'react'
+
+export interface MenuSectionHeaderProps {
+    className?: string
+    dataTest?: string
+    dense?: boolean
+    hideDivider?: boolean
+    label?: React.ReactNode
+}
+
+const MenuSectionHeader = ({
+    className,
+    dataTest = 'dhis2-uicore-menusectionheader',
+    dense,
+    hideDivider,
+    label,
+}: MenuSectionHeaderProps) => (
+    <li data-test={dataTest} className={cx(className, { dense })}>
+        {!hideDivider && <Divider dense={dense} />}
+
+        <h6>{label}</h6>
+
+        <style jsx>{`
+            li {
+                list-style: none;
+                background-color: ${colors.white};
+                user-select: none;
+                padding: 0;
+                line-height: 0;
+            }
+            h6 {
+                margin: 0;
+                padding: ${spacers.dp8} ${spacers.dp16} ${spacers.dp8}
+                    ${spacers.dp16};
+                font-size: 13px;
+                line-height: 16px;
+                font-weight: 500;
+                color: ${colors.grey700};
+            }
+            li.dense h6 {
+                padding: ${spacers.dp8} ${spacers.dp12} ${spacers.dp4}
+                    ${spacers.dp12};
+            }
+        `}</style>
+    </li>
+)
+
+export { MenuSectionHeader }

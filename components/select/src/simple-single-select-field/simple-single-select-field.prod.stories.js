@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { SimpleSingleSelectField } from './index.js'
+import { SimpleSingleSelectField } from './index.ts'
 
 const description = `
 \`SimpleSingleSelectField\` is a wrapper around a \`SimpleSingleSelect\` component that adds a label, help text, validation text, and other features.

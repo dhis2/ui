@@ -6,7 +6,7 @@ import {
     getModeByModifierKey,
     isOption,
     toggleValue,
-} from '../common/index.js'
+} from '../common/index.ts'
 
 describe('Transfer - isOption', () => {
     it('should return true when the options are the same', () => {

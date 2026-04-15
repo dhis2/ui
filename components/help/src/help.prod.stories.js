@@ -1,6 +1,6 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import React from 'react'
-import { Help } from './help.js'
+import { Help } from './help.tsx'
 
 const description = `
 Small text for giving guiding information or feedback, especially for data entry instructions or form validation feedback.

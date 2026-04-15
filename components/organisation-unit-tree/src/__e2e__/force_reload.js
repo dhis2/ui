@@ -1,6 +1,6 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import React, { useState } from 'react'
-import { OrganisationUnitTree } from '../index.js'
+import { OrganisationUnitTree } from '../index.ts'
 import {
     StatefulMultiSelectionWrapper,
     dataProviderData,

@@ -1,5 +1,5 @@
 import React from 'react'
-import { DropdownButton } from './index.js'
+import { DropdownButton } from './index.ts'
 
 window.onClick = window.Cypress && window.Cypress.cy.stub()
 

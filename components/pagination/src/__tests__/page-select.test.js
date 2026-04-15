@@ -2,7 +2,7 @@ import { SingleSelect } from '@dhis2-ui/select'
 import { shallow } from 'enzyme'
 import React from 'react'
 import * as mockPagers from '../__fixtures__/index.js'
-import { PageSelect, createAvailablePages } from '../page-select.js'
+import { PageSelect, createAvailablePages } from '../page-select.tsx'
 
 describe('<PageSelect />', () => {
     const mockOnSelect = jest.fn()
