@@ -51,6 +51,10 @@ export interface MultiSelectProps {
      * Adds a 'clear' option to the menu
      */
     clearable?: boolean
+    /**
+     * When the number of selected items exceeds this threshold, chips are replaced with "X selected" text
+     */
+    collapseSelectionAfter?: number
     dataTest?: string
     dense?: boolean
     disabled?: boolean
