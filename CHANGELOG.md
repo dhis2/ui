@@ -1,3 +1,10 @@
+# [10.13.0](https://github.com/dhis2/ui/compare/v10.12.13...v10.13.0) (2026-04-16)
+
+
+### Features
+
+* **multi-select:** add collapseSelectionAfter prop ([#1735](https://github.com/dhis2/ui/issues/1735)) ([fab1525](https://github.com/dhis2/ui/commit/fab15254375e8ba740a96d7a148a114cc12717ee))
+
 ## [10.12.13](https://github.com/dhis2/ui/compare/v10.12.12...v10.12.13) (2026-04-06)
 
 

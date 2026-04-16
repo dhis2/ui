@@ -18,6 +18,7 @@ import { MultiSelect } from '@dhis2/ui'
 |className|string||||
 |clearText|custom(function)|||Required if `clearable` prop is `true`|
 |clearable|boolean|||Adds a 'clear' option to the menu|
+|collapseSelectionAfter|number|||When the number of selected items exceeds this threshold, chips are replaced with "X selected" text|
 |dataTest|string|``'dhis2-uicore-multiselect'``|||
 |dense|boolean||||
 |disabled|boolean||||
