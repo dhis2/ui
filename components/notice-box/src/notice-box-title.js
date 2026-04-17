@@ -2,7 +2,7 @@ import { colors } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export const NoticeBoxTitle = ({ title, dataTest }) => {
+export const NoticeBoxTitle = ({ title, dataTest, dense = false }) => {
     if (!title) {
         return null
     }
@@ -13,9 +13,9 @@ export const NoticeBoxTitle = ({ title, dataTest }) => {
             <style jsx>{`
                 h6 {
                     color: ${colors.grey900};
-                    font-size: 14px;
+                    font-size: ${dense ? '13px' : '14px'};
                     font-weight: 500;
-                    line-height: 19px;
+                    line-height: ${dense ? '18px' : '19px'};
                     margin: 0;
                 }
             `}</style>
@@ -25,5 +25,6 @@ export const NoticeBoxTitle = ({ title, dataTest }) => {
 
 NoticeBoxTitle.propTypes = {
     dataTest: PropTypes.string.isRequired,
+    dense: PropTypes.bool,
     title: PropTypes.string,
 }
