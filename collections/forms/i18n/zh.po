@@ -1,19 +1,18 @@
-# 
 # Translators:
-# phil_dhis2, 2021
+# Philip Larsen Donnelly, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
-# 晓东 林 <13981924470@126.com>, 2021
 # easylin <lin_xd@126.com>, 2023
+# 晓东 林 <13981924470@126.com>, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-02-28T09:45:49.286Z\n"
+"POT-Creation-Date: 2026-01-12T11:22:32.560Z\n"
 "PO-Revision-Date: 2021-06-24 12:50+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2023\n"
+"Last-Translator: 晓东 林 <13981924470@126.com>, 2026\n"
 "Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -28,7 +27,7 @@ msgid "Remove"
 msgstr "移除"
 
 msgid "Please provide an alpha-numeric value"
-msgstr "请提供字母数字值"
+msgstr "请提供一个包含字母数字的值"
 
 msgid "Please provide a boolean value"
 msgstr "请提供一个布尔值"
