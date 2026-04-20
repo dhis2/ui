@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { AlertBar } from '../alert-bar/index.js'
 import { AlertStack } from './alert-stack.js'
+
+const VARIANTS = ['info', 'success', 'warning', 'critical']
 
 const description = `
 A container for Alert Bars.
@@ -39,6 +41,47 @@ export const Default = (args) => (
         </AlertBar>
     </AlertStack>
 )
+
+export const Interactive = (args) => {
+    const [alerts, setAlerts] = useState([])
+    const nextId = useRef(0)
+    const addAlert = () => {
+        const id = nextId.current++
+        const variant = VARIANTS[id % VARIANTS.length]
+        setAlerts((current) => [
+            ...current,
+            { id, variant, message: `Alert #${id} (${variant})` },
+        ])
+    }
+    const removeAlert = (id) => {
+        setAlerts((current) => current.filter((a) => a.id !== id))
+    }
+    return (
+        <>
+            <button
+                onClick={addAlert}
+                style={{
+                    padding: '8px 16px',
+                    fontSize: '14px',
+                    cursor: 'pointer',
+                }}
+            >
+                Add alert
+            </button>
+            <AlertStack {...args}>
+                {alerts.map(({ id, variant, message }) => (
+                    <AlertBar
+                        key={id}
+                        {...{ [variant]: true }}
+                        onHidden={() => removeAlert(id)}
+                    >
+                        {message}
+                    </AlertBar>
+                ))}
+            </AlertStack>
+        </>
+    )
+}
 
 export const RTL = (args) => {
     useEffect(() => {
