@@ -1,3 +1,10 @@
+## [10.13.1](https://github.com/dhis2/ui/compare/v10.13.0...v10.13.1) (2026-04-20)
+
+
+### Bug Fixes
+
+* **alert-bar:** visual design, animation adjustment ([#1738](https://github.com/dhis2/ui/issues/1738)) ([54f0160](https://github.com/dhis2/ui/commit/54f0160ebbc2651ab85b4af197163b16e8f79585))
+
 # [10.13.0](https://github.com/dhis2/ui/compare/v10.12.13...v10.13.0) (2026-04-16)
 
 
