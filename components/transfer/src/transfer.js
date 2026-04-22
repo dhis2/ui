@@ -409,11 +409,10 @@ export const Transfer = ({
                                     const highlightedSet = new Set(
                                         highlightedPickedOptions
                                     )
-                                    const orderedHighlighted = selected.filter(
-                                        (value) => highlightedSet.has(value)
-                                    )
                                     reorderScrollTargetRef.current =
-                                        orderedHighlighted[0] ?? null
+                                        selected.find((value) =>
+                                            highlightedSet.has(value)
+                                        ) ?? null
                                     moveHighlightedPickedOptionUp({
                                         selected,
                                         highlightedPickedOptions,
@@ -424,13 +423,10 @@ export const Transfer = ({
                                     const highlightedSet = new Set(
                                         highlightedPickedOptions
                                     )
-                                    const orderedHighlighted = selected.filter(
-                                        (value) => highlightedSet.has(value)
-                                    )
                                     reorderScrollTargetRef.current =
-                                        orderedHighlighted[
-                                            orderedHighlighted.length - 1
-                                        ] ?? null
+                                        selected.findLast((value) =>
+                                            highlightedSet.has(value)
+                                        ) ?? null
                                     moveHighlightedPickedOptionDown({
                                         selected,
                                         highlightedPickedOptions,
@@ -441,11 +437,10 @@ export const Transfer = ({
                                     const highlightedSet = new Set(
                                         highlightedPickedOptions
                                     )
-                                    const orderedHighlighted = selected.filter(
-                                        (value) => highlightedSet.has(value)
-                                    )
                                     reorderScrollTargetRef.current =
-                                        orderedHighlighted[0] ?? null
+                                        selected.find((value) =>
+                                            highlightedSet.has(value)
+                                        ) ?? null
                                     moveHighlightedPickedOptionToTop({
                                         selected,
                                         highlightedPickedOptions,
@@ -456,13 +451,10 @@ export const Transfer = ({
                                     const highlightedSet = new Set(
                                         highlightedPickedOptions
                                     )
-                                    const orderedHighlighted = selected.filter(
-                                        (value) => highlightedSet.has(value)
-                                    )
                                     reorderScrollTargetRef.current =
-                                        orderedHighlighted[
-                                            orderedHighlighted.length - 1
-                                        ] ?? null
+                                        selected.findLast((value) =>
+                                            highlightedSet.has(value)
+                                        ) ?? null
                                     moveHighlightedPickedOptionToBottom({
                                         selected,
                                         highlightedPickedOptions,

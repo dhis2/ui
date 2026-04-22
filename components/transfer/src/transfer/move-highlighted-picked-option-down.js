@@ -40,7 +40,7 @@ export const moveHighlightedPickedOptionDown = ({
     const indexSet = new Set(indices)
     const highlightedBlock = indices.map((index) => selected[index])
     const remaining = selected.filter((_, index) => !indexSet.has(index))
-    const bottommost = indices[indices.length - 1]
+    const bottommost = indices.at(-1)
     const targetBottom = Math.min(lastIndex, bottommost + 1)
     const insertPos = targetBottom - (indices.length - 1)
 
