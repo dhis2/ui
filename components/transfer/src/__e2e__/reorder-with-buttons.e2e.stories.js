@@ -17,7 +17,7 @@ export const HasSomeSelected = (_, { selected, onChange }) => (
 HasSomeSelected.story = {
     decorators: [
         statefulDecorator({
-            initialState: options.slice(0, 3).map(({ value }) => value),
+            initialState: options.slice(0, 8).map(({ value }) => value),
         }),
     ],
 }

@@ -326,8 +326,74 @@ PickedEmptyComponent.args = {
 export const Reordering = StatefulTemplate.bind({})
 Reordering.args = {
     enableOrderChange: true,
-    options: options.slice(0, 4),
-    initiallySelected: options.slice(0, 4).map(({ value }) => value),
+    options: options.slice(0, 20),
+    initiallySelected: options.slice(0, 8).map(({ value }) => value),
+}
+
+export const ReorderingWithPickedFilter = StatefulTemplate.bind({})
+ReorderingWithPickedFilter.storyName = 'Reordering with picked filter'
+ReorderingWithPickedFilter.args = {
+    enableOrderChange: true,
+    filterablePicked: true,
+    filterPlaceholderPicked: 'Search picked options',
+    options: options.slice(0, 20),
+    initiallySelected: options.slice(0, 8).map(({ value }) => value),
+}
+
+const ReorderingWithRightFooterTemplate = ({
+    initiallySelected = [],
+    ...args
+}) => {
+    const [selected, setSelected] = useState(initiallySelected)
+    const onChange = (payload) => setSelected(payload.selected)
+
+    return (
+        <Transfer
+            {...args}
+            selected={selected}
+            onChange={onChange}
+            rightFooter={
+                <span style={{ padding: '0 8px' }}>Right footer content</span>
+            }
+        />
+    )
+}
+ReorderingWithRightFooterTemplate.propTypes = {
+    initiallySelected: PropTypes.array,
+}
+
+export const ReorderingWithRightFooterContent =
+    ReorderingWithRightFooterTemplate.bind({})
+ReorderingWithRightFooterContent.storyName =
+    'Reordering with right footer content'
+ReorderingWithRightFooterContent.args = {
+    enableOrderChange: true,
+    options: options.slice(0, 20),
+    initiallySelected: options.slice(0, 8).map(({ value }) => value),
+}
+
+export const ReorderingWithCustomOptions =
+    StatefulTemplateCustomRenderOption.bind({})
+ReorderingWithCustomOptions.storyName = 'Reordering with custom options'
+ReorderingWithCustomOptions.args = {
+    enableOrderChange: true,
+    options: options.slice(0, 20),
+    initiallySelected: options.slice(0, 8).map(({ value }) => value),
+    renderOption: (option) => {
+        if (option.value === options[0].value) {
+            return renderOption(option)
+        }
+
+        if (option.value === options[2].value) {
+            return renderOption(option)
+        }
+
+        if (option.value === options[5].value) {
+            return renderOption(option)
+        }
+
+        return <TransferOption {...option} />
+    },
 }
 
 export const IncreasedOptionsHeight = StatefulTemplate.bind({})
