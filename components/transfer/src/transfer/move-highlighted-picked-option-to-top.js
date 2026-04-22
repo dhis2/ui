@@ -1,10 +1,9 @@
 import { getHighlightedPickedIndices } from './get-highlighted-picked-indices.js'
 
 /**
- * Moves the highlighted picked options up by one slot as a group.
- * If the selection is non-contiguous, the group collapses into a contiguous
- * block (preserving relative order) with its top edge landing at
- * `max(0, topmostHighlightedIndex - 1)`.
+ * Moves the highlighted picked options to the very top of the list as a
+ * single contiguous block, preserving their relative order. Non-contiguous
+ * selections are collapsed.
  *
  * @param {Object} args
  * @param {string[]} args.selected
@@ -12,7 +11,7 @@ import { getHighlightedPickedIndices } from './get-highlighted-picked-indices.js
  * @param {Function} args.onChange
  * @returns {void}
  */
-export const moveHighlightedPickedOptionUp = ({
+export const moveHighlightedPickedOptionToTop = ({
     selected,
     highlightedPickedOptions,
     onChange,
@@ -26,7 +25,7 @@ export const moveHighlightedPickedOptionUp = ({
         return
     }
 
-    // Already flush to the top — nothing to do
+    // Already a contiguous block flush to the top — nothing to do
     if (indices.every((index, i) => index === i)) {
         return
     }
@@ -34,14 +33,6 @@ export const moveHighlightedPickedOptionUp = ({
     const indexSet = new Set(indices)
     const highlightedBlock = indices.map((index) => selected[index])
     const remaining = selected.filter((_, index) => !indexSet.has(index))
-    const topmost = indices[0]
-    const insertPos = Math.max(0, topmost - 1)
 
-    const reordered = [
-        ...remaining.slice(0, insertPos),
-        ...highlightedBlock,
-        ...remaining.slice(insertPos),
-    ]
-
-    onChange({ selected: reordered })
+    onChange({ selected: [...highlightedBlock, ...remaining] })
 }
