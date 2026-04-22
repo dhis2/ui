@@ -14,7 +14,7 @@ const renderReorderTransfer = (_, { selected, onChange }) => (
     />
 )
 
-export const HasSomeSelected = renderReorderTransfer
+export const HasSomeSelected = renderReorderTransfer.bind({})
 
 HasSomeSelected.story = {
     decorators: [
@@ -24,7 +24,7 @@ HasSomeSelected.story = {
     ],
 }
 
-export const HasThreeSelected = renderReorderTransfer
+export const HasThreeSelected = renderReorderTransfer.bind({})
 
 HasThreeSelected.story = {
     decorators: [
