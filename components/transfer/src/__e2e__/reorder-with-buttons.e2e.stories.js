@@ -5,7 +5,7 @@ import { statefulDecorator } from './common/stateful-decorator.js'
 
 export default { title: 'Transfer Reorder Buttons' }
 
-export const HasSomeSelected = (_, { selected, onChange }) => (
+const renderReorderTransfer = (_, { selected, onChange }) => (
     <Transfer
         enableOrderChange
         selected={selected}
@@ -13,6 +13,8 @@ export const HasSomeSelected = (_, { selected, onChange }) => (
         options={options}
     />
 )
+
+export const HasSomeSelected = renderReorderTransfer
 
 HasSomeSelected.story = {
     decorators: [
@@ -22,14 +24,7 @@ HasSomeSelected.story = {
     ],
 }
 
-export const HasThreeSelected = (_, { selected, onChange }) => (
-    <Transfer
-        enableOrderChange
-        selected={selected}
-        onChange={onChange}
-        options={options}
-    />
-)
+export const HasThreeSelected = renderReorderTransfer
 
 HasThreeSelected.story = {
     decorators: [
