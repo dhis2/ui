@@ -5,7 +5,7 @@ Given('reordering of items is enabled', () => {
 })
 
 Given('the selected list has three items', () => {
-    cy.visitStory('Transfer Reorder Buttons', 'Has Some Selected')
+    cy.visitStory('Transfer Reorder Buttons', 'Has Three Selected')
 })
 
 Given('the selected list has some items', () => {
@@ -102,11 +102,12 @@ const highlightPositionWithCtrl = (position) =>
     cy
         .get('{transfer-pickedoptions} {transferoption}')
         .eq(position - 1)
-        .then(($option) => {
+        .then(($option) =>
             cy.get('@highlightedValues').then((values) => {
                 values.push($option.attr('data-value'))
+                return $option
             })
-        })
+        )
         .clickWith('ctrl')
 
 When(

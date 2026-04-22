@@ -21,3 +21,20 @@ HasSomeSelected.story = {
         }),
     ],
 }
+
+export const HasThreeSelected = (_, { selected, onChange }) => (
+    <Transfer
+        enableOrderChange
+        selected={selected}
+        onChange={onChange}
+        options={options}
+    />
+)
+
+HasThreeSelected.story = {
+    decorators: [
+        statefulDecorator({
+            initialState: options.slice(0, 3).map(({ value }) => value),
+        }),
+    ],
+}
