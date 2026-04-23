@@ -41,6 +41,7 @@ class InputField extends React.Component {
             autoComplete,
             clearable,
             prefixIcon,
+            characterCountLimit,
             dataTest = 'dhis2-uiwidgets-inputfield',
         } = this.props
 
@@ -84,6 +85,7 @@ class InputField extends React.Component {
                         clearable={clearable}
                         prefixIcon={prefixIcon}
                         width={inputWidth}
+                        characterCountLimit={characterCountLimit}
                     />
                 </Box>
             </Field>
@@ -94,6 +96,8 @@ class InputField extends React.Component {
 const InputFieldProps = {
     /** The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete) */
     autoComplete: PropTypes.string,
+    /** Soft maximum character length. Displays a counter showing current/max characters. Counter turns red when exceeded but typing is not prevented */
+    characterCountLimit: PropTypes.number,
     className: PropTypes.string,
     /** Makes the input field clearable */
     clearable: PropTypes.bool,
