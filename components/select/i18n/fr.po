@@ -24,7 +24,7 @@ msgid "No data found"
 msgstr "Aucune valeur trouvée"
 
 msgid "Type to filter options"
-msgstr "Tapez pour filtrer les options"
+msgstr "Taper pour filtrer les options"
 
 msgid "Loading options"
 msgstr "Chargement des options"
