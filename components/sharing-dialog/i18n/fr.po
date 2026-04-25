@@ -1,22 +1,21 @@
-# 
 # Translators:
 # Philip Larsen Donnelly, 2021
 # Edem Kossi <ekossi@hispwca.org>, 2021
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2024
 # Viktor Varland <viktor@dhis2.org>, 2024
 # Jason Pickering <jason@dhis2.org>, 2024
 # Esther Tokouli, 2025
+# Cyrille Kabrane, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2025-06-24T11:04:00.759Z\n"
 "PO-Revision-Date: 2021-10-01 23:39+0000\n"
-"Last-Translator: Esther Tokouli, 2025\n"
+"Last-Translator: Cyrille Kabrane, 2026\n"
 "Language-Team: French (https://app.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
@@ -82,24 +81,24 @@ msgid "User or group"
 msgstr "Utilisateur ou groupe"
 
 msgid "Search"
-msgstr "Chercher"
+msgstr "Rechercher"
 
 msgid "Apply dashboard sharing settings to visualizations"
 msgstr ""
 "Appliquer les paramètres de partage du tableau de bord aux visualisations"
 
 msgid "Something went wrong"
-msgstr "Quelque chose a mal tourné"
+msgstr "Une erreur s'est produite "
 
 msgid "Apply sharing to dashboard visualizations"
-msgstr "Appliquer le partage aux visualisations de tableaux de bord"
+msgstr "Appliquer le partage aux visualisations du tableaux de bord"
 
 msgid ""
 "No visualizations were updated. Check that you have permission to change "
 "sharing for all visualizations."
 msgstr ""
-"Aucune visualisation n'a été mise à jour. Vérifiez que vous disposez des "
-"autorisations nécessaires pour modifier le partage de toutes les "
+"Aucune visualisation n'a été mise à jour. Vérifiez si vous disposez des "
+"autorisations nécessaires pour modifier le partage pour toutes les "
 "visualisations."
 
 msgid ""
@@ -107,10 +106,10 @@ msgid ""
 "successfully, {{ failed }} failed to update. Check that you have permission "
 "to change sharing for all visualizations."
 msgstr ""
-"Toutes les visualisations n'ont pas pu être mises à jour avec succès. {{ "
-"success }} a été mis à jour avec succès, {{ failed }} n'a pas pu être mis à "
-"jour. Vérifiez que vous avez la permission de modifier le partage pour "
-"toutes les visualisations."
+"Toutes les visualisations n'ont pas pu être mises à jour. {{ success }} a "
+"été mis à jour avec succès, {{ failed }} n'a pas pu être mis à jour. "
+"Vérifiez si vous avez les autorisation nécessaires pour modifier le partage "
+"pour toutes les visualisations."
 
 msgid ""
 "No visualizations were updated because sharing settings are already "
@@ -126,9 +125,9 @@ msgid ""
 "Not all visualization sharing settings needed to be updated. {{ updated }} "
 "updated, {{ skipped }} already had sufficient sharing settings."
 msgstr ""
-"Tous les paramètres de partage de visualisation n'avaient pas besoin d'être "
-"mis à jour.  {{ updated }} a été mis à jour, {{ skipped }} disposait déjà de"
-" paramètres de partage suffisants."
+"Tous les paramètres de partage de visualisations n'avaient pas besoin d'être"
+" mis à jour.  {{ updated }} a été mis à jour, {{ skipped }} disposait déjà "
+"de paramètres de partage suffisants."
 
 msgid "There are no users or groups to apply sharing settings for."
 msgstr ""
@@ -160,17 +159,17 @@ msgid ""
 "this won't be reduced to \"View only\". The \"All users\" access level won't"
 " be updated or changed."
 msgstr ""
-"Si un utilisateur ou un groupe dispose déjà d'un accès « Visualiser et "
-"modifier » pour une visualisation, celui-ci ne sera pas réduit à « "
-"Visualiser uniquement ». Le niveau d'accès « Tous les utilisateurs » ne sera"
-" ni mis à jour ni modifié."
+"Si un utilisateur ou un groupe dispose déjà d'un accès \"Visualiser et "
+"modifier\" pour une visualisation, celui-ci ne sera pas réduit à "
+"\"Visualiser uniquement\". Le niveau d'accès \"Tous les utilisateurs\" ne "
+"sera ni mis à jour ni modifié."
 
 msgid ""
 "Applying sharing can't be undone, and needs to be done again if new "
 "visualizations are added to the dashboard or its sharing settings are "
 "changed."
 msgstr ""
-"L'application de partage ne peut pas être annulée et doit être effectuée à "
+"L'application du partage ne peut pas être annulée et doit être effectuée à "
 "nouveau si de nouvelles visualisations sont ajoutées au tableau de bord ou "
 "si ses paramètres de partage sont modifiés."
 
@@ -186,8 +185,8 @@ msgstr "Fermer"
 msgid ""
 "This action would remove your metadata write access, which is not allowed"
 msgstr ""
-"Cette action supprimerait l'accès en écriture aux métadonnées, ce qui n'est "
-"pas autorisé"
+"Cette action pourrait supprimer l'accès en écriture aux métadonnées, ce qui "
+"n'est pas autorisé"
 
 msgid "Dashboard sharing"
 msgstr "Partage du tableau de bord"
