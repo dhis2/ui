@@ -34,4 +34,12 @@ describe('Transfer - defaultFilterCallback', () => {
 
         expect(actual).toEqual(expected)
     })
+
+    it('should return all options when the filter is invalid regexp', () => {
+        const filter = '('
+        const expected = options
+        const actual = defaultFilterCallback(options, filter)
+
+        expect(actual).toEqual(expected)
+    })
 })
