@@ -91,7 +91,7 @@ msgid "Something went wrong"
 msgstr "Une erreur s'est produite "
 
 msgid "Apply sharing to dashboard visualizations"
-msgstr "Appliquer le partage aux visualisations du tableaux de bord"
+msgstr "Appliquer le partage aux visualisations du tableau de bord"
 
 msgid ""
 "No visualizations were updated. Check that you have permission to change "

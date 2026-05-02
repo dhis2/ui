@@ -29,7 +29,7 @@ msgid "DHIS2 version unknown"
 msgstr "Version de DHIS2 inconnue"
 
 msgid "{{appName}} version unknown"
-msgstr "{{appName}} version inconnue"
+msgstr "Version de {{appName}} inconnue"
 
 msgid "App {{appVersion}}"
 msgstr "Application {{appVersion}}"
@@ -59,7 +59,7 @@ msgid "Offline"
 msgstr "Hors ligne"
 
 msgid "Edit profile"
-msgstr "Modifier le profil"
+msgstr "Éditer le profil"
 
 msgid "Settings"
 msgstr "Paramètres"
@@ -83,7 +83,7 @@ msgid "New app version available"
 msgstr "Nouvelle version de l'application disponible"
 
 msgid "Click to reload"
-msgstr "Cliquer pour retélécharger"
+msgstr "Cliquer pour recharger"
 
 msgid "Profile menu"
 msgstr "Menu du profil"
