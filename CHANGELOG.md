@@ -1,3 +1,15 @@
+# [10.14.0](https://github.com/dhis2/ui/compare/v10.13.1...v10.14.0) (2026-05-06)
+
+
+### Bug Fixes
+
+* **transfer:** handle incomplete regular expressions in filter [DHIS2-19573] ([#1740](https://github.com/dhis2/ui/issues/1740)) ([95b859e](https://github.com/dhis2/ui/commit/95b859eb5249558984479b89e4ce52a9e3112409))
+
+
+### Features
+
+* **transfer:** reorder improvements ([#1739](https://github.com/dhis2/ui/issues/1739)) ([8cab102](https://github.com/dhis2/ui/commit/8cab1026cf9cb608ae3bd822a063328a5b44a601))
+
 ## [10.13.1](https://github.com/dhis2/ui/compare/v10.13.0...v10.13.1) (2026-04-20)
 
 
