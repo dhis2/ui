@@ -1,0 +1,24 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"POT-Creation-Date: 2026-05-06T12:25:27.868Z\n"
+"PO-Revision-Date: 2026-05-06T12:25:27.868Z\n"
+
+msgid "Reordering not allowed when filtering list"
+msgstr "Reordering not allowed when filtering list"
+
+msgid "Move selected items to top"
+msgstr "Move selected items to top"
+
+msgid "Move selected items up"
+msgstr "Move selected items up"
+
+msgid "Move selected items down"
+msgstr "Move selected items down"
+
+msgid "Move selected items to bottom"
+msgstr "Move selected items to bottom"

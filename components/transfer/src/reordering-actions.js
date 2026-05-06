@@ -9,8 +9,9 @@ import {
     IconMoveToTop,
     IconMoveUp,
 } from './icons.js'
+import i18n from './locales/index.js'
 
-const filterActiveTooltip = 'Reordering not allowed when filtering list'
+const filterActiveTooltip = i18n.t('Reordering not allowed when filtering list')
 
 export const ReorderingActions = ({
     dataTest,
@@ -22,10 +23,10 @@ export const ReorderingActions = ({
     onChangeToTop,
     onChangeToBottom,
 }) => {
-    const moveToTopLabel = 'Move selected items to top'
-    const moveUpLabel = 'Move selected items up'
-    const moveDownLabel = 'Move selected items down'
-    const moveToBottomLabel = 'Move selected items to bottom'
+    const moveToTopLabel = i18n.t('Move selected items to top')
+    const moveUpLabel = i18n.t('Move selected items up')
+    const moveDownLabel = i18n.t('Move selected items down')
+    const moveToBottomLabel = i18n.t('Move selected items to bottom')
 
     const renderButtons = (tooltipHandlers = {}) => (
         <div data-test={dataTest} {...tooltipHandlers}>
