@@ -1,3 +1,10 @@
+# [10.15.0](https://github.com/dhis2/ui/compare/v10.14.0...v10.15.0) (2026-05-19)
+
+
+### Features
+
+* **notice-box:** dense variant, allow custom icon ([#1732](https://github.com/dhis2/ui/issues/1732)) ([a068264](https://github.com/dhis2/ui/commit/a06826489255624c8eae444b9a74f4cd7f1c497d))
+
 # [10.14.0](https://github.com/dhis2/ui/compare/v10.13.1...v10.14.0) (2026-05-06)
 
 
