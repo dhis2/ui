@@ -1,3 +1,10 @@
+## [10.15.1](https://github.com/dhis2/ui/compare/v10.15.0...v10.15.1) (2026-05-20)
+
+
+### Bug Fixes
+
+* **types:** add missing props to Calendar and CalendarInput types ([#1742](https://github.com/dhis2/ui/issues/1742)) ([6733f3c](https://github.com/dhis2/ui/commit/6733f3cc02c065a49400050fc93f1a941accea44))
+
 # [10.15.0](https://github.com/dhis2/ui/compare/v10.14.0...v10.15.0) (2026-05-19)
 
 
