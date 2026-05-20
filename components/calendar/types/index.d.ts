@@ -42,6 +42,10 @@ export interface CalendarProps {
      */
     numberingSystem?: CalendarPickerOptions['numberingSystem']
     /**
+     * When true, only shows years in the past (current year and earlier)
+     */
+    pastOnly?: boolean
+    /**
      * the timeZone to use
      */
     timeZone?: CalendarPickerOptions['timeZone']
@@ -64,6 +68,18 @@ export type CalendarInputProps = Omit<InputFieldProps, 'type' | 'value'> &
          * or processed. If not provided it supports both formats
          */
         format?: 'YYYY-MM-DD' | 'DD-MM-YYYY'
+        /**
+         * The maximum selectable date
+         */
+        maxDate?: string
+        /**
+         * The minimum selectable date
+         */
+        minDate?: string
+        /**
+         * Whether to use strict validation by showing errors for out-of-range dates when enabled (default), and warnings when disabled
+         */
+        strictValidation?: boolean
     }
 
 export const CalendarInput: React.FC<CalendarInputProps>
