@@ -15,6 +15,8 @@ const MultiSelect = ({
     selected = staticArr,
     tabIndex,
     maxHeight,
+    menuMinWidth,
+    menuMaxWidth,
     inputMaxHeight,
     onChange,
     onFocus,
@@ -72,6 +74,8 @@ const MultiSelect = ({
                     menu={menu}
                     tabIndex={tabIndex}
                     maxHeight={maxHeight}
+                    menuMinWidth={menuMinWidth}
+                    menuMaxWidth={menuMaxWidth}
                     onChange={onChange}
                     onFocus={onFocus}
                     onKeyDown={onKeyDown}
@@ -131,6 +135,10 @@ MultiSelect.propTypes = {
     loading: PropTypes.bool,
     loadingText: PropTypes.string,
     maxHeight: PropTypes.string,
+    /** Sets a maximum width for the dropdown menu */
+    menuMaxWidth: PropTypes.string,
+    /** Sets a minimum width for the dropdown menu */
+    menuMinWidth: PropTypes.string,
     /** Required if `filterable` prop is `true` */
     noMatchText: requiredIf((props) => props.filterable, PropTypes.string),
     placeholder: PropTypes.string,
