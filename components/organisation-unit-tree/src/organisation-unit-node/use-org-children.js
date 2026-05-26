@@ -7,7 +7,10 @@ const ORG_DATA_QUERY = {
         resource: `organisationUnits`,
         id: ({ id }) => id,
         params: ({ displayProperty }) => ({
-            fields: `children[id,path,${displayProperty}~rename(displayName)]`,
+            fields:
+                displayProperty === 'displayName'
+                    ? 'children[id,path,displayName]'
+                    : `children[id,path,${displayProperty}~rename(displayName)]`,
         }),
     },
 }
@@ -46,7 +49,7 @@ export const useOrgChildren = ({
         return suppressAlphabeticalSorting
             ? orgUnit.children
             : sortNodeChildrenAlphabetically(orgUnit.children)
-    }, [data, suppressAlphabeticalSorting])
+    }, [data, node.children, suppressAlphabeticalSorting])
 
     useEffect(() => {
         if (onComplete && orgChildren && !onCompleteCalledRef.current) {
@@ -54,7 +57,7 @@ export const useOrgChildren = ({
             onComplete({ ...node, children: orgChildren })
             onCompleteCalledRef.current = true
         }
-    }, [onComplete, orgChildren, onCompleteCalledRef])
+    }, [node, onComplete, orgChildren, onCompleteCalledRef])
 
     return { called, loading, error: error || null, data: orgChildren }
 }

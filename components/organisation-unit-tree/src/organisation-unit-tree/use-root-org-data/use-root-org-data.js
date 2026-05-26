@@ -12,7 +12,9 @@ export const createRootQuery = (ids, displayProperty) =>
                 params: ({ isUserDataViewFallback }) => ({
                     isUserDataViewFallback,
                     fields: [
-                        `${displayProperty}~rename(displayName)`,
+                        displayProperty === 'displayName'
+                            ? 'displayName'
+                            : `${displayProperty}~rename(displayName)`,
                         'path',
                         'id',
                     ],
