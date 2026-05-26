@@ -66,6 +66,12 @@ export function useHandleKeyPressOnFilterInput({
 
             const { key, altKey } = e
 
+            // Filter input stops propagation, so handle Tab here to close the menu.
+            if (key === 'Tab') {
+                closeMenu()
+                return
+            }
+
             if (
                 key === 'Escape' ||
                 key === 'Enter' ||
