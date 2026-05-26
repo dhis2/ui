@@ -17,6 +17,7 @@ export const OrganisationUnitNode = ({
     dataTest,
     disableSelection,
     displayName,
+    displayProperty,
     expanded,
     highlighted,
     id,
@@ -142,6 +143,7 @@ export const OrganisationUnitNode = ({
                     autoExpandLoadingError={autoExpandLoadingError}
                     dataTest={dataTest}
                     disableSelection={disableSelection}
+                    displayProperty={displayProperty}
                     expanded={expanded}
                     filter={filter}
                     highlighted={highlighted}
@@ -172,6 +174,7 @@ OrganisationUnitNode.propTypes = {
     autoExpandLoadingError: PropTypes.bool,
     disableSelection: PropTypes.bool,
     displayName: PropTypes.string,
+    displayProperty: PropTypes.oneOf(['displayName', 'displayShortName']),
     expanded: PropTypes.arrayOf(orgUnitPathPropType),
     filter: PropTypes.arrayOf(orgUnitPathPropType),
     highlighted: PropTypes.arrayOf(orgUnitPathPropType),

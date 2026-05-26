@@ -20,6 +20,7 @@ const OrganisationUnitTree = ({
     autoExpandLoadingError,
     dataTest = 'dhis2-uiwidgets-orgunittree',
     disableSelection,
+    displayProperty = 'displayName',
     forceReload,
     highlighted = staticArray,
     isUserDataViewFallback,
@@ -47,6 +48,7 @@ const OrganisationUnitTree = ({
     const { called, loading, error, data, refetch } = useRootOrgData(rootIds, {
         isUserDataViewFallback,
         suppressAlphabeticalSorting,
+        displayProperty,
     })
 
     const { expanded, handleExpand, handleCollapse } = useExpanded({
@@ -90,6 +92,7 @@ const OrganisationUnitTree = ({
                             dataTest={dataTest}
                             disableSelection={disableSelection}
                             displayName={rootNode.displayName}
+                            displayProperty={displayProperty}
                             expanded={expanded}
                             highlighted={highlighted}
                             id={rootId}
@@ -131,6 +134,14 @@ OrganisationUnitTree.propTypes = {
 
     /** When set to true, no unit can be selected */
     disableSelection: PropTypes.bool,
+
+    /**
+     * Which field to render as the org unit label. Defaults to `'displayName'`.
+     * Set to `'displayShortName'` to honour the `keyAnalysisDisplayProperty`
+     * system/user setting. The query renames the chosen field back to
+     * `displayName` internally, so consumer-facing data shape is unchanged.
+     */
+    displayProperty: PropTypes.oneOf(['displayName', 'displayShortName']),
 
     expanded: requiredIf(
         (props) => !!props.handleExpand || !!props.handleCollapse,

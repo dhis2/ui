@@ -6,9 +6,9 @@ const ORG_DATA_QUERY = {
     orgUnit: {
         resource: `organisationUnits`,
         id: ({ id }) => id,
-        params: {
-            fields: 'children[id,path,displayName]',
-        },
+        params: ({ displayProperty }) => ({
+            fields: `children[id,path,${displayProperty}~rename(displayName)]`,
+        }),
     },
 }
 
@@ -17,16 +17,18 @@ const ORG_DATA_QUERY = {
  * @param {Object} options
  * @param {string} options.displayName
  * @param {boolean} [options.withChildren]
+ * @param {'displayName'|'displayShortName'} [options.displayProperty]
  * @returns {Object}
  */
 export const useOrgChildren = ({
     node,
     suppressAlphabeticalSorting,
     onComplete,
+    displayProperty = 'displayName',
 }) => {
     const onCompleteCalledRef = useRef(false)
     const { called, loading, error, data } = useDataQuery(ORG_DATA_QUERY, {
-        variables: { id: node.id },
+        variables: { id: node.id, displayProperty },
     })
 
     const orgChildren = useMemo(() => {
