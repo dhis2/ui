@@ -6,9 +6,12 @@ const ORG_DATA_QUERY = {
     orgUnit: {
         resource: `organisationUnits`,
         id: ({ id }) => id,
-        params: {
-            fields: 'children[id,path,displayName]',
-        },
+        params: ({ displayProperty }) => ({
+            fields:
+                displayProperty === 'displayName'
+                    ? 'children[id,path,displayName]'
+                    : `children[id,path,${displayProperty}~rename(displayName)]`,
+        }),
     },
 }
 
@@ -17,16 +20,18 @@ const ORG_DATA_QUERY = {
  * @param {Object} options
  * @param {string} options.displayName
  * @param {boolean} [options.withChildren]
+ * @param {'displayName'|'displayShortName'} [options.displayProperty]
  * @returns {Object}
  */
 export const useOrgChildren = ({
     node,
     suppressAlphabeticalSorting,
     onComplete,
+    displayProperty = 'displayName',
 }) => {
     const onCompleteCalledRef = useRef(false)
     const { called, loading, error, data } = useDataQuery(ORG_DATA_QUERY, {
-        variables: { id: node.id },
+        variables: { id: node.id, displayProperty },
     })
 
     const orgChildren = useMemo(() => {
@@ -44,7 +49,7 @@ export const useOrgChildren = ({
         return suppressAlphabeticalSorting
             ? orgUnit.children
             : sortNodeChildrenAlphabetically(orgUnit.children)
-    }, [data, suppressAlphabeticalSorting])
+    }, [data, node.children, suppressAlphabeticalSorting])
 
     useEffect(() => {
         if (onComplete && orgChildren && !onCompleteCalledRef.current) {
@@ -52,7 +57,7 @@ export const useOrgChildren = ({
             onComplete({ ...node, children: orgChildren })
             onCompleteCalledRef.current = true
         }
-    }, [onComplete, orgChildren, onCompleteCalledRef])
+    }, [node, onComplete, orgChildren, onCompleteCalledRef])
 
     return { called, loading, error: error || null, data: orgChildren }
 }

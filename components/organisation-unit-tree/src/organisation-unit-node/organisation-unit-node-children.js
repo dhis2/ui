@@ -21,6 +21,7 @@ export const OrganisationUnitNodeChildren = ({
     autoExpandLoadingError,
     dataTest,
     disableSelection,
+    displayProperty,
     expanded,
     filter,
     highlighted,
@@ -42,6 +43,7 @@ export const OrganisationUnitNodeChildren = ({
         isUserDataViewFallback,
         suppressAlphabeticalSorting,
         onComplete: onChildrenLoaded,
+        displayProperty,
     })
 
     const displayChildren =
@@ -68,6 +70,7 @@ export const OrganisationUnitNodeChildren = ({
                             dataTest={dataTest}
                             disableSelection={disableSelection}
                             displayName={child.displayName}
+                            displayProperty={displayProperty}
                             expanded={expanded}
                             filter={filter}
                             highlighted={highlighted}
@@ -105,6 +108,7 @@ OrganisationUnitNodeChildren.propTypes = {
 
     autoExpandLoadingError: PropTypes.bool,
     disableSelection: PropTypes.bool,
+    displayProperty: PropTypes.oneOf(['displayName', 'displayShortName']),
     expanded: PropTypes.arrayOf(orgUnitPathPropType),
     filter: PropTypes.arrayOf(orgUnitPathPropType),
     highlighted: PropTypes.arrayOf(orgUnitPathPropType),

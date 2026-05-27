@@ -1,3 +1,10 @@
+# [10.16.0](https://github.com/dhis2/ui/compare/v10.15.1...v10.16.0) (2026-05-26)
+
+
+### Features
+
+* **organisation-unit-tree:** add displayProperty prop to support shortname (DHIS2-21561) ([#1745](https://github.com/dhis2/ui/issues/1745)) ([447d3db](https://github.com/dhis2/ui/commit/447d3dbe4f6c4f8884841cdb6db72d35cef62f46))
+
 ## [10.15.1](https://github.com/dhis2/ui/compare/v10.15.0...v10.15.1) (2026-05-20)
 
 
