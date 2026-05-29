@@ -1,3 +1,10 @@
+## [10.16.1](https://github.com/dhis2/ui/compare/v10.16.0...v10.16.1) (2026-05-29)
+
+
+### Bug Fixes
+
+* **select:** handle Tab key to close menu in Select component ([#1746](https://github.com/dhis2/ui/issues/1746)) ([1f77a51](https://github.com/dhis2/ui/commit/1f77a51b3ab4525f8e8502588dbf032c2e9880a8))
+
 # [10.16.0](https://github.com/dhis2/ui/compare/v10.15.1...v10.16.0) (2026-05-26)
 
 
