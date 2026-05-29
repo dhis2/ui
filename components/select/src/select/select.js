@@ -6,6 +6,7 @@ import { InputWrapper } from './input-wrapper.js'
 import { MenuWrapper } from './menu-wrapper.js'
 
 // Keycodes for the keypress event handlers
+const TAB_KEY = 9
 const ESCAPE_KEY = 27
 const SPACE_KEY = 32
 const UP_KEY = 38
@@ -135,7 +136,8 @@ export class Select extends Component {
             (keyCode === SPACE_KEY ||
                 keyCode === UP_KEY ||
                 keyCode === DOWN_KEY)
-        const shouldClose = open && keyCode === ESCAPE_KEY
+        const shouldClose =
+            open && (keyCode === ESCAPE_KEY || keyCode === TAB_KEY)
 
         /* Do not block event propagation when the Select is closed unless
          * the key to open it is pressed, so that other components like
