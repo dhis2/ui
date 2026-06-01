@@ -66,8 +66,10 @@ export function useHandleKeyPressOnFilterInput({
 
             const { key, altKey } = e
 
-            // Filter input stops propagation, so handle Tab here to close the menu.
+            // Refocus combobox before closing so filter unmount does not drop focus to <body>; preventDefault keeps focus on the select.
             if (key === 'Tab') {
+                e.preventDefault()
+                focusComboBox()
                 closeMenu()
                 return
             }

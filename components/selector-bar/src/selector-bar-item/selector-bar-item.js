@@ -40,6 +40,15 @@ export const SelectorBarItem = ({
     const buttonRef = useRef()
     const Icon = open ? IconChevronUp24 : IconChevronDown24
 
+    const handleKeyDown = (evt) => {
+        // Close on Tab; refocus button so user can Tab again to leave.
+        if (open && setOpen && evt.key === 'Tab') {
+            evt.preventDefault()
+            buttonRef.current?.focus()
+            setOpen(false)
+        }
+    }
+
     return (
         <button
             ref={buttonRef}
@@ -50,6 +59,7 @@ export const SelectorBarItem = ({
             )}
             disabled={disabled}
             onClick={() => setOpen && setOpen(true)}
+            onKeyDown={handleKeyDown}
             data-test={dataTest}
         >
             <span className="label">{label}</span>
