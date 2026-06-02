@@ -40,6 +40,14 @@ export const SelectorBarItem = ({
     const buttonRef = useRef()
     const Icon = open ? IconChevronUp24 : IconChevronDown24
 
+    const handleKeyDown = (evt) => {
+        if (open && setOpen && evt.key === 'Tab') {
+            // Move focus to trigger and defer close so Tab advances before the popup unmounts.
+            buttonRef.current?.focus()
+            requestAnimationFrame(() => setOpen(false))
+        }
+    }
+
     return (
         <button
             ref={buttonRef}
@@ -50,6 +58,7 @@ export const SelectorBarItem = ({
             )}
             disabled={disabled}
             onClick={() => setOpen && setOpen(true)}
+            onKeyDown={handleKeyDown}
             data-test={dataTest}
         >
             <span className="label">{label}</span>

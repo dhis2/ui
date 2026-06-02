@@ -136,8 +136,6 @@ export class Select extends Component {
             (keyCode === SPACE_KEY ||
                 keyCode === UP_KEY ||
                 keyCode === DOWN_KEY)
-        const shouldClose =
-            open && (keyCode === ESCAPE_KEY || keyCode === TAB_KEY)
 
         /* Do not block event propagation when the Select is closed unless
          * the key to open it is pressed, so that other components like
@@ -146,8 +144,13 @@ export class Select extends Component {
             e.stopPropagation()
         }
 
-        if (shouldClose) {
+        if (open && keyCode === ESCAPE_KEY) {
             return this.handleClose()
+        }
+
+        if (open && keyCode === TAB_KEY) {
+            // Defer so Tab advances focus before the menu unmounts.
+            return requestAnimationFrame(this.handleClose)
         }
 
         if (shouldOpen) {

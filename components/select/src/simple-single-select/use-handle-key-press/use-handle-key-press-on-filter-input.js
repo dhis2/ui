@@ -66,9 +66,9 @@ export function useHandleKeyPressOnFilterInput({
 
             const { key, altKey } = e
 
-            // Filter input stops propagation, so handle Tab here to close the menu.
+            // Defer so Tab advances focus before the filter unmounts.
             if (key === 'Tab') {
-                closeMenu()
+                requestAnimationFrame(closeMenu)
                 return
             }
 
