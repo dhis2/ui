@@ -41,11 +41,10 @@ export const SelectorBarItem = ({
     const Icon = open ? IconChevronUp24 : IconChevronDown24
 
     const handleKeyDown = (evt) => {
-        // Close on Tab; refocus button so user can Tab again to leave.
         if (open && setOpen && evt.key === 'Tab') {
-            evt.preventDefault()
+            // Move focus to trigger and defer close so Tab advances before the popup unmounts.
             buttonRef.current?.focus()
-            setOpen(false)
+            requestAnimationFrame(() => setOpen(false))
         }
     }
 

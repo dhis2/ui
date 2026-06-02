@@ -66,11 +66,9 @@ export function useHandleKeyPressOnFilterInput({
 
             const { key, altKey } = e
 
-            // Refocus combobox before closing so filter unmount does not drop focus to <body>; preventDefault keeps focus on the select.
+            // Defer so Tab advances focus before the filter unmounts.
             if (key === 'Tab') {
-                e.preventDefault()
-                focusComboBox()
-                closeMenu()
+                requestAnimationFrame(closeMenu)
                 return
             }
 
