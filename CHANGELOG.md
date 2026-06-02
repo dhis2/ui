@@ -1,3 +1,10 @@
+## [10.16.2](https://github.com/dhis2/ui/compare/v10.16.1...v10.16.2) (2026-06-02)
+
+
+### Bug Fixes
+
+* **select:** tab key handling for selectors ([#1747](https://github.com/dhis2/ui/issues/1747)) ([ddbb1b9](https://github.com/dhis2/ui/commit/ddbb1b9b5635ec0fb7e89704dd6f7bf4a9ae52af))
+
 ## [10.16.1](https://github.com/dhis2/ui/compare/v10.16.0...v10.16.1) (2026-05-29)
 
 
