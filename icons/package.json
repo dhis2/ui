@@ -31,7 +31,8 @@
     },
     "files": [
         "build",
-        "types"
+        "types",
+        "src"
     ],
     "peerDependencies": {
         "react": "^16.13 || ^18",

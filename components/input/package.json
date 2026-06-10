@@ -45,7 +45,8 @@
     },
     "files": [
         "build",
-        "types"
+        "types",
+        "src"
     ],
     "devDependencies": {
         "react": "^18.3.1",

@@ -53,7 +53,8 @@
     },
     "files": [
         "build",
-        "types"
+        "types",
+        "src"
     ],
     "devDependencies": {
         "@dhis2/d2-i18n": "^1.1.0",
