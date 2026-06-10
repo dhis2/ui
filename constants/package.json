@@ -31,7 +31,8 @@
     },
     "files": [
         "build",
-        "types"
+        "types",
+        "src"
     ],
     "types": "types"
 }

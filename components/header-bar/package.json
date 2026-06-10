@@ -55,7 +55,8 @@
     },
     "files": [
         "build",
-        "types"
+        "types",
+        "src"
     ],
     "devDependencies": {
         "@dhis2/app-runtime": "^3.9.0",
