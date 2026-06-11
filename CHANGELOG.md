@@ -1,3 +1,10 @@
+## [10.16.3](https://github.com/dhis2/ui/compare/v10.16.2...v10.16.3) (2026-06-11)
+
+
+### Bug Fixes
+
+* include source files in bundled UI library ([#1748](https://github.com/dhis2/ui/issues/1748)) ([e3fb77a](https://github.com/dhis2/ui/commit/e3fb77a8aa0afc5c54459404440da93126c4a792))
+
 ## [10.16.3-alpha.1](https://github.com/dhis2/ui/compare/v10.16.2...v10.16.3-alpha.1) (2026-06-10)
 
 
