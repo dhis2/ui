@@ -1,7 +1,7 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import PropTypes from 'prop-types'
 import React, { useState, useMemo, useEffect } from 'react'
-import { usePopper } from 'react-popper'
+import { usePopper } from './use-popper.js'
 import { getReferenceElement } from './get-reference-element.js'
 import { deduplicateModifiers } from './modifiers.js'
 

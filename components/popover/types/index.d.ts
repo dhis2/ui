@@ -2,7 +2,9 @@ import * as React from 'react'
 import { VirtualElement, Options as PopperOptions } from '@popperjs/core'
 
 type PopperReference = VirtualElement | Element
-type ReferenceElement = PopperReference | React.RefObject<PopperReference>
+type ReferenceElement =
+    | PopperReference
+    | React.RefObject<PopperReference | null>
 
 export interface PopoverProps {
     children: React.ReactNode

@@ -8,7 +8,7 @@ type TooltipRenderProps = {
     onFocus: onFocusEvent
     onMouseOver: OnMouseEvent
     onMouseOut: OnMouseEvent
-    ref: React.MutableRefObject<HTMLElement>
+    ref: React.RefObject<HTMLElement | null>
 }
 export type TooltipRenderFunc = ({
     onBlur,
