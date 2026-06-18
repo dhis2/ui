@@ -1,6 +1,7 @@
 import { colors, layers } from '@dhis2/ui-constants'
 import { Popper } from '@dhis2-ui/popper'
 import { Portal } from '@dhis2-ui/portal'
+import { flip, offset } from '@floating-ui/react-dom'
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
 import { resolve } from 'styled-jsx/css'
@@ -9,29 +10,9 @@ const TOOLTIP_OFFSET = 4
 
 const popperStyle = resolve`
     z-index: ${layers.applicationTop};
-    // Hide popper when reference component is obscured (https://popper.js.org/docs/v2/modifiers/hide/)
-    div[data-popper-reference-hidden="true"] {
-        visibility: hidden;
-    }
 `
 
-const offsetModifier = {
-    name: 'offset',
-    options: {
-        offset: [0, TOOLTIP_OFFSET],
-    },
-}
-
-/**
- * For some reason the intended effects of the 'hide' modifier work with or
- * without adding it to the popper... but it may be safe to include it anyway
- */
-const hideModifier = { name: 'hide' }
-
-const flipModifier = {
-    name: 'flip',
-    options: { altBoundary: true },
-}
+const tooltipMiddleware = [offset(TOOLTIP_OFFSET), flip({ altBoundary: true })]
 
 const Tooltip = ({
     children,
@@ -128,7 +109,7 @@ const Tooltip = ({
                         className={popperStyle.className}
                         placement={placement}
                         reference={popperReference}
-                        modifiers={[offsetModifier, flipModifier, hideModifier]}
+                        middleware={tooltipMiddleware}
                     >
                         <div
                             className={className}

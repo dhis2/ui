@@ -3,16 +3,12 @@ import { IconChevronUp24, IconChevronDown24 } from '@dhis2/ui-icons'
 import { Card } from '@dhis2-ui/card'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
+import { offset } from '@floating-ui/react-dom'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useRef } from 'react'
 
-const offsetModifier = {
-    name: 'offset',
-    options: {
-        offset: [0, 2],
-    },
-}
+const selectorBarMiddleware = [offset(2)]
 
 /**
  * The reason this component expects the "open" state and "setOpen" function is
@@ -105,7 +101,7 @@ export const SelectorBarItem = ({
                     <Popper
                         reference={buttonRef}
                         placement="bottom-start"
-                        modifiers={[offsetModifier]}
+                        middleware={selectorBarMiddleware}
                     >
                         <Card>{children}</Card>
                     </Popper>

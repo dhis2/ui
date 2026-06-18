@@ -1,9 +1,5 @@
+import { Middleware, Placement, VirtualElement } from '@floating-ui/react-dom'
 import * as React from 'react'
-import {
-    VirtualElement,
-    Options as PopperOptions,
-    StrictModifiers,
-} from '@popperjs/core'
 
 type PopperReference = VirtualElement | Element
 type ReferenceElement =
@@ -18,30 +14,23 @@ export interface PopperProps {
     className?: string
     dataTest?: string
     /**
-     * A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)
+     * Floating UI middleware array. See https://floating-ui.com/docs/middleware
      */
-    modifiers?: StrictModifiers[]
+    middleware?: Middleware[]
     /**
-     * Makes the Popper update position when the **Popper content** changes size
+     * Where to place the popper relative to its reference
      */
-    observePopperResize?: boolean
+    placement?: Placement
     /**
-     * Makes the Popper update position when the **reference element** changes size
-     */
-    observeReferenceResize?: boolean
-    /**
-     * A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)
-     */
-    placement?: PopperOptions['placement']
-    /**
-     * A React ref, DOM node, or [virtual element](https://popper.js.org/docs/v2/virtual-elements/) for the popper to position itself against
+     * A React ref, DOM node, or virtual element for the popper to position itself against
      */
     reference?: ReferenceElement
     /**
-     * A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)
+     * Positioning strategy. See https://floating-ui.com/docs/usefloating#strategy
      */
-    strategy?: PopperOptions['strategy']
-    onFirstUpdate?: PopperOptions['onFirstUpdate']
+    strategy?: 'absolute' | 'fixed'
 }
 
-export const Popper: React.FC<PopperProps>
+export const Popper: React.ForwardRefExoticComponent<
+    PopperProps & React.RefAttributes<HTMLDivElement>
+>

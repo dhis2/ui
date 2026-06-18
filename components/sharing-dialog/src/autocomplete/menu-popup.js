@@ -14,11 +14,7 @@ export const MenuPopup = ({
 }) => {
     return (
         <Layer onBackdropClick={onClick} transparent>
-            <Popper
-                reference={menuRef}
-                placement="bottom"
-                observeReferenceResize
-            >
+            <Popper reference={menuRef} placement="bottom">
                 <div className="card" data-test={`${dataTest}-menuwrapper`}>
                     <Card>{children}</Card>
                 </div>

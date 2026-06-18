@@ -7,18 +7,14 @@ import { Button } from '@dhis2-ui/button'
 import { InputField } from '@dhis2-ui/input'
 import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
+import { offset } from '@floating-ui/react-dom'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useRef, useState, useMemo, useEffect } from 'react'
 import { CalendarContainer } from '../calendar/calendar-container.js'
 import i18n from '../locales/index.js'
 
-const offsetModifier = {
-    name: 'offset',
-    options: {
-        offset: [0, 2],
-    },
-}
+const calendarMiddleware = [offset(2)]
 
 export const CalendarInput = ({
     onDateSelect: parentOnDateSelect,
@@ -186,10 +182,8 @@ export const CalendarInput = ({
                     <Popper
                         reference={ref}
                         placement="bottom-start"
-                        modifiers={[offsetModifier]}
-                        onFirstUpdate={(component) => {
-                            popperRef.current = component?.elements?.popper
-                        }}
+                        middleware={calendarMiddleware}
+                        ref={popperRef}
                     >
                         <CalendarContainer
                             {...calendarProps}

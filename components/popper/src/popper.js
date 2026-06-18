@@ -1,9 +1,9 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
+import { autoUpdate, useFloating } from '@floating-ui/react-dom'
 import PropTypes from 'prop-types'
-import React, { useState, useMemo, useEffect } from 'react'
+import React, { forwardRef, useEffect, useMemo, useState } from 'react'
 import { getReferenceElement } from './get-reference-element.js'
-import { deduplicateModifiers } from './modifiers.js'
-import { usePopper } from './use-popper.js'
+import { getBaseMiddleware } from './middleware.js'
 
 const flipPlacement = (placement) => {
     if (placement.startsWith('right')) {
@@ -15,87 +15,84 @@ const flipPlacement = (placement) => {
     return placement
 }
 
-// Stable object reference
 const staticArray = []
-const Popper = ({
-    children,
-    className,
-    dataTest = 'dhis2-uicore-popper',
-    modifiers = staticArray,
-    observePopperResize,
-    observeReferenceResize,
-    onFirstUpdate,
-    placement = 'auto',
-    reference,
-    strategy,
-}) => {
+
+const Popper = forwardRef(function Popper(
+    {
+        children,
+        className,
+        dataTest = 'dhis2-uicore-popper',
+        middleware = staticArray,
+        placement = 'bottom',
+        reference,
+        strategy = 'absolute',
+    },
+    forwardedRef
+) {
     const referenceElement = getReferenceElement(reference)
-    const [popperElement, setPopperElement] = useState(null)
+    const [floatingElement, setFloatingElement] = useState(null)
 
-    const deduplicatedModifiers = useMemo(
+    const adjustedPlacement = useMemo(
         () =>
-            deduplicateModifiers(modifiers, {
-                observePopperResize,
-                observeReferenceResize,
-            }),
-        [modifiers, observePopperResize, observeReferenceResize]
-    )
-
-    const { styles, attributes } = usePopper(referenceElement, popperElement, {
-        strategy,
-        onFirstUpdate,
-        placement:
             document.documentElement.dir === 'rtl'
                 ? flipPlacement(placement)
                 : placement,
-        modifiers: deduplicatedModifiers,
+        [placement]
+    )
+
+    const combinedMiddleware = useMemo(
+        () => [...getBaseMiddleware(), ...middleware],
+        [middleware]
+    )
+
+    const { refs, floatingStyles } = useFloating({
+        elements: { reference: referenceElement },
+        placement: adjustedPlacement,
+        strategy,
+        middleware: combinedMiddleware,
+        whileElementsMounted: autoUpdate,
     })
 
     useEffect(() => {
-        if (popperElement) {
-            popperElement?.firstElementChild?.focus()
+        floatingElement?.firstElementChild?.focus()
+    }, [floatingElement])
+
+    const setRef = (node) => {
+        setFloatingElement(node)
+        refs.setFloating(node)
+        if (typeof forwardedRef === 'function') {
+            forwardedRef(node)
+        } else if (forwardedRef) {
+            forwardedRef.current = node
         }
-    }, [popperElement])
+    }
 
     return (
         <div
             className={className}
             data-test={dataTest}
-            ref={setPopperElement}
-            style={styles.popper}
-            {...attributes.popper}
+            ref={setRef}
+            style={floatingStyles}
             tabIndex={0}
         >
             {children}
         </div>
     )
-}
+})
 
-// Prop names follow the names here: https://popper.js.org/docs/v2/constructors/
 Popper.propTypes = {
     /** Content inside the Popper */
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
     dataTest: PropTypes.string,
-    /** A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/) */
-    modifiers: PropTypes.arrayOf(
-        PropTypes.shape({
-            name: PropTypes.string,
-            options: PropTypes.object,
-        })
-    ),
-    /** Makes the Popper update position when the **Popper content** changes size */
-    observePopperResize: PropTypes.bool,
-    /** Makes the Popper update position when the **reference element** changes size */
-    observeReferenceResize: PropTypes.bool,
-    /** A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/) */
+    /** Floating UI middleware array. See https://floating-ui.com/docs/middleware */
+    middleware: PropTypes.arrayOf(PropTypes.object),
+    /** Where to place the popper relative to its reference */
     placement: sharedPropTypes.popperPlacementPropType,
-    /** A React ref, DOM node, or [virtual element](https://popper.js.org/docs/v2/virtual-elements/) for the popper to position itself against */
+    /** A React ref, DOM node, or virtual element for the popper to position itself against */
     reference: sharedPropTypes.popperReferencePropType,
-    /** A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/) */
-    strategy: PropTypes.oneOf(['absolute', 'fixed']), // defaults to 'absolute'
-    /** A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/) */
-    onFirstUpdate: PropTypes.func,
+    /** Positioning strategy. See https://floating-ui.com/docs/usefloating#strategy */
+    strategy: PropTypes.oneOf(['absolute', 'fixed']),
 }
 
 export { Popper }
