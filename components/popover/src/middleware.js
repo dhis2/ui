@@ -16,15 +16,27 @@ const computeArrowPadding = () => {
 
 export const hideArrowWhenDisplaced = {
     name: 'hideArrowWhenDisplaced',
-    fn({ middlewareData, rects }) {
-        const halfArrow = ARROW_SIZE / 2
-        const shiftData = middlewareData.shift
-        if (!shiftData) {
-            return { data: { hidden: false } }
+    fn({ rects, x, y, placement }) {
+        const popperTop = y
+        const popperBottom = y + rects.floating.height
+        const popperLeft = x
+        const popperRight = x + rects.floating.width
+        const refTop = rects.reference.y
+        const refBottom = rects.reference.y + rects.reference.height
+        const refLeft = rects.reference.x
+        const refRight = rects.reference.x + rects.reference.width
+
+        const side = placement.split('-')[0]
+        let hidden = false
+        if (side === 'top') {
+            hidden = popperBottom > refBottom
+        } else if (side === 'bottom') {
+            hidden = popperTop < refTop
+        } else if (side === 'left') {
+            hidden = popperRight > refRight
+        } else if (side === 'right') {
+            hidden = popperLeft < refLeft
         }
-        const hidden =
-            Math.abs(shiftData.x) >= rects.reference.width + halfArrow ||
-            Math.abs(shiftData.y) >= rects.reference.height + halfArrow
         return { data: { hidden } }
     },
 }
