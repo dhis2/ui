@@ -6,7 +6,7 @@ import { flushSync } from 'react-dom'
 const EMPTY_MODIFIERS = []
 
 const useIsomorphicLayoutEffect =
-    typeof globalThis.window === 'undefined' ? useEffect : useLayoutEffect
+    globalThis.window === undefined ? useEffect : useLayoutEffect
 
 const applyStylesOff = { name: 'applyStyles', enabled: false }
 
