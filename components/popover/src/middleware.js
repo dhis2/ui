@@ -33,13 +33,13 @@ export const combineMiddleware = (showArrow, arrowElement) => {
     if (!showArrow) {
         return [
             flip({ rootBoundary: 'document' }),
-            shift({ rootBoundary: 'document' }),
+            shift({ rootBoundary: 'document', crossAxis: true }),
         ]
     }
     return [
         offset(ARROW_SIZE),
         flip({ rootBoundary: 'document' }),
-        shift({ rootBoundary: 'document' }),
+        shift({ rootBoundary: 'document', crossAxis: true }),
         floatingArrow({
             element: arrowElement,
             padding: computeArrowPadding(),
