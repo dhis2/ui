@@ -1,9 +1,14 @@
 import * as React from 'react'
-import { StrictModifier } from 'react-popper'
-import { VirtualElement, Options as PopperOptions } from '@popperjs/core'
+import {
+    VirtualElement,
+    Options as PopperOptions,
+    StrictModifiers,
+} from '@popperjs/core'
 
 type PopperReference = VirtualElement | Element
-type ReferenceElement = PopperReference | React.RefObject<PopperReference>
+type ReferenceElement =
+    | PopperReference
+    | React.RefObject<PopperReference | null>
 
 export interface PopperProps {
     /**
@@ -15,7 +20,7 @@ export interface PopperProps {
     /**
      * A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)
      */
-    modifiers?: StrictModifier[]
+    modifiers?: StrictModifiers[]
     /**
      * Makes the Popper update position when the **Popper content** changes size
      */

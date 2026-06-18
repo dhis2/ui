@@ -35,8 +35,8 @@
         "src"
     ],
     "peerDependencies": {
-        "react": "^16.13 || ^18",
-        "react-dom": "^16.13 || ^18"
+        "react": "^16.13 || ^18 || ^19",
+        "react-dom": "^16.13 || ^18 || ^19"
     },
     "dependencies": {},
     "devDependencies": {

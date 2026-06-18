@@ -29,8 +29,8 @@
     "peerDependencies": {
         "@dhis2/app-runtime": "^3",
         "@dhis2/d2-i18n": "^1",
-        "react": "^16.13 || ^18",
-        "react-dom": "^16.13 || ^18",
+        "react": "^16.13 || ^18 || ^19",
+        "react-dom": "^16.13 || ^18 || ^19",
         "styled-jsx": "^4"
     },
     "dependencies": {
