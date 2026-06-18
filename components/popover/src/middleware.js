@@ -42,22 +42,13 @@ export const hideArrowWhenDisplaced = {
 }
 
 export const combineMiddleware = (showArrow, arrowElement) => {
-    const flipMiddleware = flip({
-        rootBoundary: 'document',
-        boundary: document.body,
-    })
-    const shiftMiddleware = shift({
-        rootBoundary: 'document',
-        boundary: document.body,
-        crossAxis: true,
-    })
     if (!showArrow) {
-        return [flipMiddleware, shiftMiddleware]
+        return [flip(), shift({ crossAxis: true })]
     }
     return [
         offset(ARROW_SIZE),
-        flipMiddleware,
-        shiftMiddleware,
+        flip(),
+        shift({ crossAxis: true }),
         floatingArrow({
             element: arrowElement,
             padding: computeArrowPadding(),
