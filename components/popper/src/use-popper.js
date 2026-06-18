@@ -5,7 +5,7 @@ import { flushSync } from 'react-dom'
 const EMPTY_MODIFIERS = []
 
 const useIsomorphicLayoutEffect =
-    typeof window !== 'undefined' ? useLayoutEffect : useEffect
+    typeof globalThis.window === 'undefined' ? useEffect : useLayoutEffect
 
 const applyStylesOff = { name: 'applyStyles', enabled: false }
 
@@ -33,21 +33,14 @@ export const usePopper = (referenceElement, popperElement, options = {}) => {
             phase: 'write',
             fn: ({ state: popperState }) => {
                 const elementKeys = Object.keys(popperState.elements)
+                const styles = Object.fromEntries(
+                    elementKeys.map((k) => [k, popperState.styles[k] || {}])
+                )
+                const attributes = Object.fromEntries(
+                    elementKeys.map((k) => [k, popperState.attributes[k]])
+                )
                 flushSync(() => {
-                    setState({
-                        styles: Object.fromEntries(
-                            elementKeys.map((k) => [
-                                k,
-                                popperState.styles[k] || {},
-                            ])
-                        ),
-                        attributes: Object.fromEntries(
-                            elementKeys.map((k) => [
-                                k,
-                                popperState.attributes[k],
-                            ])
-                        ),
-                    })
+                    setState({ styles, attributes })
                 })
             },
             requires: ['computeStyles'],
