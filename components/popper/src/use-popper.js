@@ -1,3 +1,4 @@
+/* global globalThis */
 import { createPopper as defaultCreatePopper } from '@popperjs/core'
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { flushSync } from 'react-dom'
@@ -80,7 +81,6 @@ export const usePopper = (referenceElement, popperElement, options = {}) => {
             instance.destroy()
             popperInstanceRef.current = null
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [referenceElement, popperElement, createPopper])
 
     return {
