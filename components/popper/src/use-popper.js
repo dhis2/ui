@@ -1,93 +1,57 @@
-/* global globalThis */
-import { createPopper as defaultCreatePopper } from '@popperjs/core'
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
-import { flushSync } from 'react-dom'
+import {
+    autoUpdate as floatingAutoUpdate,
+    useFloating,
+} from '@floating-ui/react-dom'
+import { useMemo } from 'react'
+import { getReferenceElement } from './get-reference-element.js'
+import { getAutoPlacementMiddleware, getBaseMiddleware } from './middleware.js'
 
-const EMPTY_MODIFIERS = []
-
-const useIsomorphicLayoutEffect =
-    globalThis.window === undefined ? useEffect : useLayoutEffect
-
-const applyStylesOff = { name: 'applyStyles', enabled: false }
-
-export const usePopper = (referenceElement, popperElement, options = {}) => {
-    const {
-        onFirstUpdate,
-        placement = 'bottom',
-        strategy = 'absolute',
-        modifiers = EMPTY_MODIFIERS,
-        createPopper = defaultCreatePopper,
-    } = options
-
-    const [state, setState] = useState({
-        styles: {
-            popper: { position: strategy, left: '0', top: '0' },
-            arrow: { position: 'absolute' },
-        },
-        attributes: {},
-    })
-
-    const updateStateModifier = useMemo(
-        () => ({
-            name: 'updateState',
-            enabled: true,
-            phase: 'write',
-            fn: ({ state: popperState }) => {
-                const elementKeys = Object.keys(popperState.elements)
-                const styles = Object.fromEntries(
-                    elementKeys.map((k) => [k, popperState.styles[k] || {}])
-                )
-                const attributes = Object.fromEntries(
-                    elementKeys.map((k) => [k, popperState.attributes[k]])
-                )
-                flushSync(() => {
-                    setState({ styles, attributes })
-                })
-            },
-            requires: ['computeStyles'],
-        }),
-        []
-    )
-
-    const popperOptions = useMemo(
-        () => ({
-            onFirstUpdate,
-            placement,
-            strategy,
-            modifiers: [...modifiers, updateStateModifier, applyStylesOff],
-        }),
-        [onFirstUpdate, placement, strategy, modifiers, updateStateModifier]
-    )
-
-    const popperInstanceRef = useRef(null)
-
-    useIsomorphicLayoutEffect(() => {
-        if (popperInstanceRef.current) {
-            popperInstanceRef.current.setOptions(popperOptions)
-        }
-    }, [popperOptions])
-
-    useIsomorphicLayoutEffect(() => {
-        if (referenceElement == null || popperElement == null) {
-            return
-        }
-        const instance = createPopper(
-            referenceElement,
-            popperElement,
-            popperOptions
-        )
-        popperInstanceRef.current = instance
-        return () => {
-            instance.destroy()
-            popperInstanceRef.current = null
-        }
-    }, [referenceElement, popperElement, createPopper])
-
-    return {
-        state: popperInstanceRef.current?.state ?? null,
-        styles: state.styles,
-        attributes: state.attributes,
-        update: popperInstanceRef.current?.update ?? null,
-        forceUpdate: popperInstanceRef.current?.forceUpdate ?? null,
+const flipPlacement = (placement) => {
+    if (placement.startsWith('right')) {
+        return placement.replace('right', 'left')
     }
+    if (placement.startsWith('left')) {
+        return placement.replace('left', 'right')
+    }
+    return placement
+}
+
+const STATIC_ARRAY = []
+
+export const usePopper = ({
+    reference,
+    placement = 'bottom',
+    strategy = 'absolute',
+    middleware = STATIC_ARRAY,
+} = {}) => {
+    const referenceElement = getReferenceElement(reference)
+    const isAutoPlacement = placement.startsWith('auto')
+
+    const adjustedPlacement = useMemo(
+        () =>
+            document.documentElement.dir === 'rtl'
+                ? flipPlacement(placement)
+                : placement,
+        [placement]
+    )
+
+    const combinedMiddleware = useMemo(
+        () => [
+            ...(isAutoPlacement
+                ? getAutoPlacementMiddleware(adjustedPlacement)
+                : getBaseMiddleware()),
+            ...middleware,
+        ],
+        [isAutoPlacement, adjustedPlacement, middleware]
+    )
+
+    return useFloating({
+        elements: { reference: referenceElement },
+        // FUI doesn't accept 'auto'/'auto-start'/'auto-end' as a placement;
+        // pass a concrete value and let autoPlacement middleware override.
+        placement: isAutoPlacement ? 'bottom' : adjustedPlacement,
+        strategy,
+        middleware: combinedMiddleware,
+        whileElementsMounted: floatingAutoUpdate,
+    })
 }

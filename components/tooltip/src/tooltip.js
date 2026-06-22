@@ -1,6 +1,8 @@
 import { colors, layers } from '@dhis2/ui-constants'
-import { Popper } from '@dhis2-ui/popper'
+import { usePopper } from '@dhis2-ui/popper'
 import { Portal } from '@dhis2-ui/portal'
+import { flip, hide, offset } from '@floating-ui/react-dom'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
 import { resolve } from 'styled-jsx/css'
@@ -9,28 +11,81 @@ const TOOLTIP_OFFSET = 4
 
 const popperStyle = resolve`
     z-index: ${layers.applicationTop};
-    // Hide popper when reference component is obscured (https://popper.js.org/docs/v2/modifiers/hide/)
-    div[data-popper-reference-hidden="true"] {
-        visibility: hidden;
-    }
 `
 
-const offsetModifier = {
-    name: 'offset',
-    options: {
-        offset: [0, TOOLTIP_OFFSET],
-    },
+const tooltipMiddleware = [
+    offset(TOOLTIP_OFFSET),
+    flip({ altBoundary: true }),
+    hide(),
+]
+
+const TooltipContent = ({
+    className,
+    content,
+    dataTest,
+    maxWidth,
+    onMouseOut,
+    onMouseOver,
+    placement,
+    reference,
+}) => {
+    const { refs, floatingStyles, middlewareData } = usePopper({
+        reference,
+        placement,
+        middleware: tooltipMiddleware,
+    })
+
+    return (
+        <Portal>
+            <div
+                ref={refs.setFloating}
+                className={popperStyle.className}
+                data-test="dhis2-uicore-popper"
+                style={{
+                    ...floatingStyles,
+                    visibility: middlewareData.hide?.referenceHidden
+                        ? 'hidden'
+                        : undefined,
+                }}
+            >
+                <div
+                    className={cx('tooltip-body', className)}
+                    id="tooltipContenDhis2Ui"
+                    onMouseOver={onMouseOver}
+                    onMouseOut={onMouseOut}
+                    data-test={`${dataTest}-content`}
+                    role="tooltip"
+                >
+                    {content}
+                </div>
+            </div>
+            {popperStyle.styles}
+            <style jsx>{`
+                .tooltip-body {
+                    max-width: ${maxWidth}px;
+                    word-break: normal;
+                    overflow-wrap: break-word;
+                    padding: 4px 6px;
+                    background-color: ${colors.grey900};
+                    border-radius: 3px;
+                    color: ${colors.white};
+                    font-size: 13px;
+                    line-height: 17px;
+                }
+            `}</style>
+        </Portal>
+    )
 }
 
-/**
- * For some reason the intended effects of the 'hide' modifier work with or
- * without adding it to the popper... but it may be safe to include it anyway
- */
-const hideModifier = { name: 'hide' }
-
-const flipModifier = {
-    name: 'flip',
-    options: { altBoundary: true },
+TooltipContent.propTypes = {
+    className: PropTypes.string,
+    content: PropTypes.node,
+    dataTest: PropTypes.string,
+    maxWidth: PropTypes.number,
+    placement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
+    reference: PropTypes.object,
+    onMouseOut: PropTypes.func,
+    onMouseOver: PropTypes.func,
 }
 
 const Tooltip = ({
@@ -123,42 +178,17 @@ const Tooltip = ({
                 </span>
             )}
             {open && (
-                <Portal>
-                    <Popper
-                        className={popperStyle.className}
-                        placement={placement}
-                        reference={popperReference}
-                        modifiers={[offsetModifier, flipModifier, hideModifier]}
-                    >
-                        <div
-                            className={className}
-                            id="tooltipContenDhis2Ui"
-                            onMouseOver={onMouseOver}
-                            onMouseOut={onMouseOut}
-                            data-test={`${dataTest}-content`}
-                            role="tooltip"
-                        >
-                            {content}
-                        </div>
-                    </Popper>
-                </Portal>
+                <TooltipContent
+                    className={className}
+                    content={content}
+                    dataTest={dataTest}
+                    maxWidth={maxWidth}
+                    onMouseOut={onMouseOut}
+                    onMouseOver={onMouseOver}
+                    placement={placement}
+                    reference={popperReference}
+                />
             )}
-            {popperStyle.styles}
-            <style jsx>{`
-                div {
-                    max-width: ${maxWidth}px;
-                    word-break: normal;
-                    overflow-wrap: break-word;
-                }
-                div {
-                    padding: 4px 6px;
-                    background-color: ${colors.grey900};
-                    border-radius: 3px;
-                    color: ${colors.white};
-                    font-size: 13px;
-                    line-height: 17px;
-                }
-            `}</style>
         </>
     )
 }

@@ -1,10 +1,11 @@
 import { colors, elevations, sharedPropTypes } from '@dhis2/ui-constants'
 import { Layer } from '@dhis2-ui/layer'
-import { getReferenceElement, usePopper } from '@dhis2-ui/popper'
+import { getReferenceElement } from '@dhis2-ui/popper'
+import { autoUpdate, useFloating } from '@floating-ui/react-dom'
 import PropTypes from 'prop-types'
-import React, { useState, useMemo } from 'react'
+import React, { useMemo, useState } from 'react'
 import { Arrow } from './arrow.js'
-import { combineModifiers } from './modifiers.js'
+import { combineMiddleware } from './middleware.js'
 
 const Popover = ({
     children,
@@ -14,49 +15,58 @@ const Popover = ({
     dataTest = 'dhis2-uicore-popover',
     elevation = elevations.popover,
     maxWidth = 360,
-    observePopperResize,
-    observeReferenceResize,
     placement = 'top',
     onClickOutside,
 }) => {
     const referenceElement = getReferenceElement(reference)
-    const [popperElement, setPopperElement] = useState(null)
     const [arrowElement, setArrowElement] = useState(null)
-    const modifiers = useMemo(
-        () =>
-            combineModifiers(arrow, arrowElement, {
-                observePopperResize,
-                observeReferenceResize,
-            }),
-        [arrow, arrowElement, observePopperResize, observeReferenceResize]
+
+    const middleware = useMemo(
+        () => combineMiddleware(arrow, arrowElement),
+        [arrow, arrowElement]
     )
-    const { styles, attributes } = usePopper(referenceElement, popperElement, {
+
+    const {
+        refs,
+        floatingStyles,
+        placement: actualPlacement,
+        middlewareData,
+    } = useFloating({
+        elements: { reference: referenceElement },
         placement,
-        modifiers,
+        middleware,
+        whileElementsMounted: autoUpdate,
     })
+
+    const arrowStyles = useMemo(() => {
+        const arrowData = middlewareData.arrow
+        if (!arrowData) {
+            return undefined
+        }
+        return {
+            position: 'absolute',
+            ...(arrowData.x != null && { left: `${arrowData.x}px` }),
+            ...(arrowData.y != null && { top: `${arrowData.y}px` }),
+        }
+    }, [middlewareData.arrow])
+
+    const arrowHidden = Boolean(middlewareData.hideArrowWhenDisplaced?.hidden)
 
     return (
         <Layer onBackdropClick={onClickOutside}>
             <div
                 data-test={dataTest}
                 className={className}
-                ref={setPopperElement}
-                style={styles.popper}
-                {...attributes.popper}
+                ref={refs.setFloating}
+                style={floatingStyles}
             >
                 {children}
                 {arrow && (
                     <Arrow
-                        hidden={
-                            attributes.arrow &&
-                            attributes.arrow['data-arrow-hidden']
-                        }
-                        popperPlacement={
-                            attributes.popper &&
-                            attributes.popper['data-popper-placement']
-                        }
+                        hidden={arrowHidden}
+                        popperPlacement={actualPlacement}
                         ref={setArrowElement}
-                        styles={styles.arrow}
+                        styles={arrowStyles}
                     />
                 )}
                 <style jsx>{`
@@ -81,8 +91,6 @@ Popover.propTypes = {
     /** Box-shadow to create appearance of elevation.  Use `elevations` constants from the UI library. */
     elevation: PropTypes.string,
     maxWidth: PropTypes.number,
-    observePopperResize: PropTypes.bool,
-    observeReferenceResize: PropTypes.bool,
     placement: sharedPropTypes.popperPlacementPropType,
     /** A React ref that refers to the element the Popover should position against */
     reference: sharedPropTypes.popperReferencePropType,

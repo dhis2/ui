@@ -14,11 +14,7 @@ const MenuWrapper = ({
 }) => {
     return (
         <Layer onBackdropClick={onClick} transparent>
-            <Popper
-                reference={selectRef}
-                placement="bottom-start"
-                observeReferenceResize
-            >
+            <Popper reference={selectRef} placement="bottom-start">
                 <div data-test={`${dataTest}-menuwrapper`}>
                     {children}
 

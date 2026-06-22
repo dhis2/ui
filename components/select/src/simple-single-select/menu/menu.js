@@ -62,11 +62,7 @@ export function Menu({
 
     return (
         <Layer onBackdropClick={onClose} transparent>
-            <Popper
-                reference={selectRef}
-                placement="bottom-start"
-                observeReferenceResize
-            >
+            <Popper reference={selectRef} placement="bottom-start">
                 <div className="menu" style={{ width: menuWidth, maxHeight }}>
                     {isEmpty && <Empty>{empty}</Empty>}
 

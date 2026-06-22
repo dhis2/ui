@@ -1,5 +1,5 @@
+import { Placement, VirtualElement } from '@floating-ui/react-dom'
 import * as React from 'react'
-import { VirtualElement, Options as PopperOptions } from '@popperjs/core'
 
 type PopperReference = VirtualElement | Element
 type ReferenceElement =
@@ -19,9 +19,7 @@ export interface PopoverProps {
      */
     elevation?: string
     maxWidth?: number
-    observePopperResize?: boolean
-    observeReferenceResize?: boolean
-    placement?: PopperOptions['placement']
+    placement?: Placement
     /**
      * A React ref that refers to the element the Popover should position against
      */
