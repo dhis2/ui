@@ -4,7 +4,10 @@ import {
 } from '@floating-ui/react-dom'
 import { useMemo } from 'react'
 import { getReferenceElement } from './get-reference-element.js'
-import { getBaseMiddleware } from './middleware.js'
+import {
+    getAutoPlacementMiddleware,
+    getBaseMiddleware,
+} from './middleware.js'
 
 const flipPlacement = (placement) => {
     if (placement.startsWith('right')) {
@@ -25,6 +28,7 @@ export const usePopper = ({
     middleware = STATIC_ARRAY,
 } = {}) => {
     const referenceElement = getReferenceElement(reference)
+    const isAutoPlacement = placement.startsWith('auto')
 
     const adjustedPlacement = useMemo(
         () =>
@@ -35,13 +39,20 @@ export const usePopper = ({
     )
 
     const combinedMiddleware = useMemo(
-        () => [...getBaseMiddleware(), ...middleware],
-        [middleware]
+        () => [
+            ...(isAutoPlacement
+                ? getAutoPlacementMiddleware(adjustedPlacement)
+                : getBaseMiddleware()),
+            ...middleware,
+        ],
+        [isAutoPlacement, adjustedPlacement, middleware]
     )
 
     return useFloating({
         elements: { reference: referenceElement },
-        placement: adjustedPlacement,
+        // FUI doesn't accept 'auto'/'auto-start'/'auto-end' as a placement;
+        // pass a concrete value and let autoPlacement middleware override.
+        placement: isAutoPlacement ? 'bottom' : adjustedPlacement,
         strategy,
         middleware: combinedMiddleware,
         whileElementsMounted: floatingAutoUpdate,
