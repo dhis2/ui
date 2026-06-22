@@ -35,8 +35,8 @@
     "dependencies": {
         "@dhis2-ui/button": "10.16.3",
         "@dhis2-ui/card": "10.16.3",
-        "@dhis2-ui/popper": "10.16.3",
         "@dhis2-ui/layer": "10.16.3",
+        "@dhis2-ui/popper": "10.16.3",
         "@dhis2/ui-constants": "10.16.3",
         "@dhis2/ui-icons": "10.16.3",
         "@floating-ui/react-dom": "^2.1.8",
