@@ -1,5 +1,6 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
 import { hide, offset, size } from '@floating-ui/react-dom'
+import PropTypes from 'prop-types'
 import React, { useEffect, useRef } from 'react'
 import { Popper } from './popper.js'
 import { usePopper } from './use-popper.js'
@@ -241,6 +242,10 @@ const CustomPopper = ({ reference }) => {
             </p>
         </div>
     )
+}
+
+CustomPopper.propTypes = {
+    reference: PropTypes.object,
 }
 
 export const CustomMiddlewareWithHook = () => {

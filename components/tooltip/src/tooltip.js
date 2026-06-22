@@ -38,12 +38,8 @@ const TooltipContent = ({
         <Portal>
             <div
                 ref={refs.setFloating}
-                className={`${popperStyle.className} ${className || ''}`}
-                id="tooltipContenDhis2Ui"
-                onMouseOver={onMouseOver}
-                onMouseOut={onMouseOut}
-                data-test={`${dataTest}-content`}
-                role="tooltip"
+                className={popperStyle.className}
+                data-test="dhis2-uicore-popper"
                 style={{
                     ...floatingStyles,
                     visibility: middlewareData.hide?.referenceHidden
@@ -51,7 +47,16 @@ const TooltipContent = ({
                         : undefined,
                 }}
             >
-                {content}
+                <div
+                    className={className}
+                    id="tooltipContenDhis2Ui"
+                    onMouseOver={onMouseOver}
+                    onMouseOut={onMouseOut}
+                    data-test={`${dataTest}-content`}
+                    role="tooltip"
+                >
+                    {content}
+                </div>
             </div>
             {popperStyle.styles}
             <style jsx>{`
