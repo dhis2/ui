@@ -23,15 +23,15 @@ export const getBaseMiddleware = () => [
  * conflicts with flip(), so this composition replaces flip with
  * autoPlacement rather than adding it on top.
  */
-export const getAutoPlacementMiddleware = (placement) => {
-    const alignment =
-        placement === 'auto-start'
-            ? 'start'
-            : placement === 'auto-end'
-            ? 'end'
-            : undefined
-    return [
-        autoPlacement({ ...sharedDetectOverflowOptions, alignment }),
-        getBaseShift(),
-    ]
+const AUTO_PLACEMENT_ALIGNMENT = {
+    'auto-start': 'start',
+    'auto-end': 'end',
 }
+
+export const getAutoPlacementMiddleware = (placement) => [
+    autoPlacement({
+        ...sharedDetectOverflowOptions,
+        alignment: AUTO_PLACEMENT_ALIGNMENT[placement],
+    }),
+    getBaseShift(),
+]
