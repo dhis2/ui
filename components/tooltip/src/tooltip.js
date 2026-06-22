@@ -2,6 +2,7 @@ import { colors, layers } from '@dhis2/ui-constants'
 import { usePopper } from '@dhis2-ui/popper'
 import { Portal } from '@dhis2-ui/portal'
 import { flip, hide, offset } from '@floating-ui/react-dom'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
 import { resolve } from 'styled-jsx/css'
@@ -48,7 +49,7 @@ const TooltipContent = ({
                 }}
             >
                 <div
-                    className={className}
+                    className={cx('tooltip-body', className)}
                     id="tooltipContenDhis2Ui"
                     onMouseOver={onMouseOver}
                     onMouseOut={onMouseOut}
@@ -60,7 +61,7 @@ const TooltipContent = ({
             </div>
             {popperStyle.styles}
             <style jsx>{`
-                div {
+                .tooltip-body {
                     max-width: ${maxWidth}px;
                     word-break: normal;
                     overflow-wrap: break-word;
