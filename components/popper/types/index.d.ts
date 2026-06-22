@@ -22,9 +22,7 @@ export interface PopperProps {
      * Content inside the Popper. Either a node, or a function called with
      * `{ middlewareData, placement, isPositioned }` returning a node.
      */
-    children:
-        | React.ReactNode
-        | ((props: PopperRenderProps) => React.ReactNode)
+    children: React.ReactNode | ((props: PopperRenderProps) => React.ReactNode)
     className?: string
     dataTest?: string
     /**

@@ -1,11 +1,12 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
+import { hide, offset, size } from '@floating-ui/react-dom'
 import React, { useEffect, useRef } from 'react'
 import { Popper } from './popper.js'
 
 const description = `
 A tool for adding additional information or content outside of the document flow, used for example in the Tooltip or Popover components.
 
-Since it's built using [Popper.js](https://popper.js.org/docs/v2/) and [react-popper](https://popper.js.org/react-popper/), some of that functionality can be accessed through the props of this component, like modifiers.
+Built on top of [Floating UI](https://floating-ui.com/). The \`middleware\` prop accepts Floating UI middleware functions, and \`children\` can be a function called with \`{ middlewareData, placement, isPositioned }\` to react to what those middleware computed.
 
 \`\`\`js
 import { Popper } from '@dhis2/ui'
@@ -159,4 +160,103 @@ export const RTL = (args) => {
             <Template {...args} placement="right-start" />
         </div>
     )
+}
+
+const customMiddlewareDescription = `
+Demonstrates passing custom Floating UI middleware via the \`middleware\` prop
+and reading the resulting \`middlewareData\` via children-as-function.
+
+- \`offset(12)\` adds 12px between the reference and popper.
+- \`hide()\` writes \`middlewareData.hide.referenceHidden\` when the reference
+  scrolls out of its clipping ancestor. The render-prop reads this and applies
+  \`visibility: hidden\` to the popper content.
+- \`size()\` writes \`middlewareData.size.availableHeight\` to let consumers
+  clamp the popper's height to whatever space is left. The render-prop applies
+  it as \`maxHeight\`.
+
+Scroll the dotted container to see the popper hide as its reference disappears.
+Resize the window vertically to see the popper's max-height adapt.
+`
+
+const scrollContainerStyle = {
+    width: 400,
+    height: 200,
+    overflow: 'auto',
+    border: '2px dotted cadetblue',
+    padding: 16,
+    marginBottom: 320,
+}
+
+const scrollSpacerStyle = { height: 300 }
+
+const customPopperStyle = {
+    width: 240,
+    backgroundColor: 'lightblue',
+    padding: 12,
+    borderRadius: 4,
+    overflow: 'auto',
+    boxSizing: 'border-box',
+}
+
+export const CustomMiddlewareAndRenderProp = () => {
+    const ref = useRef(null)
+    const middleware = [
+        offset(12),
+        hide(),
+        size({
+            apply({ availableHeight, elements }) {
+                elements.floating.style.maxHeight = `${Math.max(
+                    0,
+                    availableHeight - 16
+                )}px`
+            },
+        }),
+    ]
+
+    return (
+        <div style={scrollContainerStyle}>
+            <div style={scrollSpacerStyle} />
+            <div style={referenceElementStyle} ref={ref}>
+                Reference Element (scroll me out of view)
+            </div>
+            <div style={scrollSpacerStyle} />
+            <Popper reference={ref} placement="right" middleware={middleware}>
+                {({ middlewareData, placement, isPositioned }) => (
+                    <div
+                        style={{
+                            ...customPopperStyle,
+                            visibility: middlewareData.hide?.referenceHidden
+                                ? 'hidden'
+                                : undefined,
+                            opacity: isPositioned ? 1 : 0,
+                            transition: 'opacity 150ms',
+                        }}
+                    >
+                        <div>
+                            <strong>resolved placement:</strong> {placement}
+                        </div>
+                        <div>
+                            <strong>referenceHidden:</strong>{' '}
+                            {String(
+                                Boolean(middlewareData.hide?.referenceHidden)
+                            )}
+                        </div>
+                        <p>
+                            This popper uses <code>offset</code>,{' '}
+                            <code>hide</code> and <code>size</code> middleware.
+                            The container above is scrollable; when the
+                            reference element scrolls out of view, the popper
+                            hides itself.
+                        </p>
+                    </div>
+                )}
+            </Popper>
+        </div>
+    )
+}
+CustomMiddlewareAndRenderProp.parameters = {
+    docs: {
+        description: { story: customMiddlewareDescription },
+        source: { type: 'code' },
+    },
 }
