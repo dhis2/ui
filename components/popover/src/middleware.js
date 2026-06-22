@@ -41,13 +41,18 @@ export const hideArrowWhenDisplaced = {
     },
 }
 
+const sharedDetectOverflowOptions = {
+    boundary: document.body,
+    rootBoundary: 'document',
+}
+
 export const combineMiddleware = (showArrow, arrowElement) => {
     const flipMiddleware = flip({
-        boundary: document.body,
+        ...sharedDetectOverflowOptions,
         fallbackStrategy: 'initialPlacement',
     })
     const shiftMiddleware = shift({
-        boundary: document.body,
+        ...sharedDetectOverflowOptions,
         crossAxis: true,
     })
     if (!showArrow) {

@@ -1,6 +1,14 @@
 import { flip, shift } from '@floating-ui/react-dom'
 
+const sharedDetectOverflowOptions = {
+    boundary: document.body,
+    rootBoundary: 'document',
+}
+
 export const getBaseMiddleware = () => [
-    flip({ boundary: document.body, fallbackStrategy: 'initialPlacement' }),
-    shift({ boundary: document.body, crossAxis: true }),
+    flip({
+        ...sharedDetectOverflowOptions,
+        fallbackStrategy: 'initialPlacement',
+    }),
+    shift({ ...sharedDetectOverflowOptions, crossAxis: true }),
 ]
