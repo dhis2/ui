@@ -4,10 +4,7 @@ import {
 } from '@floating-ui/react-dom'
 import { useMemo } from 'react'
 import { getReferenceElement } from './get-reference-element.js'
-import {
-    getAutoPlacementMiddleware,
-    getBaseMiddleware,
-} from './middleware.js'
+import { getAutoPlacementMiddleware, getBaseMiddleware } from './middleware.js'
 
 const flipPlacement = (placement) => {
     if (placement.startsWith('right')) {
