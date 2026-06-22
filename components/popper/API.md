@@ -17,10 +17,7 @@ import { Popper } from '@dhis2/ui'
 |children|node||*|Content inside the Popper|
 |className|string||||
 |dataTest|string|``'dhis2-uicore-popper'``|||
-|modifiers|`arrayOf(\{<br/>  "name": "string",<br/>  "options": "object"<br/>})`|``[]``||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
-|observePopperResize|boolean|||Makes the Popper update position when the **Popper content** changes size|
-|observeReferenceResize|boolean|||Makes the Popper update position when the **reference element** changes size|
-|placement|custom|``'auto'``||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
-|reference|custom|||A React ref, DOM node, or [virtual element](https://popper.js.org/docs/v2/virtual-elements/) for the popper to position itself against|
-|strategy|'absolute' │ 'fixed'|||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
-|onFirstUpdate|function|||A property of the `createPopper` options. See [popper docs](https://popper.js.org/docs/v2/constructors/)|
+|middleware|`arrayOf(object)`|||Floating UI middleware array. See https://floating-ui.com/docs/middleware|
+|placement|custom|||Where to place the popper relative to its reference|
+|reference|custom|||A React ref, DOM node, or virtual element for the popper to position itself against|
+|strategy|'absolute' │ 'fixed'|||Positioning strategy. See https://floating-ui.com/docs/usefloating#strategy|
