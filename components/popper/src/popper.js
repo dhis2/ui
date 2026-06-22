@@ -45,7 +45,13 @@ const Popper = forwardRef(function Popper(
         [middleware]
     )
 
-    const { refs, floatingStyles } = useFloating({
+    const {
+        refs,
+        floatingStyles,
+        middlewareData,
+        placement: resolvedPlacement,
+        isPositioned,
+    } = useFloating({
         elements: { reference: referenceElement },
         placement: adjustedPlacement,
         strategy,
@@ -75,14 +81,23 @@ const Popper = forwardRef(function Popper(
             style={floatingStyles}
             tabIndex={0}
         >
-            {children}
+            {typeof children === 'function'
+                ? children({
+                      middlewareData,
+                      placement: resolvedPlacement,
+                      isPositioned,
+                  })
+                : children}
         </div>
     )
 })
 
 Popper.propTypes = {
-    /** Content inside the Popper */
-    children: PropTypes.node.isRequired,
+    /**
+     * Content inside the Popper. Either a node, or a function called with
+     * `{ middlewareData, placement, isPositioned }` returning a node.
+     */
+    children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired,
     className: PropTypes.string,
     dataTest: PropTypes.string,
     /** Floating UI middleware array. See https://floating-ui.com/docs/middleware */

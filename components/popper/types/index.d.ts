@@ -1,4 +1,9 @@
-import { Middleware, Placement, VirtualElement } from '@floating-ui/react-dom'
+import {
+    Middleware,
+    MiddlewareData,
+    Placement,
+    VirtualElement,
+} from '@floating-ui/react-dom'
 import * as React from 'react'
 
 type PopperReference = VirtualElement | Element
@@ -6,11 +11,20 @@ type ReferenceElement =
     | PopperReference
     | React.RefObject<PopperReference | null>
 
+export interface PopperRenderProps {
+    middlewareData: MiddlewareData
+    placement: Placement
+    isPositioned: boolean
+}
+
 export interface PopperProps {
     /**
-     * Content inside the Popper
+     * Content inside the Popper. Either a node, or a function called with
+     * `{ middlewareData, placement, isPositioned }` returning a node.
      */
-    children: React.ReactNode
+    children:
+        | React.ReactNode
+        | ((props: PopperRenderProps) => React.ReactNode)
     className?: string
     dataTest?: string
     /**

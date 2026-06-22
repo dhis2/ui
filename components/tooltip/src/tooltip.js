@@ -1,7 +1,7 @@
 import { colors, layers } from '@dhis2/ui-constants'
 import { Popper } from '@dhis2-ui/popper'
 import { Portal } from '@dhis2-ui/portal'
-import { flip, offset } from '@floating-ui/react-dom'
+import { flip, hide, offset } from '@floating-ui/react-dom'
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
 import { resolve } from 'styled-jsx/css'
@@ -12,7 +12,11 @@ const popperStyle = resolve`
     z-index: ${layers.applicationTop};
 `
 
-const tooltipMiddleware = [offset(TOOLTIP_OFFSET), flip({ altBoundary: true })]
+const tooltipMiddleware = [
+    offset(TOOLTIP_OFFSET),
+    flip({ altBoundary: true }),
+    hide(),
+]
 
 const Tooltip = ({
     children,
@@ -111,16 +115,24 @@ const Tooltip = ({
                         reference={popperReference}
                         middleware={tooltipMiddleware}
                     >
-                        <div
-                            className={className}
-                            id="tooltipContenDhis2Ui"
-                            onMouseOver={onMouseOver}
-                            onMouseOut={onMouseOut}
-                            data-test={`${dataTest}-content`}
-                            role="tooltip"
-                        >
-                            {content}
-                        </div>
+                        {({ middlewareData }) => (
+                            <div
+                                className={className}
+                                id="tooltipContenDhis2Ui"
+                                onMouseOver={onMouseOver}
+                                onMouseOut={onMouseOut}
+                                data-test={`${dataTest}-content`}
+                                role="tooltip"
+                                style={{
+                                    visibility: middlewareData.hide
+                                        ?.referenceHidden
+                                        ? 'hidden'
+                                        : undefined,
+                                }}
+                            >
+                                {content}
+                            </div>
+                        )}
                     </Popper>
                 </Portal>
             )}
