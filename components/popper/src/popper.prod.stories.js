@@ -2,14 +2,15 @@ import { sharedPropTypes } from '@dhis2/ui-constants'
 import { hide, offset, size } from '@floating-ui/react-dom'
 import React, { useEffect, useRef } from 'react'
 import { Popper } from './popper.js'
+import { usePopper } from './use-popper.js'
 
 const description = `
 A tool for adding additional information or content outside of the document flow, used for example in the Tooltip or Popover components.
 
-Built on top of [Floating UI](https://floating-ui.com/). The \`middleware\` prop accepts Floating UI middleware functions, and \`children\` can be a function called with \`{ middlewareData, placement, isPositioned }\` to react to what those middleware computed.
+Built on top of [Floating UI](https://floating-ui.com/). The \`middleware\` prop accepts Floating UI middleware functions. For full control — including reading \`middlewareData\` to react to what middleware computed — use the \`usePopper\` hook directly.
 
 \`\`\`js
-import { Popper } from '@dhis2/ui'
+import { Popper, usePopper } from '@dhis2/ui'
 \`\`\`
 
 _**Note**: Some of the stories may not look right on this page. View those examples in the 'Canvas' tab instead._
@@ -163,16 +164,14 @@ export const RTL = (args) => {
 }
 
 const customMiddlewareDescription = `
-Demonstrates passing custom Floating UI middleware via the \`middleware\` prop
-and reading the resulting \`middlewareData\` via children-as-function.
+Demonstrates passing custom Floating UI middleware and reading the resulting
+\`middlewareData\` via the \`usePopper\` hook.
 
 - \`offset(12)\` adds 12px between the reference and popper.
 - \`hide()\` writes \`middlewareData.hide.referenceHidden\` when the reference
-  scrolls out of its clipping ancestor. The render-prop reads this and applies
+  scrolls out of its clipping ancestor. The consumer reads this and applies
   \`visibility: hidden\` to the popper content.
-- \`size()\` writes \`middlewareData.size.availableHeight\` to let consumers
-  clamp the popper's height to whatever space is left. The render-prop applies
-  it as \`maxHeight\`.
+- \`size()\` applies a max-height to the popper based on available space.
 
 Scroll the dotted container to see the popper hide as its reference disappears.
 Resize the window vertically to see the popper's max-height adapt.
@@ -198,8 +197,7 @@ const customPopperStyle = {
     boxSizing: 'border-box',
 }
 
-export const CustomMiddlewareAndRenderProp = () => {
-    const ref = useRef(null)
+const CustomPopper = ({ reference }) => {
     const middleware = [
         offset(12),
         hide(),
@@ -212,7 +210,41 @@ export const CustomMiddlewareAndRenderProp = () => {
             },
         }),
     ]
+    const { refs, floatingStyles, middlewareData, placement, isPositioned } =
+        usePopper({ reference, placement: 'right', middleware })
 
+    return (
+        <div
+            ref={refs.setFloating}
+            style={{
+                ...floatingStyles,
+                ...customPopperStyle,
+                visibility: middlewareData.hide?.referenceHidden
+                    ? 'hidden'
+                    : undefined,
+                opacity: isPositioned ? 1 : 0,
+                transition: 'opacity 150ms',
+            }}
+        >
+            <div>
+                <strong>resolved placement:</strong> {placement}
+            </div>
+            <div>
+                <strong>referenceHidden:</strong>{' '}
+                {String(Boolean(middlewareData.hide?.referenceHidden))}
+            </div>
+            <p>
+                This popper uses <code>offset</code>, <code>hide</code> and{' '}
+                <code>size</code> middleware. The container above is scrollable;
+                when the reference element scrolls out of view, the popper hides
+                itself.
+            </p>
+        </div>
+    )
+}
+
+export const CustomMiddlewareWithHook = () => {
+    const ref = useRef(null)
     return (
         <div style={scrollContainerStyle}>
             <div style={scrollSpacerStyle} />
@@ -220,41 +252,11 @@ export const CustomMiddlewareAndRenderProp = () => {
                 Reference Element (scroll me out of view)
             </div>
             <div style={scrollSpacerStyle} />
-            <Popper reference={ref} placement="right" middleware={middleware}>
-                {({ middlewareData, placement, isPositioned }) => (
-                    <div
-                        style={{
-                            ...customPopperStyle,
-                            visibility: middlewareData.hide?.referenceHidden
-                                ? 'hidden'
-                                : undefined,
-                            opacity: isPositioned ? 1 : 0,
-                            transition: 'opacity 150ms',
-                        }}
-                    >
-                        <div>
-                            <strong>resolved placement:</strong> {placement}
-                        </div>
-                        <div>
-                            <strong>referenceHidden:</strong>{' '}
-                            {String(
-                                Boolean(middlewareData.hide?.referenceHidden)
-                            )}
-                        </div>
-                        <p>
-                            This popper uses <code>offset</code>,{' '}
-                            <code>hide</code> and <code>size</code> middleware.
-                            The container above is scrollable; when the
-                            reference element scrolls out of view, the popper
-                            hides itself.
-                        </p>
-                    </div>
-                )}
-            </Popper>
+            <CustomPopper reference={ref} />
         </div>
     )
 }
-CustomMiddlewareAndRenderProp.parameters = {
+CustomMiddlewareWithHook.parameters = {
     docs: {
         description: { story: customMiddlewareDescription },
         source: { type: 'code' },

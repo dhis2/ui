@@ -1,5 +1,5 @@
 import { colors, layers } from '@dhis2/ui-constants'
-import { Popper } from '@dhis2-ui/popper'
+import { usePopper } from '@dhis2-ui/popper'
 import { Portal } from '@dhis2-ui/portal'
 import { flip, hide, offset } from '@floating-ui/react-dom'
 import PropTypes from 'prop-types'
@@ -17,6 +17,70 @@ const tooltipMiddleware = [
     flip({ altBoundary: true }),
     hide(),
 ]
+
+const TooltipContent = ({
+    className,
+    content,
+    dataTest,
+    maxWidth,
+    onMouseOut,
+    onMouseOver,
+    placement,
+    reference,
+}) => {
+    const { refs, floatingStyles, middlewareData } = usePopper({
+        reference,
+        placement,
+        middleware: tooltipMiddleware,
+    })
+
+    return (
+        <Portal>
+            <div
+                ref={refs.setFloating}
+                className={`${popperStyle.className} ${className || ''}`}
+                id="tooltipContenDhis2Ui"
+                onMouseOver={onMouseOver}
+                onMouseOut={onMouseOut}
+                data-test={`${dataTest}-content`}
+                role="tooltip"
+                style={{
+                    ...floatingStyles,
+                    visibility: middlewareData.hide?.referenceHidden
+                        ? 'hidden'
+                        : undefined,
+                }}
+            >
+                {content}
+            </div>
+            {popperStyle.styles}
+            <style jsx>{`
+                div {
+                    max-width: ${maxWidth}px;
+                    word-break: normal;
+                    overflow-wrap: break-word;
+                    padding: 4px 6px;
+                    background-color: ${colors.grey900};
+                    border-radius: 3px;
+                    color: ${colors.white};
+                    font-size: 13px;
+                    line-height: 17px;
+                }
+            `}</style>
+        </Portal>
+    )
+}
+
+TooltipContent.propTypes = {
+    className: PropTypes.string,
+    content: PropTypes.node,
+    dataTest: PropTypes.string,
+    maxWidth: PropTypes.number,
+    placement: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
+    reference: PropTypes.object,
+    onMouseOut: PropTypes.func,
+    onMouseOver: PropTypes.func,
+}
 
 const Tooltip = ({
     children,
@@ -108,50 +172,17 @@ const Tooltip = ({
                 </span>
             )}
             {open && (
-                <Portal>
-                    <Popper
-                        className={popperStyle.className}
-                        placement={placement}
-                        reference={popperReference}
-                        middleware={tooltipMiddleware}
-                    >
-                        {({ middlewareData }) => (
-                            <div
-                                className={className}
-                                id="tooltipContenDhis2Ui"
-                                onMouseOver={onMouseOver}
-                                onMouseOut={onMouseOut}
-                                data-test={`${dataTest}-content`}
-                                role="tooltip"
-                                style={{
-                                    visibility: middlewareData.hide
-                                        ?.referenceHidden
-                                        ? 'hidden'
-                                        : undefined,
-                                }}
-                            >
-                                {content}
-                            </div>
-                        )}
-                    </Popper>
-                </Portal>
+                <TooltipContent
+                    className={className}
+                    content={content}
+                    dataTest={dataTest}
+                    maxWidth={maxWidth}
+                    onMouseOut={onMouseOut}
+                    onMouseOver={onMouseOver}
+                    placement={placement}
+                    reference={popperReference}
+                />
             )}
-            {popperStyle.styles}
-            <style jsx>{`
-                div {
-                    max-width: ${maxWidth}px;
-                    word-break: normal;
-                    overflow-wrap: break-word;
-                }
-                div {
-                    padding: 4px 6px;
-                    background-color: ${colors.grey900};
-                    border-radius: 3px;
-                    color: ${colors.white};
-                    font-size: 13px;
-                    line-height: 17px;
-                }
-            `}</style>
         </>
     )
 }

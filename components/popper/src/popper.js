@@ -1,63 +1,28 @@
 import { sharedPropTypes } from '@dhis2/ui-constants'
-import { autoUpdate, useFloating } from '@floating-ui/react-dom'
 import PropTypes from 'prop-types'
-import React, { forwardRef, useEffect, useMemo, useState } from 'react'
-import { getReferenceElement } from './get-reference-element.js'
-import { getBaseMiddleware } from './middleware.js'
-
-const flipPlacement = (placement) => {
-    if (placement.startsWith('right')) {
-        return placement.replace('right', 'left')
-    }
-    if (placement.startsWith('left')) {
-        return placement.replace('left', 'right')
-    }
-    return placement
-}
-
-const staticArray = []
+import React, { forwardRef, useEffect, useState } from 'react'
+import { usePopper } from './use-popper.js'
 
 const Popper = forwardRef(function Popper(
     {
         children,
         className,
         dataTest = 'dhis2-uicore-popper',
-        middleware = staticArray,
-        placement = 'bottom',
+        middleware,
+        placement,
         reference,
-        strategy = 'absolute',
+        strategy,
     },
     forwardedRef
 ) {
-    const referenceElement = getReferenceElement(reference)
-    const [floatingElement, setFloatingElement] = useState(null)
-
-    const adjustedPlacement = useMemo(
-        () =>
-            document.documentElement.dir === 'rtl'
-                ? flipPlacement(placement)
-                : placement,
-        [placement]
-    )
-
-    const combinedMiddleware = useMemo(
-        () => [...getBaseMiddleware(), ...middleware],
-        [middleware]
-    )
-
-    const {
-        refs,
-        floatingStyles,
-        middlewareData,
-        placement: resolvedPlacement,
-        isPositioned,
-    } = useFloating({
-        elements: { reference: referenceElement },
-        placement: adjustedPlacement,
+    const { refs, floatingStyles } = usePopper({
+        reference,
+        placement,
+        middleware,
         strategy,
-        middleware: combinedMiddleware,
-        whileElementsMounted: autoUpdate,
     })
+
+    const [floatingElement, setFloatingElement] = useState(null)
 
     useEffect(() => {
         floatingElement?.firstElementChild?.focus()
@@ -81,23 +46,14 @@ const Popper = forwardRef(function Popper(
             style={floatingStyles}
             tabIndex={0}
         >
-            {typeof children === 'function'
-                ? children({
-                      middlewareData,
-                      placement: resolvedPlacement,
-                      isPositioned,
-                  })
-                : children}
+            {children}
         </div>
     )
 })
 
 Popper.propTypes = {
-    /**
-     * Content inside the Popper. Either a node, or a function called with
-     * `{ middlewareData, placement, isPositioned }` returning a node.
-     */
-    children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired,
+    /** Content inside the Popper */
+    children: PropTypes.node.isRequired,
     className: PropTypes.string,
     dataTest: PropTypes.string,
     /** Floating UI middleware array. See https://floating-ui.com/docs/middleware */
