@@ -9,7 +9,7 @@ export default css`
         justify-content: center;
         border-radius: 4px;
         font-weight: 400;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.4px;
         text-decoration: none;
         cursor: pointer;
         user-select: none;
@@ -49,7 +49,8 @@ export default css`
         text-decoration: none;
     }
 
-    button:hover {
+    button:hover,
+    button:focus:hover {
         border-color: ${colors.grey500};
         background-color: ${colors.grey200};
     }
@@ -91,13 +92,18 @@ export default css`
     .primary {
         border-color: ${theme.primary800};
         background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
+        box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.35) inset;
+        --button-icon-filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2))
+            drop-shadow(0 0px 1px rgba(0, 0, 0, 0.2));
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0px 1px rgba(0, 0, 0, 0.2);
         background-color: #2b61b3;
         color: ${colors.white};
         fill: ${colors.white};
-        font-weight: 500;
+        font-weight: 400;
     }
 
-    .primary:hover {
+    .primary:hover,
+    .primary:focus:hover {
         border-color: ${theme.primary800};
         background: linear-gradient(180deg, #054fa3 0%, #034793 100%);
         background-color: #21539f;
@@ -105,14 +111,17 @@ export default css`
 
     .primary:active,
     .primary:active:focus {
-        background: linear-gradient(180deg, #054fa3 0%, #034793 100%);
-        background-color: #1c4a90;
-        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18) inset;
+        border-color: ${theme.primary800};
+        background: linear-gradient(180deg, #034793 0%, #033c7a 100%);
+        background-color: #033c7a;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.28) inset,
+            0 0 0 1px rgba(0, 0, 0, 0.24) inset;
     }
 
     .primary:focus {
-        background: ${colors.blue800};
-        border-color: ${colors.blue900};
+        background: linear-gradient(180deg, #1565c0 0%, #0650a3 100%);
+        background-color: #2b61b3;
+        border-color: ${theme.primary800};
         outline-offset: -5px;
     }
 
@@ -129,14 +138,15 @@ export default css`
         background-color: transparent;
     }
 
-    .secondary:hover {
+    .secondary:hover,
+    .secondary:focus:hover {
         border-color: rgba(74, 87, 104, 0.5);
         background-color: rgba(160, 173, 186, 0.05);
     }
 
     .secondary:active,
     .secondary:active:focus {
-        background-color: rgba(160, 173, 186, 0.2);
+        background-color: rgba(160, 173, 186, 0.1);
         box-shadow: none;
     }
 
@@ -156,12 +166,17 @@ export default css`
         border-color: #a10b0b;
         background: linear-gradient(180deg, #d32f2f 0%, #b71c1c 100%);
         background-color: #b9242b;
+        box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.35) inset;
+        --button-icon-filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2))
+            drop-shadow(0 0px 1px rgba(0, 0, 0, 0.4));
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 0px 1px rgba(0, 0, 0, 0.4);
         color: ${colors.white};
         fill: ${colors.white};
-        font-weight: 500;
+        font-weight: 400;
     }
 
-    .destructive:hover {
+    .destructive:hover,
+    .destructive:focus:hover {
         border-color: #a10b0b;
         background: linear-gradient(180deg, #b81c1c 0%, #b80c0b 100%);
         background-color: #ac0f1a;
@@ -190,12 +205,16 @@ export default css`
     .destructive.secondary {
         border-color: rgba(74, 87, 104, 0.25);
         background: transparent;
+        box-shadow: none;
+        --button-icon-filter: none;
+        text-shadow: none;
         color: ${colors.red700};
         fill: ${colors.red700};
         font-weight: 400;
     }
 
-    .destructive.secondary:hover {
+    .destructive.secondary:hover,
+    .destructive.secondary:focus:hover {
         border-color: ${colors.red600};
         background: ${colors.red050};
         color: ${colors.red800};
@@ -204,8 +223,8 @@ export default css`
 
     .destructive.secondary:active,
     .destructive.secondary:active:focus {
-        background: ${colors.red100};
-        border-color: ${colors.red700};
+        background: rgba(211, 47, 47, 0.08);
+        border-color: ${colors.red600};
         box-shadow: none;
     }
 
@@ -220,18 +239,19 @@ export default css`
         padding: 0 0 0 5px;
     }
 
+    button:has(.button-icon):not(.icon-only):not(.small) {
+        padding-inline-start: 8px;
+    }
+
     .button-icon {
-        margin-inline-end: 6px;
+        margin-inline-end: 5px;
         color: inherit;
         fill: inherit;
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        filter: var(--button-icon-filter, none);
         pointer-events: none;
-    }
-
-    .icon-only .button-icon {
-        margin-inline-end: 5px;
     }
 
     .small.icon-only {
@@ -259,7 +279,8 @@ export default css`
         background: ${colors.grey800};
     }
 
-    .toggled:hover {
+    .toggled:hover,
+    .toggled:focus:hover {
         background: ${colors.grey800};
         border-color: ${colors.grey900};
     }
