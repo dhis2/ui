@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require('node:path')
 
 // As of v12, @dhis2/cli-app-scripts declares an `exports` map in its
 // package.json that only exposes `.` and `./init`, so deep-importing
