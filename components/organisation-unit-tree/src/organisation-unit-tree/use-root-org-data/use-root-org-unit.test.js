@@ -67,21 +67,21 @@ describe('OrganisationUnitTree - useRootOrgData', () => {
             wrapper,
         })
 
-        await waitFor(() => {})
-
-        expect(result.current).toEqual(
-            expect.objectContaining({
-                loading: false,
-                error: null,
-                data: {
-                    A0000000000: {
-                        id: 'A0000000000',
-                        path: '/A0000000000',
-                        displayName: 'Org Unit 1',
+        await waitFor(() => {
+            expect(result.current).toEqual(
+                expect.objectContaining({
+                    loading: false,
+                    error: null,
+                    data: {
+                        A0000000000: {
+                            id: 'A0000000000',
+                            path: '/A0000000000',
+                            displayName: 'Org Unit 1',
+                        },
                     },
-                },
-            })
-        )
+                })
+            )
+        })
     })
 
     it('should provide the error', async () => {
