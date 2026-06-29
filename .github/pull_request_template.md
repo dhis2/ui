@@ -34,7 +34,7 @@ This is because review work, discussing solutions, understanding the code change
 
 ## 3. Request a final review from the Extensibility team
 
-With the other steps above completed accurately, this should be a quick look-over just to make sure that the changes align with the library vision and maintain a stable API. 
+With the other steps above completed accurately, this should be a quick look-over just to make sure that the changes align with the library vision and maintain a stable API.
 
 Upon approval, the PR will be ready for merging.
 
