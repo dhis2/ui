@@ -1,3 +1,10 @@
+## [10.16.4](https://github.com/dhis2/ui/compare/v10.16.3...v10.16.4) (2026-06-30)
+
+
+### Bug Fixes
+
+* update cli-app-scripts to 12.11.3 ([#1755](https://github.com/dhis2/ui/issues/1755)) ([08a752c](https://github.com/dhis2/ui/commit/08a752cc88be10b726ae62b9070cde80e327060c))
+
 ## [10.16.3](https://github.com/dhis2/ui/compare/v10.16.2...v10.16.3) (2026-06-11)
 
 
