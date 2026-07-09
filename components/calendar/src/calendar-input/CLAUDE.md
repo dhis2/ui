@@ -1,62 +1,24 @@
 # CalendarInput
 
-`CalendarInput` wraps the `Calendar` widget (`../calendar/`) with a text input, validation, and a clear button. It renders dates via `@dhis2/multi-calendar-dates`, which wraps `@js-temporal/polyfill` (vendored as of `2.2.0-alpha.x`, see that package's `src/vendor/README.md`).
+`CalendarInput` wraps the `Calendar` widget (`../calendar/`) with a text input, validation, and a clear button. Both get their date logic — parsing, localization, navigation — from `@dhis2/multi-calendar-dates`'s `useDatePicker`/`useResolvedDirection`/`validateDateString`; this directory has no date-math of its own.
 
-## Test coverage
+## Data flow
 
-Two separate test surfaces exist, covering different things. Scope below is limited to the three calendars this project cares about: **Gregorian, Ethiopic, Nepali** (Islamic and others are exercised too but are out of scope for coverage decisions here).
+Dates cross the public API as calendar-native `YYYY-MM-DD` strings (in whatever `calendar` prop is set — not necessarily Gregorian ISO), never as `Temporal` objects. Treat any change that would leak a `Temporal`/date-engine object through `onDateSelect`, `date`, or similar props as a breaking change. `CalendarInput`'s `onDateSelect` payload also carries a `validation` object that `CalendarInput` computes itself via `validateDateString` — it is *not* part of `multi-calendar-dates`'s types, so it's declared separately in `../../types/index.d.ts` (`CalendarInputValidation` / `CalendarInputOnDateSelectPayload`). If you change how validation is computed or shaped, update that file too.
 
-| | Jest (`__tests__/calendar-input.test.js`) | Cypress + Cucumber e2e (`../features/*.feature`, driven off `../__e2e__/calendar-input.e2e.stories.js`) |
-|---|---|---|
-| Run by | `yarn test` in `components/calendar` | separate `yarn cy:test` at repo root (spins up Storybook + a real browser) |
-| Drives | `CalendarInput` in isolation / inside a form | fully rendered stories, real DOM + i18n |
+## Testing
 
-### Coverage matrix
+Two surfaces, used for different things:
+- **Jest** (`__tests__/calendar-input.test.js`, run via `yarn test`) — component behavior and logic: prop handling, validation, callbacks.
+- **Cypress + Cucumber e2e** (`../features/*.feature` + step defs, driven off `../__e2e__/calendar-input.e2e.stories.js`, run via `yarn cy:test` at the repo root) — real rendered output and localization across calendars. Heavier; not run by `yarn test`.
 
-| Capability | Gregorian | Ethiopic | Nepali |
-|---|---|---|---|
-| Render + localized weekday/month names (native + English) | e2e | e2e | e2e |
-| Month navigation (prev/next) | e2e | e2e | e2e |
-| Select a day via calendar widget click | Jest + e2e | Jest + e2e | Jest + e2e |
-| Enter a date by typing into the input | Jest | Jest | Jest (validation test) |
-| minDate validation message | Jest | Jest | not exercised |
-| maxDate validation message | Jest | not exercised | Jest |
-| Invalid-date-in-calendar message | not exercised | Jest | Jest |
-| Clear button + "today" becomes selected | e2e | e2e | e2e |
-| Day-cell text shows the bare day number, not a full date string | e2e (`highlight today as the selected date` step) + Jest (`getByText('17')`) | e2e only | e2e only |
-| Ethiopic: era not shown in year select | n/a | e2e | n/a |
-| Manual clear (deleting text, not clicking Clear) | Jest | not exercised | not exercised |
-| Bare `Calendar` widget without the `CalendarInput` wrapper | no direct unit test for any calendar — everything goes through `CalendarInput` | | |
+When adding a prop or behavior, add a Jest test. If it's about rendering or localized text for a specific calendar/locale, check whether a `.feature` scenario should exist too.
 
-Also covered (Gregorian only, calendar-agnostic behavior — not worth tripling up per calendar): `strictValidation` (warning instead of error), `format`/`DD-MM-YYYY` detection and mismatch rejection, `pastOnly` (year selector upper bound), `dir` (RTL wrapper attribute), `numberingSystem` (day-cell digits), `weekDayFormat` (weekday header length).
+Coverage decisions in this component are scoped to the three calendars the project actually supports in practice: **Gregorian, Ethiopic, Nepali**. Ethiopic and Nepali behave differently enough from Gregorian (Ethiopic is a native-ICU calendar with its own era handling; Nepali is a custom, non-ICU calendar implemented in `multi-calendar-dates` via a lookup table, not `Intl`) that "tested for Gregorian" should not be assumed to mean "tested for the other two" — verify explicitly rather than assuming parity.
 
-### Known gaps
+## Gotchas
 
-1. **Ethiopic has no e2e-equivalent test for validation error *text*** — only the Jest suite checks min/max-date and invalid-date messages for it (now un-skipped and passing, see below); there's no Cypress scenario for validation text in any calendar.
-2. `inputWidth` is untested — it's a passthrough to a `styled-jsx` CSS width, purely cosmetic, and `styled-jsx` output is fragile to assert on in jsdom. Deliberately skipped rather than an oversight.
-3. Only two assertions in the whole suite check that a day cell's *visible text* is the bare day number rather than something else: Jest's `getByText('17')` (Gregorian) and the e2e `highlight today as the selected date` step (all three calendars, via `.isSelected` text). The e2e "select a day" scenarios target cells by `data-test` attribute, not visible text, so they would **not** catch a day-label rendering regression on their own (this is exactly what broke during the `multi-calendar-dates` `2.2.0-alpha.1` upgrade — see git history around that dependency bump). The new Ethiopic/Nepali widget-click Jest tests added below use the same `data-test`-based click, for the same reason (parity with the existing Gregorian test) — they don't independently close this gap for those two calendars.
-
-The previously-skipped Ethiopic validation test and the previously-flaky-on-CI Nepali test are now both active, unconditionally (see the performance fix below — the timeout root cause is gone). Also added: Jest-level widget-click selection for Ethiopic and Nepali (closing gap 3 above, as it stood before this update), and coverage for every previously-untested prop except `inputWidth`.
-
-## Performance: typing lag / CI timeouts (LIBS-763)
-
-The skipped Ethiopic test and the Nepali validation test (flagged in a `ToDo` comment referencing [LIBS-763](https://dhis2.atlassian.net/browse/LIBS-763)) were timing out on CI. Root-caused and fixed upstream in `multi-calendar-dates`; the fix shipped in `@dhis2/multi-calendar-dates@3.0.0-alpha.1` and this package is pinned to it.
-
-Two separate memoization bugs in `useDatePicker`:
-
-1. **`useNavigation` args unstable**: `useDatePicker` called `useNavigation` with two arguments freshly constructed on every render (deriving the visible month's date, and an options object, both recreated inline each call). `useNavigation`'s own `useMemo` compares dependencies by reference, so it never actually cached anything — it rebuilt the year dropdown (up to 126 entries) and month list, each entry formatted through `Intl`, on **every single render**, including every keystroke while typing (`useDatePicker` runs on every render regardless of whether the dropdown is open).
-2. **`calendarWeekDays` never memoized at all**: the day-grid (~35-42 cells), each formatted through the same Intl-backed `localiseWeekLabel`, was built inline in the returned object on every render — not wrapped in `useMemo` in the first place. The selected-date value driving it had the same instability problem.
-
-Fix: memoized all of the above against their real dependencies, routing the day-click handler through a ref so it still always calls the latest `onDateSelect` without needing to be a memo dependency. In `3.0.0-alpha.1` this landed as part of a broader refactor that also stopped leaking raw `Temporal` objects from the hook's public surface (hence the major version bump).
-
-**Impact measured**, 10-keystroke typing benchmark with the calendar dropdown open, against the real published `3.0.0-alpha.1`:
-
-| Calendar | Before either fix | After |
-|---|---|---|
-| Gregorian | ~2000ms | ~22ms |
-| Ethiopic | crashed outright (separate CLDR48 era-code bug, also fixed in this line of work) | ~9ms |
-| Nepali | ~760ms | ~13ms |
-
-Root cause of the pre-fix *difference* between calendars: Gregorian/Ethiopic are native-ICU calendars, so `localiseWeekLabel`/`localiseYear`/`localiseMonth` go through `Temporal.*.toLocaleString()`, which constructs a brand-new native `Intl.DateTimeFormat` per call (confirmed by instrumenting `Intl.DateTimeFormat.prototype.resolvedOptions`: ~500 constructions triggered by a single keystroke before the fix). Nepali is a custom (non-ICU) calendar, so those helpers skip Intl entirely via a lookup table — cheaper, but still wasted work from the same broken memoization.
-
-This was entirely a `multi-calendar-dates` bug — nothing in this directory (`CalendarInput`/`Calendar`) needed to change.
+- **Day-cell tests must assert on visible text, not just the `data-test` attribute.** `data-test` on a day cell is always the full date string (e.g. `2024-10-17`); the *rendered label* is a separate value from `multi-calendar-dates` and can silently regress into something else (it has, historically) without any `data-test`-based assertion catching it. Assert `within(cell).getByText('17')` (or the calendar-appropriate bare day number) in addition to clicking by `data-test`.
+- **`useDatePicker` recomputes on every render of `CalendarInput`, regardless of whether the calendar dropdown is open.** Its output must stay properly memoized inside `multi-calendar-dates` — if you find yourself adding expensive work anywhere in this render path (here or upstream), verify it doesn't run on every keystroke. The `performance (LIBS-763)` describe block in the test file guards against this regressing again; keep it green.
+- **`inputWidth` is deliberately untested.** It's a passthrough to a `styled-jsx` CSS width — purely cosmetic, and `styled-jsx` output is fragile to assert on in jsdom. Don't assume this is an oversight.
+- **`minDate`/`maxDate`/`format`/`strictValidation` get passed to two different functions with different expectations**: `validateDateString` (via `validationOptions`, keyed `minDateString`/`maxDateString`) drives the visible error text, while `useDatePicker` takes the same values under its own key names (`minDate`/`maxDate`) to decide whether to fall back to today internally in strict mode. These used to silently disagree (the `validationOptions` object, keyed for `validateDateString`, was spread straight into `useDatePicker` too) — the widget would keep an out-of-range date selected in strict mode even though the input correctly rejected it. Pass `useDatePicker` its own correctly-named fields explicitly; don't assume an options object built for one of these functions is safe to reuse for the other.

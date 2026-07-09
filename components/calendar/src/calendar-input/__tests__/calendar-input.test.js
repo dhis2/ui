@@ -61,6 +61,11 @@ describe('Calendar Input', () => {
         const todayString = '2017-02-12'
         const today = within(calendar).getByTestId(todayString)
 
+        // the visible day-cell text must be the bare day number, not the
+        // full date string used for data-test - regressed silently during
+        // the multi-calendar-dates 2.2.0-alpha.1 upgrade (see CLAUDE.md)
+        expect(within(today).getByText('12')).toBeInTheDocument()
+
         fireEvent.click(today)
 
         await waitFor(() => {
@@ -95,6 +100,11 @@ describe('Calendar Input', () => {
 
         const todayString = '2081-07-06'
         const today = within(calendar).getByTestId(todayString)
+
+        // the visible day-cell text must be the bare day number, not the
+        // full date string used for data-test - regressed silently during
+        // the multi-calendar-dates 2.2.0-alpha.1 upgrade (see CLAUDE.md)
+        expect(within(today).getByText('6')).toBeInTheDocument()
 
         fireEvent.click(today)
 
@@ -441,6 +451,83 @@ describe('Calendar Input', () => {
             ).toBeInTheDocument()
             expect(onDateSelectMock).toHaveBeenCalledTimes(1)
         })
+
+        // Regression test: minDate/maxDate used to reach validateDateString
+        // (as minDateString/maxDateString) but not useDatePicker itself, due to a
+        // key mismatch - so in strict mode the input rejected an out-of-range
+        // date while the widget still selected it. Warning mode is unaffected
+        // (see the test below) since useDatePicker only falls back to today when
+        // strictValidation produces an `error`.
+        it('calendar widget falls back to today for a date the input has flagged as below the minimum (strict mode)', async () => {
+            jest.useFakeTimers()
+            jest.setSystemTime(new Date('2024-10-22T09:05:00.000Z'))
+
+            const screen = render(
+                <CalendarWithValidation calendar="gregory" minDate="2024-01-01" />
+            )
+
+            const dateInput = within(
+                screen.getByTestId('dhis2-uicore-input')
+            ).getByRole('textbox')
+
+            fireEvent.change(dateInput, { target: { value: '2020-01-15' } })
+            fireEvent.blur(dateInput)
+
+            expect(
+                screen.getByText(
+                    'Date 2020-01-15 is less than the minimum allowed date 2024-01-01.'
+                )
+            ).toBeInTheDocument()
+
+            fireEvent.focus(dateInput)
+            const calendar = await screen.findByTestId('calendar')
+
+            // expected: the widget falls back to today, like useDatePicker's own
+            // getInvalidDateResult does for a date it recognizes as invalid
+            expect(
+                within(calendar).getByTestId('2024-10-22').querySelector('button')
+            ).toHaveClass('isToday')
+
+            jest.useRealTimers()
+        })
+
+        it('calendar widget correctly still selects an out-of-range date in warning mode', async () => {
+            jest.useFakeTimers()
+            jest.setSystemTime(new Date('2024-10-22T09:05:00.000Z'))
+
+            const screen = render(
+                <CalendarWithValidation
+                    calendar="gregory"
+                    minDate="2024-01-01"
+                    strictValidation={false}
+                />
+            )
+
+            const dateInput = within(
+                screen.getByTestId('dhis2-uicore-input')
+            ).getByRole('textbox')
+
+            fireEvent.change(dateInput, { target: { value: '2020-01-15' } })
+            fireEvent.blur(dateInput)
+
+            expect(
+                screen.getByText(
+                    'Date 2020-01-15 is less than the minimum allowed date 2024-01-01.'
+                )
+            ).toBeInTheDocument()
+
+            fireEvent.focus(dateInput)
+            const calendar = await screen.findByTestId('calendar')
+
+            // warning mode means "flag it, but still let them pick it" - the
+            // widget showing the out-of-range date as selected is intentional
+            expect(
+                within(calendar).getByTestId('2020-01-15').querySelector('button')
+            ).toHaveClass('isSelected')
+
+            jest.useRealTimers()
+        })
+
         it('should validate maximum date', () => {
             const { getByTestId, getByText } = render(
                 <CalendarWithValidation
