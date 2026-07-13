@@ -135,9 +135,9 @@ MultiSelect.propTypes = {
     loading: PropTypes.bool,
     loadingText: PropTypes.string,
     maxHeight: PropTypes.string,
-    /** Sets a maximum width for the dropdown menu */
+    /** See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width) */
     menuMaxWidth: PropTypes.string,
-    /** Sets a minimum width for the dropdown menu */
+    /** See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width) */
     menuMinWidth: PropTypes.string,
     /** Required if `filterable` prop is `true` */
     noMatchText: requiredIf((props) => props.filterable, PropTypes.string),

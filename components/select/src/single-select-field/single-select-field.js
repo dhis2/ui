@@ -152,9 +152,9 @@ SingleSelectField.propTypes = {
     loadingText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     /** Constrains height of the SingleSelect */
     maxHeight: PropTypes.string,
-    /** Sets a maximum width for the dropdown menu */
+    /** See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width) */
     menuMaxWidth: PropTypes.string,
-    /** Sets a minimum width for the dropdown menu */
+    /** See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width) */
     menuMinWidth: PropTypes.string,
     /** Text to display when there are no filter results */
     noMatchText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
