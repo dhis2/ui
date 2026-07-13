@@ -88,7 +88,7 @@ export const NotificationIcon = ({
                     top: 18px;
                     transform: translate(50%, -50%);
                     inset-inline-end: ${spacers.dp16};
-                    background-color: ${colors.red300};
+                    background-color: ${colors.red500};
                     font-size: 13px;
                     font-weight: 600;
                     line-height: 15px;
