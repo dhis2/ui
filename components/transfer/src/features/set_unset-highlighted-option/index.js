@@ -38,10 +38,14 @@ Given('the highlighted item is not visible due to a set filter', () => {
 })
 
 When('the user clicks an item in the list that is not highlighted', () => {
+    // options are wrapped in draggable wrappers, so the next option
+    // is the child of the parent wrapper's next sibling
     cy.get('@list')
         .find('{transferoption}')
         .first()
-        .invoke('next')
+        .parent()
+        .next()
+        .children()
         .as('nextHighlighted')
         .click()
 })

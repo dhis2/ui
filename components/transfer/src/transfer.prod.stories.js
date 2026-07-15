@@ -30,6 +30,10 @@ here's an explanation of their meaning:
 - highlighted option: These are visually highlighted options than can be on either side and are ready for transferral with the action buttons to the other side
 - filtered options: These are the displayed source options filtered by a search term or a custom search algorithm. The api surface uses "selected" for "picked" to be consistent with the rest of the library
 
+#### Drag and drop
+
+Options can be dragged between the two lists with a pointer. When \`enableOrderChange\` is set, the picked options can also be reordered by dragging, and options dropped onto the picked list are inserted at the drop position (otherwise they are appended at the end). Dragging a highlighted option drags the whole highlighted set. Drag and drop is a pointer-only convenience: the action buttons and reordering buttons remain the keyboard-accessible way to transfer and reorder.
+
 #### More details
 
 See more about the options available for Transfers at [Design System: Transfer](https://github.com/dhis2/design-system/blob/master/organisms/transfer.md#transfer).
@@ -393,6 +397,54 @@ ReorderingWithCustomOptions.args = {
         }
 
         return <TransferOption {...option} />
+    },
+}
+
+export const DragAndDrop = StatefulTemplate.bind({})
+DragAndDrop.storyName = 'Drag and drop'
+DragAndDrop.args = {
+    enableOrderChange: true,
+    options: options.slice(0, 20),
+    initiallySelected: options.slice(0, 8).map(({ value }) => value),
+}
+DragAndDrop.parameters = {
+    docs: {
+        description: {
+            story: `Options can always be dragged between the two lists. With \`enableOrderChange\` the picked list can additionally be reordered by dragging, and dropped options land at the drop position instead of at the end. Dragging a highlighted option moves the whole highlighted set. Drag and drop is a pointer-only convenience — the action and reordering buttons remain the keyboard-accessible path.`,
+        },
+    },
+}
+
+export const DragAndDropWithoutReordering = StatefulTemplate.bind({})
+DragAndDropWithoutReordering.storyName = 'Drag and drop without reordering'
+DragAndDropWithoutReordering.args = {
+    options: options.slice(0, 20),
+    initiallySelected: options.slice(0, 4).map(({ value }) => value),
+}
+DragAndDropWithoutReordering.parameters = {
+    docs: {
+        description: {
+            story: `Without \`enableOrderChange\`, dragging between the lists still works but options dropped on the picked list are always appended at the end, and the picked list cannot be reordered by dragging.`,
+        },
+    },
+}
+
+export const DragAndDropWithDisabledOptions = StatefulTemplate.bind({})
+DragAndDropWithDisabledOptions.storyName = 'Drag and drop with disabled options'
+DragAndDropWithDisabledOptions.args = {
+    enableOrderChange: true,
+    options: options
+        .slice(0, 10)
+        .map((option, index) =>
+            index % 3 === 0 ? { ...option, disabled: true } : option
+        ),
+    initiallySelected: options.slice(10, 14).map(({ value }) => value),
+}
+DragAndDropWithDisabledOptions.parameters = {
+    docs: {
+        description: {
+            story: 'Disabled options cannot be dragged.',
+        },
     },
 }
 

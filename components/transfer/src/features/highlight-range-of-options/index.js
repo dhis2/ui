@@ -68,11 +68,17 @@ Given('one item is highlighted', () => {
 })
 
 Given('there are at least two options following the highlighted option', () => {
+    // options are wrapped in draggable wrappers, so the next option
+    // is the child of the parent wrapper's next sibling
     cy.get('@initiallyHighlighted')
+        .parent()
         .next()
+        .children()
         .should('exist')
         .as('firstBelowInitiallyHighlighted')
+        .parent()
         .next()
+        .children()
         .should('exist')
         .as('secondBelowInitiallyHighlighted')
 })
@@ -88,12 +94,18 @@ Given('several options are highlighted', () => {
 Given(
     'there are at least two options following the last highlighted option',
     () => {
+        // options are wrapped in draggable wrappers, so the next
+        // option is the child of the parent wrapper's next sibling
         cy.get('@initiallyHighlightedMultiple')
             .last('last')
+            .parent()
             .next()
+            .children()
             .should('exist')
             .as('firstBelowInitiallyHighlighted')
+            .parent()
             .next()
+            .children()
             .should('exist')
             .as('secondBelowInitiallyHighlighted')
     }
@@ -125,12 +137,16 @@ When(
             // last highlighted option
             .last()
 
-            // next sibling
+            // next option (the child of the wrapper's next sibling)
+            .parent()
             .next()
+            .children()
             .as('firstBelowLastHighlighted')
 
-            // second next sibling
+            // second next option
+            .parent()
             .next()
+            .children()
             .as('secondBelowLastHighlighted')
             .clickWith('shift')
     }
@@ -242,7 +258,12 @@ Then(
     () => {
         cy.all(
             () =>
-                cy.get('@initiallyHighlightedMultiple').last().invoke('index'),
+                // the option's position is its draggable wrapper's position
+                cy
+                    .get('@initiallyHighlightedMultiple')
+                    .last()
+                    .invoke('parent')
+                    .invoke('index'),
             () => cy.get('@initiallyHighlightedMultiple')
         ).should(
             ([
@@ -252,7 +273,10 @@ Then(
                 $initiallyHighlightedMultiple
                     .filter((_, el) => {
                         const $el = Cypress.$(el)
-                        return $el.index() !== lastInitiallyHighlightedIndex
+                        return (
+                            $el.parent().index() !==
+                            lastInitiallyHighlightedIndex
+                        )
                     })
                     .each((_, el) => {
                         const $el = Cypress.$(el)
@@ -272,12 +296,14 @@ Then(
             () => cy.get('@list').find('{transferoption}')
         ).should(
             ([$initiallyHighlightedMultiple, $firstShiftClicked, $all]) => {
+                // the option's position is its draggable wrapper's position
                 const firstVisibleHighlightedIndex =
                     $initiallyHighlightedMultiple
                         .filter(':visible')
                         .eq(0)
+                        .parent()
                         .index()
-                const shiftIndex = $firstShiftClicked.index()
+                const shiftIndex = $firstShiftClicked.parent().index()
                 const from = Math.min(firstVisibleHighlightedIndex, shiftIndex)
                 const to = Math.max(firstVisibleHighlightedIndex, shiftIndex)
                 const $insideRange = $all.slice(from, to + 1)
