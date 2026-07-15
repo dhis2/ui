@@ -16,7 +16,7 @@ A transfer is used to make complex selections from a list of options.
 
 ## Usage
 
-A transfer is made up of two lists. The _source list_ that shows the available options and the _picked list_ that shows the chosen options. Options can be transferred between lists with the middle buttons or by double-clicking an option.
+A transfer is made up of two lists. The _source list_ that shows the available options and the _picked list_ that shows the chosen options. Options can be transferred between lists with the middle buttons, by double-clicking an option, or by dragging an option to the other list.
 
 ### When to use
 
@@ -121,6 +121,18 @@ The footer component is as follows:
 ```
 
 -   Allow reordering if the order of the chosen options has meaning or consequences.
+
+### Drag and drop
+
+<Demo
+    path="transfer--drag-and-drop"
+    height="320px"
+/>
+
+Options can always be dragged between the two lists with a pointer. Dragging a highlighted option drags the whole highlighted set. When `enableOrderChange` is set, the picked list can also be reordered by dragging, and options dropped onto it are inserted at the drop position; otherwise dropped options are appended at the end.
+
+-   Drag and drop is a pointer-only convenience. The action buttons and reordering buttons remain the keyboard-accessible way to transfer and reorder options.
+-   Disabled options can't be dragged.
 
 ### Filtering
 
