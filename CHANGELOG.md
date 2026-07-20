@@ -1,3 +1,10 @@
+## [10.16.5](https://github.com/dhis2/ui/compare/v10.16.4...v10.16.5) (2026-07-20)
+
+
+### Bug Fixes
+
+* sort root nodes unless opted out via suppressAlphabeticalSorting ([#1753](https://github.com/dhis2/ui/issues/1753)) ([43179d8](https://github.com/dhis2/ui/commit/43179d8caf33a44e2d24ac6b6fee93977db3d6ac))
+
 ## [10.16.4](https://github.com/dhis2/ui/compare/v10.16.3...v10.16.4) (2026-06-30)
 
 
