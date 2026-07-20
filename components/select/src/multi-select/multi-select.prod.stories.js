@@ -406,3 +406,29 @@ export const RTL = (args) => {
     )
 }
 RTL.args = { selected: ['1', '2'], prefix: 'RTL text' }
+
+export const WithMenuMaxWidth = (args) => (
+    <div style={{ width: 120 }}>
+        <MultiSelect {...args}>
+            <MultiSelectOption value="1" label="option one" />
+            <MultiSelectOption value="2" label="option two" />
+            <MultiSelectOption value="3" label="A much longer option label" />
+        </MultiSelect>
+    </div>
+)
+WithMenuMaxWidth.args = { menuMaxWidth: '200px' }
+
+export const WithMenuMinWidth = (args) => (
+    <div style={{ width: 120 }}>
+        <MultiSelect {...args}>
+            <MultiSelectOption value="1" label="option one" />
+            <MultiSelectOption value="2" label="option two" />
+            <MultiSelectOption value="3" label="option three" />
+            <MultiSelectOption
+                value="4"
+                label="A longer option that exceeds the minimum"
+            />
+        </MultiSelect>
+    </div>
+)
+WithMenuMinWidth.args = { menuMinWidth: '240px' }

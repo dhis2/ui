@@ -150,6 +150,40 @@ Use a multi select if the user can choose one or more options.
 -   A selects width should reflect the expected content.
 -   Avoid full-width selects, which can be visually unclear.
 
+#### Dropdown menu width
+
+<Demo
+    path="single-select-field--with-menu-min-width"
+    height="200px"
+/>
+
+```jsx
+<SingleSelectField label="Label" inputWidth="120px" menuMinWidth="240px">
+    <SingleSelectOption label="Option one" value="1" />
+    <SingleSelectOption label="A much longer option label" value="2" />
+</SingleSelectField>
+```
+
+By default the dropdown menu matches the input's width. When the input is
+sized to its content, this can make the menu too narrow to read longer options
+comfortably. `menuMinWidth` and `menuMaxWidth`, available on
+`SingleSelectField`/`SingleSelect` and `MultiSelectField`/`MultiSelect`, let you decouple the menu width from the input:
+
+-   `menuMinWidth` — the menu grows to fit its content (`fit-content`) but is
+    never narrower than the greater of the input width and this value.
+-   `menuMaxWidth` — caps how wide the menu may grow. Useful together with
+    `menuMinWidth` to stop very long option labels from making the menu
+    excessively wide.
+
+Setting either prop switches the menu to `fit-content` sizing; setting neither
+keeps the original behavior (menu width equals input width).
+
+:::note
+These props accept any absolute or font-relative CSS length, e.g. `'200px'` or
+`'20rem'`. **Percentages are not supported**: the menu is rendered in a portal,
+so a percentage would resolve against the viewport rather than the input.
+:::
+
 ## Options
 
 ### Filtering
