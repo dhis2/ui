@@ -45,6 +45,8 @@ class SingleSelectField extends React.Component {
             helpText,
             validationText,
             maxHeight,
+            menuMinWidth,
+            menuMaxWidth,
             inputMaxHeight,
             inputWidth,
             children,
@@ -81,6 +83,8 @@ class SingleSelectField extends React.Component {
                         selected={selected}
                         tabIndex={tabIndex}
                         maxHeight={maxHeight}
+                        menuMinWidth={menuMinWidth}
+                        menuMaxWidth={menuMaxWidth}
                         inputMaxHeight={inputMaxHeight}
                         onChange={onChange}
                         onFocus={onFocus}
@@ -148,6 +152,10 @@ SingleSelectField.propTypes = {
     loadingText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     /** Constrains height of the SingleSelect */
     maxHeight: PropTypes.string,
+    /** See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width) */
+    menuMaxWidth: PropTypes.string,
+    /** See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width) */
+    menuMinWidth: PropTypes.string,
     /** Text to display when there are no filter results */
     noMatchText: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     /** Placeholder text when the SingleSelect is empty */

@@ -7,11 +7,23 @@ import React from 'react'
 const MenuWrapper = ({
     children,
     dataTest,
+    inputWidth,
     maxHeight = '280px',
-    menuWidth,
+    menuMaxWidth,
+    menuMinWidth,
     onClick,
     selectRef,
 }) => {
+    // menuMinWidth or menuMaxWidth enables flexible sizing (fit-content), with
+    // min-width = max(input, menuMinWidth). Without them, width matches the input.
+    const flexible = menuMinWidth || menuMaxWidth
+    const width = flexible ? 'fit-content' : inputWidth
+    const flexibleMinWidth = menuMinWidth
+        ? `max(${inputWidth}, ${menuMinWidth})`
+        : inputWidth
+    const minWidth = flexible ? flexibleMinWidth : 'auto'
+    const maxWidth = menuMaxWidth || 'none'
+
     return (
         <Layer onBackdropClick={onClick} transparent>
             <Popper
@@ -24,7 +36,9 @@ const MenuWrapper = ({
 
                     <style jsx>{`
                         div {
-                            width: ${menuWidth};
+                            width: ${width};
+                            min-width: ${minWidth};
+                            max-width: ${maxWidth};
                             height: auto;
                             max-height: ${maxHeight};
                             overflow: auto;
@@ -42,10 +56,12 @@ const MenuWrapper = ({
 
 MenuWrapper.propTypes = {
     dataTest: PropTypes.string.isRequired,
-    menuWidth: PropTypes.string.isRequired,
+    inputWidth: PropTypes.string.isRequired,
     selectRef: PropTypes.object.isRequired,
     children: PropTypes.node,
     maxHeight: PropTypes.string,
+    menuMaxWidth: PropTypes.string,
+    menuMinWidth: PropTypes.string,
     onClick: PropTypes.func,
 }
 
