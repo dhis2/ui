@@ -1,3 +1,10 @@
+# [10.17.0](https://github.com/dhis2/ui/compare/v10.16.5...v10.17.0) (2026-07-20)
+
+
+### Features
+
+* **select:** flexibility in dropdown menu width ([#1744](https://github.com/dhis2/ui/issues/1744)) ([b721f9d](https://github.com/dhis2/ui/commit/b721f9d064f072877dddd1eb4009d2ae5ec5ac05))
+
 ## [10.16.5](https://github.com/dhis2/ui/compare/v10.16.4...v10.16.5) (2026-07-20)
 
 

@@ -31,6 +31,8 @@ import { MultiSelect } from '@dhis2/ui'
 |loading|boolean||||
 |loadingText|string||||
 |maxHeight|string||||
+|menuMaxWidth|string|||See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width)|
+|menuMinWidth|string|||See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width)|
 |noMatchText|custom(function)|||Required if `filterable` prop is `true`|
 |placeholder|string||||
 |prefix|string||||
@@ -78,6 +80,8 @@ import { MultiSelectField } from '@dhis2/ui'
 |loading|boolean|||Applies a loading appearance to the dropdown options|
 |loadingText|string │ function|``() => i18n.t('Loading options')``||Text to display when `loading` is true|
 |maxHeight|string|||Constrains height of the MultiSelect|
+|menuMaxWidth|string|||See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width)|
+|menuMinWidth|string|||See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width)|
 |noMatchText|string │ function|``() => i18n.t('No options found')``||Text to display when there are no filter results|
 |placeholder|string|||Placeholder text when the MultiSelect is empty|
 |prefix|string|||Leading text to prefix selections|
@@ -255,6 +259,8 @@ import { SingleSelect } from '@dhis2/ui'
 |loading|boolean||||
 |loadingText|string||||
 |maxHeight|string||||
+|menuMaxWidth|string|||See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width)|
+|menuMinWidth|string|||See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width)|
 |noMatchText|custom(function)|||Text to show when filter returns no results. Required if `filterable` prop is true|
 |placeholder|string||||
 |prefix|string||||
@@ -302,6 +308,8 @@ import { SingleSelectField } from '@dhis2/ui'
 |loading|boolean|||Applies a loading appearance to the dropdown options|
 |loadingText|string │ function|``() => i18n.t('Loading options')``||Text to display when `loading` is true|
 |maxHeight|string|||Constrains height of the SingleSelect|
+|menuMaxWidth|string|||See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width)|
+|menuMinWidth|string|||See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width)|
 |noMatchText|string │ function|``() => i18n.t('No options found')``||Text to display when there are no filter results|
 |placeholder|string|||Placeholder text when the SingleSelect is empty|
 |prefix|string|||Leading text to prefix selections|
