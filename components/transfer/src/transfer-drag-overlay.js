@@ -6,6 +6,7 @@ import React, { useMemo } from 'react'
 const flyBackDropAnimation = {
     duration: 250,
     easing: 'ease',
+    sideEffects: null,
     keyframes: ({ transform }) => [
         {
             opacity: 1,
@@ -21,6 +22,7 @@ const flyBackDropAnimation = {
 const fadeDropAnimation = {
     duration: 150,
     easing: 'ease',
+    sideEffects: null,
     keyframes: ({ transform }) => [
         {
             opacity: 1,
