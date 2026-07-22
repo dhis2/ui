@@ -13,6 +13,8 @@ const SingleSelect = ({
     selected = '',
     tabIndex,
     maxHeight,
+    menuMinWidth,
+    menuMaxWidth,
     inputMaxHeight,
     onChange,
     onFocus,
@@ -68,6 +70,8 @@ const SingleSelect = ({
                     menu={menu}
                     tabIndex={tabIndex}
                     maxHeight={maxHeight}
+                    menuMinWidth={menuMinWidth}
+                    menuMaxWidth={menuMaxWidth}
                     onChange={onChange}
                     onFocus={onFocus}
                     onKeyDown={onKeyDown}
@@ -127,6 +131,10 @@ SingleSelect.propTypes = {
     loading: PropTypes.bool,
     loadingText: PropTypes.string,
     maxHeight: PropTypes.string,
+    /** See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width) */
+    menuMaxWidth: PropTypes.string,
+    /** See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width) */
+    menuMinWidth: PropTypes.string,
     /** Text to show when filter returns no results. Required if `filterable` prop is true */
     noMatchText: requiredIf((props) => props.filterable, PropTypes.string),
     placeholder: PropTypes.string,
