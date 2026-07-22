@@ -43,16 +43,15 @@ export const TransferDragOverlay = ({ activeDrag, flyBackOnDrop = true }) => {
         []
     )
 
+    let dropAnimation = null
+    if (!prefersReducedMotion) {
+        dropAnimation = flyBackOnDrop
+            ? flyBackDropAnimation
+            : fadeDropAnimation
+    }
+
     return (
-        <DragOverlay
-            dropAnimation={
-                prefersReducedMotion
-                    ? null
-                    : flyBackOnDrop
-                    ? flyBackDropAnimation
-                    : fadeDropAnimation
-            }
-        >
+        <DragOverlay dropAnimation={dropAnimation}>
             {activeDrag ? (
                 <div className="card">
                     <span className="label">{activeDrag.label}</span>
