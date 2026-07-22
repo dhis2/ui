@@ -15,7 +15,7 @@ const DOWN_KEY = 40
 export class Select extends Component {
     state = {
         open: false,
-        menuWidth: 'auto',
+        inputWidth: 'auto',
     }
 
     static defaultProps = {
@@ -30,7 +30,7 @@ export class Select extends Component {
             this.inputRef.current.focus()
         }
 
-        this.setState({ menuWidth: this.getMenuWidth() })
+        this.setState({ inputWidth: this.getInputWidth() })
         window.addEventListener('resize', this.onResize)
     }
 
@@ -48,21 +48,21 @@ export class Select extends Component {
      * See: https://nolanlawson.com/2018/09/25/accurately-measuring-layout-on-the-web
      */
     onResize = debounce(() => {
-        const menuWidth = this.getMenuWidth()
+        const inputWidth = this.getInputWidth()
 
-        if (this.state.menuWidth !== menuWidth) {
-            this.setState({ menuWidth })
+        if (this.state.inputWidth !== inputWidth) {
+            this.setState({ inputWidth })
         }
     }, 50)
 
-    getMenuWidth() {
+    getInputWidth() {
         const { offsetWidth } = this.inputRef.current
-        const { menuWidth } = this.state
+        const { inputWidth } = this.state
 
-        if (offsetWidth && `${offsetWidth}px` !== menuWidth) {
+        if (offsetWidth && `${offsetWidth}px` !== inputWidth) {
             return `${offsetWidth}px`
         }
-        return menuWidth
+        return inputWidth
     }
 
     handleFocusInput = () => {
@@ -82,7 +82,7 @@ export class Select extends Component {
     handleOpen = () => {
         this.setState({
             open: true,
-            menuWidth: this.getMenuWidth(),
+            inputWidth: this.getInputWidth(),
         })
     }
 
@@ -159,7 +159,7 @@ export class Select extends Component {
     }
 
     render() {
-        const { open, menuWidth } = this.state
+        const { open, inputWidth } = this.state
         const {
             children,
             className,
@@ -167,6 +167,8 @@ export class Select extends Component {
             onChange,
             tabIndex,
             maxHeight,
+            menuMinWidth,
+            menuMaxWidth,
             error,
             warning,
             valid,
@@ -220,7 +222,9 @@ export class Select extends Component {
                         onClick={this.onOutsideClick}
                         maxHeight={maxHeight}
                         selectRef={this.selectRef}
-                        menuWidth={menuWidth}
+                        inputWidth={inputWidth}
+                        menuMinWidth={menuMinWidth}
+                        menuMaxWidth={menuMaxWidth}
                         dataTest={`${dataTest}-menu`}
                     >
                         {menu}
@@ -246,6 +250,8 @@ Select.propTypes = {
     error: sharedPropTypes.statusPropType,
     initialFocus: PropTypes.bool,
     maxHeight: PropTypes.string,
+    menuMaxWidth: PropTypes.string,
+    menuMinWidth: PropTypes.string,
     tabIndex: PropTypes.string,
     valid: sharedPropTypes.statusPropType,
     warning: sharedPropTypes.statusPropType,
