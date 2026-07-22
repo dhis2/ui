@@ -45,9 +45,7 @@ export const TransferDragOverlay = ({ activeDrag, flyBackOnDrop = true }) => {
 
     let dropAnimation = null
     if (!prefersReducedMotion) {
-        dropAnimation = flyBackOnDrop
-            ? flyBackDropAnimation
-            : fadeDropAnimation
+        dropAnimation = flyBackOnDrop ? flyBackDropAnimation : fadeDropAnimation
     }
 
     return (
