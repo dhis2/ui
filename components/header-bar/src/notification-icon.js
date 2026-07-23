@@ -1,7 +1,7 @@
 import { colors, elevations, spacers } from '@dhis2/ui-constants'
 import { IconMessages24, IconMail24 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import i18n from './locales/index.js'
 
 const BADGE_REVEAL_DURATION_MS = 3000
@@ -24,9 +24,9 @@ export const NotificationIcon = ({
 }) => {
     const [badgeExpanded, setBadgeExpanded] = useState(count > 0)
 
-    const hadUnreadAtMountRef = useRef(count > 0)
+    // Briefly reveal the full counter on mount, then collapse it to a dot
     useEffect(() => {
-        if (!hadUnreadAtMountRef.current) {
+        if (count === 0) {
             return
         }
         const timer = setTimeout(
@@ -34,7 +34,9 @@ export const NotificationIcon = ({
             BADGE_REVEAL_DURATION_MS
         )
         return () => clearTimeout(timer)
-    }, []) // Only on mount — simulates the post-login reveal
+        // count is intentionally omitted: this should only run once on mount
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     return (
         <a
@@ -88,7 +90,7 @@ export const NotificationIcon = ({
                     top: 18px;
                     transform: translate(50%, -50%);
                     inset-inline-end: ${spacers.dp16};
-                    background-color: ${colors.red500};
+                    background-color: ${colors.teal200};
                     font-size: 13px;
                     font-weight: 600;
                     line-height: 15px;
@@ -96,12 +98,13 @@ export const NotificationIcon = ({
                     cursor: inherit;
                     white-space: nowrap;
                     overflow: hidden;
+                    border: 1px solid ${colors.white};
 
                     /* Dot state (default) */
-                    min-width: 8px;
-                    max-width: 8px;
-                    height: 8px;
-                    border-radius: 4px;
+                    min-width: ${spacers.dp8};
+                    max-width: ${spacers.dp8};
+                    height: ${spacers.dp8};
+                    border-radius: ${spacers.dp4};
                     padding: 0;
                     color: transparent;
                     box-shadow: 0 0 0 2px #2c6693;
@@ -110,8 +113,7 @@ export const NotificationIcon = ({
                         min-width 150ms ease-in-out, height 150ms ease-in-out,
                         border-radius 150ms ease-in-out,
                         padding 150ms ease-in-out, color 150ms ease-in-out,
-                        box-shadow 150ms ease-in-out,
-                        transform 150ms ease-in-out;
+                        box-shadow 150ms ease-in-out;
                 }
 
                 /* Full counter badge */
@@ -123,8 +125,14 @@ export const NotificationIcon = ({
                     height: 18px;
                     border-radius: ${spacers.dp12};
                     padding: 0 ${spacers.dp4};
-                    color: ${colors.white};
+                    color: ${colors.teal700};
                     box-shadow: ${elevations.e100};
+                }
+
+                @media (prefers-reduced-motion: reduce) {
+                    span {
+                        transition: none;
+                    }
                 }
             `}</style>
         </a>
