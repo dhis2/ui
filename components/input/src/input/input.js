@@ -89,6 +89,41 @@ const styles = css`
         color: ${theme.disabled};
         cursor: not-allowed;
     }
+
+    .input-end-items {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        pointer-events: none;
+    }
+
+    .input-end-items .clear-button {
+        position: static;
+        inset-inline-end: unset;
+        pointer-events: auto;
+    }
+
+    .character-counter {
+        font-size: 12px;
+        line-height: 14px;
+        font-variant-numeric: tabular-nums;
+        color: ${colors.grey700};
+        white-space: nowrap;
+    }
+
+    .character-counter.exceeds-maximum {
+        color: ${theme.error};
+        font-weight: 500;
+    }
+
+    .input-has-counter input {
+        padding-inline-end: 60px;
+    }
+
+    .input-has-counter.input-clearable input {
+        padding-inline-end: 82px;
+    }
 `
 
 export class Input extends Component {
@@ -172,10 +207,24 @@ export class Input extends Component {
             clearable,
             prefixIcon,
             width,
+            characterCountLimit,
         } = this.props
 
         const statusIcon = error || loading || valid || warning
         const clearButtonPadding = statusIcon ? '40px' : '10px'
+
+        const showCounter =
+            characterCountLimit != null &&
+            characterCountLimit > 0 &&
+            !disabled &&
+            !readOnly
+        const valueLength = value?.length || 0
+        const exceedsMaximum = showCounter && valueLength > characterCountLimit
+        const counterId = showCounter && name ? `${name}-counter` : undefined
+
+        const showClearButton = clearable && value?.length > 0
+
+        const endItemsEnd = statusIcon ? '38px' : '8px'
 
         return (
             <div
@@ -183,7 +232,8 @@ export class Input extends Component {
                     'input',
                     className,
                     { 'input-prefix-icon': prefixIcon },
-                    { 'input-clearable': clearable }
+                    { 'input-clearable': clearable },
+                    { 'input-has-counter': showCounter }
                 )}
                 data-test={dataTest}
             >
@@ -192,6 +242,7 @@ export class Input extends Component {
                     aria-label={ariaLabel}
                     aria-controls={ariaControls}
                     aria-haspopup={ariaHaspopup}
+                    aria-describedby={counterId}
                     role={role}
                     id={name}
                     name={name}
@@ -219,7 +270,29 @@ export class Input extends Component {
                         'read-only': readOnly,
                     })}
                 />
-                {clearable && value?.length ? (
+                {showCounter && (
+                    <span className="input-end-items">
+                        {showClearButton && (
+                            <button
+                                type="button"
+                                onClick={this.handleClear}
+                                className="clear-button"
+                            >
+                                <IconCross16 color={colors.white} />
+                            </button>
+                        )}
+                        <span
+                            id={counterId}
+                            className={cx('character-counter', {
+                                'exceeds-maximum': exceedsMaximum,
+                            })}
+                            data-test={`${dataTest}-counter`}
+                        >
+                            {valueLength}/{characterCountLimit}
+                        </span>
+                    </span>
+                )}
+                {!showCounter && showClearButton && (
                     <button
                         type="button"
                         onClick={this.handleClear}
@@ -227,7 +300,7 @@ export class Input extends Component {
                     >
                         <IconCross16 color={colors.white} />
                     </button>
-                ) : null}
+                )}
                 <StatusIcon
                     error={error}
                     valid={valid}
@@ -277,6 +350,10 @@ export class Input extends Component {
                         background: ${colors.grey500};
                         padding: 1px;
                     }
+
+                    .input-end-items {
+                        inset-inline-end: ${endItemsEnd};
+                    }
                 `}</style>
             </div>
         )
@@ -292,6 +369,8 @@ Input.propTypes = {
     ariaLabel: PropTypes.string,
     /** The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete) */
     autoComplete: PropTypes.string,
+    /** Soft maximum character length. Displays a counter showing current/max characters. Counter turns red when exceeded but typing is not prevented */
+    characterCountLimit: PropTypes.number,
     className: PropTypes.string,
     /** Makes the input field clearable */
     clearable: PropTypes.bool,
