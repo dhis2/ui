@@ -26,6 +26,8 @@ export function Menu({
     loading,
     loadingText,
     maxHeight,
+    maxWidth,
+    minWidth,
     noMatchText,
     optionUpdateStrategy,
     selectRef,
@@ -34,18 +36,16 @@ export function Menu({
     onClose,
     onEndReached,
 }) {
-    const [menuWidth, setWidth] = useState('auto')
+    const [selectWidth, setSelectWidth] = useState()
     const dataTestPrefix = `${dataTest}-menu`
 
+    // Re-measuring whenever `hidden` changes keeps the width current when the
+    // select's container has been resized since the menu was last opened
     useEffect(() => {
         if (selectRef) {
-            const callback = () => setWidth(`${selectRef.offsetWidth}px`)
-            callback() // We want to know the width as soon as the
-
-            selectRef.addEventListener('resize', callback)
-            return () => selectRef.removeEventListener('resize', callback)
+            setSelectWidth(`${selectRef.offsetWidth}px`)
         }
-    }, [selectRef])
+    }, [selectRef, hidden])
 
     if (hidden) {
         return null
@@ -60,6 +60,14 @@ export function Menu({
 
     const isEmpty = !options.length && !filterValue
 
+    const flexible = Boolean(minWidth || maxWidth)
+    // We never want the menu narrower than the select, so a maxWidth below
+    // the select's width intentionally has no effect
+    const flexibleMinWidth =
+        minWidth && selectWidth
+            ? `max(${selectWidth}, ${minWidth})`
+            : minWidth || selectWidth
+
     return (
         <Layer onBackdropClick={onClose} transparent>
             <Popper
@@ -67,7 +75,15 @@ export function Menu({
                 placement="bottom-start"
                 observeReferenceResize
             >
-                <div className="menu" style={{ width: menuWidth, maxHeight }}>
+                <div
+                    className="menu"
+                    style={{
+                        width: flexible ? 'fit-content' : selectWidth,
+                        minWidth: flexible ? flexibleMinWidth : undefined,
+                        maxWidth,
+                        maxHeight,
+                    }}
+                >
                     {isEmpty && <Empty>{empty}</Empty>}
 
                     {hasNoFilterMatch && <NoMatch>{noMatchText}</NoMatch>}
@@ -160,6 +176,8 @@ Menu.propTypes = {
     loading: PropTypes.bool,
     loadingText: PropTypes.string,
     maxHeight: PropTypes.string,
+    maxWidth: PropTypes.string,
+    minWidth: PropTypes.string,
     noMatchText: PropTypes.string,
     optionComponent: PropTypes.elementType,
     optionUpdateStrategy: PropTypes.oneOf(['off', 'polite', 'assertive']),

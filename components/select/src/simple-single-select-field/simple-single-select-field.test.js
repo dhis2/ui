@@ -52,6 +52,8 @@ describe('<SimpleSingleSelectField />', () => {
                 loading={false}
                 menuLoadingText=""
                 menuMaxHeight=""
+                menuMaxWidth="400px"
+                menuMinWidth="240px"
                 noMatchText=""
                 optionUpdateStrategy="off"
                 placeholder=""
@@ -91,6 +93,8 @@ describe('<SimpleSingleSelectField />', () => {
         expect(SimpleSingleSelect.mock.calls[0][0].loading).toBe(false)
         expect(SimpleSingleSelect.mock.calls[0][0].menuLoadingText).toBe('')
         expect(SimpleSingleSelect.mock.calls[0][0].menuMaxHeight).toBe('')
+        expect(SimpleSingleSelect.mock.calls[0][0].menuMaxWidth).toBe('400px')
+        expect(SimpleSingleSelect.mock.calls[0][0].menuMinWidth).toBe('240px')
         expect(SimpleSingleSelect.mock.calls[0][0].noMatchText).toBe('')
         expect(SimpleSingleSelect.mock.calls[0][0].optionUpdateStrategy).toBe(
             'off'
