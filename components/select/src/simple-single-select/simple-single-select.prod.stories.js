@@ -22,6 +22,8 @@ export { WithOptionsAndLoadingText } from './__stories__/WithOptionsAndLoadingTe
 export { WithoutOptionsAndLoading } from './__stories__/WithoutOptionsAndLoading.js'
 export { WithManyOptions } from './__stories__/WithManyOptions.js'
 export { WithCustomLowMaxHeight } from './__stories__/WithCustomLowMaxHeight.js'
+export { WithMenuMinWidth } from './__stories__/WithMenuMinWidth.js'
+export { WithMenuMaxWidth } from './__stories__/WithMenuMaxWidth.js'
 export { WithOptionsAndDisabled } from './__stories__/WithOptionsAndDisabled.js'
 export { WithSelectionAndDisabled } from './__stories__/WithSelectionAndDisabled.js'
 export { WithPrefix } from './__stories__/WithPrefix.js'

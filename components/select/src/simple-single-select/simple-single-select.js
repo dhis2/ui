@@ -75,6 +75,8 @@ export function SimpleSingleSelect({
     loading = false,
     menuLoadingText: _menuLoadingText = '',
     menuMaxHeight = '288px',
+    menuMaxWidth,
+    menuMinWidth,
     noMatchText: _noMatchText = '',
     optionUpdateStrategy = 'polite',
     placeholder = '',
@@ -261,6 +263,8 @@ export function SimpleSingleSelect({
                 loading={loading}
                 loadingText={menuLoadingText}
                 maxHeight={menuMaxHeight}
+                maxWidth={menuMaxWidth}
+                minWidth={menuMinWidth}
                 noMatchText={noMatchText}
                 optionUpdateStrategy={optionUpdateStrategy}
                 options={options}
@@ -341,6 +345,12 @@ SimpleSingleSelect.propTypes = {
 
     /** Allows to modify the max height of the menu **/
     menuMaxHeight: PropTypes.string,
+
+    /** See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width) **/
+    menuMaxWidth: PropTypes.string,
+
+    /** See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width) **/
+    menuMinWidth: PropTypes.string,
 
     /** String that will be displayed when the select is being filtered but the options array is empty **/
     noMatchText: requiredIf((props) => props.filterable, PropTypes.string),

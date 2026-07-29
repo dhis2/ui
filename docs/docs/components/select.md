@@ -167,13 +167,16 @@ Use a multi select if the user can choose one or more options.
 By default the dropdown menu matches the input's width. When the input is
 sized to its content, this can make the menu too narrow to read longer options
 comfortably. `menuMinWidth` and `menuMaxWidth`, available on
-`SingleSelectField`/`SingleSelect` and `MultiSelectField`/`MultiSelect`, let you decouple the menu width from the input:
+`SingleSelectField`/`SingleSelect`, `MultiSelectField`/`MultiSelect` and
+`SimpleSingleSelectField`/`SimpleSingleSelect`, let you decouple the menu
+width from the input:
 
 -   `menuMinWidth` — the menu grows to fit its content (`fit-content`) but is
     never narrower than the greater of the input width and this value.
 -   `menuMaxWidth` — caps how wide the menu may grow. Useful together with
     `menuMinWidth` to stop very long option labels from making the menu
-    excessively wide.
+    excessively wide. It never shrinks the menu below the input width, so a
+    `menuMaxWidth` smaller than the input has no visible effect.
 
 Setting either prop switches the menu to `fit-content` sizing; setting neither
 keeps the original behavior (menu width equals input width).
@@ -183,6 +186,28 @@ These props accept any absolute or font-relative CSS length, e.g. `'200px'` or
 `'20rem'`. **Percentages are not supported**: the menu is rendered in a portal,
 so a percentage would resolve against the viewport rather than the input.
 :::
+
+`SimpleSingleSelect` and `SimpleSingleSelectField` have no `inputWidth` prop —
+the select is sized by its container, and the menu uses that measured width:
+as its own width by default, and as the lower bound `menuMinWidth` is compared
+against.
+
+<Demo
+    path="simple-single-select--with-menu-min-width"
+    height="200px"
+/>
+
+```jsx
+<div style={{ width: 120 }}>
+    <SimpleSingleSelect
+        name="visit-type"
+        options={options}
+        selected={selected}
+        onChange={setSelected}
+        menuMinWidth="240px"
+    />
+</div>
+```
 
 ## Options
 
