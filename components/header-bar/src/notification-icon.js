@@ -125,7 +125,7 @@ export const NotificationIcon = ({
                     height: 18px;
                     border-radius: ${spacers.dp12};
                     padding: 0 ${spacers.dp4};
-                    color: ${colors.teal700};
+                    color: ${colors.teal800};
                     box-shadow: ${elevations.e100};
                 }
 
