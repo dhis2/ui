@@ -39,8 +39,8 @@ const InputWrapper = ({
     })
 
     return (
-        <div
-            role={'button' /* NOSONAR -- composite select trigger */}
+        <div // NOSONAR -- composite select trigger
+            role="button"
             className={classNames}
             onClick={onToggle}
             onKeyDown={(event) => {

@@ -66,9 +66,9 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
         }, [focussedOptionIndex, ref])
 
         return (
-            <div
+            <div // NOSONAR -- composite select options
                 ref={ref}
-                role={'listbox' /* NOSONAR -- composite select options */}
+                role="listbox"
                 id={id}
                 aria-labelledby={labelledBy}
                 aria-live={optionUpdateStrategy}

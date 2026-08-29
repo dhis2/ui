@@ -126,12 +126,12 @@ export function Option({
     }, [onBecameVisible, listBoxRef])
 
     return (
-        <button
+        <button // NOSONAR -- native button in a listbox
             ref={buttonRef}
             id={`${comboBoxId}-${index}`}
             data-test={dataTest}
             disabled={disabled}
-            role={'option' /* NOSONAR -- native button in a listbox */}
+            role="option"
             aria-selected={!!highlighted}
             aria-disabled={disabled}
             aria-label={label}

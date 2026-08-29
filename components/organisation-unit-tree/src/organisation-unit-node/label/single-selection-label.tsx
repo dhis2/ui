@@ -15,8 +15,8 @@ export const SingleSelectionLabel = ({
     onChange,
     loading,
 }: SingleSelectionLabelProps) => (
-    <span
-        role={'checkbox' /* NOSONAR -- custom tree selection control */}
+    <span // NOSONAR -- custom tree selection control
+        role="checkbox"
         aria-checked={!!checked}
         tabIndex={loading ? -1 : 0}
         onClick={(event) => {

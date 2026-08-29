@@ -58,8 +58,8 @@ const Chip = ({
     marginInlineStart,
     marginInlineEnd,
 }: ChipProps) => (
-    <span
-        role={'button' /* NOSONAR -- chip remains a composite control */}
+    <span // NOSONAR -- chip remains a composite control
+        role="button"
         tabIndex={disabled ? -1 : 0}
         onClick={(e) => {
             if (!disabled && onClick) {

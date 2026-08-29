@@ -36,8 +36,8 @@ export const Toggle = ({ open, onOpen, onClose, dataTest }: ToggleProps) => {
     const onClick = open ? onClose : onOpen
 
     return (
-        <div
-            role={'button' /* NOSONAR -- tree expansion control */}
+        <div // NOSONAR -- tree expansion control
+            role="button"
             tabIndex={0}
             className={cx({ open })}
             data-test={dataTest}

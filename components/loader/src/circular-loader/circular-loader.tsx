@@ -21,8 +21,8 @@ const CircularLoader = ({
     dataTest = 'dhis2-uicore-circularloader',
     'aria-label': ariaLabel,
 }: CircularLoaderProps) => (
-    <div
-        role={'progressbar' /* NOSONAR -- styled progress indicator */}
+    <div // NOSONAR -- styled progress indicator
+        role="progressbar"
         className={cx(className, {
             small,
             large,

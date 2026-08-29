@@ -165,7 +165,7 @@ const MenuItem = ({
 
     return (
         <>
-            <li
+            <li // NOSONAR -- structural menu wrapper
                 className={cx(className, {
                     destructive,
                     disabled,
@@ -175,7 +175,7 @@ const MenuItem = ({
                 })}
                 ref={menuItemRef}
                 data-test={dataTest}
-                role={'presentation' /* NOSONAR -- structural menu wrapper */}
+                role="presentation"
                 tabIndex={tabIndex}
                 data-submenu-open={children && showSubMenu}
             >

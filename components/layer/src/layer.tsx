@@ -47,9 +47,9 @@ const Layer = ({
                 data-test={dataTest}
             >
                 {resolvedOnClick && (
-                    <div
+                    <div // NOSONAR -- full-layer click target
                         className="backdrop"
-                        role={'button' /* NOSONAR -- full-layer click target */}
+                        role="button"
                         tabIndex={0}
                         onClick={(event) => resolvedOnClick({}, event)}
                         onKeyDown={(event) => {

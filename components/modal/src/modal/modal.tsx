@@ -72,8 +72,8 @@ export const Modal = ({
             translucent={!hide}
         >
             <Center position={position}>
-                <aside
-                    role={'dialog' /* NOSONAR -- semantic modal container */}
+                <aside // NOSONAR -- semantic modal container
+                    role="dialog"
                     aria-modal="true"
                     data-test={dataTest}
                     className={cx(className, { small, large, fluid })}

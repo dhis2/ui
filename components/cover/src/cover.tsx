@@ -32,13 +32,9 @@ const Cover = ({
     onClick,
     translucent,
 }: CoverProps) => (
-    <div
+    <div // NOSONAR -- optional full-cover click target
         className={cx(className, { translucent })}
-        role={
-            onClick
-                ? 'button' /* NOSONAR -- optional full-cover click target */
-                : undefined
-        }
+        role={onClick ? 'button' : undefined}
         tabIndex={onClick ? 0 : undefined}
         onClick={onClick ? createClickHandler(onClick) : undefined}
         onKeyDown={(event) => {

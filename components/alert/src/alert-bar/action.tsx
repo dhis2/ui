@@ -23,10 +23,8 @@ class Action extends Component<ActionProps> {
 
     render() {
         return (
-            <span
-                role={
-                    'button' /* NOSONAR -- intentional interactive styling hook */
-                }
+            <span // NOSONAR -- intentional interactive styling hook
+                role="button"
                 tabIndex={0}
                 onClick={this.onClick}
                 onKeyDown={this.onKeyDown}

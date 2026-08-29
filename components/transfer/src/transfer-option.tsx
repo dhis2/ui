@@ -38,8 +38,8 @@ export const TransferOption = ({
     )
 
     return (
-        <div
-            role={'option' /* NOSONAR -- custom transfer list option */}
+        <div // NOSONAR -- custom transfer list option
+            role="option"
             aria-selected={!!selected}
             tabIndex={disabled ? -1 : 0}
             data-test={dataTest}
