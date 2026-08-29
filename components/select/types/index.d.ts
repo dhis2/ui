@@ -70,6 +70,10 @@ export interface MultiSelectProps {
     loading?: boolean
     loadingText?: string
     maxHeight?: string
+    /** Constrains the maximum width of the dropdown menu */
+    menuMaxWidth?: string
+    /** Constrains the minimum width of the dropdown menu */
+    menuMinWidth?: string
     /**
      * Required if `filterable` prop is `true`
      */
@@ -167,6 +171,10 @@ export interface MultiSelectFieldProps {
      * Constrains height of the MultiSelect
      */
     maxHeight?: string
+    /** Constrains the maximum width of the dropdown menu */
+    menuMaxWidth?: string
+    /** Constrains the minimum width of the dropdown menu */
+    menuMinWidth?: string
     /**
      * Text to display when there are no filter results
      */
@@ -285,6 +293,10 @@ export interface SingleSelectProps {
     loading?: boolean
     loadingText?: string
     maxHeight?: string
+    /** Constrains the maximum width of the dropdown menu */
+    menuMaxWidth?: string
+    /** Constrains the minimum width of the dropdown menu */
+    menuMinWidth?: string
     /**
      * Text to show when filter returns no results. Required if `filterable` prop is true
      */
@@ -655,6 +667,10 @@ export interface SingleSelectFieldProps {
      * Constrains height of the SingleSelect
      */
     maxHeight?: string
+    /** Constrains the maximum width of the dropdown menu */
+    menuMaxWidth?: string
+    /** Constrains the minimum width of the dropdown menu */
+    menuMinWidth?: string
     /**
      * Text to display when there are no filter results
      */
