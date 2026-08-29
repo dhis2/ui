@@ -2,7 +2,10 @@ import { useDataQuery } from '@dhis2/app-runtime'
 import { useMemo } from 'react'
 import { patchMissingDisplayName } from './patch-missing-display-name.ts'
 
-export const createRootQuery = (ids: string[]) =>
+export const createRootQuery = (
+    ids: string[],
+    displayProperty: 'displayName' | 'displayShortName' = 'displayName'
+) =>
     ids.reduce<
         Record<
             string,
@@ -30,7 +33,13 @@ export const createRootQuery = (ids: string[]) =>
                     >
                 ) => ({
                     isUserDataViewFallback: variables.isUserDataViewFallback,
-                    fields: ['displayName', 'path', 'id'],
+                    fields: [
+                        displayProperty === 'displayName'
+                            ? 'displayName'
+                            : `${displayProperty}~rename(displayName)`,
+                        'path',
+                        'id',
+                    ],
                 }),
             },
         }),
@@ -53,9 +62,18 @@ interface UseRootOrgDataReturn {
 
 export const useRootOrgData = (
     ids: string[],
-    { isUserDataViewFallback }: { isUserDataViewFallback?: boolean } = {}
+    {
+        isUserDataViewFallback,
+        displayProperty = 'displayName',
+    }: {
+        isUserDataViewFallback?: boolean
+        displayProperty?: 'displayName' | 'displayShortName'
+    } = {}
 ): UseRootOrgDataReturn => {
-    const query = useMemo(() => createRootQuery(ids), [ids])
+    const query = useMemo(
+        () => createRootQuery(ids, displayProperty),
+        [ids, displayProperty]
+    )
     const variables = { isUserDataViewFallback }
     const rootOrgUnits = useDataQuery(query, {
         variables,

@@ -5,6 +5,14 @@ export interface NoticeBoxProps {
     className?: string
     dataTest?: string
     /**
+     * Uses 16px icons and tighter padding and internal spacing
+     */
+    dense?: boolean
+    /**
+     * Replaces the default status icon; `error`, `warning`, and `valid` still set box colors
+     */
+    icon?: React.ReactNode
+    /**
      * Applies 'error' message styles. Mutually exclusive with the `valid` and `warning` props
      */
     error?: boolean

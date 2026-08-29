@@ -8,9 +8,13 @@ const ORG_DATA_QUERY = {
         resource: `organisationUnits`,
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         id: (variables: Record<string, any>) => variables.id as string,
-        params: {
-            fields: 'children[id,path,displayName]',
-        },
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        params: (variables: Record<string, any>) => ({
+            fields:
+                variables.displayProperty === 'displayName'
+                    ? 'children[id,path,displayName]'
+                    : `children[id,path,${variables.displayProperty}~rename(displayName)]`,
+        }),
     },
 }
 
@@ -24,6 +28,7 @@ interface OrgChildrenNode {
 interface UseOrgChildrenArgs {
     node: OrgChildrenNode
     isUserDataViewFallback?: boolean
+    displayProperty?: 'displayName' | 'displayShortName'
     suppressAlphabeticalSorting?: boolean
     onComplete?: (node: OrgChildrenNode & { children: OrgUnitChild[] }) => void
 }
@@ -39,10 +44,11 @@ export const useOrgChildren = ({
     node,
     suppressAlphabeticalSorting,
     onComplete,
+    displayProperty = 'displayName',
 }: UseOrgChildrenArgs): UseOrgChildrenReturn => {
     const onCompleteCalledRef = useRef(false)
     const { called, loading, error, data } = useDataQuery(ORG_DATA_QUERY, {
-        variables: { id: node.id },
+        variables: { id: node.id, displayProperty },
     })
 
     const orgChildren = useMemo(() => {
@@ -62,7 +68,7 @@ export const useOrgChildren = ({
         return suppressAlphabeticalSorting
             ? orgUnit.children
             : sortNodeChildrenAlphabetically(orgUnit.children)
-    }, [data, suppressAlphabeticalSorting])
+    }, [data, node.children, suppressAlphabeticalSorting])
 
     useEffect(() => {
         if (onComplete && orgChildren && !onCompleteCalledRef.current) {
@@ -70,7 +76,7 @@ export const useOrgChildren = ({
             onComplete({ ...node, children: orgChildren })
             onCompleteCalledRef.current = true
         }
-    }, [onComplete, orgChildren, onCompleteCalledRef])
+    }, [node, onComplete, orgChildren, onCompleteCalledRef])
 
     return { called, loading, error: error || null, data: orgChildren }
 }

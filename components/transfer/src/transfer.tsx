@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useEffect, useMemo, useRef } from 'react'
 import { Actions } from './actions.tsx'
 import { AddAll } from './add-all.tsx'
 import { AddIndividual } from './add-individual.tsx'
@@ -23,6 +23,8 @@ import {
     isReorderDownDisabled,
     isReorderUpDisabled,
     moveHighlightedPickedOptionDown,
+    moveHighlightedPickedOptionToBottom,
+    moveHighlightedPickedOptionToTop,
     moveHighlightedPickedOptionUp,
     removeAllPickedOptions,
     removeIndividualPickedOptions,
@@ -202,6 +204,14 @@ export const Transfer = ({
         filterCallback: filterCallbackPicked,
     })
 
+    const filterActivePicked = Boolean(actualFilterPicked)
+
+    /*
+     * Actual picked options:
+     * Extract the selected options. Can't use `options.filter`
+     * because we need to keep the order of `selected`
+     * Note: Only map if selected is an array
+     */
     const pickedOptions = useMemo(
         () =>
             Array.isArray(selected)
@@ -251,6 +261,31 @@ export const Transfer = ({
             maxSelections,
         })
 
+    /*
+     * Reorder scroll-into-view:
+     * After a reorder move, scroll the moved block so the leading edge
+     * (top on Up, bottom on Down) is visible inside the picked-side
+     * scroll container. `block: 'nearest'` means no scroll when the
+     * element is already fully in view.
+     */
+    const reorderScrollTargetRef = useRef<string | null>(null)
+    useEffect(() => {
+        const target = reorderScrollTargetRef.current
+        if (target == null) {
+            return
+        }
+        reorderScrollTargetRef.current = null
+        const element = document.querySelector(
+            `[data-test="${dataTest}-pickedoptions"] [data-value="${CSS.escape(
+                target
+            )}"]`
+        )
+        element?.scrollIntoView({ block: 'nearest' })
+    }, [selected, dataTest])
+
+    /**
+     * Disabled button states
+     */
     const isAddAllDisabled =
         disabled ||
         sourceOptions.filter(({ disabled }) => !disabled).length === 0
@@ -420,23 +455,72 @@ export const Transfer = ({
                         {enableOrderChange && (
                             <ReorderingActions
                                 dataTest={`${dataTest}-reorderingactions`}
+                                filterActive={filterActivePicked}
                                 disabledDown={isReorderDownDisabled({
                                     highlightedPickedOptions,
                                     selected,
+                                    filterActivePicked,
                                 })}
                                 disabledUp={isReorderUpDisabled({
                                     highlightedPickedOptions,
                                     selected,
+                                    filterActivePicked,
                                 })}
-                                onChangeUp={() =>
+                                onChangeUp={() => {
+                                    const highlightedSet = new Set(
+                                        highlightedPickedOptions
+                                    )
+                                    reorderScrollTargetRef.current =
+                                        selected.find((value) =>
+                                            highlightedSet.has(value)
+                                        ) ?? null
                                     moveHighlightedPickedOptionUp({
                                         selected,
                                         highlightedPickedOptions,
                                         onChange,
                                     })
-                                }
+                                }}
                                 onChangeDown={() => {
+                                    const highlightedSet = new Set(
+                                        highlightedPickedOptions
+                                    )
+                                    reorderScrollTargetRef.current =
+                                        [...selected]
+                                            .reverse()
+                                            .find((value) =>
+                                                highlightedSet.has(value)
+                                            ) ?? null
                                     moveHighlightedPickedOptionDown({
+                                        selected,
+                                        highlightedPickedOptions,
+                                        onChange,
+                                    })
+                                }}
+                                onChangeToTop={() => {
+                                    const highlightedSet = new Set(
+                                        highlightedPickedOptions
+                                    )
+                                    reorderScrollTargetRef.current =
+                                        selected.find((value) =>
+                                            highlightedSet.has(value)
+                                        ) ?? null
+                                    moveHighlightedPickedOptionToTop({
+                                        selected,
+                                        highlightedPickedOptions,
+                                        onChange,
+                                    })
+                                }}
+                                onChangeToBottom={() => {
+                                    const highlightedSet = new Set(
+                                        highlightedPickedOptions
+                                    )
+                                    reorderScrollTargetRef.current =
+                                        [...selected]
+                                            .reverse()
+                                            .find((value) =>
+                                                highlightedSet.has(value)
+                                            ) ?? null
+                                    moveHighlightedPickedOptionToBottom({
                                         selected,
                                         highlightedPickedOptions,
                                         onChange,

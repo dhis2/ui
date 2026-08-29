@@ -1,4 +1,20 @@
-const makeBabelConfig = require('@dhis2/cli-app-scripts/config/makeBabelConfig.js')
+const path = require('node:path')
+
+// As of v12, @dhis2/cli-app-scripts declares an `exports` map in its
+// package.json that only exposes `.` and `./init`, so deep-importing
+// `@dhis2/cli-app-scripts/config/makeBabelConfig.js` throws
+// ERR_PACKAGE_PATH_NOT_EXPORTED. The file is still published (the `config`
+// dir is in the package's `files`), so resolve the package root via its
+// public entry point and reach the file by absolute path instead.
+const pkgRoot = path.join(
+    path.dirname(require.resolve('@dhis2/cli-app-scripts')),
+    '..'
+)
+const makeBabelConfig = require(path.join(
+    pkgRoot,
+    'config',
+    'makeBabelConfig.js'
+))
 
 exports.babelConfig = (config) => {
     // currently styled-jsx is configured the same way for prod and

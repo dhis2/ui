@@ -36,6 +36,8 @@ export interface MultiSelectFieldProps {
     loading?: boolean
     loadingText?: string | (() => string)
     maxHeight?: string
+    menuMaxWidth?: string
+    menuMinWidth?: string
     noMatchText?: string | (() => string)
     placeholder?: string
     prefix?: string
@@ -85,6 +87,8 @@ class MultiSelectField extends React.Component<MultiSelectFieldProps> {
             helpText,
             validationText,
             maxHeight,
+            menuMinWidth,
+            menuMaxWidth,
             inputMaxHeight,
             inputWidth,
             children,
@@ -120,6 +124,8 @@ class MultiSelectField extends React.Component<MultiSelectFieldProps> {
                         selected={selected}
                         tabIndex={tabIndex}
                         maxHeight={maxHeight}
+                        menuMinWidth={menuMinWidth}
+                        menuMaxWidth={menuMaxWidth}
                         inputMaxHeight={inputMaxHeight}
                         onChange={onChange}
                         onFocus={onFocus}

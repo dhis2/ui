@@ -5,21 +5,34 @@ import React from 'react'
 
 export interface MenuWrapperProps {
     dataTest: string
-    menuWidth: string
+    inputWidth: string
     selectRef: React.RefObject<HTMLDivElement>
     children?: React.ReactNode
     maxHeight?: string
+    menuMaxWidth?: string
+    menuMinWidth?: string
     onClick?: (...args: unknown[]) => void
 }
 
 const MenuWrapper = ({
     children,
     dataTest,
+    inputWidth,
     maxHeight = '280px',
-    menuWidth,
+    menuMaxWidth,
+    menuMinWidth,
     onClick,
     selectRef,
 }: MenuWrapperProps) => {
+    // menuMinWidth or menuMaxWidth enables flexible sizing (fit-content), with
+    // min-width = max(input, menuMinWidth). Without them, width matches the input.
+    const flexible = menuMinWidth || menuMaxWidth
+    const width = flexible ? 'fit-content' : inputWidth
+    const flexibleMinWidth = menuMinWidth
+        ? `max(${inputWidth}, ${menuMinWidth})`
+        : inputWidth
+    const minWidth = flexible ? flexibleMinWidth : 'auto'
+    const maxWidth = menuMaxWidth || 'none'
     return (
         <Layer onBackdropClick={onClick as never} translucent={false}>
             <Popper
@@ -32,7 +45,9 @@ const MenuWrapper = ({
 
                     <style jsx>{`
                         div {
-                            width: ${menuWidth};
+                            width: ${width};
+                            min-width: ${minWidth};
+                            max-width: ${maxWidth};
                             height: auto;
                             max-height: ${maxHeight};
                             overflow: auto;
@@ -48,5 +63,4 @@ const MenuWrapper = ({
         </Layer>
     )
 }
-
 export { MenuWrapper }

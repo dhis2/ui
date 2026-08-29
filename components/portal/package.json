@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/portal",
-    "version": "10.12.13",
+    "version": "10.17.0",
     "description": "UI Portal",
     "repository": {
         "type": "git",
@@ -38,7 +38,8 @@
     },
     "files": [
         "build",
-        "types"
+        "types",
+        "src"
     ],
     "devDependencies": {
         "react": "^18.3.1",

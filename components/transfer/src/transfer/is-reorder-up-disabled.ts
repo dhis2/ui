@@ -1,11 +1,27 @@
+import { getHighlightedPickedIndices } from './get-highlighted-picked-indices.ts'
+
 interface IsReorderUpDisabledArgs {
     highlightedPickedOptions: string[]
     selected: string[]
+    filterActivePicked?: boolean
 }
 
 export const isReorderUpDisabled = ({
     highlightedPickedOptions,
     selected,
-}: IsReorderUpDisabledArgs): boolean =>
-    highlightedPickedOptions.length !== 1 ||
-    selected.indexOf(highlightedPickedOptions[0]) === 0
+    filterActivePicked = false,
+}: IsReorderUpDisabledArgs): boolean => {
+    if (filterActivePicked) {
+        return true
+    }
+
+    const indices = getHighlightedPickedIndices({
+        selected,
+        highlightedPickedOptions,
+    })
+    if (indices.length === 0) {
+        return true
+    }
+
+    return indices.every((index, i) => index === i)
+}

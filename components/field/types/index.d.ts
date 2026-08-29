@@ -20,6 +20,8 @@ export interface FieldProps {
      * Label at the top of the field
      */
     label?: string
+    /** ID assigned to the rendered label element */
+    labelId?: string
     /**
      * `name` will become the target of the `for`/`htmlFor` attribute on the `<label>` element
      */

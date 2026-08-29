@@ -367,6 +367,31 @@ export const ShiftedIntoView = (args) => (
     </>
 )
 
+export const CollapseSelectionAfterThreshold = () => {
+    const [selected, setSelected] = React.useState(['1', '3', '5'])
+    return (
+        <div style={{ maxWidth: 400 }}>
+            <MultiSelect
+                className="select"
+                selected={selected}
+                onChange={({ selected }) => setSelected(selected)}
+                collapseSelectionAfter={2}
+                prefix="Prefix text"
+                clearable
+                clearText="Clear all"
+            >
+                <MultiSelectOption value="1" label="option one" />
+                <MultiSelectOption value="2" label="option two" />
+                <MultiSelectOption value="3" label="option three" />
+                <MultiSelectOption value="4" label="option four" />
+                <MultiSelectOption value="5" label="option five" />
+                <MultiSelectOption value="6" label="option six" />
+            </MultiSelect>
+        </div>
+    )
+}
+CollapseSelectionAfterThreshold.storyName = 'Collapse selection after threshold'
+
 export const RTL = (args) => {
     useEffect(() => {
         document.body.dir = 'rtl'
@@ -381,3 +406,29 @@ export const RTL = (args) => {
     )
 }
 RTL.args = { selected: ['1', '2'], prefix: 'RTL text' }
+
+export const WithMenuMaxWidth = (args) => (
+    <div style={{ width: 120 }}>
+        <MultiSelect {...args}>
+            <MultiSelectOption value="1" label="option one" />
+            <MultiSelectOption value="2" label="option two" />
+            <MultiSelectOption value="3" label="A much longer option label" />
+        </MultiSelect>
+    </div>
+)
+WithMenuMaxWidth.args = { menuMaxWidth: '200px' }
+
+export const WithMenuMinWidth = (args) => (
+    <div style={{ width: 120 }}>
+        <MultiSelect {...args}>
+            <MultiSelectOption value="1" label="option one" />
+            <MultiSelectOption value="2" label="option two" />
+            <MultiSelectOption value="3" label="option three" />
+            <MultiSelectOption
+                value="4"
+                label="A longer option that exceeds the minimum"
+            />
+        </MultiSelect>
+    </div>
+)
+WithMenuMinWidth.args = { menuMinWidth: '240px' }

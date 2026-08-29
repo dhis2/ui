@@ -36,6 +36,8 @@ export interface SingleSelectFieldProps {
     loading?: boolean
     loadingText?: string | (() => string)
     maxHeight?: string
+    menuMaxWidth?: string
+    menuMinWidth?: string
     noMatchText?: string | (() => string)
     placeholder?: string
     prefix?: string
@@ -82,6 +84,8 @@ class SingleSelectField extends React.Component<SingleSelectFieldProps> {
             helpText,
             validationText,
             maxHeight,
+            menuMinWidth,
+            menuMaxWidth,
             inputMaxHeight,
             inputWidth,
             children,
@@ -118,6 +122,8 @@ class SingleSelectField extends React.Component<SingleSelectFieldProps> {
                         selected={selected}
                         tabIndex={tabIndex}
                         maxHeight={maxHeight}
+                        menuMinWidth={menuMinWidth}
+                        menuMaxWidth={menuMaxWidth}
                         inputMaxHeight={inputMaxHeight}
                         onChange={onChange}
                         onFocus={onFocus}

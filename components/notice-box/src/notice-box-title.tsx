@@ -3,10 +3,15 @@ import React from 'react'
 
 export interface NoticeBoxTitleProps {
     dataTest: string
+    dense?: boolean
     title?: string
 }
 
-export const NoticeBoxTitle = ({ title, dataTest }: NoticeBoxTitleProps) => {
+export const NoticeBoxTitle = ({
+    title,
+    dataTest,
+    dense = false,
+}: NoticeBoxTitleProps) => {
     if (!title) {
         return null
     }
@@ -17,9 +22,9 @@ export const NoticeBoxTitle = ({ title, dataTest }: NoticeBoxTitleProps) => {
             <style jsx>{`
                 h6 {
                     color: ${colors.grey900};
-                    font-size: 14px;
+                    font-size: ${dense ? '13px' : '14px'};
                     font-weight: 500;
-                    line-height: 19px;
+                    line-height: ${dense ? '18px' : '19px'};
                     margin: 0;
                 }
             `}</style>

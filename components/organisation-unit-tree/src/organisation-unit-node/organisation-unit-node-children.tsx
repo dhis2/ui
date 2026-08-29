@@ -41,6 +41,7 @@ export interface OrganisationUnitNodeChildrenProps {
     onChange: (...args: any[]) => void
     autoExpandLoadingError?: boolean
     disableSelection?: boolean
+    displayProperty?: 'displayName' | 'displayShortName'
     expanded?: string[]
     filter?: string[]
     highlighted?: string[]
@@ -60,6 +61,7 @@ interface OrganisationUnitNodeComponentProps {
     dataTest: string
     disableSelection?: boolean
     displayName: string
+    displayProperty?: 'displayName' | 'displayShortName'
     expanded?: string[]
     filter?: string[]
     highlighted?: string[]
@@ -101,6 +103,7 @@ export const OrganisationUnitNodeChildren = ({
     autoExpandLoadingError,
     dataTest,
     disableSelection,
+    displayProperty,
     expanded,
     filter = [],
     highlighted,
@@ -122,6 +125,7 @@ export const OrganisationUnitNodeChildren = ({
         isUserDataViewFallback,
         suppressAlphabeticalSorting,
         onComplete: onChildrenLoaded,
+        displayProperty,
     })
 
     const displayChildren =
@@ -148,6 +152,7 @@ export const OrganisationUnitNodeChildren = ({
                             dataTest={dataTest}
                             disableSelection={disableSelection}
                             displayName={child.displayName}
+                            displayProperty={displayProperty}
                             expanded={expanded}
                             filter={filter}
                             highlighted={highlighted}

@@ -11,6 +11,7 @@ export interface MultiSelectProps {
     className?: string
     clearText?: string
     clearable?: boolean
+    collapseSelectionAfter?: number
     dataTest?: string
     dense?: boolean
     disabled?: boolean
@@ -23,6 +24,8 @@ export interface MultiSelectProps {
     loading?: boolean
     loadingText?: string
     maxHeight?: string
+    menuMaxWidth?: string
+    menuMinWidth?: string
     noMatchText?: string
     placeholder?: string
     prefix?: string
@@ -46,6 +49,8 @@ const MultiSelect = ({
     selected = staticArr,
     tabIndex,
     maxHeight,
+    menuMinWidth,
+    menuMaxWidth,
     inputMaxHeight,
     onChange,
     onFocus,
@@ -68,6 +73,7 @@ const MultiSelect = ({
     noMatchText,
     initialFocus,
     dense,
+    collapseSelectionAfter,
     dataTest = 'dhis2-uicore-multiselect',
 }: MultiSelectProps) => {
     // If the select is filterable, use a filterable menu
@@ -96,11 +102,14 @@ const MultiSelect = ({
                             placeholder={placeholder}
                             prefix={prefix}
                             inputMaxHeight={inputMaxHeight}
+                            collapseSelectionAfter={collapseSelectionAfter}
                         />
                     }
                     menu={menu}
                     tabIndex={tabIndex}
                     maxHeight={maxHeight}
+                    menuMinWidth={menuMinWidth}
+                    menuMaxWidth={menuMaxWidth}
                     onChange={onChange as never}
                     onFocus={onFocus as never}
                     onKeyDown={onKeyDown as never}
@@ -137,5 +146,4 @@ const MultiSelect = ({
         </div>
     )
 }
-
 export { MultiSelect }

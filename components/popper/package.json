@@ -1,6 +1,6 @@
 {
     "name": "@dhis2-ui/popper",
-    "version": "10.12.13",
+    "version": "10.17.0",
     "description": "UI Popper",
     "repository": {
         "type": "git",
@@ -34,7 +34,7 @@
     },
     "dependencies": {
         "@dhis2/prop-types": "^3.1.2",
-        "@dhis2/ui-constants": "10.12.13",
+        "@dhis2/ui-constants": "10.17.0",
         "@popperjs/core": "^2.11.8",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2",
@@ -43,7 +43,8 @@
     },
     "files": [
         "build",
-        "types"
+        "types",
+        "src"
     ],
     "devDependencies": {
         "react": "^18.3.1",

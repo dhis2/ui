@@ -1,15 +1,21 @@
 import { colors, spacers } from '@dhis2/ui-constants'
 import {
-    IconErrorFilled24,
-    IconWarningFilled24,
-    IconInfoFilled24,
+    IconCheckmarkCircle16,
     IconCheckmarkCircle24,
+    IconErrorFilled16,
+    IconErrorFilled24,
+    IconInfoFilled16,
+    IconInfoFilled24,
+    IconWarningFilled16,
+    IconWarningFilled24,
 } from '@dhis2/ui-icons'
 import React from 'react'
 
 export interface NoticeBoxIconProps {
     dataTest: string
+    dense?: boolean
     error?: boolean
+    icon?: React.ReactNode
     valid?: boolean
     warning?: boolean
 }
@@ -19,24 +25,44 @@ export const NoticeBoxIcon = ({
     warning,
     error,
     dataTest,
+    dense = false,
+    icon,
 }: NoticeBoxIconProps) => {
-    // Info is the default icon
+    const marginInlineEnd = dense ? spacers.dp8 : spacers.dp12
+
+    if (icon != null) {
+        return (
+            <div data-test={dataTest}>
+                {icon}
+                <style jsx>{`
+                    div {
+                        display: flex;
+                        flex-shrink: 0;
+                        align-items: flex-start;
+                        line-height: 0;
+                        margin-inline-end: ${marginInlineEnd};
+                    }
+                `}</style>
+            </div>
+        )
+    }
+
     let color = colors.blue900
-    let Icon: typeof IconInfoFilled24 = IconInfoFilled24
+    let Icon = dense ? IconInfoFilled16 : IconInfoFilled24
 
     if (valid) {
         color = colors.green700
-        Icon = IconCheckmarkCircle24
+        Icon = dense ? IconCheckmarkCircle16 : IconCheckmarkCircle24
     }
 
     if (warning) {
         color = colors.yellow700
-        Icon = IconWarningFilled24
+        Icon = dense ? IconWarningFilled16 : IconWarningFilled24
     }
 
     if (error) {
         color = colors.red700
-        Icon = IconErrorFilled24
+        Icon = dense ? IconErrorFilled16 : IconErrorFilled24
     }
 
     return (
@@ -44,8 +70,9 @@ export const NoticeBoxIcon = ({
             <Icon color={color} />
 
             <style jsx>{`
-                margin-inline-end: ${spacers.dp12};
-                height: ${spacers.dp24};
+                margin-inline-end: ${marginInlineEnd};
+                margin-block-start: ${dense ? '1px' : '0'};
+                height: ${dense ? spacers.dp16 : spacers.dp24};
             `}</style>
         </div>
     )

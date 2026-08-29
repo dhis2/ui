@@ -8,8 +8,12 @@ export interface NoticeBoxProps {
     children?: React.ReactNode
     className?: string
     dataTest?: string
+    /** Uses 16px icons and tighter padding and internal spacing */
+    dense?: boolean
     /** Applies 'error' message styles. Mutually exclusive with the `valid` and `warning` props */
     error?: boolean
+    /** Replaces the default status icon; status props still set box colors */
+    icon?: React.ReactNode
     title?: string
     /** Applies 'valid' message styles. Mutually exclusive with the `error` and `warning` props */
     valid?: boolean
@@ -25,8 +29,10 @@ export const NoticeBox = ({
     warning,
     error,
     valid,
+    dense = false,
+    icon,
 }: NoticeBoxProps) => {
-    const classnames = cx(className, 'root', { warning, error, valid })
+    const classnames = cx(className, 'root', { warning, error, valid, dense })
 
     return (
         <div className={classnames} data-test={dataTest}>
@@ -34,11 +40,14 @@ export const NoticeBox = ({
                 error={error}
                 warning={warning}
                 valid={valid}
+                dense={dense}
+                icon={icon}
                 dataTest={`${dataTest}-icon`}
             />
             <div>
                 <NoticeBoxContent
                     title={title}
+                    dense={dense}
                     dataTest={`${dataTest}-content`}
                 >
                     {children}
@@ -53,6 +62,11 @@ export const NoticeBox = ({
                     display: flex;
                     padding-block: ${spacers.dp12};
                     padding-inline: ${spacers.dp16};
+                }
+
+                .root.dense {
+                    padding-block: ${spacers.dp8};
+                    padding-inline: ${spacers.dp8};
                 }
 
                 .root.warning {

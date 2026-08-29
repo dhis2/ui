@@ -1,6 +1,7 @@
 import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React from 'react'
+import i18n from '../locales/index.js'
 import {
     InputClearButton,
     InputPlaceholder,
@@ -13,6 +14,7 @@ export interface MultiSelectInputProps {
     className?: string
     clearText?: string
     clearable?: boolean
+    collapseSelectionAfter?: number
     disabled?: boolean
     inputMaxHeight?: string
     options?: React.ReactNode
@@ -34,8 +36,14 @@ const Input = ({
     className,
     disabled,
     inputMaxHeight = '100px',
+    collapseSelectionAfter,
 }: MultiSelectInputProps) => {
-    const hasSelection = (selected || []).length > 0
+    const actualSelected = selected || []
+    const hasSelection = actualSelected.length > 0
+    const shouldCollapse =
+        hasSelection &&
+        typeof collapseSelectionAfter === 'number' &&
+        actualSelected.length > collapseSelectionAfter
     const onClear = (e: React.MouseEvent<HTMLButtonElement>) => {
         const data = { selected: [] as string[] }
 
@@ -52,11 +60,21 @@ const Input = ({
                     dataTest={`${dataTest}-placeholder`}
                 />
             )}
-            {hasSelection && (
+            {hasSelection && shouldCollapse && (
+                <span
+                    className="collapsed-selection-text"
+                    data-test={`${dataTest}-selection-count`}
+                >
+                    {i18n.t('{{count}} selected', {
+                        count: actualSelected.length,
+                    })}
+                </span>
+            )}
+            {hasSelection && !shouldCollapse && (
                 <div className="root-input">
                     {/* the wrapper div above is necessary to enforce wrapping on overflow */}
                     <SelectionList
-                        selected={selected}
+                        selected={actualSelected}
                         onChange={onChange}
                         options={options}
                         disabled={disabled}
@@ -93,6 +111,11 @@ const Input = ({
                 .root-right {
                     margin-inline-start: auto;
                 }
+
+                .collapsed-selection-text {
+                    flex: 1;
+                    user-select: none;
+                }
             `}</style>
 
             <style jsx>{`
@@ -103,5 +126,4 @@ const Input = ({
         </div>
     )
 }
-
 export { Input }

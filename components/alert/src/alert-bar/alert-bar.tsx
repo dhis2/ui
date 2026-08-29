@@ -49,6 +49,7 @@ const AlertBar = ({
 }: AlertBarProps) => {
     const [inViewport, setInViewport] = useState(!hidden)
     const [inDOM, setInDOM] = useState(!hidden)
+    const alertRef = useRef<HTMLDivElement>(null)
     const showTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
     const displayTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
     const hideTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -76,6 +77,12 @@ const AlertBar = ({
     }
     const runHideAnimation = () => {
         clearAllTimeouts()
+        if (alertRef.current) {
+            alertRef.current.style.setProperty(
+                '--alert-bar-collapse',
+                `-${alertRef.current.offsetHeight}px`
+            )
+        }
         hide()
         hideTimeout.current = setTimeout(remove, ANIMATION_TIME)
     }
@@ -129,6 +136,7 @@ const AlertBar = ({
 
     return !inDOM ? null : (
         <div
+            ref={alertRef}
             className={cx(className, {
                 info,
                 success,

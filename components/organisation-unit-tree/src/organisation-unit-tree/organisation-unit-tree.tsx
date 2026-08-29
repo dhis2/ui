@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
+import { sortNodeChildrenAlphabetically } from '../helpers/index.ts'
 import type { OrgUnitChild } from '../helpers/index.ts'
 import { OrganisationUnitNode } from '../organisation-unit-node/index.ts'
 import { defaultRenderNodeLabel } from './default-render-node-label/index.ts'
@@ -43,6 +44,9 @@ export interface OrganisationUnitTreeProps {
 
     /** When set to true, no unit can be selected */
     disableSelection?: boolean
+
+    /** Which field to render as the org unit label */
+    displayProperty?: 'displayName' | 'displayShortName'
 
     expanded?: string[]
 
@@ -111,6 +115,7 @@ const OrganisationUnitTree = ({
     autoExpandLoadingError,
     dataTest = 'dhis2-uiwidgets-orgunittree',
     disableSelection,
+    displayProperty = 'displayName',
     forceReload,
     highlighted = staticArray,
     isUserDataViewFallback,
@@ -137,6 +142,7 @@ const OrganisationUnitTree = ({
     const [prevReloadId, setPrevReloadId] = useState(reloadId)
     const { called, loading, error, data, refetch } = useRootOrgData(rootIds, {
         isUserDataViewFallback,
+        displayProperty,
     })
 
     const { expanded, handleExpand, handleCollapse } = useExpanded({
@@ -163,6 +169,16 @@ const OrganisationUnitTree = ({
 
     const isLoading = !called || loading
 
+    const sortedRoots = useMemo(() => {
+        if (!data) {
+            return []
+        }
+        const rootNodes = rootIds.map((rootId) => data[rootId])
+        return suppressAlphabeticalSorting
+            ? rootNodes
+            : sortNodeChildrenAlphabetically(rootNodes)
+    }, [data, rootIds, suppressAlphabeticalSorting])
+
     return (
         <div data-test={dataTest}>
             {isLoading && <OrganisationUnitTreeRootLoading />}
@@ -171,9 +187,8 @@ const OrganisationUnitTree = ({
             )}
             {!error &&
                 !isLoading &&
-                data &&
-                rootIds.map((rootId) => {
-                    const rootNode = data[rootId]
+                sortedRoots.map((rootNode) => {
+                    const rootId = rootNode.id
 
                     return (
                         <OrganisationUnitNode
@@ -183,6 +198,7 @@ const OrganisationUnitTree = ({
                             dataTest={dataTest}
                             disableSelection={disableSelection}
                             displayName={rootNode.displayName}
+                            displayProperty={displayProperty}
                             expanded={expanded}
                             highlighted={highlighted}
                             id={rootId}
@@ -205,5 +221,4 @@ const OrganisationUnitTree = ({
         </div>
     )
 }
-
 export { OrganisationUnitTree }

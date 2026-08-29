@@ -37,6 +37,7 @@ export interface OrganisationUnitNodeProps {
     autoExpandLoadingError?: boolean
     disableSelection?: boolean
     displayName?: string
+    displayProperty?: 'displayName' | 'displayShortName'
     expanded?: string[]
     filter?: string[]
     highlighted?: string[]
@@ -60,6 +61,7 @@ export const OrganisationUnitNode = ({
     dataTest,
     disableSelection,
     displayName = '',
+    displayProperty,
     expanded = [],
     highlighted = [],
     id,
@@ -184,6 +186,7 @@ export const OrganisationUnitNode = ({
                     autoExpandLoadingError={autoExpandLoadingError}
                     dataTest={dataTest}
                     disableSelection={disableSelection}
+                    displayProperty={displayProperty}
                     expanded={expanded}
                     filter={filter}
                     highlighted={highlighted}

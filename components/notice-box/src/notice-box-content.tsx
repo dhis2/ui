@@ -6,6 +6,7 @@ import { NoticeBoxTitle } from './notice-box-title.tsx'
 export interface NoticeBoxContentProps {
     children?: React.ReactNode
     dataTest?: string
+    dense?: boolean
     title?: string
 }
 
@@ -13,19 +14,24 @@ export const NoticeBoxContent = ({
     children,
     dataTest = 'dhis2-uicore-noticebox-content',
     title,
+    dense = false,
 }: NoticeBoxContentProps) => {
     return (
         <div data-test={dataTest}>
-            <NoticeBoxTitle title={title} dataTest={`${dataTest}-title`} />
-            <NoticeBoxMessage dataTest={`${dataTest}-message`}>
+            <NoticeBoxTitle
+                title={title}
+                dense={dense}
+                dataTest={`${dataTest}-title`}
+            />
+            <NoticeBoxMessage dense={dense} dataTest={`${dataTest}-message`}>
                 {children}
             </NoticeBoxMessage>
             <style jsx>{`
                 div {
                     display: flex;
                     flex-direction: column;
-                    gap: ${spacers.dp8};
-                    padding-block-start: 3px;
+                    gap: ${dense ? '2px' : spacers.dp8};
+                    padding-block-start: ${dense ? '0' : '3px'};
                 }
             `}</style>
         </div>

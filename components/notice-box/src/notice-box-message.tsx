@@ -4,11 +4,13 @@ import React from 'react'
 export interface NoticeBoxMessageProps {
     dataTest: string
     children?: React.ReactNode
+    dense?: boolean
 }
 
 export const NoticeBoxMessage = ({
     children,
     dataTest,
+    dense = false,
 }: NoticeBoxMessageProps) => {
     if (!children) {
         return null
@@ -21,8 +23,8 @@ export const NoticeBoxMessage = ({
             <style jsx>{`
                 div {
                     color: ${colors.grey900};
-                    font-size: 14px;
-                    line-height: 19px;
+                    font-size: ${dense ? '13px' : '14px'};
+                    line-height: ${dense ? '18px' : '19px'};
                 }
             `}</style>
         </div>

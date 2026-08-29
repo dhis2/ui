@@ -73,7 +73,9 @@ const Icon = ({
             )}
             <style jsx>{`
                 div {
-                    margin-inline-end: ${spacers.dp16};
+                    display: flex;
+                    align-items: center;
+                    margin-inline-end: ${spacers.dp12};
                 }
             `}</style>
         </div>

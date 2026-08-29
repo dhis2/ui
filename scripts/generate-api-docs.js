@@ -165,6 +165,17 @@ components.map((component) => {
         `Generating API documentation for: ${path.basename(component)}`
     )
 
+    const pkg = require(path.join(component, 'package.json'))
+    const indexFile = path.join(component, 'src', 'index.js')
+
+    if (!fs.existsSync(indexFile)) {
+        console.info('Skipping API generation for TypeScript package')
+        main_api_markdown.push(
+            `- [${pkg.name}](${path.relative(cwd, component)}/API.md)`
+        )
+        return
+    }
+
     const entries = fg.sync(`${component}/src/**/*.js`, {
         ignore,
     })
@@ -204,10 +215,7 @@ components.map((component) => {
      * Take the src/index.js file and generate an AST for it so we can figure
      * out the public API for the package through the defined exports.
      */
-    const index = fs.readFileSync(
-        path.join(component, 'src', 'index.js'),
-        'utf8'
-    )
+    const index = fs.readFileSync(indexFile, 'utf8')
     const ast = parser.parse(index, { sourceType: 'module' })
 
     visit(ast, {
@@ -224,8 +232,6 @@ components.map((component) => {
             this.traverse(pth)
         },
     })
-
-    const pkg = require(path.join(component, 'package.json'))
 
     const markdown = asts
         .filter((c) => c.exported)
@@ -383,6 +389,8 @@ collections.map((collection) => {
         `Generating API documentation for: ${path.basename(collection)}`
     )
 
+    const pkg = require(path.join(collection, 'package.json'))
+
     const entries = fg.sync(
         [
             ...components.map((component) => `${component}/src/**/*.js`),
@@ -424,6 +432,14 @@ collections.map((collection) => {
         .filter((e) => !!e)
         .flat()
 
+    if (!asts.length) {
+        console.info('Skipping API generation without JavaScript components')
+        main_api_markdown.push(
+            `- [${pkg.name}](${path.relative(cwd, collection)}/API.md)`
+        )
+        return
+    }
+
     /*
      * Take the src/index.js file and generate an AST for it so we can figure
      * out the public API for the package through the defined exports.
@@ -449,7 +465,6 @@ collections.map((collection) => {
         },
     })
 
-    const pkg = require(path.join(collection, 'package.json'))
     const markdown = asts
         .filter((c) => c.exported)
         .map((c) => {
@@ -475,6 +490,14 @@ collections.map((collection) => {
             }
         })
         .filter((c) => !!c)
+
+    if (!markdown.length) {
+        console.info('Skipping API generation without exported components')
+        main_api_markdown.push(
+            `- [${pkg.name}](${path.relative(cwd, collection)}/API.md)`
+        )
+        return
+    }
 
     console.info(
         `Writing file: ${path.relative(cwd, path.join(collection, 'API.md'))}`

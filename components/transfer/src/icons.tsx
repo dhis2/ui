@@ -1,4 +1,4 @@
-import { theme } from '@dhis2/ui-constants'
+import { colors, theme } from '@dhis2/ui-constants'
 import React from 'react'
 import css from 'styled-jsx/css'
 
@@ -24,7 +24,7 @@ export const IconAddAll = ({ dataTest, disabled }: IconProps) => (
             height="16"
             viewBox="0 0 16 16"
             data-test={dataTest}
-            fill={disabled ? theme.disabled : '#404B5A'}
+            fill={disabled ? theme.disabled : colors.grey800}
         >
             <g fillRule="evenodd">
                 <polygon
@@ -45,7 +45,7 @@ export const IconAddAll = ({ dataTest, disabled }: IconProps) => (
 export const IconAddIndividual = ({ dataTest, disabled }: IconProps) => (
     <div className="centerButton">
         <svg
-            fill={disabled ? theme.disabled : '#404B5A'}
+            fill={disabled ? theme.disabled : colors.grey800}
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"
@@ -61,7 +61,7 @@ export const IconAddIndividual = ({ dataTest, disabled }: IconProps) => (
 export const IconRemoveAll = ({ dataTest, disabled }: IconProps) => (
     <div className="centerButton">
         <svg
-            fill={disabled ? theme.disabled : '#404B5A'}
+            fill={disabled ? theme.disabled : colors.grey800}
             width="16px"
             height="16px"
             viewBox="0 0 16 16"
@@ -89,7 +89,7 @@ export const IconRemoveAll = ({ dataTest, disabled }: IconProps) => (
 export const IconRemoveIndividual = ({ dataTest, disabled }: IconProps) => (
     <div className="centerButton">
         <svg
-            fill={disabled ? theme.disabled : '#404B5A'}
+            fill={disabled ? theme.disabled : colors.grey800}
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"
@@ -107,32 +107,52 @@ export const IconRemoveIndividual = ({ dataTest, disabled }: IconProps) => (
 
 export const IconMoveDown = ({ dataTest, disabled }: IconProps) => (
     <svg
-        fill={disabled ? theme.disabled : '#404B5A'}
+        fill={disabled ? colors.grey500 : colors.grey800}
         xmlns="http://www.w3.org/2000/svg"
         width="16"
         height="16"
         viewBox="0 0 16 16"
         data-test={dataTest}
     >
-        <polygon
-            points="8 2 6.94 3.06 11.13 7.25 2 7.25 2 8.75 11.13 8.75 6.94 12.94 8 14 14 8"
-            transform="matrix(0 1 1 0 0 0)"
-        />
+        <path d="M13.5303 8.53027L12.4697 7.46973L8.75 11.1895V2H7.25V11.1895L3.53027 7.46973L2.46973 8.53027L8 14.0605L13.5303 8.53027Z" />
     </svg>
 )
 
 export const IconMoveUp = ({ dataTest, disabled }: IconProps) => (
     <svg
-        fill={disabled ? theme.disabled : '#404B5A'}
+        fill={disabled ? colors.grey500 : colors.grey800}
         xmlns="http://www.w3.org/2000/svg"
         width="16"
         height="16"
         viewBox="0 0 16 16"
         data-test={dataTest}
     >
-        <polygon
-            points="8 2 6.94 3.06 11.13 7.25 2 7.25 2 8.75 11.13 8.75 6.94 12.94 8 14 14 8"
-            transform="rotate(-90 8 8)"
-        />
+        <path d="M13.5303 7.46973L12.4697 8.53027L8.75 4.81055V14H7.25V4.81055L3.53027 8.53027L2.46973 7.46973L8 1.93945L13.5303 7.46973Z" />
+    </svg>
+)
+
+export const IconMoveToTop = ({ dataTest, disabled }: IconProps) => (
+    <svg
+        fill={disabled ? colors.grey500 : colors.grey800}
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        data-test={dataTest}
+    >
+        <path d="M13.5303 10.4697L12.4697 11.5303L8.75 7.81055V14H7.25V7.81055L3.53027 11.5303L2.46973 10.4697L8 4.93945L13.5303 10.4697ZM13.5303 6.46973L12.4697 7.53027L8 3.06055L3.53027 7.53027L2.46973 6.46973L8 0.939453L13.5303 6.46973Z" />
+    </svg>
+)
+
+export const IconMoveToBottom = ({ dataTest, disabled }: IconProps) => (
+    <svg
+        fill={disabled ? colors.grey500 : colors.grey800}
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+        data-test={dataTest}
+    >
+        <path d="M13.5303 5.53027L12.4697 4.46973L8.75 8.18945V2H7.25V8.18945L3.53027 4.46973L2.46973 5.53027L8 11.0605L13.5303 5.53027ZM13.5303 9.53027L12.4697 8.46973L8 12.9395L3.53027 8.46973L2.46973 9.53027L8 15.0605L13.5303 9.53027Z" />
     </svg>
 )

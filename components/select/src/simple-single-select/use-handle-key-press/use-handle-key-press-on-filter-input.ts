@@ -77,6 +77,12 @@ export function useHandleKeyPressOnFilterInput({
 
             const { key, altKey } = e
 
+            // Defer so Tab advances focus before the filter unmounts.
+            if (key === 'Tab') {
+                requestAnimationFrame(closeMenu)
+                return
+            }
+
             if (
                 key === 'Escape' ||
                 key === 'Enter' ||

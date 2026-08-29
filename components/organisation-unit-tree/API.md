@@ -56,6 +56,7 @@ import { OrganisationUnitTree } from '@dhis2/ui'
 |autoExpandLoadingError|boolean|||When set, the error when loading children fails will be shown automatically|
 |dataTest|string|``'dhis2-uiwidgets-orgunittree'``|||
 |disableSelection|boolean|||When set to true, no unit can be selected|
+|displayProperty|'displayName' │ 'displayShortName'|``'displayName'``||Which field to render as the org unit label. Defaults to `'displayName'`.<br/>Set to `'displayShortName'` to honour the `keyAnalysisDisplayProperty`<br/>system/user setting. The query renames the chosen field back to<br/>`displayName` internally, so consumer-facing data shape is unchanged.|
 |expanded|custom(function)||||
 |filter|`arrayOf(custom)`|``[]``||All organisation units with a path that includes the provided paths will be shown.<br/>All others will not be rendered. When not provided, all org units will be shown.|
 |forceReload|boolean|||When true, everything will be reloaded. In order to load it again after reloading, `forceReload` has to be set to `false` and then to `true` again|

@@ -52,6 +52,13 @@ export interface OrganisationUnitTreeProps {
      * When set to true, no unit can be selected
      */
     disableSelection?: boolean
+    /**
+     * Which field to render as the org unit label. Defaults to 'displayName'.
+     * Set to 'displayShortName' to honour the keyAnalysisDisplayProperty
+     * system/user setting. The query renames the chosen field back to
+     * `displayName` internally, so the consumer-facing data shape is unchanged.
+     */
+    displayProperty?: 'displayName' | 'displayShortName'
     expanded?: boolean
     /**
      * All organisation units with a path that includes the provided paths will be shown.

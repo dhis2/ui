@@ -356,3 +356,29 @@ export const ShiftedIntoView = (args) => (
         `}</style>
     </>
 )
+
+export const WithMenuMaxWidth = (args) => (
+    <div style={{ width: 120 }}>
+        <SingleSelect {...args}>
+            <SingleSelectOption value="1" label="option one" />
+            <SingleSelectOption value="2" label="option two" />
+            <SingleSelectOption value="3" label="A much longer option label" />
+        </SingleSelect>
+    </div>
+)
+WithMenuMaxWidth.args = { menuMaxWidth: '200px' }
+
+export const WithMenuMinWidth = (args) => (
+    <div style={{ width: 120 }}>
+        <SingleSelect {...args}>
+            <SingleSelectOption value="1" label="option one" />
+            <SingleSelectOption value="2" label="option two" />
+            <SingleSelectOption value="3" label="option three" />
+            <SingleSelectOption
+                value="4"
+                label="A longer option that exceeds the minimum"
+            />
+        </SingleSelect>
+    </div>
+)
+WithMenuMinWidth.args = { menuMinWidth: '240px' }

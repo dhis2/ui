@@ -4,6 +4,7 @@ import { InputWrapper } from './input-wrapper.tsx'
 import { MenuWrapper } from './menu-wrapper.tsx'
 
 // Keycodes for the keypress event handlers
+const TAB_KEY = 9
 const ESCAPE_KEY = 27
 const SPACE_KEY = 32
 const UP_KEY = 38
@@ -21,6 +22,8 @@ export interface SelectProps {
     error?: boolean
     initialFocus?: boolean
     maxHeight?: string
+    menuMaxWidth?: string
+    menuMinWidth?: string
     tabIndex?: string
     valid?: boolean
     warning?: boolean
@@ -44,13 +47,13 @@ export interface SelectProps {
 
 interface SelectState {
     open: boolean
-    menuWidth: string
+    inputWidth: string
 }
 
 export class Select extends Component<SelectProps, SelectState> {
     state: SelectState = {
         open: false,
-        menuWidth: 'auto',
+        inputWidth: 'auto',
     }
 
     static defaultProps = {
@@ -65,7 +68,7 @@ export class Select extends Component<SelectProps, SelectState> {
             this.inputRef.current?.focus()
         }
 
-        this.setState({ menuWidth: this.getMenuWidth() })
+        this.setState({ inputWidth: this.getInputWidth() })
         window.addEventListener('resize', this.onResize)
     }
 
@@ -77,21 +80,21 @@ export class Select extends Component<SelectProps, SelectState> {
      * We're debouncing this so it doesn't fire continually during a resize.
      */
     onResize = debounce(() => {
-        const menuWidth = this.getMenuWidth()
+        const inputWidth = this.getInputWidth()
 
-        if (this.state.menuWidth !== menuWidth) {
-            this.setState({ menuWidth })
+        if (this.state.inputWidth !== inputWidth) {
+            this.setState({ inputWidth })
         }
     }, 50)
 
-    getMenuWidth() {
+    getInputWidth() {
         const offsetWidth = this.inputRef.current?.offsetWidth
-        const { menuWidth } = this.state
+        const { inputWidth } = this.state
 
-        if (offsetWidth && `${offsetWidth}px` !== menuWidth) {
+        if (offsetWidth && `${offsetWidth}px` !== inputWidth) {
             return `${offsetWidth}px`
         }
-        return menuWidth
+        return inputWidth
     }
 
     handleFocusInput = () => {
@@ -111,7 +114,7 @@ export class Select extends Component<SelectProps, SelectState> {
     handleOpen = () => {
         this.setState({
             open: true,
-            menuWidth: this.getMenuWidth(),
+            inputWidth: this.getInputWidth(),
         })
     }
 
@@ -165,7 +168,6 @@ export class Select extends Component<SelectProps, SelectState> {
             (keyCode === SPACE_KEY ||
                 keyCode === UP_KEY ||
                 keyCode === DOWN_KEY)
-        const shouldClose = open && keyCode === ESCAPE_KEY
 
         /* Do not block event propagation when the Select is closed unless
          * the key to open it is pressed, so that other components like
@@ -174,8 +176,13 @@ export class Select extends Component<SelectProps, SelectState> {
             e.stopPropagation()
         }
 
-        if (shouldClose) {
+        if (open && keyCode === ESCAPE_KEY) {
             return this.handleClose()
+        }
+
+        if (open && keyCode === TAB_KEY) {
+            // Defer so Tab advances focus before the menu unmounts.
+            return requestAnimationFrame(this.handleClose)
         }
 
         if (shouldOpen) {
@@ -184,7 +191,7 @@ export class Select extends Component<SelectProps, SelectState> {
     }
 
     render() {
-        const { open, menuWidth } = this.state
+        const { open, inputWidth } = this.state
         const {
             children,
             className,
@@ -192,6 +199,8 @@ export class Select extends Component<SelectProps, SelectState> {
             onChange,
             tabIndex,
             maxHeight,
+            menuMinWidth,
+            menuMaxWidth,
             error,
             warning,
             valid,
@@ -245,7 +254,9 @@ export class Select extends Component<SelectProps, SelectState> {
                         onClick={this.onOutsideClick}
                         maxHeight={maxHeight}
                         selectRef={this.selectRef}
-                        menuWidth={menuWidth}
+                        inputWidth={inputWidth}
+                        menuMinWidth={menuMinWidth}
+                        menuMaxWidth={menuMaxWidth}
                         dataTest={`${dataTest}-menu`}
                     >
                         {menu}

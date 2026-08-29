@@ -23,6 +23,8 @@ export interface SingleSelectProps {
     loading?: boolean
     loadingText?: string
     maxHeight?: string
+    menuMaxWidth?: string
+    menuMinWidth?: string
     noMatchText?: string
     placeholder?: string
     prefix?: string
@@ -41,6 +43,8 @@ const SingleSelect = ({
     selected = '',
     tabIndex,
     maxHeight,
+    menuMinWidth,
+    menuMaxWidth,
     inputMaxHeight,
     onChange,
     onFocus,
@@ -96,6 +100,8 @@ const SingleSelect = ({
                     menu={menu}
                     tabIndex={tabIndex}
                     maxHeight={maxHeight}
+                    menuMinWidth={menuMinWidth}
+                    menuMaxWidth={menuMaxWidth}
                     onChange={onChange as never}
                     onFocus={onFocus as never}
                     onKeyDown={onKeyDown as never}
@@ -132,5 +138,4 @@ const SingleSelect = ({
         </div>
     )
 }
-
 export { SingleSelect }

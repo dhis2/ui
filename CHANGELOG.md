@@ -1,3 +1,99 @@
+# [10.17.0](https://github.com/dhis2/ui/compare/v10.16.5...v10.17.0) (2026-07-20)
+
+
+### Features
+
+* **select:** flexibility in dropdown menu width ([#1744](https://github.com/dhis2/ui/issues/1744)) ([b721f9d](https://github.com/dhis2/ui/commit/b721f9d064f072877dddd1eb4009d2ae5ec5ac05))
+
+## [10.16.5](https://github.com/dhis2/ui/compare/v10.16.4...v10.16.5) (2026-07-20)
+
+
+### Bug Fixes
+
+* sort root nodes unless opted out via suppressAlphabeticalSorting ([#1753](https://github.com/dhis2/ui/issues/1753)) ([43179d8](https://github.com/dhis2/ui/commit/43179d8caf33a44e2d24ac6b6fee93977db3d6ac))
+
+## [10.16.4](https://github.com/dhis2/ui/compare/v10.16.3...v10.16.4) (2026-06-30)
+
+
+### Bug Fixes
+
+* update cli-app-scripts to 12.11.3 ([#1755](https://github.com/dhis2/ui/issues/1755)) ([08a752c](https://github.com/dhis2/ui/commit/08a752cc88be10b726ae62b9070cde80e327060c))
+
+## [10.16.3](https://github.com/dhis2/ui/compare/v10.16.2...v10.16.3) (2026-06-11)
+
+
+### Bug Fixes
+
+* include source files in bundled UI library ([#1748](https://github.com/dhis2/ui/issues/1748)) ([e3fb77a](https://github.com/dhis2/ui/commit/e3fb77a8aa0afc5c54459404440da93126c4a792))
+
+## [10.16.3-alpha.1](https://github.com/dhis2/ui/compare/v10.16.2...v10.16.3-alpha.1) (2026-06-10)
+
+
+### Bug Fixes
+
+* include source files in bundled UI library ([#1748](https://github.com/dhis2/ui/issues/1748)) ([e3fb77a](https://github.com/dhis2/ui/commit/e3fb77a8aa0afc5c54459404440da93126c4a792))
+
+## [10.16.2](https://github.com/dhis2/ui/compare/v10.16.1...v10.16.2) (2026-06-02)
+
+
+### Bug Fixes
+
+* **select:** tab key handling for selectors ([#1747](https://github.com/dhis2/ui/issues/1747)) ([ddbb1b9](https://github.com/dhis2/ui/commit/ddbb1b9b5635ec0fb7e89704dd6f7bf4a9ae52af))
+
+## [10.16.1](https://github.com/dhis2/ui/compare/v10.16.0...v10.16.1) (2026-05-29)
+
+
+### Bug Fixes
+
+* **select:** handle Tab key to close menu in Select component ([#1746](https://github.com/dhis2/ui/issues/1746)) ([1f77a51](https://github.com/dhis2/ui/commit/1f77a51b3ab4525f8e8502588dbf032c2e9880a8))
+
+# [10.16.0](https://github.com/dhis2/ui/compare/v10.15.1...v10.16.0) (2026-05-26)
+
+
+### Features
+
+* **organisation-unit-tree:** add displayProperty prop to support shortname (DHIS2-21561) ([#1745](https://github.com/dhis2/ui/issues/1745)) ([447d3db](https://github.com/dhis2/ui/commit/447d3dbe4f6c4f8884841cdb6db72d35cef62f46))
+
+## [10.15.1](https://github.com/dhis2/ui/compare/v10.15.0...v10.15.1) (2026-05-20)
+
+
+### Bug Fixes
+
+* **types:** add missing props to Calendar and CalendarInput types ([#1742](https://github.com/dhis2/ui/issues/1742)) ([6733f3c](https://github.com/dhis2/ui/commit/6733f3cc02c065a49400050fc93f1a941accea44))
+
+# [10.15.0](https://github.com/dhis2/ui/compare/v10.14.0...v10.15.0) (2026-05-19)
+
+
+### Features
+
+* **notice-box:** dense variant, allow custom icon ([#1732](https://github.com/dhis2/ui/issues/1732)) ([a068264](https://github.com/dhis2/ui/commit/a06826489255624c8eae444b9a74f4cd7f1c497d))
+
+# [10.14.0](https://github.com/dhis2/ui/compare/v10.13.1...v10.14.0) (2026-05-06)
+
+
+### Bug Fixes
+
+* **transfer:** handle incomplete regular expressions in filter [DHIS2-19573] ([#1740](https://github.com/dhis2/ui/issues/1740)) ([95b859e](https://github.com/dhis2/ui/commit/95b859eb5249558984479b89e4ce52a9e3112409))
+
+
+### Features
+
+* **transfer:** reorder improvements ([#1739](https://github.com/dhis2/ui/issues/1739)) ([8cab102](https://github.com/dhis2/ui/commit/8cab1026cf9cb608ae3bd822a063328a5b44a601))
+
+## [10.13.1](https://github.com/dhis2/ui/compare/v10.13.0...v10.13.1) (2026-04-20)
+
+
+### Bug Fixes
+
+* **alert-bar:** visual design, animation adjustment ([#1738](https://github.com/dhis2/ui/issues/1738)) ([54f0160](https://github.com/dhis2/ui/commit/54f0160ebbc2651ab85b4af197163b16e8f79585))
+
+# [10.13.0](https://github.com/dhis2/ui/compare/v10.12.13...v10.13.0) (2026-04-16)
+
+
+### Features
+
+* **multi-select:** add collapseSelectionAfter prop ([#1735](https://github.com/dhis2/ui/issues/1735)) ([fab1525](https://github.com/dhis2/ui/commit/fab15254375e8ba740a96d7a148a114cc12717ee))
+
 ## [10.12.13](https://github.com/dhis2/ui/compare/v10.12.12...v10.12.13) (2026-04-06)
 
 

@@ -1335,7 +1335,9 @@ import { NoticeBox } from '@dhis2/ui'
 |children|node||||
 |className|string||||
 |dataTest|string|``'dhis2-uicore-noticebox'``|||
+|dense|boolean|``false``||Uses 16px icons and tighter padding and internal spacing|
 |error|custom|||Applies 'error' message styles. Mutually exclusive with the `valid` and `warning` props|
+|icon|node|||Replaces the default status icon; `error`, `warning`, and `valid` still set box colors|
 |title|string||||
 |valid|custom|||Applies 'valid' message styles. Mutually exclusive with the `error` and `warning` props|
 |warning|custom|||Applies 'warning' message styles. Mutually exclusive with the `error` and `valid` props|
@@ -1398,6 +1400,7 @@ import { OrganisationUnitTree } from '@dhis2/ui'
 |autoExpandLoadingError|boolean|||When set, the error when loading children fails will be shown automatically|
 |dataTest|string|``'dhis2-uiwidgets-orgunittree'``|||
 |disableSelection|boolean|||When set to true, no unit can be selected|
+|displayProperty|'displayName' │ 'displayShortName'|``'displayName'``||Which field to render as the org unit label. Defaults to `'displayName'`.<br/>Set to `'displayShortName'` to honour the `keyAnalysisDisplayProperty`<br/>system/user setting. The query renames the chosen field back to<br/>`displayName` internally, so consumer-facing data shape is unchanged.|
 |expanded|custom||||
 |filter|`arrayOf(custom)`|``[]``||All organisation units with a path that includes the provided paths will be shown.<br/>All others will not be rendered. When not provided, all org units will be shown.|
 |forceReload|boolean|||When true, everything will be reloaded. In order to load it again after reloading, `forceReload` has to be set to `false` and then to `true` again|
@@ -1632,6 +1635,7 @@ import { Input } from '@dhis2/ui'
 |className|string||||
 |clearText|custom||||
 |clearable|boolean||||
+|collapseSelectionAfter|number||||
 |disabled|boolean||||
 |inputMaxHeight|string|``'100px'``|||
 |options|node||||
@@ -1682,6 +1686,7 @@ import { MultiSelect } from '@dhis2/ui'
 |className|string||||
 |clearText|custom|||Required if `clearable` prop is `true`|
 |clearable|boolean|||Adds a 'clear' option to the menu|
+|collapseSelectionAfter|number|||When the number of selected items exceeds this threshold, chips are replaced with "X selected" text|
 |dataTest|string|``'dhis2-uicore-multiselect'``|||
 |dense|boolean||||
 |disabled|boolean||||
@@ -1694,6 +1699,8 @@ import { MultiSelect } from '@dhis2/ui'
 |loading|boolean||||
 |loadingText|string||||
 |maxHeight|string||||
+|menuMaxWidth|string|||See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width)|
+|menuMinWidth|string|||See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width)|
 |noMatchText|custom|||Required if `filterable` prop is `true`|
 |placeholder|string||||
 |prefix|string||||
@@ -1741,6 +1748,8 @@ import { MultiSelectField } from '@dhis2/ui'
 |loading|boolean|||Applies a loading appearance to the dropdown options|
 |loadingText|string │ function|``() => i18n.t('Loading options')``||Text to display when `loading` is true|
 |maxHeight|string|||Constrains height of the MultiSelect|
+|menuMaxWidth|string|||See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width)|
+|menuMinWidth|string|||See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width)|
 |noMatchText|string │ function|``() => i18n.t('No options found')``||Text to display when there are no filter results|
 |placeholder|string|||Placeholder text when the MultiSelect is empty|
 |prefix|string|||Leading text to prefix selections|
@@ -1970,6 +1979,8 @@ import { SingleSelect } from '@dhis2/ui'
 |loading|boolean||||
 |loadingText|string||||
 |maxHeight|string||||
+|menuMaxWidth|string|||See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width)|
+|menuMinWidth|string|||See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width)|
 |noMatchText|custom|||Text to show when filter returns no results. Required if `filterable` prop is true|
 |placeholder|string||||
 |prefix|string||||
@@ -2017,6 +2028,8 @@ import { SingleSelectField } from '@dhis2/ui'
 |loading|boolean|||Applies a loading appearance to the dropdown options|
 |loadingText|string │ function|``() => i18n.t('Loading options')``||Text to display when `loading` is true|
 |maxHeight|string|||Constrains height of the SingleSelect|
+|menuMaxWidth|string|||See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width)|
+|menuMinWidth|string|||See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width)|
 |noMatchText|string │ function|``() => i18n.t('No options found')``||Text to display when there are no filter results|
 |placeholder|string|||Placeholder text when the SingleSelect is empty|
 |prefix|string|||Leading text to prefix selections|
