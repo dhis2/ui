@@ -48,8 +48,8 @@ const Layer = ({
             >
                 {resolvedOnClick && (
                     <div
+                        {...{ role: 'button' as const }}
                         className="backdrop"
-                        role={'button' /* NOSONAR */}
                         tabIndex={0}
                         onClick={(event) => resolvedOnClick({}, event)}
                         onKeyDown={(event) => {

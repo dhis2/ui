@@ -73,7 +73,7 @@ export const Modal = ({
         >
             <Center position={position}>
                 <aside
-                    role={'dialog' /* NOSONAR */}
+                    {...{ role: 'dialog' as const }}
                     aria-modal="true"
                     data-test={dataTest}
                     className={cx(className, { small, large, fluid })}

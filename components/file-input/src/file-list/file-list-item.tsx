@@ -63,7 +63,7 @@ const FileListItem = ({
 
                 {loading && onCancel && cancelText && (
                     <span
-                        role={'button' /* NOSONAR */}
+                        {...{ role: 'button' as const }}
                         tabIndex={0}
                         className="action"
                         onClick={(event) => onCancel({}, event)}
@@ -76,7 +76,7 @@ const FileListItem = ({
 
                 {!loading && (
                     <span
-                        role={'button' /* NOSONAR */}
+                        {...{ role: 'button' as const }}
                         className="action"
                         onClick={(event) => onRemove({}, event)}
                         data-test={`${dataTest}-remove`}

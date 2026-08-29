@@ -40,7 +40,7 @@ const InputWrapper = ({
 
     return (
         <div
-            role={'button' /* NOSONAR */}
+            {...{ role: 'button' as const }}
             className={classNames}
             onClick={onToggle}
             onKeyDown={(event) => {

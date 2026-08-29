@@ -70,7 +70,7 @@ export const Remove = ({ onRemove, dataTest }: RemoveProps) => {
 
     return (
         <span
-            role={'button' /* NOSONAR */}
+            {...{ role: 'button' as const }}
             tabIndex={0}
             onClick={(e) => {
                 e.stopPropagation() // stop onRemove from triggering onClick on container

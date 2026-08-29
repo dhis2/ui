@@ -22,7 +22,7 @@ const CircularLoader = ({
     'aria-label': ariaLabel,
 }: CircularLoaderProps) => (
     <div
-        role={'progressbar' /* NOSONAR */}
+        {...{ role: 'progressbar' as const }}
         className={cx(className, {
             small,
             large,

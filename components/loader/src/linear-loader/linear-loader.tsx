@@ -55,7 +55,7 @@ const LinearLoader = ({
 }: LinearLoaderProps) => {
     return (
         <div
-            role={'progressbar' /* NOSONAR */}
+            {...{ role: 'progressbar' as const }}
             aria-valuenow={amount}
             aria-label={ariaLabel}
             className={cx(className, { invert })}

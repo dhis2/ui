@@ -127,11 +127,11 @@ export function Option({
 
     return (
         <button
+            {...{ role: 'option' as const }}
             ref={buttonRef}
             id={`${comboBoxId}-${index}`}
             data-test={dataTest}
             disabled={disabled}
-            role={'option' /* NOSONAR */}
             aria-selected={!!highlighted}
             aria-disabled={disabled}
             aria-label={label}

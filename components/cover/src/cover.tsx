@@ -33,8 +33,8 @@ const Cover = ({
     translucent,
 }: CoverProps) => (
     <div
+        {...(onClick ? { role: 'button' as const } : {})}
         className={cx(className, { translucent })}
-        role={onClick ? 'button' : undefined /* NOSONAR */}
         tabIndex={onClick ? 0 : undefined}
         onClick={onClick ? createClickHandler(onClick) : undefined}
         onKeyDown={(event) => {

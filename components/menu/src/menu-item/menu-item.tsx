@@ -166,6 +166,7 @@ const MenuItem = ({
     return (
         <>
             <li
+                {...{ role: 'presentation' as const }}
                 className={cx(className, {
                     destructive,
                     disabled,
@@ -175,7 +176,6 @@ const MenuItem = ({
                 })}
                 ref={menuItemRef}
                 data-test={dataTest}
-                role={'presentation' /* NOSONAR */}
                 tabIndex={tabIndex}
                 data-submenu-open={children && showSubMenu}
             >

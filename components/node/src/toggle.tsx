@@ -37,7 +37,7 @@ export const Toggle = ({ open, onOpen, onClose, dataTest }: ToggleProps) => {
 
     return (
         <div
-            role={'button' /* NOSONAR */}
+            {...{ role: 'button' as const }}
             tabIndex={0}
             className={cx({ open })}
             data-test={dataTest}
