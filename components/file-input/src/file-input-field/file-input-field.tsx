@@ -139,9 +139,7 @@ const FileInputField = ({
         />
 
         <FileList>
-            {children ? (
-                children
-            ) : (
+            {children || (
                 <FileListPlaceholder>
                     {translate(placeholder)}
                 </FileListPlaceholder>
