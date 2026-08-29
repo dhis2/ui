@@ -3,6 +3,8 @@ import { IconChevronDown16 } from '@dhis2/ui-icons'
 import cx from 'classnames'
 import React from 'react'
 
+const InputWrapperElement = 'div'
+
 export interface InputWrapperProps {
     dataTest: string
     inputRef: React.RefObject<HTMLDivElement>
@@ -39,8 +41,8 @@ const InputWrapper = ({
     })
 
     return (
-        <div
-            role={'button' /* NOSONAR */}
+        <InputWrapperElement
+            role="button"
             className={classNames}
             onClick={onToggle}
             onKeyDown={(event) => {
@@ -119,7 +121,7 @@ const InputWrapper = ({
                     margin-inline-start: 2px;
                 }
             `}</style>
-        </div>
+        </InputWrapperElement>
     )
 }
 

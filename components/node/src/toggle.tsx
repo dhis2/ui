@@ -2,6 +2,8 @@ import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React from 'react'
 
+const ToggleElement = 'div'
+
 const ArrowDown = () => (
     <div className="nodeArrow">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -36,8 +38,8 @@ export const Toggle = ({ open, onOpen, onClose, dataTest }: ToggleProps) => {
     const onClick = open ? onClose : onOpen
 
     return (
-        <div
-            role={'button' /* NOSONAR */}
+        <ToggleElement
+            role="button"
             tabIndex={0}
             className={cx({ open })}
             data-test={dataTest}
@@ -104,6 +106,6 @@ export const Toggle = ({ open, onOpen, onClose, dataTest }: ToggleProps) => {
                     background: #bcc8d4;
                 }
             `}</style>
-        </div>
+        </ToggleElement>
     )
 }

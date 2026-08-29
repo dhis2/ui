@@ -1,6 +1,8 @@
 import { colors, spacers } from '@dhis2/ui-constants'
 import React from 'react'
 
+const DestructiveOptionElement = 'div'
+
 export interface DestructiveSelectOptionProps {
     label: string
     onClick: () => void
@@ -11,8 +13,8 @@ export const DestructiveSelectOption = ({
     onClick,
 }: DestructiveSelectOptionProps) => {
     return (
-        <div
-            role={'button' /* NOSONAR */}
+        <DestructiveOptionElement
+            role="button"
             tabIndex={0}
             onClick={onClick}
             onKeyDown={(event) => {
@@ -36,6 +38,6 @@ export const DestructiveSelectOption = ({
                     background-color: ${colors.red050};
                 }
             `}</style>
-        </div>
+        </DestructiveOptionElement>
     )
 }

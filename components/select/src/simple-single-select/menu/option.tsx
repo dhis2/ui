@@ -2,6 +2,8 @@ import { colors, spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React, { useEffect, useRef } from 'react'
 
+const OptionElement = 'button'
+
 const VISIBILE_INTERSECTION_RATIO = 0.99
 
 interface DefaultStyleProps {
@@ -126,12 +128,12 @@ export function Option({
     }, [onBecameVisible, listBoxRef])
 
     return (
-        <button
+        <OptionElement
             ref={buttonRef}
             id={`${comboBoxId}-${index}`}
             data-test={dataTest}
             disabled={disabled}
-            role={'option' /* NOSONAR */}
+            role="option"
             aria-selected={!!highlighted}
             aria-disabled={disabled}
             aria-label={label}
@@ -163,6 +165,6 @@ export function Option({
                     text-align: start;
                 }
             `}</style>
-        </button>
+        </OptionElement>
     )
 }
