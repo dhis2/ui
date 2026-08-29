@@ -6,8 +6,6 @@ import { Container } from './container.tsx'
 import { Placeholder } from './placeholder.tsx'
 import { Prefix } from './prefix.tsx'
 
-const ToggleIcon = 'span'
-
 export interface SelectedValueProps {
     clearText: string
     comboBoxId: string
@@ -138,7 +136,7 @@ export function SelectedValue({
                 </div>
             )}
 
-            <ToggleIcon
+            <span // NOSONAR -- select toggle uses the parent combobox interaction
                 className="toggle-icon"
                 aria-label="Open select"
                 onClick={() => {
@@ -147,7 +145,7 @@ export function SelectedValue({
                 }}
             >
                 <IconChevronDown16 />
-            </ToggleIcon>
+            </span>
 
             <style jsx>{`
                 .selected-option-label {

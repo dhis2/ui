@@ -6,8 +6,6 @@ import React, { useEffect, useRef, useState, useMemo } from 'react'
 import { FlyoutMenu } from '../flyout-menu/index.ts'
 import styles from './menu-item.styles.ts'
 
-const MenuItemAnchor = 'a'
-
 export interface MenuItemProps {
     active?: boolean
     /**
@@ -179,7 +177,7 @@ const MenuItem = ({
                 tabIndex={tabIndex}
                 data-submenu-open={children && showSubMenu}
             >
-                <MenuItemAnchor
+                <a // NOSONAR -- anchor implements menuitem semantics
                     target={target}
                     href={!disabled && href ? href : undefined}
                     onClick={
@@ -214,7 +212,7 @@ const MenuItem = ({
                             <IconChevronRight24 />
                         </span>
                     )}
-                </MenuItemAnchor>
+                </a>
 
                 <style jsx>{styles}</style>
             </li>

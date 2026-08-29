@@ -10,8 +10,6 @@ const SPACE_KEY = 32
 const UP_KEY = 38
 const DOWN_KEY = 40
 
-const SelectContainer = 'div'
-
 export interface SelectProps {
     input: React.ReactElement
     menu: React.ReactElement
@@ -231,7 +229,7 @@ export class Select extends Component<SelectProps, SelectState> {
         const menu = React.cloneElement(this.props.menu, menuProps)
 
         return (
-            <SelectContainer
+            <div // NOSONAR -- composite select event boundary
                 className={className}
                 ref={this.selectRef}
                 onFocus={this.onFocus}
@@ -267,7 +265,7 @@ export class Select extends Component<SelectProps, SelectState> {
                         {menu}
                     </MenuWrapper>
                 )}
-            </SelectContainer>
+            </div>
         )
     }
 }
