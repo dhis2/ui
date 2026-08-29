@@ -68,7 +68,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
         return (
             <div
                 ref={ref}
-                role={'listbox' /* NOSONAR -- custom ARIA listbox */}
+                role={'listbox' /* NOSONAR */}
                 id={id}
                 aria-labelledby={labelledBy}
                 aria-live={optionUpdateStrategy}

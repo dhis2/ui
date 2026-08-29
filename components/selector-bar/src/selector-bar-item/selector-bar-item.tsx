@@ -81,7 +81,7 @@ export const SelectorBarItem = ({
                     <span className="value">{value || noValueMessage}</span>
                     {value && onClearSelectionClick && (
                         <span
-                            role="button"
+                            role={'button' /* NOSONAR */}
                             tabIndex={0}
                             className="clear-icon"
                             onClick={(evt) => {

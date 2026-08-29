@@ -130,9 +130,7 @@ const Tooltip = ({
                     onFocus={openTooltip}
                     onBlur={closeTooltip}
                     ref={popperReference as React.RefObject<HTMLSpanElement>}
-                    tabIndex={
-                        0 /* NOSONAR -- enables keyboard tooltip access */
-                    }
+                    tabIndex={0 /* NOSONAR */}
                     aria-describedby={open ? 'tooltipContenDhis2Ui' : ''}
                     data-test={`${dataTest}-reference`}
                 >

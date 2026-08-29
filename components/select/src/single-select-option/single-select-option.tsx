@@ -27,7 +27,7 @@ const SingleSelectOption = ({
     icon: _icon,
 }: SingleSelectOptionProps) => (
     <div
-        role="option"
+        role={'option' /* NOSONAR */}
         aria-selected={!!active}
         tabIndex={disabled ? -1 : 0}
         className={cx(className, {

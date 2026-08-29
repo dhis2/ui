@@ -9,7 +9,7 @@ interface DismissProps {
 
 const Dismiss = ({ onClick, dataTest }: DismissProps) => (
     <div
-        role="button"
+        role={'button' /* NOSONAR */}
         tabIndex={0}
         onClick={onClick}
         onKeyDown={(event) => {

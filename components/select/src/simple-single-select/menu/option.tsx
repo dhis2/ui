@@ -131,7 +131,7 @@ export function Option({
             id={`${comboBoxId}-${index}`}
             data-test={dataTest}
             disabled={disabled}
-            role={'option' /* NOSONAR -- ARIA option in custom combobox */}
+            role={'option' /* NOSONAR */}
             aria-selected={!!highlighted}
             aria-disabled={disabled}
             aria-label={label}

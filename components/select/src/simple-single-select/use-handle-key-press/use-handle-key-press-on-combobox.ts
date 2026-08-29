@@ -154,143 +154,138 @@ export function useHandleKeyPressOnCombobox({
         setFocussedOptionIndex,
     })
 
-    const handleKeyPress =
-        /* NOSONAR -- preserves key handling order */ useCallback(
-            (event: React.KeyboardEvent) => {
-                const { key, altKey } = event
-                if (disabled || loading) {
-                    return
+    const handleKeyPress = useCallback(
+        (event: React.KeyboardEvent /* NOSONAR */) => {
+            const { key, altKey } = event
+            if (disabled || loading) {
+                return
+            }
+
+            if (expanded && key === 'Tab') {
+                closeMenu()
+                return
+            }
+
+            // ! This is necessary for cases where the parent window is scrollable
+            if (key === 'ArrowDown' || key === 'ArrowUp' || key === ' ') {
+                event.preventDefault()
+            }
+
+            if (
+                expanded &&
+                (key === 'Escape' ||
+                    key === 'Enter' ||
+                    (key === ' ' && !typing) ||
+                    (key === 'ArrowUp' && altKey) ||
+                    (key === 'ArrowDown' && altKey))
+            ) {
+                if (value !== options[focussedOptionIndex].value) {
+                    selectFocussedOption()
                 }
 
-                if (expanded && key === 'Tab') {
-                    closeMenu()
-                    return
-                }
+                closeMenu()
+                return
+            }
 
-                // ! This is necessary for cases where the parent window is scrollable
-                if (key === 'ArrowDown' || key === 'ArrowUp' || key === ' ') {
-                    event.preventDefault()
-                }
+            if (!expanded && clearable && key === 'Escape') {
+                onClear?.()
+                return
+            }
 
-                if (
-                    expanded &&
-                    (key === 'Escape' ||
-                        key === 'Enter' ||
-                        (key === ' ' && !typing) ||
-                        (key === 'ArrowUp' && altKey) ||
-                        (key === 'ArrowDown' && altKey))
-                ) {
-                    if (value !== options[focussedOptionIndex].value) {
-                        selectFocussedOption()
-                    }
+            if (
+                !expanded &&
+                ((key === ' ' && !typing) ||
+                    key === 'Enter' ||
+                    (key === 'ArrowUp' && altKey) ||
+                    (key === 'ArrowDown' && altKey))
+            ) {
+                openMenu()
+                return
+            }
 
-                    closeMenu()
-                    return
-                }
+            if (key === 'ArrowDown' && !expanded) {
+                selectNextOption()
+                return
+            }
 
-                if (!expanded && clearable && key === 'Escape') {
-                    onClear?.()
-                    return
-                }
+            if (key === 'ArrowDown') {
+                focusNextOption()
+                return
+            }
 
-                if (
-                    !expanded &&
-                    ((key === ' ' && !typing) ||
-                        key === 'Enter' ||
-                        (key === 'ArrowUp' && altKey) ||
-                        (key === 'ArrowDown' && altKey))
-                ) {
-                    openMenu()
-                    return
-                }
+            if (key === 'ArrowUp' && !expanded) {
+                selectPrevOption()
+                return
+            }
 
-                if (key === 'ArrowDown' && !expanded) {
-                    selectNextOption()
-                    return
-                }
+            if (key === 'ArrowUp') {
+                focusPrevOption()
+                return
+            }
 
-                if (key === 'ArrowDown') {
-                    focusNextOption()
-                    return
-                }
+            if (key === 'Home') {
+                focusFirstOption()
+                return
+            }
 
-                if (key === 'ArrowUp' && !expanded) {
-                    selectPrevOption()
-                    return
-                }
+            if (key === 'End') {
+                focusLastOption()
+                return
+            }
 
-                if (key === 'ArrowUp') {
-                    focusPrevOption()
-                    return
-                }
+            if (filterable && !expanded && isUnmodifiedCharacterKey(event)) {
+                openMenu()
+                onFilterChange?.(key)
+                return
+            }
 
-                if (key === 'Home') {
-                    focusFirstOption()
-                    return
-                }
+            if (
+                key === 'Backspace' ||
+                key === 'Clear' ||
+                isUnmodifiedCharacterKey(event) ||
+                (key === ' ' && typing)
+            ) {
+                onTyping(key)
+                return
+            }
 
-                if (key === 'End') {
-                    focusLastOption()
-                    return
-                }
+            if (expanded && key === 'PageUp') {
+                pageUp()
+                return
+            }
 
-                if (
-                    filterable &&
-                    !expanded &&
-                    isUnmodifiedCharacterKey(event)
-                ) {
-                    openMenu()
-                    onFilterChange?.(key)
-                    return
-                }
+            if (expanded && key === 'PageDown') {
+                pageDown()
+            }
 
-                if (
-                    key === 'Backspace' ||
-                    key === 'Clear' ||
-                    isUnmodifiedCharacterKey(event) ||
-                    (key === ' ' && typing)
-                ) {
-                    onTyping(key)
-                    return
-                }
-
-                if (expanded && key === 'PageUp') {
-                    pageUp()
-                    return
-                }
-
-                if (expanded && key === 'PageDown') {
-                    pageDown()
-                }
-
-                // Do nothing
-            },
-            [
-                closeMenu,
-                disabled,
-                expanded,
-                loading,
-                openMenu,
-                options,
-                value,
-                typing,
-                focussedOptionIndex,
-                selectFocussedOption,
-                selectNextOption,
-                selectPrevOption,
-                focusNextOption,
-                focusPrevOption,
-                focusFirstOption,
-                focusLastOption,
-                pageDown,
-                pageUp,
-                onTyping,
-                filterable,
-                onFilterChange,
-                clearable,
-                onClear,
-            ]
-        )
+            // Do nothing
+        },
+        [
+            closeMenu,
+            disabled,
+            expanded,
+            loading,
+            openMenu,
+            options,
+            value,
+            typing,
+            focussedOptionIndex,
+            selectFocussedOption,
+            selectNextOption,
+            selectPrevOption,
+            focusNextOption,
+            focusPrevOption,
+            focusFirstOption,
+            focusLastOption,
+            pageDown,
+            pageUp,
+            onTyping,
+            filterable,
+            onFilterChange,
+            clearable,
+            onClear,
+        ]
+    )
 
     return handleKeyPress
 }

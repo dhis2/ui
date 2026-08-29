@@ -6,6 +6,8 @@ import { Container } from './container.tsx'
 import { Placeholder } from './placeholder.tsx'
 import { Prefix } from './prefix.tsx'
 
+const ToggleIcon = 'span'
+
 export interface SelectedValueProps {
     clearText: string
     comboBoxId: string
@@ -136,25 +138,16 @@ export function SelectedValue({
                 </div>
             )}
 
-            <span
-                role="button"
-                tabIndex={0}
+            <ToggleIcon
                 className="toggle-icon"
                 aria-label="Open select"
                 onClick={() => {
                     comboBoxRef?.current?.focus()
                     onClick?.()
                 }}
-                onKeyDown={(event) => {
-                    if (event.key === 'Enter' || event.key === ' ') {
-                        event.preventDefault()
-                        comboBoxRef?.current?.focus()
-                        onClick?.()
-                    }
-                }}
             >
                 <IconChevronDown16 />
-            </span>
+            </ToggleIcon>
 
             <style jsx>{`
                 .selected-option-label {

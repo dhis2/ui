@@ -46,7 +46,6 @@ export function useHighlightLastVisibleOption({
                         focussedOptionIndex +
                         1
                 )
-                return
             }
         },
         [options, focussedOptionIndex, setFocussedOptionIndex]

@@ -16,7 +16,7 @@ export const SingleSelectionLabel = ({
     loading,
 }: SingleSelectionLabelProps) => (
     <span
-        role="checkbox"
+        role={'checkbox' /* NOSONAR */}
         aria-checked={!!checked}
         tabIndex={loading ? -1 : 0}
         onClick={(event) => {

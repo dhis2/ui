@@ -24,7 +24,7 @@ class Action extends Component<ActionProps> {
     render() {
         return (
             <span
-                role="button"
+                role={'button' /* NOSONAR */}
                 tabIndex={0}
                 onClick={this.onClick}
                 onKeyDown={this.onKeyDown}

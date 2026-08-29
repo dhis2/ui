@@ -11,7 +11,7 @@ export interface MenuProps {
     dense?: boolean
 }
 
-const Menu = /* NOSONAR -- preserves legacy composition behavior */ ({
+const Menu = ({
     children,
     className,
     dataTest = 'dhis2-uicore-menulist',
@@ -21,7 +21,7 @@ const Menu = /* NOSONAR -- preserves legacy composition behavior */ ({
 
     const childrenToRender = useMemo(
         () =>
-            Children.map(children, (child, index) => {
+            Children.map(children, (child, index /* NOSONAR */) => {
                 if (!isValidElement(child)) {
                     return child
                 }

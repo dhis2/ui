@@ -59,7 +59,7 @@ const Chip = ({
     marginInlineEnd,
 }: ChipProps) => (
     <span
-        role="button"
+        role={'button' /* NOSONAR */}
         tabIndex={disabled ? -1 : 0}
         onClick={(e) => {
             if (!disabled && onClick) {

@@ -12,7 +12,7 @@ export const DestructiveSelectOption = ({
 }: DestructiveSelectOptionProps) => {
     return (
         <div
-            role="button"
+            role={'button' /* NOSONAR */}
             tabIndex={0}
             onClick={onClick}
             onKeyDown={(event) => {

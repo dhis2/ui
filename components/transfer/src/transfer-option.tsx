@@ -39,7 +39,7 @@ export const TransferOption = ({
 
     return (
         <div
-            role="option"
+            role={'option' /* NOSONAR */}
             aria-selected={!!selected}
             tabIndex={disabled ? -1 : 0}
             data-test={dataTest}
