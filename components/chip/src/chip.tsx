@@ -5,8 +5,6 @@ import { Content } from './content.tsx'
 import { Icon } from './icon.tsx'
 import { Remove } from './remove.tsx'
 
-const ChipElement = 'span'
-
 const DEFAULT_INLINE_MARGIN = '4'
 
 export interface ChipProps {
@@ -60,8 +58,8 @@ const Chip = ({
     marginInlineStart,
     marginInlineEnd,
 }: ChipProps) => (
-    <ChipElement
-        role="button"
+    <span
+        role={'button' /* NOSONAR -- chip remains a composite control */}
         tabIndex={disabled ? -1 : 0}
         onClick={(e) => {
             if (!disabled && onClick) {
@@ -159,7 +157,7 @@ const Chip = ({
                 ${marginTop && `margin-top: ${marginTop}px`}
             }
         `}</style>
-    </ChipElement>
+    </span>
 )
 
 export { Chip }

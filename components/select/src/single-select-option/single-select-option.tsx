@@ -2,8 +2,6 @@ import { colors, spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React from 'react'
 
-const OptionElement = 'div'
-
 export interface SingleSelectOptionProps {
     label: string
     value: string
@@ -28,8 +26,8 @@ const SingleSelectOption = ({
     value,
     icon: _icon,
 }: SingleSelectOptionProps) => (
-    <OptionElement
-        role="option"
+    <div
+        role={'option' /* NOSONAR -- custom select option */}
         aria-selected={!!active}
         tabIndex={disabled ? -1 : 0}
         className={cx(className, {
@@ -96,7 +94,7 @@ const SingleSelectOption = ({
                     : 'none'};
             }
         `}</style>
-    </OptionElement>
+    </div>
 )
 
 export { SingleSelectOption }

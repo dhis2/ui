@@ -2,8 +2,6 @@ import { colors, theme, spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React from 'react'
 
-const LoaderElement = 'div'
-
 interface ProgressProps {
     amount: number
     invert?: boolean
@@ -56,8 +54,8 @@ const LinearLoader = ({
     'aria-label': ariaLabel,
 }: LinearLoaderProps) => {
     return (
-        <LoaderElement
-            role="progressbar"
+        <div
+            role={'progressbar' /* NOSONAR -- styled progress indicator */}
             aria-valuenow={amount}
             aria-label={ariaLabel}
             className={cx(className, { invert })}
@@ -83,7 +81,7 @@ const LinearLoader = ({
                     margin: ${margin};
                 }
             `}</style>
-        </LoaderElement>
+        </div>
     )
 }
 

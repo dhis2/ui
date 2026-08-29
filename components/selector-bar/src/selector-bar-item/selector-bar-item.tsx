@@ -6,8 +6,6 @@ import { Popper } from '@dhis2-ui/popper'
 import cx from 'classnames'
 import React, { useRef } from 'react'
 
-const ClearIconElement = 'span'
-
 const offsetModifier = {
     name: 'offset' as const,
     options: {
@@ -82,8 +80,10 @@ export const SelectorBarItem = ({
                 <>
                     <span className="value">{value || noValueMessage}</span>
                     {value && onClearSelectionClick && (
-                        <ClearIconElement
-                            role="button"
+                        <span
+                            role={
+                                'button' /* NOSONAR -- inline clear control */
+                            }
                             tabIndex={0}
                             className="clear-icon"
                             onClick={(evt) => {
@@ -108,7 +108,7 @@ export const SelectorBarItem = ({
                             >
                                 <path d="M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14ZM4.29289 4.29289C4.68342 3.90237 5.31658 3.90237 5.70711 4.29289L7 5.58579L8.29289 4.29289C8.68342 3.90237 9.31658 3.90237 9.70711 4.29289C10.0976 4.68342 10.0976 5.31658 9.70711 5.70711L8.41421 7L9.70711 8.29289C10.0976 8.68342 10.0976 9.31658 9.70711 9.70711C9.31658 10.0976 8.68342 10.0976 8.29289 9.70711L7 8.41421L5.70711 9.70711C5.31658 10.0976 4.68342 10.0976 4.29289 9.70711C3.90237 9.31658 3.90237 8.68342 4.29289 8.29289L5.58579 7L4.29289 5.70711C3.90237 5.31658 3.90237 4.68342 4.29289 4.29289Z" />
                             </svg>
-                        </ClearIconElement>
+                        </span>
                     )}
                 </>
             )}

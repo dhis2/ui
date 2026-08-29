@@ -7,7 +7,6 @@ import { FlyoutMenu } from '../flyout-menu/index.ts'
 import styles from './menu-item.styles.ts'
 
 const MenuItemAnchor = 'a'
-const MenuItemWrapper = 'li'
 
 export interface MenuItemProps {
     active?: boolean
@@ -166,7 +165,7 @@ const MenuItem = ({
 
     return (
         <>
-            <MenuItemWrapper
+            <li
                 className={cx(className, {
                     destructive,
                     disabled,
@@ -176,7 +175,7 @@ const MenuItem = ({
                 })}
                 ref={menuItemRef}
                 data-test={dataTest}
-                role="presentation"
+                role={'presentation' /* NOSONAR -- structural menu wrapper */}
                 tabIndex={tabIndex}
                 data-submenu-open={children && showSubMenu}
             >
@@ -218,7 +217,7 @@ const MenuItem = ({
                 </MenuItemAnchor>
 
                 <style jsx>{styles}</style>
-            </MenuItemWrapper>
+            </li>
             {children && showSubMenu && (
                 <Portal>
                     <Popper placement="right-start" reference={menuItemRef}>

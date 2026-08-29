@@ -2,8 +2,6 @@ import { Portal } from '@dhis2-ui/portal'
 import cx from 'classnames'
 import React from 'react'
 
-const BackdropElement = 'div'
-
 export interface LayerProps {
     children?: React.ReactNode
     className?: string
@@ -49,9 +47,9 @@ const Layer = ({
                 data-test={dataTest}
             >
                 {resolvedOnClick && (
-                    <BackdropElement
+                    <div
                         className="backdrop"
-                        role="button"
+                        role={'button' /* NOSONAR -- full-layer click target */}
                         tabIndex={0}
                         onClick={(event) => resolvedOnClick({}, event)}
                         onKeyDown={(event) => {
