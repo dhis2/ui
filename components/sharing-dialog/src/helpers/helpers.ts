@@ -150,11 +150,11 @@ export const replaceAccessWithConstant = ({
  * Helper to check whether to allow removing for the selected target
  */
 
-const permanentTargets: string[] = [SHARE_TARGET_EXTERNAL, SHARE_TARGET_PUBLIC]
+const permanentTargets = new Set([SHARE_TARGET_EXTERNAL, SHARE_TARGET_PUBLIC])
 
 export const isRemovableTarget = (target: string): boolean => {
     // Do not allow removal of permanent targets
-    return !permanentTargets.includes(target)
+    return !permanentTargets.has(target)
 }
 
 /**
@@ -198,16 +198,15 @@ const willHaveUserGroupMetadataWriteAccess = ({
 }): boolean => {
     // check if the groups that the user belongs to (excluding edited group) have metadata write access
     const userGroupsForUser =
-        currentUser?.userGroups
-            ?.map((group) => group?.id)
-            ?.filter((groupId): groupId is string => !!groupId) ?? []
+        currentUser?.userGroups?.map((group) => group?.id)?.filter(Boolean) ??
+        []
     const groupsWithSharing = groups
         .filter((group) => userGroupsForUser.includes(group?.id))
         .filter((group) => group?.id !== id)
 
     return groupsWithSharing
         .map((group) => group.access.metadata === ACCESS_VIEW_AND_EDIT)
-        .some((shared) => shared)
+        .some(Boolean)
 }
 
 const willHavePublicMetadataWriteAccess = ({

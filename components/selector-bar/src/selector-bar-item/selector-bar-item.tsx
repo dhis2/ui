@@ -53,7 +53,7 @@ export const SelectorBarItem = ({
     const buttonRef = useRef<HTMLButtonElement>(null)
     const Icon = open ? IconChevronUp24 : IconChevronDown24
 
-    const handleKeyDown = (evt) => {
+    const handleKeyDown = (evt: React.KeyboardEvent<HTMLButtonElement>) => {
         if (open && setOpen && evt.key === 'Tab') {
             // Move focus to trigger and defer close so Tab advances before the popup unmounts.
             buttonRef.current?.focus()
@@ -70,7 +70,7 @@ export const SelectorBarItem = ({
                 !displayOnly ? 'openable' : ''
             )}
             disabled={disabled}
-            onClick={() => setOpen && setOpen(true)}
+            onClick={() => setOpen?.(true)}
             onKeyDown={handleKeyDown}
             data-test={dataTest}
         >
@@ -81,10 +81,19 @@ export const SelectorBarItem = ({
                     <span className="value">{value || noValueMessage}</span>
                     {value && onClearSelectionClick && (
                         <span
+                            role="button"
+                            tabIndex={0}
                             className="clear-icon"
                             onClick={(evt) => {
                                 evt.stopPropagation()
                                 onClearSelectionClick()
+                            }}
+                            onKeyDown={(evt) => {
+                                if (evt.key === 'Enter' || evt.key === ' ') {
+                                    evt.preventDefault()
+                                    evt.stopPropagation()
+                                    onClearSelectionClick()
+                                }
                             }}
                             data-test={`${dataTest}-clear-icon`}
                         >

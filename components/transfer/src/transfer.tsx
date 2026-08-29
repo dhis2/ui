@@ -317,10 +317,8 @@ export const Transfer = ({
                                 dataTest={`${dataTest}-filter`}
                                 filter={actualFilter as string}
                                 onChange={
-                                    onFilterChange
-                                        ? onFilterChange
-                                        : ({ value }) =>
-                                              setInternalFilter(value)
+                                    onFilterChange ??
+                                    (({ value }) => setInternalFilter(value))
                                 }
                             />
                         )}
@@ -425,10 +423,9 @@ export const Transfer = ({
                                 dataTest={`${dataTest}-filter`}
                                 filter={actualFilterPicked as string}
                                 onChange={
-                                    onFilterChangePicked
-                                        ? onFilterChangePicked
-                                        : ({ value }) =>
-                                              setInternalFilterPicked(value)
+                                    onFilterChangePicked ??
+                                    (({ value }) =>
+                                        setInternalFilterPicked(value))
                                 }
                             />
                         )}

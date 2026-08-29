@@ -131,13 +131,13 @@ export const Button = ({
     }
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) =>
-        onClick && onClick({ value, name }, event)
+        onClick?.({ value, name }, event)
     const handleBlur = (event: React.FocusEvent<HTMLButtonElement>) =>
-        onBlur && onBlur({ value, name }, event)
+        onBlur?.({ value, name }, event)
     const handleFocus = (event: React.FocusEvent<HTMLButtonElement>) =>
-        onFocus && onFocus({ value, name }, event)
+        onFocus?.({ value, name }, event)
     const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) =>
-        onKeyDown && onKeyDown({ value, name }, event)
+        onKeyDown?.({ value, name }, event)
 
     const iconOnly = icon && !children
     const buttonClassName = cx(className, {

@@ -4,7 +4,7 @@ import React from 'react'
 import i18n from '../locales/index.js'
 import { SingleSelect } from '../single-select/index.ts'
 
-// TODO: translate
+// Translation props may be strings or lazy translation callbacks.
 const translate = (
     prop: string | ((interpolationObject?: Record<string, unknown>) => string),
     interpolationObject?: Record<string, unknown>
@@ -54,7 +54,7 @@ export interface SingleSelectFieldProps {
 }
 
 class SingleSelectField extends React.Component<SingleSelectFieldProps> {
-    static defaultProps = {
+    static readonly defaultProps = {
         dataTest: 'dhis2-uiwidgets-singleselectfield',
         selected: '',
 

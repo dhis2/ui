@@ -54,16 +54,14 @@ export const IconizedCheckbox = ({
     )
 
     return (
-        <>
-            <Checkbox
-                dense
-                checked={checked}
-                name={name}
-                value={value}
-                label={checkboxLabel}
-                indeterminate={indeterminate}
-                onChange={onChange}
-            />
-        </>
+        <Checkbox
+            dense
+            checked={checked}
+            name={name}
+            value={value}
+            label={checkboxLabel}
+            indeterminate={indeterminate}
+            onChange={onChange}
+        />
     )
 }

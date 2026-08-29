@@ -14,9 +14,22 @@ class Action extends Component<ActionProps> {
         this.props.hide(event)
     }
 
+    onKeyDown = (event: React.KeyboardEvent<HTMLSpanElement>) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault()
+            this.onClick(event as unknown as React.MouseEvent<HTMLSpanElement>)
+        }
+    }
+
     render() {
         return (
-            <span onClick={this.onClick} data-test={this.props.dataTest}>
+            <span
+                role="button"
+                tabIndex={0}
+                onClick={this.onClick}
+                onKeyDown={this.onKeyDown}
+                data-test={this.props.dataTest}
+            >
                 {this.props.label}
                 <style jsx>{`
                     span {

@@ -39,9 +39,13 @@ export const getItemRange = ({
         lastItem = firstItem + pageLength - 1
     }
 
-    if (isLastPage && isNaN(total as number) && isNaN(pageLength as number)) {
+    if (
+        isLastPage &&
+        Number.isNaN(Number(total)) &&
+        Number.isNaN(Number(pageLength))
+    ) {
         // impossible to accurately determine the last item
-        lastItem = NaN
+        lastItem = Number.NaN
     }
 
     return { firstItem, lastItem }

@@ -27,11 +27,23 @@ const SingleSelectOption = ({
     icon: _icon,
 }: SingleSelectOptionProps) => (
     <div
+        role="option"
+        aria-selected={!!active}
+        tabIndex={disabled ? -1 : 0}
         className={cx(className, {
             disabled,
             active,
         })}
         onClick={(e) => onClick?.({}, e)}
+        onKeyDown={(event) => {
+            if (!disabled && (event.key === 'Enter' || event.key === ' ')) {
+                event.preventDefault()
+                onClick?.(
+                    {},
+                    event as unknown as React.MouseEvent<HTMLDivElement>
+                )
+            }
+        }}
         data-test={dataTest}
         data-value={value}
         data-label={label}

@@ -9,7 +9,7 @@ const formatDebugInfoKey = (key: string): string => {
             if (token.toLowerCase() === 'dhis2') {
                 return 'DHIS2'
             } else {
-                return token[0].toUpperCase() + token.substr(1).toLowerCase()
+                return token[0].toUpperCase() + token.substring(1).toLowerCase()
             }
         })
         .join(' ')

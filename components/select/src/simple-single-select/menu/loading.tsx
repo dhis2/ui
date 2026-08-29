@@ -6,7 +6,7 @@ export interface SimpleLoadingProps {
     message?: string
 }
 
-export function Loading({ message }: SimpleLoadingProps) {
+export function Loading({ message }: Readonly<SimpleLoadingProps>) {
     return (
         <div className="container">
             <div>

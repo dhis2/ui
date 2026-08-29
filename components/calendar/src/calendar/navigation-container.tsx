@@ -62,7 +62,7 @@ export const NavigationContainer = ({
         languageDirection === 'ltr' ? IconChevronRight16 : IconChevronLeft16
 
     const handleYearChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        const targetYear = parseInt(e.target.value)
+        const targetYear = Number.parseInt(e.target.value)
         navigateToYear?.(targetYear)
     }
 
@@ -153,7 +153,7 @@ export const NavigationContainer = ({
                         >
                             {years?.map((year) => (
                                 <option key={year.value} value={year.value}>
-                                    {/* ToDo: this is a workaround for Ethiopic years showing the era
+                                    {/* This works around Ethiopic years showing the era.
                                     The workaround is needed but should be done in multi-calendar lib */}
                                     {year.label?.replace(/ERA\d/, '')}
                                 </option>

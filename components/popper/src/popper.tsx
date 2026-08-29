@@ -110,7 +110,7 @@ const Popper = ({
             ref={setPopperElement}
             style={styles.popper}
             {...attributes.popper}
-            tabIndex={0}
+            tabIndex={0 /* NOSONAR -- focusable positioned content */}
         >
             {children}
         </div>

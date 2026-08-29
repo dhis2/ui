@@ -56,7 +56,7 @@ export class Select extends Component<SelectProps, SelectState> {
         inputWidth: 'auto',
     }
 
-    static defaultProps = {
+    static readonly defaultProps = {
         dataTest: 'dhis2-uicore-select',
     }
 
@@ -233,7 +233,10 @@ export class Select extends Component<SelectProps, SelectState> {
                 className={className}
                 ref={this.selectRef}
                 onFocus={this.onFocus}
-                onKeyDown={this.onKeyDown}
+                onKeyDown={
+                    this
+                        .onKeyDown /* NOSONAR -- delegates keyboard events to select */
+                }
                 data-test={dataTest}
             >
                 <InputWrapper

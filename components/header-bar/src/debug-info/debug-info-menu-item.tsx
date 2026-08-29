@@ -14,6 +14,21 @@ export const DebugInfoMenuItem = ({
     showDebugInfoModal,
 }: DebugInfoMenuItemProps) => {
     const debugInfo = useDebugInfo()
+    let appVersionLabel: string
+
+    if (debugInfo.app_name && debugInfo.app_version) {
+        appVersionLabel = `${debugInfo.app_name} ${debugInfo.app_version}`
+    } else if (debugInfo.app_name) {
+        appVersionLabel = i18n.t('{{appName}} version unknown', {
+            appName: debugInfo.app_name,
+        })
+    } else if (debugInfo.app_version) {
+        appVersionLabel = i18n.t('App {{appVersion}}', {
+            appVersion: debugInfo.app_version,
+        })
+    } else {
+        appVersionLabel = i18n.t('App version unknown')
+    }
 
     const openDebugModal = () => {
         hideProfileMenu()
@@ -33,18 +48,7 @@ export const DebugInfoMenuItem = ({
                     : i18n.t('DHIS2 version unknown')}
             </div>
             <div className="version" data-test="dhis2-ui-headerbar-appinfo">
-                {debugInfo.app_name
-                    ? debugInfo.app_version
-                        ? `${debugInfo.app_name} ${debugInfo.app_version}`
-                        : i18n.t('{{appName}} version unknown', {
-                              appName: debugInfo.app_name,
-                          })
-                    : debugInfo.app_version
-                    ? i18n.t('App {{appVersion}}', {
-                          appVersion: debugInfo.app_version,
-                      })
-                    : i18n.t('App version unknown')}
-                {}
+                {appVersionLabel}
             </div>
             <style jsx>{`
                 .root {

@@ -11,7 +11,7 @@ export function Placeholder({
     placeholder,
     className,
     dataTest,
-}: PlaceholderProps) {
+}: Readonly<PlaceholderProps>) {
     return (
         <div className={className} data-test={dataTest}>
             {placeholder}

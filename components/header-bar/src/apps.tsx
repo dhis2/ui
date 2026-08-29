@@ -12,7 +12,7 @@ import i18n from './locales/index.js'
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Escaping
  */
 function escapeRegExpCharacters(text: string): string {
-    return text.replace(/[/.*+?^${}()|[\]\\]/g, '\\$&')
+    return text.replace(/[/.*+?^${}()|[\]\\]/g, String.raw`\$&`)
 }
 
 interface SearchProps {
@@ -23,7 +23,7 @@ interface SearchProps {
     ) => void
 }
 
-function Search({ value, onChange }: SearchProps) {
+function Search({ value, onChange }: Readonly<SearchProps>) {
     const { baseUrl } = useConfig()
 
     return (
@@ -72,7 +72,7 @@ interface ItemProps {
     img?: string
 }
 
-function Item({ name, path, img }: ItemProps) {
+function Item({ name, path, img }: Readonly<ItemProps>) {
     return (
         <a href={path}>
             <img src={img} alt="app logo" />
@@ -138,7 +138,7 @@ interface ListProps {
     filter?: string
 }
 
-function List({ apps, filter }: ListProps) {
+function List({ apps, filter }: Readonly<ListProps>) {
     return (
         <div data-test="headerbar-apps-menu-list">
             {(apps || [])
@@ -150,7 +150,7 @@ function List({ apps, filter }: ListProps) {
                     ).toLowerCase()
 
                     return (filter || '').length > 0
-                        ? formattedAppName.match(formattedFilter)
+                        ? formattedAppName.includes(formattedFilter)
                         : true
                 })
                 .map(({ displayName, name, defaultAction, icon }, idx) => (

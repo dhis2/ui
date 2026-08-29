@@ -2,6 +2,8 @@ import { useDataQuery } from '@dhis2/app-runtime'
 import { useMemo } from 'react'
 import { patchMissingDisplayName } from './patch-missing-display-name.ts'
 
+type QueryVariable = string | string[] | boolean | undefined
+
 export const createRootQuery = (
     ids: string[],
     displayProperty: 'displayName' | 'displayShortName' = 'displayName'
@@ -13,11 +15,8 @@ export const createRootQuery = (
                 id: string
                 resource: string
                 params: (
-                    vars: Record<
-                        string,
-                        string | string[] | boolean | undefined
-                    >
-                ) => Record<string, string | string[] | boolean | undefined>
+                    vars: Record<string, QueryVariable>
+                ) => Record<string, QueryVariable>
             }
         >
     >(
@@ -26,12 +25,7 @@ export const createRootQuery = (
             [id]: {
                 id,
                 resource: `organisationUnits`,
-                params: (
-                    variables: Record<
-                        string,
-                        string | string[] | boolean | undefined
-                    >
-                ) => ({
+                params: (variables: Record<string, QueryVariable>) => ({
                     isUserDataViewFallback: variables.isUserDataViewFallback,
                     fields: [
                         displayProperty === 'displayName'

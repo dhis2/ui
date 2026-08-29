@@ -7,7 +7,7 @@ export const useAvatarImgSrc = (avatarId: string): string | undefined => {
     return avatarId
         ? [baseUrl, 'api/fileResources', avatarId, 'data']
               .filter((part) => !!part)
-              .map((part) => part.replace(/^\/+|\/+$/g, ''))
+              .map((part) => part.replace(/^\/+/, '').replace(/\/+$/, ''))
               .join('/')
         : undefined
 }

@@ -41,7 +41,7 @@ const PageSelect = ({
             disabled={disabled}
             selected={page.toString()}
             onChange={({ selected }: { selected: string }) =>
-                onChange(parseInt(selected, 10))
+                onChange(Number.parseInt(selected, 10))
             }
             className="select"
             dataTest={`${dataTest}-page-select`}

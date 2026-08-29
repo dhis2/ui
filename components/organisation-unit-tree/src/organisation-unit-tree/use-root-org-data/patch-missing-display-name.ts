@@ -4,7 +4,7 @@
  * and investigate why this is necessary in the first place!
  * Maybe we can omit this completely and remove the state from
  * the useRootOrgData hook entirely
- * @TODO: Investigate if this could be removed
+ * This compatibility patch can be removed once all API responses provide a display name.
  */
 export const patchMissingDisplayName = (
     nodes: Record<string, { displayName?: string; [key: string]: unknown }>

@@ -85,9 +85,8 @@ export const OptionsContainer = ({
                 <div className="content-container" ref={listRef}>
                     {!options.length && emptyComponent}
                     {options.map((option) => {
-                        const highlighted = !!highlightedOptions.find(
-                            (highlightedSourceOption) =>
-                                highlightedSourceOption === option.value
+                        const highlighted = highlightedOptions.includes(
+                            option.value
                         )
 
                         return (

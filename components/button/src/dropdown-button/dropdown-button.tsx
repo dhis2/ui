@@ -8,7 +8,7 @@ interface ArrowDownProps {
     className?: string
 }
 
-function ArrowDown({ className }: ArrowDownProps) {
+function ArrowDown({ className }: Readonly<ArrowDownProps>) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +33,7 @@ interface ArrowUpProps {
     className?: string
 }
 
-function ArrowUp({ className }: ArrowUpProps) {
+function ArrowUp({ className }: Readonly<ArrowUpProps>) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +121,7 @@ class DropdownButton extends Component<
         open: false,
     }
 
-    static defaultProps = {
+    static readonly defaultProps = {
         dataTest: 'dhis2-uicore-dropdownbutton',
     }
 
@@ -162,9 +162,12 @@ class DropdownButton extends Component<
         if (typeof this.props.open === 'boolean') {
             handleClick(!this.props.open)
         } else {
-            this.setState({ open: !this.state.open }, () => {
-                handleClick(this.state.open)
-            })
+            this.setState(
+                ({ open }) => ({ open: !open }),
+                () => {
+                    handleClick(this.state.open)
+                }
+            )
         }
     }
 

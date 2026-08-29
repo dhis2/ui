@@ -47,7 +47,7 @@ interface CheckboxState {}
 class Checkbox extends Component<CheckboxProps, CheckboxState> {
     ref = createRef<HTMLInputElement>()
 
-    static defaultProps = {
+    static readonly defaultProps = {
         checked: false,
         indeterminate: false,
         dataTest: 'dhis2-uicore-checkbox',

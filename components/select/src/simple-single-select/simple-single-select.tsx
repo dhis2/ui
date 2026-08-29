@@ -131,7 +131,7 @@ export function SimpleSingleSelect({
     onEndReached = () => undefined,
     onFilterChange = () => undefined,
     onFocus = () => undefined,
-}: SimpleSingleSelectProps) {
+}: Readonly<SimpleSingleSelectProps>) {
     // We can't translate with default props as the translation function would
     // be called before we get any translations from the consuming app/lib
     const clearText = _clearText || i18n.t('Clear')

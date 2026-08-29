@@ -11,7 +11,17 @@ export const DestructiveSelectOption = ({
     onClick,
 }: DestructiveSelectOptionProps) => {
     return (
-        <div onClick={onClick}>
+        <div
+            role="button"
+            tabIndex={0}
+            onClick={onClick}
+            onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault()
+                    onClick()
+                }
+            }}
+        >
             {label}
             <style jsx>{`
                 div {

@@ -34,7 +34,7 @@ export const Node = ({
     onClose,
     dataTest = 'dhis2-uicore-node',
 }: NodeProps) => {
-    const hasLeaves = !!React.Children.toArray(children).filter((i) => i).length
+    const hasLeaves = !!React.Children.toArray(children).filter(Boolean).length
     const showArrow = !icon && hasLeaves
     const showSpacer = !icon && !hasLeaves
 

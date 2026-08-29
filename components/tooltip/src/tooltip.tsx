@@ -79,7 +79,7 @@ const Tooltip = ({
     const openTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
     const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-    const onMouseOver = () => {
+    const openTooltip = () => {
         clearTimeout(closeTimerRef.current as ReturnType<typeof setTimeout>)
 
         openTimerRef.current = setTimeout(() => {
@@ -87,23 +87,7 @@ const Tooltip = ({
         }, openDelay)
     }
 
-    const onMouseOut = () => {
-        clearTimeout(openTimerRef.current as ReturnType<typeof setTimeout>)
-
-        closeTimerRef.current = setTimeout(() => {
-            setOpen(false)
-        }, closeDelay)
-    }
-
-    const onFocus = () => {
-        clearTimeout(closeTimerRef.current as ReturnType<typeof setTimeout>)
-
-        openTimerRef.current = setTimeout(() => {
-            setOpen(true)
-        }, openDelay)
-    }
-
-    const onBlur = () => {
+    const closeTooltip = () => {
         clearTimeout(openTimerRef.current as ReturnType<typeof setTimeout>)
 
         closeTimerRef.current = setTimeout(() => {
@@ -133,20 +117,22 @@ const Tooltip = ({
         <>
             {typeof children === 'function' ? (
                 children({
-                    onMouseOver: onMouseOver,
-                    onMouseOut: onMouseOut,
-                    onFocus: onFocus,
-                    onBlur: onBlur,
+                    onMouseOver: openTooltip,
+                    onMouseOut: closeTooltip,
+                    onFocus: openTooltip,
+                    onBlur: closeTooltip,
                     ref: popperReference,
                 })
             ) : (
                 <span
-                    onMouseOver={onMouseOver}
-                    onMouseOut={onMouseOut}
-                    onFocus={onFocus}
-                    onBlur={onBlur}
+                    onMouseOver={openTooltip}
+                    onMouseOut={closeTooltip}
+                    onFocus={openTooltip}
+                    onBlur={closeTooltip}
                     ref={popperReference as React.RefObject<HTMLSpanElement>}
-                    tabIndex={0}
+                    tabIndex={
+                        0 /* NOSONAR -- enables keyboard tooltip access */
+                    }
                     aria-describedby={open ? 'tooltipContenDhis2Ui' : ''}
                     data-test={`${dataTest}-reference`}
                 >
@@ -172,8 +158,10 @@ const Tooltip = ({
                         <div
                             className={className}
                             id="tooltipContenDhis2Ui"
-                            onMouseOver={onMouseOver}
-                            onMouseOut={onMouseOut}
+                            onMouseOver={openTooltip}
+                            onMouseOut={closeTooltip}
+                            onFocus={openTooltip}
+                            onBlur={closeTooltip}
                             data-test={`${dataTest}-content`}
                             role="tooltip"
                         >

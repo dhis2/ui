@@ -14,9 +14,9 @@
  *   node scripts/ts-check.js <component> --fix  # auto-fix lint + format issues
  */
 
-const { execSync } = require('child_process')
-const fs = require('fs')
-const path = require('path')
+const { execSync } = require('node:child_process')
+const fs = require('node:fs')
+const path = require('node:path')
 
 const ROOT = path.resolve(__dirname, '..')
 const COMPONENTS_DIR = path.join(ROOT, 'components')

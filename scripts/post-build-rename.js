@@ -11,8 +11,8 @@
  *   buildDir defaults to ./build
  */
 
-const fs = require('fs')
-const path = require('path')
+const fs = require('node:fs')
+const path = require('node:path')
 
 const buildDir = process.argv[2] || path.join(process.cwd(), 'build')
 

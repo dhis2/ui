@@ -48,7 +48,7 @@ interface CheckboxIconProps {
     className?: string
 }
 
-export function CheckboxRegular({ className }: CheckboxIconProps) {
+export function CheckboxRegular({ className }: Readonly<CheckboxIconProps>) {
     return (
         <svg
             viewBox="0 0 18 18"
@@ -121,7 +121,7 @@ export function CheckboxRegular({ className }: CheckboxIconProps) {
     )
 }
 
-export function CheckboxDense({ className }: CheckboxIconProps) {
+export function CheckboxDense({ className }: Readonly<CheckboxIconProps>) {
     return (
         <svg
             viewBox="0 0 14 14"

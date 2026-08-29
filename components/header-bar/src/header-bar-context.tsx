@@ -1,13 +1,15 @@
-import React, { createContext, useContext } from 'react'
+import React, { createContext, useContext, useMemo } from 'react'
 
 interface HeaderBarContextValue {
     updateAvailable: boolean
     onApplyAvailableUpdate: () => void
 }
 
+const noop = () => undefined
+
 const headerBarContext = createContext<HeaderBarContextValue>({
     updateAvailable: false,
-    onApplyAvailableUpdate: () => {},
+    onApplyAvailableUpdate: noop,
 })
 
 export interface HeaderBarContextProviderProps {
@@ -21,13 +23,16 @@ export const HeaderBarContextProvider = ({
     onApplyAvailableUpdate,
     children,
 }: HeaderBarContextProviderProps) => {
+    const value = useMemo(
+        () => ({
+            updateAvailable: updateAvailable ?? false,
+            onApplyAvailableUpdate: onApplyAvailableUpdate ?? noop,
+        }),
+        [onApplyAvailableUpdate, updateAvailable]
+    )
+
     return (
-        <headerBarContext.Provider
-            value={{
-                updateAvailable: updateAvailable ?? false,
-                onApplyAvailableUpdate: onApplyAvailableUpdate ?? (() => {}),
-            }}
-        >
+        <headerBarContext.Provider value={value}>
             {children}
         </headerBarContext.Provider>
     )

@@ -66,7 +66,7 @@ function createFrameStepper({
             if (scrollValue !== endValue) {
                 scrollBox.scrollLeft = endValue
             }
-            callback && callback()
+            callback?.()
         } else {
             scrollBox.scrollLeft = scrollValue
             window.requestAnimationFrame(step)

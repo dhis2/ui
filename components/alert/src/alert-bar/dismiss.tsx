@@ -8,7 +8,18 @@ interface DismissProps {
 }
 
 const Dismiss = ({ onClick, dataTest }: DismissProps) => (
-    <div onClick={onClick} data-test={dataTest}>
+    <div
+        role="button"
+        tabIndex={0}
+        onClick={onClick}
+        onKeyDown={(event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault()
+                onClick(event as unknown as React.MouseEvent<HTMLDivElement>)
+            }
+        }}
+        data-test={dataTest}
+    >
         <IconCross24 />
         <style jsx>{`
             div {

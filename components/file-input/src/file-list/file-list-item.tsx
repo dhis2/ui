@@ -41,6 +41,13 @@ const FileListItem = ({
         }
     }
 
+    const handleCancelKeyDown = (event: React.KeyboardEvent) => {
+        if (onCancel && (event.key === 'Enter' || event.key === ' ')) {
+            event.preventDefault()
+            onCancel({}, event as unknown as React.MouseEvent)
+        }
+    }
+
     return (
         <p className={cx('selected-file', className)} data-test={dataTest}>
             <span className="icon">
@@ -56,8 +63,11 @@ const FileListItem = ({
 
                 {loading && onCancel && cancelText && (
                     <span
+                        role="button"
+                        tabIndex={0}
                         className="action"
                         onClick={(event) => onCancel({}, event)}
+                        onKeyDown={handleCancelKeyDown}
                         data-test={`${dataTest}-cancel`}
                     >
                         {cancelText}
@@ -66,6 +76,7 @@ const FileListItem = ({
 
                 {!loading && (
                     <span
+                        role="button"
                         className="action"
                         onClick={(event) => onRemove({}, event)}
                         data-test={`${dataTest}-remove`}

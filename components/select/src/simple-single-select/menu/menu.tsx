@@ -58,13 +58,13 @@ export function Menu({
     onBlur,
     onClose,
     onEndReached,
-}: SimpleMenuProps) {
-    const [menuWidth, setWidth] = useState('auto')
+}: Readonly<SimpleMenuProps>) {
+    const [menuWidth, setMenuWidth] = useState('auto')
     const dataTestPrefix = `${dataTest}-menu`
 
     useEffect(() => {
         if (selectRef) {
-            const callback = () => setWidth(`${selectRef.offsetWidth}px`)
+            const callback = () => setMenuWidth(`${selectRef.offsetWidth}px`)
             callback() // We want to know the width as soon as the
 
             selectRef.addEventListener('resize', callback)

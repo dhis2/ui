@@ -92,13 +92,9 @@ const Popover = ({
                 {children}
                 {arrow && (
                     <Arrow
-                        hidden={
-                            attributes.arrow &&
-                            !!attributes.arrow['data-arrow-hidden']
-                        }
+                        hidden={!!attributes.arrow?.['data-arrow-hidden']}
                         popperPlacement={
-                            attributes.popper &&
-                            attributes.popper['data-popper-placement']
+                            attributes.popper?.['data-popper-placement']
                         }
                         ref={setArrowElement}
                         styles={styles.arrow}

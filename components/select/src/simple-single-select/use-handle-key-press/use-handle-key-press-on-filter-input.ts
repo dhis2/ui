@@ -132,7 +132,6 @@ export function useHandleKeyPressOnFilterInput({
 
             if (key === 'PageDown') {
                 pageDown()
-                return
             }
 
             // Do nothing

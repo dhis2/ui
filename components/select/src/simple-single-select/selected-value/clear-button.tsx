@@ -8,7 +8,11 @@ export interface ClearButtonProps {
     dataTest?: string
 }
 
-function ClearButton({ onClear, clearText, dataTest }: ClearButtonProps) {
+function ClearButton({
+    onClear,
+    clearText,
+    dataTest,
+}: Readonly<ClearButtonProps>) {
     return (
         <button
             aria-label={i18n.t('{{clearText}}', { clearText })}

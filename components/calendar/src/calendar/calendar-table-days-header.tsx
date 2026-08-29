@@ -9,13 +9,17 @@ export const CalendarTableDaysHeader = ({
     weekDayLabels,
 }: CalendarTableDaysHeaderProps) => {
     const dayNamesColor = colors.grey700
+    const labelledWeekdays = weekDayLabels?.map((label, index) => ({
+        key: `weekday-${index}`,
+        label,
+    }))
 
     return (
         <>
             <thead>
                 <tr>
-                    {weekDayLabels?.map((label, i) => (
-                        <th scope="col" key={`weekday-${i}`}>
+                    {labelledWeekdays?.map(({ key, label }) => (
+                        <th scope="col" key={key}>
                             {label}
                         </th>
                     ))}

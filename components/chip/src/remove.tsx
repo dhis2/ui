@@ -6,7 +6,7 @@ interface CancelOutlineProps {
     className?: string
 }
 
-function CancelOutline({ className }: CancelOutlineProps) {
+function CancelOutline({ className }: Readonly<CancelOutlineProps>) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -70,9 +70,21 @@ export const Remove = ({ onRemove, dataTest }: RemoveProps) => {
 
     return (
         <span
+            role="button"
+            tabIndex={0}
             onClick={(e) => {
                 e.stopPropagation() // stop onRemove from triggering onClick on container
                 onRemove({}, e)
+            }}
+            onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault()
+                    event.stopPropagation()
+                    onRemove(
+                        {},
+                        event as unknown as React.MouseEvent<HTMLSpanElement>
+                    )
+                }
             }}
             data-test={dataTest}
         >

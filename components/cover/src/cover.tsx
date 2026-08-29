@@ -34,7 +34,18 @@ const Cover = ({
 }: CoverProps) => (
     <div
         className={cx(className, { translucent })}
-        onClick={createClickHandler(onClick)}
+        role={onClick ? 'button' : undefined}
+        tabIndex={onClick ? 0 : undefined}
+        onClick={onClick ? createClickHandler(onClick) : undefined}
+        onKeyDown={(event) => {
+            if (onClick && (event.key === 'Enter' || event.key === ' ')) {
+                event.preventDefault()
+                onClick(
+                    {},
+                    event as unknown as React.MouseEvent<HTMLDivElement>
+                )
+            }
+        }}
         data-test={dataTest}
     >
         {children}

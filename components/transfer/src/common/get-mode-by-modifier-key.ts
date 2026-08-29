@@ -14,7 +14,7 @@ export const getModeByModifierKey = ({
     metaKey,
 }: ModifierKeys): string => {
     const keys = [altKey, shiftKey, ctrlKey, metaKey]
-    const amountKeyPressed = keys.filter((v) => v)
+    const amountKeyPressed = keys.filter(Boolean)
     const moreThanOneKeyPressed = amountKeyPressed.length
 
     if (moreThanOneKeyPressed !== 1) {

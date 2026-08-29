@@ -85,10 +85,10 @@ export const OrganisationUnitNode = ({
 
     const strippedPath = leftTrimToRootId(path, rootId)
     const node = {
-        ...(orgData.data || {}),
+        ...orgData.data,
         // guarantee that displayName and id are available before data loaded
-        displayName: (orgData.data || {}).displayName || displayName,
-        id: (orgData.data || {}).id || id,
+        displayName: orgData.data?.displayName || displayName,
+        id: orgData.data?.id || id,
         // do not override strippedPath with path from loaded data
         path: strippedPath,
     }
@@ -108,8 +108,8 @@ export const OrganisationUnitNode = ({
         onCollapse: onCollapse || (() => undefined),
     })
 
-    const isSelected = !!selected.find((curPath) =>
-        curPath.match(new RegExp(`${strippedPath}$`))
+    const isSelected = selected.some((curPath) =>
+        new RegExp(`${strippedPath}$`).test(curPath)
     )
 
     const labelContent = renderNodeLabel({

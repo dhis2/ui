@@ -4,9 +4,9 @@ import { StatusIcon } from '@dhis2-ui/status-icon'
 import cx from 'classnames'
 import React, { Component } from 'react'
 import css from 'styled-jsx/css'
-import { inputTypes, InputType } from './inputTypes.ts'
+import type { InputType } from './inputTypes.ts'
 
-export { inputTypes }
+export { inputTypes } from './inputTypes.ts'
 export type { InputType }
 
 interface InputEventPayload {
@@ -179,7 +179,7 @@ const styles = css`
 `
 
 export class Input extends Component<InputProps> {
-    static defaultProps = {
+    static readonly defaultProps = {
         type: 'text' as const,
         dataTest: 'dhis2-uicore-input',
     }

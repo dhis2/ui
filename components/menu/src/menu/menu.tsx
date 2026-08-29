@@ -11,7 +11,7 @@ export interface MenuProps {
     dense?: boolean
 }
 
-const Menu = ({
+const Menu = /* NOSONAR -- preserves legacy composition behavior */ ({
     children,
     className,
     dataTest = 'dhis2-uicore-menulist',

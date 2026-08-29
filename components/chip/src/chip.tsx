@@ -59,9 +59,24 @@ const Chip = ({
     marginInlineEnd,
 }: ChipProps) => (
     <span
+        role="button"
+        tabIndex={disabled ? -1 : 0}
         onClick={(e) => {
             if (!disabled && onClick) {
                 onClick({}, e)
+            }
+        }}
+        onKeyDown={(event) => {
+            if (
+                !disabled &&
+                onClick &&
+                (event.key === 'Enter' || event.key === ' ')
+            ) {
+                event.preventDefault()
+                onClick(
+                    {},
+                    event as unknown as React.MouseEvent<HTMLSpanElement>
+                )
             }
         }}
         className={cx(className, {

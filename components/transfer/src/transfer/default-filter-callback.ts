@@ -10,7 +10,7 @@ export const defaultFilterCallback = (
 
     try {
         const regex = new RegExp(filter, 'i')
-        return options.filter(({ label }) => label.match(regex))
+        return options.filter(({ label }) => regex.test(label))
     } catch {
         console.warn('Invalid regex filter:', filter)
         return options

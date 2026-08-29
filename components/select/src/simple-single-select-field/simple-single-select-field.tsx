@@ -44,7 +44,9 @@ export interface SimpleSingleSelectFieldProps {
     onFocus?: (e: React.FocusEvent) => void
 }
 
-export function SimpleSingleSelectField(props: SimpleSingleSelectFieldProps) {
+export function SimpleSingleSelectField(
+    props: Readonly<SimpleSingleSelectFieldProps>
+) {
     const {
         className,
         dataTest,

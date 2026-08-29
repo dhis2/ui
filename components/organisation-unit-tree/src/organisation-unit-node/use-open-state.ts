@@ -24,12 +24,14 @@ export const useOpenState = ({
     autoExpandLoadingError,
 }: UseOpenStateArgs): UseOpenStateReturn => {
     const autoExpand = autoExpandLoadingError && !!errorMessage
-    const [openedOnceDueToError, setOpenedOnce] = useState(!!errorMessage)
+    const [openedOnceDueToError, setOpenedOnceDueToError] = useState(
+        !!errorMessage
+    )
 
     useEffect(() => {
         if (autoExpand && !openedOnceDueToError) {
             onExpand({ path })
-            setOpenedOnce(true)
+            setOpenedOnceDueToError(true)
         }
     }, [autoExpand, openedOnceDueToError])
 

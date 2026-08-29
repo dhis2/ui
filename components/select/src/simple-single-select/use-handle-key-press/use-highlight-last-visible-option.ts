@@ -48,9 +48,6 @@ export function useHighlightLastVisibleOption({
                 )
                 return
             }
-
-            // The currently highlighted option is the last enabled option
-            return
         },
         [options, focussedOptionIndex, setFocussedOptionIndex]
     )

@@ -100,7 +100,7 @@ const Label = ({
             singleSelection,
         })
 
-        // @TODO: It'd make more sense to pass the node as an object
+        // Passing these fields separately preserves the existing label-renderer API.
         // instead of spread it. But that'd be a breaking change
         const payload = {
             ...node,

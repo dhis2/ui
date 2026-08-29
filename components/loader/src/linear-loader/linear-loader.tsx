@@ -55,7 +55,9 @@ const LinearLoader = ({
 }: LinearLoaderProps) => {
     return (
         <div
-            role="progressbar"
+            role={
+                'progressbar' /* NOSONAR -- custom styled progress indicator */
+            }
             aria-valuenow={amount}
             aria-label={ariaLabel}
             className={cx(className, { invert })}

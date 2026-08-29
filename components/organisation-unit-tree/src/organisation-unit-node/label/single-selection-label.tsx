@@ -16,9 +16,21 @@ export const SingleSelectionLabel = ({
     loading,
 }: SingleSelectionLabelProps) => (
     <span
+        role="checkbox"
+        aria-checked={!!checked}
+        tabIndex={loading ? -1 : 0}
         onClick={(event) => {
             const payload = { checked: !checked }
             onChange?.(payload, event)
+        }}
+        onKeyDown={(event) => {
+            if (!loading && (event.key === 'Enter' || event.key === ' ')) {
+                event.preventDefault()
+                onChange?.(
+                    { checked: !checked },
+                    event as unknown as React.MouseEvent
+                )
+            }
         }}
         className={cx({ checked, loading })}
     >

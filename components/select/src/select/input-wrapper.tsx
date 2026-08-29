@@ -40,8 +40,21 @@ const InputWrapper = ({
 
     return (
         <div
+            role="button"
             className={classNames}
             onClick={onToggle}
+            onKeyDown={(event) => {
+                if (event.target !== event.currentTarget) {
+                    return
+                }
+
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault()
+                    onToggle(
+                        event as unknown as React.MouseEvent<HTMLDivElement>
+                    )
+                }
+            }}
             tabIndex={tabIndex as unknown as number}
             ref={inputRef}
             data-test={dataTest}

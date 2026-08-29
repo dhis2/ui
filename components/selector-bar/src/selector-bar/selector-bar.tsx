@@ -77,8 +77,8 @@ export const SelectorBar = ({
             return
         }
 
-        const currentIndex = childrenToFocus.findIndex(
-            (element) => element === currentFocus
+        const currentIndex = childrenToFocus.indexOf(
+            currentFocus as HTMLElement
         )
 
         if (currentIndex === -1) {
@@ -101,65 +101,61 @@ export const SelectorBar = ({
     }
 
     return (
-        <>
-            <div
-                className={cx(
-                    'container',
-                    { withRHSContents: additionalContent },
-                    className
+        <div
+            className={cx(
+                'container',
+                { withRHSContents: additionalContent },
+                className
+            )}
+            data-test={dataTest}
+            onKeyDown={handleKeyDown}
+            tabIndex={0}
+            ref={container}
+            role="toolbar"
+            aria-label={ariaLabel}
+        >
+            <div className="controls">
+                {children}
+                {onClearSelectionClick && (
+                    <ClearSelection
+                        disabled={disableClearSelections}
+                        onClick={onClearSelectionClick}
+                    />
                 )}
-                data-test={dataTest}
-                onKeyDown={handleKeyDown}
-                tabIndex={0}
-                ref={container}
-                role="toolbar"
-                aria-label={ariaLabel}
-            >
-                <div className="controls">
-                    {children}
-                    {onClearSelectionClick && (
-                        <ClearSelection
-                            disabled={disableClearSelections}
-                            onClick={onClearSelectionClick}
-                        />
-                    )}
-                </div>
-
-                {additionalContent && (
-                    <div className="additional-contents">
-                        {additionalContent}
-                    </div>
-                )}
-
-                <style jsx>{`
-                    .container {
-                        background: ${colors.white};
-                        box-shadow: inset 0 -1px 0 0 ${colors.grey400};
-                        padding-bottom: 1px;
-                    }
-
-                    .withRHSContents {
-                        display: flex;
-                    }
-
-                    .controls {
-                        display: flex;
-                        flex-wrap: wrap;
-                        flex-grow: 1;
-                        gap: 1px;
-                    }
-
-                    .additional-contents {
-                        ${
-                            /*
-                             * Specs define the space to be 12px.
-                             * 8px already come from the clear selection component
-                             */ ''
-                        }
-                        padding-inline-start: 4px;
-                    }
-                `}</style>
             </div>
-        </>
+
+            {additionalContent && (
+                <div className="additional-contents">{additionalContent}</div>
+            )}
+
+            <style jsx>{`
+                .container {
+                    background: ${colors.white};
+                    box-shadow: inset 0 -1px 0 0 ${colors.grey400};
+                    padding-bottom: 1px;
+                }
+
+                .withRHSContents {
+                    display: flex;
+                }
+
+                .controls {
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-grow: 1;
+                    gap: 1px;
+                }
+
+                .additional-contents {
+                    ${
+                        /*
+                         * Specs define the space to be 12px.
+                         * 8px already come from the clear selection component
+                         */ ''
+                    }
+                    padding-inline-start: 4px;
+                }
+            `}</style>
+        </div>
     )
 }

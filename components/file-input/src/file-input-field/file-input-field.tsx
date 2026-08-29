@@ -5,7 +5,7 @@ import { FileInput } from '../file-input/index.ts'
 import { FileList, FileListPlaceholder } from '../file-list/index.ts'
 import i18n from '../locales/index.js'
 
-// TODO: i18n
+// Translation props may be strings or lazy translation callbacks.
 const translate = (
     prop: string | ((...args: unknown[]) => string),
     interpolationObject?: Record<string, unknown>
@@ -139,9 +139,7 @@ const FileInputField = ({
         />
 
         <FileList>
-            {children ? (
-                children
-            ) : (
+            {children ?? (
                 <FileListPlaceholder>
                     {translate(placeholder)}
                 </FileListPlaceholder>

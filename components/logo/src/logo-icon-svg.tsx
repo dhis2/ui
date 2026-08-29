@@ -10,7 +10,7 @@ export function LogoIconSvg({
     iconColor,
     className,
     dataTest,
-}: LogoIconSvgProps) {
+}: Readonly<LogoIconSvgProps>) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"

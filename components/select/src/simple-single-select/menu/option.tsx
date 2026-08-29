@@ -10,7 +10,11 @@ interface DefaultStyleProps {
     highlighted?: boolean
 }
 
-function DefaultStyle({ label, disabled, highlighted }: DefaultStyleProps) {
+function DefaultStyle({
+    label,
+    disabled,
+    highlighted,
+}: Readonly<DefaultStyleProps>) {
     return (
         <span
             className={cx('option', {
@@ -85,7 +89,7 @@ export function Option({
     listBoxRef,
     onBecameVisible,
     ...rest
-}: OptionProps) {
+}: Readonly<OptionProps>) {
     const buttonRef = useRef<HTMLButtonElement>(null)
 
     useEffect(() => {
@@ -127,8 +131,8 @@ export function Option({
             id={`${comboBoxId}-${index}`}
             data-test={dataTest}
             disabled={disabled}
-            role="option"
-            aria-selected={highlighted || 'false'}
+            role={'option' /* NOSONAR -- ARIA option in custom combobox */}
+            aria-selected={!!highlighted}
             aria-disabled={disabled}
             aria-label={label}
             onClick={() => {

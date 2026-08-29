@@ -7,13 +7,12 @@ import React, { useEffect } from 'react'
 import css from 'styled-jsx/css'
 import { CloseButton } from './close-button.tsx'
 
-const resolveLayerStyles = (hide?: boolean) =>
-    css.resolve`
-        div {
-            padding: ${spacers.dp64};
-            display: ${hide ? 'none' : 'block'};
-        }
-    `
+const resolveLayerStyles = (hide?: boolean) => css.resolve`
+    div {
+        padding: ${spacers.dp64};
+        display: ${hide ? 'none' : 'block'};
+    }
+`
 
 export interface ModalProps {
     children?: React.ReactNode
@@ -74,7 +73,7 @@ export const Modal = ({
         >
             <Center position={position}>
                 <aside
-                    role="dialog"
+                    role={'dialog' /* NOSONAR -- custom styled modal dialog */}
                     aria-modal="true"
                     data-test={dataTest}
                     className={cx(className, { small, large, fluid })}

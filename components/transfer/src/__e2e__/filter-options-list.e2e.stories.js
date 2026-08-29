@@ -55,7 +55,9 @@ export const AncCustomFilter = (_, { selected, onChange }) => (
         selected={selected}
         onChange={onChange}
         filterCallback={(options, filter) =>
-            options.filter(({ label }) => label.match(`(^| )ANC .*${filter}`))
+            options.filter(({ label }) =>
+                new RegExp(`(^| )ANC .*${filter}`).test(label)
+            )
         }
         options={options}
     />

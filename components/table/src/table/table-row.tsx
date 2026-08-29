@@ -31,7 +31,7 @@ export const TableRow: React.FC<TableRowProps> = ({
         useContext(TableContext)
 
     const zebraStriping =
-        typeof suppressZebraStriping !== 'undefined'
+        suppressZebraStriping !== undefined
             ? !suppressZebraStriping
             : !suppressZebraStripingFromContext
 

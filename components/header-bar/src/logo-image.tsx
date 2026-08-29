@@ -30,11 +30,7 @@ interface LogoData {
     }
 }
 
-const pathExists = (data: LogoData) =>
-    data &&
-    data.customLogo &&
-    data.customLogo.images &&
-    data.customLogo.images.png
+const pathExists = (data: LogoData) => data?.customLogo?.images?.png
 
 export const LogoImage = () => {
     const { loading, error, data } = useDataQuery(query)

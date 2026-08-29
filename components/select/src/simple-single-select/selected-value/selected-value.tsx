@@ -74,7 +74,7 @@ export function SelectedValue({
     onFilterChange,
     onFilterInputKeyDown,
     onFocus,
-}: SelectedValueProps) {
+}: Readonly<SelectedValueProps>) {
     const dataTestPrefix = `${dataTest}-selectedvalue`
     const showFilter = filterable && expanded
 
@@ -90,7 +90,6 @@ export function SelectedValue({
             expanded={expanded}
             labelledBy={labelledBy}
             name={name}
-            placeholder={placeholder}
             tabIndex={tabIndex}
             valid={valid}
             warning={warning}
@@ -138,11 +137,20 @@ export function SelectedValue({
             )}
 
             <span
+                role="button"
+                tabIndex={0}
                 className="toggle-icon"
                 aria-label="Open select"
                 onClick={() => {
                     comboBoxRef?.current?.focus()
                     onClick?.()
+                }}
+                onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault()
+                        comboBoxRef?.current?.focus()
+                        onClick?.()
+                    }
                 }}
             >
                 <IconChevronDown16 />

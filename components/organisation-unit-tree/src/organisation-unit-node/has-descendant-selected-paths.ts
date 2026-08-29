@@ -3,8 +3,8 @@ export const hasDescendantSelectedPaths = (
     selected: string[]
 ): boolean => {
     return selected.some((selectedPath) => {
-        const isNotPath = !selectedPath.match(new RegExp(`${path}$`))
-        const isSubPath = selectedPath.match(new RegExp(path))
+        const isNotPath = !new RegExp(`${path}$`).test(selectedPath)
+        const isSubPath = new RegExp(path).test(selectedPath)
         return isNotPath && isSubPath
     })
 }

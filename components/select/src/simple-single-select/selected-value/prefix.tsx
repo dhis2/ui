@@ -7,7 +7,7 @@ export interface PrefixProps {
     prefix?: string
 }
 
-export function Prefix({ prefix, className, dataTest }: PrefixProps) {
+export function Prefix({ prefix, className, dataTest }: Readonly<PrefixProps>) {
     return (
         <div className={className} data-test={dataTest}>
             {prefix}

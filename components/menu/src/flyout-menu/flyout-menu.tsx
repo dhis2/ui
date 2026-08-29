@@ -62,7 +62,7 @@ const FlyoutMenu = ({
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.key === 'Escape') {
                 event.preventDefault()
-                closeMenu && closeMenu()
+                closeMenu?.()
             }
         }
 
@@ -79,7 +79,7 @@ const FlyoutMenu = ({
         <div
             className={className}
             data-test={dataTest}
-            tabIndex={0}
+            tabIndex={0 /* NOSONAR -- focus container for menu navigation */}
             ref={divRef}
         >
             <Menu dense={dense}>

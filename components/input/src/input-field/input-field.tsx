@@ -1,9 +1,9 @@
 import { Box } from '@dhis2-ui/box'
 import { Field } from '@dhis2-ui/field'
 import React from 'react'
-import { Input, InputType, inputTypes } from '../input/index.ts'
+import { Input, InputType } from '../input/index.ts'
 
-export { inputTypes }
+export { inputTypes } from '../input/index.ts'
 
 interface InputEventPayload {
     value: string
@@ -83,7 +83,7 @@ export interface InputFieldProps {
 }
 
 class InputField extends React.Component<InputFieldProps> {
-    static defaultProps = {
+    static readonly defaultProps = {
         dataTest: 'dhis2-uiwidgets-inputfield',
     }
 

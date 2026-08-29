@@ -42,7 +42,7 @@ const calculateColumnCount = (row: React.ReactNode) =>
               (total: number, col: React.ReactElement<{ colSpan?: string }>) =>
                   // make sure to take col span into account
                   col.props.colSpan
-                      ? total + parseInt(col.props.colSpan, 10)
+                      ? total + Number.parseInt(col.props.colSpan, 10)
                       : total + 1,
               0
           )
@@ -62,13 +62,13 @@ const mapCellsToLabels = (rowChildren: React.ReactNode) => {
             hideResponsiveLabel?: boolean
         }>
         const colSpan = cell.props.colSpan
-            ? parseInt(cell.props.colSpan, 10)
+            ? Number.parseInt(cell.props.colSpan, 10)
             : 1
 
         const label = extractLabelFromCell(cell)
 
         // Add a label entry for each column
-        labels = [...labels, ...Array(colSpan).fill(label)]
+        labels = [...labels, ...new Array(colSpan).fill(label)]
     }
 
     return labels
@@ -87,21 +87,19 @@ const combineRowLables = (
     headerLabels: (string | React.ReactNode)[][]
 ) =>
     // create array with length of column count
-    Array(columnCount)
-        .fill('')
-        .reduce((labels: string[], _, colIndex) => {
-            // an array with all labels for a column
-            const colLabels =
-                // create array with length of rows
-                Array(rowCount)
-                    .fill('')
-                    // get label for current row & col
-                    .map((__, rowIndex) => headerLabels[rowIndex][colIndex])
-                    // remove empty ones
-                    .filter((val) => val)
+    new Array(columnCount).fill('').reduce((labels: string[], _, colIndex) => {
+        // an array with all labels for a column
+        const colLabels =
+            // create array with length of rows
+            new Array(rowCount)
+                .fill('')
+                // get label for current row & col
+                .map((__, rowIndex) => headerLabels[rowIndex][colIndex])
+                // remove empty ones
+                .filter(Boolean)
 
-            return [...labels, colLabels.join(' / ')]
-        }, [])
+        return [...labels, colLabels.join(' / ')]
+    }, [])
 
 export const extractHeaderLabels = (children: React.ReactNode): string[] => {
     if (React.Children.count(children) === 0) {

@@ -21,7 +21,7 @@ export function Filter({
     value,
     onChange,
     onKeyDown,
-}: FilterProps) {
+}: Readonly<FilterProps>) {
     return (
         <>
             <input

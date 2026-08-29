@@ -15,7 +15,7 @@ export const moveHighlightedPickedOptionToTop = ({
         selected,
         highlightedPickedOptions,
     })
-    if (indices.length === 0 || indices.every((index, i) => index === i)) {
+    if (indices.every((index, i) => index === i)) {
         return
     }
 

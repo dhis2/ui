@@ -30,7 +30,7 @@ const Selection = ({ options, selected, className }: SelectionProps) => {
         }
     }
 
-    const icon = selectedOption && selectedOption.props.icon
+    const icon = selectedOption?.props.icon
     // Use the selected value if we do not have a label
     const label = selectedOption ? selectedOption.props.label : selected
 

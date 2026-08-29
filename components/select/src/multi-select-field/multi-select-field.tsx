@@ -4,7 +4,7 @@ import React from 'react'
 import i18n from '../locales/index.js'
 import { MultiSelect } from '../multi-select/index.ts'
 
-// TODO: translate
+// Translation props may be strings or lazy translation callbacks.
 const translate = (
     prop: string | ((interpolationObject?: Record<string, unknown>) => string),
     interpolationObject?: Record<string, unknown>
@@ -57,7 +57,7 @@ export interface MultiSelectFieldProps {
 }
 
 class MultiSelectField extends React.Component<MultiSelectFieldProps> {
-    static defaultProps = {
+    static readonly defaultProps = {
         selected: [] as string[],
         dataTest: 'dhis2-uiwidgets-multiselectfield',
 

@@ -68,7 +68,7 @@ const AlertBar = ({
     const remove = () => {
         setInDOM(false)
         setInViewport(false)
-        onHidden && onHidden({}, null)
+        onHidden?.({}, null)
     }
     const clearAllTimeouts = () => {
         clearTimeout(showTimeout.current as ReturnType<typeof setTimeout>)

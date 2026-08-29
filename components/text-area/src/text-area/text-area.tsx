@@ -76,7 +76,7 @@ export class TextArea extends Component<TextAreaProps, TextAreaState> {
     textareaDimensions = { width: 0, height: 0 }
     userHasResized = false
 
-    static defaultProps = {
+    static readonly defaultProps = {
         rows: 4,
         width: '100%',
         resize: 'vertical',

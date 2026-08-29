@@ -6,7 +6,7 @@ import {
     resolvedTableHeaderCss,
 } from './data-table-column-header.styles.ts'
 import { FilterHandle } from './filter-handle.tsx'
-import { Sorter, SORT_DIRECTIONS } from './sorter.tsx'
+import { Sorter } from './sorter.tsx'
 import type { SortDirection } from './sorter.tsx'
 
 const flexboxAlignLookup: Record<string, string> = {
@@ -131,5 +131,5 @@ export const DataTableColumnHeader = forwardRef<
 
 DataTableColumnHeader.displayName = 'DataTableColumnHeader'
 
-export { SORT_DIRECTIONS }
+export { SORT_DIRECTIONS } from './sorter.tsx'
 export type { SortDirection }

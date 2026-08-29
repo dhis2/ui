@@ -27,7 +27,7 @@ export const TransferOption = ({
     disabled,
     dataTest = 'dhis2-uicore-transferoption',
     highlighted,
-    selected: _selected,
+    selected,
     onClick,
     onDoubleClick,
     label,
@@ -39,6 +39,9 @@ export const TransferOption = ({
 
     return (
         <div
+            role="option"
+            aria-selected={!!selected}
+            tabIndex={disabled ? -1 : 0}
             data-test={dataTest}
             onClick={(event) => {
                 if (disabled) {
@@ -57,6 +60,15 @@ export const TransferOption = ({
                     }, DOUBLE_CLICK_MAX_DELAY)
 
                     onClick?.({ value }, event)
+                }
+            }}
+            onKeyDown={(event) => {
+                if (!disabled && (event.key === 'Enter' || event.key === ' ')) {
+                    event.preventDefault()
+                    onClick?.(
+                        { value },
+                        event as unknown as React.MouseEvent<HTMLDivElement>
+                    )
                 }
             }}
             data-value={value}

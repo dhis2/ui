@@ -12,10 +12,15 @@ export const getVisualizationsCount = (
     }
 
     // Only these types will be updated
-    const keep = ['VISUALIZATION', 'MAP', 'EVENT_CHART', 'EVENT_REPORT']
+    const keep = new Set([
+        'VISUALIZATION',
+        'MAP',
+        'EVENT_CHART',
+        'EVENT_REPORT',
+    ])
 
     // Filter the dashboardItems by the above types and count them only
-    return dashboardItems.filter((item) => keep.includes(item.type)).length
+    return dashboardItems.filter((item) => keep.has(item.type)).length
 }
 
 export const getResultMessage = ({

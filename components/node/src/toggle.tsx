@@ -37,9 +37,20 @@ export const Toggle = ({ open, onOpen, onClose, dataTest }: ToggleProps) => {
 
     return (
         <div
+            role="button"
+            tabIndex={0}
             className={cx({ open })}
             data-test={dataTest}
-            onClick={(event) => onClick && onClick({ open: !open }, event)}
+            onClick={(event) => onClick?.({ open: !open }, event)}
+            onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault()
+                    onClick?.(
+                        { open: !open },
+                        event as unknown as React.MouseEvent<HTMLDivElement>
+                    )
+                }
+            }}
         >
             <span>
                 <ArrowDown />

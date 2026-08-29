@@ -98,7 +98,7 @@ export interface SwitchRegularProps {
     className?: string
 }
 
-export function SwitchRegular({ className }: SwitchRegularProps) {
+export function SwitchRegular({ className }: Readonly<SwitchRegularProps>) {
     return (
         <svg
             viewBox="0 0 42 22"

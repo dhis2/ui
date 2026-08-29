@@ -13,7 +13,7 @@ export interface OnlineStatusProps {
 }
 
 /** A badge to display online/offline status in the header bar */
-export function OnlineStatus({ dense }: OnlineStatusProps) {
+export function OnlineStatus({ dense }: Readonly<OnlineStatusProps>) {
     const { isConnected: online } = useDhis2ConnectionStatus()
     const { onlineStatusMessage } = useOnlineStatusMessage()
 

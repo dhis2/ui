@@ -14,7 +14,6 @@ export interface ContainerProps {
     error?: boolean
     expanded?: boolean
     labelledBy?: string
-    placeholder?: string
     tabIndex?: string
     valid?: boolean
     warning?: boolean
@@ -36,7 +35,6 @@ export const Container = forwardRef<HTMLDivElement, ContainerProps>(
             expanded,
             labelledBy,
             name,
-            placeholder,
             tabIndex,
             valid,
             warning,
@@ -75,10 +73,9 @@ export const Container = forwardRef<HTMLDivElement, ContainerProps>(
                 data-test={dataTest}
                 ref={ref}
                 aria-controls={`${name}-listbox`}
-                aria-expanded={expanded ? true : false}
+                aria-expanded={expanded}
                 aria-haspopup="listbox"
                 aria-labelledby={labelledBy}
-                aria-placeholder={placeholder}
                 id={comboBoxId}
                 role="combobox"
                 tabIndex={tabIndex as unknown as number}

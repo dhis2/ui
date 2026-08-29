@@ -10,7 +10,7 @@ export const addColNumToChildren = (children: React.ReactNode) => {
         }>
         const column = element.props.column || curCol
         const colSpan = element.props.colSpan
-            ? parseInt(element.props.colSpan, 10)
+            ? Number.parseInt(element.props.colSpan, 10)
             : 1
 
         curCol += colSpan

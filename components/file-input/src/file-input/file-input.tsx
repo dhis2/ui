@@ -50,7 +50,7 @@ interface FileInputProps {
 }
 
 class FileInput extends Component<FileInputProps> {
-    static defaultProps = {
+    static readonly defaultProps = {
         accept: '*',
         dataTest: 'dhis2-uicore-fileinput',
     }

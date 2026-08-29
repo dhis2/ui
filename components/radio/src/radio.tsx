@@ -43,7 +43,7 @@ export interface RadioProps {
 class Radio extends Component<RadioProps> {
     ref = createRef<HTMLInputElement>()
 
-    static defaultProps = {
+    static readonly defaultProps = {
         dataTest: 'dhis2-uicore-radio',
     }
 

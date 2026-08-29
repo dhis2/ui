@@ -99,7 +99,7 @@ class Switch extends Component<SwitchProps> {
         }
     }
 
-    static defaultProps = {
+    static readonly defaultProps = {
         checked: false,
         dataTest: 'dhis2-uicore-switch',
         role: 'switch',

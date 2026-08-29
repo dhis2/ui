@@ -49,7 +49,18 @@ const Layer = ({
                 {resolvedOnClick && (
                     <div
                         className="backdrop"
+                        role="button"
+                        tabIndex={0}
                         onClick={(event) => resolvedOnClick({}, event)}
+                        onKeyDown={(event) => {
+                            if (event.key === 'Enter' || event.key === ' ') {
+                                event.preventDefault()
+                                resolvedOnClick(
+                                    {},
+                                    event as unknown as React.MouseEvent<HTMLDivElement>
+                                )
+                            }
+                        }}
                     />
                 )}
                 {children}

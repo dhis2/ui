@@ -10,7 +10,7 @@ export interface DebugInfoModalProps {
     onClose: () => void
 }
 
-export function DebugInfoModal({ onClose }: DebugInfoModalProps) {
+export function DebugInfoModal({ onClose }: Readonly<DebugInfoModalProps>) {
     const debugInfo = useFormattedDebugInfo()
     const { show: showClipboardAlert } = useAlert(
         'Debug information copied to clipboard',

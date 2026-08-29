@@ -1,7 +1,7 @@
 import i18n from './locales/index.js'
 
 const isValidNumber = (input: unknown): input is number =>
-    typeof input === 'number' && !isNaN(input)
+    typeof input === 'number' && !Number.isNaN(input)
 
 export interface PageSummaryTextOptions {
     firstItem?: number

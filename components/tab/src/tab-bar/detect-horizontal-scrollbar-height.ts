@@ -29,8 +29,8 @@ export function detectHorizontalScrollbarHeight(): number {
 
     horizontalScrollbarHeight = el.offsetHeight - el.clientHeight
 
-    document.body.removeChild(style)
-    document.body.removeChild(el)
+    style.remove()
+    el.remove()
 
     return horizontalScrollbarHeight
 }

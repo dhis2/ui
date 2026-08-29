@@ -12,9 +12,7 @@ export const toggleReplace = ({
     if (highlightedOptions.length > 1) {
         setHighlightedOptions([option.value])
     } else {
-        const optionIndex = highlightedOptions.findIndex(
-            (highlightedOption) => highlightedOption === option.value
-        )
+        const optionIndex = highlightedOptions.indexOf(option.value)
 
         if (optionIndex === -1) {
             setHighlightedOptions([option.value])

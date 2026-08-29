@@ -3,7 +3,7 @@ import { FileInputField } from '../file-input-field/index.ts'
 import i18n from '../locales/index.js'
 import { FileListItemWithRemove } from './file-list-item-with-remove.tsx'
 
-// TODO: i18n
+// Translation props may be strings or lazy translation callbacks.
 const translate = (
     prop: string | ((...args: unknown[]) => string),
     interpolationObject?: Record<string, unknown>
@@ -76,7 +76,7 @@ interface FileInputFieldWithListProps {
 }
 
 class FileInputFieldWithList extends Component<FileInputFieldWithListProps> {
-    static defaultProps = {
+    static readonly defaultProps = {
         accept: '*',
         dataTest: 'dhis2-uiwidgets-fileinputfield',
 

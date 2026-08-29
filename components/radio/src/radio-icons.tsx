@@ -46,7 +46,7 @@ const styles = css`
     }
 `
 
-export function RadioRegular({ className }: RadioIconProps) {
+export function RadioRegular({ className }: Readonly<RadioIconProps>) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +74,7 @@ export function RadioRegular({ className }: RadioIconProps) {
     )
 }
 
-export function RadioDense({ className }: RadioIconProps) {
+export function RadioDense({ className }: Readonly<RadioIconProps>) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"

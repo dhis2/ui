@@ -44,11 +44,7 @@ export function usePageDown({
 
         if (highestVisibleIndex > -1) {
             highlightLastOptionOnNextPage()
-            return
         }
-
-        // No visible option (e.g. when menu is empty)
-        return
     }, [
         focussedOptionIndex,
         listBoxRef,

@@ -89,7 +89,7 @@ class SplitButton extends Component<SplitButtonProps, SplitButtonState> {
         open: false,
     }
 
-    static defaultProps = {
+    static readonly defaultProps = {
         dataTest: 'dhis2-uicore-splitbutton',
     }
 
@@ -124,7 +124,7 @@ class SplitButton extends Component<SplitButtonProps, SplitButtonState> {
             } else {
                 this.setState({ open: false })
             }
-            this.anchorRef.current && this.anchorRef.current.focus()
+            this.anchorRef.current?.focus()
         }
     }
 

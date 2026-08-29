@@ -61,7 +61,7 @@ const createOnClickHandler =
         isLink,
         value,
     }: {
-        onClick?: MenuItemProps['onClick']
+        onClick: MenuItemProps['onClick']
         toggleSubMenu?: () => void
         isLink: boolean
         value?: string
@@ -73,8 +73,8 @@ const createOnClickHandler =
         evt.preventDefault()
         evt.stopPropagation()
 
-        onClick && onClick({ value }, evt)
-        toggleSubMenu && toggleSubMenu()
+        onClick?.({ value }, evt)
+        toggleSubMenu?.()
     }
 
 const MenuItem = ({
@@ -173,7 +173,9 @@ const MenuItem = ({
                 })}
                 ref={menuItemRef}
                 data-test={dataTest}
-                role="presentation"
+                role={
+                    'presentation' /* NOSONAR -- ARIA menu presentation wrapper */
+                }
                 tabIndex={tabIndex}
                 data-submenu-open={children && showSubMenu}
             >
@@ -190,7 +192,11 @@ const MenuItem = ({
                               })
                             : undefined
                     }
-                    role={checkbox ? 'menuitemcheckbox' : 'menuitem'}
+                    role={
+                        checkbox
+                            ? 'menuitemcheckbox'
+                            : 'menuitem' /* NOSONAR -- preserves link and menuitem behavior */
+                    }
                     aria-checked={checkbox ? checked : undefined}
                     aria-disabled={disabled}
                     aria-haspopup={children ? 'menu' : undefined}

@@ -38,7 +38,7 @@ const PageSizeSelect = ({
             disabled={disabled}
             selected={pageSize.toString()}
             onChange={({ selected }: { selected: string }) =>
-                onChange(parseInt(selected, 10))
+                onChange(Number.parseInt(selected, 10))
             }
             className="select"
             dataTest={`${dataTest}-pagesize-select`}
