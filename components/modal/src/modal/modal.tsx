@@ -7,6 +7,8 @@ import React, { useEffect } from 'react'
 import css from 'styled-jsx/css'
 import { CloseButton } from './close-button.tsx'
 
+const DialogElement = 'aside'
+
 const resolveLayerStyles = (hide?: boolean) => css.resolve`
     div {
         padding: ${spacers.dp64};
@@ -72,8 +74,8 @@ export const Modal = ({
             translucent={!hide}
         >
             <Center position={position}>
-                <aside
-                    {...{ role: 'dialog' as const }}
+                <DialogElement
+                    role="dialog"
                     aria-modal="true"
                     data-test={dataTest}
                     className={cx(className, { small, large, fluid })}
@@ -82,7 +84,7 @@ export const Modal = ({
                         {onClose && <CloseButton onClick={onClose} />}
                         <div>{children}</div>
                     </Card>
-                </aside>
+                </DialogElement>
                 {layerStyles.styles}
             </Center>
 

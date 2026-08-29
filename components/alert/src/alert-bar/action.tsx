@@ -1,6 +1,8 @@
 import { spacers } from '@dhis2/ui-constants'
 import React, { Component } from 'react'
 
+const ActionElement = 'span'
+
 export interface ActionProps {
     dataTest: string
     hide: (event: React.MouseEvent<HTMLSpanElement>) => void
@@ -23,8 +25,8 @@ class Action extends Component<ActionProps> {
 
     render() {
         return (
-            <span
-                {...{ role: 'button' as const }}
+            <ActionElement
+                role="button"
                 tabIndex={0}
                 onClick={this.onClick}
                 onKeyDown={this.onKeyDown}
@@ -41,7 +43,7 @@ class Action extends Component<ActionProps> {
                         cursor: pointer;
                     }
                 `}</style>
-            </span>
+            </ActionElement>
         )
     }
 }

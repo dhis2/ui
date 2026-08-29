@@ -2,6 +2,8 @@ import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React from 'react'
 
+const SingleSelectionElement = 'span'
+
 export interface SingleSelectionLabelProps {
     children: React.ReactNode
     checked?: boolean
@@ -15,8 +17,8 @@ export const SingleSelectionLabel = ({
     onChange,
     loading,
 }: SingleSelectionLabelProps) => (
-    <span
-        {...{ role: 'checkbox' as const }}
+    <SingleSelectionElement
+        role="checkbox"
         aria-checked={!!checked}
         tabIndex={loading ? -1 : 0}
         onClick={(event) => {
@@ -59,5 +61,5 @@ export const SingleSelectionLabel = ({
                 cursor: auto;
             }
         `}</style>
-    </span>
+    </SingleSelectionElement>
 )
