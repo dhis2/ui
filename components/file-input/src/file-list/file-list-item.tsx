@@ -4,8 +4,6 @@ import { CircularLoader } from '@dhis2-ui/loader'
 import cx from 'classnames'
 import React from 'react'
 
-const FileActionElement = 'span'
-
 interface FileListItemProps {
     onRemove: (
         payload: Record<string, never>,
@@ -64,8 +62,8 @@ const FileListItem = ({
                 <span className="label">{label}</span>
 
                 {loading && onCancel && cancelText && (
-                    <FileActionElement
-                        role="button"
+                    <span
+                        {...{ role: 'button' as const }}
                         tabIndex={0}
                         className="action"
                         onClick={(event) => onCancel({}, event)}
@@ -73,12 +71,12 @@ const FileListItem = ({
                         data-test={`${dataTest}-cancel`}
                     >
                         {cancelText}
-                    </FileActionElement>
+                    </span>
                 )}
 
                 {!loading && (
-                    <FileActionElement
-                        role="button"
+                    <span
+                        {...{ role: 'button' as const }}
                         className="action"
                         onClick={(event) => onRemove({}, event)}
                         data-test={`${dataTest}-remove`}
@@ -86,7 +84,7 @@ const FileListItem = ({
                         onKeyDown={handleKeyDown}
                     >
                         {removeText}
-                    </FileActionElement>
+                    </span>
                 )}
             </span>
 

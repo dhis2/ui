@@ -2,8 +2,6 @@ import { colors } from '@dhis2/ui-constants'
 import React from 'react'
 import css from 'styled-jsx/css'
 
-const RemoveElement = 'span'
-
 interface CancelOutlineProps {
     className?: string
 }
@@ -71,8 +69,8 @@ export const Remove = ({ onRemove, dataTest }: RemoveProps) => {
     }
 
     return (
-        <RemoveElement
-            role="button"
+        <span
+            {...{ role: 'button' as const }}
             tabIndex={0}
             onClick={(e) => {
                 e.stopPropagation() // stop onRemove from triggering onClick on container
@@ -94,6 +92,6 @@ export const Remove = ({ onRemove, dataTest }: RemoveProps) => {
             {removeIcon.styles}
 
             <style jsx>{containerStyle}</style>
-        </RemoveElement>
+        </span>
     )
 }

@@ -2,8 +2,6 @@ import { colors, spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React, { useRef } from 'react'
 
-const TransferOptionElement = 'div'
-
 const DOUBLE_CLICK_MAX_DELAY = 500
 
 export interface TransferOptionProps {
@@ -40,8 +38,8 @@ export const TransferOption = ({
     )
 
     return (
-        <TransferOptionElement
-            role="option"
+        <div
+            {...{ role: 'option' as const }}
             aria-selected={!!selected}
             tabIndex={disabled ? -1 : 0}
             data-test={dataTest}
@@ -109,6 +107,6 @@ export const TransferOption = ({
                     margin-block-end: ${spacers.dp4};
                 }
             `}</style>
-        </TransferOptionElement>
+        </div>
     )
 }

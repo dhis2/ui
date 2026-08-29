@@ -3,8 +3,6 @@ import { isOptionHidden } from '../is-option-hidden.ts'
 import { OptionType } from '../shared-prop-types.ts'
 import { Option } from './option.tsx'
 
-const OptionsListElement = 'div'
-
 export interface OptionsListProps {
     comboBoxId: string
     focussedOptionIndex: number
@@ -68,9 +66,9 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
         }, [focussedOptionIndex, ref])
 
         return (
-            <OptionsListElement
+            <div
+                {...{ role: 'listbox' as const }}
                 ref={ref}
-                role="listbox"
                 id={id}
                 aria-labelledby={labelledBy}
                 aria-live={optionUpdateStrategy}
@@ -113,7 +111,7 @@ export const OptionsList = forwardRef<HTMLDivElement, OptionsListProps>(
                         )
                     }
                 )}
-            </OptionsListElement>
+            </div>
         )
     }
 )

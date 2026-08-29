@@ -2,16 +2,14 @@ import { spacers } from '@dhis2/ui-constants'
 import { IconCross24 } from '@dhis2/ui-icons'
 import React from 'react'
 
-const DismissElement = 'div'
-
 interface DismissProps {
     dataTest: string
     onClick: (event: React.MouseEvent<HTMLDivElement>) => void
 }
 
 const Dismiss = ({ onClick, dataTest }: DismissProps) => (
-    <DismissElement
-        role="button"
+    <div
+        {...{ role: 'button' as const }}
         tabIndex={0}
         onClick={onClick}
         onKeyDown={(event) => {
@@ -45,7 +43,7 @@ const Dismiss = ({ onClick, dataTest }: DismissProps) => (
                 height: 18px;
             }
         `}</style>
-    </DismissElement>
+    </div>
 )
 
 export { Dismiss }

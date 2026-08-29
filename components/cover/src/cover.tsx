@@ -2,8 +2,6 @@ import { layers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React from 'react'
 
-const CoverElement = 'div'
-
 export interface CoverProps {
     children?: React.ReactNode
     className?: string
@@ -34,9 +32,9 @@ const Cover = ({
     onClick,
     translucent,
 }: CoverProps) => (
-    <CoverElement
+    <div
+        {...(onClick ? { role: 'button' as const } : {})}
         className={cx(className, { translucent })}
-        role={onClick ? 'button' : undefined}
         tabIndex={onClick ? 0 : undefined}
         onClick={onClick ? createClickHandler(onClick) : undefined}
         onKeyDown={(event) => {
@@ -64,7 +62,7 @@ const Cover = ({
                 background: rgba(33, 43, 54, 0.4);
             }
         `}</style>
-    </CoverElement>
+    </div>
 )
 
 export { Cover }

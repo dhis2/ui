@@ -2,8 +2,6 @@ import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React from 'react'
 
-const LoaderElement = 'div'
-
 export interface CircularLoaderProps {
     small?: boolean
     large?: boolean
@@ -23,8 +21,8 @@ const CircularLoader = ({
     dataTest = 'dhis2-uicore-circularloader',
     'aria-label': ariaLabel,
 }: CircularLoaderProps) => (
-    <LoaderElement
-        role="progressbar"
+    <div
+        {...{ role: 'progressbar' as const }}
         className={cx(className, {
             small,
             large,
@@ -72,7 +70,7 @@ const CircularLoader = ({
                 border-bottom-color: ${colors.white};
             }
         `}</style>
-    </LoaderElement>
+    </div>
 )
 
 export { CircularLoader }
