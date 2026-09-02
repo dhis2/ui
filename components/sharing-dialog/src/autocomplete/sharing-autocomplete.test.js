@@ -55,4 +55,49 @@ describe('SharingAutocomplete', () => {
         }
         expect(screen.queryByRole('menuitem')).not.toBeInTheDocument()
     })
+
+    it('supports keyboard navigation and selection', async () => {
+      const firstUser = {
+          id: 'user-1',
+          displayName: 'First User',
+      }
+      const secondUser = {
+          id: 'user-2',
+          displayName: 'Second User',
+      }
+      const dataProviderData = {
+          'sharing/search': jest.fn(() => ({
+              users: [firstUser, secondUser],
+          })),
+      }
+  
+      render(
+          <CustomDataProvider data={dataProviderData}>
+              <Wrapper />
+          </CustomDataProvider>
+      )
+  
+      const input = screen.getByRole('textbox')
+      await userEvent.type(input, 'User')
+  
+      const menuItems = await screen.findAllByRole('menuitem')
+      const firstItemContainer = menuItems[0].closest('li')
+      const secondItemContainer = menuItems[1].closest('li')
+  
+      await userEvent.keyboard('{ArrowDown}')
+      expect(firstItemContainer).toHaveFocus()
+  
+      await userEvent.keyboard('{ArrowDown}')
+      expect(secondItemContainer).toHaveFocus()
+  
+      await userEvent.keyboard('{ArrowUp}')
+      expect(firstItemContainer).toHaveFocus()
+  
+      await userEvent.keyboard('{ArrowDown}{Enter}')
+  
+      await waitFor(() => {
+          expect(input).toHaveValue(secondUser.displayName)
+      })
+      expect(screen.queryByRole('menuitem')).not.toBeInTheDocument()
+  })
 })
