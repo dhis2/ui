@@ -204,10 +204,24 @@ components.map((component) => {
      * Take the src/index.js file and generate an AST for it so we can figure
      * out the public API for the package through the defined exports.
      */
-    const index = fs.readFileSync(
-        path.join(component, 'src', 'index.js'),
-        'utf8'
-    )
+    /*
+     * react-docgen reads prop-types out of `.js` sources, so a package
+     * without a `src/index.js` entry point (e.g. a TypeScript package
+     * entered through `src/index.ts`) has no API for us to document.
+     * Skip it instead of crashing the whole documentation build.
+     */
+    const indexPath = path.join(component, 'src', 'index.js')
+
+    if (!fs.existsSync(indexPath)) {
+        console.info(
+            `Skipping ${path.basename(
+                component
+            )}: no src/index.js entry point to document`
+        )
+        return
+    }
+
+    const index = fs.readFileSync(indexPath, 'utf8')
     const ast = parser.parse(index, { sourceType: 'module' })
 
     visit(ast, {
