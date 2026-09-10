@@ -97,10 +97,14 @@ function modify_internal_package_resolutions(cfg) {
         const p = require(pkg)
         const name = p.name
 
+        /*
+         * Only the development path needs to match TypeScript: the
+         * production path reads compiled output, which is always `.js`.
+         */
         const pathToResolve =
             process.env.NODE_ENV === 'production'
                 ? `node_modules/${name}/build/es/**/index.js`
-                : `node_modules/${name}/src/**/index.js`
+                : `node_modules/${name}/src/**/index.{js,ts,tsx}`
 
         const index = fg.sync(pathToResolve, {
             depth: 1,
