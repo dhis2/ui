@@ -52,13 +52,20 @@ const config = {
             parser: require.resolve('@typescript-eslint/parser'),
             rules: {
                 /*
-                 * TypeScript's own checker covers both of these, and the
-                 * base rules misfire on type-only syntax: imported types
-                 * read as unused variables, and global types read as
+                 * TypeScript's own checker covers all three of these, and
+                 * the base rules misfire on type-only syntax: imported
+                 * types read as unused variables, and global types read as
                  * undefined identifiers.
+                 *
+                 * import/no-unresolved additionally cannot follow the
+                 * `.js` -> `.ts` specifier mapping this repo uses
+                 * (`./ou-tree.js` resolves to `ou-tree.tsx`). TypeScript
+                 * reports a genuine missing module as TS2307, so the
+                 * check is not lost, only moved.
                  */
                 'no-unused-vars': 'off',
                 'no-undef': 'off',
+                'import/no-unresolved': 'off',
             },
         },
     ],
