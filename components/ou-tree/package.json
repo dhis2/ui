@@ -22,10 +22,11 @@
     "scripts": {
         "start": "storybook dev -c ../../storybook/config --port 5000",
         "build": "d2-app-scripts build",
-        "test": "d2-app-scripts test --jestConfig ../../jest.config.shared.js",
+        "test": "d2-app-scripts test --jestConfig ./jest.config.js",
         "typecheck": "tsc --noEmit"
     },
     "peerDependencies": {
+        "@dhis2/d2-i18n": "^1",
         "react": "^16.13 || ^18",
         "react-dom": "^16.13 || ^18",
         "styled-jsx": "^4"
@@ -35,6 +36,7 @@
         "classnames": "^2.3.1"
     },
     "devDependencies": {
+        "@dhis2/d2-i18n": "^1.1.0",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
         "styled-jsx": "^4.0.1"
