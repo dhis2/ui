@@ -13,7 +13,12 @@ const config = {
     },
     overrides: [
         {
-            files: ['*.stories.js', '*.stories.e2e.js', '**/__stories__/*.js'],
+            files: [
+                '*.stories.js',
+                '*.stories.tsx',
+                '*.stories.e2e.js',
+                '**/__stories__/*.js',
+            ],
             rules: {
                 'import/no-extraneous-dependencies': 'off',
                 'react/display-name': 'off',
@@ -23,6 +28,7 @@ const config = {
         {
             files: [
                 'components/*/src/**/*.js',
+                'components/*/src/**/*.{ts,tsx}',
                 'collections/*/src/**/*.js',
                 'utilities/*/src/**/*.js',
             ],
@@ -30,13 +36,29 @@ const config = {
                 '**/features/**/*.js',
                 '**/__tests__/**/*.js',
                 '*.test.js',
+                '*.test.tsx',
                 '*.stories*.js',
+                '*.stories*.tsx',
                 '**/__stories__/*.js',
                 '**/__stories__/**/*.js',
                 '*.d.ts',
             ],
             rules: {
                 'import/no-extraneous-dependencies': 'error',
+            },
+        },
+        {
+            files: ['**/*.ts', '**/*.tsx'],
+            parser: require.resolve('@typescript-eslint/parser'),
+            rules: {
+                /*
+                 * TypeScript's own checker covers both of these, and the
+                 * base rules misfire on type-only syntax: imported types
+                 * read as unused variables, and global types read as
+                 * undefined identifiers.
+                 */
+                'no-unused-vars': 'off',
+                'no-undef': 'off',
             },
         },
     ],
