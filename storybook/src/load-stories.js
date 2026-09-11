@@ -31,7 +31,7 @@ exports.loadStories = () => {
                     curcomp,
                     'src',
                     '**',
-                    '*.prod.stories.@(js|jsx|mdx)'
+                    '*.prod.stories.@(js|jsx|ts|tsx|mdx)'
                 ),
             ]
         }
@@ -44,7 +44,7 @@ exports.loadStories = () => {
                     curcomp,
                     'src',
                     '**',
-                    '*.prod.stories.@(js|jsx|mdx)'
+                    '*.prod.stories.@(js|jsx|ts|tsx|mdx)'
                 ),
             ]
         }
@@ -56,7 +56,7 @@ exports.loadStories = () => {
                     ICONS_DIR,
                     'src',
                     '**',
-                    '*.prod.stories.@(js|jsx|mdx)'
+                    '*.prod.stories.@(js|jsx|ts|tsx|mdx)'
                 ),
             ]
         }
@@ -67,7 +67,7 @@ exports.loadStories = () => {
                     CONSTANTS_DIR,
                     'src',
                     '**',
-                    '*.prod.stories.@(js|jsx|mdx)'
+                    '*.prod.stories.@(js|jsx|ts|tsx|mdx)'
                 ),
             ]
         }
@@ -77,7 +77,7 @@ exports.loadStories = () => {
                 `custom => Loading ${isTesting ? 'testing' : 'all'} stories`
             )
 
-            const fileTypeExtension = '@(js|jsx|mdx)'
+            const fileTypeExtension = '@(js|jsx|ts|tsx|mdx)'
             const fileExtension = `${
                 isTesting ? 'e2e.stories' : 'prod.stories'
             }`

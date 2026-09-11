@@ -75,6 +75,11 @@ jobs:
             - name: Lint
               run: yarn lint
 
+            # Babel strips TypeScript types without checking them, so no
+            # other job verifies them.
+            - name: Typecheck
+              run: yarn typecheck
+
     test:
         runs-on: ubuntu-latest
         needs: [build]

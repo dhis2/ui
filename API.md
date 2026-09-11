@@ -27,6 +27,7 @@
 - [@dhis2-ui/node](components/node/API.md)
 - [@dhis2-ui/notice-box](components/notice-box/API.md)
 - [@dhis2-ui/organisation-unit-tree](components/organisation-unit-tree/API.md)
+- [@dhis2-ui/ou-tree](components/ou-tree/API.md)
 - [@dhis2-ui/pagination](components/pagination/API.md)
 - [@dhis2-ui/popover](components/popover/API.md)
 - [@dhis2-ui/popper](components/popper/API.md)
