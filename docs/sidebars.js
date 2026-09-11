@@ -86,6 +86,7 @@ const sidebars = {
                 'recipes/recipes',
                 'recipes/simple-single-select-simple-filtering',
                 'recipes/simple-single-select-server-side-filtering',
+                'recipes/transfer-infinite-loading-all-options-selected',
             ],
         },
         {
