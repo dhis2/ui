@@ -1,17 +1,15 @@
 #!/usr/bin/env bash
 
-# The library build is what gets published, so a failure here must fail the
-# whole command — otherwise a broken or missing `build/` reaches the publish
-# job, which gates only on this script's exit status.
+# The publish job gates on this script's exit status, so anything that
+# produces published output must fail hard.
 set -e
 
 yarn build:lib
 yarn build:api
 
-# Docs and Storybook are deliberately NOT release-blocking: being able to ship
-# component fixes matters more than the documentation site building. They are
-# still reported, as GitHub Actions warnings so a failure is visible in the
-# checks UI rather than buried in the log.
+# Docs and Storybook are not release-blocking: shipping component fixes
+# matters more than the documentation site building. The warnings surface a
+# failure in the checks UI rather than burying it in the log.
 set +e
 
 yarn workspace ui-docusaurus build || echo "::warning::docusaurus build failed (non-blocking)"

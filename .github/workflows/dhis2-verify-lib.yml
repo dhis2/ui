@@ -75,11 +75,8 @@ jobs:
             - name: Lint
               run: yarn lint
 
-            # Babel strips TypeScript types without checking them, so nothing
-            # else in CI verifies them. Runs in the lint job rather than its
-            # own, to avoid a second checkout and install for a check that
-            # takes seconds. The job name is left as `lint` so existing
-            # required-status-check settings keep matching.
+            # Babel strips TypeScript types without checking them, so no
+            # other job verifies them.
             - name: Typecheck
               run: yarn typecheck
 

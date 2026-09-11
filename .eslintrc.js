@@ -75,10 +75,9 @@ const config = {
                 'no-unused-vars': 'off',
                 'no-undef': 'off',
                 /*
-                 * TypeScript sources import siblings WITHOUT an extension
+                 * TypeScript sources import siblings without an extension
                  * (`./ou-tree` resolves to `ou-tree.tsx`), the inverse of the
-                 * `ignorePackages` rule the JavaScript packages follow. This
-                 * enforces that rather than merely permitting it.
+                 * `ignorePackages` rule the JavaScript packages follow.
                  */
                 'import/extensions': [
                     'error',

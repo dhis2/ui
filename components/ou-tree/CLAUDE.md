@@ -6,22 +6,15 @@ apply anything here to the other component packages.
 ## Conventions
 
 -   **Relative imports carry NO extension**, the inverse of the JavaScript packages:
-    `import { OuTree } from './ou-tree'` resolves to `ou-tree.tsx`. This is enforced
-    by `import/extensions: ['error', 'never', …]` in the root `.eslintrc.js`, scoped
-    to `.ts`/`.tsx` only — the 46 JavaScript packages still require their `.js`
-    extensions via `ignorePackages`, and that rule is untouched.
+    `import { OuTree } from './ou-tree'` resolves to `ou-tree.tsx`. Enforced by
+    `import/extensions: ['error', 'never', …]` in the root `.eslintrc.js`, scoped to
+    `.ts`/`.tsx`; the JavaScript packages keep their `ignorePackages` rule.
 
-    The reason for the split: writing `./ou-tree.js` from a `.ts` file names the
-    _compiled output_, not a file that exists on disk. TypeScript maps it, but
-    eslint-plugin-import, Jest and webpack each resolve it literally and fail — the
-    first attempt at this package needed a workaround in all three. Extensionless
-    needs none, because every one of those resolvers already tries `.ts`/`.tsx`.
-
-    The trade-off, recorded so it can be revisited: the emitted `build/es` output is
-    then not loadable by Node's _native_ ESM loader, which requires full specifiers.
-    That is inert for DHIS2 apps, which bundle, and `exports.require` sends Node to
-    the CJS build. Revisit if this library ever needs to be imported by Node directly,
-    or when the wider repo migrates to TypeScript and can amortise the workarounds.
+    Writing `./ou-tree.js` instead would name the compiled output rather than a file
+    on disk. TypeScript resolves that, but eslint-plugin-import, Jest and webpack do
+    not. Consequence to know about: `build/es` therefore carries extensionless
+    specifiers, which Node's _native_ ESM loader rejects — fine for apps that bundle,
+    and `exports.require` routes Node to the CJS build.
 
 -   **Type-only re-exports must use `export type`.** `isolatedModules` is on because
     Babel compiles file-by-file; a plain `export { SomeType }` compiles to a runtime

@@ -3,17 +3,16 @@
 /**
  * NOTA BENE
  *
- * Babel strips TypeScript types without checking them, so nothing in the
- * normal build or test run verifies them. This script runs the `typecheck`
- * script of every package that declares one.
+ * Babel strips TypeScript types without checking them, so neither the build
+ * nor the test run verifies them. This runs the `typecheck` script of every
+ * package that declares one.
  *
- * Packages are discovered rather than listed, the same way build.js and
- * setup.js do it, so a new TypeScript package is covered the moment it adds
- * a `typecheck` script — nobody has to remember to register it here.
+ * Packages are discovered rather than listed, so a package is covered as soon
+ * as it adds a `typecheck` script.
  */
 
-const os = require('os')
-const path = require('path')
+const os = require('node:os')
+const path = require('node:path')
 const concurrently = require('concurrently')
 
 /* We want to use the same way to find our packages in Storybook and our
@@ -34,7 +33,7 @@ const commands = packages
     .map((p) => {
         const pkg = require(path.join(p, 'package.json'))
 
-        if (!pkg.scripts || !pkg.scripts.typecheck) {
+        if (!pkg.scripts?.typecheck) {
             return
         }
 
@@ -43,7 +42,7 @@ const commands = packages
             command: `yarn workspace ${pkg.name} typecheck`,
         }
     })
-    .filter((c) => c)
+    .filter(Boolean)
 
 if (commands.length === 0) {
     console.log('No packages declare a typecheck script, nothing to do')
@@ -62,9 +61,9 @@ concurrently(commands, {
         console.log('Typecheck passed')
         process.exit(0)
     },
-    (failure) => {
+    (error_) => {
         console.log('Typecheck failed')
-        console.dir(failure, { depth: null })
+        console.dir(error_, { depth: null })
         process.exit(1)
     }
 )
