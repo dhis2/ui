@@ -23,11 +23,15 @@ apply anything here to the other component packages.
         `.eslintrc.js`, because eslint-plugin-import's resolver cannot follow it.
         TypeScript reports a genuinely missing module as `TS2307` — so run
         `typecheck`, and note CI does not.
-    -   `jest.config.js` in this package maps `^(\.{1,2}/.*)\.js$` to `$1` for the
-        same reason: Jest's resolver cannot follow it either, and without that
-        mapper the tests do not run at all. It re-spreads cli-app-scripts'
-        `moduleNameMapper` so the asset and styled-jsx mocks survive — keep that
-        spread if you edit it.
+    -   The root `jest.config.js` (used by root `yarn test`, i.e. CI) and
+        `jest.config.shared.js` (used by each package's own `test` script) both
+        map `^(\.{1,2}/.*)\.js$` to `$1` for the same reason: Jest's resolver
+        cannot follow it either, and without that mapper the tests do not run
+        at all. This mapping is repo-wide, not package-local — there is no
+        `jest.config.js` in this package — so editing it affects all suites,
+        not just this package's. Both files re-spread cli-app-scripts'
+        `moduleNameMapper` so the asset and styled-jsx mocks survive — keep
+        that spread if you edit either.
     -   `storybook/src/webpack-config.js` sets
         `resolve.extensionAlias = { '.js': ['.ts', '.tsx', '.js', '.jsx'] }`,
         because webpack's resolver cannot follow it either. Without it the

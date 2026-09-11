@@ -83,7 +83,7 @@
         "react-dev-utils": "^10.2.1",
         "react-docgen": "^5.4.0",
         "rimraf": "^3.0.2",
-        "typescript": "^5.5.4",
+        "typescript": "~5.5.4",
         "wait-on": "^6.0.0"
     },
     "overrides": {

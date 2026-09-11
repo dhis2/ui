@@ -9,7 +9,9 @@
         "moduleResolution": "node",
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
-        "isolatedModules": true
+        "isolatedModules": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true
     },
     "include": ["src", "typings"],
     "exclude": ["src/locales"]

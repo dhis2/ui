@@ -36,8 +36,10 @@ const config = {
                 '**/features/**/*.js',
                 '**/__tests__/**/*.js',
                 '*.test.js',
+                '*.test.ts',
                 '*.test.tsx',
                 '*.stories*.js',
+                '*.stories*.ts',
                 '*.stories*.tsx',
                 '**/__stories__/*.js',
                 '**/__stories__/**/*.js',
@@ -52,10 +54,14 @@ const config = {
             parser: require.resolve('@typescript-eslint/parser'),
             rules: {
                 /*
-                 * TypeScript's own checker covers all three of these, and
-                 * the base rules misfire on type-only syntax: imported
+                 * The base rules misfire on type-only syntax: imported
                  * types read as unused variables, and global types read as
-                 * undefined identifiers.
+                 * undefined identifiers. `no-undef` and `no-unused-vars`
+                 * are disabled here because TypeScript covers them instead
+                 * (TS2304, and TS6133/TS6192 via `noUnusedLocals` /
+                 * `noUnusedParameters`, which every `.ts`/`.tsx` package's
+                 * own tsconfig must enable — TS's `strict` does not turn
+                 * these on).
                  *
                  * import/no-unresolved additionally cannot follow the
                  * `.js` -> `.ts` specifier mapping this repo uses

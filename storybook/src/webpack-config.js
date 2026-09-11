@@ -169,13 +169,19 @@ exports.webpackConfig = async (config) => {
      * Source files import siblings with an explicit `.js` extension even
      * from `.ts`/`.tsx` files — TypeScript resolves it and Babel emits
      * `.js`, so the runtime path is correct, but webpack's resolver cannot
-     * follow the mapping on its own. `extensionAlias` teaches it to, and is
-     * a no-op for packages whose `.js` imports really are `.js`, since the
-     * real file is listed last and tried in order.
+     * follow the mapping on its own. `extensionAlias` teaches it to.
+     *
+     * The real `.js` file is listed first and tried before the `.ts`/`.tsx`
+     * fallbacks: `extensionAlias` is global and also applies inside
+     * `node_modules`, so a dependency shipping `foo.ts` beside `foo.js`
+     * must still resolve to its own `.js`, not TypeScript source it cannot
+     * parse. This ordering is a no-op for packages whose `.js` imports
+     * really are `.js`, and still resolves `ou-tree`'s `.js` -> `.ts`
+     * specifiers since the real file simply doesn't exist there.
      */
     config.resolve.extensionAlias = {
         ...config.resolve.extensionAlias,
-        '.js': ['.ts', '.tsx', '.js', '.jsx'],
+        '.js': ['.js', '.ts', '.tsx'],
     }
 
     return config
