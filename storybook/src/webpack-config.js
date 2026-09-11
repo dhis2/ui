@@ -160,17 +160,9 @@ exports.webpackConfig = async (config) => {
     modify_webpack_plugins(config)
 
     /*
-     * CRA decides whether a project is TypeScript by looking for a
-     * tsconfig.json in the directory the build runs from — `useTypeScript` in
-     * react-scripts/config/webpack.config.js — and drops `.ts`/`.tsx` from
-     * `resolve.extensions` when it finds none. Storybook builds from
-     * `storybook/`, which is not itself a TypeScript project, so the
-     * extensions are added back here.
-     *
-     * Adding a tsconfig.json to `storybook/` would do it too, but that also
-     * switches on ForkTsCheckerWebpackPlugin, type-checking the whole project
-     * during every Storybook build. Packages type-check themselves via
-     * `yarn typecheck`.
+     * CRA drops `.ts`/`.tsx` from `resolve.extensions` when the directory it
+     * builds from has no tsconfig.json, and `storybook/` has none. Adding one
+     * there would also enable ForkTsCheckerWebpackPlugin.
      */
     config.resolve.extensions = [
         ...new Set([...config.resolve.extensions, '.ts', '.tsx']),

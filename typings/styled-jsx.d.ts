@@ -1,9 +1,6 @@
-/*
- * styled-jsx works through a Babel transform, so nothing in component
- * source imports it and its type augmentation is never pulled into the
- * program on its own. Without this file, `<style jsx>` fails to
- * type-check because `jsx` and `global` are not valid props on `style`.
- */
+// Allows `<style jsx>` and `<style jsx global>` on `<style>` elements.
+// styled-jsx is applied by a Babel transform, so nothing imports it and its
+// own types are never loaded.
 import 'react'
 
 declare module 'react' {
