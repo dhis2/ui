@@ -13,8 +13,11 @@ const { webpackConfig } = require('../storybook/src/webpack-config.js')
 const config = {
     title: 'DHIS2 UI',
     tagline: 'React Components for DHIS2 Web Applications',
-    // (This is not correct)
-    url: 'https://developers.dhis2.org/docs/ui',
+    // `url` must be an origin only — Docusaurus rejects a sub-path here
+    // ("The url is not supposed to contain a sub-path"). The sub-path this
+    // site is served under belongs in `baseUrl`, but it is deliberately left
+    // as '/' because Netlify publishes the built `dist` at a preview root.
+    url: 'https://developers.dhis2.org',
     baseUrl: '/',
     onBrokenLinks: 'warn',
     onBrokenMarkdownLinks: 'warn',
