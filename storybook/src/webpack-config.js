@@ -159,29 +159,22 @@ exports.webpackConfig = async (config) => {
     modify_internal_package_resolutions(config)
     modify_webpack_plugins(config)
 
+    /*
+     * CRA drops `.ts`/`.tsx` from `resolve.extensions` unless a tsconfig.json
+     * exists at the project root — see `useTypeScript` in
+     * react-scripts/config/webpack.config.js. This repo deliberately has no
+     * root tsconfig (compiler options live in the packages that use them), so
+     * put them back: without this, extensionless imports from TypeScript
+     * sources fail with "Can't resolve './ou-tree/index'".
+     */
+    config.resolve.extensions = [
+        ...new Set([...config.resolve.extensions, '.ts', '.tsx']),
+    ]
+
     config.resolve.fallback = {
         ...config.resolve.fallback,
         crypto: require.resolve('crypto-browserify'),
         stream: require.resolve('stream-browserify'),
-    }
-
-    /*
-     * Source files import siblings with an explicit `.js` extension even
-     * from `.ts`/`.tsx` files — TypeScript resolves it and Babel emits
-     * `.js`, so the runtime path is correct, but webpack's resolver cannot
-     * follow the mapping on its own. `extensionAlias` teaches it to.
-     *
-     * The real `.js` file is listed first and tried before the `.ts`/`.tsx`
-     * fallbacks: `extensionAlias` is global and also applies inside
-     * `node_modules`, so a dependency shipping `foo.ts` beside `foo.js`
-     * must still resolve to its own `.js`, not TypeScript source it cannot
-     * parse. This ordering is a no-op for packages whose `.js` imports
-     * really are `.js`, and still resolves `ou-tree`'s `.js` -> `.ts`
-     * specifiers since the real file simply doesn't exist there.
-     */
-    config.resolve.extensionAlias = {
-        ...config.resolve.extensionAlias,
-        '.js': ['.js', '.ts', '.tsx'],
     }
 
     return config

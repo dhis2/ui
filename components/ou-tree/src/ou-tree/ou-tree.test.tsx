@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import React from 'react'
-import { OuTree } from './ou-tree.js'
+import { OuTree } from './ou-tree'
 
 describe('OuTree', () => {
     it('renders the placeholder heading', () => {

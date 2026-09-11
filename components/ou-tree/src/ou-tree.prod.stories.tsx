@@ -1,5 +1,5 @@
 import React from 'react'
-import { OuTree } from './ou-tree/index.js'
+import { OuTree } from './ou-tree/index'
 
 const description = `
 A replacement for \`OrganisationUnitTree\`, currently a placeholder.

@@ -52,26 +52,39 @@ const config = {
         {
             files: ['**/*.ts', '**/*.tsx'],
             parser: require.resolve('@typescript-eslint/parser'),
+            settings: {
+                /*
+                 * Teach eslint-plugin-import's resolver about TypeScript
+                 * sources, so `import/no-unresolved` keeps working for
+                 * extensionless relative imports (`./ou-tree` -> `ou-tree.tsx`).
+                 */
+                'import/resolver': {
+                    node: {
+                        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+                    },
+                },
+            },
             rules: {
                 /*
-                 * The base rules misfire on type-only syntax: imported
-                 * types read as unused variables, and global types read as
-                 * undefined identifiers. `no-undef` and `no-unused-vars`
-                 * are disabled here because TypeScript covers them instead
-                 * (TS2304, and TS6133/TS6192 via `noUnusedLocals` /
-                 * `noUnusedParameters`, which every `.ts`/`.tsx` package's
-                 * own tsconfig must enable — TS's `strict` does not turn
-                 * these on).
-                 *
-                 * import/no-unresolved additionally cannot follow the
-                 * `.js` -> `.ts` specifier mapping this repo uses
-                 * (`./ou-tree.js` resolves to `ou-tree.tsx`). TypeScript
-                 * reports a genuine missing module as TS2307, so the
-                 * check is not lost, only moved.
+                 * TypeScript reports an undefined identifier as TS2304, and
+                 * unused code as TS6133/TS6196 because each `.ts`/`.tsx`
+                 * package's tsconfig enables `noUnusedLocals` and
+                 * `noUnusedParameters`. The base rules only misfire on
+                 * type-only syntax, so they are off here and nowhere else.
                  */
                 'no-unused-vars': 'off',
                 'no-undef': 'off',
-                'import/no-unresolved': 'off',
+                /*
+                 * TypeScript sources import siblings WITHOUT an extension
+                 * (`./ou-tree` resolves to `ou-tree.tsx`), the inverse of the
+                 * `ignorePackages` rule the JavaScript packages follow. This
+                 * enforces that rather than merely permitting it.
+                 */
+                'import/extensions': [
+                    'error',
+                    'never',
+                    { ts: 'never', tsx: 'never' },
+                ],
             },
         },
     ],

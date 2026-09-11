@@ -5,11 +5,24 @@ apply anything here to the other component packages.
 
 ## Conventions
 
--   **Relative imports carry a `.js` extension**, even from `.ts`/`.tsx` files:
-    `import { OuTree } from './ou-tree.js'` resolves to `ou-tree.tsx`. TypeScript
-    maps the extension, Babel emits `.js`, and the repo's
-    `import/extensions: ['error', 'ignorePackages']` rule requires it. Dropping the
-    extension breaks both lint and the built output.
+-   **Relative imports carry NO extension**, the inverse of the JavaScript packages:
+    `import { OuTree } from './ou-tree'` resolves to `ou-tree.tsx`. This is enforced
+    by `import/extensions: ['error', 'never', …]` in the root `.eslintrc.js`, scoped
+    to `.ts`/`.tsx` only — the 46 JavaScript packages still require their `.js`
+    extensions via `ignorePackages`, and that rule is untouched.
+
+    The reason for the split: writing `./ou-tree.js` from a `.ts` file names the
+    _compiled output_, not a file that exists on disk. TypeScript maps it, but
+    eslint-plugin-import, Jest and webpack each resolve it literally and fail — the
+    first attempt at this package needed a workaround in all three. Extensionless
+    needs none, because every one of those resolvers already tries `.ts`/`.tsx`.
+
+    The trade-off, recorded so it can be revisited: the emitted `build/es` output is
+    then not loadable by Node's _native_ ESM loader, which requires full specifiers.
+    That is inert for DHIS2 apps, which bundle, and `exports.require` sends Node to
+    the CJS build. Revisit if this library ever needs to be imported by Node directly,
+    or when the wider repo migrates to TypeScript and can amortise the workarounds.
+
 -   **Type-only re-exports must use `export type`.** `isolatedModules` is on because
     Babel compiles file-by-file; a plain `export { SomeType }` compiles to a runtime
     import of a value that does not exist.
@@ -17,25 +30,12 @@ apply anything here to the other component packages.
     `index.ts`, never reach past it into its internals.
 -   **Styles are styled-jsx** (`<style jsx>`), not CSS modules. `<style jsx>` only
     type-checks because of `typings/styled-jsx.d.ts` — do not delete it.
--   **Three tools cannot follow the `.js` -> `.ts` convention and are configured
-    around it. Do not "clean up" any of these workarounds:**
-    -   `import/no-unresolved` is disabled for `.ts`/`.tsx` in the root
-        `.eslintrc.js`, because eslint-plugin-import's resolver cannot follow it.
-        TypeScript reports a genuinely missing module as `TS2307` — so run
-        `typecheck`, and note CI does not.
-    -   The root `jest.config.js` (used by root `yarn test`, i.e. CI) and
-        `jest.config.shared.js` (used by each package's own `test` script) both
-        map `^(\.{1,2}/.*)\.js$` to `$1` for the same reason: Jest's resolver
-        cannot follow it either, and without that mapper the tests do not run
-        at all. This mapping is repo-wide, not package-local — there is no
-        `jest.config.js` in this package — so editing it affects all suites,
-        not just this package's. Both files re-spread cli-app-scripts'
-        `moduleNameMapper` so the asset and styled-jsx mocks survive — keep
-        that spread if you edit either.
-    -   `storybook/src/webpack-config.js` sets
-        `resolve.extensionAlias = { '.js': ['.ts', '.tsx', '.js', '.jsx'] }`,
-        because webpack's resolver cannot follow it either. Without it the
-        Storybook build fails with `Can't resolve './ou-tree/index.js'`.
+-   **One shared setting exists for this package — do not "clean it up".** The
+    `**/*.{ts,tsx}` override in the root `.eslintrc.js` points
+    eslint-plugin-import's node resolver at `['.js', '.jsx', '.ts', '.tsx']`.
+    Without it `import/no-unresolved` cannot follow an extensionless import to a
+    `.tsx` file and reports every relative import as unresolved. Jest and webpack
+    need no equivalent — both already resolve `.ts`/`.tsx` by default.
 -   **Combine className values with `cx` from `classnames`**, not template literals.
 -   **Colors, spacers and elevations come from `@dhis2/ui-constants`**, not literals.
 

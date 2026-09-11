@@ -1,1 +1,1 @@
-export { OuTree } from './ou-tree.js'
+export { OuTree } from './ou-tree'
