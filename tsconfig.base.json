@@ -5,10 +5,10 @@
         "the emit paths in its tsconfig.build.json. TypeScript resolves relative",
         "paths against the file they are written in, so those cannot live here.",
         "",
-        "Deliberately NOT named tsconfig.json: react-scripts treats a root",
-        "tsconfig.json as 'this is a TypeScript app' (see `useTypeScript` in",
-        "react-scripts/config/webpack.config.js) and changes the Storybook",
-        "webpack build accordingly."
+        "Named .base.json because it is only ever extended, never used as a",
+        "project config. A root tsconfig.json would become the implicit project",
+        "for a bare `tsc` at the repo root and for editors opening JavaScript",
+        "packages, neither of which this file is for."
     ],
     "compilerOptions": {
         "strict": true,

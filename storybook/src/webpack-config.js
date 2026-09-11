@@ -104,7 +104,7 @@ function modify_internal_package_resolutions(cfg) {
         const pathToResolve =
             process.env.NODE_ENV === 'production'
                 ? `node_modules/${name}/build/es/**/index.js`
-                : `node_modules/${name}/src/**/index.{js,ts,tsx}`
+                : `node_modules/${name}/src/**/index.{js,jsx,ts,tsx}`
 
         const index = fg.sync(pathToResolve, {
             depth: 1,
@@ -160,12 +160,17 @@ exports.webpackConfig = async (config) => {
     modify_webpack_plugins(config)
 
     /*
-     * CRA drops `.ts`/`.tsx` from `resolve.extensions` unless a tsconfig.json
-     * exists at the project root — see `useTypeScript` in
-     * react-scripts/config/webpack.config.js. This repo deliberately has no
-     * root tsconfig (compiler options live in the packages that use them), so
-     * put them back: without this, extensionless imports from TypeScript
-     * sources fail with "Can't resolve './ou-tree/index'".
+     * CRA decides whether a project is TypeScript by looking for a
+     * tsconfig.json in the directory the build runs from — `useTypeScript` in
+     * react-scripts/config/webpack.config.js — and drops `.ts`/`.tsx` from
+     * `resolve.extensions` when it finds none. Storybook builds from
+     * `storybook/`, which is not itself a TypeScript project, so the
+     * extensions are added back here.
+     *
+     * Adding a tsconfig.json to `storybook/` would do it too, but that also
+     * switches on ForkTsCheckerWebpackPlugin, type-checking the whole project
+     * during every Storybook build. Packages type-check themselves via
+     * `yarn typecheck`.
      */
     config.resolve.extensions = [
         ...new Set([...config.resolve.extensions, '.ts', '.tsx']),
