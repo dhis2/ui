@@ -22,7 +22,13 @@ apply anything here to the other component packages.
 -   **`src/index.ts` is the module boundary.** Import from a subcomponent's
     `index.ts`, never reach past it into its internals.
 -   **Styles are styled-jsx** (`<style jsx>`), not CSS modules. `<style jsx>` only
-    type-checks because of `typings/styled-jsx.d.ts` — do not delete it.
+    type-checks because of `typings/styled-jsx.d.ts` at the repo root — do not
+    delete it.
+-   **Ambient declarations live in the repo-root `typings/`**, not in this package,
+    because they apply to any TypeScript package: `styled-jsx.d.ts` makes
+    `<style jsx>` valid, `jest-dom.d.ts` types `toBeInTheDocument` and friends. A new
+    TypeScript package picks them up by listing `"../../typings"` in its tsconfig
+    `include`, as this one does.
 -   **One shared setting exists for this package — do not "clean it up".** The
     `**/*.{ts,tsx}` override in the root `.eslintrc.js` points
     eslint-plugin-import's node resolver at `['.js', '.jsx', '.ts', '.tsx']`.

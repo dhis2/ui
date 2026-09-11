@@ -7,7 +7,7 @@
         "rootDir": "src",
         "outDir": "build/types"
     },
-    "include": ["src", "typings"],
+    "include": ["src", "../../typings"],
     "exclude": [
         "src/locales",
         "**/*.test.ts",

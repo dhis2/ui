@@ -1,0 +1,27 @@
+{
+    "//": [
+        "Shared compiler options for TypeScript packages. A package extends this",
+        "and adds only what is path-relative to itself: `include`, `exclude`, and",
+        "the emit paths in its tsconfig.build.json. TypeScript resolves relative",
+        "paths against the file they are written in, so those cannot live here.",
+        "",
+        "Deliberately NOT named tsconfig.json: react-scripts treats a root",
+        "tsconfig.json as 'this is a TypeScript app' (see `useTypeScript` in",
+        "react-scripts/config/webpack.config.js) and changes the Storybook",
+        "webpack build accordingly."
+    ],
+    "compilerOptions": {
+        "strict": true,
+        "noEmit": true,
+        "skipLibCheck": true,
+        "jsx": "react",
+        "target": "ES2020",
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "isolatedModules": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true
+    }
+}
