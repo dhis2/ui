@@ -165,5 +165,18 @@ exports.webpackConfig = async (config) => {
         stream: require.resolve('stream-browserify'),
     }
 
+    /*
+     * Source files import siblings with an explicit `.js` extension even
+     * from `.ts`/`.tsx` files — TypeScript resolves it and Babel emits
+     * `.js`, so the runtime path is correct, but webpack's resolver cannot
+     * follow the mapping on its own. `extensionAlias` teaches it to, and is
+     * a no-op for packages whose `.js` imports really are `.js`, since the
+     * real file is listed last and tried in order.
+     */
+    config.resolve.extensionAlias = {
+        ...config.resolve.extensionAlias,
+        '.js': ['.ts', '.tsx', '.js', '.jsx'],
+    }
+
     return config
 }
