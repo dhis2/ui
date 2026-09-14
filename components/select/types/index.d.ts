@@ -16,7 +16,7 @@ export interface MultiSelectEventPayload extends BaseEventPayload {
 
 type SelectEventHandler<
     T extends BaseEventPayload,
-    Event extends React.SyntheticEvent
+    Event extends React.SyntheticEvent,
 > = (payload: T, event: Event) => void
 
 export type SelectOnBlurHandler<T extends BaseEventPayload> =

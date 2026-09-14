@@ -138,12 +138,9 @@ import { ${toDisplayName} } from '@dhis2/ui'
 
 const cwd = path.resolve(__dirname, '..')
 
-const { uiPackages } = require(path.resolve(
-    cwd,
-    'storybook',
-    'src',
-    'ui-packages.js'
-))
+const { uiPackages } = require(
+    path.resolve(cwd, 'storybook', 'src', 'ui-packages.js')
+)
 
 const [components, collections, icons, constants] = uiPackages({
     absolute: true,

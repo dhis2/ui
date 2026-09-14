@@ -13,7 +13,7 @@ type ButtonEventHandler<Event extends React.SyntheticEvent> = (
 ) => void
 
 type ButtonOpenEventHandler<
-    Event extends React.SyntheticEvent = React.MouseEvent<HTMLButtonElement>
+    Event extends React.SyntheticEvent = React.MouseEvent<HTMLButtonElement>,
 > = (arg0: ButtonEventPayload & { open: boolean }, event: Event) => void
 
 export interface BaseButtonProps {
