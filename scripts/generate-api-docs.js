@@ -194,7 +194,7 @@ components.map((component) => {
                 )
 
                 return ast.map((a) => ({ file, ast: a }))
-            } catch (err) {
+            } catch {
                 /**
                  * skip files that react-docgen cannot parse as they are probably
                  * not react components in the first place.
@@ -315,7 +315,7 @@ icons.map((icon) => {
                 )
 
                 return ast.map((a) => ({ file, ast: a }))
-            } catch (err) {
+            } catch {
                 /**
                  * skip files that react-docgen cannot parse as they are probably
                  * not react components in the first place.
@@ -436,7 +436,7 @@ collections.map((collection) => {
                 )
 
                 return ast.map((a) => ({ file, ast: a }))
-            } catch (err) {
+            } catch {
                 /**
                  * skip files that react-docgen cannot parse as they are probably
                  * not react components in the first place.

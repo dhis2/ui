@@ -73,6 +73,13 @@ export default defineConfig([
             'import/no-extraneous-dependencies': 'off',
             'react/display-name': 'off',
             'react/prop-types': 'off',
+            /*
+             * Both rules guard against re-render churn in shipped
+             * components. Stories are fixtures: defining a component inline
+             * and passing a literal default is how you write one.
+             */
+            'react/no-object-type-as-default-prop': 'off',
+            'react-hooks/static-components': 'off',
         },
     },
 
