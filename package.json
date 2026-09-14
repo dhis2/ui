@@ -59,7 +59,6 @@
         "@cypress/webpack-preprocessor": "^6.0.1",
         "@dhis2/app-runtime": "^3.11.2",
         "@dhis2/cli-app-scripts": "^12.11.3",
-        "@dhis2/cli-style": "10.4.2",
         "@dhis2/cli-utils-docsite": "^3.1.2",
         "@dhis2/config-eslint": "^0.2.2",
         "@dhis2/config-prettier": "^0.2.2",
