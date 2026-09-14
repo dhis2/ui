@@ -17,6 +17,6 @@ yarn workspace ui-storybook build || echo "::warning::storybook build failed (no
 
 set -e
 
-# If there are changes to files after we built, we need to run them
-# through d2-style to avoid style-based diffs.
-git diff --name-only -z | xargs -r0 yarn d2-style apply
+# Format whatever the build regenerated, so it leaves no style diff.
+git diff --name-only -z | xargs -r0 yarn eslint --fix --no-error-on-unmatched-pattern
+git diff --name-only -z | xargs -r0 yarn prettier --write --ignore-unknown
