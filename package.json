@@ -54,6 +54,8 @@
         "@babel/parser": "^7.17.0",
         "@badeball/cypress-cucumber-preprocessor": "^20.0.2",
         "@cfaester/enzyme-adapter-react-18": "^0.8.0",
+        "@commitlint/cli": "^20",
+        "@commitlint/config-conventional": "^20",
         "@cypress/webpack-preprocessor": "^6.0.1",
         "@dhis2/app-runtime": "^3.11.2",
         "@dhis2/cli-app-scripts": "^12.11.3",

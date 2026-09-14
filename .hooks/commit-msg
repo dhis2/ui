@@ -1,4 +1,3 @@
 #!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
 
-yarn d2-style check commit "$1"
+yarn commitlint --edit "$1"
