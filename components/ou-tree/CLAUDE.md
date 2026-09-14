@@ -32,10 +32,11 @@ apply anything here to the other component packages.
     Without it `import/no-unresolved` cannot follow an extensionless import to a
     `.tsx` file and reports every relative import as unresolved. Jest and webpack
     need no equivalent — both already resolve `.ts`/`.tsx` by default.
--   **`tsconfig.build.json` is the only TypeScript config in this package.** Checking
-    is global (root `tsconfig.json`); only declaration emit is per package, because
-    each package publishes its own types and one `tsc` run writes to one `outDir`.
-    Same reason `d2.config.js` is per package.
+-   **This package has no TypeScript config of its own.** Checking is global
+    (root `tsconfig.json`, `yarn typecheck`). Declaration emit is per package,
+    because each package publishes its own types, and
+    `scripts/build-types.js` does it — reading the compiler options from the
+    root config so they cannot drift from the ones used to check.
 -   **Combine className values with `cx` from `classnames`**, not template literals.
 -   **Colors, spacers and elevations come from `@dhis2/ui-constants`**, not literals.
 
