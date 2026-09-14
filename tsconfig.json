@@ -1,0 +1,23 @@
+{
+    "//": [
+        "The TypeScript project for the whole repo. Type-checking is global, like linting: `yarn typecheck` runs once over every package. Editors resolve this file for any .ts/.tsx source, since packages carry no tsconfig.json of their own.",
+        "",
+        "Declaration emit is separate and per-package, because each package publishes its own types. See tsconfig.build.base.json."
+    ],
+    "include": ["components/*/src", "collections/*/src", "typings"],
+    "exclude": ["**/locales/**"],
+    "compilerOptions": {
+        "strict": true,
+        "noEmit": true,
+        "skipLibCheck": true,
+        "jsx": "react",
+        "target": "ES2020",
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "isolatedModules": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true
+    }
+}

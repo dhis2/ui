@@ -1,0 +1,21 @@
+{
+    "//": [
+        "Declaration emit. Separate from tsconfig.json because each package",
+        "publishes its own types, and one tsc run writes to one outDir — so the",
+        "emit is per package even though the settings are shared. `${configDir}`",
+        "resolves to the extending package's directory.",
+        "",
+        "Tests and stories are excluded: they are type-checked by tsconfig.json,",
+        "but must not produce published declarations."
+    ],
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "noEmit": false,
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "rootDir": "${configDir}/src",
+        "outDir": "${configDir}/build/types"
+    },
+    "files": ["typings/styled-jsx.d.ts"],
+    "exclude": ["**/locales/**", "**/*.test.*", "**/*.stories.*"]
+}

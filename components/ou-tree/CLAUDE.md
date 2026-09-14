@@ -22,8 +22,7 @@ apply anything here to the other component packages.
 -   **`src/index.ts` is the module boundary.** Import from a subcomponent's
     `index.ts`, never reach past it into its internals.
 -   **Styles are styled-jsx** (`<style jsx>`), not CSS modules. It only type-checks
-    because of `typings/styled-jsx.d.ts` at the repo root, which a package picks up
-    by listing `"../../typings"` in its tsconfig `include`.
+    because of `typings/styled-jsx.d.ts` at the repo root.
 -   **Test files import `@testing-library/jest-dom` directly**, for the types behind
     `toBeInTheDocument` and friends. The repo's Jest setup already loads it at
     runtime, but that setup file is not part of the TypeScript program.
@@ -33,14 +32,18 @@ apply anything here to the other component packages.
     Without it `import/no-unresolved` cannot follow an extensionless import to a
     `.tsx` file and reports every relative import as unresolved. Jest and webpack
     need no equivalent — both already resolve `.ts`/`.tsx` by default.
+-   **`tsconfig.build.json` is the only TypeScript config in this package.** Checking
+    is global (root `tsconfig.json`); only declaration emit is per package, because
+    each package publishes its own types and one `tsc` run writes to one `outDir`.
+    Same reason `d2.config.js` is per package.
 -   **Combine className values with `cx` from `classnames`**, not template literals.
 -   **Colors, spacers and elevations come from `@dhis2/ui-constants`**, not literals.
 
 ## Commands
 
--   `yarn workspace @dhis2-ui/ou-tree typecheck` — **the only thing that type-checks
-    this package. CI does not run it.** Babel strips types without checking them, so
-    a green test run says nothing about type correctness. Run it before every commit.
+-   `yarn typecheck` from the repo root — type-checking is global, like linting: one
+    run covers every package. Babel strips types without checking them, so a green
+    test run says nothing about type correctness. CI runs this in the lint job.
 -   `yarn workspace @dhis2-ui/ou-tree test` — Jest.
 -   `yarn workspace @dhis2-ui/ou-tree build` — Babel build plus declaration emit to
     `build/types/`.
