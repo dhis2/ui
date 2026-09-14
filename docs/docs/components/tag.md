@@ -21,12 +21,12 @@ Tags are used to label items by a set of shared properties, like category or sta
 
 ### When to use
 
--   **Showing a status or category**. Use a tag to give a quick indicator of something's status or category, usually as part of a group of many items.
--   **Several items share common properties**. Use tags when several items, like rows in a table, share subsets of common properties. Tags help a user quickly understand which items have which properties.
+- **Showing a status or category**. Use a tag to give a quick indicator of something's status or category, usually as part of a group of many items.
+- **Several items share common properties**. Use tags when several items, like rows in a table, share subsets of common properties. Tags help a user quickly understand which items have which properties.
 
 ### When not to use
 
--   **Primary actions**. Don't use tags for any type of important action. A tag isn't a button. A tag could be used to a secondary action, like opening a convenient view of items with similar tags.
+- **Primary actions**. Don't use tags for any type of important action. A tag isn't a button. A tag could be used to a secondary action, like opening a convenient view of items with similar tags.
 
 ### Variants
 
@@ -75,7 +75,7 @@ Tags are used to label items by a set of shared properties, like category or sta
 
 #### Label
 
--   Use short, understandable words for tag labels. If possible, use a single word.
+- Use short, understandable words for tag labels. If possible, use a single word.
 
 ## Options
 
@@ -91,9 +91,9 @@ Tags are used to label items by a set of shared properties, like category or sta
 <Tag icon={<IconError16/>} negative>Failed</Tag>
 ```
 
--   A tag can show an icon before the text label.
--   Use icons to support the text label by providing context or a visual reference.
--   Don't include icons for decoration only, they add complexity to the interface.
+- A tag can show an icon before the text label.
+- Use icons to support the text label by providing context or a visual reference.
+- Don't include icons for decoration only, they add complexity to the interface.
 
 ### Bold
 
@@ -134,8 +134,8 @@ Tags are used to label items by a set of shared properties, like category or sta
 <Tag bold negative>Tag label</Tag>
 ```
 
--   Use bold tags where it's important the information is noticed by a user.
--   Don't overuse bold tags, only use them when the information is important.
+- Use bold tags where it's important the information is noticed by a user.
+- Don't overuse bold tags, only use them when the information is important.
 
 ## API Reference
 
