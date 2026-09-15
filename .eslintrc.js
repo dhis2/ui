@@ -13,7 +13,11 @@ const config = {
     },
     overrides: [
         {
-            files: ['*.stories.js', '*.stories.e2e.js', '**/__stories__/*.js'],
+            files: [
+                '*.stories.{js,jsx,ts,tsx}',
+                '*.stories.e2e.{js,jsx,ts,tsx}',
+                '**/__stories__/*.{js,jsx,ts,tsx}',
+            ],
             rules: {
                 'import/no-extraneous-dependencies': 'off',
                 'react/display-name': 'off',
@@ -22,21 +26,46 @@ const config = {
         },
         {
             files: [
-                'components/*/src/**/*.js',
-                'collections/*/src/**/*.js',
-                'utilities/*/src/**/*.js',
+                'components/*/src/**/*.{js,jsx,ts,tsx}',
+                'collections/*/src/**/*.{js,jsx,ts,tsx}',
+                'utilities/*/src/**/*.{js,jsx,ts,tsx}',
             ],
             excludedFiles: [
-                '**/features/**/*.js',
-                '**/__tests__/**/*.js',
-                '*.test.js',
-                '*.stories*.js',
-                '**/__stories__/*.js',
-                '**/__stories__/**/*.js',
+                '**/features/**/*.{js,jsx,ts,tsx}',
+                '**/__tests__/**/*.{js,jsx,ts,tsx}',
+                '*.test.{js,jsx,ts,tsx}',
+                '*.stories*.{js,jsx,ts,tsx}',
+                '**/__stories__/*.{js,jsx,ts,tsx}',
+                '**/__stories__/**/*.{js,jsx,ts,tsx}',
                 '*.d.ts',
             ],
             rules: {
                 'import/no-extraneous-dependencies': 'error',
+            },
+        },
+        {
+            files: ['**/*.{ts,tsx}'],
+            parser: require.resolve('@typescript-eslint/parser'),
+            // TypeScript ambient namespaces, which `no-undef` does not know.
+            globals: { JSX: 'readonly', NodeJS: 'readonly' },
+            settings: {
+                // Lets `import/no-unresolved` follow an extensionless relative
+                // import to a `.ts`/`.tsx` file.
+                'import/resolver': {
+                    node: { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
+                },
+            },
+            rules: {
+                /*
+                 * TypeScript sources import siblings without an extension
+                 * (`./ou-tree` resolves to `ou-tree.tsx`), the inverse of the
+                 * `ignorePackages` rule the JavaScript packages follow.
+                 */
+                'import/extensions': [
+                    'error',
+                    'never',
+                    { ts: 'never', tsx: 'never' },
+                ],
             },
         },
     ],

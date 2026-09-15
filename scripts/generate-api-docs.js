@@ -95,14 +95,22 @@ import { ${toDisplayName} } from '@dhis2/ui'
         table += '#### Props\n\n'
 
         const props = Object.entries(ast.props).map(
-            ([name, { type, required, description, defaultValue }]) => ({
+            ([
+                name,
+                { type, tsType, required, description, defaultValue },
+            ]) => ({
                 name,
                 defaultValue: `${
                     defaultValue ? `\`${defaultValue.value}\`` : ''
                 }`,
                 required: `${required ? '*' : ''}`,
                 description: description?.replace(/\n/g, '<br/>') ?? '',
-                type: `${format_type(type)}`,
+                /*
+                 * prop-types components expose `type`; TypeScript ones
+                 * expose `tsType` instead, so fall back to it rather than
+                 * rendering "undefined" for every TypeScript prop.
+                 */
+                type: `${format_type(type || tsType)}`,
             })
         )
 
@@ -143,7 +151,9 @@ const [components, collections, icons, constants] = uiPackages({
 
 const ignore = [
     '**/index.js',
-    '**/*.test.js',
+    '**/index.ts',
+    '**/index.tsx',
+    '**/*.test.*',
     '**/*.stories.*',
     '**/features',
     '**/__stories__',
@@ -165,7 +175,7 @@ components.map((component) => {
         `Generating API documentation for: ${path.basename(component)}`
     )
 
-    const entries = fg.sync(`${component}/src/**/*.js`, {
+    const entries = fg.sync(`${component}/src/**/*.{js,jsx,ts,tsx}`, {
         ignore,
     })
 
@@ -201,14 +211,32 @@ components.map((component) => {
         .flat()
 
     /*
-     * Take the src/index.js file and generate an AST for it so we can figure
-     * out the public API for the package through the defined exports.
+     * Take the package entry point and generate an AST for it so we can
+     * figure out the public API for the package through the defined exports.
+     *
+     * The entry point may be JavaScript or TypeScript, so resolve across the
+     * extensions rather than assuming `index.js`. A package with no entry
+     * point at all has no API to document — skip it rather than crashing the
+     * whole documentation build.
      */
-    const index = fs.readFileSync(
-        path.join(component, 'src', 'index.js'),
-        'utf8'
-    )
-    const ast = parser.parse(index, { sourceType: 'module' })
+    const indexPath = ['index.js', 'index.jsx', 'index.ts', 'index.tsx']
+        .map((f) => path.join(component, 'src', f))
+        .find((f) => fs.existsSync(f))
+
+    if (!indexPath) {
+        console.info(
+            `Skipping ${path.basename(
+                component
+            )}: no src/index entry point to document`
+        )
+        return
+    }
+
+    const index = fs.readFileSync(indexPath, 'utf8')
+    const ast = parser.parse(index, {
+        sourceType: 'module',
+        plugins: ['typescript'],
+    })
 
     visit(ast, {
         visitExportSpecifier(pth) {

@@ -4,3 +4,9 @@ cypress/assets/*.js
 
 # Documentation files that are generated on CI
 API.md
+
+# Build output, generated locally by `yarn build` (docusaurus site into dist/,
+# its build cache into docs/.docusaurus/). Without these, `yarn build` followed
+# by `yarn lint` fails on generated files nobody wrote.
+dist/
+**/.docusaurus/
