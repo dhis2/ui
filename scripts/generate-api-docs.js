@@ -138,12 +138,9 @@ import { ${toDisplayName} } from '@dhis2/ui'
 
 const cwd = path.resolve(__dirname, '..')
 
-const { uiPackages } = require(path.resolve(
-    cwd,
-    'storybook',
-    'src',
-    'ui-packages.js'
-))
+const { uiPackages } = require(
+    path.resolve(cwd, 'storybook', 'src', 'ui-packages.js')
+)
 
 const [components, collections, icons, constants] = uiPackages({
     absolute: true,
@@ -197,7 +194,7 @@ components.map((component) => {
                 )
 
                 return ast.map((a) => ({ file, ast: a }))
-            } catch (err) {
+            } catch {
                 /**
                  * skip files that react-docgen cannot parse as they are probably
                  * not react components in the first place.
@@ -318,7 +315,7 @@ icons.map((icon) => {
                 )
 
                 return ast.map((a) => ({ file, ast: a }))
-            } catch (err) {
+            } catch {
                 /**
                  * skip files that react-docgen cannot parse as they are probably
                  * not react components in the first place.
@@ -439,7 +436,7 @@ collections.map((collection) => {
                 )
 
                 return ast.map((a) => ({ file, ast: a }))
-            } catch (err) {
+            } catch {
                 /**
                  * skip files that react-docgen cannot parse as they are probably
                  * not react components in the first place.

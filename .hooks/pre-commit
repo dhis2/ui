@@ -1,4 +1,20 @@
 #!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
+set -e
 
-yarn d2-style check --staged
+staged_files_without_deletions() {
+    git diff --cached --name-only --diff-filter=d | grep -E "$1" || true
+}
+
+check() {
+    files=$1
+    shift
+
+    if [ -n "$files" ]; then
+        printf '%s\n' "$files" | tr '\n' '\0' | xargs -0 "$@"
+    fi
+}
+
+check "$(staged_files_without_deletions '\.(js|jsx|ts|tsx)$')" \
+    yarn eslint --no-warn-ignored
+check "$(staged_files_without_deletions '\.(js|jsx|ts|tsx|md|json|yml|html|css)$')" \
+    yarn prettier --check --ignore-unknown

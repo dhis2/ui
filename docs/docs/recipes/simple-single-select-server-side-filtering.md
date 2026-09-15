@@ -16,9 +16,9 @@ The `<SimpleSingleSelect/>` component does not handle filtering automatically.
 Instead, it provides all the necessary tools to implement filtering in various ways.
 This recipe will show how to set up filtering in a more complex scenario:
 
--   The select loads options progressively (10 at a time in this case)
--   The select can be filtered by asking the server for a search result
--   The search result is paginated, and options also load progressively
+- The select loads options progressively (10 at a time in this case)
+- The select can be filtered by asking the server for a search result
+- The search result is paginated, and options also load progressively
 
 ## Example
 
@@ -26,17 +26,17 @@ As this example is quite complex, we'll first define the requirements that the
 select will have to fulfill, then we'll cover how to implement those step by
 step:
 
--   When there is an initially selected value, the select loads the label of that option
-    -   when that fails, we use the value as the label
--   When rendered initially, the select loads the first page of options
--   When reaching the end of the options list, the select loads the next page
-    -   only when there is a next page
-    -   only when not already loading options
-    -   loads the next page of the searched options when there is a search-term
--   When searching for options, the actual request is debounced to prevent sending many unnecessary requests
-    -   and previously send requests that haven't responded yet should be aborted
--   When loading options or the initial value, the select is disabled
-    -   and shows a "Loading" text
+- When there is an initially selected value, the select loads the label of that option
+    - when that fails, we use the value as the label
+- When rendered initially, the select loads the first page of options
+- When reaching the end of the options list, the select loads the next page
+    - only when there is a next page
+    - only when not already loading options
+    - loads the next page of the searched options when there is a search-term
+- When searching for options, the actual request is debounced to prevent sending many unnecessary requests
+    - and previously send requests that haven't responded yet should be aborted
+- When loading options or the initial value, the select is disabled
+    - and shows a "Loading" text
 
 ### When there is an initially selected value, the select loads the label of that option
 
@@ -451,10 +451,10 @@ The only things that's missing at this point is the callback we have to pass to 
 
 The callback should do nothing when:
 
--   the page is already the last page
--   we're currently loading options
--   load the next page of the normal options list when there's no filter value
--   load the next page of the filtered options list when there is a filter value
+- the page is already the last page
+- we're currently loading options
+- load the next page of the normal options list when there's no filter value
+- load the next page of the filtered options list when there is a filter value
 
 ```js
 const loadNextPage = useCallback(() => {
