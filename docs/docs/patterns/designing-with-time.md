@@ -12,20 +12,20 @@ Reduce the mental work required by the user by displaying the time in a way that
 
 Relative time, or _from now_, takes the object timestamp, calculates the time to _now_, and turns that into a natural language phrase. Relative time often has boundaries set for when to use different labels. For example:
 
--   4 minutes ago
--   3 days ago
--   a week ago
--   2 months ago
--   a year ago
-    ([Check out the moment.js implementation of _fromNow_ for commonly used boundary labels.](https://momentjs.com/docs/#/displaying/fromnow/))
+- 4 minutes ago
+- 3 days ago
+- a week ago
+- 2 months ago
+- a year ago
+  ([Check out the moment.js implementation of _fromNow_ for commonly used boundary labels.](https://momentjs.com/docs/#/displaying/fromnow/))
 
 ### When to use relative time
 
 Use relative time when the time information is interesting based on its relationship to the current time. For example:
 
--   Searching for a patient: showing when records were last updated helps a user find the right patient.
--   Browsing a list of visualizations: showing how long ago a visualization was created makes it clear which visualizations are more recent and relevant.
--   Reading through a list of comments: showing when a comment was written helps frame the information in the right context.
+- Searching for a patient: showing when records were last updated helps a user find the right patient.
+- Browsing a list of visualizations: showing how long ago a visualization was created makes it clear which visualizations are more recent and relevant.
+- Reading through a list of comments: showing when a comment was written helps frame the information in the right context.
 
 In each of these examples, the relative time label is the right choice because it reduces the work needed to get to the useful information. If a user would be mentally making the comparison, then doing it automatically saves time and lightens the mental load.
 
@@ -37,9 +37,9 @@ Only use relative time when the approximate time is useful. The level of precisi
 
 Make the context clear with a contextual prefix, like _last updated_. For example:
 
--   Last updated 3 days ago.
--   Imported 2 months ago.
--   Created a year ago.
+- Last updated 3 days ago.
+- Imported 2 months ago.
+- Created a year ago.
 
 Only omit a contextual prefix when it's completely clear what the time refers to, or if the relative time appears in a table column with an appropriate header.
 
@@ -62,17 +62,17 @@ Another pattern is using the relative time as an expandable label that can be op
 
 A timestamp is the raw time information. Timestamps are formatted in different ways and include varying amounts of detail. Some examples of how timestamps can look are:
 
--   `2005-10-30 T 10:45 UTC`
--   `Friday July 30, 2021`
--   `2009-10-31T01:48:52Z`
+- `2005-10-30 T 10:45 UTC`
+- `Friday July 30, 2021`
+- `2009-10-31T01:48:52Z`
 
 ### When to use timestamps
 
 Timestamps are useful when the recorded moment in time is useful alone, in relation to other timestamps, or in relation to another unit of time (like a year or season). For example:
 
--   Comparing the end time of one automation job with the start time of another.
--   Comparing test results to seasonal averages.
--   Reading the output logs of an automated task.
+- Comparing the end time of one automation job with the start time of another.
+- Comparing test results to seasonal averages.
+- Reading the output logs of an automated task.
 
 In these examples, the timestamp is useful because it offers the right amount of precision and allows comparison to another unit of time. Knowing that a test result was recorded 23 July is useful when comparing it to seasonal averages. A relative label here would mean more mental work of subtracting the relative time from the current time.
 

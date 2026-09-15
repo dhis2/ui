@@ -20,12 +20,12 @@ An organisation unit tree is used to choose organisation units from a hierarchy.
 
 ### When to use
 
--   **Choosing organisation units**: Use when one or more organisation units can be chosen.
+- **Choosing organisation units**: Use when one or more organisation units can be chosen.
 
 ### Format
 
--   An organisation unit tree can grow when units are expanded. Make sure the container can handle overflowing content by scrolling.
--   Choosing organisation units can be a complex task when there are a lot to choose from. In complex situations, make sure there is room to look at the tree clearly.
+- An organisation unit tree can grow when units are expanded. Make sure the container can handle overflowing content by scrolling.
+- Choosing organisation units can be a complex task when there are a lot to choose from. In complex situations, make sure there is room to look at the tree clearly.
 
 ## Options
 
@@ -36,8 +36,8 @@ An organisation unit tree is used to choose organisation units from a hierarchy.
     height="250px"
 />
 
--   In _Single selection mode_ only one organisation unit can be chosen.
--   Use this mode when choosing more than one organisation unit isn't valid.
+- In _Single selection mode_ only one organisation unit can be chosen.
+- Use this mode when choosing more than one organisation unit isn't valid.
 
 ## API Reference
 

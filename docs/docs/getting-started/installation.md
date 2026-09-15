@@ -8,9 +8,9 @@ yarn add @dhis2/ui
 
 When not using the dhis2 app platform, then the ui library requires you to install some peer dependencies:
 
--   `react`
--   `react-dom`
--   `styled-jsx`
+- `react`
+- `react-dom`
+- `styled-jsx`
 
 Using the dhis2 app platform you won't have to install them as they're bundled with the platform scripts.
 

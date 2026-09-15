@@ -459,7 +459,6 @@ const createCustomFilteringInHeader = (hideFilterInput) => {
             </SingleSelectField>
         </>
     )
-    /* eslint-enable react/prop-types */
 
     const CustomTransfer = (props) => {
         const [filter, setFilter] = useState('')

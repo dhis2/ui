@@ -2,9 +2,9 @@
 
 To build complex applications that are user-friendly, focus on:
 
--   what is the main purpose of the application?
--   who is the application for?
--   how will users of the application achieve their goals?
+- what is the main purpose of the application?
+- who is the application for?
+- how will users of the application achieve their goals?
 
 All applications on the DHIS2 platform should consider their user-experience. Not all apps can be simple, but all can be understandable by their intended users. Do not focus on simplicity, **focus on clarity**. An application should enable users to solve problems, understand information and achieve their goals.
 
@@ -54,15 +54,15 @@ Understanding potential users is key to establishing the right balance between c
 
 Consider this sample application and its users:
 
--   90% of users will use the application with the 'default' options and configuration
--   users that do want to customize the interface or workflow are technically proficient
-    This scenario is an obvious case for displaying the configuration options on a secondary screen. If 90% of the users will never need those options it would be best to hide them. Display all options to all users would cause unnecessary confusion and uncertainty. Expert users that wanted to configure their application would be able to do so, but it isn't the main use case.
+- 90% of users will use the application with the 'default' options and configuration
+- users that do want to customize the interface or workflow are technically proficient
+  This scenario is an obvious case for displaying the configuration options on a secondary screen. If 90% of the users will never need those options it would be best to hide them. Display all options to all users would cause unnecessary confusion and uncertainty. Expert users that wanted to configure their application would be able to do so, but it isn't the main use case.
 
 Thinking about the opposite scenario for another application and its users:
 
--   there are few common use cases, all user groups have different requirements
--   different users in the same user groups work in different ways, the workflow is highly personal
-    In this scenario, obvious and easily available configuration options are important. Options should not be hidden and it should be quick to adjust the interface. (In this extreme example, is it even right to have a single application? That would be a question to address in [step one](#1-define-the-core-purpose-of-the-application)).
+- there are few common use cases, all user groups have different requirements
+- different users in the same user groups work in different ways, the workflow is highly personal
+  In this scenario, obvious and easily available configuration options are important. Options should not be hidden and it should be quick to adjust the interface. (In this extreme example, is it even right to have a single application? That would be a question to address in [step one](#1-define-the-core-purpose-of-the-application)).
 
 Rarely are applications so well defined. Most applications will have user requirements that hover in the middle of these two example scenarios. The important thing to keep in mind is that the amount of customization and configuration included in an application should always be a conscious choice. Do not expose all options just because they exist. Only show configuration options that are useful and relevant. Decisions regarding the options included, and how they are displayed, should always be taken from a 'user-centered' perspective.
 

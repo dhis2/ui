@@ -20,13 +20,13 @@ A transfer is made up of two lists. The _source list_ that shows the available o
 
 ### When to use
 
--   **Choose from many items**. Use a transfer if a user needs to choose from many items. Transfers can work for hundreds of thousands of items.
--   **Ordered selections**. Use a transfer if chosen options need to have a specific order.
--   **Choose from several groups**. Use a transfer if a user needs to choose from several groups into a single set of chosen options.
+- **Choose from many items**. Use a transfer if a user needs to choose from many items. Transfers can work for hundreds of thousands of items.
+- **Ordered selections**. Use a transfer if chosen options need to have a specific order.
+- **Choose from several groups**. Use a transfer if a user needs to choose from several groups into a single set of chosen options.
 
 ### When not to use
 
--   **Choosing from a few items**. Don't use a transfer to choose from a few options. Use a [`Select`](select.md) instead.
+- **Choosing from a few items**. Don't use a transfer to choose from a few options. Use a [`Select`](select.md) instead.
 
 ## Options
 
@@ -68,8 +68,8 @@ const onChange = (payload) => setSelected(payload.selected)
 
 The `header` component in this case is a simple `h4` element.
 
--   Use headers for titles that make it clear what the transfer options are.
--   _Source list_ headers could also contain group filters.
+- Use headers for titles that make it clear what the transfer options are.
+- _Source list_ headers could also contain group filters.
 
 ### Footer
 
@@ -102,7 +102,7 @@ The footer component is as follows:
 </a>
 ```
 
--   Use footers for actions that apply to a list, like _Reload items_.
+- Use footers for actions that apply to a list, like _Reload items_.
 
 ### Reordering
 
@@ -120,7 +120,7 @@ The footer component is as follows:
 />
 ```
 
--   Allow reordering if the order of the chosen options has meaning or consequences.
+- Allow reordering if the order of the chosen options has meaning or consequences.
 
 ### Filtering
 
@@ -139,7 +139,7 @@ The footer component is as follows:
 />
 ```
 
--   Use filtering to help a user find options in the _source list_.
+- Use filtering to help a user find options in the _source list_.
 
 ### Loading
 
@@ -148,8 +148,8 @@ The footer component is as follows:
     height="320px"
 />
 
--   Different types of data will need different loading strategies.
--   Set the `loading` or `loadingPicked` prop to `true` to block interaction with the transfer while loading is taking place.
+- Different types of data will need different loading strategies.
+- Set the `loading` or `loadingPicked` prop to `true` to block interaction with the transfer while loading is taking place.
 
 #### Infinite/lazy loading
 
@@ -160,9 +160,9 @@ The footer component is as follows:
 
 Load more options as a user scrolls down. Use the following props together:
 
--   `loading`: Set to `true` when fetching data, `false` when complete.
--   `onEndReached`: Called when the user scrolls to the end of the list or when the end of the list is already visible after the `options` array changes.
--   `selectedOptionsLookup`: Provide a lookup object for selected items that aren't in the current `options` array.
+- `loading`: Set to `true` when fetching data, `false` when complete.
+- `onEndReached`: Called when the user scrolls to the end of the list or when the end of the list is already visible after the `options` array changes.
+- `selectedOptionsLookup`: Provide a lookup object for selected items that aren't in the current `options` array.
 
 Server-side filtering is another common pattern. Use the `loading` and `selectedOptionsLookup` props together, since not all selected options will be present in the filtered options list. Server-side filtering can be combined with lazy loading.
 

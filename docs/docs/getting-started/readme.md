@@ -15,5 +15,5 @@ The atomic design approach is inspired by [the work of Brad Frost](https://atomi
 
 ## Resources
 
--   [Github repository](https://github.com/dhis2/ui).
--   [Figma community library](https://www.figma.com/community/file/999207206720939258/DHIS2-Design-System).
+- [Github repository](https://github.com/dhis2/ui).
+- [Figma community library](https://www.figma.com/community/file/999207206720939258/DHIS2-Design-System).

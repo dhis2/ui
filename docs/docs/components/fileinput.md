@@ -18,11 +18,11 @@ A file input is used to choose and upload files.
 
 ### When to use
 
--   **Adding files from a user's machine**. Use a file input when a user can upload a file from their local machine. This is usually as part of a form.
+- **Adding files from a user's machine**. Use a file input when a user can upload a file from their local machine. This is usually as part of a form.
 
 ### When not to use
 
--   **Adding files that exist elsewhere**. Don't use a file input if a user is choosing files from somewhere else than their local machine, like files already uploaded to an app.
+- **Adding files that exist elsewhere**. Don't use a file input if a user is choosing files from somewhere else than their local machine, like files already uploaded to an app.
 
 ### Format
 
@@ -40,7 +40,7 @@ A file input is used to choose and upload files.
 <FileInputField label="Upload birth certificate" />
 ```
 
--   Use a label above the button if the file input is part of a form with other controls.
+- Use a label above the button if the file input is part of a form with other controls.
 
 ##### Button
 
@@ -54,7 +54,7 @@ A file input is used to choose and upload files.
 <FileInputField buttonLabel="Upload test data" />
 ```
 
--   When a form label isn't used, the button label should make it clear what kind of file is expected. Use _Upload certificate_ instead of just _Upload_, for example.
+- When a form label isn't used, the button label should make it clear what kind of file is expected. Use _Upload certificate_ instead of just _Upload_, for example.
 
 ##### Help text
 
@@ -68,7 +68,7 @@ A file input is used to choose and upload files.
 <FileInputField helpText="Max size 5mb" label="Upload birth certificate" />
 ```
 
--   Use help text to tell the user about any limitations or expectations of the files, like size or format.
+- Use help text to tell the user about any limitations or expectations of the files, like size or format.
 
 ## Options
 
@@ -95,8 +95,8 @@ A file input is used to choose and upload files.
 </FileInputField>
 ```
 
--   Allow multiple file upload if that fits the use case.
--   Don't use several file inputs for the same kind of file, use one with multiple files allowed.
+- Allow multiple file upload if that fits the use case.
+- Don't use several file inputs for the same kind of file, use one with multiple files allowed.
 
 ## API Reference
 

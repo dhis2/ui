@@ -19,19 +19,19 @@ A User Avatar is a visual icon that represents a user.
 
 ### When to use
 
--   **In a list of user generated items**. An avatar can help to identify different users and give context to user generated content, alongside the user name.
+- **In a list of user generated items**. An avatar can help to identify different users and give context to user generated content, alongside the user name.
 
 ### When not to use
 
--   **Decoration**. Don't use an avatar for decoration only. It should serve a purpose and help give context to some information.
+- **Decoration**. Don't use an avatar for decoration only. It should serve a purpose and help give context to some information.
 
 ### Format
 
 #### Content
 
--   By default, avatars show two initials from the user's name.
--   An avatar can also show a user's profile photo, if they have one.
--   An avatar should usually be used alongside a user name, unless it's the current user's own avatar.
+- By default, avatars show two initials from the user's name.
+- An avatar can also show a user's profile photo, if they have one.
+- An avatar should usually be used alongside a user name, unless it's the current user's own avatar.
 
 #### Size
 

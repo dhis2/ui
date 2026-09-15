@@ -33,10 +33,10 @@ export const DebugInfoMenuItem = ({ hideProfileMenu, showDebugInfoModal }) => {
                               appName: debugInfo.app_name,
                           })
                     : debugInfo.app_version
-                    ? i18n.t('App {{appVersion}}', {
-                          appVersion: debugInfo.app_version,
-                      })
-                    : i18n.t('App version unknown')}
+                      ? i18n.t('App {{appVersion}}', {
+                            appVersion: debugInfo.app_version,
+                        })
+                      : i18n.t('App version unknown')}
                 {}
             </div>
             <style jsx>{`

@@ -4,9 +4,9 @@ A visual architecture of an application is made up of layout, spacing and stacki
 
 ##### Contents
 
--   [Layout](#layout)
--   [Spacing](#spacing)
--   [Stacking](#stacking)
+- [Layout](#layout)
+- [Spacing](#spacing)
+- [Stacking](#stacking)
 
 ## Layout
 
