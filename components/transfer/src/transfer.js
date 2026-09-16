@@ -1,3 +1,4 @@
+import { DndContext } from '@dnd-kit/core'
 import PropTypes from 'prop-types'
 import React, { useEffect, useMemo, useRef } from 'react'
 import { Actions } from './actions.js'
@@ -31,7 +32,9 @@ import {
     removeIndividualPickedOptions,
     useFilter,
     useHighlightedOptions,
+    useTransferDnd,
 } from './transfer/index.js'
+import { TransferDragOverlay } from './transfer-drag-overlay.js'
 import { TransferOption } from './transfer-option.js'
 
 const identity = (value) => value
@@ -222,6 +225,37 @@ export const Transfer = ({
         element?.scrollIntoView({ block: 'nearest' })
     }, [selected, dataTest])
 
+    /*
+     * Drag and drop:
+     * Options can always be dragged between the lists. Dragging to
+     * reorder the picked list additionally requires `enableOrderChange`,
+     * mirroring the reorder buttons.
+     */
+    const {
+        sensors,
+        collisionDetection,
+        activeDrag,
+        flyBackOnDrop,
+        dropTarget,
+        onDragStart,
+        onDragMove,
+        onDragEnd,
+        onDragCancel,
+    } = useTransferDnd({
+        selected,
+        sourceOptions,
+        pickedOptions,
+        highlightedSourceOptions,
+        highlightedPickedOptions,
+        setHighlightedSourceOptions,
+        setHighlightedPickedOptions,
+        enableOrderChange,
+        filterActivePicked,
+        maxSelections,
+        onChange,
+        reorderScrollTargetRef,
+    })
+
     /**
      * Disabled button states
      */
@@ -243,232 +277,262 @@ export const Transfer = ({
     )
 
     return (
-        <Container dataTest={dataTest} className={className} height={height}>
-            <LeftSide dataTest={`${dataTest}-leftside`} width={optionsWidth}>
-                {(leftHeader || filterable) && (
-                    <LeftHeader dataTest={`${dataTest}-leftheader`}>
-                        {leftHeader}
+        <DndContext
+            sensors={sensors}
+            collisionDetection={collisionDetection}
+            onDragStart={onDragStart}
+            onDragMove={onDragMove}
+            onDragEnd={onDragEnd}
+            onDragCancel={onDragCancel}
+        >
+            <Container
+                dataTest={dataTest}
+                className={className}
+                height={height}
+            >
+                <LeftSide
+                    dataTest={`${dataTest}-leftside`}
+                    width={optionsWidth}
+                >
+                    {(leftHeader || filterable) && (
+                        <LeftHeader dataTest={`${dataTest}-leftheader`}>
+                            {leftHeader}
 
-                        {filterable && !hideFilterInput && (
-                            <Filter
-                                label={filterLabel}
-                                placeholder={filterPlaceholder}
-                                dataTest={`${dataTest}-filter`}
-                                filter={actualFilter}
-                                onChange={
-                                    onFilterChange
-                                        ? onFilterChange
-                                        : ({ value }) =>
-                                              setInternalFilter(value)
-                                }
-                            />
-                        )}
-                    </LeftHeader>
-                )}
+                            {filterable && !hideFilterInput && (
+                                <Filter
+                                    label={filterLabel}
+                                    placeholder={filterPlaceholder}
+                                    dataTest={`${dataTest}-filter`}
+                                    filter={actualFilter}
+                                    onChange={
+                                        onFilterChange
+                                            ? onFilterChange
+                                            : ({ value }) =>
+                                                  setInternalFilter(value)
+                                    }
+                                />
+                            )}
+                        </LeftHeader>
+                    )}
 
-                <OptionsContainer
-                    allOptionsKey={allOptionsKey}
-                    dataTest={`${dataTest}-sourceoptions`}
-                    emptyComponent={sourceEmptyPlaceholder}
-                    getOptionClickHandlers={getOptionClickHandlers}
-                    highlightedOptions={highlightedSourceOptions}
-                    loading={loading}
-                    options={sourceOptions}
-                    renderOption={renderOption}
-                    selectionHandler={selectSingleOption}
-                    toggleHighlightedOption={toggleHighlightedSourceOption}
-                    onEndReached={onEndReached}
-                />
+                    <OptionsContainer
+                        activeDragValues={activeDrag?.values}
+                        allOptionsKey={allOptionsKey}
+                        dataTest={`${dataTest}-sourceoptions`}
+                        draggingDisabled={disabled}
+                        dropTarget={dropTarget}
+                        emptyComponent={sourceEmptyPlaceholder}
+                        getOptionClickHandlers={getOptionClickHandlers}
+                        highlightedOptions={highlightedSourceOptions}
+                        loading={loading}
+                        options={sourceOptions}
+                        renderOption={renderOption}
+                        selectionHandler={selectSingleOption}
+                        toggleHighlightedOption={toggleHighlightedSourceOption}
+                        onEndReached={onEndReached}
+                    />
 
-                {leftFooter && (
-                    <LeftFooter dataTest={`${dataTest}-leftfooter`}>
-                        {leftFooter}
-                    </LeftFooter>
-                )}
-            </LeftSide>
+                    {leftFooter && (
+                        <LeftFooter dataTest={`${dataTest}-leftfooter`}>
+                            {leftFooter}
+                        </LeftFooter>
+                    )}
+                </LeftSide>
 
-            <Actions dataTest={`${dataTest}-actions`}>
-                {maxSelections === Infinity && (
-                    <AddAll
-                        label={addAllText}
-                        dataTest={`${dataTest}-actions-addall`}
-                        disabled={isAddAllDisabled}
+                <Actions dataTest={`${dataTest}-actions`}>
+                    {maxSelections === Infinity && (
+                        <AddAll
+                            label={addAllText}
+                            dataTest={`${dataTest}-actions-addall`}
+                            disabled={isAddAllDisabled}
+                            onClick={() =>
+                                addAllSelectableSourceOptions({
+                                    sourceOptions,
+                                    selected,
+                                    onChange,
+                                    setHighlightedSourceOptions,
+                                })
+                            }
+                        />
+                    )}
+
+                    <AddIndividual
+                        label={addIndividualText}
+                        dataTest={`${dataTest}-actions-addindividual`}
+                        disabled={isAddIndividualDisabled}
                         onClick={() =>
-                            addAllSelectableSourceOptions({
+                            addIndividualSourceOptions({
+                                filterable,
                                 sourceOptions,
+                                highlightedSourceOptions,
                                 selected,
+                                maxSelections,
                                 onChange,
                                 setHighlightedSourceOptions,
                             })
                         }
                     />
-                )}
 
-                <AddIndividual
-                    label={addIndividualText}
-                    dataTest={`${dataTest}-actions-addindividual`}
-                    disabled={isAddIndividualDisabled}
-                    onClick={() =>
-                        addIndividualSourceOptions({
-                            filterable,
-                            sourceOptions,
-                            highlightedSourceOptions,
-                            selected,
-                            maxSelections,
-                            onChange,
-                            setHighlightedSourceOptions,
-                        })
-                    }
-                />
+                    {maxSelections === Infinity && (
+                        <RemoveAll
+                            label={removeAllText}
+                            dataTest={`${dataTest}-actions-removeall`}
+                            disabled={isRemoveAllDisabled}
+                            onClick={() =>
+                                removeAllPickedOptions({
+                                    setHighlightedPickedOptions,
+                                    onChange,
+                                })
+                            }
+                        />
+                    )}
 
-                {maxSelections === Infinity && (
-                    <RemoveAll
-                        label={removeAllText}
-                        dataTest={`${dataTest}-actions-removeall`}
-                        disabled={isRemoveAllDisabled}
+                    <RemoveIndividual
+                        label={removeIndividualText}
+                        dataTest={`${dataTest}-actions-removeindividual`}
+                        disabled={isRemoveIndividualDisabled}
                         onClick={() =>
-                            removeAllPickedOptions({
-                                setHighlightedPickedOptions,
+                            removeIndividualPickedOptions({
+                                filterablePicked,
+                                pickedOptions,
+                                highlightedPickedOptions,
                                 onChange,
+                                selected,
+                                setHighlightedPickedOptions,
                             })
                         }
                     />
-                )}
+                </Actions>
 
-                <RemoveIndividual
-                    label={removeIndividualText}
-                    dataTest={`${dataTest}-actions-removeindividual`}
-                    disabled={isRemoveIndividualDisabled}
-                    onClick={() =>
-                        removeIndividualPickedOptions({
-                            filterablePicked,
-                            pickedOptions,
-                            highlightedPickedOptions,
-                            onChange,
-                            selected,
-                            setHighlightedPickedOptions,
-                        })
-                    }
-                />
-            </Actions>
+                <RightSide
+                    dataTest={`${dataTest}-rightside`}
+                    width={selectedWidth}
+                >
+                    {(rightHeader || filterablePicked) && (
+                        <RightHeader dataTest={`${dataTest}-rightheader`}>
+                            {rightHeader}
 
-            <RightSide dataTest={`${dataTest}-rightside`} width={selectedWidth}>
-                {(rightHeader || filterablePicked) && (
-                    <RightHeader dataTest={`${dataTest}-rightheader`}>
-                        {rightHeader}
+                            {filterablePicked && !hideFilterInputPicked && (
+                                <Filter
+                                    label={filterLabelPicked}
+                                    placeholder={filterPlaceholderPicked}
+                                    dataTest={`${dataTest}-filter`}
+                                    filter={actualFilterPicked}
+                                    onChange={
+                                        onFilterChangePicked
+                                            ? onFilterChangePicked
+                                            : ({ value }) =>
+                                                  setInternalFilterPicked(value)
+                                    }
+                                />
+                            )}
+                        </RightHeader>
+                    )}
 
-                        {filterablePicked && !hideFilterInputPicked && (
-                            <Filter
-                                label={filterLabelPicked}
-                                placeholder={filterPlaceholderPicked}
-                                dataTest={`${dataTest}-filter`}
-                                filter={actualFilterPicked}
-                                onChange={
-                                    onFilterChangePicked
-                                        ? onFilterChangePicked
-                                        : ({ value }) =>
-                                              setInternalFilterPicked(value)
-                                }
-                            />
-                        )}
-                    </RightHeader>
-                )}
+                    <OptionsContainer
+                        selected
+                        activeDragValues={activeDrag?.values}
+                        allOptionsKey={pickedOptionsKey}
+                        dataTest={`${dataTest}-pickedoptions`}
+                        draggingDisabled={disabled}
+                        dropTarget={dropTarget}
+                        emptyComponent={selectedEmptyComponent}
+                        getOptionClickHandlers={getOptionClickHandlers}
+                        highlightedOptions={highlightedPickedOptions}
+                        loading={loadingPicked}
+                        options={pickedOptions}
+                        renderOption={renderOption}
+                        selectionHandler={deselectSingleOption}
+                        toggleHighlightedOption={toggleHighlightedPickedOption}
+                        onEndReached={onEndReachedPicked}
+                    />
 
-                <OptionsContainer
-                    selected
-                    allOptionsKey={pickedOptionsKey}
-                    dataTest={`${dataTest}-pickedoptions`}
-                    emptyComponent={selectedEmptyComponent}
-                    getOptionClickHandlers={getOptionClickHandlers}
-                    highlightedOptions={highlightedPickedOptions}
-                    loading={loadingPicked}
-                    options={pickedOptions}
-                    renderOption={renderOption}
-                    selectionHandler={deselectSingleOption}
-                    toggleHighlightedOption={toggleHighlightedPickedOption}
-                    onEndReached={onEndReachedPicked}
-                />
-
-                {(rightFooter || enableOrderChange) && (
-                    <RightFooter dataTest={`${dataTest}-rightfooter`}>
-                        {enableOrderChange && (
-                            <ReorderingActions
-                                dataTest={`${dataTest}-reorderingactions`}
-                                filterActive={filterActivePicked}
-                                disabledDown={isReorderDownDisabled({
-                                    highlightedPickedOptions,
-                                    selected,
-                                    filterActivePicked,
-                                })}
-                                disabledUp={isReorderUpDisabled({
-                                    highlightedPickedOptions,
-                                    selected,
-                                    filterActivePicked,
-                                })}
-                                onChangeUp={() => {
-                                    const highlightedSet = new Set(
-                                        highlightedPickedOptions
-                                    )
-                                    reorderScrollTargetRef.current =
-                                        selected.find((value) =>
-                                            highlightedSet.has(value)
-                                        ) ?? null
-                                    moveHighlightedPickedOptionUp({
-                                        selected,
+                    {(rightFooter || enableOrderChange) && (
+                        <RightFooter dataTest={`${dataTest}-rightfooter`}>
+                            {enableOrderChange && (
+                                <ReorderingActions
+                                    dataTest={`${dataTest}-reorderingactions`}
+                                    filterActive={filterActivePicked}
+                                    disabledDown={isReorderDownDisabled({
                                         highlightedPickedOptions,
-                                        onChange,
-                                    })
-                                }}
-                                onChangeDown={() => {
-                                    const highlightedSet = new Set(
-                                        highlightedPickedOptions
-                                    )
-                                    reorderScrollTargetRef.current =
-                                        selected.findLast((value) =>
-                                            highlightedSet.has(value)
-                                        ) ?? null
-                                    moveHighlightedPickedOptionDown({
                                         selected,
+                                        filterActivePicked,
+                                    })}
+                                    disabledUp={isReorderUpDisabled({
                                         highlightedPickedOptions,
-                                        onChange,
-                                    })
-                                }}
-                                onChangeToTop={() => {
-                                    const highlightedSet = new Set(
-                                        highlightedPickedOptions
-                                    )
-                                    reorderScrollTargetRef.current =
-                                        selected.find((value) =>
-                                            highlightedSet.has(value)
-                                        ) ?? null
-                                    moveHighlightedPickedOptionToTop({
                                         selected,
-                                        highlightedPickedOptions,
-                                        onChange,
-                                    })
-                                }}
-                                onChangeToBottom={() => {
-                                    const highlightedSet = new Set(
-                                        highlightedPickedOptions
-                                    )
-                                    reorderScrollTargetRef.current =
-                                        selected.findLast((value) =>
-                                            highlightedSet.has(value)
-                                        ) ?? null
-                                    moveHighlightedPickedOptionToBottom({
-                                        selected,
-                                        highlightedPickedOptions,
-                                        onChange,
-                                    })
-                                }}
-                            />
-                        )}
+                                        filterActivePicked,
+                                    })}
+                                    onChangeUp={() => {
+                                        const highlightedSet = new Set(
+                                            highlightedPickedOptions
+                                        )
+                                        reorderScrollTargetRef.current =
+                                            selected.find((value) =>
+                                                highlightedSet.has(value)
+                                            ) ?? null
+                                        moveHighlightedPickedOptionUp({
+                                            selected,
+                                            highlightedPickedOptions,
+                                            onChange,
+                                        })
+                                    }}
+                                    onChangeDown={() => {
+                                        const highlightedSet = new Set(
+                                            highlightedPickedOptions
+                                        )
+                                        reorderScrollTargetRef.current =
+                                            selected.findLast((value) =>
+                                                highlightedSet.has(value)
+                                            ) ?? null
+                                        moveHighlightedPickedOptionDown({
+                                            selected,
+                                            highlightedPickedOptions,
+                                            onChange,
+                                        })
+                                    }}
+                                    onChangeToTop={() => {
+                                        const highlightedSet = new Set(
+                                            highlightedPickedOptions
+                                        )
+                                        reorderScrollTargetRef.current =
+                                            selected.find((value) =>
+                                                highlightedSet.has(value)
+                                            ) ?? null
+                                        moveHighlightedPickedOptionToTop({
+                                            selected,
+                                            highlightedPickedOptions,
+                                            onChange,
+                                        })
+                                    }}
+                                    onChangeToBottom={() => {
+                                        const highlightedSet = new Set(
+                                            highlightedPickedOptions
+                                        )
+                                        reorderScrollTargetRef.current =
+                                            selected.findLast((value) =>
+                                                highlightedSet.has(value)
+                                            ) ?? null
+                                        moveHighlightedPickedOptionToBottom({
+                                            selected,
+                                            highlightedPickedOptions,
+                                            onChange,
+                                        })
+                                    }}
+                                />
+                            )}
 
-                        {rightFooter}
-                    </RightFooter>
-                )}
-            </RightSide>
-        </Container>
+                            {rightFooter}
+                        </RightFooter>
+                    )}
+                </RightSide>
+            </Container>
+
+            <TransferDragOverlay
+                activeDrag={activeDrag}
+                flyBackOnDrop={flyBackOnDrop}
+            />
+        </DndContext>
     )
 }
 
