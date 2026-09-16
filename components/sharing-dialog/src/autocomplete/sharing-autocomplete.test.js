@@ -21,6 +21,47 @@ const Wrapper = () => {
 }
 
 describe('SharingAutocomplete', () => {
+    it('supports keyboard navigation and selection from the search input', async () => {
+        const userDisplayName = 'Some User'
+        const dataProviderData = {
+            'sharing/search': jest.fn(() => ({
+                users: [
+                    {
+                        id: 'user-1',
+                        displayName: userDisplayName,
+                    },
+                    {
+                        id: 'user-2',
+                        displayName: 'Someone Else',
+                    },
+                ],
+            })),
+        }
+        render(
+            <CustomDataProvider data={dataProviderData}>
+                <Wrapper />
+            </CustomDataProvider>
+        )
+
+        await userEvent.type(screen.getByRole('textbox'), 'Som')
+        const [firstResult, secondResult] = await screen.findAllByRole(
+            'menuitem'
+        )
+
+        expect(screen.getByRole('textbox')).toHaveFocus()
+        await userEvent.keyboard('{ArrowDown}')
+        expect(firstResult.parentElement).toHaveFocus()
+
+        await userEvent.keyboard('{ArrowDown}')
+        expect(secondResult.parentElement).toHaveFocus()
+
+        await userEvent.keyboard('{ArrowUp}')
+        expect(firstResult.parentElement).toHaveFocus()
+
+        await userEvent.keyboard('{Enter}')
+        expect(screen.getByRole('textbox')).toHaveValue(userDisplayName)
+    })
+
     it('hides autocompletion results after selection', async () => {
         const userDisplayName = 'Some User'
         const dataProviderData = {
