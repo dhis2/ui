@@ -20,13 +20,9 @@ const concurrently = require('concurrently')
  * scripts to make sure that we get a consistent result, which is why we
  * make an exception and reach into the storybook/src folder here.
  */
-const { uiPackages } = require(path.resolve(
-    __dirname,
-    '..',
-    'storybook',
-    'src',
-    'ui-packages.js'
-))
+const { uiPackages } = require(
+    path.resolve(__dirname, '..', 'storybook', 'src', 'ui-packages.js')
+)
 
 const packages = uiPackages({ absolute: true }).reduce((a, b) => a.concat(b))
 

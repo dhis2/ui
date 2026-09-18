@@ -109,10 +109,13 @@ export const NotificationIcon = ({
                     color: transparent;
                     box-shadow: 0 0 0 2px #2c6693;
 
-                    transition: max-width 150ms ease-in-out,
-                        min-width 150ms ease-in-out, height 150ms ease-in-out,
+                    transition:
+                        max-width 150ms ease-in-out,
+                        min-width 150ms ease-in-out,
+                        height 150ms ease-in-out,
                         border-radius 150ms ease-in-out,
-                        padding 150ms ease-in-out, color 150ms ease-in-out,
+                        padding 150ms ease-in-out,
+                        color 150ms ease-in-out,
                         box-shadow 150ms ease-in-out;
                 }
 
