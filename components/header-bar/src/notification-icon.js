@@ -23,6 +23,15 @@ export const NotificationIcon = ({
     'aria-label': ariaLabel,
 }) => {
     const [badgeExpanded, setBadgeExpanded] = useState(count > 0)
+    const label = i18n.t(ariaLabel)
+    const displayCount = count > 99 ? '99+' : count
+    const accessibleLabel =
+        count > 0
+            ? i18n.t('{{label}}, {{count}} unread', {
+                  label,
+                  count: displayCount,
+              })
+            : label
 
     // Briefly reveal the full counter on mount, then collapse it to a dot
     useEffect(() => {
@@ -45,7 +54,7 @@ export const NotificationIcon = ({
             className={kind}
             data-test={dataTestId}
             title={i18n.t(title)}
-            aria-label={i18n.t(ariaLabel)}
+            aria-label={accessibleLabel}
         >
             {icon(kind)}
 
@@ -54,7 +63,7 @@ export const NotificationIcon = ({
                     className={badgeExpanded ? 'is-expanded' : undefined}
                     data-test={`${dataTestId}-count`}
                 >
-                    {count > 99 ? '99+' : count}
+                    {displayCount}
                 </span>
             )}
 
