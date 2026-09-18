@@ -54,16 +54,16 @@ In React fashion we rely on composition to enable the goal of having
 
 This means that:
 
--   complex components are constructed by connecting several simple
-    components,
+- complex components are constructed by connecting several simple
+  components,
 
--   a consumer must have direct access to the building blocks that make up
-    composed components,
+- a consumer must have direct access to the building blocks that make up
+  composed components,
 
--   components need to be isolated from each other with a well defined
-    interface and scope,
+- components need to be isolated from each other with a well defined
+  interface and scope,
 
--   components needs to be reusable across many contexts.
+- components needs to be reusable across many contexts.
 
 > _Note_: Components are published under the `@dhis2-ui` scope, and will
 > eventually be considered part of the external API as things stabilize.
@@ -110,6 +110,6 @@ through that collection.
 
 UI uses two different scopes on NPM to publish:
 
--   `@dhis2/ui*`: Collections and utilities.
+- `@dhis2/ui*`: Collections and utilities.
 
--   `@dhis2-ui/*`: Component packages are published under this scope.
+- `@dhis2-ui/*`: Component packages are published under this scope.

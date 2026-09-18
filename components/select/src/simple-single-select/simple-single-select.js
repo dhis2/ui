@@ -12,6 +12,9 @@ import {
     useHandleKeyPressOnFilterInput,
 } from './use-handle-key-press/index.js'
 
+const defaultSelected = { label: '', value: '' }
+const noop = () => undefined
+
 function useFocussedOptionIndex({ filterable, filterValue, options }) {
     const [defaultFocussedOptionIndex, setDefaultFocussedOptionIndex] =
         useState(0)
@@ -81,15 +84,15 @@ export function SimpleSingleSelect({
     optionUpdateStrategy = 'polite',
     placeholder = '',
     prefix = '',
-    selected = { label: '', value: '' },
+    selected = defaultSelected,
     tabIndex = '0',
     valid = false,
     warning = false,
-    onBlur = () => undefined,
-    onClear = () => undefined,
-    onEndReached = () => undefined,
-    onFilterChange = () => undefined,
-    onFocus = () => undefined,
+    onBlur = noop,
+    onClear = noop,
+    onEndReached = noop,
+    onFilterChange = noop,
+    onFocus = noop,
 }) {
     // We can't translate with default props as the translation function would
     // be called before we get any translations from the consuming app/lib

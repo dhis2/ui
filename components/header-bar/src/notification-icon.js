@@ -66,7 +66,8 @@ export const NotificationIcon = ({
                 min-width: 18px;
                 min-height: 18px;
                 border-radius: ${spacers.dp12};
-                box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+                box-shadow:
+                    0 1px 3px 0 rgba(0, 0, 0, 0.1),
                     0 1px 2px 0 rgba(0, 0, 0, 0.06);
                 background-color: ${theme.secondary500};
                 color: ${colors.white};

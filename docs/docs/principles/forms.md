@@ -34,11 +34,11 @@ In applications that need to collect information for different purposes it is re
 
 Provide feedback for users where this is needed. Feedback can be in the form of validation and response to user input. There are different types of validation:
 
--   **Type validation**: a user has entered an invalid data type into an input. For example, entering "ABC" into a number only input. This input type is wrong and the user should be notified immediately along with guidance about how to fix the problem.
+- **Type validation**: a user has entered an invalid data type into an input. For example, entering "ABC" into a number only input. This input type is wrong and the user should be notified immediately along with guidance about how to fix the problem.
 
--   **Content validation**: The data the user has entered is not considered valid based on the context. A user may have entered "2999" for the "Number of pregnancies" field. This is not a soft data type validation because the "2999" is the correct type, but it's content is invalid. Connection with a server is often needed for content validation.
+- **Content validation**: The data the user has entered is not considered valid based on the context. A user may have entered "2999" for the "Number of pregnancies" field. This is not a soft data type validation because the "2999" is the correct type, but it's content is invalid. Connection with a server is often needed for content validation.
 
--   **Response validation**: Informing the user what the status of the form input and response is. "Form successfully submitted" is a type of response validation.
+- **Response validation**: Informing the user what the status of the form input and response is. "Form successfully submitted" is a type of response validation.
 
 ## Input types
 

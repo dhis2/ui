@@ -81,9 +81,9 @@ Use a multi select if the user can choose one or more options.
 
 ### Label
 
--   Show a label above the select to show what it's for.
--   Labels should clearly describe the selection to be made. Don't use long sentences.
--   A noun is often the simplest choice of label, rather than a verb. For example, _Period type_ is more concise in a layout than _Choose a period type_. Only use a verb if the use of the control is ambiguous.
+- Show a label above the select to show what it's for.
+- Labels should clearly describe the selection to be made. Don't use long sentences.
+- A noun is often the simplest choice of label, rather than a verb. For example, _Period type_ is more concise in a layout than _Choose a period type_. Only use a verb if the use of the control is ambiguous.
 
 ### Placeholder
 
@@ -101,10 +101,10 @@ Use a multi select if the user can choose one or more options.
 </SingleSelectField>
 ```
 
--   Only use placeholder text to clarify what kind of content is expected.
--   Placeholder text shouldn't repeat the label.
--   Always use placeholder text if a label isn't used.
--   Placeholder text disappears when choosing an option, so make sure it's not critical.
+- Only use placeholder text to clarify what kind of content is expected.
+- Placeholder text shouldn't repeat the label.
+- Always use placeholder text if a label isn't used.
+- Placeholder text disappears when choosing an option, so make sure it's not critical.
 
 ### Help text
 
@@ -125,8 +125,8 @@ Use a multi select if the user can choose one or more options.
 </SingleSelectField>
 ```
 
--   Use help text to tell the user about any limitations or expectations for the content.
--   Help text can also be used to clarify what the input is for if it's a complex concept.
+- Use help text to tell the user about any limitations or expectations for the content.
+- Help text can also be used to clarify what the input is for if it's a complex concept.
 
 ### Size
 
@@ -143,12 +143,12 @@ Use a multi select if the user can choose one or more options.
 </SingleSelectField>
 ```
 
--   Selects are available in two sizes, regular and `dense`. Regular sized selects are useful when there's space available. Use `dense` sized selects in compact, information-dense interfaces.
+- Selects are available in two sizes, regular and `dense`. Regular sized selects are useful when there's space available. Use `dense` sized selects in compact, information-dense interfaces.
 
 ### Width
 
--   A selects width should reflect the expected content.
--   Avoid full-width selects, which can be visually unclear.
+- A selects width should reflect the expected content.
+- Avoid full-width selects, which can be visually unclear.
 
 #### Dropdown menu width
 
@@ -166,8 +166,8 @@ Use a multi select if the user can choose one or more options.
 
 By default the dropdown menu matches the input's width. When the input is sized to its content, this can make the menu too narrow to read longer options comfortably. `menuMinWidth` and `menuMaxWidth`, available on `SingleSelectField`/`SingleSelect`, `MultiSelectField`/`MultiSelect` and `SimpleSingleSelectField`/`SimpleSingleSelect`, let you decouple the menu width from the input:
 
--   `menuMinWidth` — the menu grows to fit its content (`fit-content`) but is never narrower than the greater of the input width and this value.
--   `menuMaxWidth` — caps how wide the menu may grow. Useful together with `menuMinWidth` to stop very long option labels from making the menu excessively wide. It never shrinks the menu below the input width, so a `menuMaxWidth` smaller than the input has no visible effect.
+- `menuMinWidth` — the menu grows to fit its content (`fit-content`) but is never narrower than the greater of the input width and this value.
+- `menuMaxWidth` — caps how wide the menu may grow. Useful together with `menuMinWidth` to stop very long option labels from making the menu excessively wide. It never shrinks the menu below the input width, so a `menuMaxWidth` smaller than the input has no visible effect.
 
 Setting either prop switches the menu to `fit-content` sizing; setting neither keeps the original behavior (menu width equals input width).
 
@@ -213,8 +213,8 @@ These props accept any absolute or font-relative CSS length, e.g. `'200px'` or `
 </SingleSelectField>
 ```
 
--   A select can show a filter control that filters the available options.
--   Use a filter when there's many options, more than 10, to choose from.
+- A select can show a filter control that filters the available options.
+- Use a filter when there's many options, more than 10, to choose from.
 
 ### Clearing
 
@@ -233,8 +233,8 @@ These props accept any absolute or font-relative CSS length, e.g. `'200px'` or `
 </SingleSelectField>
 ```
 
--   A select can show a _Clear_ button that removes the current selection.
--   Use a clearable select if there isn't a _None_ choice in the options.
+- A select can show a _Clear_ button that removes the current selection.
+- Use a clearable select if there isn't a _None_ choice in the options.
 
 ### Prefix
 
@@ -253,9 +253,9 @@ These props accept any absolute or font-relative CSS length, e.g. `'200px'` or `
 </SingleSelectField>
 ```
 
--   A select can show a label that prefixes the chosen option label.
--   Use a prefix when there is limited space and a label above the select would take up too much space.
--   Prefix labels should be short and clear.
+- A select can show a label that prefixes the chosen option label.
+- Use a prefix when there is limited space and a label above the select would take up too much space.
+- Prefix labels should be short and clear.
 
 ### State: Error
 
@@ -277,9 +277,9 @@ These props accept any absolute or font-relative CSS length, e.g. `'200px'` or `
 </SingleSelectField>
 ```
 
--   Use an error state if there's a problem with the chosen option, or if it's required but empty.
--   Don't show an error too early, give the user a chance to make a choice.
--   The error text should help the user fix the problem. Refer to the [error writing guidelines](/design-system/principles/content-communication) for examples.
+- Use an error state if there's a problem with the chosen option, or if it's required but empty.
+- Don't show an error too early, give the user a chance to make a choice.
+- The error text should help the user fix the problem. Refer to the [error writing guidelines](/design-system/principles/content-communication) for examples.
 
 ### State: Disabled
 
@@ -297,8 +297,8 @@ These props accept any absolute or font-relative CSS length, e.g. `'200px'` or `
 </SingleSelectField>
 ```
 
--   Use a disabled state if the select temporarily can't be used.
--   Show a [`Tooltip`](tooltip.md) on hover or focus to explain why the select is disabled.
+- Use a disabled state if the select temporarily can't be used.
+- Show a [`Tooltip`](tooltip.md) on hover or focus to explain why the select is disabled.
 
 ## API Reference
 
