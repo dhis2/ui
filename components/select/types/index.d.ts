@@ -71,6 +71,14 @@ export interface MultiSelectProps {
     loadingText?: string
     maxHeight?: string
     /**
+     * See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width)
+     */
+    menuMaxWidth?: string
+    /**
+     * See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width)
+     */
+    menuMinWidth?: string
+    /**
      * Required if `filterable` prop is `true`
      */
     noMatchText?: string
@@ -167,6 +175,14 @@ export interface MultiSelectFieldProps {
      * Constrains height of the MultiSelect
      */
     maxHeight?: string
+    /**
+     * See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width)
+     */
+    menuMaxWidth?: string
+    /**
+     * See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width)
+     */
+    menuMinWidth?: string
     /**
      * Text to display when there are no filter results
      */
@@ -286,6 +302,14 @@ export interface SingleSelectProps {
     loadingText?: string
     maxHeight?: string
     /**
+     * See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width)
+     */
+    menuMaxWidth?: string
+    /**
+     * See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width)
+     */
+    menuMinWidth?: string
+    /**
      * Text to show when filter returns no results. Required if `filterable` prop is true
      */
     noMatchText?: string
@@ -402,6 +426,12 @@ export interface SimpleSingleSelectProps {
 
     /** Allows to modify the max height of the menu - Default is 288px **/
     menuMaxHeight?: string
+
+    /** See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width) **/
+    menuMaxWidth?: string
+
+    /** See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width) **/
+    menuMinWidth?: string
 
     /** String that will be displayed when the select is being filtered but the options array is empty **/
     noMatchText?: string
@@ -520,6 +550,12 @@ export interface SimpleSingleSelectFieldProps {
 
     /** Allows to modify the max height of the menu **/
     menuMaxHeight?: string
+
+    /** See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width) **/
+    menuMaxWidth?: string
+
+    /** See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width) **/
+    menuMinWidth?: string
 
     /** String that will be displayed when the select is being filtered but the options array is empty **/
     noMatchText?: string
@@ -655,6 +691,14 @@ export interface SingleSelectFieldProps {
      * Constrains height of the SingleSelect
      */
     maxHeight?: string
+    /**
+     * See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width)
+     */
+    menuMaxWidth?: string
+    /**
+     * See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width)
+     */
+    menuMinWidth?: string
     /**
      * Text to display when there are no filter results
      */
