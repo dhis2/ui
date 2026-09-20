@@ -24,18 +24,18 @@ Reference: [Color codes and #hex values for the UI color scale](#color-scale-ref
 
 Each color in the UI color scale has a purpose. Put simply:
 
--   **Grey**: general interface elements, neutral information
--   **Blue**: important neutral information, primary actions
--   **Teal**: selected or active elements
--   **Red**: danger, error, destructive action
--   **Yellow**: warning, non-blocking error
--   **Green**: positive feedback, valid, success
+- **Grey**: general interface elements, neutral information
+- **Blue**: important neutral information, primary actions
+- **Teal**: selected or active elements
+- **Red**: danger, error, destructive action
+- **Yellow**: warning, non-blocking error
+- **Green**: positive feedback, valid, success
 
 Generally speaking, for all colors, the values also have a purpose:
 
--   **900–700**: text, information, active or highlighted content
--   **600–300**: icons, states (inactive, disabled, etc.)
--   **200–050**: backgrounds, tints, accents
+- **900–700**: text, information, active or highlighted content
+- **600–300**: icons, states (inactive, disabled, etc.)
+- **200–050**: backgrounds, tints, accents
 
 ## Using color
 

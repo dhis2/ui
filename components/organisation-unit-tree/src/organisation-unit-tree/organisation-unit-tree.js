@@ -1,6 +1,7 @@
 import { requiredIf } from '@dhis2/prop-types'
 import PropTypes from 'prop-types'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
+import { sortNodeChildrenAlphabetically } from '../helpers/index.js'
 import { OrganisationUnitNode } from '../organisation-unit-node/index.js'
 import { orgUnitPathPropType } from '../prop-types.js'
 import { defaultRenderNodeLabel } from './default-render-node-label/index.js'
@@ -75,14 +76,24 @@ const OrganisationUnitTree = ({
 
     const isLoading = !called || loading
 
+    const sortedRoots = useMemo(() => {
+        if (!data) {
+            return staticArray
+        }
+        const rootNodes = rootIds.map((rootId) => data[rootId])
+        return suppressAlphabeticalSorting
+            ? rootNodes
+            : sortNodeChildrenAlphabetically(rootNodes)
+    }, [data, rootIds, suppressAlphabeticalSorting])
+
     return (
         <div data-test={dataTest}>
             {isLoading && <OrganisationUnitTreeRootLoading />}
             {error && <OrganisationUnitTreeRootError error={error} />}
             {!error &&
                 !isLoading &&
-                rootIds.map((rootId) => {
-                    const rootNode = data[rootId]
+                sortedRoots.map((rootNode) => {
+                    const rootId = rootNode.id
 
                     return (
                         <OrganisationUnitNode

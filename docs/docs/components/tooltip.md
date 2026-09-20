@@ -21,20 +21,20 @@ A tooltip is used to show contextual information when triggered by clicking, foc
 
 ### When to use
 
--   **Offer more information**. Use tooltips to offer more information about an element. This can help users who are unsure about something.
--   **Preview contents**. Use tooltips to show a preview of something inside an element. For example, a tooltip when hovering over a folder that has several items could show the item names.
+- **Offer more information**. Use tooltips to offer more information about an element. This can help users who are unsure about something.
+- **Preview contents**. Use tooltips to show a preview of something inside an element. For example, a tooltip when hovering over a folder that has several items could show the item names.
 
 ### When not to use
 
--   **Essential information**. Don't use tooltips for essential information, because a user might not know they're there.
--   **Actions**. Don't put actions inside tooltips.
--   **Repeated information**. Don't repeat information that's already on the screen. Only use tooltips to offer more context or useful information about something.
+- **Essential information**. Don't use tooltips for essential information, because a user might not know they're there.
+- **Actions**. Don't put actions inside tooltips.
+- **Repeated information**. Don't repeat information that's already on the screen. Only use tooltips to offer more context or useful information about something.
 
 ### Format
 
 #### Content
 
--   Use easy to understand content, no longer than a short sentence.
+- Use easy to understand content, no longer than a short sentence.
 
 ## Options
 
@@ -74,8 +74,8 @@ A tooltip is used to show contextual information when triggered by clicking, foc
 <Tooltip placement="bottom" content="Tooltip content">Hover to trigger bottom tooltip.</Tooltip>
 ```
 
--   By default, tooltips are shown above the triggering element.
--   Other positions, `left`, `right`, and `bottom`, are available. Only use these positions if there's a reason `top` doesn't work, like in an information dense layout.
+- By default, tooltips are shown above the triggering element.
+- Other positions, `left`, `right`, and `bottom`, are available. Only use these positions if there's a reason `top` doesn't work, like in an information dense layout.
 
 ### Delay
 
@@ -91,9 +91,9 @@ A tooltip is used to show contextual information when triggered by clicking, foc
 </Tooltip>
 ```
 
--   Tooltips have two delay durations: `open` and `close`.
--   Use the default delay durations unless there's a specific use case to change them.
--   Longer `open` delays and shorter `close` delays can help prevent too many tooltips showing in a complex layout.
+- Tooltips have two delay durations: `open` and `close`.
+- Use the default delay durations unless there's a specific use case to change them.
+- Longer `open` delays and shorter `close` delays can help prevent too many tooltips showing in a complex layout.
 
 ## API Reference
 

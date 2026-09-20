@@ -135,3 +135,34 @@ DefaultFilterPlaceholderAndNoMatchText.storyName =
 export const DefaultLoadingText = Template.bind({})
 DefaultLoadingText.args = { loading: true, ...DefaultEmpty.args }
 DefaultLoadingText.storyName = 'Default: loadingText'
+
+export const WithMenuMaxWidth = Template.bind({})
+WithMenuMaxWidth.args = {
+    inputWidth: '120px',
+    menuMaxWidth: '200px',
+    children: [
+        <MultiSelectOption key="1" value="1" label="option one" />,
+        <MultiSelectOption key="2" value="2" label="option two" />,
+        <MultiSelectOption
+            key="3"
+            value="3"
+            label="A much longer option label"
+        />,
+    ],
+}
+
+export const WithMenuMinWidth = Template.bind({})
+WithMenuMinWidth.args = {
+    inputWidth: '120px',
+    menuMinWidth: '240px',
+    children: [
+        <MultiSelectOption key="1" value="1" label="option one" />,
+        <MultiSelectOption key="2" value="2" label="option two" />,
+        <MultiSelectOption key="3" value="3" label="option three" />,
+        <MultiSelectOption
+            key="4"
+            value="4"
+            label="A longer option that exceeds the minimum"
+        />,
+    ],
+}

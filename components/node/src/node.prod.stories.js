@@ -253,7 +253,7 @@ export const _2LevelsOpen = () => (
                 />
             }
         >
-            {false && 'Foo'}
+            {null}
         </Node>
     </Node>
 )

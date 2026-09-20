@@ -24,9 +24,9 @@ We recommend that you use `@dhis2/ui` as the entrypoint for all imports of our f
 
 `@dhis2/ui` is based on the specifications in our design-system: https://github.com/dhis2/design-system. See the documentation there for more information.
 
--   Docs: [Developer Portal](https://developers.dhis2.org/docs/tutorials/ui-library)
--   Live demo: [Demo](https://developers.dhis2.org/demo/)
--   Components reference: [Components](https://developers.dhis2.org/docs/ui/webcomponents)
+- Docs: [Developer Portal](https://developers.dhis2.org/docs/tutorials/ui-library)
+- Live demo: [Demo](https://developers.dhis2.org/demo/)
+- Components reference: [Components](https://developers.dhis2.org/docs/ui/webcomponents)
 
 ## Bundled packages
 
@@ -92,8 +92,8 @@ For the `yarn start` command, you can run it at the top-level directory if you a
 
 To record e2e tests in Cypress Cloud, you can use one of the following methods based on your needs:
 
--   **Commit Message**: Include `[e2e record]` in your commit messages to activate recording.
--   **GitHub Labels**: Apply the `e2e record` label to your pull request to trigger recording.
+- **Commit Message**: Include `[e2e record]` in your commit messages to activate recording.
+- **GitHub Labels**: Apply the `e2e record` label to your pull request to trigger recording.
 
 This setup helps in managing Cypress Cloud credits more efficiently, ensuring recordings are only made when explicitly required.
 

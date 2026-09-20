@@ -30,12 +30,12 @@ This example usees the `e200` variant.
 
 ### When to use
 
--   **Separate elements**. Use elevation to make relationships between interface elements clearer, like showing that a panel is floating above a background.
--   **Show temporary elements**. Elevation is useful for showing extra elements above other page content. The elevation makes it clear that the extra elements are floating above the page and can be dismissed.
+- **Separate elements**. Use elevation to make relationships between interface elements clearer, like showing that a panel is floating above a background.
+- **Show temporary elements**. Elevation is useful for showing extra elements above other page content. The elevation makes it clear that the extra elements are floating above the page and can be dismissed.
 
 ### When not to use
 
--   **Decoration**. Don't use elevation for decoration only. The elevation should be communicating something about an element's relationship to the interface.
+- **Decoration**. Don't use elevation for decoration only. The elevation should be communicating something about an element's relationship to the interface.
 
 ### Variants
 
@@ -44,9 +44,9 @@ This example usees the `e200` variant.
     height="120px"
 />
 
--   There are four levels of elevation: `e100`, `e200`, `e300`, `e400`.
--   Use different elevation levels to communicate different depths or stacks of elements.
--   Don't skip an elevation level. If there are two layered or stacked elements, use two levels next to one another, like `e100` and `e200`.
+- There are four levels of elevation: `e100`, `e200`, `e300`, `e400`.
+- Use different elevation levels to communicate different depths or stacks of elements.
+- Don't skip an elevation level. If there are two layered or stacked elements, use two levels next to one another, like `e100` and `e200`.
 
 ## API Reference
 

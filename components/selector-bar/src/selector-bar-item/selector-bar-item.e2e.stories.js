@@ -18,34 +18,31 @@ const createStateDecorator = (args) => {
 
 const createStory =
     () =>
-    (_, { open, setOpen, selected, setSelected }) =>
-        (
-            <SelectorBarItem
-                label="Selection bar item"
-                noValueMessage="No value message"
-                open={open}
-                setOpen={setOpen}
-                value={
-                    options.find(({ value }) => value === selected)?.label || ''
-                }
+    (_, { open, setOpen, selected, setSelected }) => (
+        <SelectorBarItem
+            label="Selection bar item"
+            noValueMessage="No value message"
+            open={open}
+            setOpen={setOpen}
+            value={options.find(({ value }) => value === selected)?.label || ''}
+        >
+            <SingleSelectField
+                selected={selected}
+                onChange={({ selected: nextSelected }) => {
+                    setSelected(nextSelected)
+                    setOpen(false)
+                }}
             >
-                <SingleSelectField
-                    selected={selected}
-                    onChange={({ selected: nextSelected }) => {
-                        setSelected(nextSelected)
-                        setOpen(false)
-                    }}
-                >
-                    {options.map(({ value, label }) => (
-                        <SingleSelectOption
-                            key={value}
-                            value={value}
-                            label={label}
-                        />
-                    ))}
-                </SingleSelectField>
-            </SelectorBarItem>
-        )
+                {options.map(({ value, label }) => (
+                    <SingleSelectOption
+                        key={value}
+                        value={value}
+                        label={label}
+                    />
+                ))}
+            </SingleSelectField>
+        </SelectorBarItem>
+    )
 
 export default { title: 'SelectorBarItem' }
 

@@ -17,7 +17,7 @@ const LABELS = {
 export const ListItemContext = ({ target, id }) => {
     return (
         <>
-            <p>{target === SHARE_TARGET_USER ? id : LABELS[target] ?? ''}</p>
+            <p>{target === SHARE_TARGET_USER ? id : (LABELS[target] ?? '')}</p>
             <style jsx>{`
                 p {
                     font-size: 14px;
