@@ -137,6 +137,12 @@ SimpleSingleSelectField.propTypes = {
     /** Allows to modify the max height of the menu **/
     menuMaxHeight: PropTypes.string,
 
+    /** See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width) **/
+    menuMaxWidth: PropTypes.string,
+
+    /** See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width) **/
+    menuMinWidth: PropTypes.string,
+
     /** String that will be displayed when the select is being filtered but the options array is empty **/
     noMatchText: requiredIf((props) => props.filterable, PropTypes.string),
 

@@ -150,6 +150,74 @@ describe('<SimpleSingleSelect />', () => {
         expect(menu.style.maxHeight).toBe('100px')
     })
 
+    describe('dropdown menu width', () => {
+        let offsetWidth
+
+        beforeEach(() => {
+            // The menu's width is derived from the select's measured width,
+            // which is always 0 in jsdom
+            offsetWidth = jest
+                .spyOn(HTMLElement.prototype, 'offsetWidth', 'get')
+                .mockReturnValue(120)
+        })
+
+        afterEach(() => {
+            offsetWidth.mockRestore()
+        })
+
+        const renderAndOpen = (props) => {
+            render(
+                <SimpleSingleSelect
+                    name="simple"
+                    selected={{ value: 'foo', label: 'Foo' }}
+                    onChange={() => null}
+                    options={[{ value: 'foo', label: 'Foo' }]}
+                    {...props}
+                />
+            )
+
+            fireEvent.click(screen.getByRole('combobox'))
+
+            const listbox = screen.getByRole('listbox')
+            return listbox.parentNode.parentNode.parentNode
+        }
+
+        it('should match the width of the select by default', () => {
+            const menu = renderAndOpen()
+
+            expect(menu.style.width).toBe('120px')
+        })
+
+        it('should not be narrower than menuMinWidth or the select', () => {
+            const menu = renderAndOpen({ menuMinWidth: '240px' })
+
+            expect(menu.style.minWidth).toBe('max(120px, 240px)')
+        })
+
+        it('should not be wider than menuMaxWidth', () => {
+            const menu = renderAndOpen({ menuMaxWidth: '200px' })
+
+            expect(menu.style.maxWidth).toBe('200px')
+            expect(menu.style.minWidth).toBe('120px')
+        })
+
+        it('should re-measure the select when the menu is reopened', () => {
+            renderAndOpen({ menuMinWidth: '240px' })
+            const comboBox = screen.getByRole('combobox')
+
+            // close the menu
+            fireEvent.click(comboBox)
+
+            // widen the select while the menu is closed, then reopen it
+            offsetWidth.mockReturnValue(300)
+            fireEvent.click(comboBox)
+
+            const listbox = screen.getByRole('listbox')
+            const menu = listbox.parentNode.parentNode.parentNode
+            expect(menu.style.minWidth).toBe('max(300px, 240px)')
+        })
+    })
+
     it('should accept a placeholder', () => {
         render(
             <SimpleSingleSelect
