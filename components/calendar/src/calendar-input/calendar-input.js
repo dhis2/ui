@@ -92,7 +92,10 @@ export const CalendarInput = ({
             setOpen(false)
         },
         date,
-        ...validationOptions,
+        minDate,
+        maxDate,
+        format,
+        strictValidation,
         options: useDatePickerOptions,
     })
 
