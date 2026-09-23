@@ -16,11 +16,27 @@ export const NoticeBox = ({
     valid,
     dense = false,
     icon,
+    'aria-label': ariaLabel,
 }) => {
     const classnames = cx(className, 'root', { warning, error, valid, dense })
 
+    let role = 'note'
+
+    if (warning || valid) {
+        role = 'status'
+    }
+    
+    if (error) {
+        role = 'alert'
+    }
+
     return (
-        <div className={classnames} data-test={dataTest}>
+        <div
+            className={classnames}
+            data-test={dataTest}
+            role={role}
+            aria-label={ariaLabel}
+        >
             <NoticeBoxIcon
                 error={error}
                 warning={warning}
@@ -74,6 +90,7 @@ export const NoticeBox = ({
 }
 
 NoticeBox.propTypes = {
+    'aria-label': PropTypes.string,
     children: PropTypes.node,
     className: PropTypes.string,
     dataTest: PropTypes.string,
