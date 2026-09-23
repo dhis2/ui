@@ -21,6 +21,7 @@ export const OptionsContainer = ({
     selected = false,
     selectionHandler,
     toggleHighlightedOption,
+    activeDragSide,
     activeDragValues,
     draggingDisabled,
     dropTarget,
@@ -47,10 +48,11 @@ export const OptionsContainer = ({
         [setContainerDroppableRef]
     )
 
-    const containerDropHighlight =
-        side === 'source'
-            ? dropTarget?.side === 'source'
-            : dropTarget?.side === 'picked' && dropTarget.pos === 'end'
+    /* Only highlight the whole list for cross-list transfers. When
+     * reordering within the same list, the insertion line is the
+     * drop indicator. */
+    const isReorder = activeDragSide === side
+    const dropActive = dropTarget?.side === side && !isReorder
 
     /* Matched by index rather than by `dropTarget.value`: at the exact
      * pixel boundary between two adjacent options, dnd-kit's collision
@@ -59,17 +61,21 @@ export const OptionsContainer = ({
      * Both resolve to the same insertion index, so keying off the index
      * keeps the rendered indicator stable instead of jumping between
      * the two options' edges. */
-    const positionalDropIndex =
-        side === 'picked' &&
-        dropTarget?.side === 'picked' &&
-        (dropTarget.pos === 'before' || dropTarget.pos === 'after')
-            ? dropTarget.index
-            : null
+    let positionalDropIndex = null
+    if (side === 'picked' && dropTarget?.side === 'picked') {
+        if (dropTarget.pos === 'before' || dropTarget.pos === 'after') {
+            positionalDropIndex = dropTarget.index
+        } else if (dropTarget.pos === 'end' && isReorder) {
+            // No container highlight while reordering, so show the
+            // line after the last option when hovering empty space
+            positionalDropIndex = options.length
+        }
+    }
 
     return (
         <div
             className={cx('optionsContainer', {
-                dropTarget: containerDropHighlight,
+                dropTarget: dropActive,
             })}
         >
             {loading && (
@@ -80,7 +86,7 @@ export const OptionsContainer = ({
 
             <div
                 className={cx('container', {
-                    dropTarget: containerDropHighlight,
+                    dropTarget: dropActive,
                 })}
                 data-test={dataTest}
                 ref={setContainerRef}
@@ -141,10 +147,13 @@ export const OptionsContainer = ({
             </div>
 
             <style jsx>{`
+                /* min-height instead of overflow: hidden lets the list
+                 * shrink and scroll without clipping the drop outline,
+                 * which sits 1px outside this box */
                 .optionsContainer {
                     flex-grow: 1;
                     position: relative;
-                    overflow: hidden;
+                    min-height: 0;
                 }
 
                 .container {
@@ -152,18 +161,29 @@ export const OptionsContainer = ({
                     height: 100%;
                 }
 
-                .container.dropTarget {
-                    background-color: ${colors.teal050};
-                }
-
+                /* Pushed out 1px so the outline covers the grey line on
+                 * every side (the panel border, or the header/footer
+                 * divider) instead of doubling up next to it. Corners
+                 * only round where they meet the panel's rounded
+                 * corners, i.e. when there's no header/footer. */
                 .optionsContainer.dropTarget::after {
                     content: '';
                     position: absolute;
-                    inset: 0;
-                    border-radius: 2px;
-                    box-shadow: inset 0 0 0 1px ${colors.teal500};
+                    inset: -1px;
+                    border-radius: 0;
+                    box-shadow: inset 0 0 0 1px ${colors.grey600};
                     pointer-events: none;
                     z-index: 3;
+                }
+
+                .optionsContainer.dropTarget:first-child::after {
+                    border-start-start-radius: 3px;
+                    border-start-end-radius: 3px;
+                }
+
+                .optionsContainer.dropTarget:last-child::after {
+                    border-end-start-radius: 3px;
+                    border-end-end-radius: 3px;
                 }
 
                 .loading {
@@ -195,6 +215,7 @@ OptionsContainer.propTypes = {
     allOptionsKey: PropTypes.string.isRequired,
     dataTest: PropTypes.string.isRequired,
     getOptionClickHandlers: PropTypes.func.isRequired,
+    activeDragSide: PropTypes.oneOf(['source', 'picked']),
     activeDragValues: PropTypes.arrayOf(PropTypes.string),
     draggingDisabled: PropTypes.bool,
     dropTarget: PropTypes.shape({

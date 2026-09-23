@@ -316,6 +316,7 @@ export const Transfer = ({
                     )}
 
                     <OptionsContainer
+                        activeDragSide={activeDrag?.side}
                         activeDragValues={activeDrag?.values}
                         allOptionsKey={allOptionsKey}
                         dataTest={`${dataTest}-sourceoptions`}
@@ -431,6 +432,7 @@ export const Transfer = ({
 
                     <OptionsContainer
                         selected
+                        activeDragSide={activeDrag?.side}
                         activeDragValues={activeDrag?.values}
                         allOptionsKey={pickedOptionsKey}
                         dataTest={`${dataTest}-pickedoptions`}
