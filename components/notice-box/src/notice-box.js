@@ -25,7 +25,7 @@ export const NoticeBox = ({
     if (warning || valid) {
         role = 'status'
     }
-    
+
     if (error) {
         role = 'alert'
     }
