@@ -37,7 +37,11 @@ export const Button = ({
         }
     }, [initialFocus, ref.current])
 
-    const { 'aria-label': ariaLabel, title } = otherProps
+    const {
+        'aria-disabled': ariaDisabled,
+        'aria-label': ariaLabel,
+        title,
+    } = otherProps
 
     if (!children && !title && !ariaLabel) {
         console.debug(
@@ -45,7 +49,15 @@ export const Button = ({
         )
     }
 
-    const handleClick = (event) => onClick && onClick({ value, name }, event)
+    const isAriaDisabled = ariaDisabled === true || ariaDisabled === 'true'
+
+    const handleClick = (event) => {
+        if (isAriaDisabled) {
+            event.preventDefault()
+            return
+        }
+        onClick && onClick({ value, name }, event)
+    }
     const handleBlur = (event) => onBlur && onBlur({ value, name }, event)
     const handleFocus = (event) => onFocus && onFocus({ value, name }, event)
     const handleKeyDown = (event) =>
@@ -95,6 +107,8 @@ export const Button = ({
 }
 
 Button.propTypes = {
+    /** Applies the disabled appearance and prevents `onClick` from firing, while keeping the button focusable */
+    'aria-disabled': PropTypes.oneOf([true, false, 'true', 'false']),
     /** Component to render inside the button */
     children: PropTypes.node,
     /** A className that will be passed to the `<button>` element */

@@ -123,4 +123,18 @@ describe('<Button>', () => {
 
         expect(onKeyDown).toHaveBeenCalledTimes(1)
     })
+
+    it('does not call the onClick callback when aria-disabled is true', () => {
+        const onClick = jest.fn()
+
+        render(
+            <Button aria-disabled="true" onClick={onClick}>
+                btn
+            </Button>
+        )
+
+        fireEvent.click(screen.getByRole('button'))
+
+        expect(onClick).not.toHaveBeenCalled()
+    })
 })

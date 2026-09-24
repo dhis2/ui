@@ -91,6 +91,7 @@ import { Button } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
+|aria-disabled|true │ false │ 'true' │ 'false'|||Applies the disabled appearance and prevents `onClick` from firing, while keeping the button focusable|
 |children|node|||Component to render inside the button|
 |className|string|||A className that will be passed to the `<button>` element|
 |dataTest|string|``'dhis2-uicore-button'``||A string that will be applied as a `data-test` attribute on the button element<br/>for identification during testing|
@@ -1825,6 +1826,8 @@ import { SimpleSingleSelect } from '@dhis2/ui'
 |loading|boolean|``false``||Will show a loading indicator at the end of the options-list *|
 |menuLoadingText|string|``''``||Text that will be displayed next to the loading indicator *|
 |menuMaxHeight|string|``'288px'``||Allows to modify the max height of the menu *|
+|menuMaxWidth|string|||See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width) *|
+|menuMinWidth|string|||See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width) *|
 |noMatchText|custom|``''``||String that will be displayed when the select is being filtered but the options array is empty *|
 |optionComponent|elementType|``undefined``||Allows to override what's rendered inside the `button[role="option"]`.<br/>Can be overriden on an individual option basis *|
 |optionUpdateStrategy|'off' │ 'polite' │ 'assertive'|``'polite'``||For a11y: How aggressively the user should be updated about changes in options *|
@@ -1878,6 +1881,8 @@ import { SimpleSingleSelectField } from '@dhis2/ui'
 |loading|boolean|||Will show a loading indicator at the end of the options-list *|
 |menuLoadingText|string|||Text that will be displayed next to the loading indicator *|
 |menuMaxHeight|string|||Allows to modify the max height of the menu *|
+|menuMaxWidth|string|||See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width) *|
+|menuMinWidth|string|||See [dropdown menu width](https://developers.dhis2.org/docs/ui/components/select#dropdown-menu-width) *|
 |noMatchText|custom|||String that will be displayed when the select is being filtered but the options array is empty *|
 |optionComponent|elementType|||Allows to override what's rendered inside the `button[role="option"]`.<br/>Can be overriden on an individual option basis *|
 |optionUpdateStrategy|'off' │ 'polite' │ 'assertive'|||For a11y: How aggressively the user should be updated about changes in options *|
@@ -2099,6 +2104,8 @@ import { Menu } from '@dhis2/ui'
 |loading|boolean||||
 |loadingText|string||||
 |maxHeight|string||||
+|maxWidth|string||||
+|minWidth|string||||
 |noMatchText|string||||
 |optionComponent|elementType||||
 |optionUpdateStrategy|'off' │ 'polite' │ 'assertive'||||

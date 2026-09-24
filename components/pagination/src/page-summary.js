@@ -30,7 +30,11 @@ const PageSummary = ({
     })
 
     return (
-        <div data-test={`${dataTest}-summary`}>
+        <div
+            data-test={`${dataTest}-summary`}
+            aria-live="polite"
+            aria-atomic="true"
+        >
             <span className={cx({ inactive })}>{summary}</span>
             <style jsx>{`
                 div {
