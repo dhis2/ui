@@ -60,8 +60,13 @@ export const Button = ({
     }
     const handleBlur = (event) => onBlur && onBlur({ value, name }, event)
     const handleFocus = (event) => onFocus && onFocus({ value, name }, event)
-    const handleKeyDown = (event) =>
+    const handleKeyDown = (event) => {
+        if (isAriaDisabled) {
+            event.preventDefault()
+            return
+        }
         onKeyDown && onKeyDown({ value, name }, event)
+    }
 
     const iconOnly = icon && !children
     const buttonClassName = cx(className, {
