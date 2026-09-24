@@ -56,7 +56,7 @@ export const Button = ({
             event.preventDefault()
             return
         }
-        onClick && onClick({ value, name }, event)
+        onClick?.({ value, name }, event)
     }
     const handleBlur = (event) => onBlur && onBlur({ value, name }, event)
     const handleFocus = (event) => onFocus && onFocus({ value, name }, event)
@@ -65,7 +65,7 @@ export const Button = ({
             event.preventDefault()
             return
         }
-        onKeyDown && onKeyDown({ value, name }, event)
+        onKeyDown?.({ value, name }, event)
     }
 
     const iconOnly = icon && !children
