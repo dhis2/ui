@@ -17,6 +17,8 @@ type ButtonOpenEventHandler<
 > = (arg0: ButtonEventPayload & { open: boolean }, event: Event) => void
 
 export interface BaseButtonProps {
+    /** Applies the disabled appearance and prevents `onClick` from firing, while keeping the button focusable */
+    'aria-disabled'?: boolean | 'true' | 'false'
     /**
      * Component to render inside the button
      */

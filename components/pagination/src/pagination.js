@@ -57,8 +57,21 @@ const Pagination = ({
         pageCount > 1 &&
         pageCount <= MAX_PAGE_COUNT
 
+    const previousAriaLabel =
+        previousPageText === defaultProps.previousPageText
+            ? i18n.t('Go to previous page')
+            : undefined
+    const nextAriaLabel =
+        nextPageText === defaultProps.nextPageText
+            ? i18n.t('Go to next page')
+            : undefined
+
     return (
-        <div className={cx('container', className)} data-test={dataTest}>
+        <nav
+            aria-label={i18n.t('Pagination')}
+            className={cx('container', className)}
+            data-test={dataTest}
+        >
             {hidePageSizeSelect ? (
                 <div className="spacer" />
             ) : (
@@ -97,8 +110,10 @@ const Pagination = ({
                 <PageControls
                     dataTest={dataTest}
                     nextPageText={nextPageText}
+                    nextAriaLabel={nextAriaLabel}
                     page={page}
                     previousPageText={previousPageText}
+                    previousAriaLabel={previousAriaLabel}
                     onClick={onPageChange}
                     isNextDisabled={
                         disabled || isLastPage || page === pageCount
@@ -122,7 +137,7 @@ const Pagination = ({
                     min-height: 32px;
                 }
             `}</style>
-        </div>
+        </nav>
     )
 }
 
