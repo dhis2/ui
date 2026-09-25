@@ -1,3 +1,21 @@
+# [10.18.0](https://github.com/dhis2/ui/compare/v10.17.0...v10.18.0) (2026-09-25)
+
+
+### Bug Fixes
+
+* resolve the typescript peer conflict that breaks releases ([#1770](https://github.com/dhis2/ui/issues/1770)) ([9a0cd9d](https://github.com/dhis2/ui/commit/9a0cd9dcd7f9a372f868a2014971a600a388edcc))
+* **notification-icon:** align badge text color with global shell ([e73cd57](https://github.com/dhis2/ui/commit/e73cd57317fd1e9a97a844dfd56f3571f2bcac3d))
+* **notification-icon:** change background color to red500 for improved contrast ([660784a](https://github.com/dhis2/ui/commit/660784a2fdfd0cc8c723a2397931b95d346aeb48))
+* **notification-icon:** enhance accessibility ([553b61d](https://github.com/dhis2/ui/commit/553b61d3e14437d712ffb2ceede675f401dfed98))
+* **notification-icon:** update box-shadow color to match the header bar background ([86ed313](https://github.com/dhis2/ui/commit/86ed313a01a1a1a6234e62219f6e8d8779047dcf))
+
+
+### Features
+
+* support writing components in TypeScript, with a placeholder OuTree ([#1764](https://github.com/dhis2/ui/issues/1764)) ([47ac8f3](https://github.com/dhis2/ui/commit/47ac8f3a0d731b390e6629ffbd2a1bf86a736c8a))
+* **header-bar:** add expandable notification dot indicator ([ffc9ac5](https://github.com/dhis2/ui/commit/ffc9ac57ac68544696b5255b5a84697dd8822515))
+* **select:** add menuMinWidth and menuMaxWidth to SimpleSingleSelect ([2967f90](https://github.com/dhis2/ui/commit/2967f90a7254757869e28e9754117972b56e4533))
+
 # [10.17.0](https://github.com/dhis2/ui/compare/v10.16.5...v10.17.0) (2026-07-20)
 
 
