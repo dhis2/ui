@@ -77,7 +77,7 @@ export const DraggableOption = ({
                     position: absolute;
                     inset-inline: 0;
                     height: 3px;
-                    background: ${colors.teal500};
+                    background: ${colors.grey700};
                     z-index: 1;
                     pointer-events: none;
                 }

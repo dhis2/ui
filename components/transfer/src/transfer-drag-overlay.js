@@ -69,6 +69,7 @@ export const TransferDragOverlay = ({ activeDrag, flyBackOnDrop = true }) => {
                             background: ${colors.teal700};
                             border-radius: 3px;
                             box-shadow: ${elevations.e300};
+                            opacity: 0.8;
                             cursor: grabbing;
                             user-select: none;
                         }
