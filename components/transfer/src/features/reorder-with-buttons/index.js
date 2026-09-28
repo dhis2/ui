@@ -68,6 +68,8 @@ Then('the highlighted item should be moved to the {int}. place', (next) => {
 
     cy.get('@previousValue')
         .then((previousValue) => cy.get(`[data-value="${previousValue}"]`))
+        // the option's position is its draggable wrapper's position
+        .invoke('parent')
         .invoke('index')
         .should('equal', index)
 })
@@ -134,6 +136,8 @@ Then('those items should be at positions {int} and {int}', (first, second) => {
         const targetIndices = [first - 1, second - 1]
         values.forEach((value, i) => {
             cy.get(`[data-value="${value}"]`)
+                // the option's position is its draggable wrapper's position
+                .invoke('parent')
                 .invoke('index')
                 .should('equal', targetIndices[i])
         })
