@@ -2,12 +2,12 @@
 
 Communicating consistently helps DHIS2 users understand, use and extend DHIS2. Follow these principles, each of which is expanded below:
 
--   Use words that are easily understood, consistent and not unnecessarily technical.
--   Help the user to build a mental model of the DHIS2 platform and applications
--   Communicate errors clearly and with guidelines or actions
--   Keep the user informed about application status
--   Use a clear, honest and friendly tone of voice
--   Only refer to a user, using _you/your_ when necessary.
+- Use words that are easily understood, consistent and not unnecessarily technical.
+- Help the user to build a mental model of the DHIS2 platform and applications
+- Communicate errors clearly and with guidelines or actions
+- Keep the user informed about application status
+- Use a clear, honest and friendly tone of voice
+- Only refer to a user, using _you/your_ when necessary.
 
 ## Communication
 
@@ -61,11 +61,11 @@ Always keep the user informed. Avoid all situations where a user could be lookin
 
 Practically, this means:
 
--   displaying loading indicators
--   communicating 'No data found' instead of blank screens or components
--   displaying loading as a progress bar, helping the user understand approximately how long the loading process might take
--   informing the user of successes as well as errors, for example when an item has saved successfully
--   clearly showing when data or items are being filtered
+- displaying loading indicators
+- communicating 'No data found' instead of blank screens or components
+- displaying loading as a progress bar, helping the user understand approximately how long the loading process might take
+- informing the user of successes as well as errors, for example when an item has saved successfully
+- clearly showing when data or items are being filtered
 
 ### Examples
 
@@ -77,9 +77,9 @@ Practically, this means:
 
 DHIS2 applications should communicate in a clear, honest and friendly tone of voice:
 
--   **Clear**: Do not overcomplicate sentences or provide more information than needed. Be concise and straight to the point.
--   **Honest**: Be open and upfront about errors and system information.
--   **Friendly**: Be polite while remaining focused. Communication can be casual but do not joke or be overly forward. DHIS2 applications are used in sensitive conditions. Applications should adopt a detached, professional tone.
+- **Clear**: Do not overcomplicate sentences or provide more information than needed. Be concise and straight to the point.
+- **Honest**: Be open and upfront about errors and system information.
+- **Friendly**: Be polite while remaining focused. Communication can be casual but do not joke or be overly forward. DHIS2 applications are used in sensitive conditions. Applications should adopt a detached, professional tone.
 
 ### Examples
 
@@ -97,6 +97,6 @@ Sometimes it may be useful to refer to the user. When doing so, always use the s
 
 Guidelines for the use of _you_ and _your_ in DHIS2:
 
--   Only use _you_ or _your_ if other, similar items do not belong to the user. For example, when displaying a list of documents, if they all belong to the user simply refer to them as 'Documents'. If some belong documents to the user, and some belong to a wider community then it makes sense to highlight this. 'Your Documents' could refer to the user's documents and 'Community Documents' could refer to all others.
--   _You_ or _your_ could be replaced by the currently logged in username. This is useful in situations where a single user login is used in many places. However, be aware that usernames can be very long. Only use username labels where data explicitly belongs to that user and no one else.
--   Be aware that _you_ and _your_ may refer to a single user or the DHIS2 instance. In Data Visualizer we refer to 'Your Dimensions'. These dimensions belong to the DHIS2 instance, not personally to the user. In this case, we are using _you_ to distinguish between the custom, user-defined dimensions and system dimensions. Ensure the relationship is clear and the user understands what data belongs to them and what belongs to their shared DHIS2 instance.
+- Only use _you_ or _your_ if other, similar items do not belong to the user. For example, when displaying a list of documents, if they all belong to the user simply refer to them as 'Documents'. If some belong documents to the user, and some belong to a wider community then it makes sense to highlight this. 'Your Documents' could refer to the user's documents and 'Community Documents' could refer to all others.
+- _You_ or _your_ could be replaced by the currently logged in username. This is useful in situations where a single user login is used in many places. However, be aware that usernames can be very long. Only use username labels where data explicitly belongs to that user and no one else.
+- Be aware that _you_ and _your_ may refer to a single user or the DHIS2 instance. In Data Visualizer we refer to 'Your Dimensions'. These dimensions belong to the DHIS2 instance, not personally to the user. In this case, we are using _you_ to distinguish between the custom, user-defined dimensions and system dimensions. Ensure the relationship is clear and the user understands what data belongs to them and what belongs to their shared DHIS2 instance.

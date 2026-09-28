@@ -207,9 +207,9 @@ export const CalendarInput = ({
                     }
                     .calendar-clear-button {
                         position: absolute;
-                        inset-inline-end: ${rest.error || rest.warning
-                            ? '36px'
-                            : '6px'};
+                        inset-inline-end: ${
+                            rest.error || rest.warning ? '36px' : '6px'
+                        };
                         inset-block-start: 27px;
                     }
                     .calendar-clear-button.with-icon {

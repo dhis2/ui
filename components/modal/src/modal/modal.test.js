@@ -34,9 +34,8 @@ describe('Modal', () => {
 
         it('has a close button with proper accessibility attributes', async () => {
             render(<CloseButton />)
-            const closeButton = await screen.findByLabelText(
-                /Close modal dialog/
-            )
+            const closeButton =
+                await screen.findByLabelText(/Close modal dialog/)
 
             expect(closeButton).toBeInTheDocument()
             expect(closeButton.tagName).toBe('BUTTON')

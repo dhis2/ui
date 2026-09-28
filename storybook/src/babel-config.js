@@ -10,11 +10,9 @@ const pkgRoot = path.join(
     path.dirname(require.resolve('@dhis2/cli-app-scripts')),
     '..'
 )
-const makeBabelConfig = require(path.join(
-    pkgRoot,
-    'config',
-    'makeBabelConfig.js'
-))
+const makeBabelConfig = require(
+    path.join(pkgRoot, 'config', 'makeBabelConfig.js')
+)
 
 exports.babelConfig = (config) => {
     // currently styled-jsx is configured the same way for prod and

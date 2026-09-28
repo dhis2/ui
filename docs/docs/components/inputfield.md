@@ -19,11 +19,11 @@ An input is used to enter data, like text or a number.
 
 ### When to use
 
--   **Entering or editing data**. Inputs are used to add or change data, like text or a number.
+- **Entering or editing data**. Inputs are used to add or change data, like text or a number.
 
 ### When not to use
 
--   **Choosing from options**. Don't use an input to choose from other a list of options, use a `Select` instead.
+- **Choosing from options**. Don't use an input to choose from other a list of options, use a `Select` instead.
 
 ### Variants
 
@@ -48,7 +48,7 @@ An input is used to enter data, like text or a number.
 <InputField value="Malaria Registration" label="Program name" />
 ```
 
--   Use a label above the input to show what the input is for.
+- Use a label above the input to show what the input is for.
 
 ##### Placeholder
 
@@ -62,10 +62,10 @@ An input is used to enter data, like text or a number.
 <InputField placeholder="Type your program name here" label="Program name" />
 ```
 
--   Only use placeholder text to clarify what kind of content is expected.
--   Placeholder text shouldn't repeat the label.
--   Always use placeholder text if a label isn't used.
--   Placeholder text disappears when entering content, so make sure it's not critical.
+- Only use placeholder text to clarify what kind of content is expected.
+- Placeholder text shouldn't repeat the label.
+- Always use placeholder text if a label isn't used.
+- Placeholder text disappears when entering content, so make sure it's not critical.
 
 ##### Help text
 
@@ -83,8 +83,8 @@ An input is used to enter data, like text or a number.
 />
 ```
 
--   Use help text to tell the user about any limitations or expectations for the content.
--   Help text can also be used to clarify what the input is for if it's a complex concept.
+- Use help text to tell the user about any limitations or expectations for the content.
+- Help text can also be used to clarify what the input is for if it's a complex concept.
 
 #### Size
 
@@ -98,7 +98,7 @@ An input is used to enter data, like text or a number.
 <InputField value="Malaria Registration" label="Program name" dense />
 ```
 
--   Inputs are available in two sizes, regular and `dense`. Regular sized inputs are useful when there's space available. Use `dense` sized inputs in compact, information-dense interfaces.
+- Inputs are available in two sizes, regular and `dense`. Regular sized inputs are useful when there's space available. Use `dense` sized inputs in compact, information-dense interfaces.
 
 #### Width
 
@@ -114,8 +114,8 @@ An input is used to enter data, like text or a number.
 
 Inputs width should reflect the expected content.
 
--   If a three digit number is expected then the input should be narrow.
--   If a longer sentence is expected then the input should be wider.
+- If a three digit number is expected then the input should be narrow.
+- If a longer sentence is expected then the input should be wider.
 
 ## Options
 
@@ -131,13 +131,13 @@ Inputs width should reflect the expected content.
 <TextAreaField label="Description of symptoms" />
 ```
 
--   Use a `Textarea` if more than a single sentence of content is expected.
--   [`Textarea`](pathname:///demo/?path=/story/forms-text-area-text-area-field--no-placeholder-no-value) is available as a standalone component.
+- Use a `Textarea` if more than a single sentence of content is expected.
+- [`Textarea`](pathname:///demo/?path=/story/forms-text-area-text-area-field--no-placeholder-no-value) is available as a standalone component.
 
 ### Validation
 
--   Validating the type of data entered isn't part of the components themselves.
--   Read more about [form handling in DHIS2](/design-system/utilities/forms/react-final-form).
+- Validating the type of data entered isn't part of the components themselves.
+- Read more about [form handling in DHIS2](/design-system/utilities/forms/react-final-form).
 
 ### Read-only
 
@@ -151,9 +151,9 @@ Inputs width should reflect the expected content.
 <InputField value="OU897234798" label="Unique ID" readOnly />
 ```
 
--   Use a read-only input if it makes sense to show the input, but the content can't be changed.
--   Read-only inputs are useful to show that a value is locked, like a unique ID.
--   Offer help text for read-only inputs if it's unclear why the content can't be changed.
+- Use a read-only input if it makes sense to show the input, but the content can't be changed.
+- Read-only inputs are useful to show that a value is locked, like a unique ID.
+- Offer help text for read-only inputs if it's unclear why the content can't be changed.
 
 ### State: Error
 
@@ -172,9 +172,9 @@ Inputs width should reflect the expected content.
 />
 ```
 
--   Use an error state if there's a problem with the content of the input, or if it's required but empty.
--   Don't show an error too early, give the user a chance to finish entering data.
--   The error text should help the user fix the problem. Refer to the [error writing guidelines](/design-system/principles/content-communication) for examples.
+- Use an error state if there's a problem with the content of the input, or if it's required but empty.
+- Don't show an error too early, give the user a chance to finish entering data.
+- The error text should help the user fix the problem. Refer to the [error writing guidelines](/design-system/principles/content-communication) for examples.
 
 ### State: Disabled
 
@@ -196,8 +196,8 @@ However, it is recommended to add a Tooltip to explain why the input is disabled
 </Tooltip>
 ```
 
--   Use a disabled state if the input temporarily can't be used.
--   Show a [`Tooltip`](tooltip.md) on hover or focus to explain why the input is disabled.
+- Use a disabled state if the input temporarily can't be used.
+- Show a [`Tooltip`](tooltip.md) on hover or focus to explain why the input is disabled.
 
 ### Data type: Text
 
@@ -211,8 +211,8 @@ However, it is recommended to add a Tooltip to explain why the input is disabled
 <InputField value="Olukayode" label="First name" inputWidth="240px" />
 ```
 
--   Text inputs are the default type.
--   Use a text input for entering any kind of text content, like a mix of letters and numbers.
+- Text inputs are the default type.
+- Use a text input for entering any kind of text content, like a mix of letters and numbers.
 
 ### Data type: Number
 
@@ -231,8 +231,8 @@ However, it is recommended to add a Tooltip to explain why the input is disabled
 />
 ```
 
--   Use a number input for entering numbers.
--   The `step` value should reflect the expected content. If entering a number that's always a multiple of 10, use 10 as the `step` value.
+- Use a number input for entering numbers.
+- The `step` value should reflect the expected content. If entering a number that's always a multiple of 10, use 10 as the `step` value.
 
 ### Data type: Password
 
@@ -251,7 +251,7 @@ However, it is recommended to add a Tooltip to explain why the input is disabled
 />
 ```
 
--   Use a password input whenever a user is entering a password or secret value.
+- Use a password input whenever a user is entering a password or secret value.
 
 ### Data type: Date / time
 
@@ -269,17 +269,17 @@ However, it is recommended to add a Tooltip to explain why the input is disabled
 />
 ```
 
--   Using date/time inputs offers different interactions depending on the user's browser.
+- Using date/time inputs offers different interactions depending on the user's browser.
 
 ### Other data types
 
 The following data types don't change the interaction with the input, but should be used for clarity:
 
--   Telephone (`tel`)
--   Email (`email`)
--   Month (`month`)
--   Week (`week`)
--   Search (`search`)
+- Telephone (`tel`)
+- Email (`email`)
+- Month (`month`)
+- Week (`week`)
+- Search (`search`)
 
 ## API Reference
 

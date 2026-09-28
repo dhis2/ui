@@ -26,6 +26,13 @@ const options = [
     { value: '10', label: 'ten' },
 ]
 
+const longOptions = [
+    { value: '1', label: 'option one' },
+    { value: '2', label: 'option two' },
+    { value: '3', label: 'option three' },
+    { value: '4', label: 'A longer option that exceeds the minimum' },
+]
+
 export default {
     title: 'SimpleSingleSelectField',
     component: SimpleSingleSelectField,
@@ -182,6 +189,48 @@ export const InputWidth = () => {
                 valueLabel={valueLabel}
                 onChange={(nextValue) => setValue(nextValue)}
                 options={options}
+            />
+        </div>
+    )
+}
+
+export const WithMenuMinWidth = () => {
+    const [value, setValue] = useState('')
+    const valueLabel = value
+        ? longOptions.find((option) => option.value === value)?.label
+        : ''
+
+    return (
+        <div style={{ width: 120 }}>
+            <SimpleSingleSelectField
+                name="simple"
+                label="This is the label"
+                value={value}
+                valueLabel={valueLabel}
+                onChange={(nextValue) => setValue(nextValue)}
+                options={longOptions}
+                menuMinWidth="240px"
+            />
+        </div>
+    )
+}
+
+export const WithMenuMaxWidth = () => {
+    const [value, setValue] = useState('')
+    const valueLabel = value
+        ? longOptions.find((option) => option.value === value)?.label
+        : ''
+
+    return (
+        <div style={{ width: 120 }}>
+            <SimpleSingleSelectField
+                name="simple"
+                label="This is the label"
+                value={value}
+                valueLabel={valueLabel}
+                onChange={(nextValue) => setValue(nextValue)}
+                options={longOptions}
+                menuMaxWidth="200px"
             />
         </div>
     )

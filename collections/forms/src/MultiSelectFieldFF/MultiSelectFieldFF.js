@@ -12,6 +12,8 @@ import {
 } from '../shared/helpers.js'
 import { inputPropType, metaPropType } from '../shared/propTypes.js'
 
+const defaultOptions = []
+
 export const MultiSelectFieldFF = ({
     error,
     input,
@@ -19,7 +21,7 @@ export const MultiSelectFieldFF = ({
     meta,
     onBlur,
     onFocus,
-    options = [],
+    options = defaultOptions,
     showLoadingStatus,
     showValidStatus,
     valid,

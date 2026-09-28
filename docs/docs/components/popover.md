@@ -19,17 +19,17 @@ A popover is used to show more information when a user interacts with a trigger 
 
 ### When to use
 
--   **Show more information**. Use a popover to show information that isn't essential to the current workflow, but that might be useful to know.
--   **Offer interaction**. A popover can show interactive elements, like buttons, unlike a [`Tooltip`](tooltip.md) which only shows text.
+- **Show more information**. Use a popover to show information that isn't essential to the current workflow, but that might be useful to know.
+- **Offer interaction**. A popover can show interactive elements, like buttons, unlike a [`Tooltip`](tooltip.md) which only shows text.
 
 ### When not to use
 
--   **Essential information**. Don't use popovers for essential information or actions, because a user might not know they are there.
+- **Essential information**. Don't use popovers for essential information or actions, because a user might not know they are there.
 
 ### Format
 
--   A popover doesn't offer any default content styling.
--   Include padding between the popover frame and the content inside. The amount of padding depends on the content and density of the interface. Use a [spacer constant](/design-system/utilities/constants) for a consistent visual experience.
+- A popover doesn't offer any default content styling.
+- Include padding between the popover frame and the content inside. The amount of padding depends on the content and density of the interface. Use a [spacer constant](/design-system/utilities/constants) for a consistent visual experience.
 
 ## API Reference
 

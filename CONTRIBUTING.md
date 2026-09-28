@@ -38,9 +38,9 @@ Our commit message standard is one of the areas that trips up first-time contrib
 
 In practice, this means that you should have a prefix and a description, i.e. `fix: make clear button not focusable`, notice:
 
--   The `fix` (or `feat` or `docs` etc..) prefix, followed by a colon `:` and a `space`, then the message starts with a lower-case letter - all of these parts are important, even the space! Otherwise your PR will fail on CI checks.
+- The `fix` (or `feat` or `docs` etc..) prefix, followed by a colon `:` and a `space`, then the message starts with a lower-case letter - all of these parts are important, even the space! Otherwise your PR will fail on CI checks.
 
--   You can optionally - and we encourage you to do so - add a scope to the prefix, this can be the UI component you worked on, so `fix(transfer): make clear button not focusable`. Some people also choose to use the JIRA ticket number for the scope.
+- You can optionally - and we encourage you to do so - add a scope to the prefix, this can be the UI component you worked on, so `fix(transfer): make clear button not focusable`. Some people also choose to use the JIRA ticket number for the scope.
 
 Additionally, some [general advice](https://www.gitkraken.com/learn/git/best-practices/git-commit-message#quick-git-commit-message-tips) is to:
 
@@ -61,18 +61,18 @@ These are not enforced by CI, but they help keep the commit history clean, and t
 
 Try in your PR to give as much information and context as possible to the reviewer. Some things to keep in mind:
 
--   Add a link to the JIRA ticket: this makes it easier to find the ticket, but also - more importantly - it allows JIRA automation to link the tickcet to your PR.
--   Add a short description of your changes
-    -   if you made some coding or design decisions you'd like to highlight, then expand on these decisions in the description
--   Add a video or screenshot of the change.
+- Add a link to the JIRA ticket: this makes it easier to find the ticket, but also - more importantly - it allows JIRA automation to link the tickcet to your PR.
+- Add a short description of your changes
+    - if you made some coding or design decisions you'd like to highlight, then expand on these decisions in the description
+- Add a video or screenshot of the change.
 
 These are some examples of good PRs:
 
--   [https://github.com/dhis2/ui/pull/1694](https://github.com/dhis2/ui/pull/1694)
+- [https://github.com/dhis2/ui/pull/1694](https://github.com/dhis2/ui/pull/1694)
 
--   [https://github.com/dhis2/ui/pull/1629](https://github.com/dhis2/ui/pull/1629)
--   [https://github.com/dhis2/ui/pull/1672](https://github.com/dhis2/ui/pull/1672)
--   [https://github.com/dhis2/ui/pull/1681](https://github.com/dhis2/ui/pull/1681)
+- [https://github.com/dhis2/ui/pull/1629](https://github.com/dhis2/ui/pull/1629)
+- [https://github.com/dhis2/ui/pull/1672](https://github.com/dhis2/ui/pull/1672)
+- [https://github.com/dhis2/ui/pull/1681](https://github.com/dhis2/ui/pull/1681)
 
 Note that these good PRs are not about having a long and verbose description - sometimes that makes the PR harder to review. Just try and put yourself in the reviewers' shoes and make their lives as easy as possible, so they understand the PR context and approach (the How and the Why).
 
@@ -80,18 +80,18 @@ Note that these good PRs are not about having a long and verbose description - s
 
 Make sure you followed our coding conventions in the repo. While this might vary between repos, since there are some legacy ones, here some general high-level things to look for:
 
--   Your code is well formatted - run `yarn format` at the end of your work
-    -   This should be done automatically in your IDE, but some of our legacy repos are not well configured.
--   Add relevant tests to your PR, and ensure that all tests are passing
--   Ensure sure the documentation was updated, especially for library projects (like UI or app-platform).
+- Your code is well formatted - run `yarn format` at the end of your work
+    - This should be done automatically in your IDE, but some of our legacy repos are not well configured.
+- Add relevant tests to your PR, and ensure that all tests are passing
+- Ensure sure the documentation was updated, especially for library projects (like UI or app-platform).
 
 ## Report an issue
 
 We track our issues with Jira at https://jira.dhis2.org under the [LIBS](https://jira.dhis2.org/projects/LIBS) project. You can use the links below to open an issue with the relevant fields prepopulated:
 
--   [Bug](https://jira.dhis2.org/secure/CreateIssueDetails!init.jspa?pid=10700&issuetype=10006&components=11015)
--   [Feature](https://jira.dhis2.org/secure/CreateIssueDetails!init.jspa?pid=10700&issuetype=10300&components=11015)
--   [Task](https://jira.dhis2.org/secure/CreateIssueDetails!init.jspa?pid=10700&issuetype=10003&components=11015)
+- [Bug](https://jira.dhis2.org/secure/CreateIssueDetails!init.jspa?pid=10700&issuetype=10006&components=11015)
+- [Feature](https://jira.dhis2.org/secure/CreateIssueDetails!init.jspa?pid=10700&issuetype=10300&components=11015)
+- [Task](https://jira.dhis2.org/secure/CreateIssueDetails!init.jspa?pid=10700&issuetype=10003&components=11015)
 
 ## Automated releases
 
@@ -99,15 +99,15 @@ We use semantic release to publish the changes to `@dhis2/ui` automatically. Thi
 
 To allow semantic release to analyse our commits we use [conventional commits](https://www.conventionalcommits.org) for our allowed commit types. See [this list](https://github.com/commitizen/conventional-commit-types/blob/master/index.json) for a summary of the available types and their usage. Since semantic release analyses commits, preserving commit hashes between branches is sometimes important. There are [recipes](https://github.com/semantic-release/semantic-release/blob/master/docs/recipes/distribution-channels.md#publishing-on-distribution-channels) available in the semantic-release repository for most scenarios, but for convenience these are the merge types you can use for the two most common scenarios:
 
--   When merging from a feature branch to a release branch we recommend you use a squash merge. A regular merge, squash merge, and rebase merge are all technically ok, but a squash merge ensures that only the PR title and squash commit message will be used for generating the changelog.
--   When merging from a release branch to another release branch you must use a regular merge so that the commit hashes are preserved.
+- When merging from a feature branch to a release branch we recommend you use a squash merge. A regular merge, squash merge, and rebase merge are all technically ok, but a squash merge ensures that only the PR title and squash commit message will be used for generating the changelog.
+- When merging from a release branch to another release branch you must use a regular merge so that the commit hashes are preserved.
 
 ## Adding icons to ui-icons
 
 The `@dhis2/ui-icons` build process will take care of most things for you. If you want to add an icon you can follow these steps:
 
--   Add the icon as an svg to `packages/icons/src/svg`
--   Ensure that you're matching the existing naming conventions, i.e. kebab-case and icon name followed by the variant and then the size
--   The svg does not have to be optimized, the build process already includes svgo
--   Any path fill colors should be set to `#010101` so that we can set all path fills to `currentColor`
--   Use `feat` as your conventional commit type, so that the change will be published automatically when the PR is merged
+- Add the icon as an svg to `packages/icons/src/svg`
+- Ensure that you're matching the existing naming conventions, i.e. kebab-case and icon name followed by the variant and then the size
+- The svg does not have to be optimized, the build process already includes svgo
+- Any path fill colors should be set to `#010101` so that we can set all path fills to `currentColor`
+- Use `feat` as your conventional commit type, so that the change will be published automatically when the PR is merged

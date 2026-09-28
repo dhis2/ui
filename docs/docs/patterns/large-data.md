@@ -20,11 +20,11 @@ As stated above, it's important to keep users informed about delays. However, wh
 Consider questions like _do all the data items need to be downloaded right away_? Splitting the data into pages (pagination) and only displaying the first page will often be enough for most use cases. Always make sure to give an option to load all the data for those users who need it. Sometimes downloading all the data may be the default use case and so could be automatic.
 Respecting user resources might look like the following:
 
--   loading the minimum amount of data that's useful upfront
--   giving the user fair warning when an expensive operation will be triggered by an action
--   conservatively using features like type-ahead search that may give a poor experience on limited network connections
--   giving the user controls to manage their local storage
--   gracefully degrading the application and features when resources aren't available
+- loading the minimum amount of data that's useful upfront
+- giving the user fair warning when an expensive operation will be triggered by an action
+- conservatively using features like type-ahead search that may give a poor experience on limited network connections
+- giving the user controls to manage their local storage
+- gracefully degrading the application and features when resources aren't available
 
 ![example of respecting user resources](/images/large-data/respect-user-resources.png)
 

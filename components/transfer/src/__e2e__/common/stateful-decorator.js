@@ -22,12 +22,11 @@ export const statefulDecorator =
         controlFilter = false,
         initialSearchTerm = '',
     } = {}) =>
-    (fn) =>
-        (
-            <WithState
-                initialState={initialState}
-                initialSearchTerm={initialSearchTerm}
-                controlFilter={controlFilter}
-                fn={fn}
-            />
-        )
+    (fn) => (
+        <WithState
+            initialState={initialState}
+            initialSearchTerm={initialSearchTerm}
+            controlFilter={controlFilter}
+            fn={fn}
+        />
+    )

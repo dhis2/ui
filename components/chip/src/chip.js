@@ -94,7 +94,8 @@ const Chip = ({
             }
 
             .dragging {
-                box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+                box-shadow:
+                    0 3px 1px -2px rgba(0, 0, 0, 0.2),
                     0 2px 2px 0 rgba(0, 0, 0, 0.14),
                     0 1px 5px 0 rgba(0, 0, 0, 0.12);
             }
@@ -102,12 +103,12 @@ const Chip = ({
         <style jsx>{`
             span {
                 ${marginBottom && `margin-bottom: ${marginBottom}px;`}
-                margin-inline-start: ${marginInlineStart ??
-                marginLeft ??
-                DEFAULT_INLINE_MARGIN}px;
-                margin-inline-end: ${marginInlineEnd ??
-                marginRight ??
-                DEFAULT_INLINE_MARGIN}px;
+                margin-inline-start: ${
+                    marginInlineStart ?? marginLeft ?? DEFAULT_INLINE_MARGIN
+                }px;
+                margin-inline-end: ${
+                    marginInlineEnd ?? marginRight ?? DEFAULT_INLINE_MARGIN
+                }px;
                 ${marginTop && `margin-top: ${marginTop}px`}
             }
         `}</style>

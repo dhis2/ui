@@ -17,13 +17,9 @@ const concurrently = require('concurrently')
  * scripts to make sure that we get a consistent result, which is why we
  * make an exception and reach into the storybook/src folder here.
  */
-const { uiPackages } = require(path.resolve(
-    __dirname,
-    '..',
-    'storybook',
-    'src',
-    'ui-packages.js'
-))
+const { uiPackages } = require(
+    path.resolve(__dirname, '..', 'storybook', 'src', 'ui-packages.js')
+)
 
 /*
  * Only grab the components and generate the i18n for those since we are

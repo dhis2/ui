@@ -57,11 +57,11 @@ This demo shows how to set minimum and maximum allowed dates.
 
 This demo demonstrates the use of strict validation for date input.
 
--   When `strictValidation` is set to `true` (default behavior):
-    The component displays error indicators if a user selects or inputs a date outside the specified minimum and maximum date range.
+- When `strictValidation` is set to `true` (default behavior):
+  The component displays error indicators if a user selects or inputs a date outside the specified minimum and maximum date range.
 
--   When `strictValidation` is `false`:
-    The component shows warning indicators for dates outside the allowed range.
+- When `strictValidation` is `false`:
+  The component shows warning indicators for dates outside the allowed range.
 
 <Demo
     path="/story/calendarinput--with-strict-validation"
@@ -83,8 +83,8 @@ This demo demonstrates the use of strict validation for date input.
 This demo illustrates how to use the format prop to specify the date string format
 The format prop accepts two possible values:
 
--   'YYYY-MM-DD' (default): Year-Month-Day format
--   'DD-MM-YYYY': Day-Month-Year format
+- 'YYYY-MM-DD' (default): Year-Month-Day format
+- 'DD-MM-YYYY': Day-Month-Year format
 
 <Demo
     path="/story/calendarinput--with-custom-format"
@@ -127,13 +127,13 @@ This demo showcases the use of the `clearable` prop, which adds a button to clea
 
 Use the CalendarInput component when you need to:
 
--   Provide users with a flexible method to select a specific date, offering both manual text input and visual calendar picker.
--   Implement date selection with validation, including min/max dates validation and format validation.
--   Provide users with an easy way to clear a selected date.
+- Provide users with a flexible method to select a specific date, offering both manual text input and visual calendar picker.
+- Implement date selection with validation, including min/max dates validation and format validation.
+- Provide users with an easy way to clear a selected date.
 
 #### When not to use
 
--   This is just a Day Picker (for now). It does not allow picking periods, date ranges, or date with times.
+- This is just a Day Picker (for now). It does not allow picking periods, date ranges, or date with times.
 
 ## Calendar
 
@@ -297,7 +297,7 @@ To display a calendar for the user to pick a day in any supported calendar syste
 
 #### When not to use
 
--   This is just a Day Picker (for now). It does not allow picking periods, date ranges, or date with times.
+- This is just a Day Picker (for now). It does not allow picking periods, date ranges, or date with times.
 
 ## API Reference
 
@@ -309,9 +309,9 @@ It adds one property `clearable` which is a boolean. If set to true, it adds a c
 
 ## Links
 
--   <a href="/demo/?path=/story/calendar--basic" target="_blank">Calendar Input Demo</a>
--   <a href="/demo/?path=/story/calendarinput--calendar-with-editiable-input" target="_blank">Calendar Demo</a>
--   [Design document](https://docs.google.com/document/d/19zjyB45oBbqC5KeubaU8E7cw9fGhFc3tOXY0GkzZKqc/edit#)
--   [ADR for decision to use Temporal API](https://github.com/dhis2/multi-calendar-dates/blob/beta/doc/architecture/decisions/0002-use-temporal-api-as-the-backbone-for-the-engine.md)
--   [multi-calendar-dates](https://github.com/dhis2/multi-calendar-dates) is the library that this component is built on top of.
--   [Temporal API standard propsal](https://tc39.es/proposal-temporal/): the standard powering the multi-calendar-dates library
+- <a href="/demo/?path=/story/calendar--basic" target="_blank">Calendar Input Demo</a>
+- <a href="/demo/?path=/story/calendarinput--calendar-with-editiable-input" target="_blank">Calendar Demo</a>
+- [Design document](https://docs.google.com/document/d/19zjyB45oBbqC5KeubaU8E7cw9fGhFc3tOXY0GkzZKqc/edit#)
+- [ADR for decision to use Temporal API](https://github.com/dhis2/multi-calendar-dates/blob/beta/doc/architecture/decisions/0002-use-temporal-api-as-the-backbone-for-the-engine.md)
+- [multi-calendar-dates](https://github.com/dhis2/multi-calendar-dates) is the library that this component is built on top of.
+- [Temporal API standard propsal](https://tc39.es/proposal-temporal/): the standard powering the multi-calendar-dates library

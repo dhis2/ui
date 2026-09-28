@@ -49,7 +49,8 @@ const Arrow = forwardRef(({ hidden, popperPlacement, styles }, ref) => (
                 border-width: ${ARROW_SIZE / 2}px;
                 border-color: transparent transparent ${colors.white}
                     ${colors.white};
-                box-shadow: -1px 1px 1px 0 rgba(64, 75, 90, 0.08),
+                box-shadow:
+                    -1px 1px 1px 0 rgba(64, 75, 90, 0.08),
                     -3px 3px 8px -6px rgba(64, 75, 90, 0.15);
             }
 

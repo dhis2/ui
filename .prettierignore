@@ -1,6 +1,20 @@
 .yarn/
+.d2/
 **/locales/
 cypress/assets/*.js
 
 # Documentation files that are generated on CI
 API.md
+
+# Generated from the SVG sources by `yarn setup`
+icons/src/react/
+
+# Build output, generated locally by `yarn build` (docusaurus site into dist/,
+# its build cache into docs/.docusaurus/). Without these, `yarn build` followed
+# by `yarn lint` fails on generated files nobody wrote.
+dist/
+**/build/
+**/.docusaurus/
+
+# Release notes, written by semantic-release
+CHANGELOG.md

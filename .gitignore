@@ -49,5 +49,3 @@ icons/src/react/
 
 .eslintcache
 
-# Documentation files that are generated on CI
-API.md
