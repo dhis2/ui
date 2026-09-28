@@ -1,3 +1,17 @@
+# [10.19.0](https://github.com/dhis2/ui/compare/v10.18.0...v10.19.0) (2026-09-28)
+
+
+### Bug Fixes
+
+* **transfer:** update initiallySelected options in DragAndDropWithDisabledOptions story ([74a83aa](https://github.com/dhis2/ui/commit/74a83aafecf511e0ecaeb84fb42b26ae0359233a))
+* transfer drag and drop styles ([76834b7](https://github.com/dhis2/ui/commit/76834b75471c14bd16aa5fee4ded5e821b3a6371))
+* **transfer:** disable dnd-kit's default drop animation side effect ([980e109](https://github.com/dhis2/ui/commit/980e1095f10a4ff91427cfcb27940fc85b1569d5))
+
+
+### Features
+
+* **transfer:** implement drag-n-drop functionality for transfer options ([e18e61f](https://github.com/dhis2/ui/commit/e18e61ff7f6982c1d485633309108dc0972e8877))
+
 # [10.18.0](https://github.com/dhis2/ui/compare/v10.17.0...v10.18.0) (2026-09-25)
 
 
