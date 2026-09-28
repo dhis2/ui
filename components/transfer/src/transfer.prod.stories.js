@@ -438,7 +438,7 @@ DragAndDropWithDisabledOptions.args = {
         .map((option, index) =>
             index % 3 === 0 ? { ...option, disabled: true } : option
         ),
-    initiallySelected: options.slice(10, 14).map(({ value }) => value),
+    initiallySelected: options.slice(0, 4).map(({ value }) => value),
 }
 DragAndDropWithDisabledOptions.parameters = {
     docs: {
