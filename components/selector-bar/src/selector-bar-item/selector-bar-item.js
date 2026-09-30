@@ -48,6 +48,17 @@ export const SelectorBarItem = ({
         }
     }
 
+    const handleClick = (evt) => {
+        if (!setOpen) {
+            return
+        }
+        // Ignore clicks bubbling up from the portaled popup content.
+        if (!buttonRef.current?.contains(evt.target)) {
+            return
+        }
+        setOpen(!open)
+    }
+
     return (
         <button
             ref={buttonRef}
@@ -57,7 +68,7 @@ export const SelectorBarItem = ({
                 !displayOnly ? 'openable' : ''
             )}
             disabled={disabled}
-            onClick={() => setOpen && setOpen(true)}
+            onClick={handleClick}
             onKeyDown={handleKeyDown}
             data-test={dataTest}
         >
