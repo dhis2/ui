@@ -10,6 +10,7 @@
  * Long-term goal is to remove the need for this script.
  */
 
+const fs = require('fs')
 const path = require('path')
 const concurrently = require('concurrently')
 
@@ -60,6 +61,45 @@ const commands = components
         return
     })
     .filter((p) => p)
+
+/*
+ * Generate .tx/config with a Transifex resource for every package that
+ * has an i18n/en.pot. This goes by the .pot file rather than by the
+ * @dhis2/d2-i18n dependency used above, because not every package that
+ * does i18n declares it (e.g. button, modal and forms).
+ *
+ * CI fails if the committed .tx/config differs from the generated one, so
+ * a new translatable package can't be left out of Transifex by accident.
+ */
+// Resource slugs that predate this generator. Changing a slug would orphan
+// the existing translations on Transifex.
+const TX_SLUG_OVERRIDES = { 'collections/forms': 'ui-forms' }
+
+const root = path.resolve(__dirname, '..')
+const [, collections] = uiPackages({ absolute: true })
+const txResources = [...components, ...collections]
+    .map((p) => path.relative(root, p))
+    .filter((p) => fs.existsSync(path.join(root, p, 'i18n', 'en.pot')))
+    .map((p) => ({ dir: p, slug: TX_SLUG_OVERRIDES[p] || path.basename(p) }))
+    .sort((a, b) => a.slug.localeCompare(b.slug))
+
+const txConfig = [
+    `[main]
+host     = https://www.transifex.com
+lang_map = fa_AF: prs, uz@Cyrl: uz_UZ_Cyrl, uz@Latn: uz_UZ_Latn
+`,
+    ...txResources.map(
+        ({ dir, slug }) => `[o:hisp-uio:p:app-component-ui:r:${slug}]
+file_filter  = ${dir}/i18n/<lang>.po
+source_file  = ${dir}/i18n/en.pot
+source_lang  = en
+type         = PO
+minimum_perc = 0
+`
+    ),
+].join('\n')
+
+fs.writeFileSync(path.join(root, '.tx', 'config'), txConfig)
 
 concurrently(
     [
