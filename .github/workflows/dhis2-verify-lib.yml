@@ -43,6 +43,9 @@ jobs:
                   yarn install --frozen-lockfile
                   yarn setup
 
+            - name: Check that .tx/config is up to date
+              run: git diff --exit-code .tx/config
+
             - name: Build
               run: yarn build
 
