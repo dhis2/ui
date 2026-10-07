@@ -1,34 +1,50 @@
-import { spacers } from '@dhis2/ui-constants'
+import { spacers, theme } from '@dhis2/ui-constants'
 import { IconCross24 } from '@dhis2/ui-icons'
 import PropTypes from 'prop-types'
 import React from 'react'
+import i18n from '../locales/index.js'
 
 const Dismiss = ({ onClick, dataTest }) => (
-    <div onClick={onClick} data-test={dataTest}>
+    <button
+        type="button"
+        onClick={onClick}
+        data-test={dataTest}
+        aria-label={i18n.t('Dismiss')}
+    >
         <IconCross24 />
         <style jsx>{`
-            div {
+            button {
                 margin-inline-start: ${spacers.dp16};
                 min-height: 32px;
                 min-width: 32px;
+                padding: 0;
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                border: none;
                 border-radius: 5px;
+                background: transparent;
+                color: inherit;
             }
-            div:hover {
+            button:hover {
                 cursor: pointer;
                 background: rgba(0, 0, 0, 0.15);
             }
-            div:active {
+            button:active {
                 background: rgba(0, 0, 0, 0.25);
             }
-            div :global(svg) {
+            button:focus {
+                outline: 3px solid ${theme.focus};
+            }
+            button:focus:not(:focus-visible) {
+                outline: none;
+            }
+            button :global(svg) {
                 width: 18px;
                 height: 18px;
             }
         `}</style>
-    </div>
+    </button>
 )
 
 Dismiss.propTypes = {

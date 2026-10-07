@@ -5,6 +5,11 @@ Given('a default AlertBar is rendered', () => {
     cy.get('[data-test="dhis2-uicore-alertbar"]').should('be.visible')
 })
 
+Given('a critical AlertBar is rendered', () => {
+    cy.visitStory('AlertBar', 'Critical')
+    cy.get('[data-test="dhis2-uicore-alertbar"]').should('be.visible')
+})
+
 Given('the AlertBar is rendered', () => {
     cy.get('[data-test="dhis2-uicore-alertbar"]').should('exist')
     cy.get('[data-test="dhis2-uicore-alertbar"]').should('be.visible')

@@ -221,6 +221,12 @@ import { AlertStack, AlertBar } from '@dhis2/ui'
 </AlertStack>
 ```
 
+### Accessibility
+
+The alert message is a live region, so screen readers announce it when the alert bar appears. Critical alert bars use `role="alert"` and interrupt the user right away; all other variants use `role="status"` and wait until the user is idle.
+
+Only the message is announced. The dismiss button and any actions stay outside the live region so that they are not read out with the message.
+
 ## API Reference
 
 <API />
