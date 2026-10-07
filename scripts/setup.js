@@ -10,7 +10,7 @@
  * Long-term goal is to remove the need for this script.
  */
 
-const fs = require('fs')
+const fs = require('node:fs')
 const path = require('path')
 const concurrently = require('concurrently')
 
