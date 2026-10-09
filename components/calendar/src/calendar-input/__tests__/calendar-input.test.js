@@ -46,7 +46,10 @@ describe('Calendar Input', () => {
 
         const onDateSelectMock = jest.fn()
         const screen = render(
-            <CalendarInput calendar="ethiopian" onDateSelect={onDateSelectMock} />
+            <CalendarInput
+                calendar="ethiopian"
+                onDateSelect={onDateSelectMock}
+            />
         )
 
         const dateInput = within(
@@ -303,9 +306,7 @@ describe('Calendar Input', () => {
             const realResolvedOptions =
                 Intl.DateTimeFormat.prototype.resolvedOptions
             let count = 0
-            Intl.DateTimeFormat.prototype.resolvedOptions = function (
-                ...args
-            ) {
+            Intl.DateTimeFormat.prototype.resolvedOptions = function (...args) {
                 count++
                 return realResolvedOptions.apply(this, args)
             }
@@ -339,10 +340,7 @@ describe('Calendar Input', () => {
 
         it('does not reconstruct Intl.DateTimeFormat instances while typing (ethiopic)', async () => {
             const screen = render(
-                <CalendarInput
-                    calendar="ethiopian"
-                    onDateSelect={jest.fn()}
-                />
+                <CalendarInput calendar="ethiopian" onDateSelect={jest.fn()} />
             )
             const dateInput = within(
                 screen.getByTestId('dhis2-uicore-input')
@@ -463,7 +461,10 @@ describe('Calendar Input', () => {
             jest.setSystemTime(new Date('2024-10-22T09:05:00.000Z'))
 
             const screen = render(
-                <CalendarWithValidation calendar="gregory" minDate="2024-01-01" />
+                <CalendarWithValidation
+                    calendar="gregory"
+                    minDate="2024-01-01"
+                />
             )
 
             const dateInput = within(
@@ -485,7 +486,9 @@ describe('Calendar Input', () => {
             // expected: the widget falls back to today, like useDatePicker's own
             // getInvalidDateResult does for a date it recognizes as invalid
             expect(
-                within(calendar).getByTestId('2024-10-22').querySelector('button')
+                within(calendar)
+                    .getByTestId('2024-10-22')
+                    .querySelector('button')
             ).toHaveClass('isToday')
 
             jest.useRealTimers()
@@ -522,7 +525,9 @@ describe('Calendar Input', () => {
             // warning mode means "flag it, but still let them pick it" - the
             // widget showing the out-of-range date as selected is intentional
             expect(
-                within(calendar).getByTestId('2020-01-15').querySelector('button')
+                within(calendar)
+                    .getByTestId('2020-01-15')
+                    .querySelector('button')
             ).toHaveClass('isSelected')
 
             jest.useRealTimers()
