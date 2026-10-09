@@ -166,8 +166,8 @@ Use a multi select if the user can choose one or more options.
 
 By default the dropdown menu matches the input's width. When the input is sized to its content, this can make the menu too narrow to read longer options comfortably. `menuMinWidth` and `menuMaxWidth`, available on `SingleSelectField`/`SingleSelect`, `MultiSelectField`/`MultiSelect` and `SimpleSingleSelectField`/`SimpleSingleSelect`, let you decouple the menu width from the input:
 
--   `menuMinWidth` — the menu grows to fit its content (`fit-content`) but is never narrower than the greater of the input width and this value.
--   `menuMaxWidth` — caps how wide the menu may grow. Useful together with `menuMinWidth` to stop very long option labels from making the menu excessively wide. It never shrinks the menu below the input width, so a `menuMaxWidth` smaller than the input has no visible effect.
+- `menuMinWidth` — the menu grows to fit its content (`fit-content`) but is never narrower than the greater of the input width and this value.
+- `menuMaxWidth` — caps how wide the menu may grow. Useful together with `menuMinWidth` to stop very long option labels from making the menu excessively wide. It never shrinks the menu below the input width, so a `menuMaxWidth` smaller than the input has no visible effect.
 
 Setting either prop switches the menu to `fit-content` sizing; setting neither keeps the original behavior (menu width equals input width).
 
