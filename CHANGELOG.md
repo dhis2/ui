@@ -1,3 +1,11 @@
+## [10.19.1](https://github.com/dhis2/ui/compare/v10.19.0...v10.19.1) (2026-10-09)
+
+
+### Bug Fixes
+
+* tackle slowness of CalendarInput and Ethiopic calendar failures ([#1757](https://github.com/dhis2/ui/issues/1757)) ([6c8c74d](https://github.com/dhis2/ui/commit/6c8c74d8911c0db7d95431fd79a3c3ffd4292a07)), closes [#1753](https://github.com/dhis2/ui/issues/1753) [#1753](https://github.com/dhis2/ui/issues/1753) [#1744](https://github.com/dhis2/ui/issues/1744)
+* trigger publish ([#1775](https://github.com/dhis2/ui/issues/1775)) ([4fcaae4](https://github.com/dhis2/ui/commit/4fcaae4e2b3dd6b6aab490f1d76691fc341aad86))
+
 # [10.19.0](https://github.com/dhis2/ui/compare/v10.18.0...v10.19.0) (2026-09-28)
 
 
