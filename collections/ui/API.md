@@ -1332,6 +1332,7 @@ import { NoticeBox } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
+|aria-label|string||||
 |children|node||||
 |className|string||||
 |dataTest|string|``'dhis2-uicore-noticebox'``|||
