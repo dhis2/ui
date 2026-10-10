@@ -2,6 +2,20 @@
 host     = https://www.transifex.com
 lang_map = fa_AF: prs, uz@Cyrl: uz_UZ_Cyrl, uz@Latn: uz_UZ_Latn
 
+[o:hisp-uio:p:app-component-ui:r:button]
+file_filter  = components/button/i18n/<lang>.po
+source_file  = components/button/i18n/en.pot
+source_lang  = en
+type         = PO
+minimum_perc = 0
+
+[o:hisp-uio:p:app-component-ui:r:calendar]
+file_filter  = components/calendar/i18n/<lang>.po
+source_file  = components/calendar/i18n/en.pot
+source_lang  = en
+type         = PO
+minimum_perc = 0
+
 [o:hisp-uio:p:app-component-ui:r:file-input]
 file_filter  = components/file-input/i18n/<lang>.po
 source_file  = components/file-input/i18n/en.pot
@@ -16,9 +30,23 @@ source_lang  = en
 type         = PO
 minimum_perc = 0
 
+[o:hisp-uio:p:app-component-ui:r:modal]
+file_filter  = components/modal/i18n/<lang>.po
+source_file  = components/modal/i18n/en.pot
+source_lang  = en
+type         = PO
+minimum_perc = 0
+
 [o:hisp-uio:p:app-component-ui:r:organisation-unit-tree]
 file_filter  = components/organisation-unit-tree/i18n/<lang>.po
 source_file  = components/organisation-unit-tree/i18n/en.pot
+source_lang  = en
+type         = PO
+minimum_perc = 0
+
+[o:hisp-uio:p:app-component-ui:r:ou-tree]
+file_filter  = components/ou-tree/i18n/<lang>.po
+source_file  = components/ou-tree/i18n/en.pot
 source_lang  = en
 type         = PO
 minimum_perc = 0
@@ -58,10 +86,16 @@ source_lang  = en
 type         = PO
 minimum_perc = 0
 
+[o:hisp-uio:p:app-component-ui:r:transfer]
+file_filter  = components/transfer/i18n/<lang>.po
+source_file  = components/transfer/i18n/en.pot
+source_lang  = en
+type         = PO
+minimum_perc = 0
+
 [o:hisp-uio:p:app-component-ui:r:ui-forms]
 file_filter  = collections/forms/i18n/<lang>.po
 source_file  = collections/forms/i18n/en.pot
 source_lang  = en
 type         = PO
 minimum_perc = 0
-
