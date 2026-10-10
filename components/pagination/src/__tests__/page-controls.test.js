@@ -24,12 +24,12 @@ describe('<PageControls />', () => {
         const wrapper = shallow(<PageControls {...props} />)
 
         expect(
-            wrapper.find('.button-previous').getElement().props.disabled
-        ).toBeFalsy()
+            wrapper.find('.button-previous').getElement().props['aria-disabled']
+        ).toBeUndefined()
 
         expect(
-            wrapper.find('.button-next').getElement().props.disabled
-        ).toBeFalsy()
+            wrapper.find('.button-next').getElement().props['aria-disabled']
+        ).toBeUndefined()
     })
 
     it('disables the previous page button when isPreviousDisabled is true', () => {
@@ -38,12 +38,12 @@ describe('<PageControls />', () => {
         )
 
         expect(
-            wrapper.find('.button-previous').getElement().props.disabled
-        ).toBe(true)
+            wrapper.find('.button-previous').getElement().props['aria-disabled']
+        ).toBe('true')
 
         expect(
-            wrapper.find('.button-next').getElement().props.disabled
-        ).toBeFalsy()
+            wrapper.find('.button-next').getElement().props['aria-disabled']
+        ).toBeUndefined()
     })
 
     it('disables the next page button when isNextDisabled is true', () => {
@@ -52,12 +52,12 @@ describe('<PageControls />', () => {
         )
 
         expect(
-            wrapper.find('.button-previous').getElement().props.disabled
-        ).toBeFalsy()
+            wrapper.find('.button-previous').getElement().props['aria-disabled']
+        ).toBeUndefined()
 
-        expect(wrapper.find('.button-next').getElement().props.disabled).toBe(
-            true
-        )
+        expect(
+            wrapper.find('.button-next').getElement().props['aria-disabled']
+        ).toBe('true')
     })
 
     it('calls the onClick handler with the value for the next page when next is clicked', () => {

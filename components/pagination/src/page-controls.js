@@ -17,8 +17,10 @@ const PageControls = ({
     isNextDisabled,
     isPreviousDisabled,
     nextPageText,
+    nextAriaLabel,
     page,
     previousPageText,
+    previousAriaLabel,
     onClick,
 }) => (
     <div data-test={`${dataTest}-pagecontrols`}>
@@ -26,7 +28,8 @@ const PageControls = ({
             secondary
             className="button-previous"
             small
-            disabled={isPreviousDisabled}
+            aria-disabled={isPreviousDisabled ? 'true' : undefined}
+            aria-label={previousAriaLabel}
             onClick={() => onClick(page - 1)}
             dataTest={`${dataTest}-page-previous`}
         >
@@ -39,7 +42,8 @@ const PageControls = ({
             secondary
             className="button-next"
             small
-            disabled={isNextDisabled}
+            aria-disabled={isNextDisabled ? 'true' : undefined}
+            aria-label={nextAriaLabel}
             onClick={() => onClick(page + 1)}
             dataTest={`${dataTest}-page-next`}
         >
@@ -78,6 +82,8 @@ PageControls.propTypes = {
     onClick: PropTypes.func.isRequired,
     isNextDisabled: PropTypes.bool,
     isPreviousDisabled: PropTypes.bool,
+    nextAriaLabel: PropTypes.string,
+    previousAriaLabel: PropTypes.string,
 }
 
 export { PageControls }
