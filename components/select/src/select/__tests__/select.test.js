@@ -3,6 +3,10 @@ import React from 'react'
 import { Select } from '../select.js'
 
 describe('<Select />', () => {
+    afterEach(() => {
+        jest.useRealTimers()
+    })
+
     it('should call the onKeyDown callback when provided', () => {
         const onKeyDown = jest.fn()
 
@@ -27,5 +31,17 @@ describe('<Select />', () => {
         )
 
         expect(onKeyDown).toHaveBeenCalledTimes(1)
+    })
+
+    it('should not measure its input after unmounting during a resize', () => {
+        jest.useFakeTimers()
+        const { unmount } = render(
+            <Select input={<input type="text" />} menu={<div />} selected="" />
+        )
+
+        fireEvent(window, new Event('resize'))
+        unmount()
+
+        expect(() => jest.runAllTimers()).not.toThrow()
     })
 })

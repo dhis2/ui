@@ -36,6 +36,8 @@ export class Select extends Component {
 
     componentWillUnmount() {
         window.removeEventListener('resize', this.onResize)
+        // Drop a pending resize call, which would read the removed input
+        this.onResize.cancel()
     }
 
     /**
