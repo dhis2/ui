@@ -5,6 +5,14 @@ import PropTypes from 'prop-types'
 import React, { useRef, useState, useEffect } from 'react'
 import i18n from '../locales/index.js'
 
+const FOCUSABLE_SELECTOR = [
+    'button',
+    '[href]',
+    'input',
+    'select',
+    'textarea',
+].join(', ')
+
 const ClearSelection = ({ disabled, onClick }) => {
     return (
         <div className="clear-selections">
@@ -43,17 +51,23 @@ export const SelectorBar = ({
     const [childrenToFocus, setChildrenToFocus] = useState([])
 
     useEffect(() => {
-        if (container.current) {
-            const controlsDiv = container.current.querySelector('.controls')
-            if (controlsDiv) {
-                const childElements = Array.from(controlsDiv.children)
-                childElements.forEach((child) => {
-                    child.tabIndex = -1
-                })
-                setChildrenToFocus(childElements)
-            }
+        const controlsDiv = container.current?.querySelector('.controls')
+        if (!controlsDiv) {
+            return
         }
-    }, [children])
+        const focusable = Array.from(controlsDiv.children)
+            .flatMap((child) =>
+                child.matches(FOCUSABLE_SELECTOR)
+                    ? [child]
+                    : Array.from(child.querySelectorAll(FOCUSABLE_SELECTOR))
+            )
+            .filter((element) => !element.disabled)
+
+        focusable.forEach((el) => {
+            el.tabIndex = -1
+        })
+        setChildrenToFocus(focusable)
+    }, [children, onClearSelectionClick, disableClearSelections])
 
     const handleKeyDown = (event) => {
         const currentFocus = document.activeElement
