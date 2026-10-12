@@ -41,4 +41,20 @@ describe('<Switch />', () => {
         )
         expect(screen.getAllByLabelText(ariaLabel)).toHaveLength(1)
     })
+
+    it('reflects the checked state through aria-checked', () => {
+        const { rerender } = render(
+            <Switch name="foo" value="bar" checked={false} />
+        )
+        expect(screen.getByRole('switch')).toHaveAttribute(
+            'aria-checked',
+            'false'
+        )
+
+        rerender(<Switch name="foo" value="bar" checked={true} />)
+        expect(screen.getByRole('switch')).toHaveAttribute(
+            'aria-checked',
+            'true'
+        )
+    })
 })
