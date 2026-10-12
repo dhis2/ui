@@ -1,3 +1,10 @@
+## [10.19.2](https://github.com/dhis2/ui/compare/v10.19.1...v10.19.2) (2026-10-12)
+
+
+### Bug Fixes
+
+* update transifex config and prevent future issues ([#1774](https://github.com/dhis2/ui/issues/1774)) ([f8272ea](https://github.com/dhis2/ui/commit/f8272ea793e9608e15d63d31df243ae901b087e9))
+
 ## [10.19.1](https://github.com/dhis2/ui/compare/v10.19.0...v10.19.1) (2026-10-09)
 
 
