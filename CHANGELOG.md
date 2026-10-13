@@ -1,3 +1,10 @@
+## [10.19.3](https://github.com/dhis2/ui/compare/v10.19.2...v10.19.3) (2026-10-13)
+
+
+### Bug Fixes
+
+* **calendar:** bump multi-calendar-dates for DateTime fix ([#1776](https://github.com/dhis2/ui/issues/1776)) ([5551fa9](https://github.com/dhis2/ui/commit/5551fa945746cfc50db9a04b17666f11f1fcedd4))
+
 ## [10.19.2](https://github.com/dhis2/ui/compare/v10.19.1...v10.19.2) (2026-10-12)
 
 
