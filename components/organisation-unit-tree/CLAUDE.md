@@ -70,5 +70,7 @@ in other packages.
 `OuTree` is deliberately **not exported**, neither from this package's
 `src/index.js` nor from `@dhis2/ui`, because this package is published. It is
 reachable only through its story. Exporting it is a separate, deliberate change:
-add it to `src/index.js` and `types/index.d.ts` here, and to both files in
-`collections/ui`, which lists this package's exports by name.
+add it to `src/index.js` and `types/index.d.ts` here, and to
+`collections/ui/src/index.js`. The `collections/ui` types re-export this package
+with `export *`, so they pick it up on their own — and would advertise it in
+`@dhis2/ui` even if the runtime export were left out.
