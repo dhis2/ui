@@ -5,7 +5,7 @@ const description = `
 A replacement for \`OrganisationUnitTree\`, currently a placeholder.
 
 \`\`\`js
-import { OuTree } from '@dhis2-ui/ou-tree'
+import { OuTree } from '@dhis2-ui/organisation-unit-tree'
 \`\`\`
 `
 

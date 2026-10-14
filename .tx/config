@@ -44,13 +44,6 @@ source_lang  = en
 type         = PO
 minimum_perc = 0
 
-[o:hisp-uio:p:app-component-ui:r:ou-tree]
-file_filter  = components/ou-tree/i18n/<lang>.po
-source_file  = components/ou-tree/i18n/en.pot
-source_lang  = en
-type         = PO
-minimum_perc = 0
-
 [o:hisp-uio:p:app-component-ui:r:pagination]
 file_filter  = components/pagination/i18n/<lang>.po
 source_file  = components/pagination/i18n/en.pot
