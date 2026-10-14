@@ -1,7 +1,7 @@
 import { colors, elevations, spacers, theme } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import { PropTypes } from 'prop-types'
-import React from 'react'
+import React, { useMemo } from 'react'
 
 /**
 A segmented control is used to select between options that relate to another
@@ -18,12 +18,27 @@ import { SegmentedControl } from '@dhis2/ui'
 ```
 */
 
+const ARROW_KEY_DIRECTIONS = {
+    ArrowRight: 1,
+    ArrowDown: 1,
+    ArrowLeft: -1,
+    ArrowUp: -1,
+}
+
 export const SegmentedControl = ({
     options,
     selected,
     onChange,
     ariaLabel,
 }) => {
+    const segmentRefs = useMemo(
+        () =>
+            Object.fromEntries(
+                options.map(({ value }) => [value, React.createRef()])
+            ),
+        [options]
+    )
+
     if (!options.map(({ value }) => value).includes(selected)) {
         const message =
             `There is no option with the value: "${selected}". ` +
@@ -32,23 +47,69 @@ export const SegmentedControl = ({
         throw new Error(message)
     }
 
+    const handleKeyDown = (event) => {
+        const direction = ARROW_KEY_DIRECTIONS[event.key]
+
+        if (!direction) {
+            return
+        }
+
+        event.preventDefault()
+
+        const currentIndex = options.findIndex(
+            ({ value }) => segmentRefs[value].current === document.activeElement
+        )
+
+        if (currentIndex === -1) {
+            return
+        }
+
+        const next =
+            options[
+                (currentIndex + direction + options.length) % options.length
+            ]
+
+        segmentRefs[next.value].current?.focus()
+
+        if (!next.disabled) {
+            onChange({ value: next.value }, event)
+        }
+    }
+
     return (
-        <ul className="segmented-control" aria-label={ariaLabel}>
-            {options.map(({ label, value, disabled }) => (
-                <li key={`option-${value}`}>
-                    <button
-                        type="button"
-                        className={cx('segment', {
-                            selected: value === selected,
-                            disabled,
-                        })}
-                        onClick={(e) => onChange({ value }, e)}
-                        disabled={disabled}
-                    >
-                        {label}
-                    </button>
-                </li>
-            ))}
+        <ul
+            className="segmented-control"
+            role="radiogroup"
+            aria-label={ariaLabel}
+            onKeyDown={handleKeyDown}
+        >
+            {options.map(({ label, value, disabled }) => {
+                const isSelected = value === selected
+
+                return (
+                    <li key={`option-${value}`} role="presentation">
+                        <button
+                            type="button"
+                            ref={segmentRefs[value]}
+                            className={cx('segment', {
+                                selected: isSelected,
+                                disabled,
+                            })}
+                            onClick={
+                                disabled
+                                    ? undefined
+                                    : (e) => onChange({ value }, e)
+                            }
+                            role="radio"
+                            aria-checked={isSelected ? 'true' : 'false'}
+                            aria-disabled={disabled ? 'true' : 'false'}
+                            tabIndex={isSelected ? 0 : -1}
+                        >
+                            {label}
+                        </button>
+                    </li>
+                )
+            })}
 
             <style jsx>{`
                 .segmented-control {
