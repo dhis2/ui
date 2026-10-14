@@ -129,7 +129,9 @@ const AlertBar = ({
                 warning={warning}
                 info={info}
             />
-            <Message>{children}</Message>
+            <Message critical={critical} dataTest={`${dataTest}-message`}>
+                {children}
+            </Message>
             <Actions
                 actions={actions}
                 hide={runHideAnimation}

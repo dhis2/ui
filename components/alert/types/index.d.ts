@@ -2,7 +2,7 @@ import * as React from 'react'
 
 export interface ActionsAction {
     label: string
-    onClick: React.MouseEventHandler<HTMLSpanElement>
+    onClick: React.MouseEventHandler<HTMLButtonElement>
 }
 
 type ActionActionTuple = [ActionsAction?, ActionsAction?]
