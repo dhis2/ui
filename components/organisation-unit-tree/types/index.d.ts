@@ -170,6 +170,3 @@ export const OrganisationUnitTreeRootLoading: React.FC<OrganisationUnitTreeRootL
 export const getAllExpandedOrgUnitPaths: (
     initiallyExpanded: string[]
 ) => string[]
-
-export { OuTree } from '../build/types/ou-tree/index'
-export type { OuTreeProps } from '../build/types/ou-tree/ou-tree'

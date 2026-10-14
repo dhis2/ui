@@ -37,7 +37,8 @@ in other packages.
 - **Published types come from two places.** `types/index.d.ts` is hand-written for
   the JavaScript components and re-exports the declarations `scripts/build-types.js`
   generates into `build/types/` for the TypeScript ones. A new public TypeScript
-  export needs a line there too.
+  export needs a line there too, e.g.
+  `export { OuTree } from '../build/types/ou-tree/index'`.
 - **Styles are styled-jsx** (`<style jsx>`), not CSS modules. It only type-checks
   because of `typings/styled-jsx.d.ts` at the repo root.
 - **TypeScript test files import `@testing-library/jest-dom` directly**, for the
@@ -66,7 +67,8 @@ in other packages.
 
 ## Status
 
-`OuTree` is exported from this package but deliberately **not** from
-`@dhis2/ui`: `collections/ui` lists this package's exports by name, in both
-`src/index.js` and `types/index.d.ts`. Adding it there is a separate, deliberate
-change.
+`OuTree` is deliberately **not exported**, neither from this package's
+`src/index.js` nor from `@dhis2/ui`, because this package is published. It is
+reachable only through its story. Exporting it is a separate, deliberate change:
+add it to `src/index.js` and `types/index.d.ts` here, and to both files in
+`collections/ui`, which lists this package's exports by name.

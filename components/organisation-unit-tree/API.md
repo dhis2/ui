@@ -72,22 +72,3 @@ import { OrganisationUnitTree } from '@dhis2/ui'
 |onChildrenLoaded|function|||Called with the children's data that was loaded|
 |onCollapse|function|||Called with `{ path: string }` with the path of the parent of the level closed|
 |onExpand|function|||Called with `{ path: string }` with the path of the parent of the level opened|
-
-### OuTree
-
-#### Usage
-
-To use `OuTree`, you can import the component from the `@dhis2/ui` library  
-
-
-```js
-import { OuTree } from '@dhis2/ui'
-```
-
-
-#### Props
-
-|Name|Type|Default|Required|Description|
-|---|---|---|---|---|
-|className|string||||
-|dataTest|string|``'dhis2-uicore-outree'``|||

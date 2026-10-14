@@ -4,4 +4,3 @@ export {
     OrganisationUnitTreeRootLoading,
 } from './organisation-unit-tree/index.js'
 export { getAllExpandedPaths as getAllExpandedOrgUnitPaths } from './get-all-expanded-paths/index.js'
-export { OuTree } from './ou-tree/index'
