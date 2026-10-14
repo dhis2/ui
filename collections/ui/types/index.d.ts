@@ -31,7 +31,19 @@ export * from '@dhis2-ui/menu'
 export * from '@dhis2-ui/modal'
 export * from '@dhis2-ui/node'
 export * from '@dhis2-ui/notice-box'
-export * from '@dhis2-ui/organisation-unit-tree'
+export {
+    OrganisationUnitTreeRoots,
+    OrganisationUnitNode,
+    OrganisationUnitEventPayload,
+    NodeLabelProps,
+    OrganisationUnitTree,
+    OrganisationUnitTreeProps,
+    OrganisationUnitTreeRootError,
+    OrganisationUnitTreeRootErrorProps,
+    OrganisationUnitTreeRootLoading,
+    OrganisationUnitTreeRootLoadingProps,
+    getAllExpandedOrgUnitPaths,
+} from '@dhis2-ui/organisation-unit-tree'
 export * from '@dhis2-ui/popover'
 export { Popper, PopperProps } from '@dhis2-ui/popper'
 export * from '@dhis2-ui/portal'
