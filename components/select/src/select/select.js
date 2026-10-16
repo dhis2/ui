@@ -36,6 +36,7 @@ export class Select extends Component {
 
     componentWillUnmount() {
         window.removeEventListener('resize', this.onResize)
+        this.onResize.cancel()
     }
 
     /**
@@ -56,8 +57,13 @@ export class Select extends Component {
     }, 50)
 
     getInputWidth() {
-        const { offsetWidth } = this.inputRef.current
         const { inputWidth } = this.state
+
+        if (!this.inputRef.current) {
+            return inputWidth
+        }
+
+        const { offsetWidth } = this.inputRef.current
 
         if (offsetWidth && `${offsetWidth}px` !== inputWidth) {
             return `${offsetWidth}px`

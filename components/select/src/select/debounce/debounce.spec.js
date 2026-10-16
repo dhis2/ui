@@ -32,4 +32,15 @@ describe('debounce', () => {
 
         expect(spy).toHaveBeenCalledTimes(1)
     })
+    it('should not call the debounced function after cancel', () => {
+        const spy = jest.fn()
+        const debounced = debounce(spy, 100)
+
+        debounced()
+        debounced.cancel()
+
+        jest.runAllTimers()
+
+        expect(spy).not.toHaveBeenCalled()
+    })
 })
