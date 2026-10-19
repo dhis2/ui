@@ -28,4 +28,18 @@ describe('<Select />', () => {
 
         expect(onKeyDown).toHaveBeenCalledTimes(1)
     })
+    it('should not read the input ref after unmount when a resize is pending', () => {
+        jest.useFakeTimers()
+
+        const { unmount } = render(
+            <Select input={<input type="text" />} menu={<div />} selected="" />
+        )
+
+        fireEvent(window, new Event('resize'))
+        unmount()
+
+        expect(() => jest.runAllTimers()).not.toThrow()
+
+        jest.useRealTimers()
+    })
 })
