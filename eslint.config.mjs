@@ -42,14 +42,19 @@ export default defineConfig([
             ],
             /*
              * The shared config leaves these four off. They are on here
-             * because the JavaScript packages import siblings *with* an
-             * extension (the TypeScript override below is the inverse), the
+             * because JavaScript modules are imported *with* an extension
+             * and TypeScript modules without one, since Babel compiles both
+             * to `.js` (the TypeScript override below covers the rest), the
              * resolver issue behind `import/no-unresolved` does not affect
              * this repo, and `@dhis2/cli-app-scripts` compiles JSX with
              * `@babel/preset-react` in classic mode, so the React import is
              * load-bearing.
              */
-            'import/extensions': ['error', 'ignorePackages'],
+            'import/extensions': [
+                'error',
+                'ignorePackages',
+                { ts: 'never', tsx: 'never' },
+            ],
             'import/no-unresolved': 'error',
             'react/react-in-jsx-scope': 'error',
             'react/jsx-uses-react': 'error',
