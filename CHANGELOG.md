@@ -1,3 +1,10 @@
+## [10.19.4](https://github.com/dhis2/ui/compare/v10.19.3...v10.19.4) (2026-10-19)
+
+
+### Bug Fixes
+
+* **select:** cancel pending resize handler on unmount (DHIS2-22294) ([#1778](https://github.com/dhis2/ui/issues/1778)) ([65b1498](https://github.com/dhis2/ui/commit/65b1498b474862de3ef3d8405e34817ed02de162))
+
 ## [10.19.3](https://github.com/dhis2/ui/compare/v10.19.2...v10.19.3) (2026-10-13)
 
 
