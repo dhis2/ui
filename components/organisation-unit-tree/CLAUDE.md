@@ -29,6 +29,18 @@ in other packages.
   `tsconfig.json` has no `allowJs`, so under `strict` a relative import of a `.js`
   file is an error (TS7016). Other `@dhis2-ui/*` packages are fine: they ship
   type declarations.
+
+    To share a JavaScript module with `OuTree`, **port it to TypeScript in place**:
+    rename it to `.ts`/`.tsx`, add a props interface (keeping `propTypes` is
+    optional; they still check JavaScript callers at runtime), and drop the `.js`
+    extension from the existing imports of it. Both components then import the
+    same file.
+
+    A sidecar `.d.ts` next to an unchanged `.js` file is an acceptable stopgap.
+    Babel compiles it to an empty `.d.js` in `build/`, which is harmless. Do not
+    add `allowJs`: it needs changes to the root `tsconfig.json`, the `typecheck`
+    script and `scripts/build-types.js`.
+
 - **Type-only re-exports must use `export type`.** `isolatedModules` is on because
   Babel compiles file-by-file; a plain `export { SomeType }` compiles to a runtime
   import of a value that does not exist.
