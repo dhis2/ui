@@ -13,7 +13,7 @@ const DEFAULT_PAGE_SIZE = 50
 const toNumber = (name: string, value: unknown): number => {
     const parsed = typeof value === 'number' ? value : Number(value)
     if (typeof value === 'boolean' || value === '' || Number.isNaN(parsed)) {
-        throw new Error(`${name} must be a number, got ${String(value)}`)
+        throw new TypeError(`${name} must be a number, got ${String(value)}`)
     }
     return parsed
 }
@@ -28,12 +28,12 @@ const toBoolean = (name: string, value: unknown): boolean => {
     if (value === 'false') {
         return false
     }
-    throw new Error(`${name} must be a boolean, got ${String(value)}`)
+    throw new TypeError(`${name} must be a boolean, got ${String(value)}`)
 }
 
 const toText = (name: string, value: unknown): string => {
     if (typeof value !== 'string') {
-        throw new Error(`${name} must be a string, got ${String(value)}`)
+        throw new TypeError(`${name} must be a string, got ${String(value)}`)
     }
     return value
 }
@@ -48,7 +48,7 @@ const toList = (name: string, value: unknown): string[] => {
             .map((item) => item.trim())
             .filter(Boolean)
     }
-    throw new Error(`${name} must be a list, got ${String(value)}`)
+    throw new TypeError(`${name} must be a list, got ${String(value)}`)
 }
 
 /**
