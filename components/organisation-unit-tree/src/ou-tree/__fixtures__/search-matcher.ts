@@ -1,4 +1,3 @@
-
 /**
  * Lower-cases and strips diacritics, so "Clínic" and "clinic" compare equal.
  * Mirrors what the backend's `unaccent` does for Latin-script names.
