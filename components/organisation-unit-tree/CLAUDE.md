@@ -4,8 +4,10 @@ This package holds two components side by side:
 
 - `OrganisationUnitTree` — the current component, in **JavaScript**
   (`src/organisation-unit-tree/`, `src/organisation-unit-node/` and friends).
-- `OuTree` — its replacement, in **TypeScript** (`src/ou-tree/`). It is a
-  placeholder for now.
+- `OuTree` — its replacement, in **TypeScript** (`src/ou-tree/`). The component
+  is a placeholder; `src/ou-tree/data/` holds the endpoint types and
+  `src/ou-tree/__fixtures__/` an in-memory implementation of
+  `GET /api/organisationUnits/tree` with a PAHO fixture, for tests and stories.
 
 The rest of this repository is JavaScript. The TypeScript conventions below apply
 to `.ts`/`.tsx` files only; do not apply them to the JavaScript sources here or
@@ -63,6 +65,10 @@ in other packages.
   root config so they cannot drift from the ones used to check.
 - **Combine className values with `cx` from `classnames`**, not template literals.
 - **Colors, spacers and elevations come from `@dhis2/ui-constants`**, not literals.
+- **`fixtures/paho-org-units.json` is generated**, by
+  `scripts/derive-ou-tree-fixture.js` from a PAHO metadata export that is not
+  in the repo. It sits outside `src/` so it is not published, and it is
+  excluded from Prettier. Regenerate rather than hand-edit.
 
 ## Commands
 
