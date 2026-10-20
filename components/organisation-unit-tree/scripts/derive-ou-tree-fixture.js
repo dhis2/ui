@@ -8,21 +8,20 @@
  * ids. Everything else in the export (people, geometry, dates of creation,
  * codes, attribute values) is dropped.
  *
- * Usage: node scripts/derive-ou-tree-fixture.js <metadata-export.json>
+ * Usage: node scripts/derive-ou-tree-fixture.js < metadata-export.json
  */
-const fs = require('fs')
-const path = require('path')
+const fs = require('node:fs')
+const path = require('node:path')
 
-const [, , source] = process.argv
-if (!source) {
+if (process.stdin.isTTY) {
     console.error(
-        'Usage: node scripts/derive-ou-tree-fixture.js <metadata-export.json>'
+        'Usage: node scripts/derive-ou-tree-fixture.js < metadata-export.json'
     )
     process.exit(1)
 }
 
 const target = path.join(__dirname, '..', 'fixtures', 'paho-org-units.json')
-const metadata = JSON.parse(fs.readFileSync(source, 'utf8'))
+const metadata = JSON.parse(fs.readFileSync(process.stdin.fd, 'utf8'))
 
 const deriveOrgUnit = (ou) => {
     const unit = {
