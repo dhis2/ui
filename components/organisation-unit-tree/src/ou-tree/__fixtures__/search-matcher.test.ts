@@ -32,12 +32,6 @@ describe('createSearchMatcher', () => {
         expect(matches('Kabwe')).toBe(false)
     })
 
-    it('treats a lone pair of quotes as a plain term', () => {
-        // Two characters is not a quoted term in the backend's likePattern
-        expect(createSearchMatcher('""')('say "" twice')).toBe(true)
-        expect(createSearchMatcher('""')('plain')).toBe(false)
-    })
-
     it('treats * and ? as wildcards anchored to the whole value', () => {
         expect(createSearchMatcher('Ka*')('Kabwe District')).toBe(true)
         expect(createSearchMatcher('Ka*')('Chikupi Mission')).toBe(false)

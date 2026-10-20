@@ -140,9 +140,9 @@ const createResultPredicate = (
 }
 
 /**
- * The backend endpoint `GET /api/organisationUnits/tree`, implemented over a
- * fixture. Follows the contract in DHIS2-21263; see the design spec for the
- * places where that differs from the draft backend code.
+ * Temporary stand-in for `GET /api/organisationUnits/tree` over a fixture,
+ * for tests and stories while the real endpoint is unavailable. Follows the
+ * contract in DHIS2-21263.
  */
 export const createInMemoryTreeEndpoint = ({
     orgUnits,

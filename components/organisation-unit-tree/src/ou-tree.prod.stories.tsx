@@ -12,9 +12,10 @@ const description = `
 A replacement for \`OrganisationUnitTree\`, currently a placeholder. It is
 not exported from any package yet.
 
-The **Endpoint explorer** story runs queries against an in-memory
-implementation of \`GET /api/organisationUnits/tree\` over a fixture of
-19,191 PAHO organisation units, and shows the raw response.
+The **Endpoint explorer** story is temporary. It runs queries against an
+in-memory stand-in for \`GET /api/organisationUnits/tree\` over a fixture of
+19,191 PAHO organisation units, so the stand-in can be exercised in a browser
+while the real endpoint is unavailable. Remove it together with the stand-in.
 `
 
 const resolver = createTreeResolver(pahoOrgUnits)

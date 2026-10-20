@@ -41,8 +41,9 @@ const textFields: Array<[keyof FormValues, string]> = [
 ]
 
 /**
- * Runs a query against `TREE_RESOURCE` through the data engine and shows the
- * raw response, for comparing the in-memory endpoint with the real backend.
+ * Temporary: runs a query against `TREE_RESOURCE` through the data engine and
+ * shows the raw response. Exercises the in-memory stand-in in a browser while
+ * the real endpoint is unavailable; remove together with the stand-in.
  */
 export const EndpointExplorer = () => {
     const engine = useDataEngine()
