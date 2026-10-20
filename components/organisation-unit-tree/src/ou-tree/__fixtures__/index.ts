@@ -12,3 +12,4 @@ export {
     TREE_RESOURCE,
 } from './tree-resolver'
 export { zambiaOrgUnits } from './zambia-org-units'
+export { type Fixture, pahoOrgUnits } from './paho-org-units'
