@@ -9,7 +9,7 @@ export const foldText = (value: string): string =>
         .toLowerCase()
 
 const escapeRegExp = (value: string): string =>
-    value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+    value.replace(/[.*+?^${}()|[\]\\]/g, String.raw`\$&`)
 
 const isQuoted = (term: string): boolean =>
     term.length > 2 && term.startsWith('"') && term.endsWith('"')

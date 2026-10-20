@@ -31,6 +31,13 @@ const toBoolean = (name: string, value: unknown): boolean => {
     throw new Error(`${name} must be a boolean, got ${String(value)}`)
 }
 
+const toText = (name: string, value: unknown): string => {
+    if (typeof value !== 'string') {
+        throw new Error(`${name} must be a string, got ${String(value)}`)
+    }
+    return value
+}
+
 const toList = (name: string, value: unknown): string[] => {
     if (Array.isArray(value)) {
         return value.map(String)
@@ -62,7 +69,7 @@ export const parseQueryParams = (params: unknown): OuTreeQuery => {
                 : toNumber('pageSize', raw.pageSize),
     }
     if (raw.locale !== undefined) {
-        query.locale = String(raw.locale)
+        query.locale = toText('locale', raw.locale)
     }
     if (raw.roots !== undefined) {
         query.roots = toList('roots', raw.roots)
@@ -71,7 +78,7 @@ export const parseQueryParams = (params: unknown): OuTreeQuery => {
         query.depth = toNumber('depth', raw.depth)
     }
     if (raw.search !== undefined) {
-        query.search = String(raw.search)
+        query.search = toText('search', raw.search)
     }
     if (raw.shortName !== undefined) {
         query.shortName = toBoolean('shortName', raw.shortName)
@@ -98,6 +105,8 @@ type Json = boolean | number | string | null | Json[] | { [key: string]: Json }
  */
 export const createTreeResolver = (options: InMemoryTreeEndpointOptions) => {
     const endpoint = createInMemoryTreeEndpoint(options)
-    return async (_type: string, query: { params?: unknown }): Promise<Json> =>
-        endpoint(parseQueryParams(query.params)) as unknown as Json
+    return (_type: string, query: { params?: unknown }): Promise<Json> =>
+        Promise.resolve(
+            endpoint(parseQueryParams(query.params)) as unknown as Json
+        )
 }
