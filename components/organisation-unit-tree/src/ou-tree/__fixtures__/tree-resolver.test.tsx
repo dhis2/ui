@@ -1,12 +1,8 @@
 import { CustomDataProvider, useDataQuery } from '@dhis2/app-runtime'
 import { renderHook, waitFor } from '@testing-library/react'
 import React from 'react'
-import type { OuTreeResponse } from '../data/index'
-import {
-    createTreeResolver,
-    parseQueryParams,
-    TREE_RESOURCE,
-} from './tree-resolver'
+import { type OuTreeResponse, TREE_RESOURCE } from '../data/index'
+import { createTreeResolver, parseQueryParams } from './tree-resolver'
 import { zambiaOrgUnits } from './zambia-org-units'
 
 describe('parseQueryParams', () => {

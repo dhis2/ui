@@ -1,7 +1,7 @@
 import { useDataEngine } from '@dhis2/app-runtime'
 import { colors, spacers } from '@dhis2/ui-constants'
 import React, { useState } from 'react'
-import { TREE_RESOURCE } from '../__fixtures__/index'
+import { TREE_RESOURCE } from '../data/index'
 
 type FormValues = {
     roots: string

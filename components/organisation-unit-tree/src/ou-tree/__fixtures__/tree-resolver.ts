@@ -4,9 +4,6 @@ import {
     InMemoryTreeEndpointOptions,
 } from './in-memory-tree-endpoint'
 
-/** The resource name of the tree endpoint, as used with the data engine. */
-export const TREE_RESOURCE = 'organisationUnits/tree'
-
 const DEFAULT_PAGE = 1
 const DEFAULT_PAGE_SIZE = 50
 

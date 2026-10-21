@@ -1,11 +1,8 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import React from 'react'
-import {
-    createTreeResolver,
-    pahoOrgUnits,
-    TREE_RESOURCE,
-} from './ou-tree/__fixtures__/index'
+import { createTreeResolver, pahoOrgUnits } from './ou-tree/__fixtures__/index'
 import { EndpointExplorer as Explorer } from './ou-tree/__stories__/endpoint-explorer'
+import { TREE_RESOURCE } from './ou-tree/data/index'
 import { OuTree } from './ou-tree/index'
 
 const description = `
