@@ -14,6 +14,7 @@ import { StatusIcon } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
+|aria-label|string|||Accessible label for standalone use|
 |error|boolean||||
 |loading|boolean||||
 |valid|boolean||||

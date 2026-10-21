@@ -8,7 +8,7 @@ import { CircularLoader } from '@dhis2-ui/loader'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-export const StatusIcon = ({ error, warning, valid, loading }) => {
+const getIcon = ({ error, warning, valid }) => {
     if (error) {
         return <IconErrorFilled24 color={theme.error} />
     }
@@ -18,14 +18,45 @@ export const StatusIcon = ({ error, warning, valid, loading }) => {
     if (valid) {
         return <IconCheckmark24 color={theme.valid} />
     }
+
+    return null
+}
+
+export const StatusIcon = ({
+    error,
+    warning,
+    valid,
+    loading,
+    'aria-label': ariaLabel,
+}) => {
+    const icon = getIcon({ error, warning, valid })
+
+    if (icon) {
+        return (
+            <span
+                role={ariaLabel ? 'img' : undefined}
+                aria-label={ariaLabel}
+                aria-hidden={ariaLabel ? undefined : 'true'}
+            >
+                {icon}
+                <style jsx>{`
+                    span {
+                        display: inline-flex;
+                    }
+                `}</style>
+            </span>
+        )
+    }
     if (loading) {
-        return <CircularLoader small />
+        return <CircularLoader small aria-label={ariaLabel} />
     }
 
     return null
 }
 
 StatusIcon.propTypes = {
+    /** Accessible label for standalone use */
+    'aria-label': PropTypes.string,
     error: PropTypes.bool,
     loading: PropTypes.bool,
     valid: PropTypes.bool,
