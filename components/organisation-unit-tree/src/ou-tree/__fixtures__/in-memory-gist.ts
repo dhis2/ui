@@ -59,18 +59,16 @@ const idsFromFilter = (filter: unknown): string[] => {
  */
 export const createGistResolver = (options: InMemoryGistOptions) => {
     const gist = createInMemoryGist(options)
-    return (
+    return async (
         _type: string,
-        query: { params?: { filter?: unknown; fields?: unknown } }
+        query: { params?: unknown }
     ): Promise<Json> => {
-        const fields = String(query.params?.fields ?? '')
-        const shortName = fields.includes(
+        const params = (query.params ?? {}) as Record<string, unknown>
+        const shortName = String(params.fields ?? '').includes(
             'displayShortName~rename(displayName)'
         )
-        return Promise.resolve(
-            gist(idsFromFilter(query.params?.filter), {
-                shortName,
-            }) as unknown as Json
-        )
+        return gist(idsFromFilter(params.filter), {
+            shortName,
+        }) as unknown as Json
     }
 }

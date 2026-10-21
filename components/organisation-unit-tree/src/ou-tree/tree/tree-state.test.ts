@@ -219,10 +219,10 @@ describe('createTreeState', () => {
     })
 
     describe('subscription', () => {
-        it('notifies on open and on cache changes, and stops after destroy', async () => {
+        it('notifies on open and on cache changes, and stops after unsubscribe', async () => {
             const { tree } = setup(['ou-1'])
             const listener = jest.fn()
-            tree.subscribe(listener)
+            const unsubscribe = tree.subscribe(listener)
             await flush()
             const afterRoots = listener.mock.calls.length
             expect(afterRoots).toBeGreaterThan(0)
@@ -233,10 +233,20 @@ describe('createTreeState', () => {
             await flush()
             expect(listener.mock.calls.length).toBeGreaterThan(afterOpen)
 
-            tree.destroy()
-            const afterDestroy = listener.mock.calls.length
+            unsubscribe()
+            const afterUnsubscribe = listener.mock.calls.length
             tree.open('ou-2')
-            expect(listener.mock.calls.length).toBe(afterDestroy)
+            await flush()
+            expect(listener.mock.calls.length).toBe(afterUnsubscribe)
+        })
+
+        it('reports a cache change that happened while nobody listened', async () => {
+            const { tree } = setup(['ou-1'])
+            const before = tree.getVersion()
+
+            await flush()
+
+            expect(tree.getVersion()).toBeGreaterThan(before)
         })
 
         it('bumps the version whenever it notifies', async () => {

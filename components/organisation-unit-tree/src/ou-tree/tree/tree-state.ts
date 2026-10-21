@@ -33,8 +33,6 @@ export interface TreeState {
     retryRoots(): void
     subscribe(listener: () => void): () => void
     getVersion(): number
-    /** Stops listening to the cache. The tree is unusable afterwards. */
-    destroy(): void
 }
 
 /**
@@ -53,14 +51,12 @@ export const createTreeState = ({
     let rootsStatus: RootsStatus = { status: 'loading' }
     let version = 0
     let memo: { version: number; flat: FlatRows } | undefined
-    let destroyed = false
+    let unsubscribeCache: (() => void) | undefined
 
     const notify = () => {
         version += 1
         listeners.forEach((listener) => listener())
     }
-
-    const unsubscribeCache = cache.subscribe(notify)
 
     const flat = (): FlatRows => {
         const current = cache.getVersion()
@@ -95,9 +91,6 @@ export const createTreeState = ({
         notify()
         cache.loadNodes(requestedRoots).then(
             () => {
-                if (destroyed) {
-                    return
-                }
                 const nodes = requestedRoots.flatMap((id) => {
                     const node = cache.getNode(id)
                     return node ? [node] : []
@@ -108,9 +101,6 @@ export const createTreeState = ({
                 notify()
             },
             (error: unknown) => {
-                if (destroyed) {
-                    return
-                }
                 rootsStatus = { status: 'failed', error }
                 notify()
             }
@@ -118,9 +108,6 @@ export const createTreeState = ({
     }
 
     const open = (id: string) => {
-        if (destroyed) {
-            return
-        }
         openIds.add(id)
         invalidate()
         requestFirstPage(id)
@@ -128,9 +115,6 @@ export const createTreeState = ({
     }
 
     const close = (id: string) => {
-        if (destroyed) {
-            return
-        }
         openIds.delete(id)
         invalidate()
         notify()
@@ -182,15 +166,19 @@ export const createTreeState = ({
         getRowIndex: (id) => flat().indexById.get(id),
         ensureChildrenLoaded,
         retryRoots: loadRoots,
+        // Listens to the cache only while someone listens to the tree, so an
+        // abandoned tree is not kept alive by the shared cache.
         subscribe: (listener) => {
             listeners.add(listener)
-            return () => listeners.delete(listener)
+            unsubscribeCache ??= cache.subscribe(notify)
+            return () => {
+                listeners.delete(listener)
+                if (listeners.size === 0) {
+                    unsubscribeCache?.()
+                    unsubscribeCache = undefined
+                }
+            }
         },
-        getVersion: () => version,
-        destroy: () => {
-            destroyed = true
-            unsubscribeCache()
-            listeners.clear()
-        },
+        getVersion: () => version + cache.getVersion(),
     }
 }
