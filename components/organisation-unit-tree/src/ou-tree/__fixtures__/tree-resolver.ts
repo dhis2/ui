@@ -102,8 +102,6 @@ type Json = boolean | number | string | null | Json[] | { [key: string]: Json }
  */
 export const createTreeResolver = (options: InMemoryTreeEndpointOptions) => {
     const endpoint = createInMemoryTreeEndpoint(options)
-    return (_type: string, query: { params?: unknown }): Promise<Json> =>
-        Promise.resolve(
-            endpoint(parseQueryParams(query.params)) as unknown as Json
-        )
+    return async (_type: string, query: { params?: unknown }): Promise<Json> =>
+        endpoint(parseQueryParams(query.params)) as unknown as Json
 }
