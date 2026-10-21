@@ -15,4 +15,16 @@ describe('<StatusIcon>', () => {
 
         expect(screen.getByRole('img', { name: 'Error' })).toBeInTheDocument()
     })
+
+    it('hides the loader from assistive technology unless an aria-label is provided', () => {
+        const { rerender } = render(<StatusIcon loading />)
+
+        expect(screen.queryByRole('progressbar')).not.toBeInTheDocument()
+
+        rerender(<StatusIcon loading aria-label="Loading" />)
+
+        expect(
+            screen.getByRole('progressbar', { name: 'Loading' })
+        ).toBeInTheDocument()
+    })
 })

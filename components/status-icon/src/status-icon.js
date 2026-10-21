@@ -31,27 +31,24 @@ export const StatusIcon = ({
 }) => {
     const icon = getIcon({ error, warning, valid })
 
-    if (icon) {
-        return (
-            <span
-                role={ariaLabel ? 'img' : undefined}
-                aria-label={ariaLabel}
-                aria-hidden={ariaLabel ? undefined : 'true'}
-            >
-                {icon}
-                <style jsx>{`
-                    span {
-                        display: inline-flex;
-                    }
-                `}</style>
-            </span>
-        )
-    }
-    if (loading) {
-        return <CircularLoader small aria-label={ariaLabel} />
+    if (!icon && !loading) {
+        return null
     }
 
-    return null
+    return (
+        <span
+            role={icon && ariaLabel ? 'img' : undefined}
+            aria-label={icon ? ariaLabel : undefined}
+            aria-hidden={ariaLabel ? undefined : 'true'}
+        >
+            {icon || <CircularLoader small aria-label={ariaLabel} />}
+            <style jsx>{`
+                span {
+                    display: inline-flex;
+                }
+            `}</style>
+        </span>
+    )
 }
 
 StatusIcon.propTypes = {
