@@ -186,6 +186,32 @@ describe('createNodeCache', () => {
             ])
         })
 
+        it('loads count 0 for a parent not flagged leaf whose page one has only itself', async () => {
+            const { api, treeRequests } = createManualTreeApi()
+            const cache = createNodeCache({ api, pageSize: 2 })
+
+            cache.requestChildrenPage('p', 1)
+            treeRequests[0].resolve(
+                childrenPage({
+                    parent,
+                    children: [],
+                    total: 1,
+                    page: 1,
+                    pageSize: 2,
+                })
+            )
+            await flush()
+
+            expect(cache.getChildren('p')).toEqual({
+                status: 'loaded',
+                children: {
+                    count: 0,
+                    slots: [],
+                    pages: new Map([[1, { status: 'loaded' }]]),
+                },
+            })
+        })
+
         it('marks a failed page one as failed and retries it', async () => {
             const { api, treeRequests } = createManualTreeApi()
             const cache = createNodeCache({ api, pageSize: 2 })
