@@ -131,7 +131,12 @@ describe('OuTree providers and hooks', () => {
         const gistIds = gist.mock.calls.map(
             (call) => (call[1].params as { filter: string }).filter
         )
-        expect(gistIds).toEqual(['id:in:[ou-3]', 'id:in:[ou-6]'])
+        // Each root is fetched exactly once across both trees. Effects run
+        // child-first, so the inner tree asks for both and the outer tree
+        // finds its root in flight.
+        expect(
+            gistIds.flatMap((filter) => filter.slice(7, -1).split(','))
+        ).toEqual(['ou-3', 'ou-6'])
         expect(tree).toHaveBeenCalledTimes(1)
     })
 

@@ -30,6 +30,8 @@ export interface TreeState {
     getRowIndex(id: string): number | undefined
     /** Requests the children pages covering any skeleton rows in the range. */
     ensureChildrenLoaded(firstRow: number, lastRow: number): void
+    /** Loads the roots and the initially open nodes. Idempotent. */
+    start(): void
     retryRoots(): void
     subscribe(listener: () => void): () => void
     getVersion(): number
@@ -148,8 +150,17 @@ export const createTreeState = ({
         }
     }
 
-    loadRoots()
-    initiallyOpen.forEach(requestFirstPage)
+    let started = false
+    // Creating a tree has no side effects, so React may create and discard
+    // one freely; starting it loads the roots and the initially open nodes.
+    const start = () => {
+        if (started) {
+            return
+        }
+        started = true
+        loadRoots()
+        initiallyOpen.forEach(requestFirstPage)
+    }
 
     return {
         cache,
@@ -165,6 +176,7 @@ export const createTreeState = ({
         getRow,
         getRowIndex: (id) => flat().indexById.get(id),
         ensureChildrenLoaded,
+        start,
         retryRoots: loadRoots,
         // Listens to the cache only while someone listens to the tree, so an
         // abandoned tree is not kept alive by the shared cache.

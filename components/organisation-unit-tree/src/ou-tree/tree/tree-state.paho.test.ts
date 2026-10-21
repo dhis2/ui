@@ -10,6 +10,7 @@ describe('tree state over the PAHO stand-in', () => {
         const { api, treeCalls } = createTestTreeApi(pahoOrgUnits)
         const cache = createNodeCache({ api })
         const tree = createTreeState({ cache, roots: [MINAS_GERAIS] })
+        tree.start()
         await flush()
         tree.open(MINAS_GERAIS)
         await flush()

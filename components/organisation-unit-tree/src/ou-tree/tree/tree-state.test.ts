@@ -28,6 +28,7 @@ const setup = (
         roots,
         initiallyOpen: options.initiallyOpen,
     })
+    tree.start()
     return { tree, cache, treeCalls, nodeCalls }
 }
 
@@ -66,6 +67,7 @@ describe('createTreeState', () => {
             const { api, nodeRequests } = createManualTreeApi()
             const cache = createNodeCache({ api })
             const tree = createTreeState({ cache, roots: ['ou-1'] })
+            tree.start()
             const error = new Error('nope')
             nodeRequests[0].reject(error)
             await flush()
@@ -256,5 +258,29 @@ describe('createTreeState', () => {
 
             expect(tree.getVersion()).toBeGreaterThan(before)
         })
+    })
+})
+
+describe('createTreeState before start', () => {
+    it('requests nothing until started, and starts only once', async () => {
+        const { api, treeCalls, nodeCalls } = createTestTreeApi({
+            orgUnits: zambiaOrgUnits,
+        })
+        const cache = createNodeCache({ api, pageSize: 2 })
+        const tree = createTreeState({
+            cache,
+            roots: ['ou-1'],
+            initiallyOpen: ['ou-1'],
+        })
+        await flush()
+        expect(nodeCalls).toEqual([])
+        expect(treeCalls).toEqual([])
+
+        tree.start()
+        tree.start()
+        await flush()
+
+        expect(nodeCalls).toEqual([['ou-1']])
+        expect(treeCalls).toHaveLength(1)
     })
 })

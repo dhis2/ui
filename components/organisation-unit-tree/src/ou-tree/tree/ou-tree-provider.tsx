@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useMemo, useRef } from 'react'
+import React, {
+    createContext,
+    useContext,
+    useEffect,
+    useMemo,
+    useRef,
+} from 'react'
 import { useNodeCache } from './ou-tree-node-cache-provider'
 import { createTreeState, TreeState } from './tree-state'
 
@@ -36,6 +42,11 @@ export const OuTreeProvider = ({
             }),
         [cache, rootsKey]
     )
+    // Requests start from an effect, never during render, so a tree React
+    // creates and discards (StrictMode) requests nothing.
+    useEffect(() => {
+        tree.start()
+    }, [tree])
     return <TreeContext.Provider value={tree}>{children}</TreeContext.Provider>
 }
 
