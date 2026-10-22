@@ -1,5 +1,5 @@
 import { useSyncExternalStore } from 'react'
-import type { RootsStatus } from '../cache/index'
+import type { RootsStatus } from '../node-cache/index'
 import { useTreeState } from './ou-tree-provider'
 import type { TreeState } from './tree-state'
 

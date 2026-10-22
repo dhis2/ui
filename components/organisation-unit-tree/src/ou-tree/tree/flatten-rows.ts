@@ -2,7 +2,7 @@ import {
     childrenPageOf,
     type ChildrenStatus,
     type NodeCache,
-} from '../cache/index'
+} from '../node-cache/index'
 
 export type Row =
     | { kind: 'node'; id: string; depth: number; children: ChildrenStatus }

@@ -1,4 +1,4 @@
-import type { CachedNode } from '../cache/index'
+import type { CachedNode } from '../node-cache/index'
 
 /**
  * Drops any root that descends from another root, so no unit appears in the

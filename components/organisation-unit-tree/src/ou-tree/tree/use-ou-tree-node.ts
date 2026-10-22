@@ -1,5 +1,5 @@
 import { useSyncExternalStore } from 'react'
-import type { CachedNode } from '../cache/index'
+import type { CachedNode } from '../node-cache/index'
 import { useTreeState } from './ou-tree-provider'
 
 /** One node's data and open state, for row components. */

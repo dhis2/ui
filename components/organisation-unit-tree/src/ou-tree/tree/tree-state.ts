@@ -2,7 +2,7 @@ import {
     childrenPageOf,
     type NodeCache,
     type RootsStatus,
-} from '../cache/index'
+} from '../node-cache/index'
 import { excludeNestedRoots } from './exclude-nested-roots'
 import { FlatRows, flattenRows, Row } from './flatten-rows'
 

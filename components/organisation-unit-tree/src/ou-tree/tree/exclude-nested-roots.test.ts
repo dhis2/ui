@@ -1,4 +1,4 @@
-import type { CachedNode } from '../cache/index'
+import type { CachedNode } from '../node-cache/index'
 import { excludeNestedRoots } from './exclude-nested-roots'
 
 const node = (id: string, path: string): CachedNode => ({

@@ -1,5 +1,5 @@
 import { createTestTreeApi, pahoOrgUnits } from '../__fixtures__/index'
-import { createNodeCache } from '../cache/index'
+import { createNodeCache } from '../node-cache/index'
 import { createTreeState } from './tree-state'
 
 const flush = () => new Promise((resolve) => setTimeout(resolve, 0))

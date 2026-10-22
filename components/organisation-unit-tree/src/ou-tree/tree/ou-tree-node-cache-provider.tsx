@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useMemo, useRef } from 'react'
-import { createNodeCache, NodeCache } from '../cache/index'
 import { useTreeApi } from '../data/index'
+import { createNodeCache, NodeCache } from '../node-cache/index'
 
 interface NodeCaches {
     getCache(shortName: boolean): NodeCache

@@ -3,7 +3,7 @@ import {
     createTestTreeApi,
     zambiaOrgUnits,
 } from '../__fixtures__/index'
-import { createNodeCache } from '../cache/index'
+import { createNodeCache } from '../node-cache/index'
 import { createTreeState, TreeState } from './tree-state'
 
 const flush = () => new Promise((resolve) => setTimeout(resolve, 0))

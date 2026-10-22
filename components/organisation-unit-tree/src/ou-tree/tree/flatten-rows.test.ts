@@ -4,7 +4,7 @@ import {
     createTestTreeApi,
     zambiaOrgUnits,
 } from '../__fixtures__/index'
-import { createNodeCache, NodeCache } from '../cache/index'
+import { createNodeCache, NodeCache } from '../node-cache/index'
 import { flattenRows } from './flatten-rows'
 
 const flush = () => new Promise((resolve) => setTimeout(resolve, 0))
