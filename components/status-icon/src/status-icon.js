@@ -39,7 +39,7 @@ export const StatusIcon = ({
         <span
             role={icon && ariaLabel ? 'img' : undefined}
             aria-label={icon ? ariaLabel : undefined}
-            aria-hidden={ariaLabel ? undefined : 'true'}
+            aria-hidden={icon && !ariaLabel ? 'true' : undefined}
         >
             {icon || <CircularLoader small aria-label={ariaLabel} />}
             <style jsx>{`
