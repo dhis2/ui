@@ -1,3 +1,17 @@
+# [10.20.0](https://github.com/dhis2/ui/compare/v10.19.4...v10.20.0) (2026-10-22)
+
+
+### Bug Fixes
+
+* update tx config ([#1783](https://github.com/dhis2/ui/issues/1783)) ([6263472](https://github.com/dhis2/ui/commit/626347258bf7922683ac76e107e73b81973366cd))
+
+
+### Features
+
+* **alert:** enhance screen reader accessibility ([#1773](https://github.com/dhis2/ui/issues/1773)) ([df52325](https://github.com/dhis2/ui/commit/df52325653134b197a6d2b0eff439639fa445d2b))
+* **segmented-control:** improve accessibility ([#1766](https://github.com/dhis2/ui/issues/1766)) ([700b934](https://github.com/dhis2/ui/commit/700b93476d5bb166bf9c4c5c923d5912b715519c))
+* **selector-bar:** enhance focus management and interaction handling ([#1772](https://github.com/dhis2/ui/issues/1772)) ([24db729](https://github.com/dhis2/ui/commit/24db729ddf084e103442520751a115ca549a4483))
+
 ## [10.19.4](https://github.com/dhis2/ui/compare/v10.19.3...v10.19.4) (2026-10-19)
 
 
