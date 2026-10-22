@@ -59,16 +59,18 @@ const idsFromFilter = (filter: unknown): string[] => {
  */
 export const createGistResolver = (options: InMemoryGistOptions) => {
     const gist = createInMemoryGist(options)
-    return async (
-        _type: string,
-        query: { params?: unknown }
-    ): Promise<Json> => {
+    return (_type: string, query: { params?: unknown }): Promise<Json> => {
         const params = (query.params ?? {}) as Record<string, unknown>
-        const shortName = String(params.fields ?? '').includes(
+        const fields = typeof params.fields === 'string' ? params.fields : ''
+        const shortName = fields.includes(
             'displayShortName~rename(displayName)'
         )
-        return gist(idsFromFilter(params.filter), {
-            shortName,
-        }) as unknown as Json
+        // `.then` turns a synchronous throw into a rejection, like async did.
+        return Promise.resolve().then(
+            () =>
+                gist(idsFromFilter(params.filter), {
+                    shortName,
+                }) as unknown as Json
+        )
     }
 }

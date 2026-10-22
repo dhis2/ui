@@ -2,6 +2,13 @@ import { colors, spacers } from '@dhis2/ui-constants'
 import React, { useEffect } from 'react'
 import { useOuTree, useOuTreeNode } from '../tree/index'
 
+const arrowFor = (leaf: boolean, isOpen: boolean) => {
+    if (leaf) {
+        return '·'
+    }
+    return isOpen ? '▾' : '▸'
+}
+
 const NodeRow = ({ id, depth }: { id: string; depth: number }) => {
     const { node, isOpen } = useOuTreeNode(id)
     const { toggle, cache } = useOuTree()
@@ -16,7 +23,7 @@ const NodeRow = ({ id, depth }: { id: string; depth: number }) => {
                 onClick={() => toggle(id)}
                 disabled={node.leaf}
             >
-                {node.leaf ? '·' : isOpen ? '▾' : '▸'}
+                {arrowFor(node.leaf, isOpen)}
             </button>{' '}
             {node.displayName}
             {children.status === 'loading' && <em> loading…</em>}

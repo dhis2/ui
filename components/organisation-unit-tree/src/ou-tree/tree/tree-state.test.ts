@@ -239,7 +239,7 @@ describe('createTreeState', () => {
             const afterUnsubscribe = listener.mock.calls.length
             tree.open('ou-2')
             await flush()
-            expect(listener.mock.calls.length).toBe(afterUnsubscribe)
+            expect(listener.mock.calls).toHaveLength(afterUnsubscribe)
         })
 
         it('reports a cache change that happened while nobody listened', async () => {

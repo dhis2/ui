@@ -62,7 +62,7 @@ export const createTreeState = ({
 
     const flat = (): FlatRows => {
         const current = cache.getVersion()
-        if (!memo || memo.version !== current) {
+        if (memo?.version !== current) {
             memo = {
                 version: current,
                 flat: flattenRows({
