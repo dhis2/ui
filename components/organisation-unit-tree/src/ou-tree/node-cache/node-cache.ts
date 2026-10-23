@@ -41,15 +41,21 @@ export type RootsStatus =
 /** Children per page. Not configurable by apps. */
 export const CHILDREN_PAGE_SIZE = 50
 
+/** Arguments of `createNodeCache`, which only the provider and tests call. */
 export interface NodeCacheOptions {
     api: TreeApi
     shortName?: boolean
-    /** For tests that page a small tree. Defaults to `CHILDREN_PAGE_SIZE`. */
+    /**
+     * Tests only, so a small tree pages. Apps cannot set it; the provider
+     * always uses `CHILDREN_PAGE_SIZE`.
+     */
     pageSize?: number
 }
 
 export interface NodeCache {
-    readonly options: NodeCacheOptions
+    /** Whether nodes carry short names instead of names. */
+    readonly shortName: boolean
+    /** Children per page for this cache. */
     readonly pageSize: number
     getNode(id: string): CachedNode | undefined
     /** `none` for a leaf or an unrequested parent; see `ChildrenStatus`. */
@@ -258,7 +264,7 @@ export const createNodeCache = ({
     }
 
     return {
-        options: { api, shortName, pageSize },
+        shortName,
         pageSize,
         getNode: (id) => nodes.get(id),
         getChildren,

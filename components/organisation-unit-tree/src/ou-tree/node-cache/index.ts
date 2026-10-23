@@ -7,6 +7,5 @@ export {
     type ChildrenStatus,
     createNodeCache,
     type NodeCache,
-    type NodeCacheOptions,
     type RootsStatus,
 } from './node-cache'

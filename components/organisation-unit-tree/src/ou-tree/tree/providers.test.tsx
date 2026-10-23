@@ -158,7 +158,7 @@ describe('OuTree providers and hooks', () => {
         )
 
         expect(gist).toHaveBeenCalledTimes(2)
-        expect(result.current.cache.options.shortName).toBe(true)
+        expect(result.current.cache.shortName).toBe(true)
     })
 
     it('does not recreate the tree when roots are a new but equal array', async () => {
