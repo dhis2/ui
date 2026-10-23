@@ -17,6 +17,8 @@ export type ChildrenPageStatus =
 export interface ChildrenState {
     /** Number of children, from page one's `total`. */
     count: number
+    /** The page size the server paged with, from page one's pager. */
+    pageSize: number
     /** Child ids by position; an empty slot is a child not yet loaded. */
     slots: Array<string | undefined>
     /** Children-page status by 1-based page number; absent means not requested. */
@@ -38,25 +40,15 @@ export type RootsStatus =
     | { status: 'failed'; error: unknown }
     | { status: 'loaded' }
 
-/** Children per page. Not configurable by apps. */
-export const CHILDREN_PAGE_SIZE = 50
-
 /** Arguments of `createNodeCache`, which only the provider and tests call. */
 export interface NodeCacheOptions {
     api: TreeApi
     shortName?: boolean
-    /**
-     * Tests only, so a small tree pages. Apps cannot set it; the provider
-     * always uses `CHILDREN_PAGE_SIZE`.
-     */
-    pageSize?: number
 }
 
 export interface NodeCache {
     /** Whether nodes carry short names instead of names. */
     readonly shortName: boolean
-    /** Children per page for this cache. */
-    readonly pageSize: number
     getNode(id: string): CachedNode | undefined
     /** `none` for a leaf or an unrequested parent; see `ChildrenStatus`. */
     getChildren(parentId: string): ChildrenStatus
@@ -101,7 +93,6 @@ const withParent = (node: Omit<CachedNode, 'parentId'>): CachedNode => {
 export const createNodeCache = ({
     api,
     shortName = false,
-    pageSize = CHILDREN_PAGE_SIZE,
 }: NodeCacheOptions): NodeCache => {
     const nodes = new Map<string, CachedNode>()
     const children = new Map<string, ChildrenStatus>()
@@ -156,6 +147,7 @@ export const createNodeCache = ({
             const count = response.pager.total
             state = {
                 count,
+                pageSize: response.pager.pageSize,
                 slots: new Array<string | undefined>(count).fill(undefined),
                 pages: new Map(),
             }
@@ -168,7 +160,7 @@ export const createNodeCache = ({
             state = current.children
         }
         response.organisationUnits.forEach((child, position) => {
-            state.slots[(page - 1) * pageSize + position] = child.id
+            state.slots[(page - 1) * state.pageSize + position] = child.id
             storeEntry(child)
         })
         state.pages.set(page, { status: 'loaded' })
@@ -190,7 +182,7 @@ export const createNodeCache = ({
             return
         }
         notify()
-        api.fetchChildrenPage(parentId, page, { pageSize, shortName }).then(
+        api.fetchChildrenPage(parentId, page, { shortName }).then(
             (response) => {
                 storePage(parentId, page, response)
                 notify()
@@ -239,7 +231,6 @@ export const createNodeCache = ({
 
     return {
         shortName,
-        pageSize,
         getNode: (id) => nodes.get(id),
         getChildren,
         loadNodes,

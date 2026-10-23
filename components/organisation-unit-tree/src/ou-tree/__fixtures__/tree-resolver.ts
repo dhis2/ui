@@ -114,10 +114,16 @@ export const createTreeResolver = ({
     ...options
 }: TreeResolverOptions) => {
     const endpoint = createInMemoryTreeEndpoint(options)
-    const childrenPages = createInMemoryChildrenPages({
-        orgUnits: options.orgUnits,
-        failWith: failChildrenPageWith,
-    })
+    // The resolver honours the request's pageSize, so it pages per request.
+    const childrenPages = (
+        parentId: string,
+        request: { page: number; pageSize: number; shortName?: boolean }
+    ) =>
+        createInMemoryChildrenPages({
+            orgUnits: options.orgUnits,
+            pageSize: request.pageSize,
+            failWith: failChildrenPageWith,
+        })(parentId, request)
     // `.then` turns a synchronous throw (failWith) into a rejection.
     return (
         _type: string,

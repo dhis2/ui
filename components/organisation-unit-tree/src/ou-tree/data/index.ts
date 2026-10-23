@@ -1,3 +1,4 @@
+export { CHILDREN_PAGE_SIZE } from './children-page-size'
 export { buildGistQuery } from './build-gist-query'
 export { GIST_RESOURCE, TREE_RESOURCE } from './resources'
 export type {

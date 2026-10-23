@@ -20,8 +20,9 @@ const setup = (
 ) => {
     const { api, childrenCalls, nodeCalls } = createTestTreeApi({
         orgUnits: zambiaOrgUnits,
+        pageSize: options.pageSize ?? 3,
     })
-    const cache = createNodeCache({ api, pageSize: options.pageSize ?? 3 })
+    const cache = createNodeCache({ api })
     const tree = createTreeState({
         cache,
         roots,
@@ -264,8 +265,9 @@ describe('createTreeState before start', () => {
     it('requests nothing until started, and starts only once', async () => {
         const { api, childrenCalls, nodeCalls } = createTestTreeApi({
             orgUnits: zambiaOrgUnits,
+            pageSize: 2,
         })
-        const cache = createNodeCache({ api, pageSize: 2 })
+        const cache = createNodeCache({ api })
         const tree = createTreeState({
             cache,
             roots: ['ou-1'],

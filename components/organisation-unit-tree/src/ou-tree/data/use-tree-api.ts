@@ -1,6 +1,7 @@
 import { useDataEngine } from '@dhis2/app-runtime'
 import { useMemo } from 'react'
 import { buildGistQuery } from './build-gist-query'
+import { CHILDREN_PAGE_SIZE } from './children-page-size'
 import { TREE_RESOURCE } from './resources'
 import type { OuTreeChildrenPage, OuTreeQuery, OuTreeResponse } from './types'
 
@@ -23,7 +24,7 @@ export interface TreeApi {
     fetchChildrenPage(
         parentId: string,
         page: number,
-        options: { pageSize: number; shortName?: boolean }
+        options: { shortName?: boolean }
     ): Promise<OuTreeChildrenPage>
     /** Looks known units up by id, in one gist request sized to the list. */
     fetchNodes(ids: string[], options: FetchNodesOptions): Promise<NodeEntry[]>
@@ -83,13 +84,17 @@ export const useTreeApi = (): TreeApi => {
             fetchChildrenPage: async (
                 parentId,
                 page,
-                { pageSize, shortName = false }
+                { shortName = false }
             ) => {
                 const { children } = await engine.query({
                     children: {
                         resource: TREE_RESOURCE,
                         id: `${parentId}/children`,
-                        params: { page, pageSize, shortName },
+                        params: {
+                            page,
+                            pageSize: CHILDREN_PAGE_SIZE,
+                            shortName,
+                        },
                     },
                 })
                 return children as unknown as OuTreeChildrenPage

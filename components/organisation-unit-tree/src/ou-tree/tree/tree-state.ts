@@ -140,8 +140,14 @@ export const createTreeState = ({
         for (let index = first; index <= last; index += 1) {
             const row = rows[index]
             if (row.kind === 'skeleton') {
-                const page = childrenPageOf(row.index, cache.pageSize)
-                wanted.add(`${row.parentId}\u0000${page}`)
+                const parent = cache.getChildren(row.parentId)
+                if (parent.status === 'loaded') {
+                    const page = childrenPageOf(
+                        row.index,
+                        parent.children.pageSize
+                    )
+                    wanted.add(`${row.parentId}\u0000${page}`)
+                }
             }
         }
         for (const key of wanted) {

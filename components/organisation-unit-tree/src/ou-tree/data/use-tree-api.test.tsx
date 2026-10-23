@@ -111,13 +111,13 @@ describe('useTreeApi', () => {
             const resolver = jest.fn().mockResolvedValue(response)
             const api = render({ [TREE_RESOURCE]: resolver })
 
-            await api.fetchChildrenPage('ou-6', 2, { pageSize: 2 })
+            await api.fetchChildrenPage('ou-6', 2, {})
 
             const query = resolver.mock.calls[0][1]
             expect(query.id).toBe('ou-6/children')
             expect(query.params).toEqual({
                 page: 2,
-                pageSize: 2,
+                pageSize: 50,
                 shortName: false,
             })
         })
@@ -126,10 +126,7 @@ describe('useTreeApi', () => {
             const resolver = jest.fn().mockResolvedValue(response)
             const api = render({ [TREE_RESOURCE]: resolver })
 
-            await api.fetchChildrenPage('ou-6', 1, {
-                pageSize: 50,
-                shortName: true,
-            })
+            await api.fetchChildrenPage('ou-6', 1, { shortName: true })
 
             expect(resolver.mock.calls[0][1].params).toEqual({
                 page: 1,
@@ -143,9 +140,7 @@ describe('useTreeApi', () => {
                 [TREE_RESOURCE]: jest.fn().mockResolvedValue(response),
             })
 
-            const result = await api.fetchChildrenPage('ou-6', 2, {
-                pageSize: 2,
-            })
+            const result = await api.fetchChildrenPage('ou-6', 2, {})
 
             expect(result).toEqual(response)
         })

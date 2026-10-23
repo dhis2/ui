@@ -7,11 +7,13 @@ const ids = (response: { organisationUnits: Array<{ id: string }> }) =>
 describe('createInMemoryChildrenPages', () => {
     const childrenPages = createInMemoryChildrenPages({
         orgUnits: zambiaOrgUnits,
+        pageSize: 2,
     })
+    const wide = createInMemoryChildrenPages({ orgUnits: zambiaOrgUnits })
 
     it('pages a parent children by display name, without the parent', () => {
-        const first = childrenPages('ou-6', { page: 1, pageSize: 2 })
-        const third = childrenPages('ou-6', { page: 3, pageSize: 2 })
+        const first = childrenPages('ou-6', { page: 1 })
+        const third = childrenPages('ou-6', { page: 3 })
 
         expect(ids(first)).toEqual(['ou-12', 'ou-10'])
         expect(ids(third)).toEqual(['ou-7', 'ou-11'])
@@ -24,11 +26,12 @@ describe('createInMemoryChildrenPages', () => {
         expect(third.pager.page).toBe(3)
     })
 
+    it('pages with CHILDREN_PAGE_SIZE unless told otherwise', () => {
+        expect(wide('ou-6', { page: 1 }).pager.pageSize).toBe(50)
+    })
+
     it('returns tree entries with leaf', () => {
-        const { organisationUnits } = childrenPages('ou-2', {
-            page: 1,
-            pageSize: 50,
-        })
+        const { organisationUnits } = wide('ou-2', { page: 1 })
 
         expect(organisationUnits).toEqual([
             {
@@ -49,10 +52,7 @@ describe('createInMemoryChildrenPages', () => {
     })
 
     it('marks every child of Serenje District as a leaf', () => {
-        const { organisationUnits } = childrenPages('ou-6', {
-            page: 1,
-            pageSize: 50,
-        })
+        const { organisationUnits } = wide('ou-6', { page: 1 })
 
         expect(organisationUnits).toHaveLength(6)
         expect(organisationUnits.every((unit) => unit.leaf)).toBe(true)
@@ -62,16 +62,17 @@ describe('createInMemoryChildrenPages', () => {
         const error = new Error('page 3 failed')
         const failing = createInMemoryChildrenPages({
             orgUnits: zambiaOrgUnits,
+            pageSize: 2,
             failWith: (parentId, page) =>
                 parentId === 'ou-6' && page === 3 ? error : undefined,
         })
 
-        expect(() => failing('ou-6', { page: 3, pageSize: 2 })).toThrow(error)
-        expect(() => failing('ou-6', { page: 2, pageSize: 2 })).not.toThrow()
+        expect(() => failing('ou-6', { page: 3 })).toThrow(error)
+        expect(() => failing('ou-6', { page: 2 })).not.toThrow()
     })
 
     it('gives an empty page and a zero total for a leaf', () => {
-        expect(childrenPages('ou-4', { page: 1, pageSize: 2 })).toEqual({
+        expect(childrenPages('ou-4', { page: 1 })).toEqual({
             pager: { page: 1, pageSize: 2, total: 0, pageCount: 0 },
             organisationUnits: [],
         })
@@ -82,11 +83,11 @@ describe('createInMemoryChildrenPages', () => {
             orgUnits: zambiaOrgUnits.map((unit) =>
                 unit.id === 'ou-7' ? { ...unit, shortName: 'Aaa' } : unit
             ),
+            pageSize: 2,
         })
 
         const response = shortNamed('ou-6', {
             page: 1,
-            pageSize: 2,
             shortName: true,
         })
 

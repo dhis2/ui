@@ -15,7 +15,6 @@ import {
 export interface ChildrenCall {
     parentId: string
     page: number
-    pageSize: number
     shortName?: boolean
 }
 
@@ -25,11 +24,14 @@ const toNodeEntry = ({ children, ...entry }: GistEntry): NodeEntry => ({
 })
 
 /** A TreeApi over the stand-in, recording every call. */
-export const createTestTreeApi = (options: InMemoryTreeEndpointOptions) => {
+export const createTestTreeApi = (
+    options: InMemoryTreeEndpointOptions & { pageSize?: number }
+) => {
     const endpoint = createInMemoryTreeEndpoint(options)
     const gist = createInMemoryGist(options)
     const childrenPages = createInMemoryChildrenPages({
         orgUnits: options.orgUnits,
+        pageSize: options.pageSize,
     })
     const treeCalls: OuTreeQuery[] = []
     const nodeCalls: string[][] = []
@@ -43,11 +45,9 @@ export const createTestTreeApi = (options: InMemoryTreeEndpointOptions) => {
                 return Promise.reject(error)
             }
         },
-        fetchChildrenPage: (parentId, page, { pageSize, shortName }) => {
-            childrenCalls.push({ parentId, page, pageSize, shortName })
-            return Promise.resolve(
-                childrenPages(parentId, { page, pageSize, shortName })
-            )
+        fetchChildrenPage: (parentId, page, { shortName }) => {
+            childrenCalls.push({ parentId, page, shortName })
+            return Promise.resolve(childrenPages(parentId, { page, shortName }))
         },
         fetchNodes: (ids, { shortName }) => {
             nodeCalls.push(ids)
@@ -74,10 +74,10 @@ export const createManualTreeApi = () => {
             new Promise((resolve, reject) => {
                 treeRequests.push({ input: query, resolve, reject })
             }),
-        fetchChildrenPage: (parentId, page, { pageSize, shortName }) =>
+        fetchChildrenPage: (parentId, page, { shortName }) =>
             new Promise((resolve, reject) => {
                 childrenRequests.push({
-                    input: { parentId, page, pageSize, shortName },
+                    input: { parentId, page, shortName },
                     resolve,
                     reject,
                 })

@@ -1,5 +1,5 @@
+export { CHILDREN_PAGE_SIZE } from '../data/index'
 export {
-    CHILDREN_PAGE_SIZE,
     childrenPageOf,
     type CachedNode,
     type ChildrenPageStatus,

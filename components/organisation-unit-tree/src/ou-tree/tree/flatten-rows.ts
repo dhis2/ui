@@ -52,13 +52,13 @@ export const flattenRows = ({
         if (!isOpen(id) || node.leaf || children.status !== 'loaded') {
             return
         }
-        const { slots, pages } = children.children
+        const { slots, pages, pageSize } = children.children
         slots.forEach((childId, index) => {
             if (childId !== undefined) {
                 walk(childId, depth + 1)
                 return
             }
-            const page = childrenPageOf(index, cache.pageSize)
+            const page = childrenPageOf(index, pageSize)
             const status = pages.get(page)
             if (status?.status === 'failed') {
                 rows.push({

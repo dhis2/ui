@@ -1,9 +1,12 @@
 import type { OuTreeChildrenPage } from '../data/index'
+import { CHILDREN_PAGE_SIZE } from '../data/index'
 import { countChildren } from './in-memory-gist'
 import type { FixtureOrgUnit } from './in-memory-tree-endpoint'
 
 export interface InMemoryChildrenPagesOptions {
     orgUnits: FixtureOrgUnit[]
+    /** How the stand-in pages, whatever the request says. */
+    pageSize?: number
     /** Throws the returned error for a request, to simulate a failure. */
     failWith?: (parentId: string, page: number) => Error | undefined
 }
@@ -14,16 +17,13 @@ export interface InMemoryChildrenPagesOptions {
  */
 export const createInMemoryChildrenPages = ({
     orgUnits,
+    pageSize = CHILDREN_PAGE_SIZE,
     failWith,
 }: InMemoryChildrenPagesOptions) => {
     const childrenCount = countChildren(orgUnits)
     return (
         parentId: string,
-        {
-            page,
-            pageSize,
-            shortName = false,
-        }: { page: number; pageSize: number; shortName?: boolean }
+        { page, shortName = false }: { page: number; shortName?: boolean }
     ): OuTreeChildrenPage => {
         const failure = failWith?.(parentId, page)
         if (failure) {

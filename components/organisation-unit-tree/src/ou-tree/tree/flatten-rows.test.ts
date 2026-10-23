@@ -23,9 +23,12 @@ const summary = (cache: NodeCache, roots: string[], ...open: string[]) =>
 
 describe('flattenRows', () => {
     const zambia = async (...open: string[]) => {
-        const { api } = createTestTreeApi({ orgUnits: zambiaOrgUnits })
+        const { api } = createTestTreeApi({
+            orgUnits: zambiaOrgUnits,
+            pageSize: 2,
+        })
         // Two children per page hold every parent opened here.
-        const cache = createNodeCache({ api, pageSize: 2 })
+        const cache = createNodeCache({ api })
         await cache.loadNodes(['ou-1', 'ou-13'])
         for (const id of open) {
             cache.requestChildrenPage(id, 1)
@@ -61,7 +64,7 @@ describe('flattenRows', () => {
 
     it('shows nothing under an open node whose page one is loading or failed, and says so on the row', async () => {
         const { api, nodeRequests, childrenRequests } = createManualTreeApi()
-        const cache = createNodeCache({ api, pageSize: 2 })
+        const cache = createNodeCache({ api })
         const loadingRoots = cache.loadNodes(['p'])
         nodeRequests[0].resolve([
             {
@@ -84,7 +87,7 @@ describe('flattenRows', () => {
 
     it('shows skeleton rows for empty slots under a loading later page, and error rows under a failed one', async () => {
         const { api, nodeRequests, childrenRequests } = createManualTreeApi()
-        const cache = createNodeCache({ api, pageSize: 2 })
+        const cache = createNodeCache({ api })
         const parent = { path: '/p', level: 1 }
         const loadingRoots = cache.loadNodes(['p'])
         nodeRequests[0].resolve([
