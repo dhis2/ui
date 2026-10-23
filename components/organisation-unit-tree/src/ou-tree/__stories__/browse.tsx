@@ -44,7 +44,8 @@ const NodeRow = ({ id, depth }: { id: string; depth: number }) => {
 }
 
 /**
- * Temporary: every row of the tree as a plain list, loading every hole
+ * Temporary: every row of the tree as a plain list, loading every empty
+ * slot
  * eagerly. Exercises browse mode in a browser while there is no renderer.
  */
 export const Browse = () => {

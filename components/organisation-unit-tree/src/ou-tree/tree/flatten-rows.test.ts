@@ -82,7 +82,7 @@ describe('flattenRows', () => {
         expect(summary(cache, ['p'], 'p')).toEqual(['p:failed'])
     })
 
-    it('shows skeleton rows for holes under a loading later page, and error rows under a failed one', async () => {
+    it('shows skeleton rows for empty slots under a loading later page, and error rows under a failed one', async () => {
         const { api, treeRequests } = createManualTreeApi()
         const cache = createNodeCache({ api, pageSize: 2 })
         const parent = { id: 'p', path: '/p', level: 1 }

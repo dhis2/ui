@@ -17,7 +17,7 @@ export type ChildrenPageStatus =
 export interface ChildrenState {
     /** Number of children, from page one's `total - 1`. */
     count: number
-    /** Child ids by position; a hole is a child not yet loaded. */
+    /** Child ids by position; an empty slot is a child not yet loaded. */
     slots: Array<string | undefined>
     /** Children-page status by 1-based page number; absent means not requested. */
     pages: Map<number, ChildrenPageStatus>

@@ -29,7 +29,8 @@ export interface FlatRows {
 /**
  * The tree as a flat list: a depth-first walk from the roots over the open
  * set and the cache. Depth is relative to the root. Under an open node with
- * loaded children, a filled slot is a node row and a hole is a skeleton or,
+ * loaded children, a filled slot is a node row and an empty slot is a
+ * skeleton or,
  * if its page failed, an error row.
  */
 export const flattenRows = ({
