@@ -1,8 +1,7 @@
 import { useDataEngine } from '@dhis2/app-runtime'
 import { useMemo } from 'react'
 import { buildGistQuery } from './build-gist-query'
-import { CHILDREN_PAGE_SIZE } from './children-page-size'
-import { TREE_RESOURCE } from './resources'
+import { CHILDREN_PAGE_SIZE, TREE_RESOURCE } from './constants'
 import type { OuTreeChildrenPage, OuTreeQuery, OuTreeResponse } from './types'
 
 export interface NodeEntry {

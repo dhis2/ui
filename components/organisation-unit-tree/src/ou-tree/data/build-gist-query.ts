@@ -1,4 +1,4 @@
-import { GIST_RESOURCE } from './resources'
+import { GIST_RESOURCE } from './constants'
 
 /**
  * A gist query for the given units, headless and sized to the list so it

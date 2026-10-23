@@ -1,7 +1,7 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import { renderHook } from '@testing-library/react'
 import React from 'react'
-import { GIST_RESOURCE, TREE_RESOURCE } from './resources'
+import { GIST_RESOURCE, TREE_RESOURCE } from './constants'
 import { useTreeApi } from './use-tree-api'
 
 type Data = React.ComponentProps<typeof CustomDataProvider>['data']
