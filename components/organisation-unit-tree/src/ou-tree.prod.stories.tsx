@@ -1,32 +1,47 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import React from 'react'
 import {
+    createGistResolver,
     createTreeResolver,
     pahoOrgUnits,
-    TREE_RESOURCE,
 } from './ou-tree/__fixtures__/index'
-import { EndpointExplorer as Explorer } from './ou-tree/__stories__/endpoint-explorer'
+import { Browse as BrowseList } from './ou-tree/__stories__/browse'
+import { GIST_RESOURCE, TREE_RESOURCE } from './ou-tree/data/index'
 import { OuTree } from './ou-tree/index'
+import { OuTreeNodeCacheProvider, OuTreeProvider } from './ou-tree/tree/index'
 
 const description = `
 A replacement for \`OrganisationUnitTree\`, currently a placeholder. It is
 not exported from any package yet.
 
-The **Endpoint explorer** story is temporary. It runs queries against an
-in-memory stand-in for \`GET /api/organisationUnits/tree\` over a fixture of
-19,191 PAHO organisation units, so the stand-in can be exercised in a browser
-while the real endpoint is unavailable. Remove it together with the stand-in.
+The **Browse** story is temporary. It renders every row of browse mode as a
+plain list over an in-memory stand-in for the endpoint and 19,191 PAHO
+organisation units, loading every empty slot eagerly. Expand AMR, then Brazil,
+then Minas Gerais: its third page of children fails on purpose, so the
+error rows and their retry can be seen.
 `
 
-const resolver = createTreeResolver(pahoOrgUnits)
+const MINAS_GERAIS = 'IsBNuUZU5zm'
+const PAHO_ROOTS = ['nOsaOsg36TR', 'eFkh5oWtyud']
+
+const data = {
+    [TREE_RESOURCE]: createTreeResolver({
+        ...pahoOrgUnits,
+        failChildrenPageWith: (parentId, page) =>
+            parentId === MINAS_GERAIS && page === 3
+                ? new Error('Simulated failure of page 3')
+                : undefined,
+    }),
+    [GIST_RESOURCE]: createGistResolver(pahoOrgUnits),
+}
 
 export default {
     title: 'OuTree',
     component: OuTree,
     decorators: [
         (fn: () => React.ReactNode) => (
-            <CustomDataProvider data={{ [TREE_RESOURCE]: resolver }}>
-                {fn()}
+            <CustomDataProvider data={data}>
+                <OuTreeNodeCacheProvider>{fn()}</OuTreeNodeCacheProvider>
             </CustomDataProvider>
         ),
     ],
@@ -39,4 +54,8 @@ export default {
 
 export const Default = () => <OuTree />
 
-export const EndpointExplorer = () => <Explorer />
+export const Browse = () => (
+    <OuTreeProvider roots={PAHO_ROOTS}>
+        <BrowseList />
+    </OuTreeProvider>
+)

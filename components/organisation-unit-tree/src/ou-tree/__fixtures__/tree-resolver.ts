@@ -1,11 +1,9 @@
 import type { OuTreeQuery } from '../data/index'
+import { createInMemoryChildrenPages } from './in-memory-children-pages'
 import {
     createInMemoryTreeEndpoint,
     InMemoryTreeEndpointOptions,
 } from './in-memory-tree-endpoint'
-
-/** The resource name of the tree endpoint, as used with the data engine. */
-export const TREE_RESOURCE = 'organisationUnits/tree'
 
 const DEFAULT_PAGE = 1
 const DEFAULT_PAGE_SIZE = 50
@@ -98,15 +96,51 @@ export const parseQueryParams = (params: unknown): OuTreeQuery => {
 // The data engine's resolvers return JSON; an OuTreeResponse is one.
 type Json = boolean | number | string | null | Json[] | { [key: string]: Json }
 
+export interface TreeResolverOptions extends InMemoryTreeEndpointOptions {
+    /** Rejects a children request with the returned error. */
+    failChildrenPageWith?: (parentId: string, page: number) => Error | undefined
+}
+
+const CHILDREN_ID = /^(.+)\/children$/
+
 /**
  * A `CustomDataProvider` resolver for `TREE_RESOURCE`, backed by the
- * in-memory endpoint:
+ * in-memory endpoint. A query whose `id` is `<parentId>/children` is answered
+ * with that parent's children page, anything else as the tree itself:
  * `<CustomDataProvider data={{ [TREE_RESOURCE]: createTreeResolver(options) }}>`.
  */
-export const createTreeResolver = (options: InMemoryTreeEndpointOptions) => {
+export const createTreeResolver = ({
+    failChildrenPageWith,
+    ...options
+}: TreeResolverOptions) => {
     const endpoint = createInMemoryTreeEndpoint(options)
-    return (_type: string, query: { params?: unknown }): Promise<Json> =>
-        Promise.resolve(
-            endpoint(parseQueryParams(query.params)) as unknown as Json
-        )
+    // The resolver honours the request's pageSize, so it pages per request.
+    const childrenPages = (
+        parentId: string,
+        request: { page: number; pageSize: number; shortName?: boolean }
+    ) =>
+        createInMemoryChildrenPages({
+            orgUnits: options.orgUnits,
+            pageSize: request.pageSize,
+            failWith: failChildrenPageWith,
+        })(parentId, request)
+    // `.then` turns a synchronous throw (failWith) into a rejection.
+    return (
+        _type: string,
+        query: { id?: unknown; params?: unknown }
+    ): Promise<Json> =>
+        Promise.resolve().then(() => {
+            const parentId =
+                typeof query.id === 'string'
+                    ? CHILDREN_ID.exec(query.id)?.[1]
+                    : undefined
+            const { page, pageSize, shortName } = parseQueryParams(query.params)
+            return (parentId === undefined
+                ? endpoint(parseQueryParams(query.params))
+                : childrenPages(parentId, {
+                      page,
+                      pageSize,
+                      shortName,
+                  })) as unknown as Json
+        })
 }

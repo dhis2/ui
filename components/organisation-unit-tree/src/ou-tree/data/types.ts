@@ -44,6 +44,16 @@ export interface OuTreePager {
     pageCount: number
 }
 
+/**
+ * Response of `GET /api/organisationUnits/tree/<id>/children`: one page of a
+ * parent's children, ordered by the displayed name, without ancestors.
+ */
+export interface OuTreeChildrenPage {
+    pager: OuTreePager
+    /** The page of children; `pager.total` is the child count. */
+    organisationUnits: OuTreeEntry[]
+}
+
 export interface OuTreeResponse {
     pager: OuTreePager
     /** The page of direct results, in tree order. */

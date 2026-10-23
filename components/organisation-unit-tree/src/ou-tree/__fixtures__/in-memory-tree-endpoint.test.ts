@@ -532,4 +532,21 @@ describe('createInMemoryTreeEndpoint', () => {
             )
         })
     })
+
+    describe('failWith', () => {
+        it('throws the error failWith returns for a query', () => {
+            const failing = createInMemoryTreeEndpoint({
+                orgUnits: zambiaOrgUnits,
+                failWith: (query) =>
+                    query.page === 2
+                        ? new Error('page two is broken')
+                        : undefined,
+            })
+
+            expect(failing({ page: 1, pageSize: 2 }).pager.page).toBe(1)
+            expect(() => failing({ page: 2, pageSize: 2 })).toThrow(
+                'page two is broken'
+            )
+        })
+    })
 })

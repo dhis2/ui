@@ -32,6 +32,8 @@ export interface InMemoryTreeEndpointOptions {
     defaultRoots?: string[]
     /** "Today" for `currentlyOpen`. Defaults to the real date. */
     today?: Date
+    /** Return an error to reject with for this query, or undefined to answer. */
+    failWith?: (query: OuTreeQuery) => Error | undefined
 }
 
 export type InMemoryTreeEndpoint = (query: OuTreeQuery) => OuTreeResponse
@@ -149,6 +151,7 @@ export const createInMemoryTreeEndpoint = ({
     groups = [],
     defaultRoots,
     today,
+    failWith,
 }: InMemoryTreeEndpointOptions): InMemoryTreeEndpoint => {
     const byId = new Map(orgUnits.map((unit) => [unit.id, unit]))
     const childrenOf = new Map<string, FixtureOrgUnit[]>()
@@ -167,6 +170,10 @@ export const createInMemoryTreeEndpoint = ({
     )
 
     return (query) => {
+        const failure = failWith?.(query)
+        if (failure) {
+            throw failure
+        }
         validateQuery(query)
 
         const displayNameOf = createDisplayNameResolver(query)
