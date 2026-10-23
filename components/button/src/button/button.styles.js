@@ -26,7 +26,9 @@ export default css`
         background-color: #f9fafb;
     }
 
-    button:disabled {
+    button:disabled,
+    button[aria-disabled='true'],
+    button[aria-disabled='true']:active {
         cursor: not-allowed;
     }
 
@@ -42,7 +44,8 @@ export default css`
         text-decoration: none;
     }
 
-    /* Prevent focus styles on active and disabled buttons */
+    /* Prevent focus styles on active and disabled buttons.
+       aria-disabled buttons stay focusable, so their focus ring must remain visible. */
     button:active:focus,
     button:disabled:focus {
         outline: none;
@@ -65,7 +68,9 @@ export default css`
         background-color: #f9fafb;
     }
 
-    button:disabled {
+    button:disabled,
+    button[aria-disabled='true'],
+    button[aria-disabled='true']:active {
         border-color: ${colors.grey400};
         background-color: #f9fafb;
         box-shadow: none;
@@ -116,7 +121,9 @@ export default css`
         outline-offset: -5px;
     }
 
-    .primary:disabled {
+    .primary:disabled,
+    .primary[aria-disabled='true'],
+    .primary[aria-disabled='true']:active {
         border-color: #93a6bd;
         background: #b3c6de;
         box-shadow: none;
@@ -144,7 +151,9 @@ export default css`
         background-color: transparent;
     }
 
-    .secondary:disabled {
+    .secondary:disabled,
+    .secondary[aria-disabled='true'],
+    .secondary[aria-disabled='true']:active {
         border-color: rgba(74, 87, 104, 0.25);
         background-color: transparent;
         box-shadow: none;
@@ -179,7 +188,9 @@ export default css`
         background-color: #b72229;
     }
 
-    .destructive:disabled {
+    .destructive:disabled,
+    .destructive[aria-disabled='true'],
+    .destructive[aria-disabled='true']:active {
         border-color: #c59898;
         background: #d6a8a8;
         box-shadow: none;
@@ -209,7 +220,9 @@ export default css`
         box-shadow: none;
     }
 
-    .destructive.secondary:disabled {
+    .destructive.secondary:disabled,
+    .destructive.secondary[aria-disabled='true'],
+    .destructive.secondary[aria-disabled='true']:active {
         background: transparent;
         border-color: rgba(74, 87, 104, 0.25);
         color: rgba(183, 28, 28, 0.6);
@@ -270,7 +283,9 @@ export default css`
         border-color: ${colors.grey900};
     }
 
-    .toggled:disabled {
+    .toggled:disabled,
+    .toggled[aria-disabled='true'],
+    .toggled[aria-disabled='true']:active {
         background: ${colors.grey500};
         border-color: ${colors.grey600};
         color: ${colors.grey050};

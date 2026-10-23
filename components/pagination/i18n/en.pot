@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2022-03-10T20:20:19.392Z\n"
-"PO-Revision-Date: 2022-03-10T20:20:19.392Z\n"
+"POT-Creation-Date: 2026-09-23T11:10:37.463Z\n"
+"PO-Revision-Date: 2026-09-23T11:10:37.463Z\n"
 
 msgid ""
 "Page {{page}} of {{pageCount}}, items {{firstItem}}-{{lastItem}} of "
@@ -21,6 +21,12 @@ msgstr "Page {{page}}, items {{firstItem}}-{{lastItem}}"
 msgid "Page {{page}}"
 msgstr "Page {{page}}"
 
+msgid "Go to previous page"
+msgstr "Go to previous page"
+
+msgid "Go to next page"
+msgstr "Go to next page"
+
 msgid "Next"
 msgstr "Next"
 
@@ -32,6 +38,9 @@ msgstr "Items per page"
 
 msgid "Previous"
 msgstr "Previous"
+
+msgid "Pagination"
+msgstr "Pagination"
 
 msgid ""
 "You are at page {{page}} showing items {{firstItem}}-{{lastItem}}, but "
