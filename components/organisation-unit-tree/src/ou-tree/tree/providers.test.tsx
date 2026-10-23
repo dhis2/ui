@@ -15,12 +15,12 @@ import { useOuTreeNode } from './use-ou-tree-node'
 type Data = React.ComponentProps<typeof CustomDataProvider>['data']
 
 const resolvers = () => {
-    const tree = jest.fn(createTreeResolver({ orgUnits: zambiaOrgUnits }))
+    const children = jest.fn(createTreeResolver({ orgUnits: zambiaOrgUnits }))
     const gist = jest.fn(createGistResolver({ orgUnits: zambiaOrgUnits }))
     return {
-        tree,
+        childrenPages: children,
         gist,
-        data: { [TREE_RESOURCE]: tree, [GIST_RESOURCE]: gist },
+        data: { [TREE_RESOURCE]: children, [GIST_RESOURCE]: gist },
     }
 }
 
@@ -110,7 +110,7 @@ describe('OuTree providers and hooks', () => {
     it('shares the cache between trees with different roots', async () => {
         // Sibling districts: ou-3 is a root of both trees, ou-6 only of the
         // inner one. Nested roots would be excluded, so siblings it is.
-        const { data, gist, tree } = resolvers()
+        const { data, gist, childrenPages } = resolvers()
         const wrapper = ({ children }: { children: React.ReactNode }) => (
             <Providers data={data}>
                 <OuTreeProvider roots={['ou-3']}>
@@ -137,7 +137,7 @@ describe('OuTree providers and hooks', () => {
         expect(
             gistIds.flatMap((filter) => filter.slice(7, -1).split(','))
         ).toEqual(['ou-3', 'ou-6'])
-        expect(tree).toHaveBeenCalledTimes(1)
+        expect(childrenPages).toHaveBeenCalledTimes(1)
     })
 
     it('keeps separate caches for short and full names', async () => {

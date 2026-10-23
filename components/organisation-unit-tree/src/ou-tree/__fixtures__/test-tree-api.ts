@@ -1,21 +1,39 @@
 import type {
     NodeEntry,
+    OuTreeChildrenPage,
     OuTreeQuery,
     OuTreeResponse,
     TreeApi,
 } from '../data/index'
-import { createInMemoryGist } from './in-memory-gist'
+import { createInMemoryChildrenPages } from './in-memory-children-pages'
+import { createInMemoryGist, type GistEntry } from './in-memory-gist'
 import {
     createInMemoryTreeEndpoint,
     InMemoryTreeEndpointOptions,
 } from './in-memory-tree-endpoint'
 
+export interface ChildrenCall {
+    parentId: string
+    page: number
+    pageSize: number
+    shortName?: boolean
+}
+
+const toNodeEntry = ({ children, ...entry }: GistEntry): NodeEntry => ({
+    ...entry,
+    childrenCount: children,
+})
+
 /** A TreeApi over the stand-in, recording every call. */
 export const createTestTreeApi = (options: InMemoryTreeEndpointOptions) => {
     const endpoint = createInMemoryTreeEndpoint(options)
     const gist = createInMemoryGist(options)
+    const childrenPages = createInMemoryChildrenPages({
+        orgUnits: options.orgUnits,
+    })
     const treeCalls: OuTreeQuery[] = []
     const nodeCalls: string[][] = []
+    const childrenCalls: ChildrenCall[] = []
     const api: TreeApi = {
         fetchTreePage: (query) => {
             treeCalls.push(query)
@@ -25,17 +43,18 @@ export const createTestTreeApi = (options: InMemoryTreeEndpointOptions) => {
                 return Promise.reject(error)
             }
         },
-        fetchNodes: (ids, { shortName }) => {
-            nodeCalls.push(ids)
+        fetchChildrenPage: (parentId, page, { pageSize, shortName }) => {
+            childrenCalls.push({ parentId, page, pageSize, shortName })
             return Promise.resolve(
-                gist(ids, { shortName }).map(({ children, ...entry }) => ({
-                    ...entry,
-                    childrenCount: children,
-                }))
+                childrenPages(parentId, { page, pageSize, shortName })
             )
         },
+        fetchNodes: (ids, { shortName }) => {
+            nodeCalls.push(ids)
+            return Promise.resolve(gist(ids, { shortName }).map(toNodeEntry))
+        },
     }
-    return { api, treeCalls, nodeCalls }
+    return { api, treeCalls, nodeCalls, childrenCalls }
 }
 
 export interface ManualRequest<T, R> {
@@ -48,23 +67,30 @@ export interface ManualRequest<T, R> {
 export const createManualTreeApi = () => {
     const treeRequests: ManualRequest<OuTreeQuery, OuTreeResponse>[] = []
     const nodeRequests: ManualRequest<string[], NodeEntry[]>[] = []
+    const childrenRequests: ManualRequest<ChildrenCall, OuTreeChildrenPage>[] =
+        []
     const api: TreeApi = {
         fetchTreePage: (query) =>
             new Promise((resolve, reject) => {
                 treeRequests.push({ input: query, resolve, reject })
+            }),
+        fetchChildrenPage: (parentId, page, { pageSize, shortName }) =>
+            new Promise((resolve, reject) => {
+                childrenRequests.push({
+                    input: { parentId, page, pageSize, shortName },
+                    resolve,
+                    reject,
+                })
             }),
         fetchNodes: (ids) =>
             new Promise((resolve, reject) => {
                 nodeRequests.push({ input: ids, resolve, reject })
             }),
     }
-    return { api, treeRequests, nodeRequests }
+    return { api, treeRequests, nodeRequests, childrenRequests }
 }
 
-/**
- * Builds a tree-page response the way the backend would for `depth=1`: the
- * parent is the first entry of page one only.
- */
+/** Builds a children page the way the children resource would. */
 export const childrenPage = ({
     parent,
     children,
@@ -72,32 +98,18 @@ export const childrenPage = ({
     page,
     pageSize,
 }: {
-    parent: { id: string; path: string; level: number }
+    parent: { path: string; level: number }
     children: Array<{ id: string; displayName: string }>
     total: number
     page: number
     pageSize: number
-}): OuTreeResponse => ({
+}): OuTreeChildrenPage => ({
     pager: { page, pageSize, total, pageCount: Math.ceil(total / pageSize) },
-    organisationUnits: [
-        ...(page === 1
-            ? [
-                  {
-                      id: parent.id,
-                      displayName: parent.id,
-                      path: parent.path,
-                      level: parent.level,
-                      leaf: false,
-                  },
-              ]
-            : []),
-        ...children.map((child) => ({
-            id: child.id,
-            displayName: child.displayName,
-            path: `${parent.path}/${child.id}`,
-            level: parent.level + 1,
-            leaf: true,
-        })),
-    ],
-    ancestors: [],
+    organisationUnits: children.map((child) => ({
+        id: child.id,
+        displayName: child.displayName,
+        path: `${parent.path}/${child.id}`,
+        level: parent.level + 1,
+        leaf: true,
+    })),
 })

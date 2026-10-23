@@ -13,13 +13,12 @@ const ids = (tree: TreeState) =>
         return row.kind === 'node' ? row.id : row.kind
     })
 
-// Three entries per page fit a parent and two children, the most any
-// Zambia parent but Serenje District has.
+// Three children per page hold every Zambia parent but Serenje District.
 const setup = (
     roots: string[],
     options: { initiallyOpen?: string[]; pageSize?: number } = {}
 ) => {
-    const { api, treeCalls, nodeCalls } = createTestTreeApi({
+    const { api, childrenCalls, nodeCalls } = createTestTreeApi({
         orgUnits: zambiaOrgUnits,
     })
     const cache = createNodeCache({ api, pageSize: options.pageSize ?? 3 })
@@ -29,7 +28,7 @@ const setup = (
         initiallyOpen: options.initiallyOpen,
     })
     tree.start()
-    return { tree, cache, treeCalls, nodeCalls }
+    return { tree, cache, childrenCalls, nodeCalls }
 }
 
 describe('createTreeState', () => {
@@ -90,14 +89,14 @@ describe('createTreeState', () => {
         })
 
         it('requests page one of initiallyOpen nodes, roots or not', async () => {
-            const { tree, treeCalls } = setup(['ou-1'], {
+            const { tree, childrenCalls } = setup(['ou-1'], {
                 initiallyOpen: ['ou-1', 'ou-2'],
             })
             await flush()
 
-            expect(treeCalls.map((call) => call.roots)).toEqual([
-                ['ou-1'],
-                ['ou-2'],
+            expect(childrenCalls.map((call) => call.parentId)).toEqual([
+                'ou-1',
+                'ou-2',
             ])
             expect(ids(tree)).toEqual(['ou-1', 'ou-2', 'ou-3', 'ou-6', 'ou-13'])
         })
@@ -105,7 +104,7 @@ describe('createTreeState', () => {
 
     describe('open and close', () => {
         it('opening requests page one once and shows loading on the row', async () => {
-            const { tree, treeCalls } = setup(['ou-1'])
+            const { tree, childrenCalls } = setup(['ou-1'])
             await flush()
 
             tree.open('ou-1')
@@ -120,7 +119,7 @@ describe('createTreeState', () => {
             tree.open('ou-1')
             await flush()
 
-            expect(treeCalls).toHaveLength(1)
+            expect(childrenCalls).toHaveLength(1)
             expect(ids(tree)).toEqual(['ou-1', 'ou-2', 'ou-13'])
         })
 
@@ -138,13 +137,13 @@ describe('createTreeState', () => {
         })
 
         it('does not request children of a leaf', async () => {
-            const { tree, treeCalls } = setup(['ou-5'])
+            const { tree, childrenCalls } = setup(['ou-5'])
             await flush()
 
             tree.open('ou-5')
             await flush()
 
-            expect(treeCalls).toEqual([])
+            expect(childrenCalls).toEqual([])
             expect(ids(tree)).toEqual(['ou-5'])
         })
     })
@@ -160,14 +159,14 @@ describe('createTreeState', () => {
             expect(ids(tree)).toEqual([
                 'ou-6',
                 'ou-12',
-                'skeleton',
+                'ou-10',
                 'skeleton',
                 'skeleton',
                 'skeleton',
                 'skeleton',
             ])
-            expect(tree.getRowIndex('ou-12')).toBe(1)
-            expect(tree.getRowIndex('ou-10')).toBeUndefined()
+            expect(tree.getRowIndex('ou-10')).toBe(2)
+            expect(tree.getRowIndex('ou-8')).toBeUndefined()
             expect(tree.getRow(3)).toEqual({
                 kind: 'skeleton',
                 parentId: 'ou-6',
@@ -177,29 +176,29 @@ describe('createTreeState', () => {
         })
 
         it('ensureChildrenLoaded requests only the pages covering skeletons in range, once', async () => {
-            const { tree, treeCalls } = setup(['ou-6'], { pageSize: 2 })
+            const { tree, childrenCalls } = setup(['ou-6'], { pageSize: 2 })
             await flush()
             tree.open('ou-6')
             await flush()
 
-            tree.ensureChildrenLoaded(2, 3)
-            tree.ensureChildrenLoaded(2, 3)
+            tree.ensureChildrenLoaded(3, 4)
+            tree.ensureChildrenLoaded(3, 4)
             await flush()
 
-            expect(treeCalls.map((call) => call.page)).toEqual([1, 2])
+            expect(childrenCalls.map((call) => call.page)).toEqual([1, 2])
             expect(ids(tree)).toEqual([
                 'ou-6',
                 'ou-12',
                 'ou-10',
                 'ou-8',
-                'skeleton',
+                'ou-9',
                 'skeleton',
                 'skeleton',
             ])
         })
 
         it('clamps an out-of-range ensureChildrenLoaded', async () => {
-            const { tree, treeCalls } = setup(['ou-6'], { pageSize: 2 })
+            const { tree, childrenCalls } = setup(['ou-6'], { pageSize: 2 })
             await flush()
             tree.open('ou-6')
             await flush()
@@ -207,7 +206,7 @@ describe('createTreeState', () => {
             expect(() => tree.ensureChildrenLoaded(-5, 500)).not.toThrow()
             await flush()
 
-            expect(treeCalls.map((call) => call.page)).toEqual([1, 2, 3, 4])
+            expect(childrenCalls.map((call) => call.page)).toEqual([1, 2, 3])
             expect(tree.getRowCount()).toBe(7)
             expect(ids(tree)).not.toContain('skeleton')
         })
@@ -263,7 +262,7 @@ describe('createTreeState', () => {
 
 describe('createTreeState before start', () => {
     it('requests nothing until started, and starts only once', async () => {
-        const { api, treeCalls, nodeCalls } = createTestTreeApi({
+        const { api, childrenCalls, nodeCalls } = createTestTreeApi({
             orgUnits: zambiaOrgUnits,
         })
         const cache = createNodeCache({ api, pageSize: 2 })
@@ -274,13 +273,13 @@ describe('createTreeState before start', () => {
         })
         await flush()
         expect(nodeCalls).toEqual([])
-        expect(treeCalls).toEqual([])
+        expect(childrenCalls).toEqual([])
 
         tree.start()
         tree.start()
         await flush()
 
         expect(nodeCalls).toEqual([['ou-1']])
-        expect(treeCalls).toHaveLength(1)
+        expect(childrenCalls).toHaveLength(1)
     })
 })

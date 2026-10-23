@@ -7,7 +7,7 @@ const MINAS_GERAIS = 'IsBNuUZU5zm'
 
 describe('tree state over the PAHO stand-in', () => {
     it('loads all 18 pages of the widest parent through ensureChildrenLoaded', async () => {
-        const { api, treeCalls } = createTestTreeApi(pahoOrgUnits)
+        const { api, childrenCalls } = createTestTreeApi(pahoOrgUnits)
         const cache = createNodeCache({ api })
         const tree = createTreeState({ cache, roots: [MINAS_GERAIS] })
         tree.start()
@@ -19,7 +19,7 @@ describe('tree state over the PAHO stand-in', () => {
         tree.ensureChildrenLoaded(0, tree.getRowCount() - 1)
         await flush()
 
-        expect(treeCalls).toHaveLength(18)
+        expect(childrenCalls).toHaveLength(18)
         expect(tree.getRowCount()).toBe(854)
         const names = Array.from({ length: 853 }, (_, index) => {
             const row = tree.getRow(index + 1)

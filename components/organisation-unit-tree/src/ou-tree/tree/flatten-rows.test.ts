@@ -24,8 +24,8 @@ const summary = (cache: NodeCache, roots: string[], ...open: string[]) =>
 describe('flattenRows', () => {
     const zambia = async (...open: string[]) => {
         const { api } = createTestTreeApi({ orgUnits: zambiaOrgUnits })
-        // Three entries per page fit a parent and two children.
-        const cache = createNodeCache({ api, pageSize: 3 })
+        // Two children per page hold every parent opened here.
+        const cache = createNodeCache({ api, pageSize: 2 })
         await cache.loadNodes(['ou-1', 'ou-13'])
         for (const id of open) {
             cache.requestChildrenPage(id, 1)
@@ -60,7 +60,7 @@ describe('flattenRows', () => {
     })
 
     it('shows nothing under an open node whose page one is loading or failed, and says so on the row', async () => {
-        const { api, nodeRequests, treeRequests } = createManualTreeApi()
+        const { api, nodeRequests, childrenRequests } = createManualTreeApi()
         const cache = createNodeCache({ api, pageSize: 2 })
         const loadingRoots = cache.loadNodes(['p'])
         nodeRequests[0].resolve([
@@ -77,21 +77,35 @@ describe('flattenRows', () => {
         cache.requestChildrenPage('p', 1)
         expect(summary(cache, ['p'], 'p')).toEqual(['p:loading'])
 
-        treeRequests[0].reject(new Error('boom'))
+        childrenRequests[0].reject(new Error('boom'))
         await flush()
         expect(summary(cache, ['p'], 'p')).toEqual(['p:failed'])
     })
 
     it('shows skeleton rows for empty slots under a loading later page, and error rows under a failed one', async () => {
-        const { api, treeRequests } = createManualTreeApi()
+        const { api, nodeRequests, childrenRequests } = createManualTreeApi()
         const cache = createNodeCache({ api, pageSize: 2 })
-        const parent = { id: 'p', path: '/p', level: 1 }
+        const parent = { path: '/p', level: 1 }
+        const loadingRoots = cache.loadNodes(['p'])
+        nodeRequests[0].resolve([
+            {
+                id: 'p',
+                displayName: 'p',
+                path: '/p',
+                level: 1,
+                childrenCount: 7,
+            },
+        ])
+        await loadingRoots
         cache.requestChildrenPage('p', 1)
-        treeRequests[0].resolve(
+        childrenRequests[0].resolve(
             childrenPage({
                 parent,
-                children: [{ id: 'c1', displayName: 'c1' }],
-                total: 8,
+                children: [
+                    { id: 'c1', displayName: 'c1' },
+                    { id: 'c2', displayName: 'c2' },
+                ],
+                total: 7,
                 page: 1,
                 pageSize: 2,
             })
@@ -99,19 +113,19 @@ describe('flattenRows', () => {
         await flush()
         cache.requestChildrenPage('p', 2)
         cache.requestChildrenPage('p', 3)
-        treeRequests[2].reject(new Error('boom'))
+        childrenRequests[2].reject(new Error('boom'))
         await flush()
 
-        // 7 children over pages of two entries, the parent taking the first
-        // slot of page one: page 2 loading, page 3 failed, page 4 not requested.
+        // 7 children over pages of two: page 2 loading, page 3 failed, page 4
+        // not requested.
         expect(summary(cache, ['p'], 'p')).toEqual([
             'p:loaded',
             '  c1:none',
-            '  skeleton#1',
+            '  c2:none',
             '  skeleton#2',
+            '  skeleton#3',
             '  error@3',
             '  error@3',
-            '  skeleton#5',
             '  skeleton#6',
         ])
     })

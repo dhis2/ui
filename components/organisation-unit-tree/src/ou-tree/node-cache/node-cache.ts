@@ -1,4 +1,4 @@
-import type { OuTreeEntry, TreeApi } from '../data/index'
+import type { OuTreeChildrenPage, OuTreeEntry, TreeApi } from '../data/index'
 
 export interface CachedNode {
     id: string
@@ -15,7 +15,7 @@ export type ChildrenPageStatus =
     | { status: 'failed'; error: unknown }
 
 export interface ChildrenState {
-    /** Number of children, from page one's `total - 1`. */
+    /** Number of children, from page one's `total`. */
     count: number
     /** Child ids by position; an empty slot is a child not yet loaded. */
     slots: Array<string | undefined>
@@ -75,13 +75,12 @@ export interface NodeCache {
 }
 
 /**
- * The children page holding the child at a slot index. The endpoint pages the
- * parent together with its children, the parent being the first entry of page
- * one, so page one holds `pageSize - 1` children and every later page holds
- * `pageSize`.
+ * The children page holding the child at a slot index. Pages are plain and
+ * all `pageSize` long (the last may be shorter): page one is slots 0 to
+ * `pageSize - 1`, page two the next `pageSize`, and so on.
  */
 export const childrenPageOf = (slotIndex: number, pageSize: number): number =>
-    Math.floor((slotIndex + 1) / pageSize) + 1
+    Math.floor(slotIndex / pageSize) + 1
 
 const NONE: ChildrenStatus = { status: 'none' }
 
@@ -150,16 +149,11 @@ export const createNodeCache = ({
     const storePage = (
         parentId: string,
         page: number,
-        response: { pager: { total: number }; organisationUnits: OuTreeEntry[] }
+        response: OuTreeChildrenPage
     ) => {
-        const entries = response.organisationUnits
-        const parentEntry = entries.find((entry) => entry.id === parentId)
-        if (parentEntry) {
-            storeEntry(parentEntry)
-        }
         let state: ChildrenState
         if (page === 1) {
-            const count = Math.max(0, response.pager.total - 1)
+            const count = response.pager.total
             state = {
                 count,
                 slots: new Array<string | undefined>(count).fill(undefined),
@@ -173,14 +167,9 @@ export const createNodeCache = ({
             }
             state = current.children
         }
-        // The parent is entry 0 of page one, so a child's slot is its position
-        // among all entries, less one.
-        entries.forEach((entry, position) => {
-            if (entry.id === parentId) {
-                return
-            }
-            state.slots[(page - 1) * pageSize + position - 1] = entry.id
-            storeEntry(entry)
+        response.organisationUnits.forEach((child, position) => {
+            state.slots[(page - 1) * pageSize + position] = child.id
+            storeEntry(child)
         })
         state.pages.set(page, { status: 'loaded' })
     }
@@ -201,13 +190,7 @@ export const createNodeCache = ({
             return
         }
         notify()
-        api.fetchTreePage({
-            roots: [parentId],
-            depth: 1,
-            page,
-            pageSize,
-            shortName,
-        }).then(
+        api.fetchChildrenPage(parentId, page, { pageSize, shortName }).then(
             (response) => {
                 storePage(parentId, page, response)
                 notify()
@@ -240,18 +223,9 @@ export const createNodeCache = ({
             const request = api
                 .fetchNodes(missing, { shortName })
                 .then((entries) => {
-                    for (const entry of entries) {
-                        nodes.set(
-                            entry.id,
-                            withParent({
-                                id: entry.id,
-                                displayName: entry.displayName,
-                                path: entry.path,
-                                level: entry.level,
-                                leaf: entry.childrenCount === 0,
-                            })
-                        )
-                    }
+                    entries.forEach(({ childrenCount, ...entry }) =>
+                        storeEntry({ ...entry, leaf: childrenCount === 0 })
+                    )
                     notify()
                 })
                 .finally(() => {

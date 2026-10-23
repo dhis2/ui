@@ -92,4 +92,62 @@ describe('useTreeApi', () => {
         expect(await api.fetchNodes([], {})).toEqual([])
         expect(resolver).not.toHaveBeenCalled()
     })
+
+    describe('fetchChildrenPage', () => {
+        const response = {
+            pager: { page: 2, pageSize: 2, total: 6, pageCount: 3 },
+            organisationUnits: [
+                {
+                    id: 'ou-8',
+                    displayName: 'Kanona Clinic',
+                    path: '/ou-1/ou-2/ou-6/ou-8',
+                    level: 4,
+                    leaf: true,
+                },
+            ],
+        }
+
+        it('queries the children resource of the parent', async () => {
+            const resolver = jest.fn().mockResolvedValue(response)
+            const api = render({ [TREE_RESOURCE]: resolver })
+
+            await api.fetchChildrenPage('ou-6', 2, { pageSize: 2 })
+
+            const query = resolver.mock.calls[0][1]
+            expect(query.id).toBe('ou-6/children')
+            expect(query.params).toEqual({
+                page: 2,
+                pageSize: 2,
+                shortName: false,
+            })
+        })
+
+        it('asks for the short name when shortName is true', async () => {
+            const resolver = jest.fn().mockResolvedValue(response)
+            const api = render({ [TREE_RESOURCE]: resolver })
+
+            await api.fetchChildrenPage('ou-6', 1, {
+                pageSize: 50,
+                shortName: true,
+            })
+
+            expect(resolver.mock.calls[0][1].params).toEqual({
+                page: 1,
+                pageSize: 50,
+                shortName: true,
+            })
+        })
+
+        it('passes the response through unchanged', async () => {
+            const api = render({
+                [TREE_RESOURCE]: jest.fn().mockResolvedValue(response),
+            })
+
+            const result = await api.fetchChildrenPage('ou-6', 2, {
+                pageSize: 2,
+            })
+
+            expect(result).toEqual(response)
+        })
+    })
 })

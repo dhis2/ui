@@ -11,23 +11,22 @@ const flush = () => new Promise((resolve) => setTimeout(resolve, 0))
 describe('createNodeCache', () => {
     describe('children pages over the Zambia stand-in', () => {
         const setup = () => {
-            const { api, treeCalls } = createTestTreeApi({
+            const { api, childrenCalls } = createTestTreeApi({
                 orgUnits: zambiaOrgUnits,
             })
             const cache = createNodeCache({ api, pageSize: 2 })
-            return { cache, treeCalls }
+            return { cache, childrenCalls }
         }
 
         it('is loading until page one answers, then loaded with count and first slots', async () => {
-            const { cache, treeCalls } = setup()
+            const { cache, childrenCalls } = setup()
 
             cache.requestChildrenPage('ou-6', 1)
 
             expect(cache.getChildren('ou-6')).toEqual({ status: 'loading' })
-            expect(treeCalls).toEqual([
+            expect(childrenCalls).toEqual([
                 {
-                    roots: ['ou-6'],
-                    depth: 1,
+                    parentId: 'ou-6',
                     page: 1,
                     pageSize: 2,
                     shortName: false,
@@ -42,7 +41,7 @@ describe('createNodeCache', () => {
                     count: 6,
                     slots: [
                         'ou-12',
-                        undefined,
+                        'ou-10',
                         undefined,
                         undefined,
                         undefined,
@@ -51,15 +50,14 @@ describe('createNodeCache', () => {
                     pages: new Map([[1, { status: 'loaded' }]]),
                 },
             })
-            expect(cache.getNode('ou-6')).toEqual({
-                id: 'ou-6',
-                displayName: 'Serenje District',
-                path: '/ou-1/ou-2/ou-6',
-                level: 3,
-                leaf: false,
-                parentId: 'ou-2',
+            expect(cache.getNode('ou-10')).toEqual({
+                id: 'ou-10',
+                displayName: 'Chikupi Mission',
+                path: '/ou-1/ou-2/ou-6/ou-10',
+                level: 4,
+                leaf: true,
+                parentId: 'ou-6',
             })
-            expect(cache.getNode('ou-12')?.parentId).toBe('ou-6')
         })
 
         it('fills the right slots for a later page', async () => {
@@ -72,12 +70,12 @@ describe('createNodeCache', () => {
 
             const status = cache.getChildren('ou-6')
             expect(status.status === 'loaded' && status.children.slots).toEqual(
-                ['ou-12', undefined, undefined, 'ou-9', 'ou-7', undefined]
+                ['ou-12', 'ou-10', undefined, undefined, 'ou-7', 'ou-11']
             )
         })
 
         it('ignores a request for a page that is loading or loaded', async () => {
-            const { cache, treeCalls } = setup()
+            const { cache, childrenCalls } = setup()
 
             cache.requestChildrenPage('ou-6', 1)
             cache.requestChildrenPage('ou-6', 1)
@@ -87,15 +85,15 @@ describe('createNodeCache', () => {
             cache.requestChildrenPage('ou-6', 2)
             await flush()
 
-            expect(treeCalls.map((call) => call.page)).toEqual([1, 2])
+            expect(childrenCalls.map((call) => call.page)).toEqual([1, 2])
         })
 
         it('ignores a later page before page one has answered', () => {
-            const { cache, treeCalls } = setup()
+            const { cache, childrenCalls } = setup()
 
             cache.requestChildrenPage('ou-6', 2)
 
-            expect(treeCalls).toEqual([])
+            expect(childrenCalls).toEqual([])
             expect(cache.getChildren('ou-6')).toEqual({ status: 'none' })
         })
 
@@ -123,20 +121,20 @@ describe('createNodeCache', () => {
     })
 
     describe('children pages with manual settlement', () => {
-        const parent = { id: 'p', path: '/p', level: 1 }
+        const parent = { path: '/p', level: 1 }
         const child = (n: number) => ({
             id: `c${n}`,
             displayName: `Child ${n}`,
         })
 
         it('writes pages that answer out of order into their own slots', async () => {
-            const { api, treeRequests } = createManualTreeApi()
+            const { api, childrenRequests } = createManualTreeApi()
             const cache = createNodeCache({ api, pageSize: 2 })
             cache.requestChildrenPage('p', 1)
-            treeRequests[0].resolve(
+            childrenRequests[0].resolve(
                 childrenPage({
                     parent,
-                    children: [child(1)],
+                    children: [child(1), child(2)],
                     total: 6,
                     page: 1,
                     pageSize: 2,
@@ -146,10 +144,10 @@ describe('createNodeCache', () => {
 
             cache.requestChildrenPage('p', 2)
             cache.requestChildrenPage('p', 3)
-            treeRequests[2].resolve(
+            childrenRequests[2].resolve(
                 childrenPage({
                     parent,
-                    children: [child(4), child(5)],
+                    children: [child(5), child(6)],
                     total: 6,
                     page: 3,
                     pageSize: 2,
@@ -158,7 +156,7 @@ describe('createNodeCache', () => {
             await flush()
             const midway = cache.getChildren('p')
             expect(midway.status === 'loaded' && midway.children.slots).toEqual(
-                ['c1', undefined, undefined, 'c4', 'c5']
+                ['c1', 'c2', undefined, undefined, 'c5', 'c6']
             )
             expect(
                 midway.status === 'loaded' && midway.children.pages.get(2)
@@ -166,10 +164,10 @@ describe('createNodeCache', () => {
                 status: 'loading',
             })
 
-            treeRequests[1].resolve(
+            childrenRequests[1].resolve(
                 childrenPage({
                     parent,
-                    children: [child(2), child(3)],
+                    children: [child(3), child(4)],
                     total: 6,
                     page: 2,
                     pageSize: 2,
@@ -183,19 +181,20 @@ describe('createNodeCache', () => {
                 'c3',
                 'c4',
                 'c5',
+                'c6',
             ])
         })
 
-        it('loads count 0 for a parent not flagged leaf whose page one has only itself', async () => {
-            const { api, treeRequests } = createManualTreeApi()
+        it('loads count 0 for a parent whose page one has no children', async () => {
+            const { api, childrenRequests } = createManualTreeApi()
             const cache = createNodeCache({ api, pageSize: 2 })
 
             cache.requestChildrenPage('p', 1)
-            treeRequests[0].resolve(
+            childrenRequests[0].resolve(
                 childrenPage({
                     parent,
                     children: [],
-                    total: 1,
+                    total: 0,
                     page: 1,
                     pageSize: 2,
                 })
@@ -213,21 +212,21 @@ describe('createNodeCache', () => {
         })
 
         it('marks a failed page one as failed and retries it', async () => {
-            const { api, treeRequests } = createManualTreeApi()
+            const { api, childrenRequests } = createManualTreeApi()
             const cache = createNodeCache({ api, pageSize: 2 })
             const error = new Error('boom')
 
             cache.requestChildrenPage('p', 1)
-            treeRequests[0].reject(error)
+            childrenRequests[0].reject(error)
             await flush()
             expect(cache.getChildren('p')).toEqual({ status: 'failed', error })
 
             cache.retryChildrenPage('p', 1)
             expect(cache.getChildren('p')).toEqual({ status: 'loading' })
-            treeRequests[1].resolve(
+            childrenRequests[1].resolve(
                 childrenPage({
                     parent,
-                    children: [child(1)],
+                    children: [child(1), child(2)],
                     total: 2,
                     page: 1,
                     pageSize: 2,
@@ -238,14 +237,14 @@ describe('createNodeCache', () => {
         })
 
         it('marks a failed later page as failed and retries it', async () => {
-            const { api, treeRequests } = createManualTreeApi()
+            const { api, childrenRequests } = createManualTreeApi()
             const cache = createNodeCache({ api, pageSize: 2 })
             const error = new Error('boom')
             cache.requestChildrenPage('p', 1)
-            treeRequests[0].resolve(
+            childrenRequests[0].resolve(
                 childrenPage({
                     parent,
-                    children: [child(1)],
+                    children: [child(1), child(2)],
                     total: 4,
                     page: 1,
                     pageSize: 2,
@@ -254,7 +253,7 @@ describe('createNodeCache', () => {
             await flush()
 
             cache.requestChildrenPage('p', 2)
-            treeRequests[1].reject(error)
+            childrenRequests[1].reject(error)
             await flush()
             const failed = cache.getChildren('p')
             expect(
@@ -271,21 +270,21 @@ describe('createNodeCache', () => {
             ).toEqual({
                 status: 'loading',
             })
-            expect(treeRequests).toHaveLength(3)
+            expect(childrenRequests).toHaveLength(3)
         })
 
         it('notifies subscribers once per request start and once per settlement', async () => {
-            const { api, treeRequests } = createManualTreeApi()
+            const { api, childrenRequests } = createManualTreeApi()
             const cache = createNodeCache({ api, pageSize: 2 })
             const listener = jest.fn()
             cache.subscribe(listener)
 
             cache.requestChildrenPage('p', 1)
             expect(listener).toHaveBeenCalledTimes(1)
-            treeRequests[0].resolve(
+            childrenRequests[0].resolve(
                 childrenPage({
                     parent,
-                    children: [child(1)],
+                    children: [child(1), child(2)],
                     total: 2,
                     page: 1,
                     pageSize: 2,

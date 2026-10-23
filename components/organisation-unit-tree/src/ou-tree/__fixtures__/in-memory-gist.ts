@@ -9,6 +9,17 @@ export interface GistEntry {
     children: number
 }
 
+/** The number of children per parent id in the fixture. */
+export const countChildren = (orgUnits: FixtureOrgUnit[]) => {
+    const counts = new Map<string, number>()
+    for (const unit of orgUnits) {
+        if (unit.parentId !== undefined) {
+            counts.set(unit.parentId, (counts.get(unit.parentId) ?? 0) + 1)
+        }
+    }
+    return counts
+}
+
 export interface InMemoryGistOptions {
     orgUnits: FixtureOrgUnit[]
 }
@@ -20,15 +31,7 @@ export interface InMemoryGistOptions {
  */
 export const createInMemoryGist = ({ orgUnits }: InMemoryGistOptions) => {
     const byId = new Map(orgUnits.map((unit) => [unit.id, unit]))
-    const childrenCount = new Map<string, number>()
-    for (const unit of orgUnits) {
-        if (unit.parentId !== undefined) {
-            childrenCount.set(
-                unit.parentId,
-                (childrenCount.get(unit.parentId) ?? 0) + 1
-            )
-        }
-    }
+    const childrenCount = countChildren(orgUnits)
     return (ids: string[], { shortName = false }: { shortName?: boolean }) =>
         ids.flatMap((id): GistEntry[] => {
             const unit = byId.get(id)
