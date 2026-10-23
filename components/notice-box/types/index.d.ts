@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 export interface NoticeBoxProps {
+    'aria-label'?: string
     children?: React.ReactNode
     className?: string
     dataTest?: string
