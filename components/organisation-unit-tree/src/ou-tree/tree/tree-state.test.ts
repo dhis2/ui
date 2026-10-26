@@ -28,7 +28,7 @@ const setup = (
         roots,
         initiallyOpen: options.initiallyOpen,
     })
-    tree.start()
+    tree.loadInitial()
     return { tree, store, childrenCalls, nodeCalls }
 }
 
@@ -67,7 +67,7 @@ describe('createTreeState', () => {
             const { api, nodeRequests } = createManualTreeApi()
             const store = createNodeStore({ api })
             const tree = createTreeState({ store, roots: ['ou-1'] })
-            tree.start()
+            tree.loadInitial()
             const error = new Error('nope')
             nodeRequests[0].reject(error)
             await flush()
@@ -261,8 +261,8 @@ describe('createTreeState', () => {
     })
 })
 
-describe('createTreeState before start', () => {
-    it('requests nothing until started, and starts only once', async () => {
+describe('createTreeState before loadInitial', () => {
+    it('requests nothing until loadInitial, which loads only once', async () => {
         const { api, childrenCalls, nodeCalls } = createTestTreeApi({
             orgUnits: zambiaOrgUnits,
             pageSize: 2,
@@ -277,8 +277,8 @@ describe('createTreeState before start', () => {
         expect(nodeCalls).toEqual([])
         expect(childrenCalls).toEqual([])
 
-        tree.start()
-        tree.start()
+        tree.loadInitial()
+        tree.loadInitial()
         await flush()
 
         expect(nodeCalls).toEqual([['ou-1']])

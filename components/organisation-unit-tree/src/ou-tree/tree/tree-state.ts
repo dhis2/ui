@@ -22,7 +22,12 @@ export interface TreeState {
     open(id: string): void
     close(id: string): void
     toggle(id: string): void
-    /** Number of rows for the current open set and store contents. */
+    /**
+     * Number of rows for the current open set and store contents. Exact in
+     * browse mode, where a parent's count arrives with its first page and
+     * every slot is a row. Filtered mode, later, will make it an estimate
+     * that settles as pages with ancestors arrive.
+     */
     getRowCount(): number
     /** The row at an index, in flat order. */
     getRow(index: number): Row
@@ -31,7 +36,7 @@ export interface TreeState {
     /** Requests the children pages covering any skeleton rows in the range. */
     ensureChildrenLoaded(firstRow: number, lastRow: number): void
     /** Loads the roots and the initially open nodes. Idempotent. */
-    start(): void
+    loadInitial(): void
     retryRoots(): void
     subscribe(listener: () => void): () => void
     getVersion(): number
@@ -156,14 +161,14 @@ export const createTreeState = ({
         }
     }
 
-    let started = false
+    let initialLoaded = false
     // Creating a tree has no side effects, so React may create and discard
-    // one freely; starting it loads the roots and the initially open nodes.
-    const start = () => {
-        if (started) {
+    // one freely; loadInitial loads the roots and the initially open nodes.
+    const loadInitial = () => {
+        if (initialLoaded) {
             return
         }
-        started = true
+        initialLoaded = true
         loadRoots()
         initiallyOpen.forEach(requestFirstPage)
     }
@@ -182,7 +187,7 @@ export const createTreeState = ({
         getRow,
         getRowIndex: (id) => flat().indexById.get(id),
         ensureChildrenLoaded,
-        start,
+        loadInitial,
         retryRoots: loadRoots,
         // Listens to the store only while someone listens to the tree, so an
         // abandoned tree is not kept alive by the shared store.

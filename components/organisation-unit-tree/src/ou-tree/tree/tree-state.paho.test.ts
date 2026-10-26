@@ -10,7 +10,7 @@ describe('tree state over the PAHO stand-in', () => {
         const { api, childrenCalls } = createTestTreeApi(pahoOrgUnits)
         const store = createNodeStore({ api })
         const tree = createTreeState({ store, roots: [MINAS_GERAIS] })
-        tree.start()
+        tree.loadInitial()
         await flush()
         tree.open(MINAS_GERAIS)
         await flush()

@@ -44,10 +44,10 @@ export const OuTreeProvider = ({
         [store, rootsKey]
     )
     // Fetching is a side effect, so it starts from an effect, not from the
-    // render that creates the tree. start() is idempotent, so the effect
+    // render that creates the tree. loadInitial() is idempotent, so the effect
     // running twice (as it does in development) requests once.
     useEffect(() => {
-        tree.start()
+        tree.loadInitial()
     }, [tree])
     return <TreeContext.Provider value={tree}>{children}</TreeContext.Provider>
 }
