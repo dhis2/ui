@@ -2,11 +2,12 @@ import React, { createContext, useContext, useMemo, useRef } from 'react'
 import { useTreeApi } from '../data/index'
 import { createNodeStore, NodeStore } from '../node-store/index'
 
-interface NodeStores {
+/** The app's stores, one per `shortName` value, created on first use. */
+interface NodeStoreRegistry {
     getStore(shortName: boolean): NodeStore
 }
 
-const NodeStoreContext = createContext<NodeStores | undefined>(undefined)
+const NodeStoreContext = createContext<NodeStoreRegistry | undefined>(undefined)
 
 /**
  * Wrap the app in this once; every tree in it shares loaded org units.
@@ -19,33 +20,36 @@ export const OuTreeNodeStoreProvider = ({
     children: React.ReactNode
 }) => {
     const api = useTreeApi()
-    const stores = useRef<{ full?: NodeStore; short?: NodeStore }>({})
-    const value = useMemo<NodeStores>(
+    const storesByNameVariant = useRef<{ full?: NodeStore; short?: NodeStore }>(
+        {}
+    )
+    const registry = useMemo<NodeStoreRegistry>(
         () => ({
             getStore: (shortName) => {
                 const key = shortName ? 'short' : 'full'
-                const existing = stores.current[key]
+                const existing = storesByNameVariant.current[key]
                 if (existing) {
                     return existing
                 }
                 const created = createNodeStore({ api, shortName })
-                stores.current[key] = created
+                storesByNameVariant.current[key] = created
                 return created
             },
         }),
         [api]
     )
     return (
-        <NodeStoreContext.Provider value={value}>
+        <NodeStoreContext.Provider value={registry}>
             {children}
         </NodeStoreContext.Provider>
     )
 }
 
+/** The app's store for the given `shortName`, from the enclosing provider. */
 export const useNodeStore = (shortName: boolean): NodeStore => {
-    const stores = useContext(NodeStoreContext)
-    if (!stores) {
+    const registry = useContext(NodeStoreContext)
+    if (!registry) {
         throw new Error('OuTree needs an OuTreeNodeStoreProvider above it')
     }
-    return stores.getStore(shortName)
+    return registry.getStore(shortName)
 }
