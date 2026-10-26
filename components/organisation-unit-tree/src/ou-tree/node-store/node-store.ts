@@ -80,6 +80,12 @@ const parentIdOf = (path: string): string | undefined => {
     return ids[ids.length - 2]
 }
 
+const sameEntry = (node: StoredNode, entry: OuTreeEntry): boolean =>
+    node.displayName === entry.displayName &&
+    node.path === entry.path &&
+    node.level === entry.level &&
+    node.leaf === entry.leaf
+
 const withParent = (node: Omit<StoredNode, 'parentId'>): StoredNode => {
     const parentId = parentIdOf(node.path)
     return parentId === undefined ? node : { ...node, parentId }
@@ -106,23 +112,12 @@ export const createNodeStore = ({
 
     // Keeps the stored object when nothing changed, so a node delivered
     // again (a retried page, say) keeps its identity.
-    const storeEntry = ({
-        id,
-        displayName,
-        path,
-        level,
-        leaf,
-    }: OuTreeEntry) => {
-        const existing = nodes.get(id)
-        if (
-            existing &&
-            existing.displayName === displayName &&
-            existing.path === path &&
-            existing.level === level &&
-            existing.leaf === leaf
-        ) {
+    const storeEntry = (entry: OuTreeEntry) => {
+        const existing = nodes.get(entry.id)
+        if (existing && sameEntry(existing, entry)) {
             return
         }
+        const { id, displayName, path, level, leaf } = entry
         nodes.set(id, withParent({ id, displayName, path, level, leaf }))
     }
 
