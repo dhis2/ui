@@ -67,7 +67,7 @@ export const createTreeState = ({
                 version: current,
                 flat: flattenRows({
                     roots,
-                    isOpen: (id) => openIds.has(id),
+                    openIds,
                     store,
                 }),
             }

@@ -8,12 +8,9 @@ import { createNodeStore, NodeStore } from '../node-store/index'
 import { flattenRows } from './flatten-rows'
 
 const flush = () => new Promise((resolve) => setTimeout(resolve, 0))
-const openSet = (...ids: string[]) => {
-    const open = new Set(ids)
-    return (id: string) => open.has(id)
-}
+const openSet = (...ids: string[]) => new Set(ids)
 const summary = (store: NodeStore, roots: string[], ...open: string[]) =>
-    flattenRows({ roots, isOpen: openSet(...open), store }).rows.map((row) =>
+    flattenRows({ roots, openIds: openSet(...open), store }).rows.map((row) =>
         row.kind === 'node'
             ? `${'  '.repeat(row.depth)}${row.id}:${row.children.status}`
             : `${'  '.repeat(row.depth)}${row.kind}${
@@ -154,7 +151,7 @@ describe('flattenRows', () => {
 
         const { indexById } = flattenRows({
             roots: ['ou-1'],
-            isOpen: openSet('ou-1'),
+            openIds: openSet('ou-1'),
             store,
         })
 

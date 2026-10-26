@@ -17,7 +17,7 @@ export type Row =
 
 export interface FlattenRowsInput {
     roots: string[]
-    isOpen: (id: string) => boolean
+    openIds: ReadonlySet<string>
     store: NodeStore
 }
 
@@ -27,15 +27,14 @@ export interface FlatRows {
 }
 
 /**
- * The tree as a flat list: a depth-first walk from the roots over the open
- * set and the store. Depth is relative to the root. Under an open node with
- * loaded children, a filled slot is a node row and an empty slot is a
- * skeleton or,
- * if its page failed, an error row.
+ * The tree as a flat list: a depth-first walk from the roots, descending
+ * into the nodes in `openIds` whose children the store has. Depth is
+ * relative to the root. Under an open node, a filled slot is a node row and
+ * an empty slot is a skeleton row or, if its page failed, an error row.
  */
 export const flattenRows = ({
     roots,
-    isOpen,
+    openIds,
     store,
 }: FlattenRowsInput): FlatRows => {
     const rows: Row[] = []
@@ -49,7 +48,7 @@ export const flattenRows = ({
         const children = store.getChildren(id)
         indexById.set(id, rows.length)
         rows.push({ kind: 'node', id, depth, children })
-        if (!isOpen(id) || node.leaf || children.status !== 'loaded') {
+        if (!openIds.has(id) || node.leaf || children.status !== 'loaded') {
             return
         }
         const { slots, pages, pageSize } = children.children
