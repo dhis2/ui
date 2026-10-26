@@ -11,11 +11,11 @@ const arrowFor = (leaf: boolean, isOpen: boolean) => {
 
 const NodeRow = ({ id, depth }: { id: string; depth: number }) => {
     const { node, isOpen } = useOuTreeNode(id)
-    const { toggle, cache } = useOuTree()
+    const { toggle, store } = useOuTree()
     if (!node) {
         return null
     }
-    const children = cache.getChildren(id)
+    const children = store.getChildren(id)
     return (
         <li style={{ paddingLeft: depth * 20 }}>
             <button
@@ -33,7 +33,7 @@ const NodeRow = ({ id, depth }: { id: string; depth: number }) => {
                     {String(children.error)}{' '}
                     <button
                         type="button"
-                        onClick={() => cache.retryChildrenPage(id, 1)}
+                        onClick={() => store.retryChildrenPage(id, 1)}
                     >
                         retry
                     </button>
@@ -95,7 +95,7 @@ export const Browse = () => {
                         <button
                             type="button"
                             onClick={() =>
-                                tree.cache.retryChildrenPage(
+                                tree.store.retryChildrenPage(
                                     row.parentId,
                                     row.page
                                 )

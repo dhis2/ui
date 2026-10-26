@@ -1,7 +1,7 @@
-import type { CachedNode } from '../node-cache/index'
+import type { StoredNode } from '../node-store/index'
 import { excludeNestedRoots } from './exclude-nested-roots'
 
-const node = (id: string, path: string): CachedNode => ({
+const node = (id: string, path: string): StoredNode => ({
     id,
     displayName: id,
     path,

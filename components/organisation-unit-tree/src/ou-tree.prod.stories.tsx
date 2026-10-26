@@ -8,7 +8,7 @@ import {
 import { Browse as BrowseList } from './ou-tree/__stories__/browse'
 import { GIST_RESOURCE, TREE_RESOURCE } from './ou-tree/data/index'
 import { OuTree } from './ou-tree/index'
-import { OuTreeNodeCacheProvider, OuTreeProvider } from './ou-tree/tree/index'
+import { OuTreeNodeStoreProvider, OuTreeProvider } from './ou-tree/tree/index'
 
 const description = `
 A replacement for \`OrganisationUnitTree\`, currently a placeholder. It is
@@ -41,7 +41,7 @@ export default {
     decorators: [
         (fn: () => React.ReactNode) => (
             <CustomDataProvider data={data}>
-                <OuTreeNodeCacheProvider>{fn()}</OuTreeNodeCacheProvider>
+                <OuTreeNodeStoreProvider>{fn()}</OuTreeNodeStoreProvider>
             </CustomDataProvider>
         ),
     ],

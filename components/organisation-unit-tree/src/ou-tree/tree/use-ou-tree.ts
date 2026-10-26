@@ -1,5 +1,5 @@
 import { useSyncExternalStore } from 'react'
-import type { RootsStatus } from '../node-cache/index'
+import type { RootsStatus } from '../node-store/index'
 import { useTreeState } from './ou-tree-provider'
 import type { TreeState } from './tree-state'
 
@@ -16,7 +16,7 @@ export type OuTreeHandle = {
     | 'isOpen'
     | 'ensureChildrenLoaded'
     | 'retryRoots'
-    | 'cache'
+    | 'store'
 >
 
 /** The tree from the nearest OuTreeProvider, re-rendering on every change. */
@@ -34,6 +34,6 @@ export const useOuTree = (): OuTreeHandle => {
         isOpen: tree.isOpen,
         ensureChildrenLoaded: tree.ensureChildrenLoaded,
         retryRoots: tree.retryRoots,
-        cache: tree.cache,
+        store: tree.store,
     }
 }

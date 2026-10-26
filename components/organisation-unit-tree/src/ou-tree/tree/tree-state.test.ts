@@ -3,7 +3,7 @@ import {
     createTestTreeApi,
     zambiaOrgUnits,
 } from '../__fixtures__/index'
-import { createNodeCache } from '../node-cache/index'
+import { createNodeStore } from '../node-store/index'
 import { createTreeState, TreeState } from './tree-state'
 
 const flush = () => new Promise((resolve) => setTimeout(resolve, 0))
@@ -22,14 +22,14 @@ const setup = (
         orgUnits: zambiaOrgUnits,
         pageSize: options.pageSize ?? 3,
     })
-    const cache = createNodeCache({ api })
+    const store = createNodeStore({ api })
     const tree = createTreeState({
-        cache,
+        store,
         roots,
         initiallyOpen: options.initiallyOpen,
     })
     tree.start()
-    return { tree, cache, childrenCalls, nodeCalls }
+    return { tree, store, childrenCalls, nodeCalls }
 }
 
 describe('createTreeState', () => {
@@ -65,8 +65,8 @@ describe('createTreeState', () => {
 
         it('reports a failed load and retries it', async () => {
             const { api, nodeRequests } = createManualTreeApi()
-            const cache = createNodeCache({ api })
-            const tree = createTreeState({ cache, roots: ['ou-1'] })
+            const store = createNodeStore({ api })
+            const tree = createTreeState({ store, roots: ['ou-1'] })
             tree.start()
             const error = new Error('nope')
             nodeRequests[0].reject(error)
@@ -124,15 +124,15 @@ describe('createTreeState', () => {
             expect(ids(tree)).toEqual(['ou-1', 'ou-2', 'ou-13'])
         })
 
-        it('closing hides children but keeps them cached; toggle flips', async () => {
-            const { tree, cache } = setup(['ou-1'])
+        it('closing hides children but keeps them stored; toggle flips', async () => {
+            const { tree, store } = setup(['ou-1'])
             await flush()
             tree.open('ou-1')
             await flush()
 
             tree.toggle('ou-1')
             expect(ids(tree)).toEqual(['ou-1'])
-            expect(cache.getChildren('ou-1').status).toBe('loaded')
+            expect(store.getChildren('ou-1').status).toBe('loaded')
             tree.toggle('ou-1')
             expect(ids(tree)).toEqual(['ou-1', 'ou-2', 'ou-13'])
         })
@@ -221,7 +221,7 @@ describe('createTreeState', () => {
     })
 
     describe('subscription', () => {
-        it('notifies on open and on cache changes, and stops after unsubscribe', async () => {
+        it('notifies on open and on store changes, and stops after unsubscribe', async () => {
             const { tree } = setup(['ou-1'])
             const listener = jest.fn()
             const unsubscribe = tree.subscribe(listener)
@@ -242,7 +242,7 @@ describe('createTreeState', () => {
             expect(listener.mock.calls).toHaveLength(afterUnsubscribe)
         })
 
-        it('reports a cache change that happened while nobody listened', async () => {
+        it('reports a store change that happened while nobody listened', async () => {
             const { tree } = setup(['ou-1'])
             const before = tree.getVersion()
 
@@ -267,9 +267,9 @@ describe('createTreeState before start', () => {
             orgUnits: zambiaOrgUnits,
             pageSize: 2,
         })
-        const cache = createNodeCache({ api })
+        const store = createNodeStore({ api })
         const tree = createTreeState({
-            cache,
+            store,
             roots: ['ou-1'],
             initiallyOpen: ['ou-1'],
         })

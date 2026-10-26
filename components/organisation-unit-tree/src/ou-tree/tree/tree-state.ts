@@ -1,19 +1,19 @@
 import {
     childrenPageOf,
-    type NodeCache,
+    type NodeStore,
     type RootsStatus,
-} from '../node-cache/index'
+} from '../node-store/index'
 import { excludeNestedRoots } from './exclude-nested-roots'
 import { FlatRows, flattenRows, Row } from './flatten-rows'
 
 export interface TreeStateOptions {
-    cache: NodeCache
+    store: NodeStore
     roots: string[]
     initiallyOpen?: string[]
 }
 
 export interface TreeState {
-    readonly cache: NodeCache
+    readonly store: NodeStore
     /** The roots actually shown: loaded, nested ones excluded. */
     readonly roots: string[]
     /** Loading state of the root entries themselves. */
@@ -22,7 +22,7 @@ export interface TreeState {
     open(id: string): void
     close(id: string): void
     toggle(id: string): void
-    /** Number of rows for the current open set and cache contents. */
+    /** Number of rows for the current open set and store contents. */
     getRowCount(): number
     /** The row at an index, in flat order. */
     getRow(index: number): Row
@@ -39,11 +39,11 @@ export interface TreeState {
 
 /**
  * One tree's state: which roots it shows, what is open, and the flat rows
- * derived from that and the shared cache. Rows are rebuilt only when the
- * cache or the open set changes, never on scroll.
+ * derived from that and the shared store. Rows are rebuilt only when the
+ * store or the open set changes, never on scroll.
  */
 export const createTreeState = ({
-    cache,
+    store,
     roots: requestedRoots,
     initiallyOpen = [],
 }: TreeStateOptions): TreeState => {
@@ -53,7 +53,7 @@ export const createTreeState = ({
     let rootsStatus: RootsStatus = { status: 'loading' }
     let version = 0
     let memo: { version: number; flat: FlatRows } | undefined
-    let unsubscribeCache: (() => void) | undefined
+    let unsubscribeStore: (() => void) | undefined
 
     const notify = () => {
         version += 1
@@ -61,14 +61,14 @@ export const createTreeState = ({
     }
 
     const flat = (): FlatRows => {
-        const current = cache.getVersion()
+        const current = store.getVersion()
         if (memo?.version !== current) {
             memo = {
                 version: current,
                 flat: flattenRows({
                     roots,
                     isOpen: (id) => openIds.has(id),
-                    cache,
+                    store,
                 }),
             }
         }
@@ -79,11 +79,11 @@ export const createTreeState = ({
     }
 
     const requestFirstPage = (id: string) => {
-        if (cache.getNode(id)?.leaf) {
+        if (store.getNode(id)?.leaf) {
             return
         }
-        if (cache.getChildren(id).status === 'none') {
-            cache.requestChildrenPage(id, 1)
+        if (store.getChildren(id).status === 'none') {
+            store.requestChildrenPage(id, 1)
         }
     }
 
@@ -91,10 +91,10 @@ export const createTreeState = ({
         rootsStatus = { status: 'loading' }
         invalidate()
         notify()
-        cache.loadNodes(requestedRoots).then(
+        store.loadNodes(requestedRoots).then(
             () => {
                 const nodes = requestedRoots.flatMap((id) => {
-                    const node = cache.getNode(id)
+                    const node = store.getNode(id)
                     return node ? [node] : []
                 })
                 roots = excludeNestedRoots(nodes).map((node) => node.id)
@@ -140,7 +140,7 @@ export const createTreeState = ({
         for (let index = first; index <= last; index += 1) {
             const row = rows[index]
             if (row.kind === 'skeleton') {
-                const parent = cache.getChildren(row.parentId)
+                const parent = store.getChildren(row.parentId)
                 if (parent.status === 'loaded') {
                     const page = childrenPageOf(
                         row.index,
@@ -152,7 +152,7 @@ export const createTreeState = ({
         }
         for (const key of wanted) {
             const [parentId, page] = key.split('\u0000')
-            cache.requestChildrenPage(parentId, Number(page))
+            store.requestChildrenPage(parentId, Number(page))
         }
     }
 
@@ -169,7 +169,7 @@ export const createTreeState = ({
     }
 
     return {
-        cache,
+        store,
         get roots() {
             return roots
         },
@@ -184,19 +184,19 @@ export const createTreeState = ({
         ensureChildrenLoaded,
         start,
         retryRoots: loadRoots,
-        // Listens to the cache only while someone listens to the tree, so an
-        // abandoned tree is not kept alive by the shared cache.
+        // Listens to the store only while someone listens to the tree, so an
+        // abandoned tree is not kept alive by the shared store.
         subscribe: (listener) => {
             listeners.add(listener)
-            unsubscribeCache ??= cache.subscribe(notify)
+            unsubscribeStore ??= store.subscribe(notify)
             return () => {
                 listeners.delete(listener)
                 if (listeners.size === 0) {
-                    unsubscribeCache?.()
-                    unsubscribeCache = undefined
+                    unsubscribeStore?.()
+                    unsubscribeStore = undefined
                 }
             }
         },
-        getVersion: () => version + cache.getVersion(),
+        getVersion: () => version + store.getVersion(),
     }
 }

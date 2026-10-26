@@ -1,6 +1,6 @@
 import type { OuTreeChildrenPage, OuTreeEntry, TreeApi } from '../data/index'
 
-export interface CachedNode {
+export interface StoredNode {
     id: string
     displayName: string
     path: string
@@ -40,22 +40,22 @@ export type RootsStatus =
     | { status: 'failed'; error: unknown }
     | { status: 'loaded' }
 
-/** Arguments of `createNodeCache`, which only the provider and tests call. */
-export interface NodeCacheOptions {
+/** Arguments of `createNodeStore`, which only the provider and tests call. */
+export interface NodeStoreOptions {
     api: TreeApi
     shortName?: boolean
 }
 
-export interface NodeCache {
+export interface NodeStore {
     /** Whether nodes carry short names instead of names. */
     readonly shortName: boolean
-    getNode(id: string): CachedNode | undefined
+    getNode(id: string): StoredNode | undefined
     /** `none` for a leaf or an unrequested parent; see `ChildrenStatus`. */
     getChildren(parentId: string): ChildrenStatus
     /**
-     * Makes sure the given units are cached: fetches the ones that are not,
+     * Makes sure the given units are stored: fetches the ones that are not,
      * in one gist request, and stores them as nodes. Resolves without a
-     * request when all are cached. Knows nothing about roots.
+     * request when all are stored. Knows nothing about roots.
      */
     loadNodes(ids: string[]): Promise<void>
     /** Fetches a page of a parent's children unless loading or loaded. */
@@ -81,20 +81,20 @@ const parentIdOf = (path: string): string | undefined => {
     return ids[ids.length - 2]
 }
 
-const withParent = (node: Omit<CachedNode, 'parentId'>): CachedNode => {
+const withParent = (node: Omit<StoredNode, 'parentId'>): StoredNode => {
     const parentId = parentIdOf(node.path)
     return parentId === undefined ? node : { ...node, parentId }
 }
 
 /**
- * The app-wide cache of org units and of each parent's paged children.
+ * The app-wide store of org units and of each parent's paged children.
  * Shared by every tree; holds nothing about open state or roots.
  */
-export const createNodeCache = ({
+export const createNodeStore = ({
     api,
     shortName = false,
-}: NodeCacheOptions): NodeCache => {
-    const nodes = new Map<string, CachedNode>()
+}: NodeStoreOptions): NodeStore => {
+    const nodes = new Map<string, StoredNode>()
     const children = new Map<string, ChildrenStatus>()
     const inFlightNodes = new Map<string, Promise<void>>()
     const listeners = new Set<() => void>()

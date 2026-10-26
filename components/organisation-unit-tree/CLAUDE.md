@@ -7,7 +7,7 @@ This package holds two components side by side:
 - `OuTree` — its replacement, in **TypeScript** (`src/ou-tree/`). The component
   is a placeholder. `src/ou-tree/data/` is the endpoint types and the tree
   API (the tree endpoint, its `<id>/children` resource and gist),
-  `src/ou-tree/node-cache/` the app-wide node cache with paged children per
+  `src/ou-tree/node-store/` the app-wide node store with paged children per
   parent, `src/ou-tree/tree/` the per-tree state, providers and hooks, and
   `src/ou-tree/__fixtures__/` a temporary in-memory stand-in for the endpoint
   with a PAHO fixture, for tests and stories.
@@ -75,8 +75,8 @@ in other packages.
 - **Paging names say which kind they mean.** Browse mode pages a parent's
   children (`requestChildrenPage`, `CHILDREN_PAGE_SIZE`); filtered mode, later,
   pages results. Nothing is called just "page".
-- **One `OuTreeNodeCacheProvider` per app.** Every tree shares its cache; a
-  tree without it throws. It holds one cache per `shortName` value.
+- **One `OuTreeNodeStoreProvider` per app.** Every tree shares its store; a
+  tree without it throws. It holds one store per `shortName` value.
 
 ## Commands
 

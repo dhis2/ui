@@ -1,5 +1,5 @@
 import { createTestTreeApi, pahoOrgUnits } from '../__fixtures__/index'
-import { createNodeCache } from '../node-cache/index'
+import { createNodeStore } from '../node-store/index'
 import { createTreeState } from './tree-state'
 
 const flush = () => new Promise((resolve) => setTimeout(resolve, 0))
@@ -8,8 +8,8 @@ const MINAS_GERAIS = 'IsBNuUZU5zm'
 describe('tree state over the PAHO stand-in', () => {
     it('loads all 18 pages of the widest parent through ensureChildrenLoaded', async () => {
         const { api, childrenCalls } = createTestTreeApi(pahoOrgUnits)
-        const cache = createNodeCache({ api })
-        const tree = createTreeState({ cache, roots: [MINAS_GERAIS] })
+        const store = createNodeStore({ api })
+        const tree = createTreeState({ store, roots: [MINAS_GERAIS] })
         tree.start()
         await flush()
         tree.open(MINAS_GERAIS)
@@ -24,7 +24,7 @@ describe('tree state over the PAHO stand-in', () => {
         const names = Array.from({ length: 853 }, (_, index) => {
             const row = tree.getRow(index + 1)
             return row.kind === 'node'
-                ? cache.getNode(row.id)?.displayName
+                ? store.getNode(row.id)?.displayName
                 : row.kind
         })
         expect(names.slice(0, 3)).toEqual([

@@ -1,8 +1,8 @@
 import {
     childrenPageOf,
     type ChildrenStatus,
-    type NodeCache,
-} from '../node-cache/index'
+    type NodeStore,
+} from '../node-store/index'
 
 export type Row =
     | { kind: 'node'; id: string; depth: number; children: ChildrenStatus }
@@ -18,7 +18,7 @@ export type Row =
 export interface FlattenRowsInput {
     roots: string[]
     isOpen: (id: string) => boolean
-    cache: NodeCache
+    store: NodeStore
 }
 
 export interface FlatRows {
@@ -28,7 +28,7 @@ export interface FlatRows {
 
 /**
  * The tree as a flat list: a depth-first walk from the roots over the open
- * set and the cache. Depth is relative to the root. Under an open node with
+ * set and the store. Depth is relative to the root. Under an open node with
  * loaded children, a filled slot is a node row and an empty slot is a
  * skeleton or,
  * if its page failed, an error row.
@@ -36,17 +36,17 @@ export interface FlatRows {
 export const flattenRows = ({
     roots,
     isOpen,
-    cache,
+    store,
 }: FlattenRowsInput): FlatRows => {
     const rows: Row[] = []
     const indexById = new Map<string, number>()
 
     const walk = (id: string, depth: number) => {
-        const node = cache.getNode(id)
+        const node = store.getNode(id)
         if (!node) {
             return
         }
-        const children = cache.getChildren(id)
+        const children = store.getChildren(id)
         indexById.set(id, rows.length)
         rows.push({ kind: 'node', id, depth, children })
         if (!isOpen(id) || node.leaf || children.status !== 'loaded') {

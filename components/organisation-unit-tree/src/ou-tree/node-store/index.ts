@@ -1,11 +1,11 @@
 export { CHILDREN_PAGE_SIZE } from '../data/index'
 export {
     childrenPageOf,
-    type CachedNode,
+    type StoredNode,
     type ChildrenPageStatus,
     type ChildrenState,
     type ChildrenStatus,
-    createNodeCache,
-    type NodeCache,
+    createNodeStore,
+    type NodeStore,
     type RootsStatus,
-} from './node-cache'
+} from './node-store'

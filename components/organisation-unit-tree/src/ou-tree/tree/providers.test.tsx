@@ -7,7 +7,7 @@ import {
     zambiaOrgUnits,
 } from '../__fixtures__/index'
 import { GIST_RESOURCE, TREE_RESOURCE } from '../data/index'
-import { OuTreeNodeCacheProvider } from './ou-tree-node-cache-provider'
+import { OuTreeNodeStoreProvider } from './ou-tree-node-store-provider'
 import { OuTreeProvider } from './ou-tree-provider'
 import { OuTreeHandle, useOuTree } from './use-ou-tree'
 import { useOuTreeNode } from './use-ou-tree-node'
@@ -32,7 +32,7 @@ const Providers = ({
     children: React.ReactNode
 }) => (
     <CustomDataProvider data={data}>
-        <OuTreeNodeCacheProvider>{children}</OuTreeNodeCacheProvider>
+        <OuTreeNodeStoreProvider>{children}</OuTreeNodeStoreProvider>
     </CustomDataProvider>
 )
 
@@ -53,7 +53,7 @@ describe('OuTree providers and hooks', () => {
         spy.mockRestore()
     })
 
-    it('OuTreeProvider throws without an OuTreeNodeCacheProvider', () => {
+    it('OuTreeProvider throws without an OuTreeNodeStoreProvider', () => {
         const spy = jest
             .spyOn(console, 'error')
             .mockImplementation(() => undefined)
@@ -69,7 +69,7 @@ describe('OuTree providers and hooks', () => {
                     </CustomDataProvider>
                 ),
             })
-        ).toThrow('OuTree needs an OuTreeNodeCacheProvider above it')
+        ).toThrow('OuTree needs an OuTreeNodeStoreProvider above it')
         spy.mockRestore()
     })
 
@@ -107,7 +107,7 @@ describe('OuTree providers and hooks', () => {
         expect(result.current.tree.getRowIndex('ou-13')).toBe(2)
     })
 
-    it('shares the cache between trees with different roots', async () => {
+    it('shares the store between trees with different roots', async () => {
         // Sibling districts: ou-3 is a root of both trees, ou-6 only of the
         // inner one. Nested roots would be excluded, so siblings it is.
         const { data, gist, childrenPages } = resolvers()
@@ -140,7 +140,7 @@ describe('OuTree providers and hooks', () => {
         expect(childrenPages).toHaveBeenCalledTimes(1)
     })
 
-    it('keeps separate caches for short and full names', async () => {
+    it('keeps separate stores for short and full names', async () => {
         const { data, gist } = resolvers()
         const wrapper = ({ children }: { children: React.ReactNode }) => (
             <Providers data={data}>
@@ -158,7 +158,7 @@ describe('OuTree providers and hooks', () => {
         )
 
         expect(gist).toHaveBeenCalledTimes(2)
-        expect(result.current.cache.shortName).toBe(true)
+        expect(result.current.store.shortName).toBe(true)
     })
 
     it('does not recreate the tree when roots are a new but equal array', async () => {

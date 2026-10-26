@@ -5,7 +5,7 @@ import React, {
     useMemo,
     useRef,
 } from 'react'
-import { useNodeCache } from './ou-tree-node-cache-provider'
+import { useNodeStore } from './ou-tree-node-store-provider'
 import { createTreeState, TreeState } from './tree-state'
 
 const TreeContext = createContext<TreeState | undefined>(undefined)
@@ -20,14 +20,14 @@ export interface OuTreeProviderProps {
     children: React.ReactNode
 }
 
-/** Creates one tree over the app's shared node cache. */
+/** Creates one tree over the app's shared node store. */
 export const OuTreeProvider = ({
     roots,
     shortName = false,
     initiallyOpen,
     children,
 }: OuTreeProviderProps) => {
-    const cache = useNodeCache(shortName)
+    const store = useNodeStore(shortName)
     // Keyed on the ids, not the array, so a parent re-rendering with a new
     // but equal array does not recreate the tree. initiallyOpen is read
     // once, at creation, like an initial state.
@@ -36,11 +36,11 @@ export const OuTreeProvider = ({
     const tree = useMemo(
         () =>
             createTreeState({
-                cache,
+                store,
                 roots: rootsKey === '' ? [] : rootsKey.split('\u0000'),
                 initiallyOpen: initiallyOpenRef.current,
             }),
-        [cache, rootsKey]
+        [store, rootsKey]
     )
     // Requests start from an effect, never during render, so a tree React
     // creates and discards (StrictMode) requests nothing.
