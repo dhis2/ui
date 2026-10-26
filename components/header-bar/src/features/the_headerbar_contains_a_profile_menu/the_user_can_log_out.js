@@ -17,10 +17,21 @@ When('there is no loading mask', () => {
     )
 })
 
-Then('the user clicks the link to log out', () => {
-    cy.get('[data-test="headerbar-profile-menu"] > li:nth-child(5)').trigger(
-        'click'
-    )
+When('the user clicks the link to log out', () => {
+    // Stub the form submission so the test page does not navigate away
+    cy.window().then((win) => {
+        cy.stub(win.HTMLFormElement.prototype, 'submit').as('formSubmit')
+    })
+    cy.get('[data-test="headerbar-profile-menu"] > li:nth-child(5) a').click()
+})
+
+Then('the user is logged out with a POST to the logout URL', () => {
+    cy.get('@formSubmit').should((submit) => {
+        expect(submit).to.have.been.calledOnce
+        const form = submit.thisValues[0]
+        expect(form.method).to.equal('post')
+        expect(form.action).to.equal(logoutUrl)
+    })
 })
 
 Then('a loading mask covers the screen', () => {
@@ -43,11 +54,4 @@ When('clearSensitiveCaches is called', async () => {
     expect(keys).to.include('workbox-precache-v2-asdf')
     // Others are removed
     expect(keys).not.to.include('test-cache')
-})
-
-// Currently not working
-Then('the window navigates to the logout URL', () => {
-    // (Currently unable to stub window.location.assign;
-    // would be done in 'Then the user clicks link to log out')
-    // cy.get('@locationAssign').should('be.calledWith', logoutUrl)
 })
