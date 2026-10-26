@@ -1,4 +1,5 @@
 import type { OuTreeChildrenPage, OuTreeEntry, TreeApi } from '../data/index'
+import type { Subscribable } from './subscribable'
 
 export interface StoredNode {
     id: string
@@ -46,7 +47,7 @@ export interface NodeStoreOptions {
     shortName?: boolean
 }
 
-export interface NodeStore {
+export interface NodeStore extends Subscribable {
     /** Whether nodes carry short names instead of names. */
     readonly shortName: boolean
     getNode(id: string): StoredNode | undefined
@@ -62,8 +63,6 @@ export interface NodeStore {
     requestChildrenPage(parentId: string, page: number): void
     /** Clears a failed page and requests it again. */
     retryChildrenPage(parentId: string, page: number): void
-    subscribe(listener: () => void): () => void
-    getVersion(): number
 }
 
 /**

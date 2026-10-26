@@ -1,3 +1,4 @@
+export type { Subscribable } from './subscribable'
 export { CHILDREN_PAGE_SIZE } from '../data/index'
 export {
     childrenPageOf,

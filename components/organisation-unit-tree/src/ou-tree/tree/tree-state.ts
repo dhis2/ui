@@ -2,6 +2,7 @@ import {
     childrenPageOf,
     type NodeStore,
     type RootsStatus,
+    type Subscribable,
 } from '../node-store/index'
 import { excludeNestedRoots } from './exclude-nested-roots'
 import { FlatRows, flattenRows, Row } from './flatten-rows'
@@ -12,7 +13,7 @@ export interface TreeStateOptions {
     initiallyOpen?: string[]
 }
 
-export interface TreeState {
+export interface TreeState extends Subscribable {
     readonly store: NodeStore
     /** The roots actually shown: loaded, nested ones excluded. */
     readonly roots: string[]
@@ -38,8 +39,6 @@ export interface TreeState {
     /** Loads the roots and the initially open nodes. Idempotent. */
     loadInitial(): void
     retryRoots(): void
-    subscribe(listener: () => void): () => void
-    getVersion(): number
 }
 
 /**
@@ -202,6 +201,7 @@ export const createTreeState = ({
                 }
             }
         },
+        // Own changes plus the store's, so either re-renders subscribers.
         getVersion: () => version + store.getVersion(),
     }
 }
