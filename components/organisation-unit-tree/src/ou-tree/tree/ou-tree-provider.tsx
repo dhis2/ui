@@ -28,16 +28,17 @@ export const OuTreeProvider = ({
     children,
 }: OuTreeProviderProps) => {
     const store = useNodeStore(shortName)
-    // Keyed on the ids, not the array, so a parent re-rendering with a new
-    // but equal array does not recreate the tree. initiallyOpen is read
-    // once, at creation, like an initial state.
-    const rootsKey = roots.join('\u0000')
+    // useMemo compares by identity, so the ids are joined into a string and
+    // the tree is keyed on that: a new but equal array does not recreate it.
+    // Uids are letters and digits, so a comma never collides. initiallyOpen
+    // is read once, at creation, like an initial state.
+    const rootsKey = roots.join(',')
     const initiallyOpenRef = useRef(initiallyOpen)
     const tree = useMemo(
         () =>
             createTreeState({
                 store,
-                roots: rootsKey === '' ? [] : rootsKey.split('\u0000'),
+                roots: rootsKey === '' ? [] : rootsKey.split(','),
                 initiallyOpen: initiallyOpenRef.current,
             }),
         [store, rootsKey]
