@@ -104,6 +104,8 @@ export const createNodeStore = ({
         listeners.forEach((listener) => listener())
     }
 
+    // Keeps the stored object when nothing changed, so a node delivered
+    // again (a retried page, say) keeps its identity.
     const storeEntry = ({
         id,
         displayName,
@@ -111,6 +113,16 @@ export const createNodeStore = ({
         level,
         leaf,
     }: OuTreeEntry) => {
+        const existing = nodes.get(id)
+        if (
+            existing &&
+            existing.displayName === displayName &&
+            existing.path === path &&
+            existing.level === level &&
+            existing.leaf === leaf
+        ) {
+            return
+        }
         nodes.set(id, withParent({ id, displayName, path, level, leaf }))
     }
 

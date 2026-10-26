@@ -415,3 +415,20 @@ describe('createNodeStore', () => {
         })
     })
 })
+
+describe('node identity', () => {
+    it('keeps a stored node object when it is delivered again unchanged', async () => {
+        const { api } = createTestTreeApi({
+            orgUnits: zambiaOrgUnits,
+            pageSize: 2,
+        })
+        const store = createNodeStore({ api })
+        await store.loadNodes(['ou-5'])
+        const before = store.getNode('ou-5')
+
+        store.requestChildrenPage('ou-3', 1)
+        await flush()
+
+        expect(store.getNode('ou-5')).toBe(before)
+    })
+})

@@ -19,6 +19,8 @@ export interface FlattenRowsInput {
     roots: string[]
     openIds: ReadonlySet<string>
     store: NodeStore
+    /** The previous result; node rows that did not change are reused. */
+    previous?: FlatRows
 }
 
 export interface FlatRows {
@@ -36,9 +38,29 @@ export const flattenRows = ({
     roots,
     openIds,
     store,
+    previous,
 }: FlattenRowsInput): FlatRows => {
     const rows: Row[] = []
     const indexById = new Map<string, number>()
+
+    // A node row keeps its identity across rebuilds while its depth and
+    // children status are unchanged, so a memoised row component can skip.
+    const nodeRow = (
+        id: string,
+        depth: number,
+        children: ChildrenStatus
+    ): Row => {
+        const index = previous?.indexById.get(id)
+        const reusable = index === undefined ? undefined : previous?.rows[index]
+        if (
+            reusable?.kind === 'node' &&
+            reusable.depth === depth &&
+            reusable.children === children
+        ) {
+            return reusable
+        }
+        return { kind: 'node', id, depth, children }
+    }
 
     const walk = (id: string, depth: number) => {
         const node = store.getNode(id)
@@ -47,7 +69,7 @@ export const flattenRows = ({
         }
         const children = store.getChildren(id)
         indexById.set(id, rows.length)
-        rows.push({ kind: 'node', id, depth, children })
+        rows.push(nodeRow(id, depth, children))
         if (!openIds.has(id) || node.leaf || children.status !== 'loaded') {
             return
         }

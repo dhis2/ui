@@ -57,6 +57,9 @@ export const createTreeState = ({
     let rootsStatus: RootsStatus = { status: 'loading' }
     let version = 0
     let memo: { version: number; flat: FlatRows } | undefined
+    // Set when the open set or the roots change; the memo is then rebuilt,
+    // reusing its rows where nothing changed.
+    let stale = false
     let unsubscribeStore: (() => void) | undefined
 
     const notify = () => {
@@ -66,20 +69,22 @@ export const createTreeState = ({
 
     const flat = (): FlatRows => {
         const current = store.getVersion()
-        if (memo?.version !== current) {
+        if (!memo || stale || memo.version !== current) {
             memo = {
                 version: current,
                 flat: flattenRows({
                     roots,
                     openIds,
                     store,
+                    previous: memo?.flat,
                 }),
             }
+            stale = false
         }
         return memo.flat
     }
     const invalidate = () => {
-        memo = undefined
+        stale = true
     }
 
     const requestFirstPage = (id: string) => {

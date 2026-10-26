@@ -162,3 +162,37 @@ describe('flattenRows', () => {
         ])
     })
 })
+
+describe('flattenRows row identity', () => {
+    it('reuses node rows whose depth and children status are unchanged', async () => {
+        const { api } = createTestTreeApi({
+            orgUnits: zambiaOrgUnits,
+            pageSize: 2,
+        })
+        const store = createNodeStore({ api })
+        await store.loadNodes(['ou-1'])
+        store.requestChildrenPage('ou-1', 1)
+        await flush()
+        const first = flattenRows({
+            roots: ['ou-1'],
+            openIds: openSet('ou-1'),
+            store,
+        })
+
+        store.requestChildrenPage('ou-2', 1)
+        await flush()
+        const second = flattenRows({
+            roots: ['ou-1'],
+            openIds: openSet('ou-1', 'ou-2'),
+            store,
+            previous: first,
+        })
+
+        // ou-1 and ou-13 are unchanged; ou-2's children status changed.
+        expect(second.rows[0]).toBe(first.rows[0])
+        expect(second.rows[1]).not.toBe(first.rows[1])
+        expect(second.rows[1]).toMatchObject({ kind: 'node', id: 'ou-2' })
+        const ou13 = second.rows[second.indexById.get('ou-13') as number]
+        expect(ou13).toBe(first.rows[first.indexById.get('ou-13') as number])
+    })
+})

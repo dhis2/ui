@@ -285,3 +285,19 @@ describe('createTreeState before loadInitial', () => {
         expect(childrenCalls).toHaveLength(1)
     })
 })
+
+describe('row identity', () => {
+    it('keeps a row object across unrelated changes', async () => {
+        const { tree } = setup(['ou-1'])
+        await flush()
+        tree.open('ou-1')
+        await flush()
+        const before = tree.getRow(tree.getRowIndex('ou-13') as number)
+
+        tree.open('ou-2')
+        await flush()
+
+        expect(tree.getRow(tree.getRowIndex('ou-13') as number)).toBe(before)
+        expect(tree.getRow(0)).toBe(tree.getRow(0))
+    })
+})
