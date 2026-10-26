@@ -10,12 +10,11 @@ const arrowFor = (leaf: boolean, isOpen: boolean) => {
 }
 
 const NodeRow = ({ id, depth }: { id: string; depth: number }) => {
-    const { node, isOpen } = useOuTreeNode(id)
+    const { node, isOpen, children } = useOuTreeNode(id)
     const { toggle, store } = useOuTree()
     if (!node) {
         return null
     }
-    const children = store.getChildren(id)
     return (
         <li style={{ paddingLeft: depth * 20 }}>
             <button

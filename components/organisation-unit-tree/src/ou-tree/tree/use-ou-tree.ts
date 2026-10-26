@@ -6,6 +6,8 @@ import type { TreeState } from './tree-state'
 export type OuTreeHandle = {
     rowCount: number
     rootsStatus: RootsStatus
+    /** Changes whenever the tree does; a key for memoisation downstream. */
+    version: number
 } & Pick<
     TreeState,
     | 'getRow'
@@ -26,6 +28,7 @@ export const useOuTree = (): OuTreeHandle => {
     // One object per tree change, so consumers can use it in dependencies.
     return useMemo(
         () => ({
+            version,
             rowCount: tree.getRowCount(),
             rootsStatus: tree.getRootsStatus(),
             getRow: tree.getRow,
@@ -38,7 +41,6 @@ export const useOuTree = (): OuTreeHandle => {
             retryRoots: tree.retryRoots,
             store: tree.store,
         }),
-        // eslint-disable-next-line react-hooks/exhaustive-deps -- version stands for the tree's mutable contents
         [tree, version]
     )
 }
