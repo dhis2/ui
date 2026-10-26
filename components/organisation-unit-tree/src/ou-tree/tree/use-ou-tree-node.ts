@@ -1,4 +1,4 @@
-import { useSyncExternalStore } from 'react'
+import { useMemo, useSyncExternalStore } from 'react'
 import type { StoredNode } from '../node-store/index'
 import { useTreeState } from './ou-tree-provider'
 
@@ -7,6 +7,10 @@ export const useOuTreeNode = (
     id: string
 ): { node: StoredNode | undefined; isOpen: boolean } => {
     const tree = useTreeState()
-    useSyncExternalStore(tree.subscribe, tree.getVersion)
-    return { node: tree.store.getNode(id), isOpen: tree.isOpen(id) }
+    const version = useSyncExternalStore(tree.subscribe, tree.getVersion)
+    return useMemo(
+        () => ({ node: tree.store.getNode(id), isOpen: tree.isOpen(id) }),
+        // eslint-disable-next-line react-hooks/exhaustive-deps -- version stands for the tree's mutable contents
+        [tree, version, id]
+    )
 }
