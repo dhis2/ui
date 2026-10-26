@@ -5,9 +5,12 @@ This package holds two components side by side:
 - `OrganisationUnitTree` — the current component, in **JavaScript**
   (`src/organisation-unit-tree/`, `src/organisation-unit-node/` and friends).
 - `OuTree` — its replacement, in **TypeScript** (`src/ou-tree/`). The component
-  is a placeholder; `src/ou-tree/data/` holds the endpoint types and
-  `src/ou-tree/__fixtures__/` an in-memory implementation of
-  `GET /api/organisationUnits/tree` with a PAHO fixture, for tests and stories.
+  is a placeholder. `src/ou-tree/data/` is the endpoint types and the tree
+  API (the tree endpoint, its `<id>/children` resource and gist),
+  `src/ou-tree/node-store/` the app-wide node store with paged children per
+  parent, `src/ou-tree/tree/` the per-tree state, providers and hooks, and
+  `src/ou-tree/__fixtures__/` a temporary in-memory stand-in for the endpoint
+  with a PAHO fixture, for tests and stories.
 
 The rest of this repository is JavaScript. The TypeScript conventions below apply
 to `.ts`/`.tsx` files only; do not apply them to the JavaScript sources here or
@@ -69,6 +72,11 @@ in other packages.
   `scripts/derive-ou-tree-fixture.js` from a PAHO metadata export that is not
   in the repo. It sits outside `src/` so it is not published, and it is
   excluded from Prettier. Regenerate rather than hand-edit.
+- **Paging names say which kind they mean.** Browse mode pages a parent's
+  children (`requestChildrenPage`, `CHILDREN_PAGE_SIZE`); filtered mode, later,
+  pages results. Nothing is called just "page".
+- **One `OuTreeNodeStoreProvider` per app.** Every tree shares its store; a
+  tree without it throws. It holds one store per `shortName` value.
 
 ## Commands
 
