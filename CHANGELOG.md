@@ -1,3 +1,78 @@
+# [10.20.0](https://github.com/dhis2/ui/compare/v10.19.4...v10.20.0) (2026-10-22)
+
+
+### Bug Fixes
+
+* update tx config ([#1783](https://github.com/dhis2/ui/issues/1783)) ([6263472](https://github.com/dhis2/ui/commit/626347258bf7922683ac76e107e73b81973366cd))
+
+
+### Features
+
+* **alert:** enhance screen reader accessibility ([#1773](https://github.com/dhis2/ui/issues/1773)) ([df52325](https://github.com/dhis2/ui/commit/df52325653134b197a6d2b0eff439639fa445d2b))
+* **segmented-control:** improve accessibility ([#1766](https://github.com/dhis2/ui/issues/1766)) ([700b934](https://github.com/dhis2/ui/commit/700b93476d5bb166bf9c4c5c923d5912b715519c))
+* **selector-bar:** enhance focus management and interaction handling ([#1772](https://github.com/dhis2/ui/issues/1772)) ([24db729](https://github.com/dhis2/ui/commit/24db729ddf084e103442520751a115ca549a4483))
+
+## [10.19.4](https://github.com/dhis2/ui/compare/v10.19.3...v10.19.4) (2026-10-19)
+
+
+### Bug Fixes
+
+* **select:** cancel pending resize handler on unmount (DHIS2-22294) ([#1778](https://github.com/dhis2/ui/issues/1778)) ([65b1498](https://github.com/dhis2/ui/commit/65b1498b474862de3ef3d8405e34817ed02de162))
+
+## [10.19.3](https://github.com/dhis2/ui/compare/v10.19.2...v10.19.3) (2026-10-13)
+
+
+### Bug Fixes
+
+* **calendar:** bump multi-calendar-dates for DateTime fix ([#1776](https://github.com/dhis2/ui/issues/1776)) ([5551fa9](https://github.com/dhis2/ui/commit/5551fa945746cfc50db9a04b17666f11f1fcedd4))
+
+## [10.19.2](https://github.com/dhis2/ui/compare/v10.19.1...v10.19.2) (2026-10-12)
+
+
+### Bug Fixes
+
+* update transifex config and prevent future issues ([#1774](https://github.com/dhis2/ui/issues/1774)) ([f8272ea](https://github.com/dhis2/ui/commit/f8272ea793e9608e15d63d31df243ae901b087e9))
+
+## [10.19.1](https://github.com/dhis2/ui/compare/v10.19.0...v10.19.1) (2026-10-09)
+
+
+### Bug Fixes
+
+* tackle slowness of CalendarInput and Ethiopic calendar failures ([#1757](https://github.com/dhis2/ui/issues/1757)) ([6c8c74d](https://github.com/dhis2/ui/commit/6c8c74d8911c0db7d95431fd79a3c3ffd4292a07)), closes [#1753](https://github.com/dhis2/ui/issues/1753) [#1753](https://github.com/dhis2/ui/issues/1753) [#1744](https://github.com/dhis2/ui/issues/1744)
+* trigger publish ([#1775](https://github.com/dhis2/ui/issues/1775)) ([4fcaae4](https://github.com/dhis2/ui/commit/4fcaae4e2b3dd6b6aab490f1d76691fc341aad86))
+
+# [10.19.0](https://github.com/dhis2/ui/compare/v10.18.0...v10.19.0) (2026-09-28)
+
+
+### Bug Fixes
+
+* **transfer:** update initiallySelected options in DragAndDropWithDisabledOptions story ([74a83aa](https://github.com/dhis2/ui/commit/74a83aafecf511e0ecaeb84fb42b26ae0359233a))
+* transfer drag and drop styles ([76834b7](https://github.com/dhis2/ui/commit/76834b75471c14bd16aa5fee4ded5e821b3a6371))
+* **transfer:** disable dnd-kit's default drop animation side effect ([980e109](https://github.com/dhis2/ui/commit/980e1095f10a4ff91427cfcb27940fc85b1569d5))
+
+
+### Features
+
+* **transfer:** implement drag-n-drop functionality for transfer options ([e18e61f](https://github.com/dhis2/ui/commit/e18e61ff7f6982c1d485633309108dc0972e8877))
+
+# [10.18.0](https://github.com/dhis2/ui/compare/v10.17.0...v10.18.0) (2026-09-25)
+
+
+### Bug Fixes
+
+* resolve the typescript peer conflict that breaks releases ([#1770](https://github.com/dhis2/ui/issues/1770)) ([9a0cd9d](https://github.com/dhis2/ui/commit/9a0cd9dcd7f9a372f868a2014971a600a388edcc))
+* **notification-icon:** align badge text color with global shell ([e73cd57](https://github.com/dhis2/ui/commit/e73cd57317fd1e9a97a844dfd56f3571f2bcac3d))
+* **notification-icon:** change background color to red500 for improved contrast ([660784a](https://github.com/dhis2/ui/commit/660784a2fdfd0cc8c723a2397931b95d346aeb48))
+* **notification-icon:** enhance accessibility ([553b61d](https://github.com/dhis2/ui/commit/553b61d3e14437d712ffb2ceede675f401dfed98))
+* **notification-icon:** update box-shadow color to match the header bar background ([86ed313](https://github.com/dhis2/ui/commit/86ed313a01a1a1a6234e62219f6e8d8779047dcf))
+
+
+### Features
+
+* support writing components in TypeScript, with a placeholder OuTree ([#1764](https://github.com/dhis2/ui/issues/1764)) ([47ac8f3](https://github.com/dhis2/ui/commit/47ac8f3a0d731b390e6629ffbd2a1bf86a736c8a))
+* **header-bar:** add expandable notification dot indicator ([ffc9ac5](https://github.com/dhis2/ui/commit/ffc9ac57ac68544696b5255b5a84697dd8822515))
+* **select:** add menuMinWidth and menuMaxWidth to SimpleSingleSelect ([2967f90](https://github.com/dhis2/ui/commit/2967f90a7254757869e28e9754117972b56e4533))
+
 # [10.17.0](https://github.com/dhis2/ui/compare/v10.16.5...v10.17.0) (2026-07-20)
 
 

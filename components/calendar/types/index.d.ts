@@ -1,11 +1,30 @@
 import * as React from 'react'
-import { useDatePicker } from '@dhis2/multi-calendar-dates'
+import { useDatePicker, validateDateString } from '@dhis2/multi-calendar-dates'
 import { InputFieldProps } from '@dhis2-ui/input'
 
 export type CalendarDir = 'ltr' | 'rtl'
 
 type CalendarPickerParam = Parameters<typeof useDatePicker>[0]
 type CalendarPickerOptions = CalendarPickerParam['options']
+
+/**
+ * The `validation` object CalendarInput attaches to its `onDateSelect`
+ * payload. Not produced by the bare `Calendar` widget - CalendarInput
+ * computes it itself via `validateDateString` (whose `error`/`warning`/
+ * `valid` combination depends on the `strictValidation` prop), except
+ * when the date is cleared, in which case it's just `{ valid: true }`.
+ */
+export type CalendarInputValidation = ReturnType<typeof validateDateString>
+
+export type CalendarInputOnDateSelectPayload =
+    | {
+          calendarDateString: string
+          validation: CalendarInputValidation
+      }
+    | {
+          calendarDateString: null
+          validation: { valid: true }
+      }
 
 export interface CalendarProps {
     /**
@@ -62,7 +81,14 @@ export interface CalendarProps {
 export const Calendar: React.FC<CalendarProps>
 
 export type CalendarInputProps = Omit<InputFieldProps, 'type' | 'value'> &
-    CalendarProps & {
+    Omit<CalendarProps, 'onDateSelect'> & {
+        /**
+         * Called with `{ calendarDateString: null, validation: { valid: true } }`
+         * when the date is cleared, otherwise with `{ calendarDateString: string, validation }`
+         * where `validation` reflects the result of validating against `minDate`/`maxDate`/
+         * `format` (see `CalendarInputValidation`), influenced by `strictValidation`.
+         */
+        onDateSelect: (payload: CalendarInputOnDateSelectPayload) => void
         /**
          * Optional format for the date. Determines how the date is displayed
          * or processed. If not provided it supports both formats

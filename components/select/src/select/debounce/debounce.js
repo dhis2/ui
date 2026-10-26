@@ -7,7 +7,7 @@
 export const debounce = (func, wait, immediate) => {
     let timeout
 
-    return (...args) => {
+    const debounced = (...args) => {
         const context = this
 
         const later = () => {
@@ -27,4 +27,11 @@ export const debounce = (func, wait, immediate) => {
             func.apply(context, args)
         }
     }
+
+    debounced.cancel = () => {
+        clearTimeout(timeout)
+        timeout = null
+    }
+
+    return debounced
 }

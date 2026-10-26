@@ -95,8 +95,12 @@ When('the user clicks an enabled option', () => {
 When(
     'SHIFT+clicks another enabled option, including a disabled item in the range of options',
     () => {
+        // options are wrapped in draggable wrappers, so the next
+        // option is the child of the parent wrapper's next sibling
         cy.get(disabledSourceOptionSelector)
+            .parent()
             .next()
+            .children()
             .clickWith('shift')
             .as('clickedWithShiftEnabledOption')
     }
@@ -171,8 +175,9 @@ Then('the enabled options in the range are highlighted', () => {
         () => cy.get('@clickedWithShiftEnabledOption')
     ).should(
         ([$all, $clickedEnabledOption, $clickedWithShiftEnabledOption]) => {
-            const from = $clickedEnabledOption.index()
-            const to = $clickedWithShiftEnabledOption.index()
+            // the option's position is its draggable wrapper's position
+            const from = $clickedEnabledOption.parent().index()
+            const to = $clickedWithShiftEnabledOption.parent().index()
             const $allInRange = $all.slice(from, to + 1)
             const $allInRangeEnabled = $allInRange.filter(':not(.disabled)')
 

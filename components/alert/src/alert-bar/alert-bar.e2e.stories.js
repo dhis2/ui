@@ -6,6 +6,7 @@ window.onHidden = window.Cypress && window.Cypress.cy.stub()
 export default { title: 'AlertBar' }
 
 export const Default = () => <AlertBar>Default</AlertBar>
+export const Critical = () => <AlertBar critical>Critical</AlertBar>
 export const CustomDuration = () => (
     <AlertBar duration={2000}>Custom duration</AlertBar>
 )
