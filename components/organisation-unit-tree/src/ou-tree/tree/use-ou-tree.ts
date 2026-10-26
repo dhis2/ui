@@ -21,7 +21,7 @@ export type OuTreeHandle = {
 
 /** The tree from the nearest OuTreeProvider, re-rendering on every change. */
 export const useOuTree = (): OuTreeHandle => {
-    const tree = useTreeState('useOuTree')
+    const tree = useTreeState()
     useSyncExternalStore(tree.subscribe, tree.getVersion)
     return {
         rowCount: tree.getRowCount(),

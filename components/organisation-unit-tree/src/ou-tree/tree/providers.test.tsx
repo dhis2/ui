@@ -49,7 +49,7 @@ describe('OuTree providers and hooks', () => {
                     <Providers data={data}>{children}</Providers>
                 ),
             })
-        ).toThrow('useOuTree must be used inside an OuTreeProvider')
+        ).toThrow('OuTree hooks need an OuTreeProvider above them')
         spy.mockRestore()
     })
 

@@ -6,7 +6,7 @@ import { useTreeState } from './ou-tree-provider'
 export const useOuTreeNode = (
     id: string
 ): { node: StoredNode | undefined; isOpen: boolean } => {
-    const tree = useTreeState('useOuTreeNode')
+    const tree = useTreeState()
     useSyncExternalStore(tree.subscribe, tree.getVersion)
     return { node: tree.store.getNode(id), isOpen: tree.isOpen(id) }
 }

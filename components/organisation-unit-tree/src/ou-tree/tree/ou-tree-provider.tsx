@@ -52,10 +52,11 @@ export const OuTreeProvider = ({
     return <TreeContext.Provider value={tree}>{children}</TreeContext.Provider>
 }
 
-export const useTreeState = (hook: string): TreeState => {
+/** The tree from the nearest OuTreeProvider. */
+export const useTreeState = (): TreeState => {
     const tree = useContext(TreeContext)
     if (!tree) {
-        throw new Error(`${hook} must be used inside an OuTreeProvider`)
+        throw new Error('OuTree hooks need an OuTreeProvider above them')
     }
     return tree
 }
