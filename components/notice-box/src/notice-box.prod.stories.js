@@ -42,6 +42,7 @@ export default {
     argTypes: {
         dense: { control: 'boolean' },
         error: { ...sharedPropTypes.statusArgType },
+        role: { control: 'select', options: ['note', 'status', 'alert'] },
         warning: { ...sharedPropTypes.statusArgType },
         valid: { ...sharedPropTypes.statusArgType },
     },

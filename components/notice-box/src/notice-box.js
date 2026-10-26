@@ -16,27 +16,12 @@ export const NoticeBox = ({
     valid,
     dense = false,
     icon,
-    'aria-label': ariaLabel,
+    role = 'note',
 }) => {
     const classnames = cx(className, 'root', { warning, error, valid, dense })
 
-    let role = 'note'
-
-    if (warning || valid) {
-        role = 'status'
-    }
-
-    if (error) {
-        role = 'alert'
-    }
-
     return (
-        <div
-            className={classnames}
-            data-test={dataTest}
-            role={role}
-            aria-label={ariaLabel}
-        >
+        <div className={classnames} data-test={dataTest} role={role}>
             <NoticeBoxIcon
                 error={error}
                 warning={warning}
@@ -90,7 +75,6 @@ export const NoticeBox = ({
 }
 
 NoticeBox.propTypes = {
-    'aria-label': PropTypes.string,
     children: PropTypes.node,
     className: PropTypes.string,
     dataTest: PropTypes.string,
@@ -98,8 +82,10 @@ NoticeBox.propTypes = {
     dense: PropTypes.bool,
     /** Applies 'error' message styles. Mutually exclusive with the `valid` and `warning` props */
     error: mutuallyExclusive(['error', 'valid', 'warning'], PropTypes.bool),
-    /** Replaces the default status icon; `error`, `warning`, and `valid` still set box colors */
+    /** Replaces the default status icon; `error`, `warning`, and `valid` still set box colors. Treated as decorative and hidden from screen readers */
     icon: PropTypes.node,
+    /** Use `alert` for errors after a user action, e.g. a failed save, not on page load. Use `status` only if the content changes while the box is shown */
+    role: PropTypes.oneOf(['note', 'status', 'alert']),
     title: PropTypes.string,
     /** Applies 'valid' message styles. Mutually exclusive with the `error` and `warning` props */
     valid: mutuallyExclusive(['error', 'valid', 'warning'], PropTypes.bool),
