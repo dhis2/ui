@@ -73,7 +73,9 @@ export const Controls = ({ id, entityAmount }) => {
             {!called && <UpdateInfo id={id} entityAmount={entityAmount} />}
             {error && (
                 <Box marginTop={spacers.dp12}>
-                    <NoticeBox error>{error}</NoticeBox>
+                    <NoticeBox error role="alert">
+                        {error}
+                    </NoticeBox>
                 </Box>
             )}
             {data && mutationResult && (
