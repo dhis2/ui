@@ -39,7 +39,10 @@
         "@dhis2-ui/checkbox": "10.19.3",
         "@dhis2-ui/loader": "10.19.3",
         "@dhis2-ui/node": "10.19.3",
+        "@dhis2-ui/tooltip": "10.19.3",
         "@dhis2/ui-constants": "10.19.3",
+        "@dhis2/ui-icons": "10.19.3",
+        "@tanstack/react-virtual": "^3.13.0",
         "classnames": "^2.3.1",
         "prop-types": "^15.7.2"
     },
