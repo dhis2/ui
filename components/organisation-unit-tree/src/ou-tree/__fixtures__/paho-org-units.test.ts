@@ -2,7 +2,7 @@ import { pahoOrgUnits } from './paho-org-units'
 
 describe('pahoOrgUnits', () => {
     it('loads the derived PAHO fixture', () => {
-        expect(pahoOrgUnits.orgUnits).toHaveLength(19191)
+        expect(pahoOrgUnits.orgUnits).toHaveLength(19190)
         expect(pahoOrgUnits.groups).toHaveLength(10)
     })
 

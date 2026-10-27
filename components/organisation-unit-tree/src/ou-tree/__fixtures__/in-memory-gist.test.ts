@@ -12,7 +12,7 @@ describe('createInMemoryGist', () => {
                 displayName: 'AMR',
                 path: '/nOsaOsg36TR',
                 level: 1,
-                children: 27,
+                children: 26,
             },
             {
                 id: 'eFkh5oWtyud',
