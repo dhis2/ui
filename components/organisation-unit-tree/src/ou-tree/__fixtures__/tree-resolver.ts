@@ -69,8 +69,8 @@ export const parseQueryParams = (params: unknown): OuTreeQuery => {
     if (raw.locale !== undefined) {
         query.locale = toText('locale', raw.locale)
     }
-    if (raw.roots !== undefined) {
-        query.roots = toList('roots', raw.roots)
+    if (raw.rootIds !== undefined) {
+        query.rootIds = toList('rootIds', raw.rootIds)
     }
     if (raw.depth !== undefined) {
         query.depth = toNumber('depth', raw.depth)
