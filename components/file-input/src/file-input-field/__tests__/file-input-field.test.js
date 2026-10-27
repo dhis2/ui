@@ -26,4 +26,26 @@ describe('<FileInputField />', () => {
             expect.objectContaining({})
         )
     })
+
+    it('should name the button by its label and describe it by help and validation text', () => {
+        render(
+            <FileInputField
+                label="Label"
+                name="foo"
+                helpText="Help text"
+                validationText="Validation text"
+            />
+        )
+
+        const button = screen.getByRole('button', {
+            name: 'Upload a file Label',
+        })
+        expect(button).toHaveAccessibleDescription('Help text Validation text')
+    })
+
+    it('should render the status message in a live region', () => {
+        render(<FileInputField name="foo" statusMessage="test.md added" />)
+
+        expect(screen.getByRole('status')).toHaveTextContent('test.md added')
+    })
 })

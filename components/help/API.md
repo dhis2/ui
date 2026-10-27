@@ -18,5 +18,6 @@ import { Help } from '@dhis2/ui'
 |className|string||||
 |dataTest|string|``'dhis2-uicore-help'``|||
 |error|custom||||
+|id|string||||
 |valid|custom||||
 |warning|custom||||

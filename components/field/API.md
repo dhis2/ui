@@ -20,12 +20,14 @@ import { Field } from '@dhis2/ui'
 |disabled|boolean|||Disabled status, shown when mouse is over label|
 |error|custom|||Field status. Mutually exclusive with `valid` and `warning` props|
 |helpText|string|||Useful text within the field|
+|helpTextId|string|||id passed to the help text element|
 |label|string|||Label at the top of the field|
 |labelId|string|||id passed to the label element|
 |name|string|||`name` will become the target of the `for`/`htmlFor` attribute on the `<label>` element|
 |required|boolean|||Inidcates this field is required|
 |valid|custom|||Field status. Mutually exclusive with `error` and `warning` props|
 |validationText|string|||Feedback given related to validation status of field|
+|validationTextId|string|||id passed to the validation text element|
 |warning|custom|||Field status. Mutually exclusive with `valid` and `error` props|
 
 ### FieldGroup

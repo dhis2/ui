@@ -56,6 +56,8 @@ class FileInput extends Component {
     render() {
         const {
             accept = '*',
+            ariaDescribedBy,
+            ariaLabelledBy,
             buttonLabel,
             className,
             dataTest = 'dhis2-uicore-fileinput',
@@ -70,6 +72,7 @@ class FileInput extends Component {
             valid,
             warning,
         } = this.props
+        const buttonId = ariaLabelledBy && name ? `${name}-button` : undefined
 
         return (
             <div className={cx('file-input', className)} data-test={dataTest}>
@@ -86,6 +89,13 @@ class FileInput extends Component {
                         data-test={`${dataTest}-input`}
                     />
                     <Button
+                        id={buttonId}
+                        aria-describedby={ariaDescribedBy}
+                        aria-labelledby={
+                            buttonId
+                                ? `${buttonId} ${ariaLabelledBy}`
+                                : ariaLabelledBy
+                        }
                         disabled={disabled}
                         icon={<IconUpload24 color={colors.grey700} />}
                         initialFocus={initialFocus}
@@ -125,6 +135,10 @@ FileInput.propTypes = {
      * The `accept` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept)
      */
     accept: PropTypes.string,
+    /** Sets an aria-describedby attribute on the button */
+    ariaDescribedBy: PropTypes.string,
+    /** Sets an aria-labelledby attribute on the button */
+    ariaLabelledBy: PropTypes.string,
     buttonLabel: PropTypes.string,
     className: PropTypes.string,
     dataTest: PropTypes.string,
