@@ -34,6 +34,7 @@ describe('OuTreeErrorRow', () => {
                     row={{
                         kind: 'error',
                         parentId: 'ou-1',
+                        index: 0,
                         page: 2,
                         error: new Error('x'),
                         depth: 1,

@@ -1,4 +1,4 @@
-export { rowKey } from './row-key'
+export { rowKey } from '../tree/index'
 export {
     type OuTreeVirtualItem,
     type OuTreeVirtualRows,

@@ -55,6 +55,7 @@ describe('OuTreeRow', () => {
             {
                 kind: 'error',
                 parentId: 'ou-1',
+                index: 0,
                 page: 1,
                 error: new Error('x'),
                 depth: 1,

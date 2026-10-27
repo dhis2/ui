@@ -1,7 +1,6 @@
 import { useVirtualizer } from '@tanstack/react-virtual'
 import { useCallback, useEffect, useMemo } from 'react'
-import { useOuTree } from '../tree/index'
-import { rowKey } from './row-key'
+import { rowKey, useOuTree } from '../tree/index'
 
 const ESTIMATED_ROW_SIZE = 24
 
@@ -35,7 +34,7 @@ export const useOuTreeVirtualRows = ({
     // The virtualiser rebuilds its measurements for every row when this
     // function changes, so it changes only with the tree, never on scroll.
     const getItemKey = useCallback(
-        (index: number) => rowKey(tree.getRow(index), index),
+        (index: number) => rowKey(tree.getRow(index)),
         [tree]
     )
     const virtualizer = useVirtualizer({

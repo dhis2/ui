@@ -4,6 +4,7 @@ import {
     type NodeStore,
     type StoredNode,
 } from '../node-store/index'
+import { rowKey } from './row-key'
 
 export type Row =
     | { kind: 'node'; id: string; depth: number; children: ChildrenStatus }
@@ -11,6 +12,8 @@ export type Row =
     | {
           kind: 'error'
           parentId: string
+          /** The empty slot's position among the parent's children. */
+          index: number
           page: number
           error: unknown
           depth: number
@@ -20,13 +23,30 @@ export interface FlattenRowsInput {
     rootNodes: StoredNode[]
     openIds: ReadonlySet<string>
     store: NodeStore
-    /** The previous result; node rows that did not change are reused. */
+    /** The previous result; rows that did not change are reused. */
     previous?: FlatRows
 }
 
 export interface FlatRows {
     rows: Row[]
     indexById: Map<string, number>
+}
+
+/** Whether two rows with the same key would render the same. */
+const sameRow = (a: Row, b: Row): boolean => {
+    if (a.kind !== b.kind || a.depth !== b.depth) {
+        return false
+    }
+    switch (b.kind) {
+        case 'node':
+            return a.kind === 'node' && a.children === b.children
+        case 'skeleton':
+            return true
+        case 'error':
+            return (
+                a.kind === 'error' && a.page === b.page && a.error === b.error
+            )
+    }
 }
 
 /**
@@ -44,23 +64,13 @@ export const flattenRows = ({
     const rows: Row[] = []
     const indexById = new Map<string, number>()
 
-    // A node row keeps its identity across rebuilds while its depth and
-    // children status are unchanged, so a memoised row component can skip.
-    const nodeRow = (
-        id: string,
-        depth: number,
-        children: ChildrenStatus
-    ): Row => {
-        const index = previous?.indexById.get(id)
-        const reusable = index === undefined ? undefined : previous?.rows[index]
-        if (
-            reusable?.kind === 'node' &&
-            reusable.depth === depth &&
-            reusable.children === children
-        ) {
-            return reusable
-        }
-        return { kind: 'node', id, depth, children }
+    // A row keeps its object across rebuilds while nothing about it changed,
+    // so a memoised row component can skip.
+    const previousByKey = new Map<string, Row>()
+    previous?.rows.forEach((row) => previousByKey.set(rowKey(row), row))
+    const push = (row: Row) => {
+        const reusable = previousByKey.get(rowKey(row))
+        rows.push(reusable && sameRow(reusable, row) ? reusable : row)
     }
 
     const walk = (id: string, depth: number) => {
@@ -70,7 +80,7 @@ export const flattenRows = ({
         }
         const children = store.getChildren(id)
         indexById.set(id, rows.length)
-        rows.push(nodeRow(id, depth, children))
+        push({ kind: 'node', id, depth, children })
         if (!openIds.has(id) || node.leaf || children.status !== 'loaded') {
             return
         }
@@ -83,15 +93,16 @@ export const flattenRows = ({
             const page = childrenPageOf(index, pageSize)
             const status = pages.get(page)
             if (status?.status === 'failed') {
-                rows.push({
+                push({
                     kind: 'error',
                     parentId: id,
+                    index,
                     page,
                     error: status.error,
                     depth: depth + 1,
                 })
             } else {
-                rows.push({
+                push({
                     kind: 'skeleton',
                     parentId: id,
                     index,
