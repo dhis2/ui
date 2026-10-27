@@ -55,6 +55,21 @@ describe('useOuTreeVirtualRows', () => {
         )
     })
 
+    it('gives the virtualiser the same getItemKey across renders that do not change the tree', async () => {
+        const { result, rerender } = renderHook(useProbe, { wrapper })
+        await waitFor(() =>
+            expect(result.current.rows.virtualItems).toHaveLength(1)
+        )
+        const calls = virtualizerMock.useVirtualizer.mock.calls
+        const before = calls[calls.length - 1][0].getItemKey
+
+        rerender()
+
+        expect(calls[calls.length - 1][0].getItemKey).toBe(before)
+        act(() => result.current.tree.open('ou-1'))
+        expect(calls[calls.length - 1][0].getItemKey).not.toBe(before)
+    })
+
     it('asks for the children pages of the virtual range whenever the tree changes', async () => {
         const { result } = renderHook(useProbe, { wrapper })
         await waitFor(() =>

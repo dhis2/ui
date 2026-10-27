@@ -1,5 +1,5 @@
 import { useVirtualizer } from '@tanstack/react-virtual'
-import { useEffect, useMemo } from 'react'
+import { useCallback, useEffect, useMemo } from 'react'
 import { useOuTree } from '../tree/index'
 import { rowKey } from './row-key'
 
@@ -32,12 +32,18 @@ export const useOuTreeVirtualRows = ({
     overscan = 10,
 }: OuTreeVirtualRowsOptions): OuTreeVirtualRows => {
     const tree = useOuTree()
+    // The virtualiser rebuilds its measurements for every row when this
+    // function changes, so it changes only with the tree, never on scroll.
+    const getItemKey = useCallback(
+        (index: number) => rowKey(tree.getRow(index), index),
+        [tree]
+    )
     const virtualizer = useVirtualizer({
         count: tree.rowCount,
         getScrollElement: () => scrollRef.current,
         estimateSize: () => ESTIMATED_ROW_SIZE,
         overscan,
-        getItemKey: (index) => rowKey(tree.getRow(index), index),
+        getItemKey,
     })
     const items = virtualizer.getVirtualItems()
     const first = items[0]?.index
