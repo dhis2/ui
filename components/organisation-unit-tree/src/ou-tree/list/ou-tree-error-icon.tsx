@@ -1,6 +1,6 @@
-import { Tooltip } from '@dhis2-ui/tooltip'
 import { theme } from '@dhis2/ui-constants'
 import { IconErrorFilled16 } from '@dhis2/ui-icons'
+import { Tooltip } from '@dhis2-ui/tooltip'
 import React from 'react'
 
 export interface OuTreeErrorIconProps {
