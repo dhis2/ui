@@ -1,13 +1,10 @@
-import i18n from '@dhis2/d2-i18n'
 import React, { memo } from 'react'
 import type { ChildrenStatus, StoredNode } from '../node-store/index'
 import { type Row, useOuTreeActions, useOuTreeNode } from '../tree/index'
-import { OuTreeErrorIcon } from './ou-tree-error-icon'
-import { OuTreeLoader } from './ou-tree-loader'
 import { OuTreeNodeLabel } from './ou-tree-node-label'
+import { OuTreeNodeToggle } from './ou-tree-node-toggle'
 import { OuTreeRetryButton } from './ou-tree-retry-button'
 import { OuTreeRowShell } from './ou-tree-row-shell'
-import { OuTreeToggle } from './ou-tree-toggle'
 
 export type NodeRow = Extract<Row, { kind: 'node' }>
 
@@ -36,34 +33,11 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
     const { node, isOpen, children } = useOuTreeNode(row.id)
     const { toggle, store } = useOuTreeActions()
     if (!node) {
-        return null
+        // Rows are built from stored nodes and nodes are never removed.
+        throw new Error(`Node row ${row.id} has no node in the store`)
     }
     const onToggle = () => toggle(row.id)
     const failed = isOpen && children.status === 'failed'
-
-    const toggleColumn = () => {
-        if (node.leaf) {
-            return <span className="toggle-column" aria-hidden />
-        }
-        if (isOpen && children.status === 'loading') {
-            return <OuTreeLoader dataTest={`${dataTest}-loader`} />
-        }
-        if (failed) {
-            return (
-                <OuTreeErrorIcon
-                    message={i18n.t('Could not load children')}
-                    dataTest={`${dataTest}-error`}
-                />
-            )
-        }
-        return (
-            <OuTreeToggle
-                open={isOpen}
-                onToggle={onToggle}
-                dataTest={`${dataTest}-toggle`}
-            />
-        )
-    }
 
     return (
         <OuTreeRowShell
@@ -74,7 +48,13 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
             ariaExpanded={node.leaf ? undefined : isOpen}
             dataTest={`${dataTest}-row`}
         >
-            {toggleColumn()}
+            <OuTreeNodeToggle
+                leaf={node.leaf}
+                open={isOpen}
+                childrenStatus={children.status}
+                onToggle={onToggle}
+                dataTest={dataTest}
+            />
             {renderLabel ? (
                 renderLabel({
                     node,
@@ -98,12 +78,6 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
                     dataTest={`${dataTest}-retry`}
                 />
             )}
-            <style jsx>{`
-                .toggle-column {
-                    width: 24px;
-                    flex-shrink: 0;
-                }
-            `}</style>
         </OuTreeRowShell>
     )
 })

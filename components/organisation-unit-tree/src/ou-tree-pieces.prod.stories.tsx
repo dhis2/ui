@@ -63,6 +63,9 @@ export const Toggle = () => (
         <Captioned caption="open">
             <OuTreeToggle open onToggle={noop} />
         </Captioned>
+        <Captioned caption="leaf (the toggle's space, nothing in it)">
+            <OuTreeToggle leaf />
+        </Captioned>
     </Column>
 )
 

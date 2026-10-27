@@ -23,4 +23,12 @@ describe('OuTreeToggle', () => {
         rerender(<OuTreeToggle open onToggle={jest.fn()} dataTest="t" />)
         expect(screen.getByTestId('t')).toHaveClass('open')
     })
+
+    it('is empty space, hidden from assistive technology, for a leaf', () => {
+        render(<OuTreeToggle leaf dataTest="t" />)
+        const space = screen.getByTestId('t')
+
+        expect(space).toHaveAttribute('aria-hidden', 'true')
+        expect(space.querySelector('svg')).toBeNull()
+    })
 })

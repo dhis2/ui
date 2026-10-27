@@ -10,7 +10,11 @@ import {
 } from '../__fixtures__/index'
 import { GIST_RESOURCE, TREE_RESOURCE } from '../data/index'
 import type { Row } from '../tree/index'
-import { OuTreeNodeStoreProvider, OuTreeProvider } from '../tree/index'
+import {
+    OuTreeNodeStoreProvider,
+    OuTreeProvider,
+    useOuTreeNode,
+} from '../tree/index'
 import type { RenderLabel } from './ou-tree-node-row'
 import { OuTreeRow } from './ou-tree-row'
 
@@ -19,10 +23,16 @@ const data = {
     [GIST_RESOURCE]: createGistResolver({ orgUnits: zambiaOrgUnits }),
 }
 
+// A row exists only once its node is stored, as in the list.
+const WhenStored = ({ children }: { children: React.ReactNode }) =>
+    useOuTreeNode('ou-1').node ? <>{children}</> : null
+
 const Providers = ({ children }: { children: React.ReactNode }) => (
     <CustomDataProvider data={data}>
         <OuTreeNodeStoreProvider>
-            <OuTreeProvider rootIds={['ou-1']}>{children}</OuTreeProvider>
+            <OuTreeProvider rootIds={['ou-1']}>
+                <WhenStored>{children}</WhenStored>
+            </OuTreeProvider>
         </OuTreeNodeStoreProvider>
     </CustomDataProvider>
 )

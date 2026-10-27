@@ -49,7 +49,11 @@ const setup = ({
             jest.spyOn(tree, 'toggle')
             jest.spyOn(tree.store, 'retryChildrenPage')
         }
-        const { children: status } = useOuTreeNode(id)
+        // A row exists only once its node is stored, as in the list.
+        const { node, children: status } = useOuTreeNode(id)
+        if (!node) {
+            return null
+        }
         return (
             <OuTreeNodeRow
                 row={{ kind: 'node', id, depth: 0, children: status }}
@@ -90,12 +94,16 @@ describe('OuTreeNodeRow', () => {
         expect(screen.getByTestId('t-toggle')).toBeInTheDocument()
     })
 
-    it('has no toggle and no aria-expanded for a leaf', async () => {
+    it('has only the toggle space and no aria-expanded for a leaf', async () => {
         setup({ id: 'ou-4' })
         const row = await ready()
 
         expect(row).not.toHaveAttribute('aria-expanded')
-        expect(screen.queryByTestId('t-toggle')).toBeNull()
+        expect(screen.getByTestId('t-toggle')).toHaveAttribute(
+            'aria-hidden',
+            'true'
+        )
+        expect(screen.getByTestId('t-toggle').querySelector('svg')).toBeNull()
         expect(screen.getByTestId('t-label')).toHaveTextContent(
             'Kabwe Health Centre'
         )
