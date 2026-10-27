@@ -4,13 +4,15 @@ This package holds two components side by side:
 
 - `OrganisationUnitTree` — the current component, in **JavaScript**
   (`src/organisation-unit-tree/`, `src/organisation-unit-node/` and friends).
-- `OuTree` — its replacement, in **TypeScript** (`src/ou-tree/`). The component
-  is a placeholder. `src/ou-tree/data/` is the endpoint types and the tree
-  API (the tree endpoint, its `<id>/children` resource and gist),
-  `src/ou-tree/node-store/` the app-wide node store with paged children per
-  parent, `src/ou-tree/tree/` the per-tree state, providers and hooks, and
-  `src/ou-tree/__fixtures__/` a temporary in-memory stand-in for the endpoint
-  with a PAHO fixture, for tests and stories.
+- `OuTree` — its replacement, in **TypeScript** (`src/ou-tree/`). It renders
+  browse mode as a virtualised list that looks like `OrganisationUnitTree`.
+  `src/ou-tree/data/` is the endpoint types and the tree API (the tree
+  endpoint, its `<id>/children` resource and gist), `src/ou-tree/node-store/`
+  the app-wide node store with paged children per parent,
+  `src/ou-tree/tree/` the per-tree state, providers and hooks,
+  `src/ou-tree/list/` the virtualised list, the row pieces and the default
+  rows, and `src/ou-tree/__fixtures__/` a temporary in-memory stand-in for
+  the endpoint with a PAHO fixture, for tests and stories.
 
 The rest of this repository is JavaScript. The TypeScript conventions below apply
 to `.ts`/`.tsx` files only; do not apply them to the JavaScript sources here or
@@ -75,6 +77,22 @@ in other packages.
 - **Paging names say which kind they mean.** Browse mode pages a parent's
   children (`requestChildrenPage`, `CHILDREN_PAGE_SIZE`); filtered mode, later,
   pages results. Nothing is called just "page".
+- **Row pieces take plain props and read nothing from the tree.** The rows
+  (`OuTreeNodeRow`, `OuTreeRow`) and `OuTree` are the glue over hooks and
+  pieces. Every piece puts the `dataTest` it is given on its element
+  unchanged; the glue composes the suffixes (`${dataTest}-row`, `-toggle`,
+  `-label`, `-loader`, `-error`, `-retry`, `-skeleton`), default
+  `dhis2-uicore-outree`.
+- **List tests mock the virtualiser**, as jsdom has no layout:
+  `jest.mock('@tanstack/react-virtual', () => jest.requireActual('<path>/__fixtures__/virtualizer-mock'))`.
+  Import the mock file directly; it uses the `jest` global, so it is not in
+  the fixtures index that stories import.
+- **`renderLabel` is the one customisation convenience.** It replaces the
+  label slot of a node row and keeps the row's chrome. It must be a stable
+  function, or the memoised rows re-render.
+- **Use `useOuTreeActions` in components that act on the tree but must not
+  re-render when it changes**, such as rows; `useOuTree` subscribes to every
+  change.
 - **One `OuTreeNodeStoreProvider` per app.** Every tree shares its store; a
   tree without it throws. It holds one store per `shortName` value.
 
@@ -93,9 +111,9 @@ in other packages.
 
 ## Status
 
-`OuTree` is deliberately **not exported**, neither from this package's
-`src/index.js` nor from `@dhis2/ui`, because this package is published. It is
-reachable only through its story. Exporting it is a separate, deliberate change:
+`OuTree` renders browse mode and is reachable through its stories. It is
+deliberately **not exported**, neither from this package's `src/index.js` nor
+from `@dhis2/ui`, because this package is published. Exporting it is a separate, deliberate change:
 add it to `src/index.js` and `types/index.d.ts` here, and to
 `collections/ui/src/index.js`. The `collections/ui` types re-export this package
 with `export *`, so they pick it up on their own — and would advertise it in
