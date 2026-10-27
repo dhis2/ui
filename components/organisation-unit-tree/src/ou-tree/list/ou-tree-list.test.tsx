@@ -35,12 +35,12 @@ const Capture = () => {
 }
 
 const renderList = ({
-    roots,
+    rootIds,
     initiallyOpen,
     gist = realGist,
     renderLabel,
 }: {
-    roots: string[]
+    rootIds: string[]
     initiallyOpen?: string[]
     gist?: typeof realGist
     renderLabel?: RenderLabel
@@ -50,7 +50,7 @@ const renderList = ({
             data={{ [TREE_RESOURCE]: children, [GIST_RESOURCE]: gist }}
         >
             <OuTreeNodeStoreProvider>
-                <OuTreeProvider roots={roots} initiallyOpen={initiallyOpen}>
+                <OuTreeProvider rootIds={rootIds} initiallyOpen={initiallyOpen}>
                     <Capture />
                     <OuTreeList dataTest="t" renderLabel={renderLabel} />
                 </OuTreeProvider>
@@ -69,7 +69,7 @@ describe('OuTreeList', () => {
     beforeEach(() => virtualizerMock.measureElement.mockClear())
 
     it('shows one skeleton row per requested root, then one row per tree row', async () => {
-        renderList({ roots: ['ou-2', 'ou-13'] })
+        renderList({ rootIds: ['ou-2', 'ou-13'] })
 
         expect(screen.getByRole('tree')).toBe(screen.getByTestId('t'))
         expect(rowsOfKind('roots')).toHaveLength(2)
@@ -85,7 +85,7 @@ describe('OuTreeList', () => {
             .fn()
             .mockRejectedValueOnce(new Error('x'))
             .mockImplementation(realGist) as unknown as typeof realGist
-        renderList({ roots: ['ou-2', 'ou-13'], gist })
+        renderList({ rootIds: ['ou-2', 'ou-13'], gist })
 
         await waitFor(() =>
             expect(screen.getAllByTestId('t-retry')).toHaveLength(2)
@@ -100,7 +100,7 @@ describe('OuTreeList', () => {
     })
 
     it('renders an empty container for an empty roots list', async () => {
-        renderList({ roots: [] })
+        renderList({ rootIds: [] })
         await act(() => new Promise((resolve) => setTimeout(resolve, 0)))
 
         expect(screen.queryAllByTestId('t-row')).toHaveLength(0)
@@ -110,7 +110,7 @@ describe('OuTreeList', () => {
 
     it('positions, indexes and measures every row element', async () => {
         renderList({
-            roots: ['ou-1'],
+            rootIds: ['ou-1'],
             initiallyOpen: ['ou-1'],
         })
         await waitFor(() =>
@@ -137,14 +137,14 @@ describe('OuTreeList', () => {
         const renderLabel: RenderLabel = ({ node }) => (
             <i data-test="custom">{node.displayName}!</i>
         )
-        renderList({ roots: ['ou-1'], renderLabel })
+        renderList({ rootIds: ['ou-1'], renderLabel })
 
         expect(await screen.findByText('Zambia!')).toBeInTheDocument()
         expect(screen.queryByTestId('t-label')).toBeNull()
     })
 
     it('keeps the DOM node of a row below a node that opens', async () => {
-        renderList({ roots: ['ou-2', 'ou-13'] })
+        renderList({ rootIds: ['ou-2', 'ou-13'] })
         await waitFor(() => expect(rowsOfKind('node')).toHaveLength(2))
         const before = rowsOfKind('node')[1]
         expect(before).toHaveAttribute('data-id', 'ou-13')

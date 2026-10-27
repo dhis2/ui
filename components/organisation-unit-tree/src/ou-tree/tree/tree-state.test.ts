@@ -15,7 +15,7 @@ const ids = (tree: TreeState) =>
 
 // Three children per page hold every Zambia parent but Serenje District.
 const setup = (
-    roots: string[],
+    rootIds: string[],
     options: { initiallyOpen?: string[]; pageSize?: number } = {}
 ) => {
     const { api, childrenCalls, nodeCalls } = createTestTreeApi({
@@ -25,7 +25,7 @@ const setup = (
     const store = createNodeStore({ api })
     const tree = createTreeState({
         store,
-        roots,
+        rootIds,
         initiallyOpen: options.initiallyOpen,
     })
     tree.loadInitial()
@@ -49,19 +49,19 @@ describe('createTreeState', () => {
         it('keeps the requested roots as given, before and after loading', async () => {
             const { tree } = setup(['ou-3', 'nope', 'ou-1'])
 
-            expect(tree.requestedRoots).toEqual(['ou-3', 'nope', 'ou-1'])
-            expect(tree.roots).toEqual([])
+            expect(tree.rootIds).toEqual(['ou-3', 'nope', 'ou-1'])
+            expect(tree.rootNodes.map((node) => node.id)).toEqual([])
             await flush()
 
-            expect(tree.requestedRoots).toEqual(['ou-3', 'nope', 'ou-1'])
-            expect(tree.roots).toEqual(['ou-1'])
+            expect(tree.rootIds).toEqual(['ou-3', 'nope', 'ou-1'])
+            expect(tree.rootNodes.map((node) => node.id)).toEqual(['ou-1'])
         })
 
         it('excludes a root under another root and an id gist does not return', async () => {
             const { tree } = setup(['ou-3', 'nope', 'ou-1'])
             await flush()
 
-            expect(tree.roots).toEqual(['ou-1'])
+            expect(tree.rootNodes.map((node) => node.id)).toEqual(['ou-1'])
             expect(ids(tree)).toEqual(['ou-1'])
         })
 
@@ -77,7 +77,7 @@ describe('createTreeState', () => {
         it('reports a failed load and retries it', async () => {
             const { api, nodeRequests } = createManualTreeApi()
             const store = createNodeStore({ api })
-            const tree = createTreeState({ store, roots: ['ou-1'] })
+            const tree = createTreeState({ store, rootIds: ['ou-1'] })
             tree.loadInitial()
             const error = new Error('nope')
             nodeRequests[0].reject(error)
@@ -281,7 +281,7 @@ describe('createTreeState before loadInitial', () => {
         const store = createNodeStore({ api })
         const tree = createTreeState({
             store,
-            roots: ['ou-1'],
+            rootIds: ['ou-1'],
             initiallyOpen: ['ou-1'],
         })
         await flush()

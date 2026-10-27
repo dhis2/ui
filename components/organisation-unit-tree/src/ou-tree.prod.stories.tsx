@@ -74,14 +74,14 @@ export default {
     },
 }
 
-export const Default = () => <OuTree roots={PAHO_ROOTS} />
+export const Default = () => <OuTree rootIds={PAHO_ROOTS} />
 
 export const InitiallyOpen = () => (
-    <OuTree roots={PAHO_ROOTS} initiallyOpen={[AMR, BRAZIL, MINAS_GERAIS]} />
+    <OuTree rootIds={PAHO_ROOTS} initiallyOpen={[AMR, BRAZIL, MINAS_GERAIS]} />
 )
 
 export const LongNames = () => (
-    <OuTree roots={PAHO_ROOTS} initiallyOpen={[AMR, ARGENTINA, COLOMBIA]} />
+    <OuTree rootIds={PAHO_ROOTS} initiallyOpen={[AMR, ARGENTINA, COLOMBIA]} />
 )
 
 const renderLabel: RenderLabel = ({ node, toggle }) => (
@@ -97,7 +97,7 @@ const renderLabel: RenderLabel = ({ node, toggle }) => (
 
 export const CustomLabel = () => (
     <OuTree
-        roots={PAHO_ROOTS}
+        rootIds={PAHO_ROOTS}
         initiallyOpen={[AMR, BRAZIL]}
         renderLabel={renderLabel}
     />
@@ -122,7 +122,7 @@ const slowData = {
 export const LoadingAndErrors = () => (
     <CustomDataProvider data={slowData}>
         <OuTreeNodeStoreProvider>
-            <OuTree roots={PAHO_ROOTS} initiallyOpen={[AMR, BRAZIL]} />
+            <OuTree rootIds={PAHO_ROOTS} initiallyOpen={[AMR, BRAZIL]} />
         </OuTreeNodeStoreProvider>
     </CustomDataProvider>
 )
@@ -138,13 +138,13 @@ const failingRootsData = {
 export const RootsFailed = () => (
     <CustomDataProvider data={failingRootsData}>
         <OuTreeNodeStoreProvider>
-            <OuTree roots={PAHO_ROOTS} />
+            <OuTree rootIds={PAHO_ROOTS} />
         </OuTreeNodeStoreProvider>
     </CustomDataProvider>
 )
 
 export const RightToLeft = () => (
     <div dir="rtl" style={{ height: '100%' }}>
-        <OuTree roots={PAHO_ROOTS} initiallyOpen={[AMR]} />
+        <OuTree rootIds={PAHO_ROOTS} initiallyOpen={[AMR]} />
     </div>
 )

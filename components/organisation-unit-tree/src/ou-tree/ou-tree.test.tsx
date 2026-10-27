@@ -38,7 +38,7 @@ const labels = (testId = 'dhis2-uicore-outree') =>
 
 describe('OuTree', () => {
     it('renders the roots and opens one on click', async () => {
-        render(<OuTree roots={['ou-2', 'ou-13']} />, { wrapper })
+        render(<OuTree rootIds={['ou-2', 'ou-13']} />, { wrapper })
         await waitFor(() => expect(nodeRows()).toHaveLength(2))
 
         await userEvent.click(
@@ -57,7 +57,7 @@ describe('OuTree', () => {
     it('applies a custom data-test attribute and class', async () => {
         render(
             <OuTree
-                roots={['ou-1']}
+                rootIds={['ou-1']}
                 dataTest="custom-ou-tree"
                 className="custom-class"
             />,

@@ -66,7 +66,7 @@ const setup = ({
             }}
         >
             <OuTreeNodeStoreProvider>
-                <OuTreeProvider roots={[id]}>
+                <OuTreeProvider rootIds={[id]}>
                     <Probe />
                 </OuTreeProvider>
             </OuTreeNodeStoreProvider>

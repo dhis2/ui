@@ -9,8 +9,14 @@ import { flattenRows } from './flatten-rows'
 
 const flush = () => new Promise((resolve) => setTimeout(resolve, 0))
 const openSet = (...ids: string[]) => new Set(ids)
-const summary = (store: NodeStore, roots: string[], ...open: string[]) =>
-    flattenRows({ roots, openIds: openSet(...open), store }).rows.map((row) =>
+const rootNodesOf = (store: NodeStore, ids: string[]) =>
+    ids.flatMap((id) => store.getNode(id) ?? [])
+const summary = (store: NodeStore, rootIds: string[], ...open: string[]) =>
+    flattenRows({
+        rootNodes: rootNodesOf(store, rootIds),
+        openIds: openSet(...open),
+        store,
+    }).rows.map((row) =>
         row.kind === 'node'
             ? `${'  '.repeat(row.depth)}${row.id}:${row.children.status}`
             : `${'  '.repeat(row.depth)}${row.kind}${
@@ -150,7 +156,7 @@ describe('flattenRows', () => {
         const store = await zambia('ou-1')
 
         const { indexById } = flattenRows({
-            roots: ['ou-1'],
+            rootNodes: rootNodesOf(store, ['ou-1']),
             openIds: openSet('ou-1'),
             store,
         })
@@ -174,7 +180,7 @@ describe('flattenRows row identity', () => {
         store.requestChildrenPage('ou-1', 1)
         await flush()
         const first = flattenRows({
-            roots: ['ou-1'],
+            rootNodes: rootNodesOf(store, ['ou-1']),
             openIds: openSet('ou-1'),
             store,
         })
@@ -182,7 +188,7 @@ describe('flattenRows row identity', () => {
         store.requestChildrenPage('ou-2', 1)
         await flush()
         const second = flattenRows({
-            roots: ['ou-1'],
+            rootNodes: rootNodesOf(store, ['ou-1']),
             openIds: openSet('ou-1', 'ou-2'),
             store,
             previous: first,

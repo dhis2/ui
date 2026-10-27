@@ -45,7 +45,7 @@ describe('OuTreeErrorRow', () => {
         render(
             <CustomDataProvider data={data}>
                 <OuTreeNodeStoreProvider>
-                    <OuTreeProvider roots={['ou-1']}>
+                    <OuTreeProvider rootIds={['ou-1']}>
                         <Probe />
                     </OuTreeProvider>
                 </OuTreeNodeStoreProvider>

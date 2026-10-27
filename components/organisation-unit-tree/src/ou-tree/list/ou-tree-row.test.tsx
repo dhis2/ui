@@ -22,7 +22,7 @@ const data = {
 const Providers = ({ children }: { children: React.ReactNode }) => (
     <CustomDataProvider data={data}>
         <OuTreeNodeStoreProvider>
-            <OuTreeProvider roots={['ou-1']}>{children}</OuTreeProvider>
+            <OuTreeProvider rootIds={['ou-1']}>{children}</OuTreeProvider>
         </OuTreeNodeStoreProvider>
     </CustomDataProvider>
 )

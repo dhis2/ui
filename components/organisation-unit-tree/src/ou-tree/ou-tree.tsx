@@ -7,13 +7,13 @@ export interface OuTreeProps
 
 /** The default tree: a provider around the virtualised list. */
 export const OuTree = ({
-    roots,
+    rootIds,
     shortName,
     initiallyOpen,
     ...listProps
 }: OuTreeProps) => (
     <OuTreeProvider
-        roots={roots}
+        rootIds={rootIds}
         shortName={shortName}
         initiallyOpen={initiallyOpen}
     >

@@ -10,7 +10,7 @@ export interface Fixture {
 }
 
 /**
- * 19,191 organisation units on four levels under two roots, from a PAHO
+ * 19,190 organisation units on four levels under two roots, from a PAHO
  * metadata export, reduced to the fixture shape by
  * `scripts/derive-ou-tree-fixture.js`. The widest parent has 853 children.
  * The file is generated and trusted; its test checks the counts.

@@ -24,7 +24,7 @@ export const OuTreeList = ({
     dataTest = 'dhis2-uicore-outree',
 }: OuTreeListProps) => {
     const scrollRef = useRef<HTMLDivElement>(null)
-    const { rootsStatus, requestedRoots, getRow } = useOuTree()
+    const { rootsStatus, rootIds, getRow } = useOuTree()
     const { retryRoots } = useOuTreeActions()
     const { virtualItems, totalSize, measureElement } = useOuTreeVirtualRows({
         scrollRef,
@@ -59,7 +59,7 @@ export const OuTreeList = ({
                     ))}
                 </div>
             ) : (
-                requestedRoots.map((id) => (
+                rootIds.map((id) => (
                     <OuTreeRowShell
                         key={id}
                         depth={0}

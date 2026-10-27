@@ -2,6 +2,7 @@ import {
     childrenPageOf,
     type ChildrenStatus,
     type NodeStore,
+    type StoredNode,
 } from '../node-store/index'
 
 export type Row =
@@ -16,7 +17,7 @@ export type Row =
       }
 
 export interface FlattenRowsInput {
-    roots: string[]
+    rootNodes: StoredNode[]
     openIds: ReadonlySet<string>
     store: NodeStore
     /** The previous result; node rows that did not change are reused. */
@@ -35,7 +36,7 @@ export interface FlatRows {
  * an empty slot is a skeleton row or, if its page failed, an error row.
  */
 export const flattenRows = ({
-    roots,
+    rootNodes,
     openIds,
     store,
     previous,
@@ -100,8 +101,8 @@ export const flattenRows = ({
         })
     }
 
-    for (const root of roots) {
-        walk(root, 0)
+    for (const root of rootNodes) {
+        walk(root.id, 0)
     }
     return { rows, indexById }
 }
