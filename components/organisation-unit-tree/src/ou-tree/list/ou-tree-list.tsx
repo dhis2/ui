@@ -1,4 +1,3 @@
-import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
 import React, { useRef } from 'react'
 import { useOuTree, useOuTreeActions } from '../tree/index'
@@ -74,9 +73,6 @@ export const OuTreeList = ({
                         {rootsFailed && (
                             <OuTreeRetryButton
                                 onRetry={retryRoots}
-                                label={i18n.t(
-                                    'Could not load organisation units'
-                                )}
                                 dataTest={`${dataTest}-retry`}
                             />
                         )}

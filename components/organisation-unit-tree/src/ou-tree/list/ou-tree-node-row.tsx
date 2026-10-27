@@ -28,8 +28,6 @@ export interface OuTreeNodeRowProps {
     dataTest?: string
 }
 
-const TOGGLE_COLUMN_WIDTH = 24
-
 export const OuTreeNodeRow = memo(function OuTreeNodeRow({
     row,
     renderLabel,
@@ -45,12 +43,7 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
 
     const toggleColumn = () => {
         if (node.leaf) {
-            return (
-                <span
-                    style={{ width: TOGGLE_COLUMN_WIDTH, flexShrink: 0 }}
-                    aria-hidden
-                />
-            )
+            return <span className="toggle-column" aria-hidden />
         }
         if (isOpen && children.status === 'loading') {
             return <OuTreeLoader dataTest={`${dataTest}-loader`} />
@@ -105,6 +98,12 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
                     dataTest={`${dataTest}-retry`}
                 />
             )}
+            <style jsx>{`
+                .toggle-column {
+                    width: 24px;
+                    flex-shrink: 0;
+                }
+            `}</style>
         </OuTreeRowShell>
     )
 })

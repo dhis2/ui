@@ -93,11 +93,7 @@ describe('OuTreeList', () => {
         screen
             .getAllByTestId('t-skeleton')
             .forEach((el) => expect(el).toHaveClass('error'))
-        expect(
-            screen.getAllByRole('button', {
-                name: 'Could not load organisation units',
-            })
-        ).toHaveLength(2)
+        expect(screen.getAllByRole('button', { name: 'Retry' })).toHaveLength(2)
         await userEvent.click(screen.getAllByTestId('t-retry')[0])
 
         await waitFor(() => expect(rowsOfKind('node')).toHaveLength(2))
