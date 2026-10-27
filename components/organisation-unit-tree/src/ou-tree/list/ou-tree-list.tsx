@@ -2,7 +2,7 @@ import cx from 'classnames'
 import React, { useRef } from 'react'
 import { useOuTree, useOuTreeActions } from '../tree/index'
 import type { RenderLabel } from './ou-tree-node-row'
-import { OuTreeRetryButton } from './ou-tree-retry-button'
+import { OuTreeRetrySkeleton } from './ou-tree-retry-skeleton'
 import { OuTreeRow } from './ou-tree-row'
 import { OuTreeRowShell } from './ou-tree-row-shell'
 import { OuTreeSkeleton } from './ou-tree-skeleton'
@@ -66,15 +66,13 @@ export const OuTreeList = ({
                         rowKind="roots"
                         dataTest={`${dataTest}-row`}
                     >
-                        <OuTreeSkeleton
-                            error={rootsFailed}
-                            dataTest={`${dataTest}-skeleton`}
-                        />
-                        {rootsFailed && (
-                            <OuTreeRetryButton
+                        {rootsFailed ? (
+                            <OuTreeRetrySkeleton
                                 onRetry={retryRoots}
                                 dataTest={`${dataTest}-retry`}
                             />
+                        ) : (
+                            <OuTreeSkeleton dataTest={`${dataTest}-skeleton`} />
                         )}
                     </OuTreeRowShell>
                 ))

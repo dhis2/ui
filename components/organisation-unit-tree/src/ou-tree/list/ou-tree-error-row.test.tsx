@@ -56,7 +56,7 @@ describe('OuTreeErrorRow', () => {
             'data-row-kind',
             'error'
         )
-        expect(screen.getByTestId('t-skeleton')).toHaveClass('error')
+        expect(screen.getByTestId('t-retry-skeleton')).toHaveClass('error')
         await userEvent.click(screen.getByTestId('t-retry'))
 
         expect(retry).toHaveBeenCalledWith('ou-1', 2)

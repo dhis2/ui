@@ -22,6 +22,10 @@ export {
 } from './ou-tree-retry-button'
 export { OuTreeSkeleton, type OuTreeSkeletonProps } from './ou-tree-skeleton'
 export {
+    OuTreeRetrySkeleton,
+    type OuTreeRetrySkeletonProps,
+} from './ou-tree-retry-skeleton'
+export {
     OuTreeSkeletonRow,
     type OuTreeSkeletonRowProps,
     type SkeletonRow,

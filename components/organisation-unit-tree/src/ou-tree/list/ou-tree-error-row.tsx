@@ -1,8 +1,7 @@
 import React, { memo } from 'react'
 import { type Row, useOuTreeActions } from '../tree/index'
-import { OuTreeRetryButton } from './ou-tree-retry-button'
+import { OuTreeRetrySkeleton } from './ou-tree-retry-skeleton'
 import { OuTreeRowShell } from './ou-tree-row-shell'
-import { OuTreeSkeleton } from './ou-tree-skeleton'
 
 export type ErrorRow = Extract<Row, { kind: 'error' }>
 
@@ -22,8 +21,7 @@ export const OuTreeErrorRow = memo(function OuTreeErrorRow({
             rowKind="error"
             dataTest={`${dataTest}-row`}
         >
-            <OuTreeSkeleton error dataTest={`${dataTest}-skeleton`} />
-            <OuTreeRetryButton
+            <OuTreeRetrySkeleton
                 onRetry={() => store.retryChildrenPage(row.parentId, row.page)}
                 dataTest={`${dataTest}-retry`}
             />

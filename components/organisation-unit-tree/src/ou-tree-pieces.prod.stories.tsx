@@ -5,6 +5,7 @@ import {
     OuTreeLoader,
     OuTreeNodeLabel,
     OuTreeRetryButton,
+    OuTreeRetrySkeleton,
     OuTreeRowShell,
     OuTreeSkeleton,
     OuTreeToggle,
@@ -93,6 +94,14 @@ export const Skeleton = () => (
         </Captioned>
         <Captioned caption="error">
             <OuTreeSkeleton error />
+        </Captioned>
+    </Column>
+)
+
+export const RetrySkeleton = () => (
+    <Column>
+        <Captioned caption="retry skeleton (hover or focus for the icon)">
+            <OuTreeRetrySkeleton onRetry={noop} />
         </Captioned>
     </Column>
 )

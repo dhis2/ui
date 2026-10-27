@@ -91,7 +91,7 @@ describe('OuTreeList', () => {
             expect(screen.getAllByTestId('t-retry')).toHaveLength(2)
         )
         screen
-            .getAllByTestId('t-skeleton')
+            .getAllByTestId('t-retry-skeleton')
             .forEach((el) => expect(el).toHaveClass('error'))
         expect(screen.getAllByRole('button', { name: 'Retry' })).toHaveLength(2)
         await userEvent.click(screen.getAllByTestId('t-retry')[0])
