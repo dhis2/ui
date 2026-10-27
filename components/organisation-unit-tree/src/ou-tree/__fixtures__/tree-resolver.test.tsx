@@ -151,3 +151,31 @@ describe('createTreeResolver', () => {
         })
     })
 })
+
+const settle = async () => {
+    for (let i = 0; i < 10; i += 1) {
+        await Promise.resolve()
+    }
+}
+
+describe('createTreeResolver delay', () => {
+    afterEach(() => jest.useRealTimers())
+
+    it('answers only after the delay', async () => {
+        jest.useFakeTimers()
+        const resolver = createTreeResolver({
+            orgUnits: zambiaOrgUnits,
+            delay: 1000,
+        })
+        const onResolved = jest.fn()
+
+        resolver('read', { id: 'ou-1/children', params: {} }).then(onResolved)
+        jest.advanceTimersByTime(999)
+        await settle()
+        expect(onResolved).not.toHaveBeenCalled()
+
+        jest.advanceTimersByTime(1)
+        await settle()
+        expect(onResolved).toHaveBeenCalledTimes(1)
+    })
+})

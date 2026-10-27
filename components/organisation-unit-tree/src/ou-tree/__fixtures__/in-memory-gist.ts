@@ -60,7 +60,13 @@ const idsFromFilter = (filter: unknown): string[] => {
  * A `CustomDataProvider` resolver for `GIST_RESOURCE`:
  * `<CustomDataProvider data={{ [GIST_RESOURCE]: createGistResolver(options) }}>`.
  */
-export const createGistResolver = (options: InMemoryGistOptions) => {
+export const createGistResolver = ({
+    failWith,
+    ...options
+}: InMemoryGistOptions & {
+    /** Rejects a request with the returned error. */
+    failWith?: (ids: string[]) => Error | undefined
+}) => {
     const gist = createInMemoryGist(options)
     return (_type: string, query: { params?: unknown }): Promise<Json> => {
         const params = (query.params ?? {}) as Record<string, unknown>
@@ -69,11 +75,13 @@ export const createGistResolver = (options: InMemoryGistOptions) => {
             'displayShortName~rename(displayName)'
         )
         // `.then` turns a synchronous throw into a rejection, like async did.
-        return Promise.resolve().then(
-            () =>
-                gist(idsFromFilter(params.filter), {
-                    shortName,
-                }) as unknown as Json
-        )
+        return Promise.resolve().then(() => {
+            const ids = idsFromFilter(params.filter)
+            const failure = failWith?.(ids)
+            if (failure) {
+                throw failure
+            }
+            return gist(ids, { shortName }) as unknown as Json
+        })
     }
 }

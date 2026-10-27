@@ -99,7 +99,14 @@ type Json = boolean | number | string | null | Json[] | { [key: string]: Json }
 export interface TreeResolverOptions extends InMemoryTreeEndpointOptions {
     /** Rejects a children request with the returned error. */
     failChildrenPageWith?: (parentId: string, page: number) => Error | undefined
+    /** Milliseconds to wait before answering any request. */
+    delay?: number
 }
+
+const wait = (ms: number) =>
+    new Promise<void>((resolve) =>
+        ms > 0 ? setTimeout(resolve, ms) : resolve()
+    )
 
 const CHILDREN_ID = /^(.+)\/children$/
 
@@ -111,6 +118,7 @@ const CHILDREN_ID = /^(.+)\/children$/
  */
 export const createTreeResolver = ({
     failChildrenPageWith,
+    delay = 0,
     ...options
 }: TreeResolverOptions) => {
     const endpoint = createInMemoryTreeEndpoint(options)
@@ -129,7 +137,7 @@ export const createTreeResolver = ({
         _type: string,
         query: { id?: unknown; params?: unknown }
     ): Promise<Json> =>
-        Promise.resolve().then(() => {
+        wait(delay).then(() => {
             const parentId =
                 typeof query.id === 'string'
                     ? CHILDREN_ID.exec(query.id)?.[1]
