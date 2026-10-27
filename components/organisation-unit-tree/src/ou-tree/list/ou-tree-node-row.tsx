@@ -11,7 +11,7 @@ export type NodeRow = Extract<Row, { kind: 'node' }>
 export interface RenderLabelProps {
     node: StoredNode
     isOpen: boolean
-    children: ChildrenStatus
+    childrenStatus: ChildrenStatus
     depth: number
     toggle: () => void
 }
@@ -30,14 +30,14 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
     renderLabel,
     dataTest = 'dhis2-uicore-outree',
 }: OuTreeNodeRowProps) {
-    const { node, isOpen, children } = useOuTreeNode(row.id)
+    const { node, isOpen, childrenStatus } = useOuTreeNode(row.id)
     const { toggle, store } = useOuTreeActions()
     if (!node) {
         // Rows are built from stored nodes and nodes are never removed.
         throw new Error(`Node row ${row.id} has no node in the store`)
     }
     const onToggle = () => toggle(row.id)
-    const failed = isOpen && children.status === 'failed'
+    const failed = isOpen && childrenStatus.status === 'failed'
 
     return (
         <OuTreeRowShell
@@ -51,7 +51,7 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
             <OuTreeNodeToggle
                 leaf={node.leaf}
                 open={isOpen}
-                childrenStatus={children.status}
+                childrenStatus={childrenStatus.status}
                 onToggle={onToggle}
                 dataTest={dataTest}
             />
@@ -59,7 +59,7 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
                 renderLabel({
                     node,
                     isOpen,
-                    children,
+                    childrenStatus,
                     depth: row.depth,
                     toggle: onToggle,
                 })
