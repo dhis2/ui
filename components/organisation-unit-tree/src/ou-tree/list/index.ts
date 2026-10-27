@@ -39,3 +39,4 @@ export {
     type RenderLabelProps,
 } from './ou-tree-node-row'
 export { OuTreeRow, type OuTreeRowProps } from './ou-tree-row'
+export { OuTreeList, type OuTreeListProps } from './ou-tree-list'

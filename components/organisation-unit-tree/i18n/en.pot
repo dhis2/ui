@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-10-27T11:26:05.583Z\n"
-"PO-Revision-Date: 2026-10-27T11:26:05.583Z\n"
+"POT-Creation-Date: 2026-10-27T11:28:19.063Z\n"
+"PO-Revision-Date: 2026-10-27T11:28:19.064Z\n"
 
 msgid "No children match filter"
 msgstr "No children match filter"
@@ -16,6 +16,9 @@ msgstr "Could not load children"
 
 msgid "Error: {{ ERRORMESSAGE }}"
 msgstr "Error: {{ ERRORMESSAGE }}"
+
+msgid "Could not load organisation units"
+msgstr "Could not load organisation units"
 
 msgid "Retry"
 msgstr "Retry"

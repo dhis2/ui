@@ -5,16 +5,19 @@ import React from 'react'
 
 export interface OuTreeRetryButtonProps {
     onRetry: () => void
+    /** The accessible name; defaults to "Retry". */
+    label?: string
     dataTest?: string
 }
 
 export const OuTreeRetryButton = ({
     onRetry,
+    label = i18n.t('Retry'),
     dataTest,
 }: OuTreeRetryButtonProps) => (
     <button
         type="button"
-        aria-label={i18n.t('Retry')}
+        aria-label={label}
         data-test={dataTest}
         onClick={onRetry}
     >
