@@ -52,7 +52,7 @@ export default {
     },
 }
 
-export const Default = () => <OuTree />
+export const Default = () => <OuTree roots={PAHO_ROOTS} />
 
 export const Browse = () => (
     <OuTreeProvider roots={PAHO_ROOTS}>
