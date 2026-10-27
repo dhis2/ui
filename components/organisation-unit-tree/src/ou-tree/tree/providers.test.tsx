@@ -94,6 +94,7 @@ describe('OuTree providers and hooks', () => {
             })
         )
         expect(result.current.tree.rowCount).toBe(1)
+        expect(result.current.tree.requestedRoots).toEqual(['ou-1'])
         expect(result.current.root.node?.displayName).toBe('Zambia')
         expect(result.current.root.isOpen).toBe(false)
 

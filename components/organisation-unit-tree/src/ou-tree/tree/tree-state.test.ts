@@ -46,6 +46,17 @@ describe('createTreeState', () => {
             expect(ids(tree)).toEqual(['ou-13', 'ou-2'])
         })
 
+        it('keeps the requested roots as given, before and after loading', async () => {
+            const { tree } = setup(['ou-3', 'nope', 'ou-1'])
+
+            expect(tree.requestedRoots).toEqual(['ou-3', 'nope', 'ou-1'])
+            expect(tree.roots).toEqual([])
+            await flush()
+
+            expect(tree.requestedRoots).toEqual(['ou-3', 'nope', 'ou-1'])
+            expect(tree.roots).toEqual(['ou-1'])
+        })
+
         it('excludes a root under another root and an id gist does not return', async () => {
             const { tree } = setup(['ou-3', 'nope', 'ou-1'])
             await flush()

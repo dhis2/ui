@@ -15,6 +15,8 @@ export interface TreeStateOptions {
 
 export interface TreeState extends Subscribable {
     readonly store: NodeStore
+    /** The root ids as requested, before loading and nested-root exclusion. */
+    readonly requestedRoots: string[]
     /** The roots actually shown: loaded, nested ones excluded. */
     readonly roots: string[]
     /** Loading state of the root entries themselves. */
@@ -179,6 +181,7 @@ export const createTreeState = ({
 
     return {
         store,
+        requestedRoots,
         get roots() {
             return roots
         },

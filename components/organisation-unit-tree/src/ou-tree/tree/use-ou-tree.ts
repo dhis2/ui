@@ -6,6 +6,7 @@ import type { TreeState } from './tree-state'
 export type OuTreeHandle = {
     rowCount: number
     rootsStatus: RootsStatus
+    requestedRoots: string[]
     /** Changes whenever the tree does; a key for memoisation downstream. */
     version: number
 } & Pick<
@@ -31,6 +32,7 @@ export const useOuTree = (): OuTreeHandle => {
             version,
             rowCount: tree.getRowCount(),
             rootsStatus: tree.getRootsStatus(),
+            requestedRoots: tree.requestedRoots,
             getRow: tree.getRow,
             getRowIndex: tree.getRowIndex,
             open: tree.open,
