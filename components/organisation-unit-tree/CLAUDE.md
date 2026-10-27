@@ -78,13 +78,16 @@ in other packages.
   children (`requestChildrenPage`, `CHILDREN_PAGE_SIZE`); filtered mode, later,
   pages results. Nothing is called just "page".
 - **Pieces take plain props and read nothing from the tree**, and the glue
-  carries no styles. The rows (`OuTreeNodeRow`, `OuTreeRow`), `OuTreeList`
-  and `OuTree` are the glue over hooks and pieces; `OuTreeContainer`,
-  `OuTreeVirtualSizer` and `OuTreeVirtualRow` are the list's structural
-  pieces. Every piece puts the `dataTest` it is given on its element
-  unchanged; the glue composes the suffixes (`${dataTest}-row`, `-toggle`,
-  `-label`, `-loader`, `-error`, `-retry`, `-skeleton`), default
-  `dhis2-uicore-outree`.
+  carries no styles. The rows (`OuTreeNodeRow`, `OuTreeRow`,
+  `OuTreeErrorRow`, `OuTreeSkeletonRow`), `OuTreeNodeToggle`,
+  `OuTreeRootsRows`, `OuTreeList` and `OuTree` are the glue over hooks and
+  pieces; `OuTreeContainer`, `OuTreeVirtualSizer` and `OuTreeVirtualRow`
+  are the list's structural pieces. Every piece puts the `dataTest` it is
+  given on its element unchanged; the glue composes the suffixes
+  (`${dataTest}-row`, `-toggle`, `-toggle-space`, `-label`, `-loader`,
+  `-error`, `-retry`, `-skeleton`), default `dhis2-uicore-outree`. The one
+  composite piece, `OuTreeRetrySkeleton`, adds `-skeleton` to its own
+  `dataTest` for the skeleton inside it.
 - **List tests mock the virtualiser**, as jsdom has no layout:
   `jest.mock('@tanstack/react-virtual', () => jest.requireActual('<path>/__fixtures__/virtualizer-mock'))`.
   Import the mock file directly; it uses the `jest` global, so it is not in

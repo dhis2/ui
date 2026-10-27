@@ -99,11 +99,11 @@ describe('OuTreeNodeRow', () => {
         const row = await ready()
 
         expect(row).not.toHaveAttribute('aria-expanded')
-        expect(screen.getByTestId('t-toggle')).toHaveAttribute(
+        expect(screen.queryByTestId('t-toggle')).toBeNull()
+        expect(screen.getByTestId('t-toggle-space')).toHaveAttribute(
             'aria-hidden',
             'true'
         )
-        expect(screen.getByTestId('t-toggle').querySelector('svg')).toBeNull()
         expect(screen.getByTestId('t-label')).toHaveTextContent(
             'Kabwe Health Centre'
         )

@@ -26,7 +26,7 @@ export const OuTreeNodeToggle = ({
     dataTest = 'dhis2-uicore-outree',
 }: OuTreeNodeToggleProps) => {
     if (leaf) {
-        return <OuTreeToggle leaf dataTest={`${dataTest}-toggle`} />
+        return <OuTreeToggle leaf dataTest={`${dataTest}-toggle-space`} />
     }
     if (open && childrenStatus === 'loading') {
         return <OuTreeLoader dataTest={`${dataTest}-loader`} />

@@ -25,7 +25,7 @@ export default {
 const noop = () => undefined
 const LONG_NAME = 'Archipielago de San Andres, Providencia y Santa Ca'
 
-const Column = ({ children }: { children: React.ReactNode }) => (
+const Stack = ({ children }: { children: React.ReactNode }) => (
     <div
         style={{
             display: 'flex',
@@ -56,7 +56,7 @@ const Captioned = ({
 )
 
 export const Toggle = () => (
-    <Column>
+    <Stack>
         <Captioned caption="closed">
             <OuTreeToggle open={false} onToggle={noop} />
         </Captioned>
@@ -66,54 +66,54 @@ export const Toggle = () => (
         <Captioned caption="leaf (the toggle's space, nothing in it)">
             <OuTreeToggle leaf />
         </Captioned>
-    </Column>
+    </Stack>
 )
 
 export const Loader = () => (
-    <Column>
+    <Stack>
         <Captioned caption="loader">
             <OuTreeLoader />
         </Captioned>
-    </Column>
+    </Stack>
 )
 
 export const ErrorIcon = () => (
-    <Column>
+    <Stack>
         <Captioned caption="error icon, hover for the message">
             <OuTreeErrorIcon message="Could not load children" />
         </Captioned>
-    </Column>
+    </Stack>
 )
 
 export const RetryButton = () => (
-    <Column>
+    <Stack>
         <Captioned caption="retry button">
             <OuTreeRetryButton onRetry={noop} />
         </Captioned>
-    </Column>
+    </Stack>
 )
 
 export const Skeleton = () => (
-    <Column>
+    <Stack>
         <Captioned caption="plain">
             <OuTreeSkeleton />
         </Captioned>
         <Captioned caption="error">
             <OuTreeSkeleton error />
         </Captioned>
-    </Column>
+    </Stack>
 )
 
 export const RetrySkeleton = () => (
-    <Column>
+    <Stack>
         <Captioned caption="retry skeleton (hover or focus for the icon)">
             <OuTreeRetrySkeleton onRetry={noop} />
         </Captioned>
-    </Column>
+    </Stack>
 )
 
 export const NodeLabel = () => (
-    <Column>
+    <Stack>
         <Captioned caption="plain">
             <OuTreeNodeLabel>Central Province</OuTreeNodeLabel>
         </Captioned>
@@ -133,11 +133,11 @@ export const NodeLabel = () => (
                 <OuTreeNodeLabel>{LONG_NAME}</OuTreeNodeLabel>
             </div>
         </Captioned>
-    </Column>
+    </Stack>
 )
 
 export const RowShell = () => (
-    <Column>
+    <Stack>
         <Captioned caption="depths 0 to 3, each with an open toggle and a label">
             {[0, 1, 2, 3].map((depth) => (
                 <OuTreeRowShell key={depth} depth={depth}>
@@ -152,11 +152,11 @@ export const RowShell = () => (
                 <OuTreeNodeLabel>{LONG_NAME}</OuTreeNodeLabel>
             </OuTreeRowShell>
         </Captioned>
-    </Column>
+    </Stack>
 )
 
 export const Structure = () => (
-    <Column>
+    <Stack>
         <Captioned
             caption="container (120px tall) with a 240px sizer and two rows placed at 0 and 48"
             width={320}
@@ -183,5 +183,5 @@ export const Structure = () => (
                 </OuTreeContainer>
             </div>
         </Captioned>
-    </Column>
+    </Stack>
 )

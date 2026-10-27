@@ -143,6 +143,22 @@ describe('OuTreeList', () => {
         expect(screen.queryByTestId('t-label')).toBeNull()
     })
 
+    it('does not re-render a node row when another node opens', async () => {
+        const renders = new Map<string, number>()
+        const renderLabel: RenderLabel = ({ node }) => {
+            renders.set(node.id, (renders.get(node.id) ?? 0) + 1)
+            return <span>{node.displayName}</span>
+        }
+        renderList({ rootIds: ['ou-2', 'ou-13'], renderLabel })
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(2))
+        const before = renders.get('ou-13')
+
+        act(() => captured.actions?.open('ou-2'))
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(4))
+
+        expect(renders.get('ou-13')).toBe(before)
+    })
+
     it('keeps the DOM node of a row below a node that opens', async () => {
         renderList({ rootIds: ['ou-2', 'ou-13'] })
         await waitFor(() => expect(rowsOfKind('node')).toHaveLength(2))

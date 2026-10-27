@@ -21,7 +21,7 @@ the DOM, rows are measured so a long name wraps and takes the space it needs,
 and children load in pages, with skeleton rows where a page has not arrived.
 
 The tree fills its box, so the box needs a height. The stories run over an
-in-memory stand-in for the endpoint with 19,191 PAHO organisation units, in a
+in-memory stand-in for the endpoint with 19,190 PAHO organisation units, in a
 400px by 600px box.
 
 \`renderLabel\` swaps the label slot and keeps the row's indent, toggle, loader
