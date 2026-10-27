@@ -10,8 +10,10 @@ const Help = ({
     warning,
     className,
     dataTest = 'dhis2-uicore-help',
+    id,
 }) => (
     <p
+        id={id}
         className={cx(className, {
             valid,
             error,
@@ -52,6 +54,7 @@ Help.propTypes = {
     className: PropTypes.string,
     dataTest: PropTypes.string,
     error: sharedPropTypes.statusPropType,
+    id: PropTypes.string,
     valid: sharedPropTypes.statusPropType,
     warning: sharedPropTypes.statusPropType,
 }

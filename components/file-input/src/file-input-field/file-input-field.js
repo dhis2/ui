@@ -39,57 +39,94 @@ const FileInputField = ({
     placeholder = defaultPlaceholder,
     required,
     small,
+    statusMessage,
     tabIndex,
     valid,
     validationText,
     warning,
-}) => (
-    <Field
-        className={className}
-        dataTest={dataTest}
-        helpText={helpText}
-        validationText={validationText}
-        error={error}
-        warning={warning}
-        valid={valid}
-    >
-        {label && (
-            <Label required={required} disabled={disabled} htmlFor={name}>
-                {label}
-            </Label>
-        )}
+}) => {
+    const labelId = name && label ? `${name}-label` : undefined
+    const helpTextId = name && helpText ? `${name}-help` : undefined
+    const validationTextId =
+        name && validationText ? `${name}-validation` : undefined
+    const ariaDescribedBy =
+        [helpTextId, validationTextId].filter(Boolean).join(' ') || undefined
 
-        <FileInput
-            accept={accept}
-            buttonLabel={translate(buttonLabel)}
+    return (
+        <Field
             className={className}
-            disabled={disabled}
+            dataTest={dataTest}
+            helpText={helpText}
+            helpTextId={helpTextId}
+            validationText={validationText}
+            validationTextId={validationTextId}
             error={error}
-            initialFocus={initialFocus}
-            large={large}
-            multiple={multiple}
-            name={name}
-            onBlur={onBlur}
-            onChange={onChange}
-            onFocus={onFocus}
-            onKeyDown={onKeyDown}
-            small={small}
-            tabIndex={tabIndex}
-            valid={valid}
             warning={warning}
-        />
-
-        <FileList>
-            {children ? (
-                children
-            ) : (
-                <FileListPlaceholder>
-                    {translate(placeholder)}
-                </FileListPlaceholder>
+            valid={valid}
+        >
+            {label && (
+                <Label
+                    id={labelId}
+                    required={required}
+                    disabled={disabled}
+                    htmlFor={name}
+                >
+                    {label}
+                </Label>
             )}
-        </FileList>
-    </Field>
-)
+
+            <FileInput
+                accept={accept}
+                ariaDescribedBy={ariaDescribedBy}
+                ariaLabelledBy={labelId}
+                buttonLabel={translate(buttonLabel)}
+                className={className}
+                disabled={disabled}
+                error={error}
+                initialFocus={initialFocus}
+                large={large}
+                multiple={multiple}
+                name={name}
+                onBlur={onBlur}
+                onChange={onChange}
+                onFocus={onFocus}
+                onKeyDown={onKeyDown}
+                small={small}
+                tabIndex={tabIndex}
+                valid={valid}
+                warning={warning}
+            />
+
+            <FileList>
+                {children ? (
+                    children
+                ) : (
+                    <FileListPlaceholder>
+                        {translate(placeholder)}
+                    </FileListPlaceholder>
+                )}
+            </FileList>
+
+            <span role="status" className="live-region">
+                {statusMessage}
+            </span>
+
+            <style jsx>{`
+                .live-region {
+                    position: absolute;
+                    width: 1px;
+                    height: 1px;
+                    margin: -1px;
+                    padding: 0;
+                    overflow: hidden;
+                    clip: rect(0, 0, 0, 0);
+                    white-space: nowrap;
+                    border: 0;
+                }
+            `}</style>
+        </Field>
+    )
+}
 
 FileInputField.propTypes = {
     /** The `accept` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept) */
@@ -120,6 +157,8 @@ FileInputField.propTypes = {
     required: PropTypes.bool,
     /** Size of the button. Mutually exclusive with the `large` prop */
     small: sharedPropTypes.sizePropType,
+    /** Message announced to screen readers, e.g. when files are added to or removed from the list */
+    statusMessage: PropTypes.string,
     tabIndex: PropTypes.string,
     /** Applies 'valid' styling to the validation text. Mutually exclusive with `warning` and `error` props */
     valid: sharedPropTypes.statusPropType,

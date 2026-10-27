@@ -15,6 +15,8 @@ import { FileInput } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |accept|string|``'*'``||The `accept` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept)|
+|ariaDescribedBy|string|||Sets an aria-describedby attribute on the button|
+|ariaLabelledBy|string|||Sets an aria-labelledby attribute on the button|
 |buttonLabel|string||||
 |className|string||||
 |dataTest|string|``'dhis2-uicore-fileinput'``|||
@@ -65,6 +67,7 @@ import { FileInputField } from '@dhis2/ui'
 |placeholder|string │ function|``() => i18n.t('No file uploaded yet')``||Placeholder below the button|
 |required|boolean|||Adds an asterisk to indicate this field is required|
 |small|custom|||Size of the button. Mutually exclusive with the `large` prop|
+|statusMessage|string|||Message announced to screen readers, e.g. when files are added to or removed from the list|
 |tabIndex|string||||
 |valid|custom|||Applies 'valid' styling to the validation text. Mutually exclusive with `warning` and `error` props|
 |validationText|string|||Text below the button that provides validation feedback|

@@ -6,6 +6,7 @@ export interface LabelProps {
     dataTest?: string
     disabled?: boolean
     htmlFor?: string
+    id?: string
     required?: boolean
 }
 

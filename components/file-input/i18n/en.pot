@@ -14,5 +14,11 @@ msgstr "Upload a file"
 msgid "No file uploaded yet"
 msgstr "No file uploaded yet"
 
+msgid "{{- files}} added"
+msgstr "{{- files}} added"
+
+msgid "{{- files}} removed"
+msgstr "{{- files}} removed"
+
 msgid "Remove"
 msgstr "Remove"

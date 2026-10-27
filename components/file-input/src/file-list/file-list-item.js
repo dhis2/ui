@@ -19,8 +19,12 @@ const FileListItem = ({
         if (!onRemove) {
             return
         }
+        if (event.key === ' ') {
+            event.preventDefault()
+        }
         if (
             event.key === 'Enter' ||
+            event.key === ' ' ||
             event.key === 'Backspace' ||
             event.key === 'Delete'
         ) {
@@ -56,6 +60,12 @@ const FileListItem = ({
                         className="action"
                         onClick={(event) => onRemove({}, event)}
                         data-test={`${dataTest}-remove`}
+                        role="button"
+                        aria-label={
+                            removeText && label
+                                ? `${removeText} ${label}`
+                                : undefined
+                        }
                         tabIndex={0}
                         onKeyDown={handleKeyDown}
                     >
