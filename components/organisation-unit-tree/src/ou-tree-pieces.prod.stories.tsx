@@ -1,6 +1,7 @@
 import { colors } from '@dhis2/ui-constants'
 import React from 'react'
 import {
+    OuTreeContainer,
     OuTreeErrorIcon,
     OuTreeLoader,
     OuTreeNodeLabel,
@@ -9,6 +10,8 @@ import {
     OuTreeRowShell,
     OuTreeSkeleton,
     OuTreeToggle,
+    OuTreeVirtualRow,
+    OuTreeVirtualSizer,
 } from './ou-tree/index'
 
 export default {
@@ -145,6 +148,37 @@ export const RowShell = () => (
                 <OuTreeToggle open onToggle={noop} />
                 <OuTreeNodeLabel>{LONG_NAME}</OuTreeNodeLabel>
             </OuTreeRowShell>
+        </Captioned>
+    </Column>
+)
+
+export const Structure = () => (
+    <Column>
+        <Captioned
+            caption="container (120px tall) with a 240px sizer and two rows placed at 0 and 48"
+            width={320}
+        >
+            <div
+                style={{ height: 120, border: `1px dashed ${colors.grey400}` }}
+            >
+                <OuTreeContainer>
+                    <OuTreeVirtualSizer height={240}>
+                        {[0, 2].map((index) => (
+                            <OuTreeVirtualRow
+                                key={index}
+                                item={{ index, start: index * 24, key: index }}
+                                measureElement={noop}
+                            >
+                                <OuTreeRowShell depth={0}>
+                                    <OuTreeNodeLabel>
+                                        Row {index}
+                                    </OuTreeNodeLabel>
+                                </OuTreeRowShell>
+                            </OuTreeVirtualRow>
+                        ))}
+                    </OuTreeVirtualSizer>
+                </OuTreeContainer>
+            </div>
         </Captioned>
     </Column>
 )

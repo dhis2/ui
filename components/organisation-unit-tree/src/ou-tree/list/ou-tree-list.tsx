@@ -1,11 +1,11 @@
-import cx from 'classnames'
 import React, { useRef } from 'react'
 import { useOuTree, useOuTreeActions } from '../tree/index'
+import { OuTreeContainer } from './ou-tree-container'
 import type { RenderLabel } from './ou-tree-node-row'
-import { OuTreeRetrySkeleton } from './ou-tree-retry-skeleton'
+import { OuTreeRootsRows } from './ou-tree-roots-rows'
 import { OuTreeRow } from './ou-tree-row'
-import { OuTreeRowShell } from './ou-tree-row-shell'
-import { OuTreeSkeleton } from './ou-tree-skeleton'
+import { OuTreeVirtualRow } from './ou-tree-virtual-row'
+import { OuTreeVirtualSizer } from './ou-tree-virtual-sizer'
 import { useOuTreeVirtualRows } from './use-ou-tree-virtual-rows'
 
 export interface OuTreeListProps {
@@ -29,72 +29,37 @@ export const OuTreeList = ({
     const { virtualItems, totalSize, measureElement } = useOuTreeVirtualRows({
         scrollRef,
     })
-    const rootsFailed = rootsStatus.status === 'failed'
 
     return (
-        <div
+        <OuTreeContainer
             ref={scrollRef}
-            role="tree"
-            data-test={dataTest}
-            className={cx('container', className)}
+            className={className}
+            dataTest={dataTest}
         >
             {rootsStatus.status === 'loaded' ? (
-                <div className="sizer" style={{ height: totalSize }}>
+                <OuTreeVirtualSizer height={totalSize}>
                     {virtualItems.map((item) => (
-                        <div
+                        <OuTreeVirtualRow
                             key={item.key}
-                            className="positioned"
-                            data-index={item.index}
-                            ref={measureElement}
-                            style={{
-                                transform: `translateY(${item.start}px)`,
-                            }}
+                            item={item}
+                            measureElement={measureElement}
                         >
                             <OuTreeRow
                                 row={getRow(item.index)}
                                 renderLabel={renderLabel}
                                 dataTest={dataTest}
                             />
-                        </div>
+                        </OuTreeVirtualRow>
                     ))}
-                </div>
+                </OuTreeVirtualSizer>
             ) : (
-                rootIds.map((id) => (
-                    <OuTreeRowShell
-                        key={id}
-                        depth={0}
-                        rowKind="roots"
-                        dataTest={`${dataTest}-row`}
-                    >
-                        {rootsFailed ? (
-                            <OuTreeRetrySkeleton
-                                onRetry={retryRoots}
-                                dataTest={`${dataTest}-retry`}
-                            />
-                        ) : (
-                            <OuTreeSkeleton dataTest={`${dataTest}-skeleton`} />
-                        )}
-                    </OuTreeRowShell>
-                ))
+                <OuTreeRootsRows
+                    rootIds={rootIds}
+                    failed={rootsStatus.status === 'failed'}
+                    onRetry={retryRoots}
+                    dataTest={dataTest}
+                />
             )}
-            <style jsx>{`
-                .container {
-                    height: 100%;
-                    width: 100%;
-                    overflow: auto;
-                    position: relative;
-                }
-                .sizer {
-                    position: relative;
-                    width: 100%;
-                }
-                .positioned {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                }
-            `}</style>
-        </div>
+        </OuTreeContainer>
     )
 }

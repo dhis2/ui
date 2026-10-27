@@ -77,8 +77,10 @@ in other packages.
 - **Paging names say which kind they mean.** Browse mode pages a parent's
   children (`requestChildrenPage`, `CHILDREN_PAGE_SIZE`); filtered mode, later,
   pages results. Nothing is called just "page".
-- **Row pieces take plain props and read nothing from the tree.** The rows
-  (`OuTreeNodeRow`, `OuTreeRow`) and `OuTree` are the glue over hooks and
+- **Pieces take plain props and read nothing from the tree**, and the glue
+  carries no styles. The rows (`OuTreeNodeRow`, `OuTreeRow`), `OuTreeList`
+  and `OuTree` are the glue over hooks and pieces; `OuTreeContainer`,
+  `OuTreeVirtualSizer` and `OuTreeVirtualRow` are the list's structural
   pieces. Every piece puts the `dataTest` it is given on its element
   unchanged; the glue composes the suffixes (`${dataTest}-row`, `-toggle`,
   `-label`, `-loader`, `-error`, `-retry`, `-skeleton`), default
