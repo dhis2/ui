@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-10-14T14:43:57.805Z\n"
-"PO-Revision-Date: 2026-10-14T14:43:57.805Z\n"
+"POT-Creation-Date: 2026-10-27T11:26:05.583Z\n"
+"PO-Revision-Date: 2026-10-27T11:26:05.583Z\n"
 
 msgid "No children match filter"
 msgstr "No children match filter"
@@ -16,6 +16,9 @@ msgstr "Could not load children"
 
 msgid "Error: {{ ERRORMESSAGE }}"
 msgstr "Error: {{ ERRORMESSAGE }}"
+
+msgid "Retry"
+msgstr "Retry"
 
 msgid "ouTree - coming soon"
 msgstr "ouTree - coming soon"
