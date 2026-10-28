@@ -12,14 +12,9 @@ export interface OuTreeRetryNodeProps {
 }
 
 /**
- * The body of a node row whose children did not load, so the node did not
- * open: a button holding the error icon in the toggle's place, the label
- * slot and, after the label, the sync icon. The button hugs its content.
- * Hover and keyboard focus colour it like the retry skeleton and show the
- * sync icon; clicking opens the node again, which reloads its children.
- * The button is the tooltip's reference, so there is no wrapper and no
- * second tab stop, and the tooltip sits beside the button so it covers no
- * row above it.
+ * A failed node's row body: a button with the error icon in the toggle's
+ * place, the label slot and, shown on hover and focus, the sync icon.
+ * Clicking opens the node again, which reloads its children.
  */
 export const OuTreeRetryNode = ({
     onRetry,
@@ -30,6 +25,7 @@ export const OuTreeRetryNode = ({
         content={i18n.t('Could not load children. Click to retry')}
         placement="right"
     >
+        {/* The button itself is the tooltip's reference. */}
         {({ ref, ...tooltip }) => (
             <button
                 {...tooltip}

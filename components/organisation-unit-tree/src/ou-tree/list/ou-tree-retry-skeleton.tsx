@@ -10,12 +10,9 @@ export interface OuTreeRetrySkeletonProps {
 }
 
 /**
- * An error-state skeleton that is itself the retry control: the button is
- * the bar, standing for a node that did not load, and clicking it reloads.
- * The sync icon sits at the bar's end and shows on hover and keyboard focus
- * only, so a block of failed rows stays calm. The button is the tooltip's
- * reference, so there is no wrapper and no second tab stop, and the
- * tooltip sits beside the control so it covers no row above it.
+ * A retry control that is itself the error bar, standing for a node that
+ * did not load, with the sync icon shown on hover and focus. Clicking
+ * reloads.
  */
 export const OuTreeRetrySkeleton = ({
     onRetry,
@@ -25,6 +22,7 @@ export const OuTreeRetrySkeleton = ({
         content={i18n.t('Could not load. Click to retry')}
         placement="right"
     >
+        {/* The button itself is the tooltip's reference. */}
         {({ ref, ...tooltip }) => (
             <button
                 {...tooltip}

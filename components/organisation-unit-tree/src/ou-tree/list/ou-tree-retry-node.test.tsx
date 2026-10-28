@@ -15,7 +15,6 @@ describe('OuTreeRetryNode', () => {
         const button = screen.getByRole('button', { name: 'Rio de Janeiro' })
 
         expect(button).toBe(screen.getByTestId('t-retry'))
-        // The button is the tooltip's reference: no focusable wrapper.
         expect(button.parentElement).not.toHaveAttribute('tabindex')
         await userEvent.click(button)
         expect(onRetry).toHaveBeenCalledTimes(1)
