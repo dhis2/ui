@@ -13,7 +13,6 @@ import {
     OuTreeLoader,
     OuTreeNodeLabel,
     OuTreeNodeStoreProvider,
-    OuTreeErrorIcon,
     OuTreeRetryNode,
     OuTreeRetrySkeleton,
     OuTreeRowShell,
@@ -261,23 +260,13 @@ export const Loader = () => (
 )
 Loader.storyName = 'Building block: Loader'
 
-export const ErrorIcon = () => (
-    <Stack>
-        <Captioned caption="error icon, in the toggle's place">
-            <OuTreeErrorIcon />
-        </Captioned>
-    </Stack>
-)
-ErrorIcon.storyName = 'Building block: Error icon'
-
 export const RetryNode = () => (
     <Stack>
         <Captioned
-            caption="a node whose children did not load (hover or focus the label for the sync icon)"
+            caption="a node whose children did not load (hover or focus for the sync icon)"
             width={240}
         >
             <OuTreeRowShell depth={0}>
-                <OuTreeErrorIcon onClick={noop} />
                 <OuTreeRetryNode onRetry={noop}>
                     <OuTreeNodeLabel>Rio de Janeiro</OuTreeNodeLabel>
                 </OuTreeRetryNode>

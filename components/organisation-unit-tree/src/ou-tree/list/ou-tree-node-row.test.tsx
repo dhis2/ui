@@ -152,7 +152,6 @@ describe('OuTreeNodeRow', () => {
 
         expect(retry).toBe(screen.getByRole('button', { name: 'Zambia' }))
         expect(retry).toContainElement(screen.getByTestId('t-label'))
-        expect(screen.getByTestId('t-error')).toBeInTheDocument()
         expect(screen.queryByTestId('t-toggle')).toBeNull()
         expect(screen.getByTestId('t-row')).toHaveAttribute(
             'aria-expanded',
@@ -170,28 +169,6 @@ describe('OuTreeNodeRow', () => {
 
         expect(ref.tree.toggle).toHaveBeenCalledWith('ou-1')
         expect(ref.tree.store.retryChildrenPage).toHaveBeenCalledWith('ou-1', 1)
-    })
-
-    it('opens the node again from the error icon too', async () => {
-        const ref = setup({ children: failing })
-        await ready()
-        act(() => ref.tree.open('ou-1'))
-        await screen.findByTestId('t-retry')
-
-        await userEvent.click(screen.getByTestId('t-error'))
-
-        expect(ref.tree.toggle).toHaveBeenCalledWith('ou-1')
-    })
-
-    it('opens the node again from the error icon too', async () => {
-        const ref = setup({ children: failing })
-        await ready()
-        act(() => ref.tree.open('ou-1'))
-        await screen.findByTestId('t-retry')
-
-        await userEvent.click(screen.getByTestId('t-error'))
-
-        expect(ref.tree.toggle).toHaveBeenCalledWith('ou-1')
     })
 
     it('renders renderLabel in the label slot with the toggle still present', async () => {

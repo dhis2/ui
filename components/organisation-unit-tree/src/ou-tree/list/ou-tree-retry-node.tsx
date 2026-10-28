@@ -1,6 +1,6 @@
 import i18n from '@dhis2/d2-i18n'
 import { colors, theme } from '@dhis2/ui-constants'
-import { IconSync16 } from '@dhis2/ui-icons'
+import { IconErrorFilled16, IconSync16 } from '@dhis2/ui-icons'
 import { Tooltip } from '@dhis2-ui/tooltip'
 import React from 'react'
 
@@ -12,13 +12,14 @@ export interface OuTreeRetryNodeProps {
 }
 
 /**
- * The label slot of a node whose children did not load, so it did not
- * open: a button around the label, hugging it, with the sync icon after
- * the label. Hover and keyboard focus colour it like the retry skeleton
- * and show the icon; clicking opens the node again, which reloads its
- * children. The button is the tooltip's reference, so there is no wrapper
- * and no second tab stop, and the tooltip sits beside the control so it
- * covers no row above it.
+ * The body of a node row whose children did not load, so the node did not
+ * open: a button holding the error icon in the toggle's place, the label
+ * slot and, after the label, the sync icon. The button hugs its content.
+ * Hover and keyboard focus colour it like the retry skeleton and show the
+ * sync icon; clicking opens the node again, which reloads its children.
+ * The button is the tooltip's reference, so there is no wrapper and no
+ * second tab stop, and the tooltip sits beside the button so it covers no
+ * row above it.
  */
 export const OuTreeRetryNode = ({
     onRetry,
@@ -37,8 +38,11 @@ export const OuTreeRetryNode = ({
                 data-test={dataTest}
                 onClick={onRetry}
             >
-                {children}
                 <span className="icon" aria-hidden>
+                    <IconErrorFilled16 color={theme.error} />
+                </span>
+                {children}
+                <span className="icon sync" aria-hidden>
                     <IconSync16 color={theme.error} />
                 </span>
                 <style jsx>{`
@@ -62,7 +66,6 @@ export const OuTreeRetryNode = ({
                         background: ${colors.red200};
                         box-shadow: inset 0 0 0 1px ${colors.red400};
                     }
-                    /* Takes its space always, so nothing moves on hover. */
                     .icon {
                         width: 24px;
                         height: 24px;
@@ -70,10 +73,13 @@ export const OuTreeRetryNode = ({
                         align-items: center;
                         justify-content: center;
                         flex-shrink: 0;
+                    }
+                    /* Takes its space always, so nothing moves on hover. */
+                    .sync {
                         visibility: hidden;
                     }
-                    button:hover > .icon,
-                    button:focus-visible > .icon {
+                    button:hover > .sync,
+                    button:focus-visible > .sync {
                         visibility: visible;
                     }
                 `}</style>

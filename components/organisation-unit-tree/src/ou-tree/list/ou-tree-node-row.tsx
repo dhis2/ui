@@ -41,7 +41,7 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
         throw new Error(`Node row ${row.id} has no node in the store`)
     }
     const onToggle = () => toggle(row.id)
-    // A failed first page means the node did not open; the label slot is
+    // A failed first page means the node did not open; the row's body is
     // then a button that opens it again.
     const failed = childrenStatus.status === 'failed'
     const clickable = !node.leaf && !failed
@@ -72,14 +72,6 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
             ariaExpanded={node.leaf ? undefined : isOpen}
             dataTest={`${dataTest}-row`}
         >
-            <OuTreeNodeToggle
-                leaf={node.leaf}
-                open={isOpen}
-                loading={isOpen && childrenStatus.status === 'loading'}
-                failed={failed}
-                onToggle={onToggle}
-                dataTest={dataTest}
-            />
             {failed ? (
                 <OuTreeRetryNode
                     onRetry={onToggle}
@@ -88,7 +80,16 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
                     {label}
                 </OuTreeRetryNode>
             ) : (
-                label
+                <>
+                    <OuTreeNodeToggle
+                        leaf={node.leaf}
+                        open={isOpen}
+                        loading={isOpen && childrenStatus.status === 'loading'}
+                        onToggle={onToggle}
+                        dataTest={dataTest}
+                    />
+                    {label}
+                </>
             )}
         </OuTreeRowShell>
     )
