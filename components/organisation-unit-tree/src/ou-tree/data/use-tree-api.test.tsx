@@ -24,7 +24,7 @@ describe('useTreeApi', () => {
         const api = render({ [TREE_RESOURCE]: resolver })
 
         const result = await api.fetchTreePage({
-            roots: ['ou-1'],
+            rootIds: ['ou-1'],
             depth: 1,
             page: 1,
             pageSize: 50,
@@ -33,7 +33,7 @@ describe('useTreeApi', () => {
 
         expect(result).toEqual(response)
         expect(resolver.mock.calls[0][1].params).toEqual({
-            roots: ['ou-1'],
+            rootIds: ['ou-1'],
             depth: 1,
             page: 1,
             pageSize: 50,

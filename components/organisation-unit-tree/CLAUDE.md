@@ -4,13 +4,15 @@ This package holds two components side by side:
 
 - `OrganisationUnitTree` — the current component, in **JavaScript**
   (`src/organisation-unit-tree/`, `src/organisation-unit-node/` and friends).
-- `OuTree` — its replacement, in **TypeScript** (`src/ou-tree/`). The component
-  is a placeholder. `src/ou-tree/data/` is the endpoint types and the tree
-  API (the tree endpoint, its `<id>/children` resource and gist),
-  `src/ou-tree/node-store/` the app-wide node store with paged children per
-  parent, `src/ou-tree/tree/` the per-tree state, providers and hooks, and
-  `src/ou-tree/__fixtures__/` a temporary in-memory stand-in for the endpoint
-  with a PAHO fixture, for tests and stories.
+- `OuTree` — its replacement, in **TypeScript** (`src/ou-tree/`). It renders
+  browse mode as a virtualised list that looks like `OrganisationUnitTree`.
+  `src/ou-tree/data/` is the endpoint types and the tree API (the tree
+  endpoint, its `<id>/children` resource and gist), `src/ou-tree/node-store/`
+  the app-wide node store with paged children per parent,
+  `src/ou-tree/tree/` the per-tree state, providers and hooks,
+  `src/ou-tree/list/` the virtualised list, the row pieces and the default
+  rows, and `src/ou-tree/__fixtures__/` a temporary in-memory stand-in for
+  the endpoint with a PAHO fixture, for tests and stories.
 
 The rest of this repository is JavaScript. The TypeScript conventions below apply
 to `.ts`/`.tsx` files only; do not apply them to the JavaScript sources here or
@@ -75,6 +77,37 @@ in other packages.
 - **Paging names say which kind they mean.** Browse mode pages a parent's
   children (`requestChildrenPage`, `CHILDREN_PAGE_SIZE`); filtered mode, later,
   pages results. Nothing is called just "page".
+- **Pieces take plain props and read nothing from the tree**, and the glue
+  carries no styles. The rows (`OuTreeNodeRow`, `OuTreeRow`,
+  `OuTreeErrorRow`, `OuTreeSkeletonRow`), `OuTreeNodeToggle`,
+  `OuTreeRootsRows`, `OuTreeList` and `OuTree` are the glue over hooks and
+  pieces; `OuTreeContainer`, `OuTreeVirtualSizer` and `OuTreeVirtualRow`
+  are the list's structural pieces. Every piece puts the `dataTest` it is
+  given on its element unchanged; the glue composes the suffixes
+  (`${dataTest}-row`, `-toggle`, `-toggle-space`, `-label`, `-loader`,
+  `-retry`, `-skeleton`), default `dhis2-uicore-outree`. The two
+  retry controls are buttons that are the tooltip's reference:
+  `OuTreeRetrySkeleton` is itself the bar, and `OuTreeRetryNode` is a
+  failed node's row body around the label slot. In Storybook the pieces are the `Building block:` stories of
+  the `OuTree` entry, after the tree's own.
+- **A failed first page means the node did not open.** `isOpen` is false
+  while a node's children status is `failed`, the row's body is an
+  `OuTreeRetryNode` button around the label slot, and opening the node
+  again requests page one again. There is no separate retry
+  action on a node.
+- **List tests mock the virtualiser**, as jsdom has no layout:
+  `jest.mock('@tanstack/react-virtual', () => jest.requireActual('<path>/__fixtures__/virtualizer-mock'))`.
+  Import the mock file directly; it uses the `jest` global, so it is not in
+  the fixtures index that stories import.
+- **`renderLabel` is the one customisation convenience.** It replaces the
+  label slot of a node row and keeps the row's chrome. It must be a stable
+  function, or the memoised rows re-render. While the node's children
+  failed to load, the slot sits inside the row's retry button, so a label
+  with its own control there is batch 5's problem to solve with the row's
+  focus model.
+- **Use `useOuTreeActions` in components that act on the tree but must not
+  re-render when it changes**, such as rows; `useOuTree` subscribes to every
+  change.
 - **One `OuTreeNodeStoreProvider` per app.** Every tree shares its store; a
   tree without it throws. It holds one store per `shortName` value.
 
@@ -90,12 +123,15 @@ in other packages.
   run after adding or changing any `i18n.t(...)` string, and commit the updated
   `i18n/en.pot`.
 - From the repo root: `yarn setup` once, then `yarn start` for Storybook.
+  The `OuTree` stories' stand-in answers after 1500 milliseconds, so the
+  Netlify preview demos every loading state;
+  `STORYBOOK_OU_TREE_DELAY=<milliseconds>` sets another latency, 0 included.
 
 ## Status
 
-`OuTree` is deliberately **not exported**, neither from this package's
-`src/index.js` nor from `@dhis2/ui`, because this package is published. It is
-reachable only through its story. Exporting it is a separate, deliberate change:
+`OuTree` renders browse mode and is reachable through its stories. It is
+deliberately **not exported**, neither from this package's `src/index.js` nor
+from `@dhis2/ui`, because this package is published. Exporting it is a separate, deliberate change:
 add it to `src/index.js` and `types/index.d.ts` here, and to
 `collections/ui/src/index.js`. The `collections/ui` types re-export this package
 with `export *`, so they pick it up on their own — and would advertise it in

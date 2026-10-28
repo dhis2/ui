@@ -63,7 +63,7 @@ describe('OuTree providers and hooks', () => {
             renderHook(() => useOuTree(), {
                 wrapper: ({ children }) => (
                     <CustomDataProvider data={data}>
-                        <OuTreeProvider roots={['ou-1']}>
+                        <OuTreeProvider rootIds={['ou-1']}>
                             {children}
                         </OuTreeProvider>
                     </CustomDataProvider>
@@ -80,7 +80,7 @@ describe('OuTree providers and hooks', () => {
             {
                 wrapper: ({ children }) => (
                     <Providers data={data}>
-                        <OuTreeProvider roots={['ou-1']}>
+                        <OuTreeProvider rootIds={['ou-1']}>
                             {children}
                         </OuTreeProvider>
                     </Providers>
@@ -94,6 +94,7 @@ describe('OuTree providers and hooks', () => {
             })
         )
         expect(result.current.tree.rowCount).toBe(1)
+        expect(result.current.tree.rootIds).toEqual(['ou-1'])
         expect(result.current.root.node?.displayName).toBe('Zambia')
         expect(result.current.root.isOpen).toBe(false)
 
@@ -113,8 +114,8 @@ describe('OuTree providers and hooks', () => {
         const { data, gist, childrenPages } = resolvers()
         const wrapper = ({ children }: { children: React.ReactNode }) => (
             <Providers data={data}>
-                <OuTreeProvider roots={['ou-3']}>
-                    <OuTreeProvider roots={['ou-3', 'ou-6']}>
+                <OuTreeProvider rootIds={['ou-3']}>
+                    <OuTreeProvider rootIds={['ou-3', 'ou-6']}>
                         {children}
                     </OuTreeProvider>
                 </OuTreeProvider>
@@ -144,8 +145,8 @@ describe('OuTree providers and hooks', () => {
         const { data, gist } = resolvers()
         const wrapper = ({ children }: { children: React.ReactNode }) => (
             <Providers data={data}>
-                <OuTreeProvider roots={['ou-1']}>
-                    <OuTreeProvider roots={['ou-1']} shortName>
+                <OuTreeProvider rootIds={['ou-1']}>
+                    <OuTreeProvider rootIds={['ou-1']} shortName>
                         {children}
                     </OuTreeProvider>
                 </OuTreeProvider>
@@ -172,25 +173,25 @@ describe('OuTree providers and hooks', () => {
             })
             return null
         }
-        const App = ({ roots }: { roots: string[] }) => (
+        const App = ({ rootIds }: { rootIds: string[] }) => (
             <Providers data={data}>
-                <OuTreeProvider roots={roots}>
+                <OuTreeProvider rootIds={rootIds}>
                     <Probe />
                 </OuTreeProvider>
             </Providers>
         )
-        const { rerender } = render(<App roots={['ou-1']} />)
+        const { rerender } = render(<App rootIds={['ou-1']} />)
         await waitFor(() =>
             expect(latest.current?.rootsStatus).toEqual({ status: 'loaded' })
         )
         act(() => latest.current?.open('ou-1'))
 
-        rerender(<App roots={['ou-1']} />)
+        rerender(<App rootIds={['ou-1']} />)
 
         expect(latest.current?.isOpen('ou-1')).toBe(true)
         expect(gist).toHaveBeenCalledTimes(1)
 
-        rerender(<App roots={['ou-13']} />)
+        rerender(<App rootIds={['ou-13']} />)
         await waitFor(() => expect(latest.current?.isOpen('ou-1')).toBe(false))
         expect(gist).toHaveBeenCalledTimes(2)
     })
@@ -201,7 +202,7 @@ describe('OuTree providers and hooks', () => {
             wrapper: ({ children }) => (
                 <React.StrictMode>
                     <Providers data={data}>
-                        <OuTreeProvider roots={['ou-1']}>
+                        <OuTreeProvider rootIds={['ou-1']}>
                             {children}
                         </OuTreeProvider>
                     </Providers>

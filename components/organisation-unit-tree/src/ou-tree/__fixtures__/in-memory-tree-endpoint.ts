@@ -29,7 +29,7 @@ export interface InMemoryTreeEndpointOptions {
     orgUnits: FixtureOrgUnit[]
     groups?: FixtureOrgUnitGroup[]
     /** Roots used when the query has none. Defaults to the top-level units. */
-    defaultRoots?: string[]
+    defaultRootIds?: string[]
     /** "Today" for `currentlyOpen`. Defaults to the real date. */
     today?: Date
     /** Return an error to reject with for this query, or undefined to answer. */
@@ -149,7 +149,7 @@ const createResultPredicate = (
 export const createInMemoryTreeEndpoint = ({
     orgUnits,
     groups = [],
-    defaultRoots,
+    defaultRootIds,
     today,
     failWith,
 }: InMemoryTreeEndpointOptions): InMemoryTreeEndpoint => {
@@ -185,7 +185,7 @@ export const createInMemoryTreeEndpoint = ({
             displayNameOf,
         })
         const roots = resolveRoots(
-            query.roots ?? defaultRoots ?? topLevelIds,
+            query.rootIds ?? defaultRootIds ?? topLevelIds,
             byId
         ).sort(compare)
         const maxDepth = query.depth ?? Number.POSITIVE_INFINITY

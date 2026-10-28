@@ -9,7 +9,7 @@ describe('tree state over the PAHO stand-in', () => {
     it('loads all 18 pages of the widest parent through ensureChildrenLoaded', async () => {
         const { api, childrenCalls } = createTestTreeApi(pahoOrgUnits)
         const store = createNodeStore({ api })
-        const tree = createTreeState({ store, roots: [MINAS_GERAIS] })
+        const tree = createTreeState({ store, rootIds: [MINAS_GERAIS] })
         tree.loadInitial()
         await flush()
         tree.open(MINAS_GERAIS)

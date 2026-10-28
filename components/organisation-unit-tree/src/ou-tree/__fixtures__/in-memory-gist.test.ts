@@ -1,4 +1,4 @@
-import { createInMemoryGist } from './in-memory-gist'
+import { createGistResolver, createInMemoryGist } from './in-memory-gist'
 import { pahoOrgUnits } from './paho-org-units'
 import { zambiaOrgUnits } from './zambia-org-units'
 
@@ -12,7 +12,7 @@ describe('createInMemoryGist', () => {
                 displayName: 'AMR',
                 path: '/nOsaOsg36TR',
                 level: 1,
-                children: 27,
+                children: 26,
             },
             {
                 id: 'eFkh5oWtyud',
@@ -47,5 +47,18 @@ describe('createInMemoryGist', () => {
                 children: 0,
             },
         ])
+    })
+})
+
+describe('createGistResolver failWith', () => {
+    it('rejects with the error it returns', async () => {
+        const resolver = createGistResolver({
+            ...pahoOrgUnits,
+            failWith: () => new Error('Simulated failure'),
+        })
+
+        await expect(
+            resolver('read', { params: { filter: 'id:in:[nOsaOsg36TR]' } })
+        ).rejects.toThrow('Simulated failure')
     })
 })

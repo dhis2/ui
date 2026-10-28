@@ -4596,6 +4596,18 @@
     "@tanstack/query-core" "4.44.0"
     use-sync-external-store "^1.6.0"
 
+"@tanstack/react-virtual@^3.13.0":
+  version "3.14.23"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-virtual/-/react-virtual-3.14.23.tgz#190b60c13f5a54000bcae096292a9d6f4461e980"
+  integrity sha512-Oyy58qQwdaQieA+A4WUDtnh9D1rv5FZvGdw8og9Xeyh88V6HH94vMSyV5i9ATIbYNe9t5Ix0WXRo9NOTpHDkYw==
+  dependencies:
+    "@tanstack/virtual-core" "3.19.8"
+
+"@tanstack/virtual-core@3.19.8":
+  version "3.19.8"
+  resolved "https://registry.yarnpkg.com/@tanstack/virtual-core/-/virtual-core-3.19.8.tgz#94ab275e2d94a35dadf5464581d0fa809704a04a"
+  integrity sha512-Oz/SYBo/aVPyQkwtOw7Q23myITUgFIof2glQqydYJAPL6mH2SkJDkvDKZTklB+7gv5jGLZQhyTcd7SO1A1EODQ==
+
 "@teppeis/multimaps@3.0.0":
   version "3.0.0"
   resolved "https://registry.npmjs.org/@teppeis/multimaps/-/multimaps-3.0.0.tgz"

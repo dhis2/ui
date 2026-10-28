@@ -73,7 +73,7 @@ describe('in-memory endpoint over the PAHO fixture', () => {
         )
         const pages = collectPages({
             pageSize: 50,
-            roots: [widest.id],
+            rootIds: [widest.id],
             depth: 1,
         })
 

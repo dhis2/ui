@@ -9,8 +9,14 @@ import { flattenRows } from './flatten-rows'
 
 const flush = () => new Promise((resolve) => setTimeout(resolve, 0))
 const openSet = (...ids: string[]) => new Set(ids)
-const summary = (store: NodeStore, roots: string[], ...open: string[]) =>
-    flattenRows({ roots, openIds: openSet(...open), store }).rows.map((row) =>
+const rootNodesOf = (store: NodeStore, ids: string[]) =>
+    ids.flatMap((id) => store.getNode(id) ?? [])
+const summary = (store: NodeStore, rootIds: string[], ...open: string[]) =>
+    flattenRows({
+        rootNodes: rootNodesOf(store, rootIds),
+        openIds: openSet(...open),
+        store,
+    }).rows.map((row) =>
         row.kind === 'node'
             ? `${'  '.repeat(row.depth)}${row.id}:${row.children.status}`
             : `${'  '.repeat(row.depth)}${row.kind}${
@@ -150,7 +156,7 @@ describe('flattenRows', () => {
         const store = await zambia('ou-1')
 
         const { indexById } = flattenRows({
-            roots: ['ou-1'],
+            rootNodes: rootNodesOf(store, ['ou-1']),
             openIds: openSet('ou-1'),
             store,
         })
@@ -174,7 +180,7 @@ describe('flattenRows row identity', () => {
         store.requestChildrenPage('ou-1', 1)
         await flush()
         const first = flattenRows({
-            roots: ['ou-1'],
+            rootNodes: rootNodesOf(store, ['ou-1']),
             openIds: openSet('ou-1'),
             store,
         })
@@ -182,7 +188,7 @@ describe('flattenRows row identity', () => {
         store.requestChildrenPage('ou-2', 1)
         await flush()
         const second = flattenRows({
-            roots: ['ou-1'],
+            rootNodes: rootNodesOf(store, ['ou-1']),
             openIds: openSet('ou-1', 'ou-2'),
             store,
             previous: first,
@@ -194,5 +200,87 @@ describe('flattenRows row identity', () => {
         expect(second.rows[1]).toMatchObject({ kind: 'node', id: 'ou-2' })
         const ou13 = second.rows[second.indexById.get('ou-13') as number]
         expect(ou13).toBe(first.rows[first.indexById.get('ou-13') as number])
+    })
+
+    it('reuses skeleton and error rows below a node that opens', async () => {
+        const { api, nodeRequests, childrenRequests } = createManualTreeApi()
+        const store = createNodeStore({ api })
+        const loadingRoots = store.loadNodes(['p'])
+        nodeRequests[0].resolve([
+            {
+                id: 'p',
+                displayName: 'p',
+                path: '/p',
+                level: 1,
+                childrenCount: 6,
+            },
+        ])
+        await loadingRoots
+        // Six children over pages of two: page 1 loaded, page 2 failed,
+        // page 3 not requested.
+        store.requestChildrenPage('p', 1)
+        childrenRequests[0].resolve({
+            pager: { page: 1, pageSize: 2, total: 6, pageCount: 3 },
+            organisationUnits: [
+                {
+                    id: 'c1',
+                    displayName: 'c1',
+                    path: '/p/c1',
+                    level: 2,
+                    leaf: false,
+                },
+                {
+                    id: 'c2',
+                    displayName: 'c2',
+                    path: '/p/c2',
+                    level: 2,
+                    leaf: true,
+                },
+            ],
+        })
+        await flush()
+        store.requestChildrenPage('p', 2)
+        childrenRequests[1].reject(new Error('boom'))
+        await flush()
+        const first = flattenRows({
+            rootNodes: rootNodesOf(store, ['p']),
+            openIds: openSet('p'),
+            store,
+        })
+        expect(summary(store, ['p'], 'p')).toEqual([
+            'p:loaded',
+            '  c1:none',
+            '  c2:none',
+            '  error@2',
+            '  error@2',
+            '  skeleton#4',
+            '  skeleton#5',
+        ])
+
+        // Open c1 with one loaded child, so a row appears above the slots.
+        store.requestChildrenPage('c1', 1)
+        childrenRequests[2].resolve(
+            childrenPage({
+                parent: { path: '/p/c1', level: 2 },
+                children: [{ id: 'g1', displayName: 'g1' }],
+                total: 1,
+                page: 1,
+                pageSize: 2,
+            })
+        )
+        await flush()
+        const second = flattenRows({
+            rootNodes: rootNodesOf(store, ['p']),
+            openIds: openSet('p', 'c1'),
+            store,
+            previous: first,
+        })
+
+        expect(summary(store, ['p'], 'p', 'c1')[2]).toBe('    g1:none')
+        // Every row below g1 moved down by one and kept its object.
+        expect(second.rows[4]).toBe(first.rows[3])
+        expect(second.rows[5]).toBe(first.rows[4])
+        expect(second.rows[6]).toBe(first.rows[5])
+        expect(second.rows[7]).toBe(first.rows[6])
     })
 })

@@ -2,6 +2,7 @@ import {
     childrenPageOf,
     type NodeStore,
     type RootsStatus,
+    type StoredNode,
     type Subscribable,
 } from '../node-store/index'
 import { excludeNestedRoots } from './exclude-nested-roots'
@@ -9,17 +10,21 @@ import { FlatRows, flattenRows, Row } from './flatten-rows'
 
 export interface TreeStateOptions {
     store: NodeStore
-    roots: string[]
+    rootIds: string[]
     initiallyOpen?: string[]
 }
 
 export interface TreeState extends Subscribable {
     readonly store: NodeStore
-    /** The roots actually shown: loaded, nested ones excluded. */
-    readonly roots: string[]
+    /** The root ids as given, before loading and nested-root exclusion. */
+    readonly rootIds: string[]
+    /** The roots shown: loaded, nested ones excluded. Empty until loaded. */
+    readonly rootNodes: StoredNode[]
     /** Loading state of the root entries themselves. */
     getRootsStatus(): RootsStatus
+    /** Whether a node shows its children. False while its first page fails. */
     isOpen(id: string): boolean
+    /** Shows a node's children, requesting its first page if needed. */
     open(id: string): void
     close(id: string): void
     toggle(id: string): void
@@ -48,12 +53,12 @@ export interface TreeState extends Subscribable {
  */
 export const createTreeState = ({
     store,
-    roots: requestedRoots,
+    rootIds,
     initiallyOpen = [],
 }: TreeStateOptions): TreeState => {
     const listeners = new Set<() => void>()
     const openIds = new Set(initiallyOpen)
-    let roots: string[] = []
+    let rootNodes: StoredNode[] = []
     let rootsStatus: RootsStatus = { status: 'loading' }
     let version = 0
     let memo: { version: number; flat: FlatRows } | undefined
@@ -73,7 +78,7 @@ export const createTreeState = ({
             memo = {
                 version: current,
                 flat: flattenRows({
-                    roots,
+                    rootNodes,
                     openIds,
                     store,
                     previous: memo?.flat,
@@ -87,12 +92,20 @@ export const createTreeState = ({
         stale = true
     }
 
+    // A node whose first page failed did not open: it is shown closed with
+    // the failure, and opening it again requests the page again.
+    const isOpen = (id: string) =>
+        openIds.has(id) && store.getChildren(id).status !== 'failed'
+
     const requestFirstPage = (id: string) => {
         if (store.getNode(id)?.leaf) {
             return
         }
-        if (store.getChildren(id).status === 'none') {
+        const { status } = store.getChildren(id)
+        if (status === 'none') {
             store.requestChildrenPage(id, 1)
+        } else if (status === 'failed') {
+            store.retryChildrenPage(id, 1)
         }
     }
 
@@ -100,13 +113,13 @@ export const createTreeState = ({
         rootsStatus = { status: 'loading' }
         invalidate()
         notify()
-        store.loadNodes(requestedRoots).then(
+        store.loadNodes(rootIds).then(
             () => {
-                const nodes = requestedRoots.flatMap((id) => {
+                const nodes = rootIds.flatMap((id) => {
                     const node = store.getNode(id)
                     return node ? [node] : []
                 })
-                roots = excludeNestedRoots(nodes).map((node) => node.id)
+                rootNodes = excludeNestedRoots(nodes)
                 rootsStatus = { status: 'loaded' }
                 invalidate()
                 notify()
@@ -179,14 +192,15 @@ export const createTreeState = ({
 
     return {
         store,
-        get roots() {
-            return roots
+        rootIds,
+        get rootNodes() {
+            return rootNodes
         },
         getRootsStatus: () => rootsStatus,
-        isOpen: (id) => openIds.has(id),
+        isOpen,
         open,
         close,
-        toggle: (id) => (openIds.has(id) ? close(id) : open(id)),
+        toggle: (id) => (isOpen(id) ? close(id) : open(id)),
         getRowCount,
         getRow,
         getRowIndex: (id) => flat().indexById.get(id),

@@ -12,7 +12,7 @@ const TreeContext = createContext<TreeState | undefined>(undefined)
 
 export interface OuTreeProviderProps {
     /** Root org unit ids; a root under another listed root is not shown. */
-    roots: string[]
+    rootIds: string[]
     /** Show short names instead of names. */
     shortName?: boolean
     /** Ids open from the start, requesting their first children page. */
@@ -22,7 +22,7 @@ export interface OuTreeProviderProps {
 
 /** Creates one tree over the app's shared node store. */
 export const OuTreeProvider = ({
-    roots,
+    rootIds,
     shortName = false,
     initiallyOpen,
     children,
@@ -32,16 +32,16 @@ export const OuTreeProvider = ({
     // the tree is keyed on that: a new but equal array does not recreate it.
     // Uids are letters and digits, so a comma never collides. initiallyOpen
     // is read once, at creation, like an initial state.
-    const rootsKey = roots.join(',')
+    const rootIdsKey = rootIds.join(',')
     const initiallyOpenRef = useRef(initiallyOpen)
     const tree = useMemo(
         () =>
             createTreeState({
                 store,
-                roots: rootsKey === '' ? [] : rootsKey.split(','),
+                rootIds: rootIdsKey === '' ? [] : rootIdsKey.split(','),
                 initiallyOpen: initiallyOpenRef.current,
             }),
-        [store, rootsKey]
+        [store, rootIdsKey]
     )
     // Fetching is a side effect, so it starts from an effect, not from the
     // render that creates the tree. loadInitial() is idempotent, so the effect

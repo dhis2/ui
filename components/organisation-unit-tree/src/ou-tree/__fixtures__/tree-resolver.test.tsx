@@ -7,14 +7,14 @@ import { zambiaOrgUnits } from './zambia-org-units'
 
 describe('parseQueryParams', () => {
     it('passes typed values through and defaults page and pageSize', () => {
-        expect(parseQueryParams({ roots: ['ou-3', 'ou-6'], depth: 1 })).toEqual(
-            {
-                page: 1,
-                pageSize: 50,
-                roots: ['ou-3', 'ou-6'],
-                depth: 1,
-            }
-        )
+        expect(
+            parseQueryParams({ rootIds: ['ou-3', 'ou-6'], depth: 1 })
+        ).toEqual({
+            page: 1,
+            pageSize: 50,
+            rootIds: ['ou-3', 'ou-6'],
+            depth: 1,
+        })
     })
 
     it('parses query-string shaped values', () => {
@@ -22,7 +22,7 @@ describe('parseQueryParams', () => {
             parseQueryParams({
                 page: '2',
                 pageSize: '10',
-                roots: 'ou-3, ou-6',
+                rootIds: 'ou-3, ou-6',
                 groups: 'g-1',
                 level: '4',
                 currentlyOpen: 'true',
@@ -32,7 +32,7 @@ describe('parseQueryParams', () => {
         ).toEqual({
             page: 2,
             pageSize: 10,
-            roots: ['ou-3', 'ou-6'],
+            rootIds: ['ou-3', 'ou-6'],
             groups: ['g-1'],
             level: 4,
             currentlyOpen: true,
@@ -53,7 +53,7 @@ describe('createTreeResolver', () => {
         const query = {
             tree: {
                 resource: TREE_RESOURCE,
-                params: { page: 1, pageSize: 50, roots: ['ou-13'], depth: 1 },
+                params: { page: 1, pageSize: 50, rootIds: ['ou-13'], depth: 1 },
             },
         }
 
@@ -143,11 +143,39 @@ describe('createTreeResolver', () => {
             })
 
             await expect(
-                resolver('read', { params: { roots: ['ou-1'] } })
+                resolver('read', { params: { rootIds: ['ou-1'] } })
             ).rejects.toBe(error)
             await expect(
                 children(resolver, { page: 1, pageSize: 2 })
             ).resolves.toBeDefined()
         })
+    })
+})
+
+const settle = async () => {
+    for (let i = 0; i < 10; i += 1) {
+        await Promise.resolve()
+    }
+}
+
+describe('createTreeResolver delay', () => {
+    afterEach(() => jest.useRealTimers())
+
+    it('answers only after the delay', async () => {
+        jest.useFakeTimers()
+        const resolver = createTreeResolver({
+            orgUnits: zambiaOrgUnits,
+            delay: 1000,
+        })
+        const onResolved = jest.fn()
+
+        resolver('read', { id: 'ou-1/children', params: {} }).then(onResolved)
+        jest.advanceTimersByTime(999)
+        await settle()
+        expect(onResolved).not.toHaveBeenCalled()
+
+        jest.advanceTimersByTime(1)
+        await settle()
+        expect(onResolved).toHaveBeenCalledTimes(1)
     })
 })

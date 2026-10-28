@@ -1,6 +1,8 @@
 export { OuTreeNodeStoreProvider } from './ou-tree-node-store-provider'
 export { OuTreeProvider, type OuTreeProviderProps } from './ou-tree-provider'
 export { type OuTreeHandle, useOuTree } from './use-ou-tree'
+export { type OuTreeActions, useOuTreeActions } from './use-ou-tree-actions'
 export { type OuTreeNodeHandle, useOuTreeNode } from './use-ou-tree-node'
 export type { Row } from './flatten-rows'
+export { rowKey } from './row-key'
 export type { TreeState, TreeStateOptions } from './tree-state'

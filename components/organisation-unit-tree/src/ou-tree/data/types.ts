@@ -11,7 +11,7 @@ export interface OuTreeQuery {
     /** Locale for `displayName` and translation matching. */
     locale?: string
     /** Scope roots. A root under another listed root is ignored. */
-    roots?: string[]
+    rootIds?: string[]
     /** Browse mode: the roots plus this many levels below them. */
     depth?: number
     /** Search mode: case- and accent-insensitive match on the display name. */

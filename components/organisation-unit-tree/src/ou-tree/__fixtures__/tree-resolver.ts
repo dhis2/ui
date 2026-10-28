@@ -4,6 +4,7 @@ import {
     createInMemoryTreeEndpoint,
     InMemoryTreeEndpointOptions,
 } from './in-memory-tree-endpoint'
+import { wait } from './wait'
 
 const DEFAULT_PAGE = 1
 const DEFAULT_PAGE_SIZE = 50
@@ -69,8 +70,8 @@ export const parseQueryParams = (params: unknown): OuTreeQuery => {
     if (raw.locale !== undefined) {
         query.locale = toText('locale', raw.locale)
     }
-    if (raw.roots !== undefined) {
-        query.roots = toList('roots', raw.roots)
+    if (raw.rootIds !== undefined) {
+        query.rootIds = toList('rootIds', raw.rootIds)
     }
     if (raw.depth !== undefined) {
         query.depth = toNumber('depth', raw.depth)
@@ -99,6 +100,8 @@ type Json = boolean | number | string | null | Json[] | { [key: string]: Json }
 export interface TreeResolverOptions extends InMemoryTreeEndpointOptions {
     /** Rejects a children request with the returned error. */
     failChildrenPageWith?: (parentId: string, page: number) => Error | undefined
+    /** Milliseconds to wait before answering any request. */
+    delay?: number
 }
 
 const CHILDREN_ID = /^(.+)\/children$/
@@ -111,6 +114,7 @@ const CHILDREN_ID = /^(.+)\/children$/
  */
 export const createTreeResolver = ({
     failChildrenPageWith,
+    delay = 0,
     ...options
 }: TreeResolverOptions) => {
     const endpoint = createInMemoryTreeEndpoint(options)
@@ -129,7 +133,7 @@ export const createTreeResolver = ({
         _type: string,
         query: { id?: unknown; params?: unknown }
     ): Promise<Json> =>
-        Promise.resolve().then(() => {
+        wait(delay).then(() => {
             const parentId =
                 typeof query.id === 'string'
                     ? CHILDREN_ID.exec(query.id)?.[1]

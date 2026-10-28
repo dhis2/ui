@@ -5,7 +5,7 @@ import { useTreeState } from './ou-tree-provider'
 export interface OuTreeNodeHandle {
     node: StoredNode | undefined
     isOpen: boolean
-    children: ChildrenStatus
+    childrenStatus: ChildrenStatus
 }
 
 /**
@@ -22,9 +22,12 @@ export const useOuTreeNode = (id: string): OuTreeNodeHandle => {
         tree.subscribe,
         useCallback(() => tree.isOpen(id), [tree, id])
     )
-    const children = useSyncExternalStore(
+    const childrenStatus = useSyncExternalStore(
         tree.subscribe,
         useCallback(() => tree.store.getChildren(id), [tree, id])
     )
-    return useMemo(() => ({ node, isOpen, children }), [node, isOpen, children])
+    return useMemo(
+        () => ({ node, isOpen, childrenStatus }),
+        [node, isOpen, childrenStatus]
+    )
 }

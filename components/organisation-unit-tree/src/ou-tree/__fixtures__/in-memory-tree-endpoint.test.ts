@@ -61,7 +61,7 @@ describe('createInMemoryTreeEndpoint', () => {
             const response = endpoint({
                 page: 1,
                 pageSize: 50,
-                roots: ['ou-3'],
+                rootIds: ['ou-3'],
                 depth: 1,
             })
 
@@ -131,7 +131,7 @@ describe('createInMemoryTreeEndpoint', () => {
         it('uses the configured default roots when the query has none', () => {
             const scoped = createInMemoryTreeEndpoint({
                 orgUnits: zambiaOrgUnits,
-                defaultRoots: ['ou-13'],
+                defaultRootIds: ['ou-13'],
             })
 
             const response = scoped({ page: 1, pageSize: 50, depth: 1 })
@@ -145,7 +145,7 @@ describe('createInMemoryTreeEndpoint', () => {
             const response = endpoint({
                 page: 1,
                 pageSize: 50,
-                roots: ['ou-6', 'ou-3', 'ou-8'],
+                rootIds: ['ou-6', 'ou-3', 'ou-8'],
                 depth: 1,
             })
 
@@ -169,10 +169,10 @@ describe('createInMemoryTreeEndpoint', () => {
             const mixed = endpoint({
                 page: 1,
                 pageSize: 50,
-                roots: ['nope', 'ou-14'],
+                rootIds: ['nope', 'ou-14'],
                 depth: 1,
             })
-            const none = endpoint({ page: 1, pageSize: 50, roots: ['nope'] })
+            const none = endpoint({ page: 1, pageSize: 50, rootIds: ['nope'] })
 
             expect(mixed.organisationUnits.map((entry) => entry.id)).toEqual([
                 'ou-14',
@@ -315,7 +315,7 @@ describe('createInMemoryTreeEndpoint', () => {
             const response = endpoint({
                 page: 1,
                 pageSize: 50,
-                roots: ['ou-6', 'ou-3'],
+                rootIds: ['ou-6', 'ou-3'],
                 search: 'Clinic',
             })
 
@@ -378,7 +378,7 @@ describe('createInMemoryTreeEndpoint', () => {
             const response = translated({
                 page: 1,
                 pageSize: 50,
-                roots: ['ou-2'],
+                rootIds: ['ou-2'],
                 depth: 1,
                 locale: 'fr',
             })
@@ -435,7 +435,7 @@ describe('createInMemoryTreeEndpoint', () => {
             const response = reordered({
                 page: 1,
                 pageSize: 50,
-                roots: ['ou-2'],
+                rootIds: ['ou-2'],
                 depth: 1,
                 locale: 'fr',
             })
@@ -522,7 +522,7 @@ describe('createInMemoryTreeEndpoint', () => {
             const response = dated({
                 page: 1,
                 pageSize: 50,
-                roots: ['ou-3'],
+                rootIds: ['ou-3'],
                 depth: 1,
                 currentlyOpen: true,
             })

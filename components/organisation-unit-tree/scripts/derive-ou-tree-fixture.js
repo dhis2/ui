@@ -6,7 +6,8 @@
  * needs: id, name, shortName, path, level, parentId, openingDate,
  * closedDate and non-empty translations; for groups, id, name and member
  * ids. Everything else in the export (people, geometry, dates of creation,
- * codes, attribute values) is dropped.
+ * codes, attribute values) is dropped, as is the unit "_País_Test", a
+ * test unit that looks out of place among the countries.
  *
  * Usage: node scripts/derive-ou-tree-fixture.js < metadata-export.json
  */
@@ -48,7 +49,10 @@ const deriveOrgUnit = (ou) => {
     return unit
 }
 
+const testUnitId = 'ENpzWwrAj7A'
+
 const orgUnits = metadata.organisationUnits
+    .filter((ou) => ou.id !== testUnitId)
     .map(deriveOrgUnit)
     .sort((a, b) => a.path.localeCompare(b.path))
 const groups = metadata.organisationUnitGroups.map((group) => ({
