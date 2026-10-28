@@ -3,7 +3,7 @@ import type { ChildrenStatus, StoredNode } from '../node-store/index'
 import { type Row, useOuTreeActions, useOuTreeNode } from '../tree/index'
 import { OuTreeNodeLabel } from './ou-tree-node-label'
 import { OuTreeNodeToggle } from './ou-tree-node-toggle'
-import { OuTreeRetryButton } from './ou-tree-retry-button'
+import { OuTreeRetryNode } from './ou-tree-retry-node'
 import { OuTreeRowShell } from './ou-tree-row-shell'
 
 export type NodeRow = Extract<Row, { kind: 'node' }>
@@ -16,7 +16,11 @@ export interface RenderLabelProps {
     toggle: () => void
 }
 
-/** Renders the label slot of a node row; must be a stable function. */
+/**
+ * Renders the label slot of a node row; must be a stable function. While
+ * the node's children failed to load, the slot sits inside the row's retry
+ * button.
+ */
 export type RenderLabel = (props: RenderLabelProps) => React.ReactNode
 
 export interface OuTreeNodeRowProps {
@@ -31,13 +35,33 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
     dataTest = 'dhis2-uicore-outree',
 }: OuTreeNodeRowProps) {
     const { node, isOpen, childrenStatus } = useOuTreeNode(row.id)
-    const { toggle, store } = useOuTreeActions()
+    const { toggle } = useOuTreeActions()
     if (!node) {
         // Rows are built from stored nodes and nodes are never removed.
         throw new Error(`Node row ${row.id} has no node in the store`)
     }
     const onToggle = () => toggle(row.id)
-    const failed = isOpen && childrenStatus.status === 'failed'
+    // A failed first page means the node did not open; the row is then a
+    // button that opens it again.
+    const failed = childrenStatus.status === 'failed'
+    const clickable = !node.leaf && !failed
+    const label = renderLabel ? (
+        renderLabel({
+            node,
+            isOpen,
+            childrenStatus,
+            depth: row.depth,
+            toggle: onToggle,
+        })
+    ) : (
+        <OuTreeNodeLabel
+            clickable={clickable}
+            onClick={clickable ? onToggle : undefined}
+            dataTest={`${dataTest}-label`}
+        >
+            {node.displayName}
+        </OuTreeNodeLabel>
+    )
 
     return (
         <OuTreeRowShell
@@ -48,35 +72,24 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
             ariaExpanded={node.leaf ? undefined : isOpen}
             dataTest={`${dataTest}-row`}
         >
-            <OuTreeNodeToggle
-                leaf={node.leaf}
-                open={isOpen}
-                childrenStatus={childrenStatus.status}
-                onToggle={onToggle}
-                dataTest={dataTest}
-            />
-            {renderLabel ? (
-                renderLabel({
-                    node,
-                    isOpen,
-                    childrenStatus,
-                    depth: row.depth,
-                    toggle: onToggle,
-                })
-            ) : (
-                <OuTreeNodeLabel
-                    clickable={!node.leaf}
-                    onClick={node.leaf ? undefined : onToggle}
-                    dataTest={`${dataTest}-label`}
-                >
-                    {node.displayName}
-                </OuTreeNodeLabel>
-            )}
-            {failed && (
-                <OuTreeRetryButton
-                    onRetry={() => store.retryChildrenPage(row.id, 1)}
+            {failed ? (
+                <OuTreeRetryNode
+                    onRetry={onToggle}
                     dataTest={`${dataTest}-retry`}
-                />
+                >
+                    {label}
+                </OuTreeRetryNode>
+            ) : (
+                <>
+                    <OuTreeNodeToggle
+                        leaf={node.leaf}
+                        open={isOpen}
+                        loading={isOpen && childrenStatus.status === 'loading'}
+                        onToggle={onToggle}
+                        dataTest={dataTest}
+                    />
+                    {label}
+                </>
             )}
         </OuTreeRowShell>
     )

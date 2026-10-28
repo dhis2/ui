@@ -85,17 +85,25 @@ in other packages.
   are the list's structural pieces. Every piece puts the `dataTest` it is
   given on its element unchanged; the glue composes the suffixes
   (`${dataTest}-row`, `-toggle`, `-toggle-space`, `-label`, `-loader`,
-  `-error`, `-retry`, `-skeleton`), default `dhis2-uicore-outree`. The one
-  composite piece, `OuTreeRetrySkeleton`, adds `-skeleton` to its own
-  `dataTest` for the skeleton inside it. In Storybook the pieces are the
-  `Building block:` stories of the `OuTree` entry, after the tree's own.
+  `-retry`, `-skeleton`), default `dhis2-uicore-outree`. The composite
+  pieces are the two retry controls: `OuTreeRetrySkeleton` adds `-skeleton`
+  to its own `dataTest` for the skeleton inside it, and `OuTreeRetryNode`
+  wraps the label slot. In Storybook the pieces are the `Building block:`
+  stories of the `OuTree` entry, after the tree's own.
+- **A failed first page means the node did not open.** `isOpen` is false
+  while a node's children status is `failed`, the row is an
+  `OuTreeRetryNode` around the label slot, and opening the node again
+  requests page one again. There is no separate retry action on a node.
 - **List tests mock the virtualiser**, as jsdom has no layout:
   `jest.mock('@tanstack/react-virtual', () => jest.requireActual('<path>/__fixtures__/virtualizer-mock'))`.
   Import the mock file directly; it uses the `jest` global, so it is not in
   the fixtures index that stories import.
 - **`renderLabel` is the one customisation convenience.** It replaces the
   label slot of a node row and keeps the row's chrome. It must be a stable
-  function, or the memoised rows re-render.
+  function, or the memoised rows re-render. While the node's children
+  failed to load, the slot sits inside the row's retry button, so a label
+  with its own control there is batch 5's problem to solve with the row's
+  focus model.
 - **Use `useOuTreeActions` in components that act on the tree but must not
   re-render when it changes**, such as rows; `useOuTree` subscribes to every
   change.

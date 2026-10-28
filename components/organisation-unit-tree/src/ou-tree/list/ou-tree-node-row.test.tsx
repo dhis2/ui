@@ -143,30 +143,32 @@ describe('OuTreeNodeRow', () => {
         expect(screen.queryByTestId('t-toggle')).toBeNull()
     })
 
-    it('shows the error icon instead of the toggle and a retry button when page one failed', async () => {
+    it('is a retry button around the label, not open, when page one failed', async () => {
         const ref = setup({ children: failing })
         await ready()
 
         act(() => ref.tree.open('ou-1'))
-        await screen.findByTestId('t-error')
-        expect(screen.queryByTestId('t-toggle')).toBeNull()
-        await userEvent.click(screen.getByTestId('t-retry'))
+        const retry = await screen.findByTestId('t-retry')
 
-        expect(ref.tree.store.retryChildrenPage).toHaveBeenCalledWith('ou-1', 1)
-        expect(ref.tree.toggle).not.toHaveBeenCalled()
+        expect(retry).toBe(screen.getByRole('button', { name: 'Zambia' }))
+        expect(retry).toContainElement(screen.getByTestId('t-label'))
+        expect(screen.queryByTestId('t-toggle')).toBeNull()
+        expect(screen.getByTestId('t-row')).toHaveAttribute(
+            'aria-expanded',
+            'false'
+        )
     })
 
-    it('shows the plain toggle again once the failed node is closed', async () => {
+    it('opens the node again, requesting page one again, when the retry button is clicked', async () => {
         const ref = setup({ children: failing })
         await ready()
         act(() => ref.tree.open('ou-1'))
-        await screen.findByTestId('t-error')
+        await screen.findByTestId('t-retry')
 
-        act(() => ref.tree.close('ou-1'))
+        await userEvent.click(screen.getByTestId('t-retry'))
 
-        expect(await screen.findByTestId('t-toggle')).toBeInTheDocument()
-        expect(screen.queryByTestId('t-error')).toBeNull()
-        expect(screen.queryByTestId('t-retry')).toBeNull()
+        expect(ref.tree.toggle).toHaveBeenCalledWith('ou-1')
+        expect(ref.tree.store.retryChildrenPage).toHaveBeenCalledWith('ou-1', 1)
     })
 
     it('renders renderLabel in the label slot with the toggle still present', async () => {

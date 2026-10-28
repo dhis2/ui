@@ -10,11 +10,10 @@ import { GIST_RESOURCE, TREE_RESOURCE } from './ou-tree/data/index'
 import {
     OuTree,
     OuTreeContainer,
-    OuTreeErrorIcon,
     OuTreeLoader,
     OuTreeNodeLabel,
     OuTreeNodeStoreProvider,
-    OuTreeRetryButton,
+    OuTreeRetryNode,
     OuTreeRetrySkeleton,
     OuTreeRowShell,
     OuTreeSkeleton,
@@ -36,9 +35,9 @@ in-memory stand-in for the endpoint with 19,190 PAHO organisation units, in a
 \`STORYBOOK_OU_TREE_DELAY=<milliseconds>\` to give every request that much
 latency (the loading and errors story keeps at least one second).
 
-\`renderLabel\` swaps the label slot and keeps the row's indent, toggle, loader
-and retry button. It must be a stable function: define it outside the
-component or memoise it.
+\`renderLabel\` swaps the label slot and keeps the row's indent, toggle and
+loader. It must be a stable function: define it outside the component or
+memoise it.
 
 The \`Building block:\` stories show the pieces the tree is composed of, each
 in each state, with no tree behind them.
@@ -159,9 +158,9 @@ const slowData = {
 }
 
 /**
- * Rio de Janeiro's first page fails: the error icon and retry button on its
- * row. Minas Gerais's third page fails: open it and scroll to the retry
- * skeletons.
+ * Rio de Janeiro's first page fails, so it does not open: its row is a
+ * retry button. Minas Gerais's third page fails: open it and scroll to the
+ * retry skeletons.
  */
 export const LoadingAndErrors = () => (
     <Tree data={slowData}>
@@ -254,23 +253,21 @@ export const Loader = () => (
 )
 Loader.storyName = 'Building block: Loader'
 
-export const ErrorIcon = () => (
+export const RetryNode = () => (
     <Stack>
-        <Captioned caption="error icon, hover for the message">
-            <OuTreeErrorIcon message="Could not load children" />
+        <Captioned
+            caption="a node whose children did not load (hover or focus for the sync icon)"
+            width={240}
+        >
+            <OuTreeRowShell depth={0}>
+                <OuTreeRetryNode onRetry={noop}>
+                    <OuTreeNodeLabel>Rio de Janeiro</OuTreeNodeLabel>
+                </OuTreeRetryNode>
+            </OuTreeRowShell>
         </Captioned>
     </Stack>
 )
-ErrorIcon.storyName = 'Building block: Error icon'
-
-export const RetryButton = () => (
-    <Stack>
-        <Captioned caption="retry button">
-            <OuTreeRetryButton onRetry={noop} />
-        </Captioned>
-    </Stack>
-)
-RetryButton.storyName = 'Building block: Retry button'
+RetryNode.storyName = 'Building block: Retry node'
 
 export const Skeleton = () => (
     <Stack>

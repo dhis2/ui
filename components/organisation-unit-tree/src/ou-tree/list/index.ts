@@ -26,13 +26,9 @@ export {
 } from './ou-tree-node-label'
 export { OuTreeLoader, type OuTreeLoaderProps } from './ou-tree-loader'
 export {
-    OuTreeErrorIcon,
-    type OuTreeErrorIconProps,
-} from './ou-tree-error-icon'
-export {
-    OuTreeRetryButton,
-    type OuTreeRetryButtonProps,
-} from './ou-tree-retry-button'
+    OuTreeRetryNode,
+    type OuTreeRetryNodeProps,
+} from './ou-tree-retry-node'
 export { OuTreeSkeleton, type OuTreeSkeletonProps } from './ou-tree-skeleton'
 export {
     OuTreeRetrySkeleton,

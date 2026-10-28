@@ -148,6 +148,41 @@ describe('createTreeState', () => {
             expect(ids(tree)).toEqual(['ou-1', 'ou-2', 'ou-13'])
         })
 
+        it('is not open while page one failed, and opening again requests it again', async () => {
+            const { api, nodeRequests, childrenRequests } =
+                createManualTreeApi()
+            const store = createNodeStore({ api })
+            const tree = createTreeState({ store, rootIds: ['p'] })
+            tree.loadInitial()
+            nodeRequests[0].resolve([
+                {
+                    id: 'p',
+                    displayName: 'p',
+                    path: '/p',
+                    level: 1,
+                    childrenCount: 1,
+                },
+            ])
+            await flush()
+            tree.open('p')
+            childrenRequests[0].reject(new Error('boom'))
+            await flush()
+
+            expect(tree.isOpen('p')).toBe(false)
+            expect(tree.getRow(0)).toMatchObject({
+                id: 'p',
+                children: { status: 'failed' },
+            })
+
+            tree.toggle('p')
+
+            expect(childrenRequests).toHaveLength(2)
+            expect(tree.isOpen('p')).toBe(true)
+            expect(tree.getRow(0)).toMatchObject({
+                children: { status: 'loading' },
+            })
+        })
+
         it('does not request children of a leaf', async () => {
             const { tree, childrenCalls } = setup(['ou-5'])
             await flush()

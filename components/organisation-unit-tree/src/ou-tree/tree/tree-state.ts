@@ -22,7 +22,9 @@ export interface TreeState extends Subscribable {
     readonly rootNodes: StoredNode[]
     /** Loading state of the root entries themselves. */
     getRootsStatus(): RootsStatus
+    /** Whether a node shows its children. False while its first page fails. */
     isOpen(id: string): boolean
+    /** Shows a node's children, requesting its first page if needed. */
     open(id: string): void
     close(id: string): void
     toggle(id: string): void
@@ -90,12 +92,20 @@ export const createTreeState = ({
         stale = true
     }
 
+    // A node whose first page failed did not open: it is shown closed with
+    // the failure, and opening it again requests the page again.
+    const isOpen = (id: string) =>
+        openIds.has(id) && store.getChildren(id).status !== 'failed'
+
     const requestFirstPage = (id: string) => {
         if (store.getNode(id)?.leaf) {
             return
         }
-        if (store.getChildren(id).status === 'none') {
+        const { status } = store.getChildren(id)
+        if (status === 'none') {
             store.requestChildrenPage(id, 1)
+        } else if (status === 'failed') {
+            store.retryChildrenPage(id, 1)
         }
     }
 
@@ -187,10 +197,10 @@ export const createTreeState = ({
             return rootNodes
         },
         getRootsStatus: () => rootsStatus,
-        isOpen: (id) => openIds.has(id),
+        isOpen,
         open,
         close,
-        toggle: (id) => (openIds.has(id) ? close(id) : open(id)),
+        toggle: (id) => (isOpen(id) ? close(id) : open(id)),
         getRowCount,
         getRow,
         getRowIndex: (id) => flat().indexById.get(id),

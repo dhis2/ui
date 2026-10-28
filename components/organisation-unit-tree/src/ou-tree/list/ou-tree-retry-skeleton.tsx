@@ -12,8 +12,9 @@ export interface OuTreeRetrySkeletonProps {
 
 /**
  * An error-state skeleton that is itself the retry control: the bar stands
- * for a node that did not load, and clicking it reloads. The icon appears
- * on hover and keyboard focus only, so a block of failed rows stays calm.
+ * for a node that did not load, and clicking it reloads. The sync icon
+ * appears inside the bar on hover and keyboard focus only, so a block of
+ * failed rows stays calm.
  * The button is the tooltip's reference, so there is no wrapper and no
  * second tab stop.
  */
@@ -42,7 +43,7 @@ export const OuTreeRetrySkeleton = ({
                     button {
                         display: flex;
                         align-items: center;
-                        gap: 4px;
+                        position: relative;
                         height: 24px;
                         border: none;
                         background: none;
@@ -58,8 +59,16 @@ export const OuTreeRetrySkeleton = ({
                     }
                     .icon {
                         display: none;
-                        width: 16px;
-                        height: 16px;
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 12px;
+                        height: 12px;
+                    }
+                    .icon > :global(svg) {
+                        width: 12px;
+                        height: 12px;
                     }
                     button:hover > .icon,
                     button:focus-visible > .icon {
