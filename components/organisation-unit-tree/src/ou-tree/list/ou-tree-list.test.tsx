@@ -80,7 +80,7 @@ describe('OuTreeList', () => {
         expect(labels()).toEqual(['Central Province', 'Lusaka Province'])
     })
 
-    it('shows error-state skeleton rows with retry when the roots fail', async () => {
+    it('shows retry skeleton rows when the roots fail', async () => {
         const gist = jest
             .fn()
             .mockRejectedValueOnce(new Error('x'))
@@ -90,9 +90,6 @@ describe('OuTreeList', () => {
         await waitFor(() =>
             expect(screen.getAllByTestId('t-retry')).toHaveLength(2)
         )
-        screen
-            .getAllByTestId('t-retry-skeleton')
-            .forEach((el) => expect(el).toHaveClass('error'))
         expect(screen.getAllByRole('button', { name: 'Retry' })).toHaveLength(2)
         await userEvent.click(screen.getAllByTestId('t-retry')[0])
 

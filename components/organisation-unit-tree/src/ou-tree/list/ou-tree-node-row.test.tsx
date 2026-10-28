@@ -152,6 +152,7 @@ describe('OuTreeNodeRow', () => {
 
         expect(retry).toBe(screen.getByRole('button', { name: 'Zambia' }))
         expect(retry).toContainElement(screen.getByTestId('t-label'))
+        expect(screen.getByTestId('t-error')).toBeInTheDocument()
         expect(screen.queryByTestId('t-toggle')).toBeNull()
         expect(screen.getByTestId('t-row')).toHaveAttribute(
             'aria-expanded',

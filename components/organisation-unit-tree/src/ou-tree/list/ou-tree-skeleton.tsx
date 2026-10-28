@@ -1,14 +1,12 @@
 import { colors } from '@dhis2/ui-constants'
-import cx from 'classnames'
 import React from 'react'
 
 export interface OuTreeSkeletonProps {
-    error?: boolean
     dataTest?: string
 }
 
-export const OuTreeSkeleton = ({ error, dataTest }: OuTreeSkeletonProps) => (
-    <span className={cx('skeleton', { error })} data-test={dataTest}>
+export const OuTreeSkeleton = ({ dataTest }: OuTreeSkeletonProps) => (
+    <span className="skeleton" data-test={dataTest}>
         <style jsx>{`
             .skeleton {
                 display: block;
@@ -25,12 +23,6 @@ export const OuTreeSkeleton = ({ error, dataTest }: OuTreeSkeletonProps) => (
                 );
                 background-size: 200% 100%;
                 animation: shimmer 1.5s linear infinite;
-            }
-            .error {
-                animation: none;
-                background: ${colors.red100};
-                border: 1px solid ${colors.red300};
-                box-sizing: border-box;
             }
             @keyframes shimmer {
                 from {

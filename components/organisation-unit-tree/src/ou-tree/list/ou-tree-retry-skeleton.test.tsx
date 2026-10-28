@@ -5,7 +5,7 @@ import React from 'react'
 import { OuTreeRetrySkeleton } from './ou-tree-retry-skeleton'
 
 describe('OuTreeRetrySkeleton', () => {
-    it('is a button named Retry around an error skeleton that calls onRetry', async () => {
+    it('is a button named Retry that calls onRetry', async () => {
         const onRetry = jest.fn()
         render(<OuTreeRetrySkeleton onRetry={onRetry} dataTest="t-retry" />)
         const button = screen.getByRole('button', { name: 'Retry' })
@@ -13,7 +13,6 @@ describe('OuTreeRetrySkeleton', () => {
         expect(button).toBe(screen.getByTestId('t-retry'))
         // The button is the tooltip's reference: no focusable wrapper.
         expect(button.parentElement).not.toHaveAttribute('tabindex')
-        expect(screen.getByTestId('t-retry-skeleton')).toHaveClass('error')
         await userEvent.click(button)
         expect(onRetry).toHaveBeenCalledTimes(1)
     })

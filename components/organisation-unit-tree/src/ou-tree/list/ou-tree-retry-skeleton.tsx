@@ -3,7 +3,6 @@ import { colors, theme } from '@dhis2/ui-constants'
 import { IconSync16 } from '@dhis2/ui-icons'
 import { Tooltip } from '@dhis2-ui/tooltip'
 import React from 'react'
-import { OuTreeSkeleton } from './ou-tree-skeleton'
 
 export interface OuTreeRetrySkeletonProps {
     onRetry: () => void
@@ -11,12 +10,11 @@ export interface OuTreeRetrySkeletonProps {
 }
 
 /**
- * An error-state skeleton that is itself the retry control: the bar stands
- * for a node that did not load, and clicking it reloads. The sync icon
- * appears inside the bar on hover and keyboard focus only, so a block of
- * failed rows stays calm.
- * The button is the tooltip's reference, so there is no wrapper and no
- * second tab stop.
+ * An error-state skeleton that is itself the retry control: the button is
+ * the bar, standing for a node that did not load, and clicking it reloads.
+ * The sync icon sits at the bar's end and shows on hover and keyboard focus
+ * only, so a block of failed rows stays calm. The button is the tooltip's
+ * reference, so there is no wrapper and no second tab stop.
  */
 export const OuTreeRetrySkeleton = ({
     onRetry,
@@ -32,10 +30,6 @@ export const OuTreeRetrySkeleton = ({
                 data-test={dataTest}
                 onClick={onRetry}
             >
-                <OuTreeSkeleton
-                    error
-                    dataTest={dataTest && `${dataTest}-skeleton`}
-                />
                 <span className="icon" aria-hidden>
                     <IconSync16 color={theme.error} />
                 </span>
@@ -43,28 +37,25 @@ export const OuTreeRetrySkeleton = ({
                     button {
                         display: flex;
                         align-items: center;
-                        position: relative;
-                        height: 24px;
-                        border: none;
-                        background: none;
-                        padding: 0;
-                        cursor: pointer;
+                        justify-content: flex-end;
+                        box-sizing: border-box;
+                        width: 120px;
+                        height: 20px;
+                        margin: 2px 0;
+                        padding: 0 4px;
+                        border: 1px solid ${colors.red300};
                         border-radius: 3px;
+                        background: ${colors.red100};
+                        cursor: pointer;
                     }
-                    /* The skeleton owns its colours; the hover darkens them. */
-                    button:hover > :global(.skeleton),
-                    button:focus-visible > :global(.skeleton) {
+                    button:hover,
+                    button:focus-visible {
                         background: ${colors.red200};
                         border-color: ${colors.red400};
                     }
                     .icon {
-                        display: none;
-                        position: absolute;
-                        left: 50%;
-                        top: 50%;
-                        transform: translate(-50%, -50%);
-                        width: 12px;
-                        height: 12px;
+                        display: flex;
+                        visibility: hidden;
                     }
                     .icon > :global(svg) {
                         width: 12px;
@@ -72,7 +63,7 @@ export const OuTreeRetrySkeleton = ({
                     }
                     button:hover > .icon,
                     button:focus-visible > .icon {
-                        display: flex;
+                        visibility: visible;
                     }
                 `}</style>
             </button>

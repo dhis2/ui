@@ -22,7 +22,7 @@ const data = {
 }
 
 describe('OuTreeErrorRow', () => {
-    it('renders an error skeleton and retries its page through the store', async () => {
+    it('renders a retry skeleton and retries its page through the store', async () => {
         let retry: jest.SpyInstance | undefined
         const Probe = () => {
             const { store } = useOuTreeActions()
@@ -57,8 +57,7 @@ describe('OuTreeErrorRow', () => {
             'data-row-kind',
             'error'
         )
-        expect(screen.getByTestId('t-retry-skeleton')).toHaveClass('error')
-        await userEvent.click(screen.getByTestId('t-retry'))
+        await userEvent.click(screen.getByRole('button', { name: 'Retry' }))
 
         expect(retry).toHaveBeenCalledWith('ou-1', 2)
         await waitFor(() => undefined)
