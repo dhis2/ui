@@ -87,7 +87,8 @@ in other packages.
   (`${dataTest}-row`, `-toggle`, `-toggle-space`, `-label`, `-loader`,
   `-error`, `-retry`, `-skeleton`), default `dhis2-uicore-outree`. The one
   composite piece, `OuTreeRetrySkeleton`, adds `-skeleton` to its own
-  `dataTest` for the skeleton inside it.
+  `dataTest` for the skeleton inside it. In Storybook the pieces are the
+  `Building block:` stories of the `OuTree` entry, after the tree's own.
 - **List tests mock the virtualiser**, as jsdom has no layout:
   `jest.mock('@tanstack/react-virtual', () => jest.requireActual('<path>/__fixtures__/virtualizer-mock'))`.
   Import the mock file directly; it uses the `jest` global, so it is not in

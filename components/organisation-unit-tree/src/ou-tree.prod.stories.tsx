@@ -9,8 +9,18 @@ import {
 import { GIST_RESOURCE, TREE_RESOURCE } from './ou-tree/data/index'
 import {
     OuTree,
+    OuTreeContainer,
+    OuTreeErrorIcon,
+    OuTreeLoader,
     OuTreeNodeLabel,
     OuTreeNodeStoreProvider,
+    OuTreeRetryButton,
+    OuTreeRetrySkeleton,
+    OuTreeRowShell,
+    OuTreeSkeleton,
+    OuTreeToggle,
+    OuTreeVirtualRow,
+    OuTreeVirtualSizer,
     type RenderLabel,
 } from './ou-tree/index'
 
@@ -29,7 +39,20 @@ latency (the loading and errors story keeps at least one second).
 \`renderLabel\` swaps the label slot and keeps the row's indent, toggle, loader
 and retry button. It must be a stable function: define it outside the
 component or memoise it.
+
+The \`Building block:\` stories show the pieces the tree is composed of, each
+in each state, with no tree behind them.
 `
+
+export default {
+    title: 'OuTree',
+    component: OuTree,
+    parameters: {
+        componentSubtitle:
+            'Virtualised, paged organisation unit tree (browse mode).',
+        docs: { description: { component: description } },
+    },
+}
 
 const AMR = 'nOsaOsg36TR'
 const CAR = 'eFkh5oWtyud'
@@ -48,45 +71,51 @@ const data = {
     [GIST_RESOURCE]: createGistResolver({ ...pahoOrgUnits, delay }),
 }
 
-const Box = ({ children }: { children: React.ReactNode }) => (
-    <div
-        style={{
-            width: 400,
-            height: 600,
-            border: `1px solid ${colors.grey400}`,
-        }}
-    >
-        {children}
-    </div>
+/** The providers a tree needs, over the stand-in, and a bordered box. */
+const Tree = ({
+    data: treeData = data,
+    children,
+}: {
+    data?: typeof data
+    children: React.ReactNode
+}) => (
+    <CustomDataProvider data={treeData}>
+        <OuTreeNodeStoreProvider>
+            <div
+                style={{
+                    width: 400,
+                    height: 600,
+                    border: `1px solid ${colors.grey400}`,
+                }}
+            >
+                {children}
+            </div>
+        </OuTreeNodeStoreProvider>
+    </CustomDataProvider>
 )
 
-export default {
-    title: 'OuTree',
-    component: OuTree,
-    decorators: [
-        (fn: () => React.ReactNode) => (
-            <CustomDataProvider data={data}>
-                <OuTreeNodeStoreProvider>
-                    <Box>{fn()}</Box>
-                </OuTreeNodeStoreProvider>
-            </CustomDataProvider>
-        ),
-    ],
-    parameters: {
-        componentSubtitle:
-            'Virtualised, paged organisation unit tree (browse mode).',
-        docs: { description: { component: description } },
-    },
-}
-
-export const Default = () => <OuTree rootIds={PAHO_ROOTS} />
+export const Default = () => (
+    <Tree>
+        <OuTree rootIds={PAHO_ROOTS} />
+    </Tree>
+)
 
 export const InitiallyOpen = () => (
-    <OuTree rootIds={PAHO_ROOTS} initiallyOpen={[AMR, BRAZIL, MINAS_GERAIS]} />
+    <Tree>
+        <OuTree
+            rootIds={PAHO_ROOTS}
+            initiallyOpen={[AMR, BRAZIL, MINAS_GERAIS]}
+        />
+    </Tree>
 )
 
 export const LongNames = () => (
-    <OuTree rootIds={PAHO_ROOTS} initiallyOpen={[AMR, ARGENTINA, COLOMBIA]} />
+    <Tree>
+        <OuTree
+            rootIds={PAHO_ROOTS}
+            initiallyOpen={[AMR, ARGENTINA, COLOMBIA]}
+        />
+    </Tree>
 )
 
 const renderLabel: RenderLabel = ({ node, toggle }) => (
@@ -101,11 +130,13 @@ const renderLabel: RenderLabel = ({ node, toggle }) => (
 )
 
 export const CustomLabel = () => (
-    <OuTree
-        rootIds={PAHO_ROOTS}
-        initiallyOpen={[AMR, BRAZIL]}
-        renderLabel={renderLabel}
-    />
+    <Tree>
+        <OuTree
+            rootIds={PAHO_ROOTS}
+            initiallyOpen={[AMR, BRAZIL]}
+            renderLabel={renderLabel}
+        />
+    </Tree>
 )
 
 const slowData = {
@@ -128,11 +159,9 @@ const slowData = {
 }
 
 export const LoadingAndErrors = () => (
-    <CustomDataProvider data={slowData}>
-        <OuTreeNodeStoreProvider>
-            <OuTree rootIds={PAHO_ROOTS} initiallyOpen={[AMR, BRAZIL]} />
-        </OuTreeNodeStoreProvider>
-    </CustomDataProvider>
+    <Tree data={slowData}>
+        <OuTree rootIds={PAHO_ROOTS} initiallyOpen={[AMR, BRAZIL]} />
+    </Tree>
 )
 
 const failingRootsData = {
@@ -145,15 +174,190 @@ const failingRootsData = {
 }
 
 export const RootsFailed = () => (
-    <CustomDataProvider data={failingRootsData}>
-        <OuTreeNodeStoreProvider>
-            <OuTree rootIds={PAHO_ROOTS} />
-        </OuTreeNodeStoreProvider>
-    </CustomDataProvider>
+    <Tree data={failingRootsData}>
+        <OuTree rootIds={PAHO_ROOTS} />
+    </Tree>
 )
 
 export const RightToLeft = () => (
-    <div dir="rtl" style={{ height: '100%' }}>
-        <OuTree rootIds={PAHO_ROOTS} initiallyOpen={[AMR]} />
+    <Tree>
+        <div dir="rtl" style={{ height: '100%' }}>
+            <OuTree rootIds={PAHO_ROOTS} initiallyOpen={[AMR]} />
+        </div>
+    </Tree>
+)
+
+// Building blocks: each piece in each state, with no tree behind it.
+
+const noop = () => undefined
+const LONG_NAME = 'Archipielago de San Andres, Providencia y Santa Ca'
+
+const Stack = ({ children }: { children: React.ReactNode }) => (
+    <div
+        style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 16,
+            padding: 16,
+        }}
+    >
+        {children}
     </div>
 )
+
+const Captioned = ({
+    caption,
+    width,
+    children,
+}: {
+    caption: string
+    width?: number
+    children: React.ReactNode
+}) => (
+    <div style={{ width }}>
+        <div style={{ fontSize: 12, color: colors.grey600, marginBottom: 4 }}>
+            {caption}
+        </div>
+        {children}
+    </div>
+)
+
+export const Toggle = () => (
+    <Stack>
+        <Captioned caption="closed">
+            <OuTreeToggle open={false} onToggle={noop} />
+        </Captioned>
+        <Captioned caption="open">
+            <OuTreeToggle open onToggle={noop} />
+        </Captioned>
+        <Captioned caption="leaf (the toggle's space, nothing in it)">
+            <OuTreeToggle leaf />
+        </Captioned>
+    </Stack>
+)
+Toggle.storyName = 'Building block: Toggle'
+
+export const Loader = () => (
+    <Stack>
+        <Captioned caption="loader">
+            <OuTreeLoader />
+        </Captioned>
+    </Stack>
+)
+Loader.storyName = 'Building block: Loader'
+
+export const ErrorIcon = () => (
+    <Stack>
+        <Captioned caption="error icon, hover for the message">
+            <OuTreeErrorIcon message="Could not load children" />
+        </Captioned>
+    </Stack>
+)
+ErrorIcon.storyName = 'Building block: Error icon'
+
+export const RetryButton = () => (
+    <Stack>
+        <Captioned caption="retry button">
+            <OuTreeRetryButton onRetry={noop} />
+        </Captioned>
+    </Stack>
+)
+RetryButton.storyName = 'Building block: Retry button'
+
+export const Skeleton = () => (
+    <Stack>
+        <Captioned caption="plain">
+            <OuTreeSkeleton />
+        </Captioned>
+        <Captioned caption="error">
+            <OuTreeSkeleton error />
+        </Captioned>
+    </Stack>
+)
+Skeleton.storyName = 'Building block: Skeleton'
+
+export const RetrySkeleton = () => (
+    <Stack>
+        <Captioned caption="retry skeleton (hover or focus for the icon)">
+            <OuTreeRetrySkeleton onRetry={noop} />
+        </Captioned>
+    </Stack>
+)
+RetrySkeleton.storyName = 'Building block: Retry skeleton'
+
+export const NodeLabel = () => (
+    <Stack>
+        <Captioned caption="plain">
+            <OuTreeNodeLabel>Central Province</OuTreeNodeLabel>
+        </Captioned>
+        <Captioned caption="clickable">
+            <OuTreeNodeLabel clickable onClick={noop}>
+                Central Province
+            </OuTreeNodeLabel>
+        </Captioned>
+        <Captioned caption="wrapping in 160px">
+            <div
+                style={{
+                    width: 160,
+                    display: 'flex',
+                    border: `1px dashed ${colors.grey400}`,
+                }}
+            >
+                <OuTreeNodeLabel>{LONG_NAME}</OuTreeNodeLabel>
+            </div>
+        </Captioned>
+    </Stack>
+)
+NodeLabel.storyName = 'Building block: Node label'
+
+export const RowShell = () => (
+    <Stack>
+        <Captioned caption="depths 0 to 3, each with an open toggle and a label">
+            {[0, 1, 2, 3].map((depth) => (
+                <OuTreeRowShell key={depth} depth={depth}>
+                    <OuTreeToggle open onToggle={noop} />
+                    <OuTreeNodeLabel>Depth {depth}</OuTreeNodeLabel>
+                </OuTreeRowShell>
+            ))}
+        </Captioned>
+        <Captioned caption="depth 2 with a wrapped label, in 240px" width={240}>
+            <OuTreeRowShell depth={2}>
+                <OuTreeToggle open onToggle={noop} />
+                <OuTreeNodeLabel>{LONG_NAME}</OuTreeNodeLabel>
+            </OuTreeRowShell>
+        </Captioned>
+    </Stack>
+)
+RowShell.storyName = 'Building block: Row shell'
+
+export const Structure = () => (
+    <Stack>
+        <Captioned
+            caption="container (120px tall) with a 240px sizer and two rows placed at 0 and 48"
+            width={320}
+        >
+            <div
+                style={{ height: 120, border: `1px dashed ${colors.grey400}` }}
+            >
+                <OuTreeContainer>
+                    <OuTreeVirtualSizer height={240}>
+                        {[0, 2].map((index) => (
+                            <OuTreeVirtualRow
+                                key={index}
+                                item={{ index, start: index * 24, key: index }}
+                                measureElement={noop}
+                            >
+                                <OuTreeRowShell depth={0}>
+                                    <OuTreeNodeLabel>
+                                        Row {index}
+                                    </OuTreeNodeLabel>
+                                </OuTreeRowShell>
+                            </OuTreeVirtualRow>
+                        ))}
+                    </OuTreeVirtualSizer>
+                </OuTreeContainer>
+            </div>
+        </Captioned>
+    </Stack>
+)
+Structure.storyName = 'Building block: Structure'
