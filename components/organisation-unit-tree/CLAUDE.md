@@ -123,8 +123,9 @@ in other packages.
   run after adding or changing any `i18n.t(...)` string, and commit the updated
   `i18n/en.pot`.
 - From the repo root: `yarn setup` once, then `yarn start` for Storybook.
-  `STORYBOOK_OU_TREE_DELAY=<milliseconds>` gives every request to the
-  `OuTree` stories' stand-in that much latency.
+  The `OuTree` stories' stand-in answers after 1500 milliseconds, so the
+  Netlify preview demos every loading state;
+  `STORYBOOK_OU_TREE_DELAY=<milliseconds>` sets another latency, 0 included.
 
 ## Status
 

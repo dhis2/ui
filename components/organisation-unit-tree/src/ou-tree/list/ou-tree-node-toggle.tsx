@@ -14,8 +14,8 @@ export interface OuTreeNodeToggleProps {
 
 /**
  * What sits before a node's label: the toggle, the loader while the node's
- * first children page loads, or the error icon after it failed; for a
- * leaf, the toggle's space.
+ * first children page loads, or the error icon after it failed, which
+ * opens the node again like the toggle; for a leaf, the toggle's space.
  */
 export const OuTreeNodeToggle = ({
     leaf,
@@ -29,7 +29,12 @@ export const OuTreeNodeToggle = ({
         return <OuTreeToggle leaf dataTest={`${dataTest}-toggle-space`} />
     }
     if (failed) {
-        return <OuTreeErrorIcon dataTest={`${dataTest}-error`} />
+        return (
+            <OuTreeErrorIcon
+                onClick={onToggle}
+                dataTest={`${dataTest}-error`}
+            />
+        )
     }
     if (loading) {
         return <OuTreeLoader dataTest={`${dataTest}-loader`} />

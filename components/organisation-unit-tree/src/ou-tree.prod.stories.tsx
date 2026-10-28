@@ -32,9 +32,10 @@ and children load in pages, with skeleton rows where a page has not arrived.
 
 The tree fills its box, so the box needs a height. The stories run over an
 in-memory stand-in for the endpoint with 19,190 PAHO organisation units, in a
-400px by 600px box. The stand-in answers at once; start Storybook with
-\`STORYBOOK_OU_TREE_DELAY=<milliseconds>\` to give every request that much
-latency (the loading and errors story keeps at least one second).
+400px by 600px box. The stand-in answers after 1.5 seconds, so every loading
+state can be seen; start Storybook with
+\`STORYBOOK_OU_TREE_DELAY=<milliseconds>\` for another latency, 0 included
+(the loading and errors story keeps at least one second).
 
 \`renderLabel\` swaps the label slot and keeps the row's indent, toggle and
 loader. It must be a stable function: define it outside the component or
@@ -63,8 +64,14 @@ const ARGENTINA = 'G1m9fXttEFw'
 const COLOMBIA = 'V0f2N6oMsxs'
 const PAHO_ROOTS = [AMR, CAR]
 
-/** Latency of the stand-in, in milliseconds, from the environment. */
-const delay = Number(process.env.STORYBOOK_OU_TREE_DELAY) || 0
+/**
+ * The stand-in's latency in milliseconds: enough to see every loading
+ * state in a demo, unless the environment says otherwise.
+ */
+const delay =
+    process.env.STORYBOOK_OU_TREE_DELAY === undefined
+        ? 1500
+        : Number(process.env.STORYBOOK_OU_TREE_DELAY) || 0
 
 const data = {
     [TREE_RESOURCE]: createTreeResolver({ ...pahoOrgUnits, delay }),
@@ -270,7 +277,7 @@ export const RetryNode = () => (
             width={240}
         >
             <OuTreeRowShell depth={0}>
-                <OuTreeErrorIcon />
+                <OuTreeErrorIcon onClick={noop} />
                 <OuTreeRetryNode onRetry={noop}>
                     <OuTreeNodeLabel>Rio de Janeiro</OuTreeNodeLabel>
                 </OuTreeRetryNode>

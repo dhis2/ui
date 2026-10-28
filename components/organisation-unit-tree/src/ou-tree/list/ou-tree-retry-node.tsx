@@ -17,14 +17,18 @@ export interface OuTreeRetryNodeProps {
  * the label. Hover and keyboard focus colour it like the retry skeleton
  * and show the icon; clicking opens the node again, which reloads its
  * children. The button is the tooltip's reference, so there is no wrapper
- * and no second tab stop.
+ * and no second tab stop, and the tooltip sits beside the control so it
+ * covers no row above it.
  */
 export const OuTreeRetryNode = ({
     onRetry,
     children,
     dataTest,
 }: OuTreeRetryNodeProps) => (
-    <Tooltip content={i18n.t('Could not load children. Click to retry')}>
+    <Tooltip
+        content={i18n.t('Could not load children. Click to retry')}
+        placement="right"
+    >
         {({ ref, ...tooltip }) => (
             <button
                 {...tooltip}
