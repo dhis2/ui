@@ -2,6 +2,7 @@ import React, { memo } from 'react'
 import type { Row } from '../tree/index'
 import { OuTreeRowShell } from './ou-tree-row-shell'
 import { OuTreeSkeleton } from './ou-tree-skeleton'
+import { OuTreeToggle } from './ou-tree-toggle'
 
 export type SkeletonRow = Extract<Row, { kind: 'skeleton' }>
 
@@ -20,6 +21,7 @@ export const OuTreeSkeletonRow = memo(function OuTreeSkeletonRow({
             rowKind="skeleton"
             dataTest={`${dataTest}-row`}
         >
+            <OuTreeToggle leaf dataTest={`${dataTest}-toggle-space`} />
             <OuTreeSkeleton dataTest={`${dataTest}-skeleton`} />
         </OuTreeRowShell>
     )

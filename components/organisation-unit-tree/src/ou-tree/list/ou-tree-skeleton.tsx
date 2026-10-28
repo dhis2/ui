@@ -11,8 +11,8 @@ export const OuTreeSkeleton = ({ dataTest }: OuTreeSkeletonProps) => (
             .skeleton {
                 display: block;
                 width: 120px;
-                height: 14px;
-                margin: 5px 0;
+                height: 20px;
+                margin: 2px 0;
                 border-radius: 3px;
                 flex-shrink: 0;
                 background: linear-gradient(

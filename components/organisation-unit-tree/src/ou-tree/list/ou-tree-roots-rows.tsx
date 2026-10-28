@@ -2,6 +2,7 @@ import React from 'react'
 import { OuTreeRetrySkeleton } from './ou-tree-retry-skeleton'
 import { OuTreeRowShell } from './ou-tree-row-shell'
 import { OuTreeSkeleton } from './ou-tree-skeleton'
+import { OuTreeToggle } from './ou-tree-toggle'
 
 export interface OuTreeRootsRowsProps {
     rootIds: string[]
@@ -25,6 +26,7 @@ export const OuTreeRootsRows = ({
                 rowKind="roots"
                 dataTest={`${dataTest}-row`}
             >
+                <OuTreeToggle leaf dataTest={`${dataTest}-toggle-space`} />
                 {failed ? (
                     <OuTreeRetrySkeleton
                         onRetry={onRetry}

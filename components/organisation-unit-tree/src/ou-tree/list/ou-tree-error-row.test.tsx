@@ -57,6 +57,7 @@ describe('OuTreeErrorRow', () => {
             'data-row-kind',
             'error'
         )
+        expect(screen.getByTestId('t-toggle-space')).toBeInTheDocument()
         await userEvent.click(screen.getByRole('button', { name: 'Retry' }))
 
         expect(retry).toHaveBeenCalledWith('ou-1', 2)
