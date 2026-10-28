@@ -158,9 +158,17 @@ const slowData = {
     }),
 }
 
+/**
+ * Rio de Janeiro's first page fails: the error icon and retry button on its
+ * row. Minas Gerais's third page fails: open it and scroll to the retry
+ * skeletons.
+ */
 export const LoadingAndErrors = () => (
     <Tree data={slowData}>
-        <OuTree rootIds={PAHO_ROOTS} initiallyOpen={[AMR, BRAZIL]} />
+        <OuTree
+            rootIds={PAHO_ROOTS}
+            initiallyOpen={[AMR, BRAZIL, RIO_DE_JANEIRO]}
+        />
     </Tree>
 )
 
