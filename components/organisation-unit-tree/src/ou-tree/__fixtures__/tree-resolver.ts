@@ -4,6 +4,7 @@ import {
     createInMemoryTreeEndpoint,
     InMemoryTreeEndpointOptions,
 } from './in-memory-tree-endpoint'
+import { wait } from './wait'
 
 const DEFAULT_PAGE = 1
 const DEFAULT_PAGE_SIZE = 50
@@ -102,11 +103,6 @@ export interface TreeResolverOptions extends InMemoryTreeEndpointOptions {
     /** Milliseconds to wait before answering any request. */
     delay?: number
 }
-
-const wait = (ms: number) =>
-    new Promise<void>((resolve) =>
-        ms > 0 ? setTimeout(resolve, ms) : resolve()
-    )
 
 const CHILDREN_ID = /^(.+)\/children$/
 

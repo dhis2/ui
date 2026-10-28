@@ -1,4 +1,5 @@
 import type { FixtureOrgUnit } from './in-memory-tree-endpoint'
+import { wait } from './wait'
 
 /** What gist returns per unit for the tree's field list. */
 export interface GistEntry {
@@ -62,10 +63,13 @@ const idsFromFilter = (filter: unknown): string[] => {
  */
 export const createGistResolver = ({
     failWith,
+    delay = 0,
     ...options
 }: InMemoryGistOptions & {
     /** Rejects a request with the returned error. */
     failWith?: (ids: string[]) => Error | undefined
+    /** Milliseconds to wait before answering any request. */
+    delay?: number
 }) => {
     const gist = createInMemoryGist(options)
     return (_type: string, query: { params?: unknown }): Promise<Json> => {
@@ -75,7 +79,7 @@ export const createGistResolver = ({
             'displayShortName~rename(displayName)'
         )
         // `.then` turns a synchronous throw into a rejection, like async did.
-        return Promise.resolve().then(() => {
+        return wait(delay).then(() => {
             const ids = idsFromFilter(params.filter)
             const failure = failWith?.(ids)
             if (failure) {

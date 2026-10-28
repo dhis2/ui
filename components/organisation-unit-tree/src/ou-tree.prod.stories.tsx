@@ -22,7 +22,9 @@ and children load in pages, with skeleton rows where a page has not arrived.
 
 The tree fills its box, so the box needs a height. The stories run over an
 in-memory stand-in for the endpoint with 19,190 PAHO organisation units, in a
-400px by 600px box.
+400px by 600px box. The stand-in answers at once; start Storybook with
+\`STORYBOOK_OU_TREE_DELAY=<milliseconds>\` to give every request that much
+latency (the loading and errors story keeps at least one second).
 
 \`renderLabel\` swaps the label slot and keeps the row's indent, toggle, loader
 and retry button. It must be a stable function: define it outside the
@@ -38,9 +40,12 @@ const ARGENTINA = 'G1m9fXttEFw'
 const COLOMBIA = 'V0f2N6oMsxs'
 const PAHO_ROOTS = [AMR, CAR]
 
+/** Latency of the stand-in, in milliseconds, from the environment. */
+const delay = Number(process.env.STORYBOOK_OU_TREE_DELAY) || 0
+
 const data = {
-    [TREE_RESOURCE]: createTreeResolver(pahoOrgUnits),
-    [GIST_RESOURCE]: createGistResolver(pahoOrgUnits),
+    [TREE_RESOURCE]: createTreeResolver({ ...pahoOrgUnits, delay }),
+    [GIST_RESOURCE]: createGistResolver({ ...pahoOrgUnits, delay }),
 }
 
 const Box = ({ children }: { children: React.ReactNode }) => (
@@ -106,7 +111,7 @@ export const CustomLabel = () => (
 const slowData = {
     [TREE_RESOURCE]: createTreeResolver({
         ...pahoOrgUnits,
-        delay: 1000,
+        delay: Math.max(delay, 1000),
         failChildrenPageWith: (parentId, page) => {
             if (parentId === MINAS_GERAIS && page === 3) {
                 return new Error('Simulated failure of page 3')
@@ -116,7 +121,10 @@ const slowData = {
                 : undefined
         },
     }),
-    [GIST_RESOURCE]: createGistResolver(pahoOrgUnits),
+    [GIST_RESOURCE]: createGistResolver({
+        ...pahoOrgUnits,
+        delay: Math.max(delay, 1000),
+    }),
 }
 
 export const LoadingAndErrors = () => (
@@ -128,9 +136,10 @@ export const LoadingAndErrors = () => (
 )
 
 const failingRootsData = {
-    [TREE_RESOURCE]: createTreeResolver(pahoOrgUnits),
+    [TREE_RESOURCE]: createTreeResolver({ ...pahoOrgUnits, delay }),
     [GIST_RESOURCE]: createGistResolver({
         ...pahoOrgUnits,
+        delay,
         failWith: () => new Error('Simulated failure'),
     }),
 }

@@ -113,6 +113,8 @@ in other packages.
   run after adding or changing any `i18n.t(...)` string, and commit the updated
   `i18n/en.pot`.
 - From the repo root: `yarn setup` once, then `yarn start` for Storybook.
+  `STORYBOOK_OU_TREE_DELAY=<milliseconds>` gives every request to the
+  `OuTree` stories' stand-in that much latency.
 
 ## Status
 
