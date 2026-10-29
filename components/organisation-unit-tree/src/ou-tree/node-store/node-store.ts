@@ -1,4 +1,10 @@
-import type { OuTreeChildrenPage, OuTreeEntry, TreeApi } from '../data/index'
+import type {
+    OuTreeChildrenPage,
+    OuTreeEntry,
+    OuTreeQuery,
+    OuTreeResponse,
+    TreeApi,
+} from '../data/index'
 import type { Subscribable } from './subscribable'
 
 export interface StoredNode {
@@ -41,6 +47,9 @@ export type RootsStatus =
     | { status: 'failed'; error: unknown }
     | { status: 'loaded' }
 
+/** A filtered query without what the store adds or forbids. */
+export type ResultsQuery = Omit<OuTreeQuery, 'shortName' | 'depth'>
+
 /** Arguments of `createNodeStore`, which only the provider and tests call. */
 export interface NodeStoreOptions {
     api: TreeApi
@@ -63,6 +72,12 @@ export interface NodeStore extends Subscribable {
     requestChildrenPage(parentId: string, page: number): void
     /** Clears a failed page and requests it again. */
     retryChildrenPage(parentId: string, page: number): void
+    /**
+     * One page of a filtered query, with the store's shortName; stores every
+     * entry of the response, results and ancestors, and notifies once
+     * before resolving with it.
+     */
+    fetchResultsPage(query: ResultsQuery): Promise<OuTreeResponse>
 }
 
 /**
@@ -210,6 +225,14 @@ export const createNodeStore = ({
         requestChildrenPage(parentId, page)
     }
 
+    const fetchResultsPage = (query: ResultsQuery): Promise<OuTreeResponse> =>
+        api.fetchTreePage({ ...query, shortName }).then((response) => {
+            response.ancestors.forEach(storeEntry)
+            response.organisationUnits.forEach(storeEntry)
+            notify()
+            return response
+        })
+
     const loadNodes = (ids: string[]): Promise<void> => {
         const pending = ids
             .filter((id) => inFlightNodes.has(id))
@@ -242,6 +265,7 @@ export const createNodeStore = ({
         loadNodes,
         requestChildrenPage,
         retryChildrenPage,
+        fetchResultsPage,
         subscribe: (listener) => {
             listeners.add(listener)
             return () => listeners.delete(listener)
