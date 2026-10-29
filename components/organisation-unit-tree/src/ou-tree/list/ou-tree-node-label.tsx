@@ -27,7 +27,8 @@ export const OuTreeNodeLabel = ({
         <style jsx>{`
             .label {
                 font-size: 14px;
-                line-height: 24px;
+                line-height: 20px;
+                margin: 2px 0;
                 padding: 0 5px;
                 color: ${colors.grey900};
                 user-select: none;
