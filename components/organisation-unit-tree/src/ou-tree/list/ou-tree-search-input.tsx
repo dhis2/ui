@@ -12,7 +12,9 @@ export interface OuTreeSearchInputProps {
 /**
  * An InputField wired to the tree's search: clearable, dense, with the
  * help text while the term is too short and the loading indicator while
- * page one is in flight. Must be inside an OuTreeProvider.
+ * page one is in flight. Must be inside an OuTreeProvider. A text input,
+ * not type="search": Chromium draws its own clear cross for that next to
+ * the clearable button.
  */
 export const OuTreeSearchInput = ({
     placeholder,
@@ -23,7 +25,7 @@ export const OuTreeSearchInput = ({
     return (
         <InputField
             name="search"
-            type="search"
+            type="text"
             dense
             clearable
             value={term}

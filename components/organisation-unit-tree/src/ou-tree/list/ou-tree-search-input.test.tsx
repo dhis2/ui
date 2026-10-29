@@ -33,9 +33,12 @@ const renderInput = () =>
     )
 
 describe('OuTreeSearchInput', () => {
-    it('is a clearable search box with help text while the term is too short', async () => {
+    it('is a clearable text box with help text while the term is too short', async () => {
         renderInput()
-        const input = screen.getByRole('searchbox')
+        // A text box, not a search box: Chromium draws its own clear cross
+        // for type="search" next to the clearable button.
+        const input = screen.getByRole('textbox')
+        expect(input).toHaveAttribute('type', 'text')
         expect(input).toHaveAttribute('placeholder', 'Search')
         expect(screen.getByTestId('t-search')).toBeInTheDocument()
 
@@ -59,7 +62,7 @@ describe('OuTreeSearchInput', () => {
     it('shows the loading indicator while page one is in flight', async () => {
         renderInput()
 
-        await userEvent.type(screen.getByRole('searchbox'), 'Clinic')
+        await userEvent.type(screen.getByRole('textbox'), 'Clinic')
 
         expect(
             await screen.findByTestId('dhis2-uicore-circularloader')
