@@ -3,6 +3,8 @@ export { OuTreeProvider, type OuTreeProviderProps } from './ou-tree-provider'
 export { type OuTreeHandle, useOuTree } from './use-ou-tree'
 export { type OuTreeActions, useOuTreeActions } from './use-ou-tree-actions'
 export { type OuTreeNodeHandle, useOuTreeNode } from './use-ou-tree-node'
+export { type OuTreeSearchHandle, useOuTreeSearch } from './use-ou-tree-search'
+export { useOuTreeSearchTerm } from './use-ou-tree-search-term'
 export type { FilteredView, NodeView, Row } from './flatten-rows'
 export {
     addResults,
