@@ -19,6 +19,7 @@ import {
     type PrunedTree,
     resultsPageOf,
 } from './pruned-tree'
+import { SEARCH_DEBOUNCE_MS, SEARCH_MIN_LENGTH } from './search-constants'
 
 export interface TreeStateOptions {
     store: NodeStore
@@ -47,6 +48,13 @@ interface SearchState {
     revealedIds: Set<string>
 }
 
+export type SearchStatus =
+    | { status: 'idle' }
+    | { status: 'too-short'; minLength: number }
+    | { status: 'loading' }
+    | { status: 'loaded'; total: number; loaded: number }
+    | { status: 'failed'; error: unknown }
+
 export interface TreeState extends Subscribable {
     readonly store: NodeStore
     /** The root ids as given, before loading and nested-root exclusion. */
@@ -67,6 +75,12 @@ export interface TreeState extends Subscribable {
     getMode(): TreeMode
     /** The effective term, or undefined in browse mode. */
     getSearchTerm(): string | undefined
+    /** The input value as typed. */
+    getSearchInput(): string
+    /** Trims, length-gates and debounces `search`; blank or too short clears any search at once. */
+    setSearchInput(value: string): void
+    /** Stable between changes, so it can be a useSyncExternalStore snapshot. */
+    getSearchStatus(): SearchStatus
     /** Runs a search now, resetting the tree; a term equal to the current one is a no-op. */
     search(term: string): void
     /** Back to browse mode, as on mount. */
@@ -108,6 +122,9 @@ export const createTreeState = ({
     const openIds = new Set(initiallyOpen)
     let rootNodes: StoredNode[] = []
     let search: SearchState | undefined
+    let searchInput = ''
+    let debounce: ReturnType<typeof setTimeout> | undefined
+    let searchStatus: SearchStatus = { status: 'idle' }
     let rootsStatus: RootsStatus = { status: 'loading' }
     let version = 0
     let memo: { version: number; flat: FlatRows } | undefined
@@ -334,6 +351,57 @@ export const createTreeState = ({
         notify()
     }
 
+    const setSearchInput = (value: string) => {
+        searchInput = value
+        clearTimeout(debounce)
+        debounce = undefined
+        const term = value.trim()
+        if (term.length < SEARCH_MIN_LENGTH) {
+            clearSearch()
+        } else {
+            debounce = setTimeout(() => {
+                debounce = undefined
+                searchFor(term)
+            }, SEARCH_DEBOUNCE_MS)
+        }
+        notify()
+    }
+
+    const currentSearchStatus = (): SearchStatus => {
+        if (!search) {
+            const term = searchInput.trim()
+            return term !== '' && term.length < SEARCH_MIN_LENGTH
+                ? { status: 'too-short', minLength: SEARCH_MIN_LENGTH }
+                : { status: 'idle' }
+        }
+        const pageOne = search.pages.get(1)
+        if (pageOne?.status === 'failed') {
+            return { status: 'failed', error: pageOne.error }
+        }
+        if (pageOne?.status === 'loaded' && search.total !== undefined) {
+            return {
+                status: 'loaded',
+                total: search.total,
+                loaded: search.loaded,
+            }
+        }
+        return { status: 'loading' }
+    }
+
+    const sameStatus = (a: SearchStatus, b: SearchStatus) =>
+        (Object.keys(b) as (keyof SearchStatus)[]).every(
+            (key) => a[key] === b[key]
+        ) && Object.keys(a).length === Object.keys(b).length
+
+    // Keeps the last object while nothing in it changed.
+    const getSearchStatus = () => {
+        const next = currentSearchStatus()
+        if (!sameStatus(searchStatus, next)) {
+            searchStatus = next
+        }
+        return searchStatus
+    }
+
     const retryResultsPage = (page: number) => {
         if (search?.pages.get(page)?.status !== 'failed') {
             return
@@ -431,6 +499,9 @@ export const createTreeState = ({
         toggle: (id) => (isOpen(id) ? close(id) : open(id)),
         getMode: () => (search ? 'filtered' : 'browse'),
         getSearchTerm: () => search?.term,
+        getSearchInput: () => searchInput,
+        setSearchInput,
+        getSearchStatus,
         search: searchFor,
         clearSearch,
         retryResultsPage,

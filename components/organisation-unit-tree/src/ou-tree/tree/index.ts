@@ -11,4 +11,10 @@ export {
     resultsPageOf,
 } from './pruned-tree'
 export { rowKey } from './row-key'
-export type { TreeMode, TreeState, TreeStateOptions } from './tree-state'
+export type {
+    SearchStatus,
+    TreeMode,
+    TreeState,
+    TreeStateOptions,
+} from './tree-state'
+export { SEARCH_DEBOUNCE_MS, SEARCH_MIN_LENGTH } from './search-constants'
