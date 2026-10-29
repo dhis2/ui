@@ -36,38 +36,45 @@ export const OuTreeList = ({
     const noResults =
         filtered && searchStatus.status === 'loaded' && searchStatus.total === 0
 
+    let content: React.ReactNode
+    if (noResults) {
+        content = <OuTreeNoResults dataTest={`${dataTest}-no-results`} />
+    } else if (filtered || rootsStatus.status === 'loaded') {
+        content = (
+            <OuTreeVirtualSizer height={totalSize}>
+                {virtualItems.map((item) => (
+                    <OuTreeVirtualRow
+                        key={item.key}
+                        item={item}
+                        measureElement={measureElement}
+                    >
+                        <OuTreeRow
+                            row={getRow(item.index)}
+                            renderLabel={renderLabel}
+                            dataTest={dataTest}
+                        />
+                    </OuTreeVirtualRow>
+                ))}
+            </OuTreeVirtualSizer>
+        )
+    } else {
+        content = (
+            <OuTreeRootsRows
+                rootIds={rootIds}
+                failed={rootsStatus.status === 'failed'}
+                onRetry={retryRoots}
+                dataTest={dataTest}
+            />
+        )
+    }
+
     return (
         <OuTreeContainer
             ref={scrollRef}
             className={className}
             dataTest={dataTest}
         >
-            {noResults ? (
-                <OuTreeNoResults dataTest={`${dataTest}-no-results`} />
-            ) : filtered || rootsStatus.status === 'loaded' ? (
-                <OuTreeVirtualSizer height={totalSize}>
-                    {virtualItems.map((item) => (
-                        <OuTreeVirtualRow
-                            key={item.key}
-                            item={item}
-                            measureElement={measureElement}
-                        >
-                            <OuTreeRow
-                                row={getRow(item.index)}
-                                renderLabel={renderLabel}
-                                dataTest={dataTest}
-                            />
-                        </OuTreeVirtualRow>
-                    ))}
-                </OuTreeVirtualSizer>
-            ) : (
-                <OuTreeRootsRows
-                    rootIds={rootIds}
-                    failed={rootsStatus.status === 'failed'}
-                    onRetry={retryRoots}
-                    dataTest={dataTest}
-                />
-            )}
+            {content}
         </OuTreeContainer>
     )
 }

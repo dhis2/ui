@@ -25,9 +25,7 @@ export const foldTextWithOrigin = (value: string): FoldedText => {
     for (const char of value) {
         const folded = foldText(char)
         text += folded
-        for (let i = 0; i < folded.length; i += 1) {
-            origin.push(index)
-        }
+        origin.push(...Array.from({ length: folded.length }, () => index))
         index += char.length
     }
     return { text, origin }

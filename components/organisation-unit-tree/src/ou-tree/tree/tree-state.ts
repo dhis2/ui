@@ -442,7 +442,7 @@ export const createTreeState = ({
     }
 
     const toggleRevealed = (id: string) => {
-        if (!search || !search.pruned.placed.has(id)) {
+        if (!search?.pruned.placed.has(id)) {
             return
         }
         if (search.revealedIds.has(id)) {

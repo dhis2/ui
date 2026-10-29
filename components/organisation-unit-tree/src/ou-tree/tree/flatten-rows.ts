@@ -237,7 +237,7 @@ export const flattenRows = ({
         }
         for (let index = loaded; index < total; index += 1) {
             const page = resultsPageOf(index, pageSize)
-            if (failedPage && page === failedPage.page) {
+            if (page === failedPage?.page) {
                 push({
                     kind: 'result-error',
                     index,

@@ -1,10 +1,28 @@
 import React from 'react'
-import { findMatch } from '../search/index'
+import { findMatch, type MatchRange } from '../search/index'
 
 export interface OuTreeMatchedTextProps {
     text: string
     term: string
     dataTest?: string
+}
+
+/** The text as [before, matched, after]. */
+const splitAt = (
+    text: string,
+    match: MatchRange | undefined
+): [string, string, string] => {
+    if (match === undefined) {
+        return [text, '', '']
+    }
+    if (match === 'all') {
+        return ['', text, '']
+    }
+    return [
+        text.slice(0, match.start),
+        text.slice(match.start, match.end),
+        text.slice(match.end),
+    ]
 }
 
 /**
@@ -16,17 +34,7 @@ export const OuTreeMatchedText = ({
     term,
     dataTest,
 }: OuTreeMatchedTextProps) => {
-    const match = findMatch(text, term)
-    const [before, matched, after] =
-        match === undefined
-            ? [text, '', '']
-            : match === 'all'
-              ? ['', text, '']
-              : [
-                    text.slice(0, match.start),
-                    text.slice(match.start, match.end),
-                    text.slice(match.end),
-                ]
+    const [before, matched, after] = splitAt(text, findMatch(text, term))
     return (
         <>
             {before}
