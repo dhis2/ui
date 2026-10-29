@@ -11,4 +11,4 @@ export {
     resultsPageOf,
 } from './pruned-tree'
 export { rowKey } from './row-key'
-export type { TreeState, TreeStateOptions } from './tree-state'
+export type { TreeMode, TreeState, TreeStateOptions } from './tree-state'
