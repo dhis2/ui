@@ -13,7 +13,11 @@ export interface OuTreeRowShellProps {
     children: React.ReactNode
 }
 
-/** The element every row sits in, with one indent element per level. */
+/**
+ * The element every row sits in, with one indent element per level. A
+ * child with the `data-hover-only` attribute is shown only while the row
+ * is hovered or has focus within.
+ */
 export const OuTreeRowShell = ({
     depth,
     role = 'presentation',
@@ -47,6 +51,9 @@ export const OuTreeRowShell = ({
                 min-height: 24px;
                 display: flex;
                 align-items: flex-start;
+            }
+            .shell:not(:hover):not(:focus-within) > :global([data-hover-only]) {
+                visibility: hidden;
             }
             .indent {
                 flex-shrink: 0;

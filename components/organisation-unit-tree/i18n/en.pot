@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-10-29T08:21:38.399Z\n"
-"PO-Revision-Date: 2026-10-29T08:21:38.399Z\n"
+"POT-Creation-Date: 2026-10-29T08:22:59.191Z\n"
+"PO-Revision-Date: 2026-10-29T08:22:59.191Z\n"
 
 msgid "No children match filter"
 msgstr "No children match filter"
@@ -17,6 +17,9 @@ msgstr "Could not load children"
 msgid "Error: {{ ERRORMESSAGE }}"
 msgstr "Error: {{ ERRORMESSAGE }}"
 
+msgid "No results found"
+msgstr "No results found"
+
 msgid "Could not load children. Click to retry"
 msgstr "Could not load children. Click to retry"
 
@@ -25,6 +28,12 @@ msgstr "Could not load. Click to retry"
 
 msgid "Retry"
 msgstr "Retry"
+
+msgid "Hide all children"
+msgstr "Hide all children"
+
+msgid "Show all children"
+msgstr "Show all children"
 
 msgid "Type at least {{count}} characters"
 msgid_plural "Type at least {{count}} characters"
