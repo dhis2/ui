@@ -8,8 +8,10 @@ export interface OuTreeNodeHandle {
     childrenStatus: ChildrenStatus
     /** A direct search result; false in browse mode. */
     isResult: boolean
-    /** Showing all its children in filtered mode. */
+    /** Showing all its children, not only the matching ones, when open in filtered mode. */
     isRevealed: boolean
+    /** Has children on the way to a result; false in browse mode. */
+    hasMatchingChildren: boolean
 }
 
 /**
@@ -38,8 +40,26 @@ export const useOuTreeNode = (id: string): OuTreeNodeHandle => {
         tree.subscribe,
         useCallback(() => tree.isRevealed(id), [tree, id])
     )
+    const hasMatchingChildren = useSyncExternalStore(
+        tree.subscribe,
+        useCallback(() => tree.hasMatchingChildren(id), [tree, id])
+    )
     return useMemo(
-        () => ({ node, isOpen, childrenStatus, isResult, isRevealed }),
-        [node, isOpen, childrenStatus, isResult, isRevealed]
+        () => ({
+            node,
+            isOpen,
+            childrenStatus,
+            isResult,
+            isRevealed,
+            hasMatchingChildren,
+        }),
+        [
+            node,
+            isOpen,
+            childrenStatus,
+            isResult,
+            isRevealed,
+            hasMatchingChildren,
+        ]
     )
 }

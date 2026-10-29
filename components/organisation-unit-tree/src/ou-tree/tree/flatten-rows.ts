@@ -7,7 +7,7 @@ import {
 import { type PrunedTree, resultsPageOf } from './pruned-tree'
 import { rowKey } from './row-key'
 
-/** Pruned: a filtered-tree node, without an arrow. Browse: batch 3's node. */
+/** Pruned: a node of the filtered tree. Browse: batch 3's node. */
 export type NodeView = 'browse' | 'pruned'
 
 export type Row =
@@ -44,7 +44,7 @@ export type Row =
 export interface FilteredView {
     pruned: PrunedTree
     resultIds: ReadonlySet<string>
-    /** Pruned-tree nodes showing all their children, as browse rows. */
+    /** Pruned-tree nodes showing all their children, as browse rows, when open. */
     revealedIds: ReadonlySet<string>
     /** Results received so far. */
     loaded: number
@@ -60,7 +60,7 @@ export interface FlattenRowsInput {
     store: NodeStore
     /** The previous result; rows that did not change are reused. */
     previous?: FlatRows
-    /** Present in filtered mode; the browse walk is then used only under revealed nodes. */
+    /** Present in filtered mode: the pruned tree's nodes keep their view wherever they are listed. */
     filtered?: FilteredView
 }
 
@@ -96,9 +96,10 @@ const sameRow = (a: Row, b: Row): boolean => {
  * roots, descending into the nodes in `openIds` whose children the store
  * has; under an open node, a filled slot is a node row and an empty slot
  * is a skeleton row or, if its page failed, an error row. In filtered mode,
- * a walk of the pruned tree, switching to the browse walk under revealed
- * nodes, then one placeholder row per result not received yet. Depth is
- * relative to the root.
+ * a walk of the pruned tree under the open nodes, listing all children,
+ * as slots, under a revealed node or one without matching children; a
+ * pruned-tree node among them keeps its pruned view. Then one placeholder
+ * row per result not received yet. Depth is relative to the root.
  */
 export const flattenRows = ({
     rootNodes,
@@ -147,7 +148,7 @@ export const flattenRows = ({
         const { slots, pages, pageSize } = children.children
         slots.forEach((childId, index) => {
             if (childId !== undefined) {
-                walkBrowse(childId, depth + 1)
+                walkChild(childId, depth + 1)
                 return
             }
             const page = childrenPageOf(index, pageSize)
@@ -189,12 +190,24 @@ export const flattenRows = ({
             return
         }
         const children = pushNode(node, depth, 'pruned')
-        if (view.revealedIds.has(id)) {
+        if (!openIds.has(id)) {
+            return
+        }
+        const matching = view.pruned.children.get(id)
+        if (view.revealedIds.has(id) || !matching) {
             walkSlots(node, depth, children)
             return
         }
-        for (const childId of view.pruned.children.get(id) ?? []) {
+        for (const childId of matching) {
             walkPruned(childId, depth + 1, view)
+        }
+    }
+
+    const walkChild = (id: string, depth: number) => {
+        if (filtered?.pruned.placed.has(id)) {
+            walkPruned(id, depth, filtered)
+        } else {
+            walkBrowse(id, depth)
         }
     }
 

@@ -247,14 +247,14 @@ describe('OuTreeNodeRow', () => {
 })
 
 describe('OuTreeNodeRow in filtered mode', () => {
-    it('shows a pruned result with the toggle space, the match, the result background and the eye', async () => {
-        // Kabwe District: a result with children.
+    it('shows an open pruned result with its arrow, the match, the result background and the eye', async () => {
+        // Kabwe District: a result with a matching child, the health centre.
         setupFiltered({ id: 'ou-3', term: 'Kabwe' })
         const row = await ready()
 
-        expect(row).not.toHaveAttribute('aria-expanded')
-        expect(screen.getByTestId('t-toggle-space')).toBeInTheDocument()
-        expect(screen.queryByTestId('t-toggle')).toBeNull()
+        expect(row).toHaveAttribute('aria-expanded', 'true')
+        expect(screen.getByTestId('t-toggle')).toBeInTheDocument()
+        expect(screen.queryByTestId('t-toggle-space')).toBeNull()
         expect(screen.getByTestId('t-label')).toHaveClass('result')
         expect(screen.getByTestId('t-label')).toHaveTextContent(
             'Kabwe District'
@@ -265,20 +265,52 @@ describe('OuTreeNodeRow in filtered mode', () => {
         )
     })
 
-    it('shows a pruned ancestor plain, with the eye', async () => {
+    it('shows a pruned ancestor plain and open, with the eye', async () => {
         setupFiltered({ id: 'ou-2', term: 'Kabwe' })
-        await ready()
+        const row = await ready()
 
+        expect(row).toHaveAttribute('aria-expanded', 'true')
         expect(screen.getByTestId('t-label')).not.toHaveClass('result')
         expect(screen.queryByTestId('t-match')).toBeNull()
         expect(screen.getByTestId('t-reveal')).toBeInTheDocument()
     })
 
-    it('shows no eye on a leaf result', async () => {
+    it('hides the eye while the node is closed', async () => {
+        setupFiltered({ id: 'ou-2', term: 'Kabwe' })
+        const row = await ready()
+
+        await userEvent.click(screen.getByTestId('t-toggle'))
+        expect(row).toHaveAttribute('aria-expanded', 'false')
+        expect(screen.queryByTestId('t-reveal')).toBeNull()
+
+        await userEvent.click(screen.getByTestId('t-toggle'))
+        expect(row).toHaveAttribute('aria-expanded', 'true')
+        expect(screen.getByTestId('t-reveal')).toBeInTheDocument()
+    })
+
+    it('shows a result without matching children closed, with no eye, and opens it as a reveal', async () => {
+        // Kabwe District is a bottom result for "District".
+        const ref = setupFiltered({ id: 'ou-3', term: 'District' })
+        const row = await ready()
+        expect(row).toHaveAttribute('aria-expanded', 'false')
+        expect(screen.getByTestId('t-toggle')).toBeInTheDocument()
+        expect(screen.queryByTestId('t-reveal')).toBeNull()
+
+        await userEvent.click(screen.getByTestId('t-label'))
+
+        expect(ref.tree.isRevealed('ou-3')).toBe(true)
+        await waitFor(() =>
+            expect(row).toHaveAttribute('aria-expanded', 'true')
+        )
+        expect(screen.queryByTestId('t-reveal')).toBeNull()
+    })
+
+    it('shows the toggle space and no eye on a leaf result', async () => {
         setupFiltered({ id: 'ou-4', term: 'Kabwe' })
         await ready()
 
         expect(screen.getByTestId('t-match')).toBeInTheDocument()
+        expect(screen.getByTestId('t-toggle-space')).toBeInTheDocument()
         expect(screen.queryByTestId('t-reveal')).toBeNull()
     })
 
@@ -294,41 +326,45 @@ describe('OuTreeNodeRow in filtered mode', () => {
 
         expect(ref.tree.isRevealed('ou-1')).toBe(true)
         expect(await screen.findByTestId('t-loader')).toBeInTheDocument()
-        expect(screen.queryByTestId('t-toggle-space')).toBeNull()
+        expect(screen.queryByTestId('t-toggle')).toBeNull()
         expect(
             screen.getByRole('button', { name: 'Hide all children' })
         ).toBeInTheDocument()
     })
 
-    it('is a retry button around the label, with the eye after it, when a revealed node failed', async () => {
+    it('is a retry button around the label, with the crossed eye after it, when a revealed node failed', async () => {
         const ref = setupFiltered({
             id: 'ou-1',
             term: 'Kabwe',
             children: failing,
         })
-        await ready()
+        const row = await ready()
 
         await userEvent.click(screen.getByTestId('t-reveal'))
         const retry = await screen.findByTestId('t-retry')
 
         expect(retry).toContainElement(screen.getByTestId('t-label'))
-        expect(screen.getByTestId('t-reveal')).toBeInTheDocument()
+        expect(row).toHaveAttribute('aria-expanded', 'false')
+        expect(
+            screen.getByRole('button', { name: 'Hide all children' })
+        ).toBeInTheDocument()
         await userEvent.click(retry)
+        expect(ref.tree.toggle).toHaveBeenCalledWith('ou-1')
         expect(ref.tree.store.retryChildrenPage).toHaveBeenCalledWith('ou-1', 1)
-        expect(ref.tree.toggle).not.toHaveBeenCalled()
     })
 
-    it('marks a result among browse rows under a revealed node', async () => {
+    it('keeps a result as it was under a revealed ancestor', async () => {
         const ref = setupFiltered({ id: 'ou-3', term: 'Kabwe' })
-        await ready()
+        const row = await ready()
         act(() => ref.tree.toggleRevealed('ou-2'))
 
         await waitFor(() =>
-            expect(screen.getByTestId('t-toggle')).toBeInTheDocument()
+            expect(ref.tree.store.getChildren('ou-2').status).toBe('loaded')
         )
+        expect(row).toHaveAttribute('aria-expanded', 'true')
         expect(screen.getByTestId('t-label')).toHaveClass('result')
         expect(screen.getByTestId('t-match')).toHaveTextContent(/^Kabwe$/)
-        expect(screen.queryByTestId('t-reveal')).toBeNull()
+        expect(screen.getByTestId('t-reveal')).toBeInTheDocument()
     })
 
     it('gives renderLabel the result and the term', async () => {

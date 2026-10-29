@@ -53,9 +53,11 @@ Search is a separate input, \`OuTreeSearchInput\`, wired to the tree through
 characters, 300 milliseconds after the last keystroke, the tree prunes
 itself to the matching units under their ancestors, pages of results
 arriving as you scroll. A result has a background and the matched text in
-bold; a quoted or wildcard term marks the whole name. Hover a node for the
-eye that shows all its children as ordinary rows to drill into. Clearing
-the input puts the tree back as it was.
+bold; a quoted or wildcard term marks the whole name. The tree browses as
+before: every node with children has its arrow, the matching branches open
+on arrival and a result opens to all of its children. Hover an open node
+with matching children for the eye that swaps them for all its children.
+Clearing the input puts the tree back as it was.
 
 The \`Building block:\` stories show the pieces the tree is composed of, each
 in each state, with no tree behind them.
@@ -240,7 +242,8 @@ const SearchableTree = () => (
 
 /**
  * Try \`clin\`, \`san jos\`, \`"Rio de Janeiro"\` and \`san*\` (2,000 results,
- * paged as you scroll). Hover a node for the eye.
+ * paged as you scroll). Hover an open node with matching children for the
+ * eye.
  */
 export const Search = () => (
     <Tree>
@@ -450,7 +453,7 @@ MatchedText.storyName = 'Building block: Matched text'
 export const RevealToggle = () => (
     <Stack>
         <Captioned
-            caption="after a pruned node's label (hover or focus the row for the eye)"
+            caption="after the label of an open node with matching children (hover or focus the row for the eye)"
             width={240}
         >
             <OuTreeRowShell depth={0}>

@@ -45,7 +45,10 @@ interface SearchState {
     /** Results received so far. */
     loaded: number
     pruned: PrunedTree
+    /** Pruned-tree nodes showing all their children when open. */
     revealedIds: Set<string>
+    /** Pruned-tree nodes the user closed; a later page does not reopen them. */
+    closedIds: Set<string>
 }
 
 export type SearchStatus =
@@ -66,8 +69,10 @@ export interface TreeState extends Subscribable {
     /** Whether a node shows its children. False while its first page fails. */
     isOpen(id: string): boolean
     /**
-     * Shows a node's children, requesting its first page if needed. In
-     * filtered mode only browse rows, the ones under a revealed node, open.
+     * Shows a node's children, requesting its first page if it will show
+     * them all. In filtered mode a pruned-tree node shows its matching
+     * children, or, revealed or without any, all of them; opening a node
+     * without matching children reveals it.
      */
     open(id: string): void
     close(id: string): void
@@ -88,7 +93,12 @@ export interface TreeState extends Subscribable {
     retryResultsPage(page: number): void
     isResult(id: string): boolean
     isRevealed(id: string): boolean
-    /** Toggles showing all of a pruned-tree node's children; revealing requests its first page. */
+    /** Whether a pruned-tree node has children on the way to a result. */
+    hasMatchingChildren(id: string): boolean
+    /**
+     * Toggles between a pruned-tree node's matching children and all of
+     * them; revealing opens the node and requests its first page.
+     */
     toggleRevealed(id: string): void
     /**
      * Number of rows for the current open set and store contents. Exact in
@@ -177,10 +187,22 @@ export const createTreeState = ({
         stale = true
     }
 
+    const hasMatchingChildren = (id: string) =>
+        search?.pruned.children.has(id) ?? false
+
+    // Whether an open node lists all its children from the store, as
+    // opposed to its matching ones from the pruned tree.
+    const showsAllChildren = (id: string) =>
+        !search ||
+        !search.pruned.placed.has(id) ||
+        search.revealedIds.has(id) ||
+        !hasMatchingChildren(id)
+
     // A node whose first page failed did not open: it is shown closed with
     // the failure, and opening it again requests the page again.
     const isOpen = (id: string) =>
-        openIds.has(id) && store.getChildren(id).status !== 'failed'
+        openIds.has(id) &&
+        (!showsAllChildren(id) || store.getChildren(id).status !== 'failed')
 
     const requestFirstPage = (id: string) => {
         if (store.getNode(id)?.leaf) {
@@ -216,33 +238,22 @@ export const createTreeState = ({
         )
     }
 
-    // In filtered mode only a browse row, one under a revealed node, has an
-    // arrow; a pruned-tree node and a node not shown have nothing to open.
-    const canOpen = (id: string) => {
-        if (!search) {
-            return true
-        }
-        const { rows, indexById } = flat()
-        const index = indexById.get(id)
-        const row = index === undefined ? undefined : rows[index]
-        return row?.kind === 'node' && row.view === 'browse'
-    }
-
     const open = (id: string) => {
-        if (!canOpen(id)) {
-            return
-        }
         openIds.add(id)
+        if (search?.pruned.placed.has(id) && !hasMatchingChildren(id)) {
+            search.revealedIds.add(id)
+        }
+        search?.closedIds.delete(id)
         invalidate()
-        requestFirstPage(id)
+        if (showsAllChildren(id)) {
+            requestFirstPage(id)
+        }
         notify()
     }
 
     const close = (id: string) => {
-        if (!canOpen(id)) {
-            return
-        }
         openIds.delete(id)
+        search?.closedIds.add(id)
         invalidate()
         notify()
     }
@@ -280,11 +291,24 @@ export const createTreeState = ({
                         state.total = response.pager.total
                         state.pageSize = response.pager.pageSize
                     }
+                    const ancestorsBefore = new Set(
+                        state.pruned.children.keys()
+                    )
                     const unplaced = addResults({
                         pruned: state.pruned,
                         results: response.organisationUnits,
                         shownRootIds: shownRootIds(),
                         store,
+                    })
+                    // A node with its first matching child opens, unless
+                    // the user closed it.
+                    state.pruned.children.forEach((_, id) => {
+                        if (
+                            !ancestorsBefore.has(id) &&
+                            !state.closedIds.has(id)
+                        ) {
+                            openIds.add(id)
+                        }
                     })
                     if (
                         unplaced.length > 0 &&
@@ -343,6 +367,7 @@ export const createTreeState = ({
             loaded: 0,
             pruned: createPrunedTree(),
             revealedIds: new Set(),
+            closedIds: new Set(),
         }
         openIds.clear()
         invalidate()
@@ -421,12 +446,12 @@ export const createTreeState = ({
         }
         if (search.revealedIds.has(id)) {
             search.revealedIds.delete(id)
+            invalidate()
+            notify()
         } else {
             search.revealedIds.add(id)
-            requestFirstPage(id)
+            open(id)
         }
-        invalidate()
-        notify()
     }
 
     const getRowCount = () => flat().rows.length
@@ -512,6 +537,7 @@ export const createTreeState = ({
         retryResultsPage,
         isResult: (id) => search?.resultIds.has(id) ?? false,
         isRevealed: (id) => search?.revealedIds.has(id) ?? false,
+        hasMatchingChildren,
         toggleRevealed,
         getRowCount,
         getRow,

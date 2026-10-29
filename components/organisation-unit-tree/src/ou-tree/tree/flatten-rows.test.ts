@@ -328,10 +328,14 @@ describe('flattenRows in filtered mode', () => {
             total: resultIds.length,
             pageSize: 2,
         }
-        const rows = (view: Partial<FilteredView>, previous?: FlatRows) =>
+        const rows = (
+            view: Partial<FilteredView>,
+            previous?: FlatRows,
+            open = ['ou-1', 'ou-2', 'ou-6']
+        ) =>
             flattenRows({
                 rootNodes: rootNodesOf(store, ['ou-1']),
-                openIds: openSet('ou-1', 'ou-2'),
+                openIds: openSet(...open),
                 store,
                 previous,
                 filtered: { ...filtered, ...view },
@@ -339,10 +343,9 @@ describe('flattenRows in filtered mode', () => {
         return { store, rows, filtered }
     }
 
-    it('walks the pruned tree, marking results, with no browse children', async () => {
+    it('walks the pruned tree under open nodes, marking results, with no browse children', async () => {
         const { rows } = await setup(['ou-8'])
 
-        // ou-1 and ou-2 are open in openIds, which does not matter here.
         expect(rows({}).rows.map(describeRow)).toEqual([
             'ou-1:none:pruned',
             '  ou-2:none:pruned',
@@ -351,19 +354,55 @@ describe('flattenRows in filtered mode', () => {
         ])
     })
 
-    it('switches to the browse walk under a revealed node', async () => {
-        const { store, rows } = await setup(['ou-10'])
+    it('shows nothing under a closed pruned node', async () => {
+        const { rows } = await setup(['ou-8'])
+
+        expect(
+            rows({}, undefined, ['ou-1', 'ou-2']).rows.map(describeRow)
+        ).toEqual([
+            'ou-1:none:pruned',
+            '  ou-2:none:pruned',
+            '    ou-6:none:pruned',
+        ])
+    })
+
+    it('uses the browse walk under an open pruned node without matching children', async () => {
+        const { store, rows } = await setup(['ou-6'])
         store.requestChildrenPage('ou-6', 1)
         await flush()
 
+        expect(rows({}).rows.map(describeRow)).toEqual([
+            'ou-1:none:pruned',
+            '  ou-2:none:pruned',
+            '    ou-6:loaded:pruned*',
+            '      ou-12:none',
+            '      ou-10:none',
+            '      skeleton#2',
+            '      skeleton#3',
+            '      skeleton#4',
+            '      skeleton#5',
+        ])
+    })
+
+    it('lists all children under a revealed node, a pruned-tree node among them keeping its view, and nothing while closed', async () => {
+        const { store, rows } = await setup(['ou-10'])
+        store.requestChildrenPage('ou-6', 1)
+        await flush()
+        const revealed = { revealedIds: new Set(['ou-6']) }
+
         expect(
-            rows({ revealedIds: new Set(['ou-6']) }).rows.map(describeRow)
+            rows(revealed, undefined, ['ou-1', 'ou-2']).rows.map(describeRow)
         ).toEqual([
             'ou-1:none:pruned',
             '  ou-2:none:pruned',
             '    ou-6:loaded:pruned',
+        ])
+        expect(rows(revealed).rows.map(describeRow)).toEqual([
+            'ou-1:none:pruned',
+            '  ou-2:none:pruned',
+            '    ou-6:loaded:pruned',
             '      ou-12:none',
-            '      ou-10:none*',
+            '      ou-10:none:pruned*',
             '      skeleton#2',
             '      skeleton#3',
             '      skeleton#4',

@@ -86,7 +86,7 @@ describe('useOuTreeSearch', () => {
         expect(result.current.search.clear).toBe(clear)
     })
 
-    it('useOuTreeNode reports a result and a revealed node', async () => {
+    it('useOuTreeNode reports a result, matching children and a revealed node', async () => {
         const { result } = renderHook(
             () => ({
                 clinic: useOuTreeNode('ou-5'),
@@ -101,6 +101,8 @@ describe('useOuTreeSearch', () => {
         await waitFor(() => expect(result.current.clinic.isResult).toBe(true))
         expect(result.current.district.isResult).toBe(false)
         expect(result.current.district.isRevealed).toBe(false)
+        expect(result.current.district.hasMatchingChildren).toBe(true)
+        expect(result.current.clinic.hasMatchingChildren).toBe(false)
 
         act(() => result.current.actions.toggleRevealed('ou-3'))
         expect(result.current.district.isRevealed).toBe(true)
@@ -108,5 +110,6 @@ describe('useOuTreeSearch', () => {
         act(() => result.current.actions.clearSearch())
         expect(result.current.clinic.isResult).toBe(false)
         expect(result.current.district.isRevealed).toBe(false)
+        expect(result.current.district.hasMatchingChildren).toBe(false)
     })
 })

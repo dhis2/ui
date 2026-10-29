@@ -202,31 +202,47 @@ describe('OuTreeList in filtered mode', () => {
         expect(rowsOfKind('roots')).toHaveLength(0)
     })
 
-    it('reveals a node from its eye into browse rows that open', async () => {
+    it('reveals a node from its eye into all its children, which open', async () => {
         renderList({ rootIds: ['ou-1'] })
         await waitFor(() => expect(rowsOfKind('node')).toHaveLength(1))
         act(() => captured.actions?.search('Kabwe'))
         await waitFor(() => expect(rowsOfKind('node')).toHaveLength(4))
-        expect(screen.queryAllByTestId('t-toggle')).toHaveLength(0)
+        expect(screen.queryAllByTestId('t-toggle')).toHaveLength(3)
 
-        // Central Province's eye: its two districts as browse rows.
+        // Central Province's eye: both districts, Kabwe's still as the
+        // matching branch.
         await userEvent.click(screen.getAllByTestId('t-reveal')[1])
         await waitFor(() =>
-            expect(screen.getAllByTestId('t-toggle')).toHaveLength(2)
+            expect(screen.getAllByTestId('t-toggle')).toHaveLength(4)
         )
         expect(names()).toEqual([
             'Zambia',
             'Central Province',
             'Kabwe District',
+            'Kabwe Health Centre',
             'Serenje District',
         ])
 
-        await userEvent.click(screen.getAllByTestId('t-toggle')[0])
+        // Kabwe District's eye: both its children.
+        await userEvent.click(screen.getAllByTestId('t-reveal')[2])
         await waitFor(() => expect(names()).toHaveLength(6))
         expect(names().slice(2, 5)).toEqual([
             'Kabwe District',
             'Chisembe Clinic',
             'Kabwe Health Centre',
         ])
+    })
+
+    it('collapses a matching ancestor from its arrow and opens it again', async () => {
+        renderList({ rootIds: ['ou-1'] })
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(1))
+        act(() => captured.actions?.search('Kabwe'))
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(4))
+
+        await userEvent.click(screen.getAllByTestId('t-toggle')[1])
+        expect(names()).toEqual(['Zambia', 'Central Province'])
+
+        await userEvent.click(screen.getAllByTestId('t-toggle')[1])
+        expect(names()).toHaveLength(4)
     })
 })
