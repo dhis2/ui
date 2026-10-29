@@ -123,6 +123,71 @@ ValueTextOverflow.args = {
     warning: true,
 }
 
+export const WithMaxLength = (args) => {
+    const [value, setValue] = React.useState('')
+    return <Input {...args} value={value} onChange={(e) => setValue(e.value)} />
+}
+WithMaxLength.args = {
+    name: 'characterCountLimit',
+    characterCountLimit: 50,
+    placeholder: 'Max 50 characters',
+}
+WithMaxLength.storyName = 'With characterCountLimit counter'
+
+export const WithMaxLengthExceeded = Template.bind({})
+WithMaxLengthExceeded.args = {
+    characterCountLimit: 20,
+    value: 'This text exceeds the character limit',
+}
+WithMaxLengthExceeded.storyName = 'With characterCountLimit exceeded'
+
+export const MaxLengthDense = (args) => {
+    const [value, setValue] = React.useState('')
+    return <Input {...args} value={value} onChange={(e) => setValue(e.value)} />
+}
+MaxLengthDense.args = {
+    name: 'characterCountLimit-dense',
+    characterCountLimit: 30,
+    dense: true,
+    placeholder: 'Dense with counter',
+}
+MaxLengthDense.storyName = 'characterCountLimit + dense'
+
+export const MaxLengthClearable = (args) => {
+    const [value, setValue] = React.useState('Some text')
+    return <Input {...args} value={value} onChange={(e) => setValue(e.value)} />
+}
+MaxLengthClearable.args = {
+    name: 'characterCountLimit-clearable',
+    characterCountLimit: 40,
+    clearable: true,
+}
+MaxLengthClearable.storyName = 'characterCountLimit + clearable'
+
+export const MaxLengthWithError = (args) => {
+    const [value, setValue] = React.useState('Invalid value')
+    return <Input {...args} value={value} onChange={(e) => setValue(e.value)} />
+}
+MaxLengthWithError.args = {
+    name: 'characterCountLimit-error',
+    characterCountLimit: 50,
+    error: true,
+}
+MaxLengthWithError.storyName = 'characterCountLimit + error status'
+
+export const MaxLengthClearableError = (args) => {
+    const [value, setValue] = React.useState('Text with all options')
+    return <Input {...args} value={value} onChange={(e) => setValue(e.value)} />
+}
+MaxLengthClearableError.args = {
+    name: 'characterCountLimit-clearable-error',
+    characterCountLimit: 30,
+    clearable: true,
+    error: true,
+}
+MaxLengthClearableError.storyName =
+    'characterCountLimit + clearable + error status'
+
 export const RTLErrorPlaceholder = (args) => (
     <div dir="rtl">
         <Input {...args} />
