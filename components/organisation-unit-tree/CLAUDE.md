@@ -87,11 +87,19 @@ in other packages.
   time, when a `result-skeleton` row is in range; a late answer for another
   term is dropped. The pruned tree (`tree/pruned-tree.ts`) is built from the
   results and their paths only, appended in arrival order, from the given
-  roots the store has. A revealed node (`toggleRevealed`) is a browse pocket:
-  its children are ordinary browse rows; `open`, `close` and `toggle` act only
-  on browse rows. `setSearchInput` trims, gates by `SEARCH_MIN_LENGTH` and
-  debounces by `SEARCH_DEBOUNCE_MS` (`tree/search-constants.ts`); `search`
-  skips both.
+  roots the store has. `setSearchInput` trims, gates by `SEARCH_MIN_LENGTH`
+  and debounces by `SEARCH_DEBOUNCE_MS` (`tree/search-constants.ts`);
+  `search` skips both.
+- **The tree browses the same in both modes.** One open set serves both.
+  In filtered mode a node with matching children (`hasMatchingChildren`,
+  children on the way to a result) opens when the page that places it
+  arrives, unless the user closed it, and shows its matching children; a
+  result without any opens to all of its children, which marks it revealed
+  (`isRevealed`), so a later page placing a result under it does not
+  narrow the list. The eye (`toggleRevealed`) swaps an open node's
+  matching children for all of them and back; revealing opens the node,
+  and closing keeps the reveal. A pruned-tree node keeps its view wherever
+  it is listed, under a revealed ancestor included.
 - **Highlighting is client-side** (`search/match-range.ts`): `findMatch`
   reproduces the stand-in's matching, so it can miss what the server matched
   (a translation, say); the result background on the label marks a result
@@ -110,7 +118,8 @@ in other packages.
   the eye are buttons that are the tooltip's reference:
   `OuTreeRetrySkeleton` is itself the bar, `OuTreeRetryNode` is a failed
   node's row body around the label slot, and `OuTreeRevealToggle` sits
-  after a pruned node's label. `OuTreeRevealToggle` carries
+  after the label of an open node with matching children, and of one
+  whose reveal failed, as the way back. `OuTreeRevealToggle` carries
   `data-hover-only`, and `OuTreeRowShell` hides any child with that
   attribute unless the row is hovered or has focus within: the one
   attribute contract between pieces. `OuTreeSearchInput` is glue (an
