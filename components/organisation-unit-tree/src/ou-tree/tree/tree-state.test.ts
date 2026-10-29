@@ -126,6 +126,8 @@ describe('createTreeState', () => {
                 id: 'ou-1',
                 depth: 0,
                 children: { status: 'loading' },
+                view: 'browse',
+                result: false,
             })
             tree.close('ou-1')
             tree.open('ou-1')
@@ -180,6 +182,8 @@ describe('createTreeState', () => {
             expect(tree.isOpen('p')).toBe(true)
             expect(tree.getRow(0)).toMatchObject({
                 children: { status: 'loading' },
+                view: 'browse',
+                result: false,
             })
         })
 

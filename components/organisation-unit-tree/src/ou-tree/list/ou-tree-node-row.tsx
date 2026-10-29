@@ -1,9 +1,16 @@
 import React, { memo } from 'react'
 import type { ChildrenStatus, StoredNode } from '../node-store/index'
-import { type Row, useOuTreeActions, useOuTreeNode } from '../tree/index'
+import {
+    type Row,
+    useOuTreeActions,
+    useOuTreeNode,
+    useOuTreeSearchTerm,
+} from '../tree/index'
+import { OuTreeMatchedText } from './ou-tree-matched-text'
 import { OuTreeNodeLabel } from './ou-tree-node-label'
 import { OuTreeNodeToggle } from './ou-tree-node-toggle'
 import { OuTreeRetryNode } from './ou-tree-retry-node'
+import { OuTreeRevealToggle } from './ou-tree-reveal-toggle'
 import { OuTreeRowShell } from './ou-tree-row-shell'
 
 export type NodeRow = Extract<Row, { kind: 'node' }>
@@ -14,6 +21,10 @@ export interface RenderLabelProps {
     childrenStatus: ChildrenStatus
     depth: number
     toggle: () => void
+    /** A direct search result; false in browse mode. */
+    isResult: boolean
+    /** The effective search term, for marking the match; undefined in browse mode. */
+    searchTerm: string | undefined
 }
 
 /**
@@ -34,17 +45,32 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
     renderLabel,
     dataTest = 'dhis2-uicore-outree',
 }: OuTreeNodeRowProps) {
-    const { node, isOpen, childrenStatus } = useOuTreeNode(row.id)
-    const { toggle } = useOuTreeActions()
+    const {
+        node,
+        isOpen,
+        childrenStatus,
+        isResult,
+        isRevealed,
+        hasMatchingChildren,
+    } = useOuTreeNode(row.id)
+    const { open, toggle, toggleRevealed } = useOuTreeActions()
+    const searchTerm = useOuTreeSearchTerm()
     if (!node) {
         // Rows are built from stored nodes and nodes are never removed.
         throw new Error(`Node row ${row.id} has no node in the store`)
     }
     const onToggle = () => toggle(row.id)
-    // A failed first page means the node did not open; the row's body is
-    // then a button that opens it again.
-    const failed = childrenStatus.status === 'failed'
+    const pruned = row.view === 'pruned'
+    // A pruned-tree node lists all its children only once revealed; its
+    // matching children need no page. A failed first page means the node
+    // did not open, or keeps its matching children, and the row's body is
+    // then a button that requests the page again.
+    const showsAllChildren = !pruned || isRevealed
+    const failed = showsAllChildren && childrenStatus.status === 'failed'
+    const loading = showsAllChildren && childrenStatus.status === 'loading'
     const clickable = !node.leaf && !failed
+    // The eye swaps a visible list of matching children for all of them.
+    const showsEye = pruned && hasMatchingChildren && isOpen
     const label = renderLabel ? (
         renderLabel({
             node,
@@ -52,15 +78,45 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
             childrenStatus,
             depth: row.depth,
             toggle: onToggle,
+            isResult,
+            searchTerm,
         })
     ) : (
         <OuTreeNodeLabel
             clickable={clickable}
             onClick={clickable ? onToggle : undefined}
+            result={isResult}
             dataTest={`${dataTest}-label`}
         >
-            {node.displayName}
+            {isResult && searchTerm !== undefined ? (
+                <OuTreeMatchedText
+                    text={node.displayName}
+                    term={searchTerm}
+                    dataTest={`${dataTest}-match`}
+                />
+            ) : (
+                node.displayName
+            )}
         </OuTreeNodeLabel>
+    )
+    const body = failed ? (
+        <OuTreeRetryNode
+            onRetry={() => open(row.id)}
+            dataTest={`${dataTest}-retry`}
+        >
+            {label}
+        </OuTreeRetryNode>
+    ) : (
+        <>
+            <OuTreeNodeToggle
+                leaf={node.leaf}
+                open={isOpen}
+                loading={isOpen && loading}
+                onToggle={onToggle}
+                dataTest={dataTest}
+            />
+            {label}
+        </>
     )
 
     return (
@@ -72,24 +128,13 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
             ariaExpanded={node.leaf ? undefined : isOpen}
             dataTest={`${dataTest}-row`}
         >
-            {failed ? (
-                <OuTreeRetryNode
-                    onRetry={onToggle}
-                    dataTest={`${dataTest}-retry`}
-                >
-                    {label}
-                </OuTreeRetryNode>
-            ) : (
-                <>
-                    <OuTreeNodeToggle
-                        leaf={node.leaf}
-                        open={isOpen}
-                        loading={isOpen && childrenStatus.status === 'loading'}
-                        onToggle={onToggle}
-                        dataTest={dataTest}
-                    />
-                    {label}
-                </>
+            {body}
+            {showsEye && (
+                <OuTreeRevealToggle
+                    revealed={isRevealed}
+                    onToggle={() => toggleRevealed(row.id)}
+                    dataTest={`${dataTest}-reveal`}
+                />
             )}
         </OuTreeRowShell>
     )

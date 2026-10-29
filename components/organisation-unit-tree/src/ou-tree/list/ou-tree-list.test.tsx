@@ -168,3 +168,81 @@ describe('OuTreeList', () => {
         expect(rowsOfKind('node')[3]).toBe(before)
     })
 })
+
+describe('OuTreeList in filtered mode', () => {
+    // The label's text nodes, skipping its style element.
+    const names = () =>
+        screen.queryAllByTestId('t-label').map((el) =>
+            Array.from(el.childNodes)
+                .filter((child) => child.nodeName !== 'STYLE')
+                .map((child) => child.textContent)
+                .join('')
+        )
+
+    it('says no results found for a search without results', async () => {
+        renderList({ rootIds: ['ou-1'] })
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(1))
+
+        act(() => captured.actions?.search('zzz'))
+
+        expect(await screen.findByTestId('t-no-results')).toHaveTextContent(
+            'No results found'
+        )
+        expect(screen.queryAllByTestId('t-row')).toHaveLength(0)
+    })
+
+    it('shows the filtered rows while the roots are still loading', async () => {
+        const gist = (() => new Promise(() => undefined)) as typeof realGist
+        renderList({ rootIds: ['ou-1'], gist })
+        expect(rowsOfKind('roots')).toHaveLength(1)
+
+        act(() => captured.actions?.search('Clinic'))
+
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(11))
+        expect(rowsOfKind('roots')).toHaveLength(0)
+    })
+
+    it('reveals a node from its eye into all its children, which open', async () => {
+        renderList({ rootIds: ['ou-1'] })
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(1))
+        act(() => captured.actions?.search('Kabwe'))
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(4))
+        expect(screen.queryAllByTestId('t-toggle')).toHaveLength(3)
+
+        // Central Province's eye: both districts, Kabwe's still as the
+        // matching branch.
+        await userEvent.click(screen.getAllByTestId('t-reveal')[1])
+        await waitFor(() =>
+            expect(screen.getAllByTestId('t-toggle')).toHaveLength(4)
+        )
+        expect(names()).toEqual([
+            'Zambia',
+            'Central Province',
+            'Kabwe District',
+            'Kabwe Health Centre',
+            'Serenje District',
+        ])
+
+        // Kabwe District's eye: both its children.
+        await userEvent.click(screen.getAllByTestId('t-reveal')[2])
+        await waitFor(() => expect(names()).toHaveLength(6))
+        expect(names().slice(2, 5)).toEqual([
+            'Kabwe District',
+            'Chisembe Clinic',
+            'Kabwe Health Centre',
+        ])
+    })
+
+    it('collapses a matching ancestor from its arrow and opens it again', async () => {
+        renderList({ rootIds: ['ou-1'] })
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(1))
+        act(() => captured.actions?.search('Kabwe'))
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(4))
+
+        await userEvent.click(screen.getAllByTestId('t-toggle')[1])
+        expect(names()).toEqual(['Zambia', 'Central Province'])
+
+        await userEvent.click(screen.getAllByTestId('t-toggle')[1])
+        expect(names()).toHaveLength(4)
+    })
+})

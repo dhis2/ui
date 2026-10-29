@@ -1,6 +1,6 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
     createGistResolver,
     createTreeResolver,
@@ -10,17 +10,25 @@ import { GIST_RESOURCE, TREE_RESOURCE } from './ou-tree/data/index'
 import {
     OuTree,
     OuTreeContainer,
+    OuTreeList,
     OuTreeLoader,
+    OuTreeMatchedText,
     OuTreeNodeLabel,
     OuTreeNodeStoreProvider,
+    OuTreeNoResults,
+    OuTreeProvider,
     OuTreeRetryNode,
     OuTreeRetrySkeleton,
+    OuTreeRevealToggle,
     OuTreeRowShell,
+    OuTreeSearchInput,
     OuTreeSkeleton,
     OuTreeToggle,
     OuTreeVirtualRow,
     OuTreeVirtualSizer,
     type RenderLabel,
+    useOuTreeActions,
+    useOuTreeSearch,
 } from './ou-tree/index'
 
 const description = `
@@ -39,6 +47,17 @@ state can be seen; start Storybook with
 \`renderLabel\` swaps the label slot and keeps the row's indent, toggle and
 loader. It must be a stable function: define it outside the component or
 memoise it.
+
+Search is a separate input, \`OuTreeSearchInput\`, wired to the tree through
+\`useOuTreeSearch\`; an app can use its own input through the hook. From two
+characters, 300 milliseconds after the last keystroke, the tree prunes
+itself to the matching units under their ancestors, pages of results
+arriving as you scroll. A result has a background and the matched text in
+bold; a quoted or wildcard term marks the whole name. The tree browses as
+before: every node with children has its arrow, the matching branches open
+on arrival and a result opens to all of its children. Hover an open node
+with matching children for the eye that swaps them for all its children.
+Clearing the input puts the tree back as it was.
 
 The \`Building block:\` stories show the pieces the tree is composed of, each
 in each state, with no tree behind them.
@@ -201,6 +220,56 @@ export const RightToLeft = () => (
     </Tree>
 )
 
+/** The search input above the list, the list filling the rest of the box. */
+const SearchableTree = () => (
+    <OuTreeProvider rootIds={PAHO_ROOTS}>
+        <div
+            style={{
+                display: 'flex',
+                flexDirection: 'column',
+                height: '100%',
+            }}
+        >
+            <div style={{ padding: 8 }}>
+                <OuTreeSearchInput />
+            </div>
+            <div style={{ flex: 1, minHeight: 0 }}>
+                <OuTreeList />
+            </div>
+        </div>
+    </OuTreeProvider>
+)
+
+/**
+ * Try \`clin\`, \`san jos\`, \`"Rio de Janeiro"\` and \`san*\` (2,000 results,
+ * paged as you scroll). Hover an open node with matching children for the
+ * eye.
+ */
+export const Search = () => (
+    <Tree>
+        <SearchableTree />
+    </Tree>
+)
+
+const failingSearchData = {
+    [TREE_RESOURCE]: createTreeResolver({
+        ...pahoOrgUnits,
+        delay,
+        failWith: (query) =>
+            query.search !== undefined && query.page === 2
+                ? new Error('Simulated failure of results page 2')
+                : undefined,
+    }),
+    [GIST_RESOURCE]: createGistResolver({ ...pahoOrgUnits, delay }),
+}
+
+/** Page two of any search fails: search \`san\` and scroll to the retry skeletons. */
+export const SearchFailing = () => (
+    <Tree data={failingSearchData}>
+        <SearchableTree />
+    </Tree>
+)
+
 // Building blocks: each piece in each state, with no tree behind it.
 
 const noop = () => undefined
@@ -293,6 +362,131 @@ export const RetrySkeleton = () => (
     </Stack>
 )
 RetrySkeleton.storyName = 'Building block: Retry skeleton'
+
+const neverAnswering = {
+    [TREE_RESOURCE]: () => new Promise<never>(() => undefined),
+    [GIST_RESOURCE]: () => new Promise<never>(() => undefined),
+}
+
+/** The providers a search input needs, without the tree's box. */
+const SearchProviders = ({
+    data: treeData = data,
+    children,
+}: {
+    data?: typeof data
+    children: React.ReactNode
+}) => (
+    <CustomDataProvider data={treeData}>
+        <OuTreeNodeStoreProvider>
+            <OuTreeProvider rootIds={PAHO_ROOTS}>{children}</OuTreeProvider>
+        </OuTreeNodeStoreProvider>
+    </CustomDataProvider>
+)
+
+/** Types a term into the tree's search on mount. */
+const Typed = ({ value }: { value: string }) => {
+    const { setTerm } = useOuTreeSearch()
+    useEffect(() => setTerm(value), [setTerm, value])
+    return null
+}
+
+/** Searches at once on mount, skipping the debounce. */
+const Searched = ({ term }: { term: string }) => {
+    const { search } = useOuTreeActions()
+    useEffect(() => search(term), [search, term])
+    return null
+}
+
+export const SearchInput = () => (
+    <Stack>
+        <Captioned caption="idle" width={240}>
+            <SearchProviders>
+                <OuTreeSearchInput />
+            </SearchProviders>
+        </Captioned>
+        <Captioned caption="too short" width={240}>
+            <SearchProviders>
+                <Typed value="c" />
+                <OuTreeSearchInput />
+            </SearchProviders>
+        </Captioned>
+        <Captioned caption="loading" width={240}>
+            <SearchProviders data={neverAnswering}>
+                <Typed value="clin" />
+                <Searched term="clin" />
+                <OuTreeSearchInput />
+            </SearchProviders>
+        </Captioned>
+    </Stack>
+)
+SearchInput.storyName = 'Building block: Search input'
+
+export const MatchedText = () => (
+    <Stack>
+        <Captioned caption="plain term `clin`">
+            <OuTreeMatchedText text="Hospital Clínico" term="clin" />
+        </Captioned>
+        <Captioned caption="accented term `CLÍN`">
+            <OuTreeMatchedText text="Hospital Clinico" term="CLÍN" />
+        </Captioned>
+        <Captioned caption={'quoted term `"Rio de Janeiro"`: the whole name'}>
+            <OuTreeMatchedText
+                text="Rio de Janeiro"
+                term={'"Rio de Janeiro"'}
+            />
+        </Captioned>
+        <Captioned caption="wildcard term `san*`: the whole name">
+            <OuTreeMatchedText text="San José" term="san*" />
+        </Captioned>
+        <Captioned caption="miss (the server matched a translation, say): the name alone">
+            <OuTreeMatchedText text="Rio de Janeiro" term="xyz" />
+        </Captioned>
+        <Captioned caption="in a result label">
+            <OuTreeNodeLabel result>
+                <OuTreeMatchedText text="Hospital Clínico" term="clin" />
+            </OuTreeNodeLabel>
+        </Captioned>
+    </Stack>
+)
+MatchedText.storyName = 'Building block: Matched text'
+
+export const RevealToggle = () => (
+    <Stack>
+        <Captioned
+            caption="after the label of an open node with matching children (hover or focus the row for the eye)"
+            width={240}
+        >
+            <OuTreeRowShell depth={0}>
+                <OuTreeToggle leaf />
+                <OuTreeNodeLabel>Minas Gerais</OuTreeNodeLabel>
+                <OuTreeRevealToggle revealed={false} onToggle={noop} />
+            </OuTreeRowShell>
+        </Captioned>
+        <Captioned caption="revealed" width={240}>
+            <OuTreeRowShell depth={0}>
+                <OuTreeToggle leaf />
+                <OuTreeNodeLabel>Minas Gerais</OuTreeNodeLabel>
+                <OuTreeRevealToggle revealed onToggle={noop} />
+            </OuTreeRowShell>
+        </Captioned>
+        <Captioned caption="both, always visible (outside a row shell)">
+            <div style={{ display: 'flex', gap: 8 }}>
+                <OuTreeRevealToggle revealed={false} onToggle={noop} />
+                <OuTreeRevealToggle revealed onToggle={noop} />
+            </div>
+        </Captioned>
+    </Stack>
+)
+RevealToggle.storyName = 'Building block: Reveal toggle'
+
+export const NoResults = () => (
+    <Stack>
+        <Captioned caption="no results" width={240}>
+            <OuTreeNoResults />
+        </Captioned>
+    </Stack>
+)
+NoResults.storyName = 'Building block: No results'
 
 export const NodeLabel = () => (
     <Stack>

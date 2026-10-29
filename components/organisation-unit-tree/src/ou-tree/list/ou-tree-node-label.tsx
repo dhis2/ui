@@ -5,6 +5,8 @@ import React from 'react'
 export interface OuTreeNodeLabelProps {
     onClick?: () => void
     clickable?: boolean
+    /** Paints the result background. */
+    result?: boolean
     dataTest?: string
     children: React.ReactNode
 }
@@ -12,11 +14,12 @@ export interface OuTreeNodeLabelProps {
 export const OuTreeNodeLabel = ({
     onClick,
     clickable,
+    result,
     dataTest,
     children,
 }: OuTreeNodeLabelProps) => (
     <span
-        className={cx('label', { clickable })}
+        className={cx('label', { clickable, result })}
         data-test={dataTest}
         onClick={onClick}
     >
@@ -24,7 +27,8 @@ export const OuTreeNodeLabel = ({
         <style jsx>{`
             .label {
                 font-size: 14px;
-                line-height: 24px;
+                line-height: 20px;
+                margin: 2px 0;
                 padding: 0 5px;
                 color: ${colors.grey900};
                 user-select: none;
@@ -34,6 +38,9 @@ export const OuTreeNodeLabel = ({
             }
             .clickable {
                 cursor: pointer;
+            }
+            .result {
+                background: ${colors.yellow100};
             }
         `}</style>
     </span>

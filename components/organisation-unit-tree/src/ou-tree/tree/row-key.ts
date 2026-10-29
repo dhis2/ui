@@ -12,5 +12,9 @@ export const rowKey = (row: Row): string => {
             return `skeleton:${row.parentId}:${row.index}`
         case 'error':
             return `error:${row.parentId}:${row.index}`
+        case 'result-skeleton':
+            return `result-skeleton:${row.index}`
+        case 'result-error':
+            return `result-error:${row.index}`
     }
 }

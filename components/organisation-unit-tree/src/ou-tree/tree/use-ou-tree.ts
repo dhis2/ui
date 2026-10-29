@@ -1,12 +1,14 @@
 import { useMemo, useSyncExternalStore } from 'react'
 import type { RootsStatus } from '../node-store/index'
 import { useTreeState } from './ou-tree-provider'
-import type { TreeState } from './tree-state'
+import type { SearchStatus, TreeMode, TreeState } from './tree-state'
 
 export type OuTreeHandle = {
     rowCount: number
     rootsStatus: RootsStatus
     rootIds: string[]
+    mode: TreeMode
+    searchStatus: SearchStatus
     /** Changes whenever the tree does; a key for memoisation downstream. */
     version: number
 } & Pick<
@@ -33,6 +35,8 @@ export const useOuTree = (): OuTreeHandle => {
             rowCount: tree.getRowCount(),
             rootsStatus: tree.getRootsStatus(),
             rootIds: tree.rootIds,
+            mode: tree.getMode(),
+            searchStatus: tree.getSearchStatus(),
             getRow: tree.getRow,
             getRowIndex: tree.getRowIndex,
             open: tree.open,

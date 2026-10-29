@@ -5,14 +5,17 @@ This package holds two components side by side:
 - `OrganisationUnitTree` — the current component, in **JavaScript**
   (`src/organisation-unit-tree/`, `src/organisation-unit-node/` and friends).
 - `OuTree` — its replacement, in **TypeScript** (`src/ou-tree/`). It renders
-  browse mode as a virtualised list that looks like `OrganisationUnitTree`.
+  browse mode and filtered mode (search) as a virtualised list that looks
+  like `OrganisationUnitTree`.
   `src/ou-tree/data/` is the endpoint types and the tree API (the tree
   endpoint, its `<id>/children` resource and gist), `src/ou-tree/node-store/`
-  the app-wide node store with paged children per parent,
-  `src/ou-tree/tree/` the per-tree state, providers and hooks,
-  `src/ou-tree/list/` the virtualised list, the row pieces and the default
-  rows, and `src/ou-tree/__fixtures__/` a temporary in-memory stand-in for
-  the endpoint with a PAHO fixture, for tests and stories.
+  the app-wide node store with paged children per parent and the results
+  pages, `src/ou-tree/search/` the matcher the client shares with the
+  stand-in and the match range for highlighting, `src/ou-tree/tree/` the
+  per-tree state, providers and hooks, `src/ou-tree/list/` the virtualised
+  list, the row pieces and the default rows, and `src/ou-tree/__fixtures__/`
+  a temporary in-memory stand-in for the endpoint with a PAHO fixture, for
+  tests and stories.
 
 The rest of this repository is JavaScript. The TypeScript conventions below apply
 to `.ts`/`.tsx` files only; do not apply them to the JavaScript sources here or
@@ -75,8 +78,35 @@ in other packages.
   in the repo. It sits outside `src/` so it is not published, and it is
   excluded from Prettier. Regenerate rather than hand-edit.
 - **Paging names say which kind they mean.** Browse mode pages a parent's
-  children (`requestChildrenPage`, `CHILDREN_PAGE_SIZE`); filtered mode, later,
-  pages results. Nothing is called just "page".
+  children (`requestChildrenPage`, `CHILDREN_PAGE_SIZE`); filtered mode
+  pages results (`requestResultsPage`, `retryResultsPage`,
+  `RESULTS_PAGE_SIZE`). Nothing is called just "page".
+- **Any search resets the tree, and so does clearing one.** `search(term)`
+  replaces the whole search state and empties the open set; `clearSearch`
+  restores `initiallyOpen`. Result pages are requested in order, one at a
+  time, when a `result-skeleton` row is in range; a late answer for another
+  term is dropped. The pruned tree (`tree/pruned-tree.ts`) is built from the
+  results and their paths only, appended in arrival order, from the given
+  roots the store has. `setSearchInput` trims, gates by `SEARCH_MIN_LENGTH`
+  and debounces by `SEARCH_DEBOUNCE_MS` (`tree/search-constants.ts`);
+  `search` skips both.
+- **The tree browses the same in both modes.** One open set serves both.
+  In filtered mode a node with matching children (`hasMatchingChildren`,
+  children on the way to a result) opens when the page that places it
+  arrives, unless the user closed it, and shows its matching children; a
+  result without any opens to all of its children, which marks it revealed
+  (`isRevealed`), so a later page placing a result under it does not
+  narrow the list. The eye (`toggleRevealed`) swaps an open node's
+  matching children for all of them and back; revealing opens the node,
+  and closing keeps the reveal. A revealed node keeps its matching
+  children until its first page is loaded, through a failure too, so
+  nothing vanishes while the complete list loads. A pruned-tree node
+  keeps its view wherever it is listed, under a revealed ancestor
+  included.
+- **Highlighting is client-side** (`search/match-range.ts`): `findMatch`
+  reproduces the stand-in's matching, so it can miss what the server matched
+  (a translation, say); the result background on the label marks a result
+  either way.
 - **Pieces take plain props and read nothing from the tree**, and the glue
   carries no styles. The rows (`OuTreeNodeRow`, `OuTreeRow`,
   `OuTreeErrorRow`, `OuTreeSkeletonRow`), `OuTreeNodeToggle`,
@@ -85,23 +115,34 @@ in other packages.
   are the list's structural pieces. Every piece puts the `dataTest` it is
   given on its element unchanged; the glue composes the suffixes
   (`${dataTest}-row`, `-toggle`, `-toggle-space`, `-label`, `-loader`,
-  `-retry`, `-skeleton`), default `dhis2-uicore-outree`. The two
-  retry controls are buttons that are the tooltip's reference:
-  `OuTreeRetrySkeleton` is itself the bar, and `OuTreeRetryNode` is a
-  failed node's row body around the label slot. In Storybook the pieces are the `Building block:` stories of
-  the `OuTree` entry, after the tree's own.
+  `-retry`, `-skeleton`, `-match`, `-reveal`, `-no-results`, `-search`),
+  default `dhis2-uicore-outree`; `data-row-kind` names the row's kind,
+  `result-skeleton` and `result-error` included. The retry controls and
+  the eye are buttons that are the tooltip's reference:
+  `OuTreeRetrySkeleton` is itself the bar, `OuTreeRetryNode` is a failed
+  node's row body around the label slot, and `OuTreeRevealToggle` sits
+  after the label of an open node with matching children. `OuTreeRevealToggle` carries
+  `data-hover-only`, and `OuTreeRowShell` hides any child with that
+  attribute unless the row is hovered or has focus within: the one
+  attribute contract between pieces. `OuTreeSearchInput` is glue (an
+  `InputField` over `useOuTreeSearch`), not part of `OuTree`; an app with
+  its own input uses the hook. In Storybook the pieces are the
+  `Building block:` stories of the `OuTree` entry, after the tree's own.
 - **A failed first page means the node did not open.** `isOpen` is false
-  while a node's children status is `failed`, the row's body is an
-  `OuTreeRetryNode` button around the label slot, and opening the node
-  again requests page one again. There is no separate retry
-  action on a node.
+  while a node's children status is `failed`, unless the node has
+  matching children, which it keeps listing; either way the row's body
+  is an `OuTreeRetryNode` button around the label slot that calls `open`,
+  which requests page one again. There is no separate retry action on a
+  node.
 - **List tests mock the virtualiser**, as jsdom has no layout:
   `jest.mock('@tanstack/react-virtual', () => jest.requireActual('<path>/__fixtures__/virtualizer-mock'))`.
   Import the mock file directly; it uses the `jest` global, so it is not in
   the fixtures index that stories import.
 - **`renderLabel` is the one customisation convenience.** It replaces the
-  label slot of a node row and keeps the row's chrome. It must be a stable
-  function, or the memoised rows re-render. While the node's children
+  label slot of a node row and keeps the row's chrome, the eye included. It
+  must be a stable function, or the memoised rows re-render. It gets
+  `isResult` and `searchTerm`, so a custom label can use `OuTreeNodeLabel`'s
+  `result`, `OuTreeMatchedText` or `findMatch` for its own styling. While the node's children
   failed to load, the slot sits inside the row's retry button, so a label
   with its own control there is batch 5's problem to solve with the row's
   focus model.
@@ -129,7 +170,8 @@ in other packages.
 
 ## Status
 
-`OuTree` renders browse mode and is reachable through its stories. It is
+`OuTree` renders browse mode and filtered mode and is reachable through its
+stories. It is
 deliberately **not exported**, neither from this package's `src/index.js` nor
 from `@dhis2/ui`, because this package is published. Exporting it is a separate, deliberate change:
 add it to `src/index.js` and `types/index.d.ts` here, and to
