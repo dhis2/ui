@@ -56,7 +56,14 @@ const setup = ({
         }
         return (
             <OuTreeNodeRow
-                row={{ kind: 'node', id, depth: 0, children: status }}
+                row={{
+                    kind: 'node',
+                    id,
+                    depth: 0,
+                    children: status,
+                    view: 'browse',
+                    result: false,
+                }}
                 renderLabel={renderLabel}
                 dataTest="t"
             />

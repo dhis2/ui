@@ -5,24 +5,39 @@ import {
     zambiaOrgUnits,
 } from '../__fixtures__/index'
 import { createNodeStore, NodeStore } from '../node-store/index'
-import { flattenRows } from './flatten-rows'
+import {
+    type FilteredView,
+    type FlatRows,
+    flattenRows,
+    type Row,
+} from './flatten-rows'
+import { addResults, createPrunedTree } from './pruned-tree'
 
 const flush = () => new Promise((resolve) => setTimeout(resolve, 0))
 const openSet = (...ids: string[]) => new Set(ids)
 const rootNodesOf = (store: NodeStore, ids: string[]) =>
     ids.flatMap((id) => store.getNode(id) ?? [])
+const describeRow = (row: Row) => {
+    const indent = '  '.repeat(row.depth)
+    switch (row.kind) {
+        case 'node':
+            return `${indent}${row.id}:${row.children.status}${
+                row.view === 'pruned' ? ':pruned' : ''
+            }${row.result ? '*' : ''}`
+        case 'skeleton':
+        case 'result-skeleton':
+            return `${indent}${row.kind}#${row.index}`
+        case 'error':
+        case 'result-error':
+            return `${indent}${row.kind}@${row.page}`
+    }
+}
 const summary = (store: NodeStore, rootIds: string[], ...open: string[]) =>
     flattenRows({
         rootNodes: rootNodesOf(store, rootIds),
         openIds: openSet(...open),
         store,
-    }).rows.map((row) =>
-        row.kind === 'node'
-            ? `${'  '.repeat(row.depth)}${row.id}:${row.children.status}`
-            : `${'  '.repeat(row.depth)}${row.kind}${
-                  row.kind === 'skeleton' ? `#${row.index}` : `@${row.page}`
-              }`
-    )
+    }).rows.map(describeRow)
 
 describe('flattenRows', () => {
     const zambia = async (...open: string[]) => {
@@ -282,5 +297,150 @@ describe('flattenRows row identity', () => {
         expect(second.rows[5]).toBe(first.rows[4])
         expect(second.rows[6]).toBe(first.rows[5])
         expect(second.rows[7]).toBe(first.rows[6])
+    })
+})
+
+describe('flattenRows in filtered mode', () => {
+    // Kanona Clinic (ou-8) and Chikupi Mission (ou-10) under Serenje District
+    // (ou-6), which has six children in pages of two.
+    const setup = async (resultIds: string[]) => {
+        const { api } = createTestTreeApi({
+            orgUnits: zambiaOrgUnits,
+            pageSize: 2,
+        })
+        const store = createNodeStore({ api })
+        await store.loadNodes(['ou-1', 'ou-2', 'ou-6', 'ou-8', 'ou-10'])
+        const pruned = createPrunedTree()
+        addResults({
+            pruned,
+            results: resultIds.map((id) => ({
+                id,
+                path: store.getNode(id)?.path ?? '',
+            })),
+            shownRootIds: new Set(['ou-1']),
+            store,
+        })
+        const filtered: FilteredView = {
+            pruned,
+            resultIds: new Set(resultIds),
+            revealedIds: new Set(),
+            loaded: resultIds.length,
+            total: resultIds.length,
+            pageSize: 2,
+        }
+        const rows = (view: Partial<FilteredView>, previous?: FlatRows) =>
+            flattenRows({
+                rootNodes: rootNodesOf(store, ['ou-1']),
+                openIds: openSet('ou-1', 'ou-2'),
+                store,
+                previous,
+                filtered: { ...filtered, ...view },
+            })
+        return { store, rows, filtered }
+    }
+
+    it('walks the pruned tree, marking results, with no browse children', async () => {
+        const { rows } = await setup(['ou-8'])
+
+        // ou-1 and ou-2 are open in openIds, which does not matter here.
+        expect(rows({}).rows.map(describeRow)).toEqual([
+            'ou-1:none:pruned',
+            '  ou-2:none:pruned',
+            '    ou-6:none:pruned',
+            '      ou-8:none:pruned*',
+        ])
+    })
+
+    it('switches to the browse walk under a revealed node', async () => {
+        const { store, rows } = await setup(['ou-10'])
+        store.requestChildrenPage('ou-6', 1)
+        await flush()
+
+        expect(
+            rows({ revealedIds: new Set(['ou-6']) }).rows.map(describeRow)
+        ).toEqual([
+            'ou-1:none:pruned',
+            '  ou-2:none:pruned',
+            '    ou-6:loaded:pruned',
+            '      ou-12:none',
+            '      ou-10:none*',
+            '      skeleton#2',
+            '      skeleton#3',
+            '      skeleton#4',
+            '      skeleton#5',
+        ])
+    })
+
+    it('indexes pruned and browse node rows alike', async () => {
+        const { store, rows } = await setup(['ou-10'])
+        store.requestChildrenPage('ou-6', 1)
+        await flush()
+
+        const { indexById } = rows({ revealedIds: new Set(['ou-6']) })
+
+        expect(indexById.get('ou-6')).toBe(2)
+        expect(indexById.get('ou-10')).toBe(4)
+    })
+
+    it('appends result placeholders after the last row, at its depth', async () => {
+        const { rows } = await setup(['ou-8', 'ou-10'])
+
+        expect(rows({ total: 5 }).rows.map(describeRow).slice(5)).toEqual([
+            '      result-skeleton#2',
+            '      result-skeleton#3',
+            '      result-skeleton#4',
+        ])
+    })
+
+    it("turns the failed page's slots into result-error rows and leaves the rest skeletons", async () => {
+        const { rows } = await setup(['ou-8', 'ou-10'])
+        const error = new Error('boom')
+
+        expect(
+            rows({ total: 5, failedPage: { page: 2, error } })
+                .rows.map(describeRow)
+                .slice(5)
+        ).toEqual([
+            '      result-error@2',
+            '      result-error@2',
+            '      result-skeleton#4',
+        ])
+    })
+
+    it('shows one result-error row for a failed page one and nothing while it loads', async () => {
+        const { rows } = await setup([])
+        const loading = { loaded: 0, total: undefined }
+
+        expect(rows(loading).rows).toEqual([])
+        expect(
+            rows({
+                ...loading,
+                failedPage: { page: 1, error: new Error('boom') },
+            }).rows
+        ).toEqual([
+            {
+                kind: 'result-error',
+                index: 0,
+                page: 1,
+                error: expect.any(Error),
+                depth: 0,
+            },
+        ])
+    })
+
+    it('keeps row identity across rebuilds for pruned and placeholder rows', async () => {
+        const { rows } = await setup(['ou-8'])
+        const first = rows({ loaded: 1, total: 4 })
+
+        const second = rows({ loaded: 1, total: 4 }, first)
+        expect(second.rows).toHaveLength(7)
+        second.rows.forEach((row, index) => expect(row).toBe(first.rows[index]))
+
+        // The next result arrives: the remaining placeholders move up by
+        // one and keep their objects.
+        const third = rows({ loaded: 2, total: 4 }, second)
+        expect(third.rows).toHaveLength(6)
+        expect(third.rows[4]).toBe(second.rows[5])
+        expect(third.rows[5]).toBe(second.rows[6])
     })
 })

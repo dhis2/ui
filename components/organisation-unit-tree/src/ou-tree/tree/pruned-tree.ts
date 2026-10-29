@@ -8,6 +8,10 @@ export interface PrunedTree {
     placed: Set<string>
 }
 
+/** The results page holding the result at an index; pages are plain, like children pages. */
+export const resultsPageOf = (resultIndex: number, pageSize: number): number =>
+    Math.floor(resultIndex / pageSize) + 1
+
 export const createPrunedTree = (): PrunedTree => ({
     roots: [],
     children: new Map(),
