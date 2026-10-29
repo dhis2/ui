@@ -98,8 +98,11 @@ in other packages.
   (`isRevealed`), so a later page placing a result under it does not
   narrow the list. The eye (`toggleRevealed`) swaps an open node's
   matching children for all of them and back; revealing opens the node,
-  and closing keeps the reveal. A pruned-tree node keeps its view wherever
-  it is listed, under a revealed ancestor included.
+  and closing keeps the reveal. A revealed node keeps its matching
+  children until its first page is loaded, through a failure too, so
+  nothing vanishes while the complete list loads. A pruned-tree node
+  keeps its view wherever it is listed, under a revealed ancestor
+  included.
 - **Highlighting is client-side** (`search/match-range.ts`): `findMatch`
   reproduces the stand-in's matching, so it can miss what the server matched
   (a translation, say); the result background on the label marks a result
@@ -118,8 +121,7 @@ in other packages.
   the eye are buttons that are the tooltip's reference:
   `OuTreeRetrySkeleton` is itself the bar, `OuTreeRetryNode` is a failed
   node's row body around the label slot, and `OuTreeRevealToggle` sits
-  after the label of an open node with matching children, and of one
-  whose reveal failed, as the way back. `OuTreeRevealToggle` carries
+  after the label of an open node with matching children. `OuTreeRevealToggle` carries
   `data-hover-only`, and `OuTreeRowShell` hides any child with that
   attribute unless the row is hovered or has focus within: the one
   attribute contract between pieces. `OuTreeSearchInput` is glue (an
@@ -127,10 +129,11 @@ in other packages.
   its own input uses the hook. In Storybook the pieces are the
   `Building block:` stories of the `OuTree` entry, after the tree's own.
 - **A failed first page means the node did not open.** `isOpen` is false
-  while a node's children status is `failed`, the row's body is an
-  `OuTreeRetryNode` button around the label slot, and opening the node
-  again requests page one again. There is no separate retry
-  action on a node.
+  while a node's children status is `failed`, unless the node has
+  matching children, which it keeps listing; either way the row's body
+  is an `OuTreeRetryNode` button around the label slot that calls `open`,
+  which requests page one again. There is no separate retry action on a
+  node.
 - **List tests mock the virtualiser**, as jsdom has no layout:
   `jest.mock('@tanstack/react-virtual', () => jest.requireActual('<path>/__fixtures__/virtualizer-mock'))`.
   Import the mock file directly; it uses the `jest` global, so it is not in
