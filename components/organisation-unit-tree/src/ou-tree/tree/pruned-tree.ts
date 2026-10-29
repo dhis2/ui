@@ -41,7 +41,7 @@ const append = (
 
 /**
  * Places results, in the tree order they arrive in, under their ancestors
- * from the first shown root in each path down. Appending is right because
+ * from the first shown root in each path down to the result itself. Appending is right because
  * results arrive in depth-first tree order. Returns the ids it could not
  * place: no shown root in the path, or an id not in the store.
  */
@@ -59,6 +59,9 @@ export const addResults = ({
     const unplaced: string[] = []
     for (const result of results) {
         const ids = result.path.split('/').filter(Boolean)
+        if (ids[ids.length - 1] !== result.id) {
+            ids.push(result.id)
+        }
         const start = ids.findIndex((id) => shownRootIds.has(id))
         const chain = start < 0 ? [] : ids.slice(start)
         if (chain.length === 0 || chain.some((id) => !store.getNode(id))) {

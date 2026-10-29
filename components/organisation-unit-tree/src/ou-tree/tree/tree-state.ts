@@ -313,7 +313,24 @@ export const createTreeState = ({
             )
     }
 
+    const clearSearch = () => {
+        if (!search) {
+            return
+        }
+        search = undefined
+        openIds.clear()
+        initiallyOpen.forEach((id) => openIds.add(id))
+        initiallyOpen.forEach(requestFirstPage)
+        invalidate()
+        notify()
+    }
+
     const searchFor = (term: string) => {
+        if (term.trim() === '') {
+            // A blank term would match everything; it means no search.
+            clearSearch()
+            return
+        }
         if (search?.term === term) {
             return
         }
@@ -337,18 +354,6 @@ export const createTreeState = ({
             return
         }
         requestResultsPage(1)
-    }
-
-    const clearSearch = () => {
-        if (!search) {
-            return
-        }
-        search = undefined
-        openIds.clear()
-        initiallyOpen.forEach((id) => openIds.add(id))
-        initiallyOpen.forEach(requestFirstPage)
-        invalidate()
-        notify()
     }
 
     const setSearchInput = (value: string) => {

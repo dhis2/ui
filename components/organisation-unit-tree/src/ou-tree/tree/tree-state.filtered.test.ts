@@ -324,4 +324,18 @@ describe('tree state in filtered mode', () => {
         expect(treeCalls).toEqual([])
         expect(rows(tree)).toEqual([])
     })
+
+    it('search with a blank term clears any search instead of matching everything', async () => {
+        const { tree, treeCalls } = setup(['ou-1'], { initiallyOpen: ['ou-1'] })
+        await flush()
+        tree.search('Clinic')
+        await flush()
+        expect(tree.getMode()).toBe('filtered')
+
+        tree.search('   ')
+
+        expect(tree.getMode()).toBe('browse')
+        expect(treeCalls).toHaveLength(1)
+        expect(rows(tree)).toEqual(['ou-1', 'ou-2', 'ou-13'])
+    })
 })

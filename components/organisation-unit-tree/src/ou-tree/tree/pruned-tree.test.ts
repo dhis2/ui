@@ -133,4 +133,19 @@ describe('addResults', () => {
             placed: [...pruned.placed],
         }).toEqual(before)
     })
+
+    it('places the result itself when its path stops at its parent', () => {
+        const pruned = createPrunedTree()
+
+        const unplaced = addResults({
+            pruned,
+            results: [{ id: 'ou-5', path: '/ou-1/ou-2/ou-3' }],
+            shownRootIds: new Set(['ou-1']),
+            store,
+        })
+
+        expect(unplaced).toEqual([])
+        expect(pruned.children.get('ou-3')).toEqual(['ou-5'])
+        expect(pruned.placed.has('ou-5')).toBe(true)
+    })
 })
