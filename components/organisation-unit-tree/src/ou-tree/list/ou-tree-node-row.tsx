@@ -53,7 +53,7 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
         isRevealed,
         hasMatchingChildren,
     } = useOuTreeNode(row.id)
-    const { toggle, toggleRevealed } = useOuTreeActions()
+    const { open, toggle, toggleRevealed } = useOuTreeActions()
     const searchTerm = useOuTreeSearchTerm()
     if (!node) {
         // Rows are built from stored nodes and nodes are never removed.
@@ -63,14 +63,14 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
     const pruned = row.view === 'pruned'
     // A pruned-tree node lists all its children only once revealed; its
     // matching children need no page. A failed first page means the node
-    // did not open, and the row's body is then a button that opens it again.
+    // did not open, or keeps its matching children, and the row's body is
+    // then a button that requests the page again.
     const showsAllChildren = !pruned || isRevealed
     const failed = showsAllChildren && childrenStatus.status === 'failed'
     const loading = showsAllChildren && childrenStatus.status === 'loading'
     const clickable = !node.leaf && !failed
-    // The eye swaps a visible list of matching children for all of them;
-    // a failed reveal keeps it as the way back.
-    const showsEye = pruned && hasMatchingChildren && (isOpen || failed)
+    // The eye swaps a visible list of matching children for all of them.
+    const showsEye = pruned && hasMatchingChildren && isOpen
     const label = renderLabel ? (
         renderLabel({
             node,
@@ -100,7 +100,10 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
         </OuTreeNodeLabel>
     )
     const body = failed ? (
-        <OuTreeRetryNode onRetry={onToggle} dataTest={`${dataTest}-retry`}>
+        <OuTreeRetryNode
+            onRetry={() => open(row.id)}
+            dataTest={`${dataTest}-retry`}
+        >
             {label}
         </OuTreeRetryNode>
     ) : (

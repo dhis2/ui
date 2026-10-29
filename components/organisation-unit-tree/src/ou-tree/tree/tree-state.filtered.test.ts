@@ -235,6 +235,12 @@ describe('tree state in filtered mode', () => {
         expect(childrenCalls).toEqual([
             { parentId: 'ou-6', page: 1, shortName: false },
         ])
+        // The matching children stay until the complete list arrives.
+        expect(rows(tree).slice(4, 7)).toEqual([
+            'ou-6:pruned',
+            'ou-8:pruned*',
+            'ou-13:pruned',
+        ])
         await flush()
         expect(rows(tree).slice(4, 11)).toEqual([
             'ou-6:pruned',
@@ -392,7 +398,7 @@ describe('tree state in filtered mode', () => {
         expect(tree.hasMatchingChildren('ou-12')).toBe(false)
     })
 
-    it('a revealed node whose first page failed is closed with the failure; hidden again it is open with its matching children', async () => {
+    it('a revealed node whose first page failed stays open on its matching children, and open requests the page again', async () => {
         const { tree, childrenRequests, answer } = manual(['ou-1'])
         tree.search('Clinic')
         answer(0)
@@ -401,8 +407,16 @@ describe('tree state in filtered mode', () => {
         tree.toggleRevealed('ou-3')
         childrenRequests[0].reject(new Error('boom'))
         await flush()
-        expect(tree.isOpen('ou-3')).toBe(false)
-        expect(rows(tree).slice(2, 4)).toEqual(['ou-3:pruned', 'ou-6:pruned'])
+        expect(tree.isOpen('ou-3')).toBe(true)
+        expect(rows(tree).slice(2, 4)).toEqual(['ou-3:pruned', 'ou-5:pruned*'])
+
+        tree.open('ou-3')
+        expect(childrenRequests).toHaveLength(2)
+        expect(childrenRequests[1].input).toEqual({
+            parentId: 'ou-3',
+            page: 1,
+            shortName: false,
+        })
 
         tree.toggleRevealed('ou-3')
         expect(tree.isOpen('ou-3')).toBe(true)

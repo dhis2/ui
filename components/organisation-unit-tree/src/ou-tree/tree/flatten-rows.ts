@@ -97,9 +97,10 @@ const sameRow = (a: Row, b: Row): boolean => {
  * has; under an open node, a filled slot is a node row and an empty slot
  * is a skeleton row or, if its page failed, an error row. In filtered mode,
  * a walk of the pruned tree under the open nodes, listing all children,
- * as slots, under a revealed node or one without matching children; a
- * pruned-tree node among them keeps its pruned view. Then one placeholder
- * row per result not received yet. Depth is relative to the root.
+ * as slots, under a node without matching children or a revealed one
+ * whose first page is loaded; a pruned-tree node among them keeps its
+ * pruned view. Then one placeholder row per result not received yet.
+ * Depth is relative to the root.
  */
 export const flattenRows = ({
     rootNodes,
@@ -193,8 +194,12 @@ export const flattenRows = ({
         if (!openIds.has(id)) {
             return
         }
+        // A revealed node keeps its matching children until the complete
+        // list can replace them.
         const matching = view.pruned.children.get(id)
-        if (view.revealedIds.has(id) || !matching) {
+        const revealed =
+            view.revealedIds.has(id) && children.status === 'loaded'
+        if (revealed || !matching) {
             walkSlots(node, depth, children)
             return
         }

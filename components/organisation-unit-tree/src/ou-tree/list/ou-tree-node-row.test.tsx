@@ -48,6 +48,7 @@ const setup = ({
         if (!ref.tree) {
             ref.tree = tree
             jest.spyOn(tree, 'toggle')
+            jest.spyOn(tree, 'open')
             jest.spyOn(tree.store, 'retryChildrenPage')
         }
         // A row exists only once its node is stored, as in the list.
@@ -105,6 +106,7 @@ const setupFiltered = ({
         if (!ref.tree) {
             ref.tree = tree
             jest.spyOn(tree, 'toggle')
+            jest.spyOn(tree, 'open')
             jest.spyOn(tree.store, 'retryChildrenPage')
         }
         const { getRow, getRowIndex } = useOuTree()
@@ -219,7 +221,7 @@ describe('OuTreeNodeRow', () => {
 
         await userEvent.click(screen.getByTestId('t-retry'))
 
-        expect(ref.tree.toggle).toHaveBeenCalledWith('ou-1')
+        expect(ref.tree.open).toHaveBeenCalledTimes(2)
         expect(ref.tree.store.retryChildrenPage).toHaveBeenCalledWith('ou-1', 1)
     })
 
@@ -332,7 +334,7 @@ describe('OuTreeNodeRow in filtered mode', () => {
         ).toBeInTheDocument()
     })
 
-    it('is a retry button around the label, with the crossed eye after it, when a revealed node failed', async () => {
+    it('is a retry button around the label, still open with the crossed eye, when a reveal failed', async () => {
         const ref = setupFiltered({
             id: 'ou-1',
             term: 'Kabwe',
@@ -344,12 +346,12 @@ describe('OuTreeNodeRow in filtered mode', () => {
         const retry = await screen.findByTestId('t-retry')
 
         expect(retry).toContainElement(screen.getByTestId('t-label'))
-        expect(row).toHaveAttribute('aria-expanded', 'false')
+        expect(row).toHaveAttribute('aria-expanded', 'true')
         expect(
             screen.getByRole('button', { name: 'Hide all children' })
         ).toBeInTheDocument()
         await userEvent.click(retry)
-        expect(ref.tree.toggle).toHaveBeenCalledWith('ou-1')
+        expect(ref.tree.open).toHaveBeenCalledWith('ou-1')
         expect(ref.tree.store.retryChildrenPage).toHaveBeenCalledWith('ou-1', 1)
     })
 

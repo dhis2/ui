@@ -384,6 +384,26 @@ describe('flattenRows in filtered mode', () => {
         ])
     })
 
+    it('keeps the matching children under a revealed node until its first page is loaded', async () => {
+        const { store, rows } = await setup(['ou-10'])
+        const revealed = { revealedIds: new Set(['ou-6']) }
+
+        expect(rows(revealed).rows.map(describeRow)).toEqual([
+            'ou-1:none:pruned',
+            '  ou-2:none:pruned',
+            '    ou-6:none:pruned',
+            '      ou-10:none:pruned*',
+        ])
+
+        store.requestChildrenPage('ou-6', 1)
+        expect(rows(revealed).rows.map(describeRow)[2]).toBe(
+            '    ou-6:loading:pruned'
+        )
+        expect(rows(revealed).rows).toHaveLength(4)
+        await flush()
+        expect(rows(revealed).rows).toHaveLength(9)
+    })
+
     it('lists all children under a revealed node, a pruned-tree node among them keeping its view, and nothing while closed', async () => {
         const { store, rows } = await setup(['ou-10'])
         store.requestChildrenPage('ou-6', 1)
