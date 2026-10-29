@@ -14,6 +14,7 @@ import {
     OuTreeProvider,
     useOuTreeActions,
 } from '../tree/index'
+import { useTreeState } from '../tree/ou-tree-provider'
 import { OuTreeErrorRow } from './ou-tree-error-row'
 
 const data = {
@@ -62,5 +63,43 @@ describe('OuTreeErrorRow', () => {
 
         expect(retry).toHaveBeenCalledWith('ou-1', 2)
         await waitFor(() => undefined)
+    })
+
+    it('retries a results page through the tree for a result-error row', async () => {
+        let retry: jest.SpyInstance | undefined
+        const Probe = () => {
+            const tree = useTreeState()
+            retry ??= jest
+                .spyOn(tree, 'retryResultsPage')
+                .mockImplementation(() => undefined)
+            return (
+                <OuTreeErrorRow
+                    row={{
+                        kind: 'result-error',
+                        index: 4,
+                        page: 3,
+                        error: new Error('x'),
+                        depth: 2,
+                    }}
+                    dataTest="t"
+                />
+            )
+        }
+        render(
+            <CustomDataProvider data={data}>
+                <OuTreeNodeStoreProvider>
+                    <OuTreeProvider rootIds={['ou-1']}>
+                        <Probe />
+                    </OuTreeProvider>
+                </OuTreeNodeStoreProvider>
+            </CustomDataProvider>
+        )
+
+        expect(screen.getByTestId('t-row')).toHaveAttribute(
+            'data-row-kind',
+            'result-error'
+        )
+        await userEvent.click(screen.getByTestId('t-retry'))
+        expect(retry).toHaveBeenCalledWith(3)
     })
 })

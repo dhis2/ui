@@ -6,7 +6,13 @@ export interface OuTreeRowShellProps {
     depth: number
     role?: 'treeitem' | 'presentation'
     ariaExpanded?: boolean
-    rowKind?: 'node' | 'skeleton' | 'error' | 'roots'
+    rowKind?:
+        | 'node'
+        | 'skeleton'
+        | 'error'
+        | 'result-skeleton'
+        | 'result-error'
+        | 'roots'
     id?: string
     dataTest?: string
     className?: string

@@ -168,3 +168,65 @@ describe('OuTreeList', () => {
         expect(rowsOfKind('node')[3]).toBe(before)
     })
 })
+
+describe('OuTreeList in filtered mode', () => {
+    // The label's text nodes, skipping its style element.
+    const names = () =>
+        screen.queryAllByTestId('t-label').map((el) =>
+            Array.from(el.childNodes)
+                .filter((child) => child.nodeName !== 'STYLE')
+                .map((child) => child.textContent)
+                .join('')
+        )
+
+    it('says no results found for a search without results', async () => {
+        renderList({ rootIds: ['ou-1'] })
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(1))
+
+        act(() => captured.actions?.search('zzz'))
+
+        expect(await screen.findByTestId('t-no-results')).toHaveTextContent(
+            'No results found'
+        )
+        expect(screen.queryAllByTestId('t-row')).toHaveLength(0)
+    })
+
+    it('shows the filtered rows while the roots are still loading', async () => {
+        const gist = (() => new Promise(() => undefined)) as typeof realGist
+        renderList({ rootIds: ['ou-1'], gist })
+        expect(rowsOfKind('roots')).toHaveLength(1)
+
+        act(() => captured.actions?.search('Clinic'))
+
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(11))
+        expect(rowsOfKind('roots')).toHaveLength(0)
+    })
+
+    it('reveals a node from its eye into browse rows that open', async () => {
+        renderList({ rootIds: ['ou-1'] })
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(1))
+        act(() => captured.actions?.search('Kabwe'))
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(4))
+        expect(screen.queryAllByTestId('t-toggle')).toHaveLength(0)
+
+        // Central Province's eye: its two districts as browse rows.
+        await userEvent.click(screen.getAllByTestId('t-reveal')[1])
+        await waitFor(() =>
+            expect(screen.getAllByTestId('t-toggle')).toHaveLength(2)
+        )
+        expect(names()).toEqual([
+            'Zambia',
+            'Central Province',
+            'Kabwe District',
+            'Serenje District',
+        ])
+
+        await userEvent.click(screen.getAllByTestId('t-toggle')[0])
+        await waitFor(() => expect(names()).toHaveLength(6))
+        expect(names().slice(2, 5)).toEqual([
+            'Kabwe District',
+            'Chisembe Clinic',
+            'Kabwe Health Centre',
+        ])
+    })
+})

@@ -37,6 +37,7 @@
         "@dhis2/prop-types": "^3.1.2",
         "@dhis2-ui/button": "10.19.3",
         "@dhis2-ui/checkbox": "10.19.3",
+        "@dhis2-ui/input": "10.19.3",
         "@dhis2-ui/loader": "10.19.3",
         "@dhis2-ui/node": "10.19.3",
         "@dhis2-ui/tooltip": "10.19.3",

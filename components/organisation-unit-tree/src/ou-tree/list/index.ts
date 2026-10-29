@@ -69,3 +69,7 @@ export {
     type OuTreeRootsRowsProps,
 } from './ou-tree-roots-rows'
 export { OuTreeList, type OuTreeListProps } from './ou-tree-list'
+export {
+    OuTreeSearchInput,
+    type OuTreeSearchInputProps,
+} from './ou-tree-search-input'
