@@ -1,0 +1,15 @@
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2026-09-10T16:28:42.024Z\n"
+"PO-Revision-Date: 2026-10-17 22:44+0000\n"
+"Language-Team: Luxembourgish (https://app.transifex.com/hisp-uio/teams/100509/lb/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: lb\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "ouTree - coming soon"
+msgstr ""
