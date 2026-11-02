@@ -293,11 +293,11 @@ describe('SelectorBar', () => {
         )
 
         // The SelectorBar picks up DOM changes with a MutationObserver
-        await waitFor(() => {
-            item.focus()
-            fireEvent.keyDown(item, { key: 'ArrowRight' })
-            expect(item).toHaveFocus()
-        })
+        await waitFor(() => expect(item).toHaveAttribute('tabindex', '0'))
+
+        item.focus()
+        fireEvent.keyDown(item, { key: 'ArrowRight' })
+        expect(item).toHaveFocus()
     })
 
     it('should make only the active item a tab stop, not the toolbar', () => {
