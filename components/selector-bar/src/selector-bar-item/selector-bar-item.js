@@ -5,13 +5,48 @@ import { Layer } from '@dhis2-ui/layer'
 import { Popper } from '@dhis2-ui/popper'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useRef } from 'react'
+import React, { useCallback, useEffect, useRef } from 'react'
+import { FOCUSABLE_SELECTOR, TOOLBAR_KEYS } from '../focus.js'
 
 const offsetModifier = {
     name: 'offset',
     options: {
         offset: [0, 2],
     },
+}
+
+// Popup content can also hold custom widgets made focusable with tabindex
+const TABBABLE_SELECTOR = `${FOCUSABLE_SELECTOR}, [tabindex]`
+
+const getTabbables = (root) =>
+    Array.from(root.querySelectorAll(TABBABLE_SELECTOR)).filter(
+        (element) => !element.disabled && element.tabIndex >= 0
+    )
+
+// querySelectorAll returns tabbables in document order, so only the
+// endpoints need to be compared
+const isLastTabbable = (element, tabbables) => {
+    const last = tabbables[tabbables.length - 1]
+    return (
+        !last ||
+        !(
+            element.compareDocumentPosition(last) &
+            Node.DOCUMENT_POSITION_FOLLOWING
+        )
+    )
+}
+
+// Ancestors are skipped: focusing a container like Menu's <ul> sends focus
+// straight back to its first item, so it can't serve as a way out.
+const isFirstTabbable = (element, tabbables) => {
+    const first = tabbables.find((other) => !other.contains(element))
+    return (
+        !first ||
+        !(
+            element.compareDocumentPosition(first) &
+            Node.DOCUMENT_POSITION_PRECEDING
+        )
+    )
 }
 
 /**
@@ -38,13 +73,120 @@ export const SelectorBarItem = ({
     onClearSelectionClick,
 }) => {
     const buttonRef = useRef()
+    const popupRef = useRef(null)
+    const prevOpenRef = useRef(open)
+    // Rendering already open is not a user action, so focus is left alone
+    const openOnMountRef = useRef(open)
     const Icon = open ? IconChevronUp24 : IconChevronDown24
+    const clearable = !!(value && onClearSelectionClick)
+
+    // The popup content mounts a render after `open` changes (Portal), so
+    // focus is moved in from the content's ref rather than an effect on `open`.
+    const setPopupNode = useCallback((node) => {
+        popupRef.current = node
+        if (!node || openOnMountRef.current) {
+            return
+        }
+        // Wait a frame so Popper has positioned the popup before focusing
+        requestAnimationFrame(() => {
+            if (!node.contains(document.activeElement)) {
+                getTabbables(node)[0]?.focus({ preventScroll: true })
+            }
+        })
+    }, [])
+
+    // Return focus to the trigger when it was lost with the closed popup,
+    // whatever closed it (selection, backdrop click, the consumer).
+    useEffect(() => {
+        if (!open) {
+            if (
+                prevOpenRef.current &&
+                document.activeElement === document.body
+            ) {
+                buttonRef.current?.focus()
+            }
+            openOnMountRef.current = false
+        }
+        prevOpenRef.current = open
+    }, [open])
+
+    // `deferred` lets a Tab keypress move focus on from the trigger before the
+    // popup unmounts
+    const closeToTrigger = ({ deferred = false } = {}) => {
+        buttonRef.current?.focus()
+        if (deferred) {
+            requestAnimationFrame(() => setOpen(false))
+        } else {
+            setOpen(false)
+        }
+    }
 
     const handleKeyDown = (evt) => {
-        if (open && setOpen && evt.key === 'Tab') {
-            // Move focus to trigger and defer close so Tab advances before the popup unmounts.
-            buttonRef.current?.focus()
-            requestAnimationFrame(() => setOpen(false))
+        // Events from the portaled popup bubble here as well
+        const isTrigger = evt.target === buttonRef.current
+
+        if (isTrigger && (evt.key === 'Delete' || evt.key === 'Backspace')) {
+            if (clearable) {
+                evt.preventDefault()
+                onClearSelectionClick()
+            }
+            return
+        }
+
+        if (!open || !setOpen) {
+            return
+        }
+
+        // Overlays opened from the popup (Modal, DropdownButton) are portaled
+        // outside it and close themselves on Escape
+        const fromPopup = popupRef.current?.contains(evt.target)
+        if (
+            evt.key === 'Escape' &&
+            !evt.defaultPrevented &&
+            (isTrigger || fromPopup)
+        ) {
+            evt.preventDefault()
+            // Keep document-level Escape handlers (e.g. Modal) from closing too
+            evt.stopPropagation()
+            closeToTrigger()
+            return
+        }
+
+        // The SelectorBar moves focus to another item on these keys; close
+        // only once it has actually left the trigger
+        if (isTrigger && TOOLBAR_KEYS.includes(evt.key)) {
+            requestAnimationFrame(() => {
+                if (document.activeElement !== buttonRef.current) {
+                    setOpen(false)
+                }
+            })
+        }
+    }
+
+    // Tab is handled in the capture phase, so popup content that stops
+    // propagation of its keys (e.g. SimpleSingleSelect) can still be tabbed out of
+    const handleKeyDownCapture = (evt) => {
+        if (!open || !setOpen || evt.key !== 'Tab') {
+            return
+        }
+
+        if (evt.target === buttonRef.current) {
+            closeToTrigger({ deferred: true })
+            return
+        }
+
+        const popup = popupRef.current
+        if (!popup?.contains(evt.target)) {
+            return
+        }
+
+        const tabbables = getTabbables(popup)
+
+        if (evt.shiftKey && isFirstTabbable(evt.target, tabbables)) {
+            evt.preventDefault()
+            closeToTrigger()
+        } else if (!evt.shiftKey && isLastTabbable(evt.target, tabbables)) {
+            closeToTrigger({ deferred: true })
         }
     }
 
@@ -70,14 +212,17 @@ export const SelectorBarItem = ({
             disabled={disabled}
             onClick={handleClick}
             onKeyDown={handleKeyDown}
+            onKeyDownCapture={handleKeyDownCapture}
             data-test={dataTest}
+            aria-expanded={!displayOnly && setOpen ? !!open : undefined}
+            aria-keyshortcuts={clearable ? 'Delete Backspace' : undefined}
         >
             <span className="label">{label}</span>
 
             {!disabled && (
                 <>
                     <span className="value">{value || noValueMessage}</span>
-                    {value && onClearSelectionClick && (
+                    {clearable && (
                         <span
                             className="clear-icon"
                             onClick={(evt) => {
@@ -118,7 +263,9 @@ export const SelectorBarItem = ({
                         placement="bottom-start"
                         modifiers={[offsetModifier]}
                     >
-                        <Card>{children}</Card>
+                        <Card>
+                            <div ref={setPopupNode}>{children}</div>
+                        </Card>
                     </Popper>
                 </Layer>
             )}
