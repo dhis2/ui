@@ -2,16 +2,16 @@ import { colors, spacers } from '@dhis2/ui-constants'
 import { Button } from '@dhis2-ui/button'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
+import { FOCUSABLE_SELECTOR, TOOLBAR_KEYS } from '../focus.js'
 import i18n from '../locales/index.js'
 
-const FOCUSABLE_SELECTOR = [
-    'button',
-    '[href]',
-    'input',
-    'select',
-    'textarea',
-].join(', ')
+// Roving tabindex: only the active control is reachable with Tab
+const setTabStop = (elements, active) => {
+    elements.forEach((element) => {
+        element.tabIndex = element === active ? 0 : -1
+    })
+}
 
 const ClearSelection = ({ disabled, onClick }) => {
     return (
@@ -46,63 +46,80 @@ export const SelectorBar = ({
     additionalContent,
     ariaLabel,
 }) => {
-    const container = useRef(null)
+    const controls = useRef(null)
+    const activeElement = useRef(null)
+    const childrenToFocus = useRef([])
 
-    const [childrenToFocus, setChildrenToFocus] = useState([])
-
+    // Items can be added or (dis)abled by their own state, without the
+    // children of the SelectorBar changing, so the DOM is observed instead
     useEffect(() => {
-        const controlsDiv = container.current?.querySelector('.controls')
+        const controlsDiv = controls.current
         if (!controlsDiv) {
             return
         }
-        const focusable = Array.from(controlsDiv.children)
-            .flatMap((child) =>
-                child.matches(FOCUSABLE_SELECTOR)
-                    ? [child]
-                    : Array.from(child.querySelectorAll(FOCUSABLE_SELECTOR))
-            )
-            .filter((element) => !element.disabled)
 
-        focusable.forEach((el) => {
-            el.tabIndex = -1
+        const updateFocusable = () => {
+            const focusable = Array.from(controlsDiv.children)
+                .flatMap((child) =>
+                    child.matches(FOCUSABLE_SELECTOR)
+                        ? [child]
+                        : Array.from(child.querySelectorAll(FOCUSABLE_SELECTOR))
+                )
+                .filter((element) => !element.disabled)
+
+            if (!focusable.includes(activeElement.current)) {
+                activeElement.current = focusable[0] || null
+            }
+            setTabStop(focusable, activeElement.current)
+            childrenToFocus.current = focusable
+        }
+
+        updateFocusable()
+        const observer = new MutationObserver(updateFocusable)
+        observer.observe(controlsDiv, {
+            childList: true,
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['disabled'],
         })
-        setChildrenToFocus(focusable)
-    }, [children, onClearSelectionClick, disableClearSelections])
+        return () => observer.disconnect()
+    }, [])
+
+    const handleFocus = (event) => {
+        if (!childrenToFocus.current.includes(event.target)) {
+            return
+        }
+        activeElement.current = event.target
+        setTabStop(childrenToFocus.current, event.target)
+    }
 
     const handleKeyDown = (event) => {
-        const currentFocus = document.activeElement
-
-        if (container.current && container.current === currentFocus) {
-            if (childrenToFocus.length > 0 && childrenToFocus[0]) {
-                childrenToFocus[0].focus()
-            }
+        // Modified keys are left to browser and OS shortcuts
+        if (
+            !TOOLBAR_KEYS.includes(event.key) ||
+            event.altKey ||
+            event.ctrlKey ||
+            event.metaKey
+        ) {
             return
         }
-        if (!childrenToFocus.length) {
-            return
-        }
 
-        const currentIndex = childrenToFocus.findIndex(
-            (element) => element === currentFocus
-        )
-
+        const focusable = childrenToFocus.current
+        const currentIndex = focusable.indexOf(document.activeElement)
         if (currentIndex === -1) {
             return
         }
 
-        if (event.key === 'ArrowRight') {
-            event.preventDefault()
-            const nextIndex = (currentIndex + 1) % childrenToFocus.length
-            childrenToFocus[nextIndex].focus()
-        }
+        const lastIndex = focusable.length - 1
+        const nextIndex = {
+            ArrowRight: currentIndex === lastIndex ? 0 : currentIndex + 1,
+            ArrowLeft: currentIndex === 0 ? lastIndex : currentIndex - 1,
+            Home: 0,
+            End: lastIndex,
+        }[event.key]
 
-        if (event.key === 'ArrowLeft') {
-            event.preventDefault()
-            const prevIndex =
-                (currentIndex - 1 + childrenToFocus.length) %
-                childrenToFocus.length
-            childrenToFocus[prevIndex].focus()
-        }
+        event.preventDefault()
+        focusable[nextIndex].focus()
     }
 
     return (
@@ -115,12 +132,11 @@ export const SelectorBar = ({
                 )}
                 data-test={dataTest}
                 onKeyDown={handleKeyDown}
-                tabIndex={0}
-                ref={container}
+                onFocus={handleFocus}
                 role="toolbar"
                 aria-label={ariaLabel}
             >
-                <div className="controls">
+                <div className="controls" ref={controls}>
                     {/*                     {React.Children.map(children, (child, index) =>
                         React.cloneElement(child, {
                             ref: childrenRefs[index],
