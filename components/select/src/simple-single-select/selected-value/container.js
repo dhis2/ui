@@ -61,9 +61,9 @@ export const Container = forwardRef(function Container(
             aria-placeholder={placeholder}
             id={comboBoxId}
             role="combobox"
-            tabIndex={disabled ? undefined : tabIndex}
-            onFocus={disabled ? undefined : onFocus}
-            onBlur={disabled ? undefined : onBlur}
+            tabIndex={tabIndex}
+            onFocus={onFocus}
+            onBlur={onBlur}
             onClick={onClick}
             onKeyDown={(e) => {
                 e.stopPropagation()

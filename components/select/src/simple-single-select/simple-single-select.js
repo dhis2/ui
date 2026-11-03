@@ -313,7 +313,7 @@ SimpleSingleSelect.propTypes = {
     /** Renders a select with lower height **/
     dense: PropTypes.bool,
 
-    /** Disables all interactions with the select **/
+    /** Disables all interactions with the select (except focussing) **/
     disabled: PropTypes.bool,
 
     /** Text or component to display when there are no options **/

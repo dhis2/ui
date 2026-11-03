@@ -406,7 +406,7 @@ describe('<SimpleSingleSelect />', () => {
 
         const comboBox = screen.getByRole('combobox')
         expect(comboBox).toHaveAttribute('aria-disabled', 'true')
-        expect(comboBox).not.toHaveAttribute('tabindex')
+        expect(comboBox).toHaveAttribute('tabindex', '0')
 
         fireEvent.click(comboBox)
         fireEvent.click(screen.getByLabelText('Open select'))
