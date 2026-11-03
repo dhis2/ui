@@ -1813,7 +1813,7 @@ import { SimpleSingleSelect } from '@dhis2/ui'
 |clearable|boolean|``false``||Whether a clear button should be displayed or not *|
 |dataTest|string|``'dhis2-simplesingleselect'``||A value for a `data-test` attribute on the root element *|
 |dense|boolean|``false``||Renders a select with lower height *|
-|disabled|boolean|``false``||Disables all interactions with the select (except focussing) *|
+|disabled|boolean|``false``||Disables all interactions with the select *|
 |empty|node|``false``||Text or component to display when there are no options *|
 |error|custom|``false``||Applies 'error' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props *|
 |filterLabel|string|``''``||Value will be used as aria-label attribute on the filter input *|
