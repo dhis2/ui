@@ -54,15 +54,16 @@ export const Container = forwardRef(function Container(
             data-test={dataTest}
             ref={ref}
             aria-controls={`${name}-listbox`}
+            aria-disabled={disabled ? 'true' : 'false'}
             aria-expanded={expanded.toString()}
             aria-haspopup="listbox"
             aria-labelledby={labelledBy}
             aria-placeholder={placeholder}
             id={comboBoxId}
             role="combobox"
-            tabIndex={tabIndex}
-            onFocus={onFocus}
-            onBlur={onBlur}
+            tabIndex={disabled ? undefined : tabIndex}
+            onFocus={disabled ? undefined : onFocus}
+            onBlur={disabled ? undefined : onBlur}
             onClick={onClick}
             onKeyDown={(e) => {
                 e.stopPropagation()

@@ -404,7 +404,12 @@ describe('<SimpleSingleSelect />', () => {
             />
         )
 
-        fireEvent.click(screen.getByRole('combobox'))
+        const comboBox = screen.getByRole('combobox')
+        expect(comboBox).toHaveAttribute('aria-disabled', 'true')
+        expect(comboBox).not.toHaveAttribute('tabindex')
+
+        fireEvent.click(comboBox)
+        fireEvent.click(screen.getByLabelText('Open select'))
 
         // Element is in the dom, but invisible, which makes it inaccessible
         const listbox = screen.queryByRole('listbox')

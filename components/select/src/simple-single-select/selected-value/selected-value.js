@@ -81,7 +81,10 @@ export function SelectedValue({
                     onKeyDown={onFilterInputKeyDown}
                 />
             ) : (
-                <div className="selected-option-label" tabIndex="-1">
+                <div
+                    className="selected-option-label"
+                    tabIndex={disabled ? undefined : '-1'}
+                >
                     {!selectedLabel && !prefix && placeholder && (
                         <Placeholder
                             dataTest={`${dataTestPrefix}-placeholder`}
@@ -107,6 +110,10 @@ export function SelectedValue({
                 className="toggle-icon"
                 aria-label="Open select"
                 onClick={() => {
+                    if (disabled) {
+                        return
+                    }
+
                     comboBoxRef.current.focus()
                     onClick()
                 }}
