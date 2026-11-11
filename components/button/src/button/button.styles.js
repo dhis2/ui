@@ -230,6 +230,11 @@ export default css`
         pointer-events: none;
     }
 
+    /* Keeps the label's children as direct flex items of the button */
+    .button-label {
+        display: contents;
+    }
+
     .icon-only .button-icon {
         margin-inline-end: 5px;
     }
