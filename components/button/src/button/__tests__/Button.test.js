@@ -123,4 +123,41 @@ describe('<Button>', () => {
 
         expect(onKeyDown).toHaveBeenCalledTimes(1)
     })
+
+    describe('when the browser has translated the page', () => {
+        // Google Translate replaces text nodes with <font> elements
+        const translateTextNodes = (root) => {
+            const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT)
+            const textNodes = []
+            while (walker.nextNode()) {
+                textNodes.push(walker.currentNode)
+            }
+            textNodes.forEach((textNode) => {
+                const font = document.createElement('font')
+                font.textContent = `translated ${textNode.nodeValue}`
+                textNode.parentNode.replaceChild(font, textNode)
+            })
+        }
+
+        it('does not crash when loading is turned on', () => {
+            const { rerender } = render(<Button>Save</Button>)
+            translateTextNodes(screen.getByRole('button'))
+
+            expect(() => rerender(<Button loading>Save</Button>)).not.toThrow()
+            expect(screen.getByRole('button')).toBeDisabled()
+            expect(screen.getByRole('progressbar')).toBeInTheDocument()
+        })
+
+        it('does not crash when an icon is added', () => {
+            const { rerender } = render(<Button>Save</Button>)
+            translateTextNodes(screen.getByRole('button'))
+
+            expect(() =>
+                rerender(<Button icon={<svg data-test="icon" />}>Save</Button>)
+            ).not.toThrow()
+            expect(
+                screen.getByRole('button').querySelector('[data-test="icon"]')
+            ).toBeInTheDocument()
+        })
+    })
 })
