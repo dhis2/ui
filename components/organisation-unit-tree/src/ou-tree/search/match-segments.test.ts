@@ -1,15 +1,15 @@
 import {
     createSearchMatcher,
     createMatchSplitter,
-    foldText,
-    foldTextWithOrigin,
+    stripCaseAndAccents,
+    stripCaseAndAccentsWithPositions,
 } from './match-segments'
 
-describe('foldText', () => {
+describe('stripCaseAndAccents', () => {
     it('lower-cases and strips accents', () => {
-        expect(foldText('Chisembe Clínic')).toBe('chisembe clinic')
-        expect(foldText('Asunción')).toBe('asuncion')
-        expect(foldText('_País_Test')).toBe('_pais_test')
+        expect(stripCaseAndAccents('Chisembe Clínic')).toBe('chisembe clinic')
+        expect(stripCaseAndAccents('Asunción')).toBe('asuncion')
+        expect(stripCaseAndAccents('_País_Test')).toBe('_pais_test')
     })
 })
 
@@ -56,25 +56,25 @@ describe('createSearchMatcher', () => {
     })
 })
 
-describe('foldTextWithOrigin', () => {
-    it('folds with an origin index per folded character', () => {
-        expect(foldTextWithOrigin('Clí')).toEqual({
+describe('stripCaseAndAccentsWithPositions', () => {
+    it('strips with a source index per stripped character', () => {
+        expect(stripCaseAndAccentsWithPositions('Clí')).toEqual({
             text: 'cli',
-            origin: [0, 1, 2],
+            sourceIndex: [0, 1, 2],
         })
-        // A dotted capital I folds to a plain i; the origin map still has one
-        // entry per folded character.
-        expect(foldTextWithOrigin('İx')).toEqual({
+        // A dotted capital I strips to a plain i; still one entry per
+        // stripped character.
+        expect(stripCaseAndAccentsWithPositions('İx')).toEqual({
             text: 'ix',
-            origin: [0, 1],
+            sourceIndex: [0, 1],
         })
     })
 
-    it('maps every folded character of a decomposing one to its origin', () => {
+    it('points every character a syllable decomposes into at the syllable', () => {
         // A Hangul syllable decomposes to three jamo and no mark.
-        expect(foldTextWithOrigin('a한b')).toEqual({
+        expect(stripCaseAndAccentsWithPositions('a한b')).toEqual({
             text: 'a\u1112\u1161\u11abb',
-            origin: [0, 1, 1, 1, 2],
+            sourceIndex: [0, 1, 1, 1, 2],
         })
     })
 })

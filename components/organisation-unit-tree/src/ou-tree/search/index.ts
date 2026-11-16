@@ -1,9 +1,9 @@
 export {
     createMatchSplitter,
     createSearchMatcher,
-    type FoldedText,
-    foldText,
-    foldTextWithOrigin,
     type MatchSegment,
     type MatchSplitter,
+    stripCaseAndAccents,
+    stripCaseAndAccentsWithPositions,
+    type StrippedText,
 } from './match-segments'
