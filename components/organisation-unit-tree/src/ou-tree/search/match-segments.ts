@@ -73,31 +73,45 @@ export const createSearchMatcher = (
     return (value) => foldText(value).includes(needle)
 }
 
-export type MatchRange = { start: number; end: number } | 'all'
+/** A run of a label: matched by the term, or not. */
+export interface MatchSegment {
+    text: string
+    matched: boolean
+}
 
 /**
- * Where a search term matches a label, in the label's own indexes: a range
- * for a plain term, 'all' for a quoted or wildcard term that matches,
- * undefined when the term is blank or not found.
+ * The text cut into plain and matched segments, in order: every
+ * non-overlapping occurrence of a plain term, or the whole text for a
+ * quoted or wildcard term that matches. One plain segment for a blank
+ * term or a miss, none for empty text.
  */
-export const findMatch = (
-    text: string,
-    term: string
-): MatchRange | undefined => {
+export const splitMatches = (text: string, term: string): MatchSegment[] => {
+    if (text === '') {
+        return []
+    }
     if (term.trim() === '') {
-        return undefined
+        return [{ text, matched: false }]
     }
     if (isQuoted(term) || /[*?]/.test(term)) {
-        return createSearchMatcher(term)(text) ? 'all' : undefined
+        return [{ text, matched: createSearchMatcher(term)(text) }]
     }
     const needle = foldText(term)
     const folded = foldTextWithOrigin(text)
-    const at = folded.text.indexOf(needle)
-    if (at < 0) {
-        return undefined
+    const segments: MatchSegment[] = []
+    let from = 0
+    let at = folded.text.indexOf(needle)
+    while (at >= 0) {
+        const start = folded.origin[at]
+        const end = folded.origin[at + needle.length - 1] + 1
+        if (start > from) {
+            segments.push({ text: text.slice(from, start), matched: false })
+        }
+        segments.push({ text: text.slice(start, end), matched: true })
+        from = end
+        at = folded.text.indexOf(needle, at + needle.length)
     }
-    return {
-        start: folded.origin[at],
-        end: folded.origin[at + needle.length - 1] + 1,
+    if (from < text.length) {
+        segments.push({ text: text.slice(from), matched: false })
     }
+    return segments
 }

@@ -1,9 +1,9 @@
 import {
     createSearchMatcher,
-    findMatch,
+    splitMatches,
     foldText,
     foldTextWithOrigin,
-} from './match-range'
+} from './match-segments'
 
 describe('foldText', () => {
     it('lower-cases and strips accents', () => {
@@ -79,34 +79,63 @@ describe('foldTextWithOrigin', () => {
     })
 })
 
-describe('findMatch', () => {
-    it('finds a plain term as a range in the original text, ignoring case and accents', () => {
-        expect(findMatch('Hospital Clínico', 'clin')).toEqual({
-            start: 9,
-            end: 13,
-        })
-        expect(findMatch('Hospital Clínico', 'CLÍN')).toEqual({
-            start: 9,
-            end: 13,
-        })
+describe('splitMatches', () => {
+    it('cuts the text into plain and matched segments, ignoring case and accents', () => {
+        expect(splitMatches('Hospital Clínico', 'clin')).toEqual([
+            { text: 'Hospital ', matched: false },
+            { text: 'Clín', matched: true },
+            { text: 'ico', matched: false },
+        ])
+        expect(splitMatches('Hospital Clínico', 'CLÍN')).toEqual([
+            { text: 'Hospital ', matched: false },
+            { text: 'Clín', matched: true },
+            { text: 'ico', matched: false },
+        ])
     })
 
-    it('keeps the range right after a character that folds to another length', () => {
-        expect(findMatch('İstanbul Clinic', 'clinic')).toEqual({
-            start: 9,
-            end: 15,
-        })
-        expect(findMatch('한 Clinic', 'clinic')).toEqual({ start: 2, end: 8 })
+    it('marks every occurrence, without overlap', () => {
+        expect(splitMatches('San Jose de San Martin', 'san')).toEqual([
+            { text: 'San', matched: true },
+            { text: ' Jose de ', matched: false },
+            { text: 'San', matched: true },
+            { text: ' Martin', matched: false },
+        ])
+        expect(splitMatches('aaa', 'aa')).toEqual([
+            { text: 'aa', matched: true },
+            { text: 'a', matched: false },
+        ])
     })
 
-    it('returns all for a quoted or wildcard term that matches, undefined otherwise', () => {
-        expect(findMatch('Rio de Janeiro', '"Rio de Janeiro"')).toBe('all')
-        expect(findMatch('Rio de Janeiro', 'rio*')).toBe('all')
-        expect(findMatch('Rio de Janeiro', '"Rio"')).toBeUndefined()
+    it('keeps the cut right after a character that folds to another length', () => {
+        expect(splitMatches('İstanbul Clinic', 'clinic')).toEqual([
+            { text: 'İstanbul ', matched: false },
+            { text: 'Clinic', matched: true },
+        ])
+        expect(splitMatches('한 Clinic', 'clinic')).toEqual([
+            { text: '한 ', matched: false },
+            { text: 'Clinic', matched: true },
+        ])
     })
 
-    it('returns undefined for a blank term or a miss', () => {
-        expect(findMatch('Rio', '  ')).toBeUndefined()
-        expect(findMatch('Rio', 'xyz')).toBeUndefined()
+    it('marks the whole text for a quoted or wildcard term that matches, none of it otherwise', () => {
+        expect(splitMatches('Rio de Janeiro', '"Rio de Janeiro"')).toEqual([
+            { text: 'Rio de Janeiro', matched: true },
+        ])
+        expect(splitMatches('Rio de Janeiro', 'rio*')).toEqual([
+            { text: 'Rio de Janeiro', matched: true },
+        ])
+        expect(splitMatches('Rio de Janeiro', '"Rio"')).toEqual([
+            { text: 'Rio de Janeiro', matched: false },
+        ])
+    })
+
+    it('marks nothing for a blank term or a miss, and returns no segments for empty text', () => {
+        expect(splitMatches('Rio', '  ')).toEqual([
+            { text: 'Rio', matched: false },
+        ])
+        expect(splitMatches('Rio', 'xyz')).toEqual([
+            { text: 'Rio', matched: false },
+        ])
+        expect(splitMatches('', 'rio')).toEqual([])
     })
 })

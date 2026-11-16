@@ -1,8 +1,8 @@
 export {
     createSearchMatcher,
-    findMatch,
     type FoldedText,
     foldText,
     foldTextWithOrigin,
-    type MatchRange,
-} from './match-range'
+    type MatchSegment,
+    splitMatches,
+} from './match-segments'

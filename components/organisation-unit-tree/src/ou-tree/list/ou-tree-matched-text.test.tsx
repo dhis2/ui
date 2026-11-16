@@ -17,6 +17,21 @@ describe('OuTreeMatchedText', () => {
         expect(screen.getByTestId('t-match')).toHaveTextContent(/^Clín$/)
     })
 
+    it('emphasises every occurrence', () => {
+        const { container } = render(
+            <OuTreeMatchedText
+                text="San Jose de San Martin"
+                term="san"
+                dataTest="t-match"
+            />
+        )
+
+        expect(container).toHaveTextContent('San Jose de San Martin')
+        expect(
+            screen.getAllByTestId('t-match').map((el) => el.textContent)
+        ).toEqual(['San', 'San'])
+    })
+
     it('emphasises the whole text for a quoted term', () => {
         render(<OuTreeMatchedText text="Rio" term={'"Rio"'} dataTest="t" />)
 

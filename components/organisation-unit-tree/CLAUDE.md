@@ -107,10 +107,11 @@ in other packages.
   nothing vanishes while the complete list loads. A pruned-tree node
   keeps its view wherever it is listed, under a revealed ancestor
   included.
-- **Highlighting is client-side** (`search/match-range.ts`): `findMatch`
-  reproduces the stand-in's matching, so it can miss what the server matched
-  (a translation, say); the result background on the label marks a result
-  either way.
+- **Highlighting is client-side** (`search/match-segments.ts`):
+  `splitMatches` cuts a label into plain and matched segments, every
+  occurrence of the term, by reproducing the stand-in's matching, so it
+  can miss what the server matched (a translation, say); the result
+  background on the label marks a result either way.
 - **Pieces take plain props and read nothing from the tree**, and the glue
   carries no styles. The rows (`OuTreeNodeRow`, `OuTreeRow`,
   `OuTreeErrorRow`, `OuTreeSkeletonRow`), `OuTreeNodeToggle`,
@@ -148,7 +149,7 @@ in other packages.
   label slot of a node row and keeps the row's chrome, the eye included. It
   must be a stable function, or the memoised rows re-render. It gets
   `isResult` and `searchTerm`, so a custom label can use `OuTreeNodeLabel`'s
-  `result`, `OuTreeMatchedText` or `findMatch` for its own styling. While the node's children
+  `result`, `OuTreeMatchedText` or `splitMatches` for its own styling. While the node's children
   failed to load, the slot sits inside the row's retry button, so a label
   with its own control there is batch 5's problem to solve with the row's
   focus model.
