@@ -1,6 +1,6 @@
 import {
     createSearchMatcher,
-    splitMatches,
+    createMatchSplitter,
     foldText,
     foldTextWithOrigin,
 } from './match-segments'
@@ -79,7 +79,22 @@ describe('foldTextWithOrigin', () => {
     })
 })
 
-describe('splitMatches', () => {
+const splitMatches = (text: string, term: string) =>
+    createMatchSplitter(term)(text)
+
+describe('createMatchSplitter', () => {
+    it('does the per-term work once: the splitter is reusable across texts', () => {
+        const split = createMatchSplitter('san')
+        expect(split('San Jose')).toEqual([
+            { text: 'San', matched: true },
+            { text: ' Jose', matched: false },
+        ])
+        expect(split('Santa Cruz')).toEqual([
+            { text: 'San', matched: true },
+            { text: 'ta Cruz', matched: false },
+        ])
+    })
+
     it('cuts the text into plain and matched segments, ignoring case and accents', () => {
         expect(splitMatches('Hospital Clínico', 'clin')).toEqual([
             { text: 'Hospital ', matched: false },

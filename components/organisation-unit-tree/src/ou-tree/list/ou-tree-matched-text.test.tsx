@@ -4,24 +4,15 @@ import React from 'react'
 import { OuTreeMatchedText } from './ou-tree-matched-text'
 
 describe('OuTreeMatchedText', () => {
-    it('emphasises the matched substring and leaves the rest outside', () => {
+    it('emphasises the matched segments and leaves the rest outside', () => {
         const { container } = render(
             <OuTreeMatchedText
-                text="Hospital Clínico"
-                term="clin"
-                dataTest="t-match"
-            />
-        )
-
-        expect(container).toHaveTextContent('Hospital Clínico')
-        expect(screen.getByTestId('t-match')).toHaveTextContent(/^Clín$/)
-    })
-
-    it('emphasises every occurrence', () => {
-        const { container } = render(
-            <OuTreeMatchedText
-                text="San Jose de San Martin"
-                term="san"
+                segments={[
+                    { text: 'San', matched: true },
+                    { text: ' Jose de ', matched: false },
+                    { text: 'San', matched: true },
+                    { text: ' Martin', matched: false },
+                ]}
                 dataTest="t-match"
             />
         )
@@ -32,15 +23,12 @@ describe('OuTreeMatchedText', () => {
         ).toEqual(['San', 'San'])
     })
 
-    it('emphasises the whole text for a quoted term', () => {
-        render(<OuTreeMatchedText text="Rio" term={'"Rio"'} dataTest="t" />)
-
-        expect(screen.getByTestId('t')).toHaveTextContent(/^Rio$/)
-    })
-
-    it('renders the text alone on a miss', () => {
+    it('renders the text alone when nothing is matched', () => {
         const { container } = render(
-            <OuTreeMatchedText text="Rio" term="xyz" dataTest="t" />
+            <OuTreeMatchedText
+                segments={[{ text: 'Rio', matched: false }]}
+                dataTest="t"
+            />
         )
 
         expect(container).toHaveTextContent('Rio')

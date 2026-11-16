@@ -378,7 +378,7 @@ describe('OuTreeNodeRow in filtered mode', () => {
         expect(screen.getByTestId('t-reveal')).toBeInTheDocument()
     })
 
-    it('gives renderLabel the result and the term', async () => {
+    it('gives renderLabel the result, the term and the match splitter', async () => {
         const renderLabel = jest.fn<React.ReactNode, Parameters<RenderLabel>>(
             ({ node }) => <i>{node.displayName}</i>
         )
@@ -415,7 +415,16 @@ describe('OuTreeNodeRow in filtered mode', () => {
         await ready()
 
         expect(renderLabel).toHaveBeenLastCalledWith(
-            expect.objectContaining({ isResult: true, searchTerm: 'Kabwe' })
+            expect.objectContaining({
+                isResult: true,
+                searchTerm: 'Kabwe',
+                splitMatches: expect.any(Function),
+            })
         )
+        const { splitMatches } = renderLabel.mock.lastCall?.[0] ?? {}
+        expect(splitMatches?.('Kabwe District')).toEqual([
+            { text: 'Kabwe', matched: true },
+            { text: ' District', matched: false },
+        ])
     })
 })

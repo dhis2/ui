@@ -1,8 +1,10 @@
 import React, { memo } from 'react'
 import type { ChildrenStatus, StoredNode } from '../node-store'
+import type { MatchSplitter } from '../search'
 import {
     type Row,
     useOuTreeActions,
+    useOuTreeMatchSplitter,
     useOuTreeNode,
     useOuTreeSearchTerm,
 } from '../tree'
@@ -23,8 +25,10 @@ export interface RenderLabelProps {
     toggle: () => void
     /** A direct search result; false in browse mode. */
     isResult: boolean
-    /** The effective search term, for marking the match; undefined in browse mode. */
+    /** The effective search term; undefined in browse mode. */
     searchTerm: string | undefined
+    /** Cuts a label into plain and matched segments for the term; undefined in browse mode. */
+    splitMatches: MatchSplitter | undefined
 }
 
 /**
@@ -45,17 +49,17 @@ interface DefaultLabelProps {
     clickable: boolean
     onToggle: () => void
     isResult: boolean
-    searchTerm: string | undefined
+    splitMatches: MatchSplitter | undefined
     dataTest: string
 }
 
-/** The label slot when no renderLabel is given: the name, its match marked. */
+/** The label slot when no renderLabel is given: the name, its matches marked. */
 const DefaultLabel = ({
     node,
     clickable,
     onToggle,
     isResult,
-    searchTerm,
+    splitMatches,
     dataTest,
 }: DefaultLabelProps) => (
     <OuTreeNodeLabel
@@ -64,10 +68,9 @@ const DefaultLabel = ({
         result={isResult}
         dataTest={`${dataTest}-label`}
     >
-        {isResult && searchTerm !== undefined ? (
+        {isResult && splitMatches ? (
             <OuTreeMatchedText
-                text={node.displayName}
-                term={searchTerm}
+                segments={splitMatches(node.displayName)}
                 dataTest={`${dataTest}-match`}
             />
         ) : (
@@ -139,6 +142,7 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
     } = useOuTreeNode(row.id)
     const { open, toggle, toggleRevealed, setHovered } = useOuTreeActions()
     const searchTerm = useOuTreeSearchTerm()
+    const splitMatches = useOuTreeMatchSplitter()
     if (!node) {
         // Rows are built from stored nodes and nodes are never removed.
         throw new Error(`Node row ${row.id} has no node in the store`)
@@ -187,6 +191,7 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
                         toggle: onToggle,
                         isResult,
                         searchTerm,
+                        splitMatches,
                     })
                 ) : (
                     <DefaultLabel
@@ -194,7 +199,7 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
                         clickable={clickable}
                         onToggle={onToggle}
                         isResult={isResult}
-                        searchTerm={searchTerm}
+                        splitMatches={splitMatches}
                         dataTest={dataTest}
                     />
                 )}

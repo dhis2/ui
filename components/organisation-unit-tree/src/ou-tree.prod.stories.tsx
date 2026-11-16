@@ -2,6 +2,7 @@ import { CustomDataProvider } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import React, { useEffect } from 'react'
 import {
+    createMatchSplitter,
     OuTree,
     OuTreeContainer,
     OuTreeList,
@@ -421,29 +422,43 @@ export const SearchInput = () => (
 )
 SearchInput.storyName = 'Building block: Search input'
 
+/** The segments a search term's splitter cuts a label into. */
+const segmentsOf = (term: string, text: string) =>
+    createMatchSplitter(term)(text)
+
 export const MatchedText = () => (
     <Stack>
         <Captioned caption="plain term `clin`">
-            <OuTreeMatchedText text="Hospital Clínico" term="clin" />
+            <OuTreeMatchedText
+                segments={segmentsOf('clin', 'Hospital Clínico')}
+            />
         </Captioned>
         <Captioned caption="accented term `CLÍN`">
-            <OuTreeMatchedText text="Hospital Clinico" term="CLÍN" />
+            <OuTreeMatchedText
+                segments={segmentsOf('CLÍN', 'Hospital Clinico')}
+            />
+        </Captioned>
+        <Captioned caption="plain term `san`: every occurrence">
+            <OuTreeMatchedText
+                segments={segmentsOf('san', 'San Jose de San Martin')}
+            />
         </Captioned>
         <Captioned caption={'quoted term `"Rio de Janeiro"`: the whole name'}>
             <OuTreeMatchedText
-                text="Rio de Janeiro"
-                term={'"Rio de Janeiro"'}
+                segments={segmentsOf('"Rio de Janeiro"', 'Rio de Janeiro')}
             />
         </Captioned>
         <Captioned caption="wildcard term `san*`: the whole name">
-            <OuTreeMatchedText text="San José" term="san*" />
+            <OuTreeMatchedText segments={segmentsOf('san*', 'San José')} />
         </Captioned>
         <Captioned caption="miss (the server matched a translation, say): the name alone">
-            <OuTreeMatchedText text="Rio de Janeiro" term="xyz" />
+            <OuTreeMatchedText segments={segmentsOf('xyz', 'Rio de Janeiro')} />
         </Captioned>
         <Captioned caption="in a result label">
             <OuTreeNodeLabel result>
-                <OuTreeMatchedText text="Hospital Clínico" term="clin" />
+                <OuTreeMatchedText
+                    segments={segmentsOf('clin', 'Hospital Clínico')}
+                />
             </OuTreeNodeLabel>
         </Captioned>
     </Stack>

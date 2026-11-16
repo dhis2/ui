@@ -6,6 +6,7 @@ import {
     type StoredNode,
     type Subscribable,
 } from '../node-store'
+import { createMatchSplitter, type MatchSplitter } from '../search'
 import { excludeNestedRoots } from './exclude-nested-roots'
 import {
     type FilteredView,
@@ -37,6 +38,8 @@ type ResultsPageStatus =
 /** A search in progress or shown; replaced whole by the next search. */
 interface SearchState {
     term: string
+    /** Highlights labels for `term`; built once per search. */
+    splitter: MatchSplitter
     pages: Map<number, ResultsPageStatus>
     /** From page one's pager; undefined until it answered. */
     total: number | undefined
@@ -80,6 +83,8 @@ export interface TreeState extends Subscribable {
     getMode(): TreeMode
     /** The effective term, or undefined in browse mode. */
     getSearchTerm(): string | undefined
+    /** Cuts a label into plain and matched segments for the effective term; undefined in browse mode. */
+    getMatchSplitter(): MatchSplitter | undefined
     /** The input value as typed. */
     getSearchInput(): string
     /** Trims, length-gates and debounces `search`; blank or too short clears any search at once. */
@@ -366,6 +371,7 @@ export const createTreeState = ({
         }
         search = {
             term,
+            splitter: createMatchSplitter(term),
             pages: new Map(),
             total: undefined,
             pageSize: RESULTS_PAGE_SIZE,
@@ -543,6 +549,7 @@ export const createTreeState = ({
         toggle: (id) => (isOpen(id) ? close(id) : open(id)),
         getMode: () => (search ? 'filtered' : 'browse'),
         getSearchTerm: () => search?.term,
+        getMatchSplitter: () => search?.splitter,
         getSearchInput: () => searchInput,
         setSearchInput,
         getSearchStatus,

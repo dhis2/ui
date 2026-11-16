@@ -453,6 +453,26 @@ describe('tree state in filtered mode', () => {
         expect(rows(tree)).toEqual(['ou-1', 'ou-2', 'ou-13'])
     })
 
+    it('builds one match splitter per search, undefined in browse mode', async () => {
+        const { tree } = setup(['ou-1'])
+        await flush()
+        expect(tree.getMatchSplitter()).toBeUndefined()
+
+        tree.search('Clinic')
+        const split = tree.getMatchSplitter()
+        expect(split?.('Kafue Clinic')).toEqual([
+            { text: 'Kafue ', matched: false },
+            { text: 'Clinic', matched: true },
+        ])
+        await flush()
+        expect(tree.getMatchSplitter()).toBe(split)
+
+        tree.search('Kabwe')
+        expect(tree.getMatchSplitter()).not.toBe(split)
+        tree.clearSearch()
+        expect(tree.getMatchSplitter()).toBeUndefined()
+    })
+
     it('search with the same term is a no-op', async () => {
         const { tree, treeCalls } = setup(['ou-1'])
         await flush()

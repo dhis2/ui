@@ -79,39 +79,50 @@ export interface MatchSegment {
     matched: boolean
 }
 
-/**
- * The text cut into plain and matched segments, in order: every
- * non-overlapping occurrence of a plain term, or the whole text for a
- * quoted or wildcard term that matches. One plain segment for a blank
- * term or a miss, none for empty text.
- */
-export const splitMatches = (text: string, term: string): MatchSegment[] => {
-    if (text === '') {
-        return []
+/** Cuts a label into plain and matched segments for one search term. */
+export type MatchSplitter = (text: string) => MatchSegment[]
+
+const wholeOrNothing =
+    (matches: (value: string) => boolean): MatchSplitter =>
+    (text) =>
+        text === '' ? [] : [{ text, matched: matches(text) }]
+
+const everyOccurrence =
+    (needle: string): MatchSplitter =>
+    (text) => {
+        const folded = foldTextWithOrigin(text)
+        const segments: MatchSegment[] = []
+        let from = 0
+        let at = folded.text.indexOf(needle)
+        while (at >= 0) {
+            const start = folded.origin[at]
+            const end = folded.origin[at + needle.length - 1] + 1
+            if (start > from) {
+                segments.push({ text: text.slice(from, start), matched: false })
+            }
+            segments.push({ text: text.slice(start, end), matched: true })
+            from = end
+            at = folded.text.indexOf(needle, at + needle.length)
+        }
+        if (from < text.length) {
+            segments.push({ text: text.slice(from), matched: false })
+        }
+        return segments
     }
+
+/**
+ * The per-term work of highlighting, done once: the splitter it returns
+ * cuts a label into plain and matched segments, in order. Every
+ * non-overlapping occurrence of a plain term; the whole label, or none of
+ * it, for a quoted or wildcard term; one plain segment for a blank term;
+ * no segments for empty text.
+ */
+export const createMatchSplitter = (term: string): MatchSplitter => {
     if (term.trim() === '') {
-        return [{ text, matched: false }]
+        return wholeOrNothing(() => false)
     }
     if (isQuoted(term) || /[*?]/.test(term)) {
-        return [{ text, matched: createSearchMatcher(term)(text) }]
+        return wholeOrNothing(createSearchMatcher(term))
     }
-    const needle = foldText(term)
-    const folded = foldTextWithOrigin(text)
-    const segments: MatchSegment[] = []
-    let from = 0
-    let at = folded.text.indexOf(needle)
-    while (at >= 0) {
-        const start = folded.origin[at]
-        const end = folded.origin[at + needle.length - 1] + 1
-        if (start > from) {
-            segments.push({ text: text.slice(from, start), matched: false })
-        }
-        segments.push({ text: text.slice(start, end), matched: true })
-        from = end
-        at = folded.text.indexOf(needle, at + needle.length)
-    }
-    if (from < text.length) {
-        segments.push({ text: text.slice(from), matched: false })
-    }
-    return segments
+    return everyOccurrence(foldText(term))
 }

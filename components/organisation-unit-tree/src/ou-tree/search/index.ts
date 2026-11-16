@@ -1,8 +1,9 @@
 export {
+    createMatchSplitter,
     createSearchMatcher,
     type FoldedText,
     foldText,
     foldTextWithOrigin,
     type MatchSegment,
-    splitMatches,
+    type MatchSplitter,
 } from './match-segments'

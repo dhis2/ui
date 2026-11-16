@@ -12,6 +12,7 @@ import { OuTreeProvider } from './ou-tree-provider'
 import { SEARCH_DEBOUNCE_MS } from './search-constants'
 import { useOuTree } from './use-ou-tree'
 import { useOuTreeActions } from './use-ou-tree-actions'
+import { useOuTreeMatchSplitter } from './use-ou-tree-match-splitter'
 import { useOuTreeNode } from './use-ou-tree-node'
 import { useOuTreeSearch } from './use-ou-tree-search'
 import { useOuTreeSearchTerm } from './use-ou-tree-search-term'
@@ -84,6 +85,31 @@ describe('useOuTreeSearch', () => {
         expect(result.current.tree.mode).toBe('browse')
         expect(result.current.search.setTerm).toBe(setTerm)
         expect(result.current.search.clear).toBe(clear)
+    })
+
+    it("useOuTreeMatchSplitter is the search's splitter, stable while the search lasts", async () => {
+        const { result } = renderHook(
+            () => ({
+                split: useOuTreeMatchSplitter(),
+                actions: useOuTreeActions(),
+            }),
+            { wrapper }
+        )
+        expect(result.current.split).toBeUndefined()
+
+        act(() => result.current.actions.search('Clinic'))
+        const split = result.current.split
+        expect(split?.('Kafue Clinic')).toEqual([
+            { text: 'Kafue ', matched: false },
+            { text: 'Clinic', matched: true },
+        ])
+        await waitFor(() =>
+            expect(result.current.actions.store.getNode('ou-15')).toBeDefined()
+        )
+        expect(result.current.split).toBe(split)
+
+        act(() => result.current.actions.clearSearch())
+        expect(result.current.split).toBeUndefined()
     })
 
     it('useOuTreeNode reports the hovered node', async () => {
