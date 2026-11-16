@@ -1,5 +1,5 @@
-import { zambiaOrgUnits } from '../__fixtures__/index'
-import type { StoredNode } from '../node-store/index'
+import { zambiaOrgUnits } from '../__fixtures__'
+import type { StoredNode } from '../node-store'
 import { addResults, createPrunedTree, type PrunedTree } from './pruned-tree'
 
 const nodes = new Map<string, StoredNode>(

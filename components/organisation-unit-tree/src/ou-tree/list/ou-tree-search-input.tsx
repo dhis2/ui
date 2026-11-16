@@ -1,7 +1,7 @@
 import i18n from '@dhis2/d2-i18n'
 import { InputField } from '@dhis2-ui/input'
 import React from 'react'
-import { useOuTreeSearch } from '../tree/index'
+import { useOuTreeSearch } from '../tree'
 
 export interface OuTreeSearchInputProps {
     placeholder?: string

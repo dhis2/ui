@@ -1,5 +1,5 @@
-import type { OuTreeEntry, OuTreeQuery, OuTreeResponse } from '../data/index'
-import { createSearchMatcher } from '../search/index'
+import type { OuTreeEntry, OuTreeQuery, OuTreeResponse } from '../data'
+import { createSearchMatcher } from '../search'
 
 export interface FixtureTranslation {
     locale: string

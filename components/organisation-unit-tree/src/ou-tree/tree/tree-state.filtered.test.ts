@@ -5,9 +5,9 @@ import {
     createManualTreeApi,
     createTestTreeApi,
     zambiaOrgUnits,
-} from '../__fixtures__/index'
-import type { OuTreeQuery } from '../data/index'
-import { createNodeStore } from '../node-store/index'
+} from '../__fixtures__'
+import type { OuTreeQuery } from '../data'
+import { createNodeStore } from '../node-store'
 import { createTreeState, TreeState } from './tree-state'
 
 const flush = () => new Promise((resolve) => setTimeout(resolve, 0))

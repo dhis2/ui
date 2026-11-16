@@ -5,10 +5,10 @@ import {
     createGistResolver,
     createTreeResolver,
     zambiaOrgUnits,
-} from '../__fixtures__/index'
+} from '../__fixtures__'
 import * as virtualizerMock from '../__fixtures__/virtualizer-mock'
-import { GIST_RESOURCE, TREE_RESOURCE } from '../data/index'
-import { OuTreeNodeStoreProvider, OuTreeProvider } from '../tree/index'
+import { GIST_RESOURCE, TREE_RESOURCE } from '../data'
+import { OuTreeNodeStoreProvider, OuTreeProvider } from '../tree'
 import { useTreeState } from '../tree/ou-tree-provider'
 import { useOuTreeVirtualRows } from './use-ou-tree-virtual-rows'
 

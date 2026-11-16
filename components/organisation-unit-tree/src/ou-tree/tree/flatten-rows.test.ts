@@ -3,8 +3,8 @@ import {
     createManualTreeApi,
     createTestTreeApi,
     zambiaOrgUnits,
-} from '../__fixtures__/index'
-import { createNodeStore, NodeStore } from '../node-store/index'
+} from '../__fixtures__'
+import { createNodeStore, NodeStore } from '../node-store'
 import {
     type FilteredView,
     type FlatRows,

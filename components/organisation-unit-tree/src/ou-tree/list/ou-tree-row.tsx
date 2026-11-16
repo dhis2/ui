@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import type { Row } from '../tree/index'
+import type { Row } from '../tree'
 import { OuTreeErrorRow } from './ou-tree-error-row'
 import { OuTreeNodeRow, type RenderLabel } from './ou-tree-node-row'
 import { OuTreeSkeletonRow } from './ou-tree-skeleton-row'

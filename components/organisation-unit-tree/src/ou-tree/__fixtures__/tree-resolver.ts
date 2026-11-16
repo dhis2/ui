@@ -1,4 +1,4 @@
-import type { OuTreeQuery } from '../data/index'
+import type { OuTreeQuery } from '../data'
 import { createInMemoryChildrenPages } from './in-memory-children-pages'
 import {
     createInMemoryTreeEndpoint,

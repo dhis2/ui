@@ -1,5 +1,5 @@
 import { useMemo, useSyncExternalStore } from 'react'
-import type { RootsStatus } from '../node-store/index'
+import type { RootsStatus } from '../node-store'
 import { useTreeState } from './ou-tree-provider'
 import type { SearchStatus, TreeMode, TreeState } from './tree-state'
 

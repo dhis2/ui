@@ -1,5 +1,5 @@
-import type { OuTreeChildrenPage } from '../data/index'
-import { CHILDREN_PAGE_SIZE } from '../data/index'
+import type { OuTreeChildrenPage } from '../data'
+import { CHILDREN_PAGE_SIZE } from '../data'
 import { countChildren } from './in-memory-gist'
 import type { FixtureOrgUnit } from './in-memory-tree-endpoint'
 

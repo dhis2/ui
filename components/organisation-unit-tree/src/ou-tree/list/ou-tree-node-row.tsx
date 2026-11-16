@@ -1,11 +1,11 @@
 import React, { memo } from 'react'
-import type { ChildrenStatus, StoredNode } from '../node-store/index'
+import type { ChildrenStatus, StoredNode } from '../node-store'
 import {
     type Row,
     useOuTreeActions,
     useOuTreeNode,
     useOuTreeSearchTerm,
-} from '../tree/index'
+} from '../tree'
 import { OuTreeMatchedText } from './ou-tree-matched-text'
 import { OuTreeNodeLabel } from './ou-tree-node-label'
 import { OuTreeNodeToggle } from './ou-tree-node-toggle'

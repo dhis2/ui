@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useSyncExternalStore } from 'react'
-import type { ChildrenStatus, StoredNode } from '../node-store/index'
+import type { ChildrenStatus, StoredNode } from '../node-store'
 import { useTreeState } from './ou-tree-provider'
 
 export interface OuTreeNodeHandle {

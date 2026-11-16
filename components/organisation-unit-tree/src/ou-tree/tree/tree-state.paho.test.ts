@@ -1,5 +1,5 @@
-import { createTestTreeApi, pahoOrgUnits } from '../__fixtures__/index'
-import { createNodeStore } from '../node-store/index'
+import { createTestTreeApi, pahoOrgUnits } from '../__fixtures__'
+import { createNodeStore } from '../node-store'
 import { createTreeState } from './tree-state'
 
 const flush = () => new Promise((resolve) => setTimeout(resolve, 0))

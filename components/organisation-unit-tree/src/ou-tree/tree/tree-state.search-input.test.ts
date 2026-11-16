@@ -1,5 +1,5 @@
-import { createTestTreeApi, zambiaOrgUnits } from '../__fixtures__/index'
-import { createNodeStore } from '../node-store/index'
+import { createTestTreeApi, zambiaOrgUnits } from '../__fixtures__'
+import { createNodeStore } from '../node-store'
 import { SEARCH_DEBOUNCE_MS, SEARCH_MIN_LENGTH } from './search-constants'
 import { createTreeState } from './tree-state'
 

@@ -1,4 +1,4 @@
-import type { OuTreeEntry, OuTreeQuery, OuTreeResponse } from '../data/index'
+import type { OuTreeEntry, OuTreeQuery, OuTreeResponse } from '../data'
 import { createInMemoryTreeEndpoint } from './in-memory-tree-endpoint'
 import { pahoOrgUnits } from './paho-org-units'
 

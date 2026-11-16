@@ -3,7 +3,7 @@ import {
     createManualTreeApi,
     createTestTreeApi,
     zambiaOrgUnits,
-} from '../__fixtures__/index'
+} from '../__fixtures__'
 import { createNodeStore } from './node-store'
 
 const flush = () => new Promise((resolve) => setTimeout(resolve, 0))

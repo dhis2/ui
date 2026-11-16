@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import type { Row } from '../tree/index'
+import type { Row } from '../tree'
 import { OuTreeRowShell } from './ou-tree-row-shell'
 import { OuTreeSkeleton } from './ou-tree-skeleton'
 import { OuTreeToggle } from './ou-tree-toggle'

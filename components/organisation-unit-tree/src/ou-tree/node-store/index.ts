@@ -1,5 +1,5 @@
 export type { Subscribable } from './subscribable'
-export { CHILDREN_PAGE_SIZE, RESULTS_PAGE_SIZE } from '../data/index'
+export { CHILDREN_PAGE_SIZE, RESULTS_PAGE_SIZE } from '../data'
 export {
     childrenPageOf,
     type StoredNode,

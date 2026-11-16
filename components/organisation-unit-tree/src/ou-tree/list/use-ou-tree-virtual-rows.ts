@@ -1,6 +1,6 @@
 import { useVirtualizer } from '@tanstack/react-virtual'
 import { useCallback, useEffect, useMemo } from 'react'
-import { rowKey, useOuTree } from '../tree/index'
+import { rowKey, useOuTree } from '../tree'
 
 const ESTIMATED_ROW_SIZE = 24
 

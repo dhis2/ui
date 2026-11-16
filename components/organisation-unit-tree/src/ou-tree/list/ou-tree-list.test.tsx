@@ -7,14 +7,14 @@ import {
     createGistResolver,
     createTreeResolver,
     zambiaOrgUnits,
-} from '../__fixtures__/index'
+} from '../__fixtures__'
 import * as virtualizerMock from '../__fixtures__/virtualizer-mock'
-import { GIST_RESOURCE, TREE_RESOURCE } from '../data/index'
+import { GIST_RESOURCE, TREE_RESOURCE } from '../data'
 import {
     OuTreeNodeStoreProvider,
     OuTreeProvider,
     useOuTreeActions,
-} from '../tree/index'
+} from '../tree'
 import { OuTreeList } from './ou-tree-list'
 import type { RenderLabel } from './ou-tree-node-row'
 

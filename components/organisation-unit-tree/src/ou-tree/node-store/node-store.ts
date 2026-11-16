@@ -4,7 +4,7 @@ import type {
     OuTreeQuery,
     OuTreeResponse,
     TreeApi,
-} from '../data/index'
+} from '../data'
 import type { Subscribable } from './subscribable'
 
 export interface StoredNode {

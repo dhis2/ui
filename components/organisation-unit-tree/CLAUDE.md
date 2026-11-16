@@ -24,9 +24,11 @@ in other packages.
 ## Conventions
 
 - **Relative imports of TypeScript modules carry NO extension**, from JavaScript
-  and TypeScript files alike: `import { OuTree } from './ou-tree/index'` resolves
-  to `index.ts`. JavaScript modules keep their `.js` extension. Enforced by
-  `import/extensions` in the root `eslint.config.mjs`.
+  and TypeScript files alike, and a barrel is imported by its directory:
+  `import { OuTree } from './ou-tree'` resolves to `ou-tree/index.ts`.
+  JavaScript modules keep their `.js` extension and name `index.js`, as the
+  web standards require. Enforced by `import/extensions` in the root
+  `eslint.config.mjs`.
 
     Writing `./ou-tree/index.js` instead would name the compiled output rather
     than a file on disk. TypeScript resolves that, but eslint-plugin-import, Jest
@@ -60,7 +62,7 @@ in other packages.
   the JavaScript components and re-exports the declarations `scripts/build-types.js`
   generates into `build/types/` for the TypeScript ones. A new public TypeScript
   export needs a line there too, e.g.
-  `export { OuTree } from '../build/types/ou-tree/index'`.
+  `export { OuTree } from '../build/types/ou-tree'`.
 - **Styles are styled-jsx** (`<style jsx>`), not CSS modules. It only type-checks
   because of `typings/styled-jsx.d.ts` at the repo root.
 - **TypeScript test files import `@testing-library/jest-dom` directly**, for the

@@ -1,4 +1,4 @@
-import type { StoredNode } from '../node-store/index'
+import type { StoredNode } from '../node-store'
 import { excludeNestedRoots } from './exclude-nested-roots'
 
 const node = (id: string, path: string): StoredNode => ({

@@ -3,7 +3,7 @@ import {
     type ChildrenStatus,
     type NodeStore,
     type StoredNode,
-} from '../node-store/index'
+} from '../node-store'
 import { type PrunedTree, resultsPageOf } from './pruned-tree'
 import { rowKey } from './row-key'
 

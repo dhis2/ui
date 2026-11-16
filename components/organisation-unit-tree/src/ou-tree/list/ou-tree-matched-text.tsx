@@ -1,5 +1,5 @@
 import React from 'react'
-import { findMatch, type MatchRange } from '../search/index'
+import { findMatch, type MatchRange } from '../search'
 
 export interface OuTreeMatchedTextProps {
     text: string

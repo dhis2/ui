@@ -2,8 +2,8 @@ import {
     createManualTreeApi,
     createTestTreeApi,
     zambiaOrgUnits,
-} from '../__fixtures__/index'
-import { createNodeStore } from '../node-store/index'
+} from '../__fixtures__'
+import { createNodeStore } from '../node-store'
 import { createTreeState, TreeState } from './tree-state'
 
 const flush = () => new Promise((resolve) => setTimeout(resolve, 0))

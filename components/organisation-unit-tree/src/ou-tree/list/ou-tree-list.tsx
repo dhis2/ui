@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { useOuTree, useOuTreeActions } from '../tree/index'
+import { useOuTree, useOuTreeActions } from '../tree'
 import { OuTreeContainer } from './ou-tree-container'
 import { OuTreeNoResults } from './ou-tree-no-results'
 import type { RenderLabel } from './ou-tree-node-row'

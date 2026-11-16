@@ -1,4 +1,4 @@
-import type { NodeStore } from '../node-store/index'
+import type { NodeStore } from '../node-store'
 
 /** The filtered tree: results under their ancestors, as ordered child lists. */
 export interface PrunedTree {

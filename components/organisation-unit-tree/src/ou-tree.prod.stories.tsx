@@ -2,12 +2,6 @@ import { CustomDataProvider } from '@dhis2/app-runtime'
 import { colors } from '@dhis2/ui-constants'
 import React, { useEffect } from 'react'
 import {
-    createGistResolver,
-    createTreeResolver,
-    pahoOrgUnits,
-} from './ou-tree/__fixtures__/index'
-import { GIST_RESOURCE, TREE_RESOURCE } from './ou-tree/data/index'
-import {
     OuTree,
     OuTreeContainer,
     OuTreeList,
@@ -29,7 +23,13 @@ import {
     type RenderLabel,
     useOuTreeActions,
     useOuTreeSearch,
-} from './ou-tree/index'
+} from './ou-tree'
+import {
+    createGistResolver,
+    createTreeResolver,
+    pahoOrgUnits,
+} from './ou-tree/__fixtures__'
+import { GIST_RESOURCE, TREE_RESOURCE } from './ou-tree/data'
 
 const description = `
 A replacement for \`OrganisationUnitTree\`, not exported from any package yet.

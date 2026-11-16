@@ -5,7 +5,7 @@ import {
     type RootsStatus,
     type StoredNode,
     type Subscribable,
-} from '../node-store/index'
+} from '../node-store'
 import { excludeNestedRoots } from './exclude-nested-roots'
 import {
     type FilteredView,

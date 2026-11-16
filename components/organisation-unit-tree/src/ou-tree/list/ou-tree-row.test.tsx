@@ -7,14 +7,10 @@ import {
     createGistResolver,
     createTreeResolver,
     zambiaOrgUnits,
-} from '../__fixtures__/index'
-import { GIST_RESOURCE, TREE_RESOURCE } from '../data/index'
-import type { Row } from '../tree/index'
-import {
-    OuTreeNodeStoreProvider,
-    OuTreeProvider,
-    useOuTreeNode,
-} from '../tree/index'
+} from '../__fixtures__'
+import { GIST_RESOURCE, TREE_RESOURCE } from '../data'
+import type { Row } from '../tree'
+import { OuTreeNodeStoreProvider, OuTreeProvider, useOuTreeNode } from '../tree'
 import type { RenderLabel } from './ou-tree-node-row'
 import { OuTreeRow } from './ou-tree-row'
 
