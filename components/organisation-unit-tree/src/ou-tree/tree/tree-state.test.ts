@@ -351,3 +351,38 @@ describe('row identity', () => {
         expect(tree.getRow(0)).toBe(tree.getRow(0))
     })
 })
+
+describe('hovered row', () => {
+    it('setHovered marks one node hovered at a time, notifies, and clears', async () => {
+        const { tree } = setup(['ou-1'])
+        await flush()
+        const listener = jest.fn()
+        tree.subscribe(listener)
+        expect(tree.isHovered('ou-1')).toBe(false)
+
+        tree.setHovered('ou-1')
+        expect(tree.isHovered('ou-1')).toBe(true)
+        expect(listener).toHaveBeenCalledTimes(1)
+
+        tree.setHovered('ou-2')
+        expect(tree.isHovered('ou-1')).toBe(false)
+        expect(tree.isHovered('ou-2')).toBe(true)
+
+        tree.setHovered(undefined)
+        expect(tree.isHovered('ou-2')).toBe(false)
+        expect(listener).toHaveBeenCalledTimes(3)
+    })
+
+    it('setHovered with the current value notifies nobody', async () => {
+        const { tree } = setup(['ou-1'])
+        await flush()
+        const listener = jest.fn()
+        tree.subscribe(listener)
+
+        tree.setHovered(undefined)
+        tree.setHovered('ou-1')
+        tree.setHovered('ou-1')
+
+        expect(listener).toHaveBeenCalledTimes(1)
+    })
+})

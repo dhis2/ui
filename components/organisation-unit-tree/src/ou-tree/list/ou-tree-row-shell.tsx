@@ -14,22 +14,21 @@ export interface OuTreeRowShellProps {
         | 'result-error'
         | 'roots'
     id?: string
+    /** Called with true when the pointer enters the row and false when it leaves. */
+    onHoverChange?: (hovered: boolean) => void
     dataTest?: string
     className?: string
     children: React.ReactNode
 }
 
-/**
- * The element every row sits in, with one indent element per level. A
- * child with the `data-hover-only` attribute is shown only while the row
- * is hovered or has focus within.
- */
+/** The element every row sits in, with one indent element per level. */
 export const OuTreeRowShell = ({
     depth,
     role = 'presentation',
     ariaExpanded,
     rowKind,
     id,
+    onHoverChange,
     dataTest,
     className,
     children,
@@ -42,6 +41,8 @@ export const OuTreeRowShell = ({
         data-row-kind={rowKind}
         data-id={id}
         data-test={dataTest}
+        onPointerEnter={onHoverChange && (() => onHoverChange(true))}
+        onPointerLeave={onHoverChange && (() => onHoverChange(false))}
     >
         {Array.from({ length: depth }, (_, level) => (
             <span
@@ -57,9 +58,6 @@ export const OuTreeRowShell = ({
                 min-height: 24px;
                 display: flex;
                 align-items: flex-start;
-            }
-            .shell:not(:hover):not(:focus-within) > :global([data-hover-only]) {
-                visibility: hidden;
             }
             .indent {
                 flex-shrink: 0;

@@ -211,7 +211,8 @@ describe('OuTreeList in filtered mode', () => {
 
         // Central Province's eye: both districts, Kabwe's still as the
         // matching branch.
-        await userEvent.click(screen.getAllByTestId('t-reveal')[1])
+        await userEvent.hover(screen.getAllByTestId('t-row')[1])
+        await userEvent.click(screen.getByTestId('t-reveal'))
         await waitFor(() =>
             expect(screen.getAllByTestId('t-toggle')).toHaveLength(4)
         )
@@ -224,7 +225,8 @@ describe('OuTreeList in filtered mode', () => {
         ])
 
         // Kabwe District's eye: both its children.
-        await userEvent.click(screen.getAllByTestId('t-reveal')[2])
+        await userEvent.hover(screen.getAllByTestId('t-row')[2])
+        await userEvent.click(screen.getByTestId('t-reveal'))
         await waitFor(() => expect(names()).toHaveLength(6))
         expect(names().slice(2, 5)).toEqual([
             'Kabwe District',

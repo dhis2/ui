@@ -93,6 +93,10 @@ export interface TreeState extends Subscribable {
     retryResultsPage(page: number): void
     isResult(id: string): boolean
     isRevealed(id: string): boolean
+    /** Whether the pointer is over the node's row. */
+    isHovered(id: string): boolean
+    /** Marks the row the pointer is over, or none. */
+    setHovered(id: string | undefined): void
     /** Whether a pruned-tree node has children on the way to a result. */
     hasMatchingChildren(id: string): boolean
     /**
@@ -133,6 +137,7 @@ export const createTreeState = ({
     let rootNodes: StoredNode[] = []
     let search: SearchState | undefined
     let searchInput = ''
+    let hoveredId: string | undefined
     let debounce: ReturnType<typeof setTimeout> | undefined
     let searchStatus: SearchStatus = { status: 'idle' }
     let rootsStatus: RootsStatus = { status: 'loading' }
@@ -455,6 +460,14 @@ export const createTreeState = ({
         }
     }
 
+    const setHovered = (id: string | undefined) => {
+        if (id === hoveredId) {
+            return
+        }
+        hoveredId = id
+        notify()
+    }
+
     const getRowCount = () => flat().rows.length
 
     const getRow = (index: number) => {
@@ -538,6 +551,8 @@ export const createTreeState = ({
         retryResultsPage,
         isResult: (id) => search?.resultIds.has(id) ?? false,
         isRevealed: (id) => search?.revealedIds.has(id) ?? false,
+        isHovered: (id) => id === hoveredId,
+        setHovered,
         hasMatchingChildren,
         toggleRevealed,
         getRowCount,

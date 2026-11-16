@@ -453,7 +453,7 @@ MatchedText.storyName = 'Building block: Matched text'
 export const RevealToggle = () => (
     <Stack>
         <Captioned
-            caption="after the label of an open node with matching children (hover or focus the row for the eye)"
+            caption="after the label of an open node with matching children, while the row is hovered"
             width={240}
         >
             <OuTreeRowShell depth={0}>

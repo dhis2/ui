@@ -5,7 +5,7 @@ import React from 'react'
 import { OuTreeRevealToggle } from './ou-tree-reveal-toggle'
 
 describe('OuTreeRevealToggle', () => {
-    it('is a hover-only button named for what a click does', async () => {
+    it('is a button named for what a click does', async () => {
         const onToggle = jest.fn()
         const { rerender } = render(
             <OuTreeRevealToggle
@@ -17,7 +17,7 @@ describe('OuTreeRevealToggle', () => {
         const button = screen.getByRole('button', { name: 'Show all children' })
 
         expect(button).toBe(screen.getByTestId('t-reveal'))
-        expect(button).toHaveAttribute('data-hover-only')
+        expect(button).not.toHaveAttribute('data-hover-only')
         expect(button.parentElement).not.toHaveAttribute('tabindex')
         await userEvent.click(button)
         expect(onToggle).toHaveBeenCalledTimes(1)

@@ -12,8 +12,7 @@ export interface OuTreeRevealToggleProps {
 
 /**
  * The eye after a pruned node's label: shows all the node's children, or
- * hides them again. Carries `data-hover-only`, so the row shell shows it
- * only while the row is hovered or has focus within.
+ * hides them again.
  */
 export const OuTreeRevealToggle = ({
     revealed,
@@ -32,7 +31,6 @@ export const OuTreeRevealToggle = ({
                     ref={ref as React.RefObject<HTMLButtonElement>}
                     type="button"
                     aria-label={name}
-                    data-hover-only=""
                     data-test={dataTest}
                     onClick={onToggle}
                 >

@@ -126,10 +126,11 @@ in other packages.
   the eye are buttons that are the tooltip's reference:
   `OuTreeRetrySkeleton` is itself the bar, `OuTreeRetryNode` is a failed
   node's row body around the label slot, and `OuTreeRevealToggle` sits
-  after the label of an open node with matching children. `OuTreeRevealToggle` carries
-  `data-hover-only`, and `OuTreeRowShell` hides any child with that
-  attribute unless the row is hovered or has focus within: the one
-  attribute contract between pieces. `OuTreeSearchInput` is glue (an
+  after the label of an open node with matching children while the
+  pointer is over its row. Hover is tree state: `OuTreeRowShell` reports
+  pointer enter and leave through `onHoverChange`, the node row calls
+  `setHovered`, and `useOuTreeNode` exposes `isHovered`; batch 5's focus
+  model adds the focused row the same way. `OuTreeSearchInput` is glue (an
   `InputField` over `useOuTreeSearch`), not part of `OuTree`; an app with
   its own input uses the hook. In Storybook the pieces are the
   `Building block:` stories of the `OuTree` entry, after the tree's own.

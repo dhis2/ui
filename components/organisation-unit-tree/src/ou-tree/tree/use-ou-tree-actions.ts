@@ -13,6 +13,7 @@ export type OuTreeActions = Pick<
     | 'retryResultsPage'
     | 'search'
     | 'clearSearch'
+    | 'setHovered'
     | 'store'
 >
 
@@ -34,6 +35,7 @@ export const useOuTreeActions = (): OuTreeActions => {
             retryResultsPage: tree.retryResultsPage,
             search: tree.search,
             clearSearch: tree.clearSearch,
+            setHovered: tree.setHovered,
             store: tree.store,
         }),
         [tree]

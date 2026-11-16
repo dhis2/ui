@@ -135,8 +135,9 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
         isResult,
         isRevealed,
         hasMatchingChildren,
+        isHovered,
     } = useOuTreeNode(row.id)
-    const { open, toggle, toggleRevealed } = useOuTreeActions()
+    const { open, toggle, toggleRevealed, setHovered } = useOuTreeActions()
     const searchTerm = useOuTreeSearchTerm()
     if (!node) {
         // Rows are built from stored nodes and nodes are never removed.
@@ -152,8 +153,9 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
     const failed = showsAllChildren && childrenStatus.status === 'failed'
     const loading = showsAllChildren && childrenStatus.status === 'loading'
     const clickable = !node.leaf && !failed
-    // The eye swaps a visible list of matching children for all of them.
-    const showsEye = pruned && hasMatchingChildren && isOpen
+    // The eye swaps a visible list of matching children for all of them;
+    // it shows while the pointer is over the row.
+    const showsEye = pruned && hasMatchingChildren && isOpen && isHovered
 
     return (
         <OuTreeRowShell
@@ -162,6 +164,9 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
             rowKind="node"
             id={row.id}
             ariaExpanded={node.leaf ? undefined : isOpen}
+            onHoverChange={(hovered) =>
+                setHovered(hovered ? row.id : undefined)
+            }
             dataTest={`${dataTest}-row`}
         >
             <NodeBody

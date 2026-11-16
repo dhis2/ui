@@ -249,10 +249,12 @@ describe('OuTreeNodeRow', () => {
 })
 
 describe('OuTreeNodeRow in filtered mode', () => {
-    it('shows an open pruned result with its arrow, the match, the result background and the eye', async () => {
+    it('shows an open pruned result with its arrow, the match, the result background and, hovered, the eye', async () => {
         // Kabwe District: a result with a matching child, the health centre.
         setupFiltered({ id: 'ou-3', term: 'Kabwe' })
         const row = await ready()
+        expect(screen.queryByTestId('t-reveal')).toBeNull()
+        await userEvent.hover(row)
 
         expect(row).toHaveAttribute('aria-expanded', 'true')
         expect(screen.getByTestId('t-toggle')).toBeInTheDocument()
@@ -265,11 +267,14 @@ describe('OuTreeNodeRow in filtered mode', () => {
         expect(screen.getByTestId('t-reveal')).toBe(
             screen.getByRole('button', { name: 'Show all children' })
         )
+        await userEvent.unhover(row)
+        expect(screen.queryByTestId('t-reveal')).toBeNull()
     })
 
-    it('shows a pruned ancestor plain and open, with the eye', async () => {
+    it('shows a pruned ancestor plain and open, with the eye when hovered', async () => {
         setupFiltered({ id: 'ou-2', term: 'Kabwe' })
         const row = await ready()
+        await userEvent.hover(row)
 
         expect(row).toHaveAttribute('aria-expanded', 'true')
         expect(screen.getByTestId('t-label')).not.toHaveClass('result')
@@ -280,6 +285,7 @@ describe('OuTreeNodeRow in filtered mode', () => {
     it('hides the eye while the node is closed', async () => {
         setupFiltered({ id: 'ou-2', term: 'Kabwe' })
         const row = await ready()
+        await userEvent.hover(row)
 
         await userEvent.click(screen.getByTestId('t-toggle'))
         expect(row).toHaveAttribute('aria-expanded', 'false')
@@ -294,6 +300,7 @@ describe('OuTreeNodeRow in filtered mode', () => {
         // Kabwe District is a bottom result for "District".
         const ref = setupFiltered({ id: 'ou-3', term: 'District' })
         const row = await ready()
+        await userEvent.hover(row)
         expect(row).toHaveAttribute('aria-expanded', 'false')
         expect(screen.getByTestId('t-toggle')).toBeInTheDocument()
         expect(screen.queryByTestId('t-reveal')).toBeNull()
@@ -309,7 +316,7 @@ describe('OuTreeNodeRow in filtered mode', () => {
 
     it('shows the toggle space and no eye on a leaf result', async () => {
         setupFiltered({ id: 'ou-4', term: 'Kabwe' })
-        await ready()
+        await userEvent.hover(await ready())
 
         expect(screen.getByTestId('t-match')).toBeInTheDocument()
         expect(screen.getByTestId('t-toggle-space')).toBeInTheDocument()
@@ -322,7 +329,7 @@ describe('OuTreeNodeRow in filtered mode', () => {
             term: 'Kabwe',
             children: never,
         })
-        await ready()
+        await userEvent.hover(await ready())
 
         await userEvent.click(screen.getByTestId('t-reveal'))
 
@@ -341,6 +348,7 @@ describe('OuTreeNodeRow in filtered mode', () => {
             children: failing,
         })
         const row = await ready()
+        await userEvent.hover(row)
 
         await userEvent.click(screen.getByTestId('t-reveal'))
         const retry = await screen.findByTestId('t-retry')
@@ -358,6 +366,7 @@ describe('OuTreeNodeRow in filtered mode', () => {
     it('keeps a result as it was under a revealed ancestor', async () => {
         const ref = setupFiltered({ id: 'ou-3', term: 'Kabwe' })
         const row = await ready()
+        await userEvent.hover(row)
         act(() => ref.tree.toggleRevealed('ou-2'))
 
         await waitFor(() =>

@@ -86,6 +86,25 @@ describe('useOuTreeSearch', () => {
         expect(result.current.search.clear).toBe(clear)
     })
 
+    it('useOuTreeNode reports the hovered node', async () => {
+        const { result } = renderHook(
+            () => ({
+                zambia: useOuTreeNode('ou-1'),
+                province: useOuTreeNode('ou-2'),
+                actions: useOuTreeActions(),
+            }),
+            { wrapper }
+        )
+        expect(result.current.zambia.isHovered).toBe(false)
+
+        act(() => result.current.actions.setHovered('ou-1'))
+        expect(result.current.zambia.isHovered).toBe(true)
+        expect(result.current.province.isHovered).toBe(false)
+
+        act(() => result.current.actions.setHovered(undefined))
+        expect(result.current.zambia.isHovered).toBe(false)
+    })
+
     it('useOuTreeNode reports a result, matching children and a revealed node', async () => {
         const { result } = renderHook(
             () => ({

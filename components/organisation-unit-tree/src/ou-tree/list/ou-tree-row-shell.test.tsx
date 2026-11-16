@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import React from 'react'
 import { OuTreeRowShell } from './ou-tree-row-shell'
 
@@ -20,6 +21,25 @@ describe('OuTreeRowShell', () => {
         expect(indents[0]).toHaveAttribute('aria-hidden', 'true')
         expect(shell).toHaveAttribute('aria-level', '4')
         expect(shell).toHaveAttribute('role', 'presentation')
+    })
+
+    it('reports hover changes through onHoverChange', async () => {
+        const onHoverChange = jest.fn()
+        render(
+            <OuTreeRowShell
+                depth={0}
+                dataTest="t"
+                onHoverChange={onHoverChange}
+            >
+                x
+            </OuTreeRowShell>
+        )
+
+        await userEvent.hover(screen.getByTestId('t'))
+        expect(onHoverChange).toHaveBeenLastCalledWith(true)
+        await userEvent.unhover(screen.getByTestId('t'))
+        expect(onHoverChange).toHaveBeenLastCalledWith(false)
+        expect(onHoverChange).toHaveBeenCalledTimes(2)
     })
 
     it('renders no indent at depth 0', () => {
