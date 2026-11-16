@@ -11,6 +11,7 @@ import { rowKey } from './row-key'
 export type NodeView = 'browse' | 'pruned'
 
 export type Row =
+    /** A node, browse or pruned, as a row. */
     | {
           kind: 'node'
           id: string
@@ -76,8 +77,12 @@ export interface FlatRows {
     indexById: Map<string, number>
 }
 
-/** Whether two rows with the same key would render the same. */
-const sameRow = (a: Row, b: Row): boolean => {
+/**
+ * Whether two rows with the same key would render the same, so the earlier
+ * object can stand in for the later one: a memoised row component then
+ * skips, and the virtualiser keeps its measurement.
+ */
+const rendersTheSame = (a: Row, b: Row): boolean => {
     if (a.kind !== b.kind || a.depth !== b.depth) {
         return false
     }
@@ -99,15 +104,18 @@ const sameRow = (a: Row, b: Row): boolean => {
 }
 
 /**
- * The tree as a flat list. In browse mode, a depth-first walk from the
- * roots, descending into the nodes in `openIds` whose children the store
- * has; under an open node, a filled slot is a node row and an empty slot
- * is a skeleton row or, if its page failed, an error row. In filtered mode,
- * a walk of the pruned tree under the open nodes, listing all children,
- * as slots, under a node without matching children or a revealed one
- * whose first page is loaded; a pruned-tree node among them keeps its
- * pruned view. Then one placeholder row per result not received yet.
- * Depth is relative to the root.
+ * The tree as a flat list of rows, depth-first, depth counted from the
+ * root.
+ *
+ * Browse mode walks from the roots into every open node whose children
+ * the store has. Under an open node, each filled slot is a node row and
+ * each empty slot a skeleton row, or an error row if its page failed.
+ *
+ * Filtered mode walks the pruned tree the same way, from its roots into
+ * the open nodes. A node without matching children, or a revealed node
+ * whose first page is loaded, lists all its children as slots instead; a
+ * pruned-tree node among those keeps its pruned view. After the rows come
+ * the placeholders, one per result not received yet.
  */
 export const flattenRows = ({
     rootNodes,
@@ -119,13 +127,16 @@ export const flattenRows = ({
     const rows: Row[] = []
     const indexById = new Map<string, number>()
 
-    // A row keeps its object across rebuilds while nothing about it changed,
-    // so a memoised row component can skip.
+    // The previous build's row for the same key, while it still renders
+    // the same, so a row keeps its object across rebuilds.
     const previousByKey = new Map<string, Row>()
     previous?.rows.forEach((row) => previousByKey.set(rowKey(row), row))
+    const reuseUnchanged = (row: Row): Row => {
+        const earlier = previousByKey.get(rowKey(row))
+        return earlier && rendersTheSame(earlier, row) ? earlier : row
+    }
     const push = (row: Row) => {
-        const reusable = previousByKey.get(rowKey(row))
-        rows.push(reusable && sameRow(reusable, row) ? reusable : row)
+        rows.push(reuseUnchanged(row))
     }
     const pushNode = (
         node: StoredNode,
@@ -145,7 +156,9 @@ export const flattenRows = ({
         return children
     }
 
-    const walkSlots = (
+    // The rows of an open node's children list: a filled slot is a node, an
+    // empty one a skeleton or, if its page failed, an error row.
+    const pushChildSlots = (
         node: StoredNode,
         depth: number,
         children: ChildrenStatus
@@ -188,42 +201,44 @@ export const flattenRows = ({
         }
         const children = pushNode(node, depth, 'browse')
         if (openIds.has(id)) {
-            walkSlots(node, depth, children)
+            pushChildSlots(node, depth, children)
         }
     }
 
-    const walkPruned = (id: string, depth: number, view: FilteredView) => {
+    const walkPruned = (id: string, depth: number) => {
         const node = store.getNode(id)
-        if (!node) {
+        if (!node || !filtered) {
             return
         }
         const children = pushNode(node, depth, 'pruned')
         if (!openIds.has(id)) {
             return
         }
+        const matchingChildren = filtered.pruned.children.get(id)
         // A revealed node keeps its matching children until the complete
         // list can replace them.
-        const matching = view.pruned.children.get(id)
-        const revealed =
-            view.revealedIds.has(id) && children.status === 'loaded'
-        if (revealed || !matching) {
-            walkSlots(node, depth, children)
+        const listsAllChildren =
+            filtered.revealedIds.has(id) && children.status === 'loaded'
+        if (!matchingChildren || listsAllChildren) {
+            pushChildSlots(node, depth, children)
             return
         }
-        for (const childId of matching) {
-            walkPruned(childId, depth + 1, view)
+        for (const childId of matchingChildren) {
+            walkPruned(childId, depth + 1)
         }
     }
 
+    // A pruned-tree node keeps its pruned view wherever it is listed.
     const walkChild = (id: string, depth: number) => {
         if (filtered?.pruned.placed.has(id)) {
-            walkPruned(id, depth, filtered)
+            walkPruned(id, depth)
         } else {
             walkBrowse(id, depth)
         }
     }
 
-    const pushPlaceholders = ({
+    // One row per result not received yet, at the depth of the last row.
+    const pushResultPlaceholders = ({
         loaded,
         total,
         pageSize,
@@ -231,6 +246,8 @@ export const flattenRows = ({
     }: FilteredView) => {
         const depth = rows.length > 0 ? rows[rows.length - 1].depth : 0
         if (total === undefined) {
+            // Page one has not answered, so the total is unknown; its retry
+            // row is the only placeholder, and only if it failed.
             if (failedPage) {
                 push({
                     kind: 'result-error',
@@ -260,9 +277,9 @@ export const flattenRows = ({
 
     if (filtered) {
         for (const rootId of filtered.pruned.roots) {
-            walkPruned(rootId, 0, filtered)
+            walkPruned(rootId, 0)
         }
-        pushPlaceholders(filtered)
+        pushResultPlaceholders(filtered)
     } else {
         for (const root of rootNodes) {
             walkBrowse(root.id, 0)
