@@ -40,6 +40,89 @@ export interface OuTreeNodeRowProps {
     dataTest?: string
 }
 
+interface DefaultLabelProps {
+    node: StoredNode
+    clickable: boolean
+    onToggle: () => void
+    isResult: boolean
+    searchTerm: string | undefined
+    dataTest: string
+}
+
+/** The label slot when no renderLabel is given: the name, its match marked. */
+const DefaultLabel = ({
+    node,
+    clickable,
+    onToggle,
+    isResult,
+    searchTerm,
+    dataTest,
+}: DefaultLabelProps) => (
+    <OuTreeNodeLabel
+        clickable={clickable}
+        onClick={clickable ? onToggle : undefined}
+        result={isResult}
+        dataTest={`${dataTest}-label`}
+    >
+        {isResult && searchTerm !== undefined ? (
+            <OuTreeMatchedText
+                text={node.displayName}
+                term={searchTerm}
+                dataTest={`${dataTest}-match`}
+            />
+        ) : (
+            node.displayName
+        )}
+    </OuTreeNodeLabel>
+)
+
+interface NodeBodyProps {
+    node: StoredNode
+    isOpen: boolean
+    loading: boolean
+    failed: boolean
+    onToggle: () => void
+    onRetry: () => void
+    dataTest: string
+    /** The label slot. */
+    children: React.ReactNode
+}
+
+/**
+ * The toggle and the label slot, or, while the node's first page failed,
+ * the retry button around the label slot.
+ */
+const NodeBody = ({
+    node,
+    isOpen,
+    loading,
+    failed,
+    onToggle,
+    onRetry,
+    dataTest,
+    children,
+}: NodeBodyProps) => {
+    if (failed) {
+        return (
+            <OuTreeRetryNode onRetry={onRetry} dataTest={`${dataTest}-retry`}>
+                {children}
+            </OuTreeRetryNode>
+        )
+    }
+    return (
+        <>
+            <OuTreeNodeToggle
+                leaf={node.leaf}
+                open={isOpen}
+                loading={isOpen && loading}
+                onToggle={onToggle}
+                dataTest={dataTest}
+            />
+            {children}
+        </>
+    )
+}
+
 export const OuTreeNodeRow = memo(function OuTreeNodeRow({
     row,
     renderLabel,
@@ -71,53 +154,6 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
     const clickable = !node.leaf && !failed
     // The eye swaps a visible list of matching children for all of them.
     const showsEye = pruned && hasMatchingChildren && isOpen
-    const label = renderLabel ? (
-        renderLabel({
-            node,
-            isOpen,
-            childrenStatus,
-            depth: row.depth,
-            toggle: onToggle,
-            isResult,
-            searchTerm,
-        })
-    ) : (
-        <OuTreeNodeLabel
-            clickable={clickable}
-            onClick={clickable ? onToggle : undefined}
-            result={isResult}
-            dataTest={`${dataTest}-label`}
-        >
-            {isResult && searchTerm !== undefined ? (
-                <OuTreeMatchedText
-                    text={node.displayName}
-                    term={searchTerm}
-                    dataTest={`${dataTest}-match`}
-                />
-            ) : (
-                node.displayName
-            )}
-        </OuTreeNodeLabel>
-    )
-    const body = failed ? (
-        <OuTreeRetryNode
-            onRetry={() => open(row.id)}
-            dataTest={`${dataTest}-retry`}
-        >
-            {label}
-        </OuTreeRetryNode>
-    ) : (
-        <>
-            <OuTreeNodeToggle
-                leaf={node.leaf}
-                open={isOpen}
-                loading={isOpen && loading}
-                onToggle={onToggle}
-                dataTest={dataTest}
-            />
-            {label}
-        </>
-    )
 
     return (
         <OuTreeRowShell
@@ -128,7 +164,36 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
             ariaExpanded={node.leaf ? undefined : isOpen}
             dataTest={`${dataTest}-row`}
         >
-            {body}
+            <NodeBody
+                node={node}
+                isOpen={isOpen}
+                loading={loading}
+                failed={failed}
+                onToggle={onToggle}
+                onRetry={() => open(row.id)}
+                dataTest={dataTest}
+            >
+                {renderLabel ? (
+                    renderLabel({
+                        node,
+                        isOpen,
+                        childrenStatus,
+                        depth: row.depth,
+                        toggle: onToggle,
+                        isResult,
+                        searchTerm,
+                    })
+                ) : (
+                    <DefaultLabel
+                        node={node}
+                        clickable={clickable}
+                        onToggle={onToggle}
+                        isResult={isResult}
+                        searchTerm={searchTerm}
+                        dataTest={dataTest}
+                    />
+                )}
+            </NodeBody>
             {showsEye && (
                 <OuTreeRevealToggle
                     revealed={isRevealed}
