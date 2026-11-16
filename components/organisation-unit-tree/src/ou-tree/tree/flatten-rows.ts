@@ -20,9 +20,16 @@ export type Row =
           /** A direct search result, as opposed to an ancestor of one. */
           result: boolean
       }
-    | { kind: 'skeleton'; parentId: string; index: number; depth: number }
+    /** An empty slot of a parent's children whose page is not loaded. */
     | {
-          kind: 'error'
+          kind: 'children-skeleton'
+          parentId: string
+          index: number
+          depth: number
+      }
+    /** An empty slot of a parent's children whose page failed. */
+    | {
+          kind: 'children-error'
           parentId: string
           /** The empty slot's position among the parent's children. */
           index: number
@@ -82,10 +89,10 @@ const sameRow = (a: Row, b: Row): boolean => {
                 a.view === b.view &&
                 a.result === b.result
             )
-        case 'skeleton':
+        case 'children-skeleton':
         case 'result-skeleton':
             return true
-        case 'error':
+        case 'children-error':
         case 'result-error':
             return a.kind === b.kind && a.page === b.page && a.error === b.error
     }
@@ -156,7 +163,7 @@ export const flattenRows = ({
             const status = pages.get(page)
             if (status?.status === 'failed') {
                 push({
-                    kind: 'error',
+                    kind: 'children-error',
                     parentId: node.id,
                     index,
                     page,
@@ -165,7 +172,7 @@ export const flattenRows = ({
                 })
             } else {
                 push({
-                    kind: 'skeleton',
+                    kind: 'children-skeleton',
                     parentId: node.id,
                     index,
                     depth: depth + 1,

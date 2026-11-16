@@ -24,10 +24,10 @@ const describeRow = (row: Row) => {
             return `${indent}${row.id}:${row.children.status}${
                 row.view === 'pruned' ? ':pruned' : ''
             }${row.result ? '*' : ''}`
-        case 'skeleton':
+        case 'children-skeleton':
         case 'result-skeleton':
             return `${indent}${row.kind}#${row.index}`
-        case 'error':
+        case 'children-error':
         case 'result-error':
             return `${indent}${row.kind}@${row.page}`
     }
@@ -143,11 +143,11 @@ describe('flattenRows', () => {
             'p:loaded',
             '  c1:none',
             '  c2:none',
-            '  skeleton#2',
-            '  skeleton#3',
-            '  error@3',
-            '  error@3',
-            '  skeleton#6',
+            '  children-skeleton#2',
+            '  children-skeleton#3',
+            '  children-error@3',
+            '  children-error@3',
+            '  children-skeleton#6',
         ])
     })
 
@@ -266,10 +266,10 @@ describe('flattenRows row identity', () => {
             'p:loaded',
             '  c1:none',
             '  c2:none',
-            '  error@2',
-            '  error@2',
-            '  skeleton#4',
-            '  skeleton#5',
+            '  children-error@2',
+            '  children-error@2',
+            '  children-skeleton#4',
+            '  children-skeleton#5',
         ])
 
         // Open c1 with one loaded child, so a row appears above the slots.
@@ -377,10 +377,10 @@ describe('flattenRows in filtered mode', () => {
             '    ou-6:loaded:pruned*',
             '      ou-12:none',
             '      ou-10:none',
-            '      skeleton#2',
-            '      skeleton#3',
-            '      skeleton#4',
-            '      skeleton#5',
+            '      children-skeleton#2',
+            '      children-skeleton#3',
+            '      children-skeleton#4',
+            '      children-skeleton#5',
         ])
     })
 
@@ -423,10 +423,10 @@ describe('flattenRows in filtered mode', () => {
             '    ou-6:loaded:pruned',
             '      ou-12:none',
             '      ou-10:none:pruned*',
-            '      skeleton#2',
-            '      skeleton#3',
-            '      skeleton#4',
-            '      skeleton#5',
+            '      children-skeleton#2',
+            '      children-skeleton#3',
+            '      children-skeleton#4',
+            '      children-skeleton#5',
         ])
     })
 

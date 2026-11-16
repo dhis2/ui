@@ -16,21 +16,26 @@ describe('rowKey', () => {
 
     it('names the parent and slot of a skeleton row', () => {
         expect(
-            rowKey({ kind: 'skeleton', parentId: 'ou-1', index: 7, depth: 1 })
-        ).toBe('skeleton:ou-1:7')
+            rowKey({
+                kind: 'children-skeleton',
+                parentId: 'ou-1',
+                index: 7,
+                depth: 1,
+            })
+        ).toBe('children-skeleton:ou-1:7')
     })
 
     it('names the parent and slot of an error row', () => {
         expect(
             rowKey({
-                kind: 'error',
+                kind: 'children-error',
                 parentId: 'ou-1',
                 index: 7,
                 page: 2,
                 error: new Error('x'),
                 depth: 1,
             })
-        ).toBe('error:ou-1:7')
+        ).toBe('children-error:ou-1:7')
     })
 
     it('names the result index of a result placeholder', () => {

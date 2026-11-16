@@ -4,7 +4,7 @@ import { OuTreeRetrySkeleton } from './ou-tree-retry-skeleton'
 import { OuTreeRowShell } from './ou-tree-row-shell'
 import { OuTreeToggle } from './ou-tree-toggle'
 
-export type ErrorRow = Extract<Row, { kind: 'error' | 'result-error' }>
+export type ErrorRow = Extract<Row, { kind: 'children-error' | 'result-error' }>
 
 export interface OuTreeErrorRowProps {
     row: ErrorRow
@@ -18,7 +18,7 @@ export const OuTreeErrorRow = memo(function OuTreeErrorRow({
 }: OuTreeErrorRowProps) {
     const { store, retryResultsPage } = useOuTreeActions()
     const onRetry =
-        row.kind === 'error'
+        row.kind === 'children-error'
             ? () => store.retryChildrenPage(row.parentId, row.page)
             : () => retryResultsPage(row.page)
     return (

@@ -33,7 +33,7 @@ describe('OuTreeErrorRow', () => {
             return (
                 <OuTreeErrorRow
                     row={{
-                        kind: 'error',
+                        kind: 'children-error',
                         parentId: 'ou-1',
                         index: 0,
                         page: 2,
@@ -56,7 +56,7 @@ describe('OuTreeErrorRow', () => {
 
         expect(screen.getByTestId('t-row')).toHaveAttribute(
             'data-row-kind',
-            'error'
+            'children-error'
         )
         expect(screen.getByTestId('t-toggle-space')).toBeInTheDocument()
         await userEvent.click(screen.getByRole('button', { name: 'Retry' }))

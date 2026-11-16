@@ -8,10 +8,10 @@ export const rowKey = (row: Row): string => {
     switch (row.kind) {
         case 'node':
             return row.id
-        case 'skeleton':
-            return `skeleton:${row.parentId}:${row.index}`
-        case 'error':
-            return `error:${row.parentId}:${row.index}`
+        case 'children-skeleton':
+            return `children-skeleton:${row.parentId}:${row.index}`
+        case 'children-error':
+            return `children-error:${row.parentId}:${row.index}`
         case 'result-skeleton':
             return `result-skeleton:${row.index}`
         case 'result-error':

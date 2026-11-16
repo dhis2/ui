@@ -20,7 +20,7 @@ const rows = (tree: TreeState) =>
                     row.result ? '*' : ''
                 }`
             case 'result-error':
-            case 'error':
+            case 'children-error':
                 return `${row.kind}@${row.page}`
             default:
                 return row.kind
@@ -247,9 +247,9 @@ describe('tree state in filtered mode', () => {
             'ou-12',
             'ou-10',
             'ou-8:pruned*',
-            'skeleton',
-            'skeleton',
-            'skeleton',
+            'children-skeleton',
+            'children-skeleton',
+            'children-skeleton',
         ])
 
         tree.toggleRevealed('ou-6')

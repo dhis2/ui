@@ -80,9 +80,11 @@ in other packages.
   in the repo. It sits outside `src/` so it is not published, and it is
   excluded from Prettier. Regenerate rather than hand-edit.
 - **Paging names say which kind they mean.** Browse mode pages a parent's
-  children (`requestChildrenPage`, `CHILDREN_PAGE_SIZE`); filtered mode
-  pages results (`requestResultsPage`, `retryResultsPage`,
-  `RESULTS_PAGE_SIZE`). Nothing is called just "page".
+  children (`requestChildrenPage`, `CHILDREN_PAGE_SIZE`, the
+  `children-skeleton` and `children-error` rows); filtered mode pages
+  results (`requestResultsPage`, `retryResultsPage`, `RESULTS_PAGE_SIZE`,
+  the `result-skeleton` and `result-error` rows). Nothing is called just
+  "page".
 - **Any search resets the tree, and so does clearing one.** `search(term)`
   replaces the whole search state and empties the open set; `clearSearch`
   restores `initiallyOpen`. Result pages are requested in order, one at a
@@ -118,8 +120,9 @@ in other packages.
   given on its element unchanged; the glue composes the suffixes
   (`${dataTest}-row`, `-toggle`, `-toggle-space`, `-label`, `-loader`,
   `-retry`, `-skeleton`, `-match`, `-reveal`, `-no-results`, `-search`),
-  default `dhis2-uicore-outree`; `data-row-kind` names the row's kind,
-  `result-skeleton` and `result-error` included. The retry controls and
+  default `dhis2-uicore-outree`; `data-row-kind` names the row's kind
+  (`node`, `children-skeleton`, `children-error`, `result-skeleton`,
+  `result-error`). The retry controls and
   the eye are buttons that are the tooltip's reference:
   `OuTreeRetrySkeleton` is itself the bar, `OuTreeRetryNode` is a failed
   node's row body around the label slot, and `OuTreeRevealToggle` sits

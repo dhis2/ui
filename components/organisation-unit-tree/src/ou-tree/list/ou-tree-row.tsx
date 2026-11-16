@@ -25,10 +25,10 @@ export const OuTreeRow = memo(function OuTreeRow({
                     dataTest={dataTest}
                 />
             )
-        case 'skeleton':
+        case 'children-skeleton':
         case 'result-skeleton':
             return <OuTreeSkeletonRow row={row} dataTest={dataTest} />
-        case 'error':
+        case 'children-error':
         case 'result-error':
             return <OuTreeErrorRow row={row} dataTest={dataTest} />
     }

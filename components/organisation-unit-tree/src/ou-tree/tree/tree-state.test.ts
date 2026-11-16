@@ -211,15 +211,15 @@ describe('createTreeState', () => {
                 'ou-6',
                 'ou-12',
                 'ou-10',
-                'skeleton',
-                'skeleton',
-                'skeleton',
-                'skeleton',
+                'children-skeleton',
+                'children-skeleton',
+                'children-skeleton',
+                'children-skeleton',
             ])
             expect(tree.getRowIndex('ou-10')).toBe(2)
             expect(tree.getRowIndex('ou-8')).toBeUndefined()
             expect(tree.getRow(3)).toEqual({
-                kind: 'skeleton',
+                kind: 'children-skeleton',
                 parentId: 'ou-6',
                 index: 2,
                 depth: 1,
@@ -243,8 +243,8 @@ describe('createTreeState', () => {
                 'ou-10',
                 'ou-8',
                 'ou-9',
-                'skeleton',
-                'skeleton',
+                'children-skeleton',
+                'children-skeleton',
             ])
         })
 
@@ -259,7 +259,7 @@ describe('createTreeState', () => {
 
             expect(childrenCalls.map((call) => call.page)).toEqual([1, 2, 3])
             expect(tree.getRowCount()).toBe(7)
-            expect(ids(tree)).not.toContain('skeleton')
+            expect(ids(tree)).not.toContain('children-skeleton')
         })
 
         it('throws for a row index out of range', async () => {

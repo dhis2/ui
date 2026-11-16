@@ -46,19 +46,19 @@ describe('OuTreeRow', () => {
     it.each([
         [nodeRow, 'node'],
         [
-            { kind: 'skeleton', parentId: 'ou-1', index: 0, depth: 1 },
-            'skeleton',
+            { kind: 'children-skeleton', parentId: 'ou-1', index: 0, depth: 1 },
+            'children-skeleton',
         ],
         [
             {
-                kind: 'error',
+                kind: 'children-error',
                 parentId: 'ou-1',
                 index: 0,
                 page: 1,
                 error: new Error('x'),
                 depth: 1,
             },
-            'error',
+            'children-error',
         ],
     ] as Array<[Row, string]>)('renders a %#: %s row', async (row, kind) => {
         render(

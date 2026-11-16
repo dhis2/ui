@@ -485,7 +485,7 @@ export const createTreeState = ({
             const row = rows[index]
             if (row.kind === 'result-skeleton') {
                 resultsWanted = true
-            } else if (row.kind === 'skeleton') {
+            } else if (row.kind === 'children-skeleton') {
                 const parent = store.getChildren(row.parentId)
                 if (parent.status === 'loaded') {
                     const page = childrenPageOf(

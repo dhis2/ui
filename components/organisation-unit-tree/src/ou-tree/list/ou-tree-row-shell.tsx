@@ -8,8 +8,8 @@ export interface OuTreeRowShellProps {
     ariaExpanded?: boolean
     rowKind?:
         | 'node'
-        | 'skeleton'
-        | 'error'
+        | 'children-skeleton'
+        | 'children-error'
         | 'result-skeleton'
         | 'result-error'
         | 'roots'

@@ -4,7 +4,10 @@ import { OuTreeRowShell } from './ou-tree-row-shell'
 import { OuTreeSkeleton } from './ou-tree-skeleton'
 import { OuTreeToggle } from './ou-tree-toggle'
 
-export type SkeletonRow = Extract<Row, { kind: 'skeleton' | 'result-skeleton' }>
+export type SkeletonRow = Extract<
+    Row,
+    { kind: 'children-skeleton' | 'result-skeleton' }
+>
 
 export interface OuTreeSkeletonRowProps {
     row: SkeletonRow
