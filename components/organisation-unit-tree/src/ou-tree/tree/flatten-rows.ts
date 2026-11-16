@@ -10,6 +10,14 @@ import { rowKey } from './row-key'
 /** Pruned: a node of the filtered tree. Browse: batch 3's node. */
 export type NodeView = 'browse' | 'pruned'
 
+/**
+ * A row is one tree's view of a position in it: a shared store object
+ * (a node, a parent's children status) composed with what only this tree
+ * knows, its depth from this tree's root, its view in this tree's search,
+ * whether it is a result for this tree's term. The same node can sit in
+ * several trees at once, so none of that can live on the store's objects,
+ * and rows are rebuilt from scratch on every change.
+ */
 export type Row =
     /** A node, browse or pruned, as a row. */
     | {
@@ -80,7 +88,11 @@ export interface FlatRows {
 /**
  * Whether two rows with the same key would render the same, so the earlier
  * object can stand in for the later one: a memoised row component then
- * skips, and the virtualiser keeps its measurement.
+ * skips, and the virtualiser keeps its measurement. Rows are new objects
+ * every rebuild, so their identity cannot say this; the comparison is
+ * shallow, since the store's objects are reference-stable (`children` is
+ * replaced only when that parent's children change) and the rest are the
+ * tree's own primitives.
  */
 const rendersTheSame = (a: Row, b: Row): boolean => {
     if (a.kind !== b.kind || a.depth !== b.depth) {
