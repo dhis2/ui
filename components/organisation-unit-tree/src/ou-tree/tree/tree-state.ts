@@ -134,6 +134,29 @@ export interface TreeState extends Subscribable {
     retryRoots(): void
 }
 
+const searchRowsInput = (state: SearchState): SearchRowsInput => {
+    let failedPage: SearchRowsInput['failedPage']
+    state.pages.forEach((status, page) => {
+        if (status.status === 'failed') {
+            failedPage = { page, error: status.error }
+        }
+    })
+    return {
+        pruned: state.pruned,
+        resultIds: state.resultIds,
+        revealedIds: state.revealedIds,
+        loaded: state.loaded,
+        total: state.total,
+        pageSize: state.pageSize,
+        failedPage,
+    }
+}
+
+const sameStatus = (a: SearchStatus, b: SearchStatus) =>
+    (Object.keys(b) as (keyof SearchStatus)[]).every(
+        (key) => a[key] === b[key]
+    ) && Object.keys(a).length === Object.keys(b).length
+
 /**
  * One tree's state: which roots it shows, what is open, and the flat rows
  * derived from that and the shared store. Rows are rebuilt only when the
@@ -160,27 +183,11 @@ export const createTreeState = ({
     let stale = false
     let unsubscribeStore: (() => void) | undefined
 
+    // -- Changes and rows --
+
     const notify = () => {
         version += 1
         listeners.forEach((listener) => listener())
-    }
-
-    const searchRowsInput = (state: SearchState): SearchRowsInput => {
-        let failedPage: SearchRowsInput['failedPage']
-        state.pages.forEach((status, page) => {
-            if (status.status === 'failed') {
-                failedPage = { page, error: status.error }
-            }
-        })
-        return {
-            pruned: state.pruned,
-            resultIds: state.resultIds,
-            revealedIds: state.revealedIds,
-            loaded: state.loaded,
-            total: state.total,
-            pageSize: state.pageSize,
-            failedPage,
-        }
     }
 
     const flat = (): FlatRows => {
@@ -203,6 +210,18 @@ export const createTreeState = ({
     const invalidate = () => {
         stale = true
     }
+
+    const getRowCount = () => flat().rows.length
+
+    const getRow = (index: number) => {
+        const row = flat().rows[index]
+        if (!row) {
+            throw new Error(`Row ${index} is out of range`)
+        }
+        return row
+    }
+
+    // -- Browsing --
 
     const hasMatchingChildren = (id: string) =>
         search?.pruned.children.has(id) ?? false
@@ -275,6 +294,8 @@ export const createTreeState = ({
         invalidate()
         notify()
     }
+
+    // -- Searching --
 
     /** The given roots the store has, nested ones excluded. */
     const shownRootIds = () =>
@@ -349,6 +370,24 @@ export const createTreeState = ({
                     notify()
                 }
             )
+    }
+
+    const retryResultsPage = (page: number) => {
+        if (search?.pages.get(page)?.status !== 'failed') {
+            return
+        }
+        search.pages.delete(page)
+        requestResultsPage(page)
+    }
+
+    // Results pages are requested in order and one at a time: the page
+    // holding the first result not received yet, unless it is already
+    // requested or failed.
+    const ensureResultsLoaded = (state: SearchState) => {
+        const next = resultsPageOf(state.loaded, state.pageSize)
+        if (!state.pages.has(next)) {
+            requestResultsPage(next)
+        }
     }
 
     const clearSearch = () => {
@@ -434,11 +473,6 @@ export const createTreeState = ({
         return { status: 'loading' }
     }
 
-    const sameStatus = (a: SearchStatus, b: SearchStatus) =>
-        (Object.keys(b) as (keyof SearchStatus)[]).every(
-            (key) => a[key] === b[key]
-        ) && Object.keys(a).length === Object.keys(b).length
-
     // Keeps the last object while nothing in it changed.
     const getSearchStatus = () => {
         const next = currentSearchStatus()
@@ -448,13 +482,7 @@ export const createTreeState = ({
         return searchStatus
     }
 
-    const retryResultsPage = (page: number) => {
-        if (search?.pages.get(page)?.status !== 'failed') {
-            return
-        }
-        search.pages.delete(page)
-        requestResultsPage(page)
-    }
+    // -- Reveal and hover --
 
     const toggleRevealed = (id: string) => {
         if (!search?.pruned.placed.has(id)) {
@@ -478,25 +506,7 @@ export const createTreeState = ({
         notify()
     }
 
-    const getRowCount = () => flat().rows.length
-
-    const getRow = (index: number) => {
-        const row = flat().rows[index]
-        if (!row) {
-            throw new Error(`Row ${index} is out of range`)
-        }
-        return row
-    }
-
-    // Results pages are requested in order and one at a time: the page
-    // holding the first result not received yet, unless it is already
-    // requested or failed.
-    const ensureResultsLoaded = (state: SearchState) => {
-        const next = resultsPageOf(state.loaded, state.pageSize)
-        if (!state.pages.has(next)) {
-            requestResultsPage(next)
-        }
-    }
+    // -- Loading what scrolls into view --
 
     const ensureChildrenLoaded = (firstRow: number, lastRow: number) => {
         const { rows, indexById } = flat()
@@ -534,6 +544,8 @@ export const createTreeState = ({
             ensureResultsLoaded(search)
         }
     }
+
+    // -- Start --
 
     let initialLoaded = false
     // Creating a tree has no side effects, so React may create and discard
