@@ -282,6 +282,22 @@ describe('OuTreeNodeRow in search mode', () => {
         expect(screen.getByTestId('t-reveal')).toBeInTheDocument()
     })
 
+    it('shows the eye while the row is focused, without hover', async () => {
+        const ref = setupSearch({ id: 'ou-2', term: 'Kabwe' })
+        const row = await ready()
+        expect(screen.queryByTestId('t-reveal')).toBeNull()
+
+        act(() => {
+            ref.tree.setFocused('ou-2')
+            ref.tree.setHasFocus(true)
+        })
+        expect(screen.getByTestId('t-reveal')).toBeInTheDocument()
+
+        act(() => ref.tree.setHasFocus(false))
+        expect(screen.queryByTestId('t-reveal')).toBeNull()
+        expect(row).toHaveAttribute('aria-expanded', 'true')
+    })
+
     it('hides the eye while the node is closed', async () => {
         setupSearch({ id: 'ou-2', term: 'Kabwe' })
         const row = await ready()

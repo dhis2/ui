@@ -139,6 +139,7 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
         isRevealed,
         hasMatchingChildren,
         isHovered,
+        isFocused,
     } = useOuTreeNode(row.id)
     const { open, toggle, toggleRevealed, setHovered } = useOuTreeActions()
     const searchTerm = useOuTreeSearchTerm()
@@ -158,8 +159,9 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
     const loading = showsAllChildren && childrenStatus.status === 'loading'
     const clickable = !node.leaf && !failed
     // The eye swaps a visible list of matching children for all of them;
-    // it shows while the pointer is over the row.
-    const showsEye = pruned && hasMatchingChildren && isOpen && isHovered
+    // it shows while the pointer is over the row or the row is focused.
+    const showsEye =
+        pruned && hasMatchingChildren && isOpen && (isHovered || isFocused)
 
     return (
         <OuTreeRowShell
