@@ -47,6 +47,13 @@ interface SearchState {
     resultIds: Set<string>
     /** Results received so far. */
     loaded: number
+    /**
+     * The last result received, last in tree order too. Its row in view
+     * requests the next page, so a scroll through a revealed node's
+     * children, which may hold results not received yet, stays a page
+     * ahead: those always come after this one.
+     */
+    lastResultId: string | undefined
     pruned: PrunedTree
     /** Pruned-tree nodes showing all their children when open. */
     revealedIds: Set<string>
@@ -325,6 +332,10 @@ export const createTreeState = ({
                         state.resultIds.add(id)
                     )
                     state.loaded += response.organisationUnits.length
+                    state.lastResultId =
+                        response.organisationUnits[
+                            response.organisationUnits.length - 1
+                        ]?.id ?? state.lastResultId
                     state.pages.set(page, { status: 'loaded' })
                     invalidate()
                     notify()
@@ -369,6 +380,7 @@ export const createTreeState = ({
             pageSize: RESULTS_PAGE_SIZE,
             resultIds: new Set(),
             loaded: 0,
+            lastResultId: undefined,
             pruned: createPrunedTree(),
             revealedIds: new Set(),
             closedIds: new Set(),
@@ -487,11 +499,18 @@ export const createTreeState = ({
     }
 
     const ensureChildrenLoaded = (firstRow: number, lastRow: number) => {
-        const { rows } = flat()
+        const { rows, indexById } = flat()
         const first = Math.max(0, firstRow)
         const last = Math.min(rows.length - 1, lastRow)
         const wanted = new Set<string>()
-        let resultsWanted = false
+        const lastResultRow =
+            search?.lastResultId === undefined
+                ? undefined
+                : indexById.get(search.lastResultId)
+        let resultsWanted =
+            lastResultRow !== undefined &&
+            lastResultRow >= first &&
+            lastResultRow <= last
         for (let index = first; index <= last; index += 1) {
             const row = rows[index]
             if (row.kind === 'result-skeleton') {

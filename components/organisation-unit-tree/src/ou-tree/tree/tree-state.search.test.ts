@@ -155,9 +155,9 @@ describe('tree state in search mode', () => {
         answer(0)
         await flush()
 
-        tree.ensureChildrenLoaded(0, 5)
+        tree.ensureChildrenLoaded(0, 4)
         expect(treeRequests).toHaveLength(1)
-        tree.ensureChildrenLoaded(0, 7)
+        tree.ensureChildrenLoaded(6, 7)
         tree.ensureChildrenLoaded(6, 7)
         expect(treeRequests).toHaveLength(2)
         expect(treeRequests[1].input).toMatchObject({
@@ -175,6 +175,36 @@ describe('tree state in search mode', () => {
             'ou-17:pruned',
             'ou-18:pruned*',
         ])
+    })
+
+    it("requests the next results page when the last received result's row is in range, ahead of a scroll through a revealed list", async () => {
+        const { tree, treeRequests, nodeRequests, answer, answerChildren } =
+            manual(['ou-1'])
+        nodeRequests[0].resolve(gistEntries(['ou-1']))
+        await flush()
+        tree.search('Clinic')
+        answer(0)
+        await flush()
+        // Serenje (ou-6) lists all its children; Kafue Clinic (ou-15) and
+        // the placeholders come after them.
+        tree.toggleRevealed('ou-6')
+        answerChildren(0)
+        await flush()
+        expect(rows(tree).slice(4, 8)).toEqual([
+            'ou-6:pruned',
+            'ou-12',
+            'ou-10',
+            'ou-8:pruned*',
+        ])
+
+        tree.ensureChildrenLoaded(0, 6)
+        expect(treeRequests).toHaveLength(1)
+        tree.ensureChildrenLoaded(4, 7)
+        expect(treeRequests).toHaveLength(2)
+        expect(treeRequests[1].input).toMatchObject({
+            page: 2,
+            search: 'Clinic',
+        })
     })
 
     it('a failed later page shows result-error rows for its slots and retryResultsPage requests it again', async () => {
