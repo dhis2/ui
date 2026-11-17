@@ -159,14 +159,11 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
     // it shows while the pointer is over the row or the row is focused.
     const showsEye =
         pruned && hasMatchingChildren && isOpen && (isHovered || isFocused)
-    // A click anywhere on the row focuses it and toggles it; a click on a
-    // button inside the row was the button's.
+    // A click anywhere on the row focuses it, and toggles it unless the
+    // click was a button's inside the row.
     const onClick = (event: React.MouseEvent<HTMLDivElement>) => {
-        if ((event.target as Element).closest('button')) {
-            return
-        }
         setFocused(row.id)
-        if (clickable) {
+        if (clickable && !(event.target as Element).closest('button')) {
             toggle(row.id)
         }
     }

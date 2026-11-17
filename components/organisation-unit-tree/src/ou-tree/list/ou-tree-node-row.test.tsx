@@ -317,6 +317,7 @@ describe('OuTreeNodeRow in search mode', () => {
         await userEvent.click(screen.getByTestId('t-reveal'))
 
         expect(ref.tree.toggle).not.toHaveBeenCalled()
+        expect(ref.tree.setFocused).toHaveBeenCalledWith('ou-2')
         expect(ref.tree.isRevealed('ou-2')).toBe(true)
     })
 
