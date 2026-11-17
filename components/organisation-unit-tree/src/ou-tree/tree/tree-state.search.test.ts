@@ -99,7 +99,7 @@ const manual = (rootIds: string[], initiallyOpen: string[] = []) => {
     }
 }
 
-describe('tree state in filtered mode', () => {
+describe('tree state in search mode', () => {
     it('search resets the tree, requests page one with the scope and shows nothing until it answers', async () => {
         const { tree, treeCalls } = setup(['ou-1'], { initiallyOpen: ['ou-1'] })
         await flush()
@@ -107,7 +107,7 @@ describe('tree state in filtered mode', () => {
 
         tree.search('Clinic')
 
-        expect(tree.getMode()).toBe('filtered')
+        expect(tree.getMode()).toBe('search')
         expect(tree.getSearchTerm()).toBe('Clinic')
         expect(tree.isOpen('ou-1')).toBe(false)
         expect(rows(tree)).toEqual([])
@@ -505,7 +505,7 @@ describe('tree state in filtered mode', () => {
         tree.search('Clinic')
         await flush()
 
-        expect(tree.getMode()).toBe('filtered')
+        expect(tree.getMode()).toBe('search')
         expect(treeCalls).toEqual([])
         expect(rows(tree)).toEqual([])
     })
@@ -515,7 +515,7 @@ describe('tree state in filtered mode', () => {
         await flush()
         tree.search('Clinic')
         await flush()
-        expect(tree.getMode()).toBe('filtered')
+        expect(tree.getMode()).toBe('search')
 
         tree.search('   ')
 

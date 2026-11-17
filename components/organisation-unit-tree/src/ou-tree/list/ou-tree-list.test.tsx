@@ -169,7 +169,7 @@ describe('OuTreeList', () => {
     })
 })
 
-describe('OuTreeList in filtered mode', () => {
+describe('OuTreeList in search mode', () => {
     // The label's text nodes, skipping its style element.
     const names = () =>
         screen.queryAllByTestId('t-label').map((el) =>
@@ -191,7 +191,7 @@ describe('OuTreeList in filtered mode', () => {
         expect(screen.queryAllByTestId('t-row')).toHaveLength(0)
     })
 
-    it('shows the filtered rows while the roots are still loading', async () => {
+    it('shows the search rows while the roots are still loading', async () => {
         const gist = (() => new Promise(() => undefined)) as typeof realGist
         renderList({ rootIds: ['ou-1'], gist })
         expect(rowsOfKind('roots')).toHaveLength(1)

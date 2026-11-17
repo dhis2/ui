@@ -91,7 +91,7 @@ const setup = ({
 const ready = () => screen.findByTestId('t-row')
 
 /** Renders the node's row as the tree builds it, after a search. */
-const setupFiltered = ({
+const setupSearch = ({
     id,
     term,
     children = realChildren as ChildrenResolver,
@@ -248,10 +248,10 @@ describe('OuTreeNodeRow', () => {
     })
 })
 
-describe('OuTreeNodeRow in filtered mode', () => {
+describe('OuTreeNodeRow in search mode', () => {
     it('shows an open pruned result with its arrow, the match, the result background and, hovered, the eye', async () => {
         // Kabwe District: a result with a matching child, the health centre.
-        setupFiltered({ id: 'ou-3', term: 'Kabwe' })
+        setupSearch({ id: 'ou-3', term: 'Kabwe' })
         const row = await ready()
         expect(screen.queryByTestId('t-reveal')).toBeNull()
         await userEvent.hover(row)
@@ -272,7 +272,7 @@ describe('OuTreeNodeRow in filtered mode', () => {
     })
 
     it('shows a pruned ancestor plain and open, with the eye when hovered', async () => {
-        setupFiltered({ id: 'ou-2', term: 'Kabwe' })
+        setupSearch({ id: 'ou-2', term: 'Kabwe' })
         const row = await ready()
         await userEvent.hover(row)
 
@@ -283,7 +283,7 @@ describe('OuTreeNodeRow in filtered mode', () => {
     })
 
     it('hides the eye while the node is closed', async () => {
-        setupFiltered({ id: 'ou-2', term: 'Kabwe' })
+        setupSearch({ id: 'ou-2', term: 'Kabwe' })
         const row = await ready()
         await userEvent.hover(row)
 
@@ -298,7 +298,7 @@ describe('OuTreeNodeRow in filtered mode', () => {
 
     it('shows a result without matching children closed, with no eye, and opens it as a reveal', async () => {
         // Kabwe District is a bottom result for "District".
-        const ref = setupFiltered({ id: 'ou-3', term: 'District' })
+        const ref = setupSearch({ id: 'ou-3', term: 'District' })
         const row = await ready()
         await userEvent.hover(row)
         expect(row).toHaveAttribute('aria-expanded', 'false')
@@ -315,7 +315,7 @@ describe('OuTreeNodeRow in filtered mode', () => {
     })
 
     it('shows the toggle space and no eye on a leaf result', async () => {
-        setupFiltered({ id: 'ou-4', term: 'Kabwe' })
+        setupSearch({ id: 'ou-4', term: 'Kabwe' })
         await userEvent.hover(await ready())
 
         expect(screen.getByTestId('t-match')).toBeInTheDocument()
@@ -324,7 +324,7 @@ describe('OuTreeNodeRow in filtered mode', () => {
     })
 
     it('reveals from the eye: the loader while page one loads, then the crossed eye', async () => {
-        const ref = setupFiltered({
+        const ref = setupSearch({
             id: 'ou-1',
             term: 'Kabwe',
             children: never,
@@ -342,7 +342,7 @@ describe('OuTreeNodeRow in filtered mode', () => {
     })
 
     it('is a retry button around the label, still open with the crossed eye, when a reveal failed', async () => {
-        const ref = setupFiltered({
+        const ref = setupSearch({
             id: 'ou-1',
             term: 'Kabwe',
             children: failing,
@@ -364,7 +364,7 @@ describe('OuTreeNodeRow in filtered mode', () => {
     })
 
     it('keeps a result as it was under a revealed ancestor', async () => {
-        const ref = setupFiltered({ id: 'ou-3', term: 'Kabwe' })
+        const ref = setupSearch({ id: 'ou-3', term: 'Kabwe' })
         const row = await ready()
         await userEvent.hover(row)
         act(() => ref.tree.toggleRevealed('ou-2'))

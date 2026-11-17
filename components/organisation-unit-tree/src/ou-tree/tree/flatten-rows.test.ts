@@ -6,7 +6,7 @@ import {
 } from '../__fixtures__'
 import { createNodeStore, NodeStore } from '../node-store'
 import {
-    type FilteredView,
+    type SearchView,
     type FlatRows,
     flattenRows,
     type Row,
@@ -85,7 +85,7 @@ describe('flattenRows', () => {
                 rootNodes: [],
                 openIds: openSet(),
                 store,
-                filtered: {
+                search: {
                     pruned,
                     resultIds: new Set(),
                     revealedIds: new Set(),
@@ -327,7 +327,7 @@ describe('flattenRows row identity', () => {
     })
 })
 
-describe('flattenRows in filtered mode', () => {
+describe('flattenRows in search mode', () => {
     // Kanona Clinic (ou-8) and Chikupi Mission (ou-10) under Serenje District
     // (ou-6), which has six children in pages of two.
     const setup = async (resultIds: string[]) => {
@@ -347,7 +347,7 @@ describe('flattenRows in filtered mode', () => {
             shownRootIds: new Set(['ou-1']),
             store,
         })
-        const filtered: FilteredView = {
+        const search: SearchView = {
             pruned,
             resultIds: new Set(resultIds),
             revealedIds: new Set(),
@@ -356,7 +356,7 @@ describe('flattenRows in filtered mode', () => {
             pageSize: 2,
         }
         const rows = (
-            view: Partial<FilteredView>,
+            view: Partial<SearchView>,
             previous?: FlatRows,
             open = ['ou-1', 'ou-2', 'ou-6']
         ) =>
@@ -365,9 +365,9 @@ describe('flattenRows in filtered mode', () => {
                 openIds: openSet(...open),
                 store,
                 previous,
-                filtered: { ...filtered, ...view },
+                search: { ...search, ...view },
             })
-        return { store, rows, filtered }
+        return { store, rows, search }
     }
 
     it('walks the pruned tree under open nodes, marking results, with no full children', async () => {

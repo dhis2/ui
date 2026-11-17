@@ -8,7 +8,7 @@ export interface OuTreeNodeHandle {
     childrenStatus: ChildrenStatus
     /** A direct search result; false in browse mode. */
     isResult: boolean
-    /** Showing all its children, not only the matching ones, when open in filtered mode. */
+    /** Showing all its children, not only the matching ones, when open in search mode. */
     isRevealed: boolean
     /** Has children on the way to a result; false in browse mode. */
     hasMatchingChildren: boolean

@@ -1,6 +1,6 @@
 import type { NodeStore } from '../node-store'
 
-/** The filtered tree: results under their ancestors, as ordered child lists. */
+/** The pruned tree: results under their ancestors, as ordered child lists. */
 export interface PrunedTree {
     roots: string[]
     children: Map<string, string[]>

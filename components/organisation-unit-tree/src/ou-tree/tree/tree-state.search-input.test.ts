@@ -58,7 +58,7 @@ describe('tree state search input', () => {
         const { tree } = setup()
         tree.search('Clinic')
         await tick(0)
-        expect(tree.getMode()).toBe('filtered')
+        expect(tree.getMode()).toBe('search')
 
         tree.setSearchInput('c')
         expect(tree.getSearchStatus()).toEqual({

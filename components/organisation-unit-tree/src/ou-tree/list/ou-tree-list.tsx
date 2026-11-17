@@ -37,13 +37,15 @@ const ListContent = ({
         scrollRef,
     })
 
-    const filtered = mode === 'filtered'
+    const searching = mode === 'search'
     const noResults =
-        filtered && searchStatus.status === 'loaded' && searchStatus.total === 0
+        searching &&
+        searchStatus.status === 'loaded' &&
+        searchStatus.total === 0
     if (noResults) {
         return <OuTreeNoResults dataTest={`${dataTest}-no-results`} />
     }
-    if (!filtered && rootsStatus.status !== 'loaded') {
+    if (!searching && rootsStatus.status !== 'loaded') {
         return (
             <OuTreeRootsRows
                 rootIds={rootIds}
@@ -74,7 +76,7 @@ const ListContent = ({
 
 /**
  * The scrolling, virtualised list of the tree's rows. Fills its box, so the
- * box needs a height. Must be inside an OuTreeProvider. In filtered mode it
+ * box needs a height. Must be inside an OuTreeProvider. In search mode it
  * shows the rows whatever the roots' status, or the no-results line.
  */
 export const OuTreeList = ({

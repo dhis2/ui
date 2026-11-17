@@ -9,7 +9,7 @@ import {
 import { createMatchSplitter, type MatchSplitter } from '../search'
 import { excludeNestedRoots } from './exclude-nested-roots'
 import {
-    type FilteredView,
+    type SearchView,
     type FlatRows,
     flattenRows,
     type Row,
@@ -28,7 +28,7 @@ export interface TreeStateOptions {
     initiallyOpen?: string[]
 }
 
-export type TreeMode = 'browse' | 'filtered'
+export type TreeMode = 'browse' | 'search'
 
 type ResultsPageStatus =
     | { status: 'loading' }
@@ -73,7 +73,7 @@ export interface TreeState extends Subscribable {
     isOpen(id: string): boolean
     /**
      * Shows a node's children, requesting its first page if it will show
-     * them all. In filtered mode a pruned-tree node shows its matching
+     * them all. In search mode a pruned-tree node shows its matching
      * children, or, revealed or without any, all of them; opening a node
      * without matching children reveals it.
      */
@@ -112,7 +112,7 @@ export interface TreeState extends Subscribable {
     /**
      * Number of rows for the current open set and store contents. Exact in
      * browse mode, where a parent's count arrives with its first page and
-     * every slot is a row. In filtered mode it grows as pages bring
+     * every slot is a row. In search mode it grows as pages bring
      * ancestors, since only results are counted ahead.
      */
     getRowCount(): number
@@ -158,8 +158,8 @@ export const createTreeState = ({
         listeners.forEach((listener) => listener())
     }
 
-    const filteredView = (state: SearchState): FilteredView => {
-        let failedPage: FilteredView['failedPage']
+    const searchView = (state: SearchState): SearchView => {
+        let failedPage: SearchView['failedPage']
         state.pages.forEach((status, page) => {
             if (status.status === 'failed') {
                 failedPage = { page, error: status.error }
@@ -186,7 +186,7 @@ export const createTreeState = ({
                     openIds,
                     store,
                     previous: memo?.flat,
-                    filtered: search && filteredView(search),
+                    search: search && searchView(search),
                 }),
             }
             stale = false
@@ -539,7 +539,7 @@ export const createTreeState = ({
         open,
         close,
         toggle: (id) => (isOpen(id) ? close(id) : open(id)),
-        getMode: () => (search ? 'filtered' : 'browse'),
+        getMode: () => (search ? 'search' : 'browse'),
         getSearchTerm: () => search?.term,
         getMatchSplitter: () => search?.splitter,
         getSearchInput: () => searchInput,

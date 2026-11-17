@@ -64,7 +64,7 @@ describe('useOuTreeSearch', () => {
         act(() => jest.advanceTimersByTime(SEARCH_DEBOUNCE_MS))
         expect(result.current.search.status).toEqual({ status: 'loading' })
         expect(result.current.term).toBe('cli')
-        expect(result.current.tree.mode).toBe('filtered')
+        expect(result.current.tree.mode).toBe('search')
         await waitFor(() =>
             expect(result.current.search.status).toEqual({
                 status: 'loaded',

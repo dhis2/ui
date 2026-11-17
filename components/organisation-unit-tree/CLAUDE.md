@@ -5,7 +5,7 @@ This package holds two components side by side:
 - `OrganisationUnitTree` — the current component, in **JavaScript**
   (`src/organisation-unit-tree/`, `src/organisation-unit-node/` and friends).
 - `OuTree` — its replacement, in **TypeScript** (`src/ou-tree/`). It renders
-  browse mode and filtered mode (search) as a virtualised list that looks
+  browse mode and search mode as a virtualised list that looks
   like `OrganisationUnitTree`.
   `src/ou-tree/data/` is the endpoint types and the tree API (the tree
   endpoint, its `<id>/children` resource and gist), `src/ou-tree/node-store/`
@@ -81,7 +81,7 @@ in other packages.
   excluded from Prettier. Regenerate rather than hand-edit.
 - **Paging names say which kind they mean.** Browse mode pages a parent's
   children (`requestChildrenPage`, `CHILDREN_PAGE_SIZE`, the
-  `children-skeleton` and `children-error` rows); filtered mode pages
+  `children-skeleton` and `children-error` rows); search mode pages
   results (`requestResultsPage`, `retryResultsPage`, `RESULTS_PAGE_SIZE`,
   the `result-skeleton` and `result-error` rows). Nothing is called just
   "page".
@@ -95,7 +95,7 @@ in other packages.
   and debounces by `SEARCH_DEBOUNCE_MS` (`tree/search-constants.ts`);
   `search` skips both.
 - **The tree browses the same in both modes.** One open set serves both.
-  In filtered mode a node with matching children (`hasMatchingChildren`,
+  In search mode a node with matching children (`hasMatchingChildren`,
   children on the way to a result) opens when the page that places it
   arrives, unless the user closed it, and shows its matching children; a
   result without any opens to all of its children, which marks it revealed
@@ -201,7 +201,7 @@ in other packages.
 
 ## Status
 
-`OuTree` renders browse mode and filtered mode and is reachable through its
+`OuTree` renders browse mode and search mode and is reachable through its
 stories. It is
 deliberately **not exported**, neither from this package's `src/index.js` nor
 from `@dhis2/ui`, because this package is published. Exporting it is a separate, deliberate change:

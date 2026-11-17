@@ -59,8 +59,8 @@ export type Row =
           depth: number
       }
 
-/** The filtered mode's view of the tree. */
-export interface FilteredView {
+/** The search mode's view of the tree. */
+export interface SearchView {
     pruned: PrunedTree
     resultIds: ReadonlySet<string>
     /** Pruned-tree nodes listing all their children when open. */
@@ -79,8 +79,8 @@ export interface FlattenRowsInput {
     store: NodeStore
     /** The previous result; rows that did not change are reused. */
     previous?: FlatRows
-    /** Present in filtered mode: the pruned tree's nodes keep their view wherever they are listed. */
-    filtered?: FilteredView
+    /** Present in search mode: the pruned tree's nodes keep their view wherever they are listed. */
+    search?: SearchView
 }
 
 export interface FlatRows {
@@ -126,7 +126,7 @@ const rendersTheSame = (a: Row, b: Row): boolean => {
  * the store has. Under an open node, each filled slot is a node row and
  * each empty slot a skeleton row, or an error row if its page failed.
  *
- * Filtered mode walks the pruned tree the same way, from its roots into
+ * Search mode walks the pruned tree the same way, from its roots into
  * the open nodes. A node without matching children, or a revealed node
  * whose first page is loaded, lists all its children as slots instead; a
  * pruned-tree node among those keeps its pruned view. After the rows come
@@ -137,7 +137,7 @@ export const flattenRows = ({
     openIds,
     store,
     previous,
-    filtered,
+    search,
 }: FlattenRowsInput): FlatRows => {
     const rows: Row[] = []
     const indexById = new Map<string, number>()
@@ -166,7 +166,7 @@ export const flattenRows = ({
             depth,
             children,
             view,
-            result: filtered?.resultIds.has(node.id) ?? false,
+            result: search?.resultIds.has(node.id) ?? false,
         })
         return children
     }
@@ -227,30 +227,30 @@ export const flattenRows = ({
         }
     }
 
-    const walkPruned = (view: FilteredView, id: string, depth: number) => {
+    const walkPruned = (search: SearchView, id: string, depth: number) => {
         const node = nodeOf(id)
         const children = pushNode(node, depth, 'pruned')
         if (!openIds.has(id)) {
             return
         }
-        const matchingChildren = view.pruned.children.get(id)
+        const matchingChildren = search.pruned.children.get(id)
         // A revealed node keeps its matching children until the complete
         // list can replace them.
         const listsAllChildren =
-            view.revealedIds.has(id) && children.status === 'loaded'
+            search.revealedIds.has(id) && children.status === 'loaded'
         if (!matchingChildren || listsAllChildren) {
             pushChildSlots(node, depth, children)
             return
         }
         for (const childId of matchingChildren) {
-            walkPruned(view, childId, depth + 1)
+            walkPruned(search, childId, depth + 1)
         }
     }
 
     // A pruned-tree node keeps its pruned view wherever it is listed.
     const walkChild = (id: string, depth: number) => {
-        if (filtered && filtered.pruned.placed.has(id)) {
-            walkPruned(filtered, id, depth)
+        if (search && search.pruned.placed.has(id)) {
+            walkPruned(search, id, depth)
         } else {
             walkFull(id, depth)
         }
@@ -262,7 +262,7 @@ export const flattenRows = ({
         total,
         pageSize,
         failedPage,
-    }: FilteredView) => {
+    }: SearchView) => {
         const depth = rows.length > 0 ? rows[rows.length - 1].depth : 0
         if (total === undefined) {
             // Page one has not answered, so the total is unknown; its retry
@@ -294,11 +294,11 @@ export const flattenRows = ({
         }
     }
 
-    if (filtered) {
-        for (const rootId of filtered.pruned.roots) {
-            walkPruned(filtered, rootId, 0)
+    if (search) {
+        for (const rootId of search.pruned.roots) {
+            walkPruned(search, rootId, 0)
         }
-        pushResultPlaceholders(filtered)
+        pushResultPlaceholders(search)
     } else {
         for (const root of rootNodes) {
             walkFull(root.id, 0)
