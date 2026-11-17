@@ -79,7 +79,11 @@ export interface FlattenRowsInput {
     store: NodeStore
     /** The previous result; rows that did not change are reused. */
     previous?: FlatRows
-    /** Present in search mode: the pruned tree's nodes keep their view wherever they are listed. */
+    /**
+     * Present in search mode. A node of the pruned tree is listed as a
+     * pruned row wherever it appears, also among all the children of a
+     * revealed ancestor, so opening it shows its matching children.
+     */
     search?: SearchView
 }
 
