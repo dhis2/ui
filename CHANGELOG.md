@@ -1,3 +1,10 @@
+# [10.21.0](https://github.com/dhis2/ui/compare/v10.20.0...v10.21.0) (2026-11-17)
+
+
+### Features
+
+* **notice-box:** enhance accessibility ([#1767](https://github.com/dhis2/ui/issues/1767)) ([4fe5133](https://github.com/dhis2/ui/commit/4fe51335c60ca8a941ea3e23d6479e4ca56633fa))
+
 # [10.20.0](https://github.com/dhis2/ui/compare/v10.19.4...v10.20.0) (2026-10-22)
 
 
