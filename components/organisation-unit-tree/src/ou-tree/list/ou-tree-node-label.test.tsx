@@ -31,4 +31,18 @@ describe('OuTreeNodeLabel', () => {
         )
         expect(screen.getByTestId('t')).toHaveClass('clickable')
     })
+
+    it('has the result class only for a result', () => {
+        const { rerender } = render(
+            <OuTreeNodeLabel dataTest="t">x</OuTreeNodeLabel>
+        )
+        expect(screen.getByTestId('t')).not.toHaveClass('result')
+
+        rerender(
+            <OuTreeNodeLabel result dataTest="t">
+                x
+            </OuTreeNodeLabel>
+        )
+        expect(screen.getByTestId('t')).toHaveClass('result')
+    })
 })

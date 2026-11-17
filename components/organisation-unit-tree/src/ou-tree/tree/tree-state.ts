@@ -1,18 +1,72 @@
 import {
     childrenPageOf,
     type NodeStore,
+    RESULTS_PAGE_SIZE,
     type RootsStatus,
     type StoredNode,
     type Subscribable,
-} from '../node-store/index'
+} from '../node-store'
+import { createMatchSplitter, type MatchSplitter } from '../search'
 import { excludeNestedRoots } from './exclude-nested-roots'
-import { FlatRows, flattenRows, Row } from './flatten-rows'
+import {
+    type SearchRowsInput,
+    type FlatRows,
+    flattenRows,
+    type Row,
+} from './flatten-rows'
+import {
+    addResults,
+    createPrunedTree,
+    type PrunedTree,
+    resultsPageOf,
+} from './pruned-tree'
+import { SEARCH_DEBOUNCE_MS, SEARCH_MIN_LENGTH } from './search-constants'
 
 export interface TreeStateOptions {
     store: NodeStore
     rootIds: string[]
     initiallyOpen?: string[]
 }
+
+export type TreeMode = 'browse' | 'search'
+
+type ResultsPageStatus =
+    | { status: 'loading' }
+    | { status: 'loaded' }
+    | { status: 'failed'; error: unknown }
+
+/** A search in progress or shown; replaced whole by the next search. */
+interface SearchState {
+    term: string
+    /** Highlights labels for `term`; built once per search. */
+    splitter: MatchSplitter
+    pages: Map<number, ResultsPageStatus>
+    /** From page one's pager; undefined until it answered. */
+    total: number | undefined
+    pageSize: number
+    resultIds: Set<string>
+    /** Results received so far. */
+    loaded: number
+    /**
+     * The last result received, last in tree order too. Its row in view
+     * requests the next page, so a scroll through a revealed node's
+     * children, which may hold results not received yet, stays a page
+     * ahead: those always come after this one.
+     */
+    lastResultId: string | undefined
+    pruned: PrunedTree
+    /** Pruned-tree nodes showing all their children when open. */
+    revealedIds: Set<string>
+    /** Pruned-tree nodes the user closed; a later page does not reopen them. */
+    closedIds: Set<string>
+}
+
+export type SearchStatus =
+    | { status: 'idle' }
+    | { status: 'too-short'; minLength: number }
+    | { status: 'loading' }
+    | { status: 'loaded'; total: number; loaded: number }
+    | { status: 'failed'; error: unknown }
 
 export interface TreeState extends Subscribable {
     readonly store: NodeStore
@@ -22,17 +76,51 @@ export interface TreeState extends Subscribable {
     readonly rootNodes: StoredNode[]
     /** Loading state of the root entries themselves. */
     getRootsStatus(): RootsStatus
-    /** Whether a node shows its children. False while its first page fails. */
+    /** Whether a node shows its children. False while its first page fails, unless it has matching children to show. */
     isOpen(id: string): boolean
-    /** Shows a node's children, requesting its first page if needed. */
+    /**
+     * Shows a node's children, requesting its first page if it will show
+     * them all. In search mode a pruned-tree node shows its matching
+     * children, or, revealed or without any, all of them; opening a node
+     * without matching children reveals it.
+     */
     open(id: string): void
     close(id: string): void
     toggle(id: string): void
+    getMode(): TreeMode
+    /** The effective term, or undefined in browse mode. */
+    getSearchTerm(): string | undefined
+    /** Cuts a label into plain and matched segments for the effective term; undefined in browse mode. */
+    getMatchSplitter(): MatchSplitter | undefined
+    /** The input value as typed. */
+    getSearchInput(): string
+    /** Trims, length-gates and debounces `search`; blank or too short clears any search at once. */
+    setSearchInput(value: string): void
+    /** Stable between changes, so it can be a useSyncExternalStore snapshot. */
+    getSearchStatus(): SearchStatus
+    /** Runs a search now, resetting the tree; a term equal to the current one is a no-op. */
+    search(term: string): void
+    /** Back to browse mode, as on mount. */
+    clearSearch(): void
+    retryResultsPage(page: number): void
+    isResult(id: string): boolean
+    isRevealed(id: string): boolean
+    /** Whether the pointer is over the node's row. */
+    isHovered(id: string): boolean
+    /** Marks the row the pointer is over, or none. */
+    setHovered(id: string | undefined): void
+    /** Whether a pruned-tree node has children on the way to a result. */
+    hasMatchingChildren(id: string): boolean
+    /**
+     * Toggles between a pruned-tree node's matching children and all of
+     * them; revealing opens the node and requests its first page.
+     */
+    toggleRevealed(id: string): void
     /**
      * Number of rows for the current open set and store contents. Exact in
      * browse mode, where a parent's count arrives with its first page and
-     * every slot is a row. Filtered mode, later, will make it an estimate
-     * that settles as pages with ancestors arrive.
+     * every slot is a row. In search mode it grows as pages bring
+     * ancestors, since only results are counted ahead.
      */
     getRowCount(): number
     /** The row at an index, in flat order. */
@@ -45,6 +133,29 @@ export interface TreeState extends Subscribable {
     loadInitial(): void
     retryRoots(): void
 }
+
+const searchRowsInput = (state: SearchState): SearchRowsInput => {
+    let failedPage: SearchRowsInput['failedPage']
+    state.pages.forEach((status, page) => {
+        if (status.status === 'failed') {
+            failedPage = { page, error: status.error }
+        }
+    })
+    return {
+        pruned: state.pruned,
+        resultIds: state.resultIds,
+        revealedIds: state.revealedIds,
+        loaded: state.loaded,
+        total: state.total,
+        pageSize: state.pageSize,
+        failedPage,
+    }
+}
+
+const sameStatus = (a: SearchStatus, b: SearchStatus) =>
+    (Object.keys(b) as (keyof SearchStatus)[]).every(
+        (key) => a[key] === b[key]
+    ) && Object.keys(a).length === Object.keys(b).length
 
 /**
  * One tree's state: which roots it shows, what is open, and the flat rows
@@ -59,6 +170,11 @@ export const createTreeState = ({
     const listeners = new Set<() => void>()
     const openIds = new Set(initiallyOpen)
     let rootNodes: StoredNode[] = []
+    let search: SearchState | undefined
+    let searchInput = ''
+    let hoveredId: string | undefined
+    let debounce: ReturnType<typeof setTimeout> | undefined
+    let searchStatus: SearchStatus = { status: 'idle' }
     let rootsStatus: RootsStatus = { status: 'loading' }
     let version = 0
     let memo: { version: number; flat: FlatRows } | undefined
@@ -66,6 +182,8 @@ export const createTreeState = ({
     // reusing its rows where nothing changed.
     let stale = false
     let unsubscribeStore: (() => void) | undefined
+
+    // -- Changes and rows --
 
     const notify = () => {
         version += 1
@@ -82,6 +200,7 @@ export const createTreeState = ({
                     openIds,
                     store,
                     previous: memo?.flat,
+                    search: search && searchRowsInput(search),
                 }),
             }
             stale = false
@@ -92,10 +211,35 @@ export const createTreeState = ({
         stale = true
     }
 
+    const getRowCount = () => flat().rows.length
+
+    const getRow = (index: number) => {
+        const row = flat().rows[index]
+        if (!row) {
+            throw new Error(`Row ${index} is out of range`)
+        }
+        return row
+    }
+
+    // -- Browsing --
+
+    const hasMatchingChildren = (id: string) =>
+        search?.pruned.children.has(id) ?? false
+
+    // Whether an open node lists all its children from the store, as
+    // opposed to its matching ones from the pruned tree.
+    const showsAllChildren = (id: string) =>
+        !search ||
+        !search.pruned.placed.has(id) ||
+        search.revealedIds.has(id) ||
+        !hasMatchingChildren(id)
+
     // A node whose first page failed did not open: it is shown closed with
-    // the failure, and opening it again requests the page again.
+    // the failure, and opening it again requests the page again. One with
+    // matching children keeps listing them, so it stays open.
     const isOpen = (id: string) =>
-        openIds.has(id) && store.getChildren(id).status !== 'failed'
+        openIds.has(id) &&
+        (hasMatchingChildren(id) || store.getChildren(id).status !== 'failed')
 
     const requestFirstPage = (id: string) => {
         if (store.getNode(id)?.leaf) {
@@ -133,35 +277,255 @@ export const createTreeState = ({
 
     const open = (id: string) => {
         openIds.add(id)
+        if (search?.pruned.placed.has(id) && !hasMatchingChildren(id)) {
+            search.revealedIds.add(id)
+        }
+        search?.closedIds.delete(id)
         invalidate()
-        requestFirstPage(id)
+        if (showsAllChildren(id)) {
+            requestFirstPage(id)
+        }
         notify()
     }
 
     const close = (id: string) => {
         openIds.delete(id)
+        search?.closedIds.add(id)
         invalidate()
         notify()
     }
 
-    const getRowCount = () => flat().rows.length
+    // -- Searching --
 
-    const getRow = (index: number) => {
-        const row = flat().rows[index]
-        if (!row) {
-            throw new Error(`Row ${index} is out of range`)
+    /** The given roots the store has, nested ones excluded. */
+    const shownRootIds = () =>
+        new Set(
+            excludeNestedRoots(
+                rootIds.flatMap((id) => store.getNode(id) ?? [])
+            ).map((node) => node.id)
+        )
+
+    const requestResultsPage = (page: number) => {
+        const state = search
+        if (!state || state.pages.has(page)) {
+            return
         }
-        return row
+        state.pages.set(page, { status: 'loading' })
+        invalidate()
+        notify()
+        store
+            .fetchResultsPage({
+                search: state.term,
+                rootIds,
+                page,
+                pageSize: RESULTS_PAGE_SIZE,
+            })
+            .then(
+                (response) => {
+                    // Answers for an earlier search, or after a clear, are dropped.
+                    if (search !== state) {
+                        return
+                    }
+                    if (page === 1) {
+                        state.total = response.pager.total
+                        state.pageSize = response.pager.pageSize
+                    }
+                    const ancestorsBefore = new Set(
+                        state.pruned.children.keys()
+                    )
+                    addResults({
+                        pruned: state.pruned,
+                        results: response.organisationUnits,
+                        shownRootIds: shownRootIds(),
+                        store,
+                    })
+                    // A node with its first matching child opens, unless
+                    // the user closed it.
+                    state.pruned.children.forEach((_, id) => {
+                        if (
+                            !ancestorsBefore.has(id) &&
+                            !state.closedIds.has(id)
+                        ) {
+                            openIds.add(id)
+                        }
+                    })
+                    response.organisationUnits.forEach(({ id }) =>
+                        state.resultIds.add(id)
+                    )
+                    state.loaded += response.organisationUnits.length
+                    state.lastResultId =
+                        response.organisationUnits[
+                            response.organisationUnits.length - 1
+                        ]?.id ?? state.lastResultId
+                    state.pages.set(page, { status: 'loaded' })
+                    invalidate()
+                    notify()
+                },
+                (error: unknown) => {
+                    if (search !== state) {
+                        return
+                    }
+                    state.pages.set(page, { status: 'failed', error })
+                    invalidate()
+                    notify()
+                }
+            )
     }
 
+    const retryResultsPage = (page: number) => {
+        if (search?.pages.get(page)?.status !== 'failed') {
+            return
+        }
+        search.pages.delete(page)
+        requestResultsPage(page)
+    }
+
+    // Results pages are requested in order and one at a time: the page
+    // holding the first result not received yet, unless it is already
+    // requested or failed.
+    const ensureResultsLoaded = (state: SearchState) => {
+        const next = resultsPageOf(state.loaded, state.pageSize)
+        if (!state.pages.has(next)) {
+            requestResultsPage(next)
+        }
+    }
+
+    const clearSearch = () => {
+        if (!search) {
+            return
+        }
+        search = undefined
+        openIds.clear()
+        initiallyOpen.forEach((id) => openIds.add(id))
+        initiallyOpen.forEach(requestFirstPage)
+        invalidate()
+        notify()
+    }
+
+    const searchFor = (term: string) => {
+        if (term.trim() === '') {
+            // A blank term would match everything; it means no search.
+            clearSearch()
+            return
+        }
+        if (search?.term === term) {
+            return
+        }
+        search = {
+            term,
+            splitter: createMatchSplitter(term),
+            pages: new Map(),
+            total: undefined,
+            pageSize: RESULTS_PAGE_SIZE,
+            resultIds: new Set(),
+            loaded: 0,
+            lastResultId: undefined,
+            pruned: createPrunedTree(),
+            revealedIds: new Set(),
+            closedIds: new Set(),
+        }
+        openIds.clear()
+        invalidate()
+        if (rootIds.length === 0) {
+            // An empty tree has nothing to search: loaded, with no results.
+            search.total = 0
+            search.pages.set(1, { status: 'loaded' })
+            notify()
+            return
+        }
+        requestResultsPage(1)
+    }
+
+    const setSearchInput = (value: string) => {
+        searchInput = value
+        clearTimeout(debounce)
+        debounce = undefined
+        const term = value.trim()
+        if (term.length < SEARCH_MIN_LENGTH) {
+            clearSearch()
+        } else {
+            debounce = setTimeout(() => {
+                debounce = undefined
+                searchFor(term)
+            }, SEARCH_DEBOUNCE_MS)
+        }
+        notify()
+    }
+
+    const currentSearchStatus = (): SearchStatus => {
+        if (!search) {
+            const term = searchInput.trim()
+            return term !== '' && term.length < SEARCH_MIN_LENGTH
+                ? { status: 'too-short', minLength: SEARCH_MIN_LENGTH }
+                : { status: 'idle' }
+        }
+        const pageOne = search.pages.get(1)
+        if (pageOne?.status === 'failed') {
+            return { status: 'failed', error: pageOne.error }
+        }
+        if (pageOne?.status === 'loaded' && search.total !== undefined) {
+            return {
+                status: 'loaded',
+                total: search.total,
+                loaded: search.loaded,
+            }
+        }
+        return { status: 'loading' }
+    }
+
+    // Keeps the last object while nothing in it changed.
+    const getSearchStatus = () => {
+        const next = currentSearchStatus()
+        if (!sameStatus(searchStatus, next)) {
+            searchStatus = next
+        }
+        return searchStatus
+    }
+
+    // -- Reveal and hover --
+
+    const toggleRevealed = (id: string) => {
+        if (!search?.pruned.placed.has(id)) {
+            return
+        }
+        if (search.revealedIds.has(id)) {
+            search.revealedIds.delete(id)
+            invalidate()
+            notify()
+        } else {
+            search.revealedIds.add(id)
+            open(id)
+        }
+    }
+
+    const setHovered = (id: string | undefined) => {
+        if (id === hoveredId) {
+            return
+        }
+        hoveredId = id
+        notify()
+    }
+
+    // -- Loading what scrolls into view --
+
     const ensureChildrenLoaded = (firstRow: number, lastRow: number) => {
-        const { rows } = flat()
+        const { rows, indexById } = flat()
         const first = Math.max(0, firstRow)
         const last = Math.min(rows.length - 1, lastRow)
         const wanted = new Set<string>()
+        const lastResultRow =
+            search?.lastResultId === undefined
+                ? undefined
+                : indexById.get(search.lastResultId)
+        let resultsWanted =
+            lastResultRow !== undefined &&
+            lastResultRow >= first &&
+            lastResultRow <= last
         for (let index = first; index <= last; index += 1) {
             const row = rows[index]
-            if (row.kind === 'skeleton') {
+            if (row.kind === 'result-skeleton') {
+                resultsWanted = true
+            } else if (row.kind === 'children-skeleton') {
                 const parent = store.getChildren(row.parentId)
                 if (parent.status === 'loaded') {
                     const page = childrenPageOf(
@@ -176,7 +540,12 @@ export const createTreeState = ({
             const [parentId, page] = key.split('\u0000')
             store.requestChildrenPage(parentId, Number(page))
         }
+        if (resultsWanted && search) {
+            ensureResultsLoaded(search)
+        }
     }
+
+    // -- Start --
 
     let initialLoaded = false
     // Creating a tree has no side effects, so React may create and discard
@@ -201,6 +570,21 @@ export const createTreeState = ({
         open,
         close,
         toggle: (id) => (isOpen(id) ? close(id) : open(id)),
+        getMode: () => (search ? 'search' : 'browse'),
+        getSearchTerm: () => search?.term,
+        getMatchSplitter: () => search?.splitter,
+        getSearchInput: () => searchInput,
+        setSearchInput,
+        getSearchStatus,
+        search: searchFor,
+        clearSearch,
+        retryResultsPage,
+        isResult: (id) => search?.resultIds.has(id) ?? false,
+        isRevealed: (id) => search?.revealedIds.has(id) ?? false,
+        isHovered: (id) => id === hoveredId,
+        setHovered,
+        hasMatchingChildren,
+        toggleRevealed,
         getRowCount,
         getRow,
         getRowIndex: (id) => flat().indexById.get(id),

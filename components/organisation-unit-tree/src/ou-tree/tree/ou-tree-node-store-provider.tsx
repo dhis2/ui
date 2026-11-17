@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useMemo, useRef } from 'react'
-import { useTreeApi } from '../data/index'
-import { createNodeStore, NodeStore } from '../node-store/index'
+import { useTreeApi } from '../data'
+import { createNodeStore, NodeStore } from '../node-store'
 
 /** The app's stores, one per `shortName` value, created on first use. */
 interface NodeStoreRegistry {

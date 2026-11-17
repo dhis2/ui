@@ -1,4 +1,4 @@
-import type { StoredNode } from '../node-store/index'
+import type { StoredNode } from '../node-store'
 
 /**
  * Drops any root that descends from another root, so no unit appears in the

@@ -1,10 +1,13 @@
 import React, { memo } from 'react'
-import type { Row } from '../tree/index'
+import type { Row } from '../tree'
 import { OuTreeRowShell } from './ou-tree-row-shell'
 import { OuTreeSkeleton } from './ou-tree-skeleton'
 import { OuTreeToggle } from './ou-tree-toggle'
 
-export type SkeletonRow = Extract<Row, { kind: 'skeleton' }>
+export type SkeletonRow = Extract<
+    Row,
+    { kind: 'children-skeleton' | 'result-skeleton' }
+>
 
 export interface OuTreeSkeletonRowProps {
     row: SkeletonRow
@@ -18,7 +21,7 @@ export const OuTreeSkeletonRow = memo(function OuTreeSkeletonRow({
     return (
         <OuTreeRowShell
             depth={row.depth}
-            rowKind="skeleton"
+            rowKind={row.kind}
             dataTest={`${dataTest}-row`}
         >
             <OuTreeToggle leaf dataTest={`${dataTest}-toggle-space`} />

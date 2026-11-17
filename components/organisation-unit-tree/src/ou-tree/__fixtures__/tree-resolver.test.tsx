@@ -1,7 +1,7 @@
 import { CustomDataProvider, useDataQuery } from '@dhis2/app-runtime'
 import { renderHook, waitFor } from '@testing-library/react'
 import React from 'react'
-import { type OuTreeResponse, TREE_RESOURCE } from '../data/index'
+import { type OuTreeResponse, TREE_RESOURCE } from '../data'
 import { createTreeResolver, parseQueryParams } from './tree-resolver'
 import { zambiaOrgUnits } from './zambia-org-units'
 

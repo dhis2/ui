@@ -9,6 +9,11 @@ export type OuTreeActions = Pick<
     | 'toggle'
     | 'ensureChildrenLoaded'
     | 'retryRoots'
+    | 'toggleRevealed'
+    | 'retryResultsPage'
+    | 'search'
+    | 'clearSearch'
+    | 'setHovered'
     | 'store'
 >
 
@@ -26,6 +31,11 @@ export const useOuTreeActions = (): OuTreeActions => {
             toggle: tree.toggle,
             ensureChildrenLoaded: tree.ensureChildrenLoaded,
             retryRoots: tree.retryRoots,
+            toggleRevealed: tree.toggleRevealed,
+            retryResultsPage: tree.retryResultsPage,
+            search: tree.search,
+            clearSearch: tree.clearSearch,
+            setHovered: tree.setHovered,
             store: tree.store,
         }),
         [tree]

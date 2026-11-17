@@ -7,13 +7,14 @@ import {
     createGistResolver,
     createTreeResolver,
     zambiaOrgUnits,
-} from '../__fixtures__/index'
-import { GIST_RESOURCE, TREE_RESOURCE } from '../data/index'
+} from '../__fixtures__'
+import { GIST_RESOURCE, TREE_RESOURCE } from '../data'
 import {
     OuTreeNodeStoreProvider,
     OuTreeProvider,
+    useOuTree,
     useOuTreeNode,
-} from '../tree/index'
+} from '../tree'
 import { useTreeState } from '../tree/ou-tree-provider'
 import type { TreeState } from '../tree/tree-state'
 import { OuTreeNodeRow, type RenderLabel } from './ou-tree-node-row'
@@ -47,6 +48,7 @@ const setup = ({
         if (!ref.tree) {
             ref.tree = tree
             jest.spyOn(tree, 'toggle')
+            jest.spyOn(tree, 'open')
             jest.spyOn(tree.store, 'retryChildrenPage')
         }
         // A row exists only once its node is stored, as in the list.
@@ -56,7 +58,14 @@ const setup = ({
         }
         return (
             <OuTreeNodeRow
-                row={{ kind: 'node', id, depth: 0, children: status }}
+                row={{
+                    kind: 'node',
+                    id,
+                    depth: 0,
+                    children: status,
+                    view: 'full',
+                    result: false,
+                }}
                 renderLabel={renderLabel}
                 dataTest="t"
             />
@@ -80,6 +89,51 @@ const setup = ({
 }
 
 const ready = () => screen.findByTestId('t-row')
+
+/** Renders the node's row as the tree builds it, after a search. */
+const setupSearch = ({
+    id,
+    term,
+    children = realChildren as ChildrenResolver,
+}: {
+    id: string
+    term: string
+    children?: ChildrenResolver
+}) => {
+    const ref: { tree?: TreeState } = {}
+    const Probe = () => {
+        const tree = useTreeState()
+        if (!ref.tree) {
+            ref.tree = tree
+            jest.spyOn(tree, 'toggle')
+            jest.spyOn(tree, 'open')
+            jest.spyOn(tree.store, 'retryChildrenPage')
+        }
+        const { getRow, getRowIndex } = useOuTree()
+        const index = getRowIndex(id)
+        const row = index === undefined ? undefined : getRow(index)
+        if (row?.kind !== 'node') {
+            return null
+        }
+        return <OuTreeNodeRow row={row} dataTest="t" />
+    }
+    render(
+        <CustomDataProvider
+            data={{
+                [TREE_RESOURCE]: children,
+                [GIST_RESOURCE]: gist,
+            }}
+        >
+            <OuTreeNodeStoreProvider>
+                <OuTreeProvider rootIds={['ou-1']}>
+                    <Probe />
+                </OuTreeProvider>
+            </OuTreeNodeStoreProvider>
+        </CustomDataProvider>
+    )
+    act(() => ref.tree?.search(term))
+    return ref as { tree: TreeState }
+}
 
 describe('OuTreeNodeRow', () => {
     it('renders the name, a toggle for a parent and aria-expanded', async () => {
@@ -167,7 +221,7 @@ describe('OuTreeNodeRow', () => {
 
         await userEvent.click(screen.getByTestId('t-retry'))
 
-        expect(ref.tree.toggle).toHaveBeenCalledWith('ou-1')
+        expect(ref.tree.open).toHaveBeenCalledTimes(2)
         expect(ref.tree.store.retryChildrenPage).toHaveBeenCalledWith('ou-1', 1)
     })
 
@@ -191,5 +245,186 @@ describe('OuTreeNodeRow', () => {
                 'true'
             )
         )
+    })
+})
+
+describe('OuTreeNodeRow in search mode', () => {
+    it('shows an open pruned result with its arrow, the match, the result background and, hovered, the eye', async () => {
+        // Kabwe District: a result with a matching child, the health centre.
+        setupSearch({ id: 'ou-3', term: 'Kabwe' })
+        const row = await ready()
+        expect(screen.queryByTestId('t-reveal')).toBeNull()
+        await userEvent.hover(row)
+
+        expect(row).toHaveAttribute('aria-expanded', 'true')
+        expect(screen.getByTestId('t-toggle')).toBeInTheDocument()
+        expect(screen.queryByTestId('t-toggle-space')).toBeNull()
+        expect(screen.getByTestId('t-label')).toHaveClass('result')
+        expect(screen.getByTestId('t-label')).toHaveTextContent(
+            'Kabwe District'
+        )
+        expect(screen.getByTestId('t-match')).toHaveTextContent(/^Kabwe$/)
+        expect(screen.getByTestId('t-reveal')).toBe(
+            screen.getByRole('button', { name: 'Show all children' })
+        )
+        await userEvent.unhover(row)
+        expect(screen.queryByTestId('t-reveal')).toBeNull()
+    })
+
+    it('shows a pruned ancestor plain and open, with the eye when hovered', async () => {
+        setupSearch({ id: 'ou-2', term: 'Kabwe' })
+        const row = await ready()
+        await userEvent.hover(row)
+
+        expect(row).toHaveAttribute('aria-expanded', 'true')
+        expect(screen.getByTestId('t-label')).not.toHaveClass('result')
+        expect(screen.queryByTestId('t-match')).toBeNull()
+        expect(screen.getByTestId('t-reveal')).toBeInTheDocument()
+    })
+
+    it('hides the eye while the node is closed', async () => {
+        setupSearch({ id: 'ou-2', term: 'Kabwe' })
+        const row = await ready()
+        await userEvent.hover(row)
+
+        await userEvent.click(screen.getByTestId('t-toggle'))
+        expect(row).toHaveAttribute('aria-expanded', 'false')
+        expect(screen.queryByTestId('t-reveal')).toBeNull()
+
+        await userEvent.click(screen.getByTestId('t-toggle'))
+        expect(row).toHaveAttribute('aria-expanded', 'true')
+        expect(screen.getByTestId('t-reveal')).toBeInTheDocument()
+    })
+
+    it('shows a result without matching children closed, with no eye, and opens it as a reveal', async () => {
+        // Kabwe District is a bottom result for "District".
+        const ref = setupSearch({ id: 'ou-3', term: 'District' })
+        const row = await ready()
+        await userEvent.hover(row)
+        expect(row).toHaveAttribute('aria-expanded', 'false')
+        expect(screen.getByTestId('t-toggle')).toBeInTheDocument()
+        expect(screen.queryByTestId('t-reveal')).toBeNull()
+
+        await userEvent.click(screen.getByTestId('t-label'))
+
+        expect(ref.tree.isRevealed('ou-3')).toBe(true)
+        await waitFor(() =>
+            expect(row).toHaveAttribute('aria-expanded', 'true')
+        )
+        expect(screen.queryByTestId('t-reveal')).toBeNull()
+    })
+
+    it('shows the toggle space and no eye on a leaf result', async () => {
+        setupSearch({ id: 'ou-4', term: 'Kabwe' })
+        await userEvent.hover(await ready())
+
+        expect(screen.getByTestId('t-match')).toBeInTheDocument()
+        expect(screen.getByTestId('t-toggle-space')).toBeInTheDocument()
+        expect(screen.queryByTestId('t-reveal')).toBeNull()
+    })
+
+    it('reveals from the eye: the loader while page one loads, then the crossed eye', async () => {
+        const ref = setupSearch({
+            id: 'ou-1',
+            term: 'Kabwe',
+            children: never,
+        })
+        await userEvent.hover(await ready())
+
+        await userEvent.click(screen.getByTestId('t-reveal'))
+
+        expect(ref.tree.isRevealed('ou-1')).toBe(true)
+        expect(await screen.findByTestId('t-loader')).toBeInTheDocument()
+        expect(screen.queryByTestId('t-toggle')).toBeNull()
+        expect(
+            screen.getByRole('button', { name: 'Hide all children' })
+        ).toBeInTheDocument()
+    })
+
+    it('is a retry button around the label, still open with the crossed eye, when a reveal failed', async () => {
+        const ref = setupSearch({
+            id: 'ou-1',
+            term: 'Kabwe',
+            children: failing,
+        })
+        const row = await ready()
+        await userEvent.hover(row)
+
+        await userEvent.click(screen.getByTestId('t-reveal'))
+        const retry = await screen.findByTestId('t-retry')
+
+        expect(retry).toContainElement(screen.getByTestId('t-label'))
+        expect(row).toHaveAttribute('aria-expanded', 'true')
+        expect(
+            screen.getByRole('button', { name: 'Hide all children' })
+        ).toBeInTheDocument()
+        await userEvent.click(retry)
+        expect(ref.tree.open).toHaveBeenCalledWith('ou-1')
+        expect(ref.tree.store.retryChildrenPage).toHaveBeenCalledWith('ou-1', 1)
+    })
+
+    it('keeps a result as it was under a revealed ancestor', async () => {
+        const ref = setupSearch({ id: 'ou-3', term: 'Kabwe' })
+        const row = await ready()
+        await userEvent.hover(row)
+        act(() => ref.tree.toggleRevealed('ou-2'))
+
+        await waitFor(() =>
+            expect(ref.tree.store.getChildren('ou-2').status).toBe('loaded')
+        )
+        expect(row).toHaveAttribute('aria-expanded', 'true')
+        expect(screen.getByTestId('t-label')).toHaveClass('result')
+        expect(screen.getByTestId('t-match')).toHaveTextContent(/^Kabwe$/)
+        expect(screen.getByTestId('t-reveal')).toBeInTheDocument()
+    })
+
+    it('gives renderLabel the result, the term and the match splitter', async () => {
+        const renderLabel = jest.fn<React.ReactNode, Parameters<RenderLabel>>(
+            ({ node }) => <i>{node.displayName}</i>
+        )
+        const Probe = () => {
+            const { getRow, getRowIndex } = useOuTree()
+            const index = getRowIndex('ou-3')
+            const row = index === undefined ? undefined : getRow(index)
+            return row?.kind === 'node' ? (
+                <OuTreeNodeRow
+                    row={row}
+                    renderLabel={renderLabel}
+                    dataTest="t"
+                />
+            ) : null
+        }
+        const ref: { tree?: TreeState } = {}
+        const Grab = () => {
+            ref.tree = useTreeState()
+            return null
+        }
+        render(
+            <CustomDataProvider
+                data={{ [TREE_RESOURCE]: realChildren, [GIST_RESOURCE]: gist }}
+            >
+                <OuTreeNodeStoreProvider>
+                    <OuTreeProvider rootIds={['ou-1']}>
+                        <Grab />
+                        <Probe />
+                    </OuTreeProvider>
+                </OuTreeNodeStoreProvider>
+            </CustomDataProvider>
+        )
+        act(() => ref.tree?.search('Kabwe'))
+        await ready()
+
+        expect(renderLabel).toHaveBeenLastCalledWith(
+            expect.objectContaining({
+                isResult: true,
+                searchTerm: 'Kabwe',
+                splitMatches: expect.any(Function),
+            })
+        )
+        const { splitMatches } = renderLabel.mock.lastCall?.[0] ?? {}
+        expect(splitMatches?.('Kabwe District')).toEqual([
+            { text: 'Kabwe', matched: true },
+            { text: ' District', matched: false },
+        ])
     })
 })

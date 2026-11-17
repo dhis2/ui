@@ -7,13 +7,14 @@ import {
     createGistResolver,
     createTreeResolver,
     zambiaOrgUnits,
-} from '../__fixtures__/index'
-import { GIST_RESOURCE, TREE_RESOURCE } from '../data/index'
+} from '../__fixtures__'
+import { GIST_RESOURCE, TREE_RESOURCE } from '../data'
 import {
     OuTreeNodeStoreProvider,
     OuTreeProvider,
     useOuTreeActions,
-} from '../tree/index'
+} from '../tree'
+import { useTreeState } from '../tree/ou-tree-provider'
 import { OuTreeErrorRow } from './ou-tree-error-row'
 
 const data = {
@@ -32,7 +33,7 @@ describe('OuTreeErrorRow', () => {
             return (
                 <OuTreeErrorRow
                     row={{
-                        kind: 'error',
+                        kind: 'children-error',
                         parentId: 'ou-1',
                         index: 0,
                         page: 2,
@@ -55,12 +56,50 @@ describe('OuTreeErrorRow', () => {
 
         expect(screen.getByTestId('t-row')).toHaveAttribute(
             'data-row-kind',
-            'error'
+            'children-error'
         )
         expect(screen.getByTestId('t-toggle-space')).toBeInTheDocument()
         await userEvent.click(screen.getByRole('button', { name: 'Retry' }))
 
         expect(retry).toHaveBeenCalledWith('ou-1', 2)
         await waitFor(() => undefined)
+    })
+
+    it('retries a results page through the tree for a result-error row', async () => {
+        let retry: jest.SpyInstance | undefined
+        const Probe = () => {
+            const tree = useTreeState()
+            retry ??= jest
+                .spyOn(tree, 'retryResultsPage')
+                .mockImplementation(() => undefined)
+            return (
+                <OuTreeErrorRow
+                    row={{
+                        kind: 'result-error',
+                        index: 4,
+                        page: 3,
+                        error: new Error('x'),
+                        depth: 2,
+                    }}
+                    dataTest="t"
+                />
+            )
+        }
+        render(
+            <CustomDataProvider data={data}>
+                <OuTreeNodeStoreProvider>
+                    <OuTreeProvider rootIds={['ou-1']}>
+                        <Probe />
+                    </OuTreeProvider>
+                </OuTreeNodeStoreProvider>
+            </CustomDataProvider>
+        )
+
+        expect(screen.getByTestId('t-row')).toHaveAttribute(
+            'data-row-kind',
+            'result-error'
+        )
+        await userEvent.click(screen.getByTestId('t-retry'))
+        expect(retry).toHaveBeenCalledWith(3)
     })
 })

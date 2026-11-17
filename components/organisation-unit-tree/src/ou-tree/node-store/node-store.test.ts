@@ -3,7 +3,7 @@ import {
     createManualTreeApi,
     createTestTreeApi,
     zambiaOrgUnits,
-} from '../__fixtures__/index'
+} from '../__fixtures__'
 import { createNodeStore } from './node-store'
 
 const flush = () => new Promise((resolve) => setTimeout(resolve, 0))
@@ -413,6 +413,61 @@ describe('createNodeStore', () => {
 
             await expect(loading).rejects.toThrow('nope')
         })
+    })
+})
+
+describe('fetchResultsPage', () => {
+    it('sends shortName, stores results and ancestors, notifies once and resolves with the response', async () => {
+        const { api, treeCalls } = createTestTreeApi({
+            orgUnits: zambiaOrgUnits,
+        })
+        const store = createNodeStore({ api, shortName: true })
+        const listener = jest.fn()
+        store.subscribe(listener)
+
+        const response = await store.fetchResultsPage({
+            search: 'Clinic',
+            page: 1,
+            pageSize: 2,
+        })
+
+        expect(treeCalls).toEqual([
+            { search: 'Clinic', page: 1, pageSize: 2, shortName: true },
+        ])
+        expect(response.organisationUnits.map(({ id }) => id)).toEqual([
+            'ou-5',
+            'ou-8',
+        ])
+        expect(store.getNode('ou-5')).toMatchObject({
+            displayName: 'Chisembe Clinic',
+            parentId: 'ou-3',
+            leaf: true,
+        })
+        expect(store.getNode('ou-3')).toMatchObject({
+            displayName: 'Kabwe District',
+            leaf: false,
+        })
+        expect(store.getNode('ou-1')).toBeDefined()
+        expect(listener).toHaveBeenCalledTimes(1)
+    })
+
+    it('rejects as the api does and stores nothing', async () => {
+        const { api, treeRequests } = createManualTreeApi()
+        const store = createNodeStore({ api })
+        const listener = jest.fn()
+        store.subscribe(listener)
+        const failure = new Error('offline')
+
+        const pending = store.fetchResultsPage({
+            search: 'Clinic',
+            page: 1,
+            pageSize: 2,
+        })
+        treeRequests[0].reject(failure)
+
+        await expect(pending).rejects.toBe(failure)
+        expect(store.getNode('ou-5')).toBeUndefined()
+        expect(listener).not.toHaveBeenCalled()
     })
 })
 

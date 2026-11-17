@@ -7,10 +7,10 @@ import {
     createGistResolver,
     createTreeResolver,
     zambiaOrgUnits,
-} from './__fixtures__/index'
-import { GIST_RESOURCE, TREE_RESOURCE } from './data/index'
+} from './__fixtures__'
+import { GIST_RESOURCE, TREE_RESOURCE } from './data'
 import { OuTree } from './ou-tree'
-import { OuTreeNodeStoreProvider } from './tree/index'
+import { OuTreeNodeStoreProvider } from './tree'
 
 jest.mock('@tanstack/react-virtual', () =>
     jest.requireActual('./__fixtures__/virtualizer-mock')

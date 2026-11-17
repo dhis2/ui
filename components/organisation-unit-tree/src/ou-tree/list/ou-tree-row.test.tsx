@@ -7,14 +7,10 @@ import {
     createGistResolver,
     createTreeResolver,
     zambiaOrgUnits,
-} from '../__fixtures__/index'
-import { GIST_RESOURCE, TREE_RESOURCE } from '../data/index'
-import type { Row } from '../tree/index'
-import {
-    OuTreeNodeStoreProvider,
-    OuTreeProvider,
-    useOuTreeNode,
-} from '../tree/index'
+} from '../__fixtures__'
+import { GIST_RESOURCE, TREE_RESOURCE } from '../data'
+import type { Row } from '../tree'
+import { OuTreeNodeStoreProvider, OuTreeProvider, useOuTreeNode } from '../tree'
 import type { RenderLabel } from './ou-tree-node-row'
 import { OuTreeRow } from './ou-tree-row'
 
@@ -42,25 +38,27 @@ const nodeRow: Row = {
     id: 'ou-1',
     depth: 0,
     children: { status: 'none' },
+    view: 'full',
+    result: false,
 }
 
 describe('OuTreeRow', () => {
     it.each([
         [nodeRow, 'node'],
         [
-            { kind: 'skeleton', parentId: 'ou-1', index: 0, depth: 1 },
-            'skeleton',
+            { kind: 'children-skeleton', parentId: 'ou-1', index: 0, depth: 1 },
+            'children-skeleton',
         ],
         [
             {
-                kind: 'error',
+                kind: 'children-error',
                 parentId: 'ou-1',
                 index: 0,
                 page: 1,
                 error: new Error('x'),
                 depth: 1,
             },
-            'error',
+            'children-error',
         ],
     ] as Array<[Row, string]>)('renders a %#: %s row', async (row, kind) => {
         render(

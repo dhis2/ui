@@ -1,5 +1,10 @@
 export { buildGistQuery } from './build-gist-query'
-export { CHILDREN_PAGE_SIZE, GIST_RESOURCE, TREE_RESOURCE } from './constants'
+export {
+    CHILDREN_PAGE_SIZE,
+    GIST_RESOURCE,
+    RESULTS_PAGE_SIZE,
+    TREE_RESOURCE,
+} from './constants'
 export type {
     OuTreeChildrenPage,
     OuTreeEntry,

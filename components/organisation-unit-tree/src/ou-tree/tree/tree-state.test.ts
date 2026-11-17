@@ -2,8 +2,8 @@ import {
     createManualTreeApi,
     createTestTreeApi,
     zambiaOrgUnits,
-} from '../__fixtures__/index'
-import { createNodeStore } from '../node-store/index'
+} from '../__fixtures__'
+import { createNodeStore } from '../node-store'
 import { createTreeState, TreeState } from './tree-state'
 
 const flush = () => new Promise((resolve) => setTimeout(resolve, 0))
@@ -126,6 +126,8 @@ describe('createTreeState', () => {
                 id: 'ou-1',
                 depth: 0,
                 children: { status: 'loading' },
+                view: 'full',
+                result: false,
             })
             tree.close('ou-1')
             tree.open('ou-1')
@@ -180,6 +182,8 @@ describe('createTreeState', () => {
             expect(tree.isOpen('p')).toBe(true)
             expect(tree.getRow(0)).toMatchObject({
                 children: { status: 'loading' },
+                view: 'full',
+                result: false,
             })
         })
 
@@ -207,15 +211,15 @@ describe('createTreeState', () => {
                 'ou-6',
                 'ou-12',
                 'ou-10',
-                'skeleton',
-                'skeleton',
-                'skeleton',
-                'skeleton',
+                'children-skeleton',
+                'children-skeleton',
+                'children-skeleton',
+                'children-skeleton',
             ])
             expect(tree.getRowIndex('ou-10')).toBe(2)
             expect(tree.getRowIndex('ou-8')).toBeUndefined()
             expect(tree.getRow(3)).toEqual({
-                kind: 'skeleton',
+                kind: 'children-skeleton',
                 parentId: 'ou-6',
                 index: 2,
                 depth: 1,
@@ -239,8 +243,8 @@ describe('createTreeState', () => {
                 'ou-10',
                 'ou-8',
                 'ou-9',
-                'skeleton',
-                'skeleton',
+                'children-skeleton',
+                'children-skeleton',
             ])
         })
 
@@ -255,7 +259,7 @@ describe('createTreeState', () => {
 
             expect(childrenCalls.map((call) => call.page)).toEqual([1, 2, 3])
             expect(tree.getRowCount()).toBe(7)
-            expect(ids(tree)).not.toContain('skeleton')
+            expect(ids(tree)).not.toContain('children-skeleton')
         })
 
         it('throws for a row index out of range', async () => {
@@ -345,5 +349,40 @@ describe('row identity', () => {
 
         expect(tree.getRow(tree.getRowIndex('ou-13') as number)).toBe(before)
         expect(tree.getRow(0)).toBe(tree.getRow(0))
+    })
+})
+
+describe('hovered row', () => {
+    it('setHovered marks one node hovered at a time, notifies, and clears', async () => {
+        const { tree } = setup(['ou-1'])
+        await flush()
+        const listener = jest.fn()
+        tree.subscribe(listener)
+        expect(tree.isHovered('ou-1')).toBe(false)
+
+        tree.setHovered('ou-1')
+        expect(tree.isHovered('ou-1')).toBe(true)
+        expect(listener).toHaveBeenCalledTimes(1)
+
+        tree.setHovered('ou-2')
+        expect(tree.isHovered('ou-1')).toBe(false)
+        expect(tree.isHovered('ou-2')).toBe(true)
+
+        tree.setHovered(undefined)
+        expect(tree.isHovered('ou-2')).toBe(false)
+        expect(listener).toHaveBeenCalledTimes(3)
+    })
+
+    it('setHovered with the current value notifies nobody', async () => {
+        const { tree } = setup(['ou-1'])
+        await flush()
+        const listener = jest.fn()
+        tree.subscribe(listener)
+
+        tree.setHovered(undefined)
+        tree.setHovered('ou-1')
+        tree.setHovered('ou-1')
+
+        expect(listener).toHaveBeenCalledTimes(1)
     })
 })

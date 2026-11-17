@@ -4,7 +4,7 @@ import type {
     OuTreeQuery,
     OuTreeResponse,
     TreeApi,
-} from '../data/index'
+} from '../data'
 import { createInMemoryChildrenPages } from './in-memory-children-pages'
 import { createInMemoryGist, type GistEntry } from './in-memory-gist'
 import {

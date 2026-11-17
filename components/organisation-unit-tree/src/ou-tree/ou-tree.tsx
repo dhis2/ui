@@ -1,6 +1,6 @@
 import React from 'react'
-import { OuTreeList, type OuTreeListProps } from './list/index'
-import { OuTreeProvider, type OuTreeProviderProps } from './tree/index'
+import { OuTreeList, type OuTreeListProps } from './list'
+import { OuTreeProvider, type OuTreeProviderProps } from './tree'
 
 export interface OuTreeProps
     extends Omit<OuTreeProviderProps, 'children'>, OuTreeListProps {}

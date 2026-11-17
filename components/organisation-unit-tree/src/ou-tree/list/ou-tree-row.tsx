@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import type { Row } from '../tree/index'
+import type { Row } from '../tree'
 import { OuTreeErrorRow } from './ou-tree-error-row'
 import { OuTreeNodeRow, type RenderLabel } from './ou-tree-node-row'
 import { OuTreeSkeletonRow } from './ou-tree-skeleton-row'
@@ -25,9 +25,11 @@ export const OuTreeRow = memo(function OuTreeRow({
                     dataTest={dataTest}
                 />
             )
-        case 'skeleton':
+        case 'children-skeleton':
+        case 'result-skeleton':
             return <OuTreeSkeletonRow row={row} dataTest={dataTest} />
-        case 'error':
+        case 'children-error':
+        case 'result-error':
             return <OuTreeErrorRow row={row} dataTest={dataTest} />
     }
 })

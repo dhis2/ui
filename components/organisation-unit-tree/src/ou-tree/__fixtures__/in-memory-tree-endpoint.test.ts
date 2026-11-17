@@ -1,4 +1,4 @@
-import type { OuTreeEntry } from '../data/index'
+import type { OuTreeEntry } from '../data'
 import { createInMemoryTreeEndpoint } from './in-memory-tree-endpoint'
 import { zambiaOrgUnits } from './zambia-org-units'
 

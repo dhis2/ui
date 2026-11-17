@@ -6,8 +6,16 @@ export interface OuTreeRowShellProps {
     depth: number
     role?: 'treeitem' | 'presentation'
     ariaExpanded?: boolean
-    rowKind?: 'node' | 'skeleton' | 'error' | 'roots'
+    rowKind?:
+        | 'node'
+        | 'children-skeleton'
+        | 'children-error'
+        | 'result-skeleton'
+        | 'result-error'
+        | 'roots'
     id?: string
+    /** Called with true when the pointer enters the row and false when it leaves. */
+    onHoverChange?: (hovered: boolean) => void
     dataTest?: string
     className?: string
     children: React.ReactNode
@@ -20,6 +28,7 @@ export const OuTreeRowShell = ({
     ariaExpanded,
     rowKind,
     id,
+    onHoverChange,
     dataTest,
     className,
     children,
@@ -32,6 +41,8 @@ export const OuTreeRowShell = ({
         data-row-kind={rowKind}
         data-id={id}
         data-test={dataTest}
+        onPointerEnter={onHoverChange && (() => onHoverChange(true))}
+        onPointerLeave={onHoverChange && (() => onHoverChange(false))}
     >
         {Array.from({ length: depth }, (_, level) => (
             <span
