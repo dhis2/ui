@@ -1,6 +1,6 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import '@testing-library/jest-dom'
-import { act, render, screen, waitFor } from '@testing-library/react'
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import React, { useEffect } from 'react'
 import {
@@ -247,5 +247,142 @@ describe('OuTreeList in search mode', () => {
 
         await userEvent.click(screen.getAllByTestId('t-toggle')[1])
         expect(names()).toHaveLength(4)
+    })
+})
+
+describe('OuTreeList keyboard', () => {
+    const tree = () => screen.getByRole('tree')
+    const active = () =>
+        document.getElementById(
+            tree().getAttribute('aria-activedescendant') ?? ''
+        )
+    const press = (key: string, options: { shiftKey?: boolean } = {}) =>
+        fireEvent.keyDown(document.activeElement ?? tree(), {
+            key,
+            ...options,
+        })
+    const focusTree = () => act(() => tree().focus())
+
+    beforeEach(() => virtualizerMock.scrollToIndex.mockClear())
+
+    it('is one tab stop whose focus lands on the first visible row', async () => {
+        renderList({ rootIds: ['ou-1'], initiallyOpen: ['ou-1'] })
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(3))
+
+        expect(tree()).toHaveAttribute('tabindex', '0')
+        expect(tree()).not.toHaveAttribute('aria-activedescendant')
+        focusTree()
+
+        expect(active()).toBe(rowsOfKind('node')[0])
+        expect(active()).toHaveClass('focused')
+        act(() => tree().blur())
+        expect(rowsOfKind('node')[0]).not.toHaveClass('focused')
+    })
+
+    it('moves the active row with the arrow keys, Home and End, and stays at the ends', async () => {
+        renderList({ rootIds: ['ou-1'], initiallyOpen: ['ou-1'] })
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(3))
+        focusTree()
+        const rows = rowsOfKind('node')
+
+        expect(press('ArrowDown')).toBe(false)
+        expect(active()).toBe(rows[1])
+        press('End')
+        expect(active()).toBe(rows[2])
+        press('ArrowDown')
+        expect(active()).toBe(rows[2])
+        press('Home')
+        expect(active()).toBe(rows[0])
+        press('ArrowUp')
+        expect(active()).toBe(rows[0])
+        expect(virtualizerMock.scrollToIndex).toHaveBeenCalledWith(1, {
+            align: 'auto',
+        })
+    })
+
+    it('Right opens a closed node and then moves into it; Left closes an open node and then moves to the parent', async () => {
+        renderList({ rootIds: ['ou-1'] })
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(1))
+        focusTree()
+
+        press('ArrowRight')
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(3))
+        expect(active()).toBe(rowsOfKind('node')[0])
+        press('ArrowRight')
+        expect(active()).toBe(rowsOfKind('node')[1])
+        press('ArrowRight')
+        await waitFor(() =>
+            expect(rowsOfKind('node').length).toBeGreaterThan(3)
+        )
+        expect(active()).toBe(rowsOfKind('node')[1])
+
+        press('ArrowLeft')
+        expect(rowsOfKind('node')).toHaveLength(3)
+        expect(active()).toBe(rowsOfKind('node')[1])
+        press('ArrowLeft')
+        expect(active()).toBe(rowsOfKind('node')[0])
+        press('ArrowLeft')
+        expect(rowsOfKind('node')).toHaveLength(1)
+        press('ArrowLeft')
+        expect(active()).toBe(rowsOfKind('node')[0])
+    })
+
+    it('Enter toggles the active node and Space does nothing but stay put', async () => {
+        renderList({ rootIds: ['ou-1'], initiallyOpen: ['ou-1'] })
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(3))
+        focusTree()
+
+        press('Enter')
+        expect(rowsOfKind('node')).toHaveLength(1)
+        press('Enter')
+        expect(rowsOfKind('node')).toHaveLength(3)
+        expect(press(' ')).toBe(false)
+        expect(rowsOfKind('node')).toHaveLength(3)
+    })
+
+    it("Shift+Enter focuses the row's first control, Tab cycles within the row, Escape returns to the tree", async () => {
+        renderList({ rootIds: ['ou-1'] })
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(1))
+        act(() => captured.actions?.search('Clinic'))
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(11))
+        focusTree()
+        press('ArrowDown')
+        expect(active()).toBe(rowsOfKind('node')[1])
+        const eye = screen.getByTestId('t-reveal')
+
+        press('Enter', { shiftKey: true })
+        expect(document.activeElement).toBe(eye)
+        expect(press('Tab')).toBe(false)
+        expect(document.activeElement).toBe(eye)
+        press('Escape')
+        expect(document.activeElement).toBe(tree())
+        expect(active()).toBe(rowsOfKind('node')[1])
+    })
+
+    it('an arrow pressed inside a row returns to the tree and moves', async () => {
+        renderList({ rootIds: ['ou-1'] })
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(1))
+        act(() => captured.actions?.search('Clinic'))
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(11))
+        focusTree()
+        press('ArrowDown')
+        press('Enter', { shiftKey: true })
+        expect(document.activeElement).toBe(screen.getByTestId('t-reveal'))
+
+        press('ArrowDown')
+
+        expect(document.activeElement).toBe(tree())
+        expect(active()).toBe(rowsOfKind('node')[2])
+    })
+
+    it('clicking a row makes it the active row', async () => {
+        renderList({ rootIds: ['ou-1'], initiallyOpen: ['ou-1'] })
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(3))
+
+        await userEvent.click(screen.getAllByTestId('t-label')[2])
+
+        expect(document.activeElement).toBe(tree())
+        expect(active()).toBe(rowsOfKind('node')[2])
+        expect(rowsOfKind('node')[2]).toHaveClass('focused')
     })
 })

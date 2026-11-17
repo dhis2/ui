@@ -1,5 +1,9 @@
 export { OuTreeNodeStoreProvider } from './ou-tree-node-store-provider'
-export { useOuTreeFocusTarget, useOuTreeRowElementId } from './ou-tree-dom'
+export {
+    useOuTreeFocusTarget,
+    useOuTreeRegisterFocusTarget,
+    useOuTreeRowElementId,
+} from './ou-tree-dom'
 export { OuTreeProvider, type OuTreeProviderProps } from './ou-tree-provider'
 export { type OuTreeHandle, useOuTree } from './use-ou-tree'
 export { type OuTreeActions, useOuTreeActions } from './use-ou-tree-actions'

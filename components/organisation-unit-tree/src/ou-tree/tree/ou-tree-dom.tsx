@@ -5,6 +5,8 @@ interface OuTreeDom {
     treeId: string
     /** The element that takes focus for the tree: the list's container. */
     focusTarget: React.MutableRefObject<HTMLElement | null>
+    /** Called by the list with its container, and with null when it unmounts. */
+    registerFocusTarget: (element: HTMLElement | null) => void
 }
 
 const DomContext = createContext<OuTreeDom | undefined>(undefined)
@@ -20,7 +22,13 @@ export const OuTreeDomProvider = ({
 }) => {
     const [treeId] = useState(() => `outree-${nextTreeId++}`)
     const focusTarget = useRef<HTMLElement | null>(null)
-    const [value] = useState<OuTreeDom>(() => ({ treeId, focusTarget }))
+    const [value] = useState<OuTreeDom>(() => ({
+        treeId,
+        focusTarget,
+        registerFocusTarget: (element) => {
+            focusTarget.current = element
+        },
+    }))
     return <DomContext.Provider value={value}>{children}</DomContext.Provider>
 }
 
@@ -39,3 +47,8 @@ export const useOuTreeRowElementId = (key: string): string =>
 /** The ref the list registers its container in, so others can focus the tree. */
 export const useOuTreeFocusTarget =
     (): React.MutableRefObject<HTMLElement | null> => useOuTreeDom().focusTarget
+
+/** The list's registration of its container as the focus target. */
+export const useOuTreeRegisterFocusTarget = (): ((
+    element: HTMLElement | null
+) => void) => useOuTreeDom().registerFocusTarget
