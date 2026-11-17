@@ -458,6 +458,25 @@ describe('focused row', () => {
         expect(tree.getFocusedKey()).toBe(ids(tree)[3])
     })
 
+    it('falls back to where the key was last found, after rows above it moved it', async () => {
+        const { tree } = setup(['ou-13', 'ou-6'], { pageSize: 2 })
+        await flush()
+        tree.open('ou-6')
+        await flush()
+        tree.setFocused('children-skeleton:ou-6:2')
+        expect(tree.getFocusedIndex()).toBe(4)
+
+        tree.open('ou-13')
+        await flush()
+        const shifted = tree.getFocusedIndex() as number
+        expect(shifted).toBeGreaterThan(4)
+        tree.ensureChildrenLoaded(shifted, shifted)
+        await flush()
+
+        expect(tree.getRow(shifted).kind).toBe('node')
+        expect(tree.getFocusedIndex()).toBe(shifted)
+    })
+
     it('clamps the remembered index to the rows that are left', async () => {
         const { tree } = setup(['ou-1'], { initiallyOpen: ['ou-1'] })
         await flush()

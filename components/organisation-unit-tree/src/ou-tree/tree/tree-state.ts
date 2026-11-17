@@ -554,6 +554,8 @@ export const createTreeState = ({
         }
         const byKey = indexByKey.get(focusedKey)
         if (byKey !== undefined) {
+            // Where the row was last seen, for when its key is gone.
+            focusedIndex = byKey
             return byKey
         }
         return Math.min(focusedIndex ?? 0, rows.length - 1)
