@@ -216,6 +216,10 @@ export interface InputFieldProps {
      * The [native `step` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-step), for use when `type` is `'number'`
      */
     step?: string
+    /**
+     * Sets a role attribute on the input
+     */
+    role?: string
     tabIndex?: string
     /**
      * Type of input
