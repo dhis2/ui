@@ -41,9 +41,13 @@ const append = (
 
 /**
  * Places results, in the tree order they arrive in, under their ancestors
- * from the first shown root in each path down to the result itself. Appending is right because
- * results arrive in depth-first tree order. Returns the ids it could not
- * place: no shown root in the path, or an id not in the store.
+ * from the first shown root in each path down to the result itself.
+ * Appending is right because results arrive in depth-first tree order.
+ *
+ * The endpoint searches below the given roots and sends every ancestor
+ * along with the results, so a result without a shown root in its path,
+ * or with an ancestor the store does not hold, breaks that contract:
+ * `addResults` throws rather than drop it.
  */
 export const addResults = ({
     pruned,
@@ -55,20 +59,25 @@ export const addResults = ({
     results: readonly { id: string; path: string }[]
     shownRootIds: ReadonlySet<string>
     store: Pick<NodeStore, 'getNode'>
-}): string[] => {
-    const unplaced: string[] = []
+}): void => {
     for (const result of results) {
         const ids = result.path.split('/').filter(Boolean)
         if (ids[ids.length - 1] !== result.id) {
             ids.push(result.id)
         }
         const start = ids.findIndex((id) => shownRootIds.has(id))
-        const chain = start < 0 ? [] : ids.slice(start)
-        if (chain.length === 0 || chain.some((id) => !store.getNode(id))) {
-            unplaced.push(result.id)
-            continue
+        if (start < 0) {
+            throw new Error(
+                `OuTree: result ${result.id} has no shown root in its path ${result.path}`
+            )
+        }
+        const chain = ids.slice(start)
+        const missing = chain.find((id) => !store.getNode(id))
+        if (missing !== undefined) {
+            throw new Error(
+                `OuTree: ancestor ${missing} of result ${result.id} is not in the store; the tree endpoint must send every ancestor`
+            )
         }
         chain.forEach((id, index) => append(pruned, chain[index - 1], id))
     }
-    return unplaced
 }

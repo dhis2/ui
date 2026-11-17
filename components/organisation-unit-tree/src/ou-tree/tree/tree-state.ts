@@ -305,7 +305,7 @@ export const createTreeState = ({
                     const ancestorsBefore = new Set(
                         state.pruned.children.keys()
                     )
-                    const unplaced = addResults({
+                    addResults({
                         pruned: state.pruned,
                         results: response.organisationUnits,
                         shownRootIds: shownRootIds(),
@@ -321,14 +321,6 @@ export const createTreeState = ({
                             openIds.add(id)
                         }
                     })
-                    if (
-                        unplaced.length > 0 &&
-                        process.env.NODE_ENV !== 'production'
-                    ) {
-                        console.warn(
-                            `OuTree: results without a shown root or an ancestor in the store were dropped: ${unplaced.join(', ')}`
-                        )
-                    }
                     response.organisationUnits.forEach(({ id }) =>
                         state.resultIds.add(id)
                     )

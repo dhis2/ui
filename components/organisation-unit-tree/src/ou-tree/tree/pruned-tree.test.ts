@@ -18,14 +18,13 @@ describe('addResults', () => {
         const pruned = createPrunedTree()
 
         // Chisembe Clinic under Kabwe District, Kanona Clinic under Serenje.
-        const unplaced = addResults({
+        addResults({
             pruned,
             results: [result('ou-5'), result('ou-8')],
             shownRootIds: new Set(['ou-1']),
             store,
         })
 
-        expect(unplaced).toEqual([])
         expect(pruned.roots).toEqual(['ou-1'])
         expect(children(pruned)).toEqual({
             'ou-1': ['ou-2'],
@@ -98,53 +97,37 @@ describe('addResults', () => {
         expect(children(pruned)).toEqual({})
     })
 
-    it('returns results it cannot place and leaves the tree as it was', () => {
+    it('throws on a result without a shown root in its path, or with an ancestor not in the store', () => {
         const pruned = createPrunedTree()
-        addResults({
-            pruned,
-            results: [result('ou-8')],
-            shownRootIds: new Set(['ou-1']),
-            store,
-        })
-        const before = {
-            roots: [...pruned.roots],
-            children: children(pruned),
-            placed: [...pruned.placed],
-        }
 
-        const noRoot = addResults({
-            pruned,
-            results: [result('ou-15')],
-            shownRootIds: new Set(['ou-2']),
-            store,
-        })
-        const missingAncestor = addResults({
-            pruned,
-            results: [{ id: 'ou-5', path: '/ou-1/ou-2/ou-x/ou-5' }],
-            shownRootIds: new Set(['ou-1']),
-            store,
-        })
-
-        expect(noRoot).toEqual(['ou-15'])
-        expect(missingAncestor).toEqual(['ou-5'])
-        expect({
-            roots: pruned.roots,
-            children: children(pruned),
-            placed: [...pruned.placed],
-        }).toEqual(before)
+        expect(() =>
+            addResults({
+                pruned,
+                results: [result('ou-15')],
+                shownRootIds: new Set(['ou-2']),
+                store,
+            })
+        ).toThrow('result ou-15 has no shown root in its path')
+        expect(() =>
+            addResults({
+                pruned,
+                results: [{ id: 'ou-5', path: '/ou-1/ou-2/ou-x/ou-5' }],
+                shownRootIds: new Set(['ou-1']),
+                store,
+            })
+        ).toThrow('ancestor ou-x of result ou-5 is not in the store')
     })
 
     it('places the result itself when its path stops at its parent', () => {
         const pruned = createPrunedTree()
 
-        const unplaced = addResults({
+        addResults({
             pruned,
             results: [{ id: 'ou-5', path: '/ou-1/ou-2/ou-3' }],
             shownRootIds: new Set(['ou-1']),
             store,
         })
 
-        expect(unplaced).toEqual([])
         expect(pruned.children.get('ou-3')).toEqual(['ou-5'])
         expect(pruned.placed.has('ou-5')).toBe(true)
     })
