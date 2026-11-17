@@ -206,44 +206,48 @@ export const flattenRows = ({
         })
     }
 
-    const walkBrowse = (id: string, depth: number) => {
+    // Every id the walk meets comes from the store: a root it loaded, a
+    // child slot it filled, an ancestor it saved with the results.
+    const nodeOf = (id: string): StoredNode => {
         const node = store.getNode(id)
         if (!node) {
-            return
+            throw new Error(`OuTree: node ${id} is listed but not in the store`)
         }
+        return node
+    }
+
+    const walkBrowse = (id: string, depth: number) => {
+        const node = nodeOf(id)
         const children = pushNode(node, depth, 'browse')
         if (openIds.has(id)) {
             pushChildSlots(node, depth, children)
         }
     }
 
-    const walkPruned = (id: string, depth: number) => {
-        const node = store.getNode(id)
-        if (!node || !filtered) {
-            return
-        }
+    const walkPruned = (view: FilteredView, id: string, depth: number) => {
+        const node = nodeOf(id)
         const children = pushNode(node, depth, 'pruned')
         if (!openIds.has(id)) {
             return
         }
-        const matchingChildren = filtered.pruned.children.get(id)
+        const matchingChildren = view.pruned.children.get(id)
         // A revealed node keeps its matching children until the complete
         // list can replace them.
         const listsAllChildren =
-            filtered.revealedIds.has(id) && children.status === 'loaded'
+            view.revealedIds.has(id) && children.status === 'loaded'
         if (!matchingChildren || listsAllChildren) {
             pushChildSlots(node, depth, children)
             return
         }
         for (const childId of matchingChildren) {
-            walkPruned(childId, depth + 1)
+            walkPruned(view, childId, depth + 1)
         }
     }
 
     // A pruned-tree node keeps its pruned view wherever it is listed.
     const walkChild = (id: string, depth: number) => {
-        if (filtered?.pruned.placed.has(id)) {
-            walkPruned(id, depth)
+        if (filtered && filtered.pruned.placed.has(id)) {
+            walkPruned(filtered, id, depth)
         } else {
             walkBrowse(id, depth)
         }
@@ -289,7 +293,7 @@ export const flattenRows = ({
 
     if (filtered) {
         for (const rootId of filtered.pruned.roots) {
-            walkPruned(rootId, 0)
+            walkPruned(filtered, rootId, 0)
         }
         pushResultPlaceholders(filtered)
     } else {

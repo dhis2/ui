@@ -64,10 +64,37 @@ describe('flattenRows', () => {
         ])
     })
 
-    it('skips roots the store does not know', async () => {
+    it('throws on a listed node the store does not hold', async () => {
         const store = await zambia()
+        const stranger = {
+            id: 'nope',
+            displayName: 'Nope',
+            path: '/nope',
+            level: 1,
+            leaf: false,
+        }
+        const pruned = createPrunedTree()
+        pruned.roots.push('nope')
+        pruned.placed.add('nope')
 
-        expect(summary(store, ['nope', 'ou-13'])).toEqual(['ou-13:none'])
+        expect(() =>
+            flattenRows({ rootNodes: [stranger], openIds: openSet(), store })
+        ).toThrow('node nope is listed but not in the store')
+        expect(() =>
+            flattenRows({
+                rootNodes: [],
+                openIds: openSet(),
+                store,
+                filtered: {
+                    pruned,
+                    resultIds: new Set(),
+                    revealedIds: new Set(),
+                    loaded: 0,
+                    total: undefined,
+                    pageSize: 50,
+                },
+            })
+        ).toThrow('node nope is listed but not in the store')
     })
 
     it('lists loaded children under an open node at depth + 1, in slot order', async () => {
