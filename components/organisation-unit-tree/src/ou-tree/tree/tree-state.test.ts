@@ -518,3 +518,79 @@ describe('focused row', () => {
         expect(tree.getFocusedIndex()).toBeUndefined()
     })
 })
+
+describe('lit guide', () => {
+    // ou-1 (0), ou-2 (1), ou-3 (2), ou-6 (2), ou-13 (1).
+    const deep = async () => {
+        const { tree } = setup(['ou-1'], { initiallyOpen: ['ou-1', 'ou-2'] })
+        await flush()
+        expect(ids(tree)).toEqual(['ou-1', 'ou-2', 'ou-3', 'ou-6', 'ou-13'])
+        return tree
+    }
+
+    it('a hovered guide segment lights that level along the ancestor branch, and the ancestor toggle', async () => {
+        const tree = await deep()
+        const listener = jest.fn()
+        tree.subscribe(listener)
+
+        tree.setHoveredGuide({ key: 'ou-3', level: 0 })
+
+        expect(tree.litLevel('ou-1')).toBeUndefined()
+        expect(tree.litLevel('ou-2')).toBe(0)
+        expect(tree.litLevel('ou-3')).toBe(0)
+        expect(tree.litLevel('ou-13')).toBe(0)
+        expect(tree.isGuideAncestor('ou-1')).toBe(true)
+        expect(tree.isGuideAncestor('ou-2')).toBe(false)
+
+        tree.setHoveredGuide({ key: 'ou-3', level: 1 })
+        expect(tree.litLevel('ou-3')).toBe(1)
+        expect(tree.litLevel('ou-6')).toBe(1)
+        expect(tree.litLevel('ou-13')).toBeUndefined()
+        expect(tree.isGuideAncestor('ou-2')).toBe(true)
+
+        tree.setHoveredGuide(undefined)
+        expect(tree.litLevel('ou-3')).toBeUndefined()
+        expect(listener).toHaveBeenCalledTimes(3)
+    })
+
+    it("an open node's own toggle is its guide: hovering it lights its subtree", async () => {
+        const tree = await deep()
+
+        tree.setHoveredGuide({ key: 'ou-2', level: 1 })
+
+        expect(tree.isGuideAncestor('ou-2')).toBe(true)
+        expect(tree.litLevel('ou-3')).toBe(1)
+        expect(tree.litLevel('ou-2')).toBeUndefined()
+    })
+
+    it("the focused row's parent branch is lit while the tree has focus; a hovered guide wins", async () => {
+        const tree = await deep()
+        tree.focusRow(2)
+        expect(tree.litLevel('ou-6')).toBeUndefined()
+
+        tree.setHasFocus(true)
+        expect(tree.litLevel('ou-6')).toBe(1)
+        expect(tree.litLevel('ou-3')).toBe(1)
+        expect(tree.isGuideAncestor('ou-2')).toBe(true)
+
+        tree.setHoveredGuide({ key: 'ou-13', level: 0 })
+        expect(tree.litLevel('ou-6')).toBe(0)
+
+        tree.setHoveredGuide(undefined)
+        tree.focusRow(0)
+        expect(tree.litLevel('ou-2')).toBeUndefined()
+        expect(tree.isGuideAncestor('ou-1')).toBe(false)
+    })
+
+    it('closeGuideBranch closes the ancestor, focuses it and forgets the hovered guide', async () => {
+        const tree = await deep()
+        tree.setHoveredGuide({ key: 'ou-6', level: 0 })
+
+        tree.closeGuideBranch({ key: 'ou-6', level: 0 })
+
+        expect(tree.isOpen('ou-1')).toBe(false)
+        expect(ids(tree)).toEqual(['ou-1'])
+        expect(tree.getFocusedKey()).toBe('ou-1')
+        expect(tree.litLevel('ou-1')).toBeUndefined()
+    })
+})

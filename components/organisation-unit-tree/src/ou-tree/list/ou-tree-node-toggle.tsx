@@ -6,6 +6,9 @@ export interface OuTreeNodeToggleProps {
     leaf: boolean
     open: boolean
     loading: boolean
+    /** The toggle's line, the node's own guide, is lit. */
+    lit?: boolean
+    onHoverChange?: (hovered: boolean) => void
     dataTest?: string
 }
 
@@ -17,6 +20,8 @@ export const OuTreeNodeToggle = ({
     leaf,
     open,
     loading,
+    lit,
+    onHoverChange,
     dataTest = 'dhis2-uicore-outree',
 }: OuTreeNodeToggleProps) => {
     if (leaf) {
@@ -25,5 +30,12 @@ export const OuTreeNodeToggle = ({
     if (loading) {
         return <OuTreeLoader dataTest={`${dataTest}-loader`} />
     }
-    return <OuTreeToggle open={open} dataTest={`${dataTest}-toggle`} />
+    return (
+        <OuTreeToggle
+            open={open}
+            lit={lit}
+            onHoverChange={onHoverChange}
+            dataTest={`${dataTest}-toggle`}
+        />
+    )
 }

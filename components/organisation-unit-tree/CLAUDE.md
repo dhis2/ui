@@ -163,6 +163,18 @@ in other packages.
   and labelled "Loading", error rows labelled by their retry. In the
   search input, Down moves focus to the tree (through the provider's focus
   target, `useOuTreeFocusTarget`) and Escape clears.
+- **A guide line is a branch, and lights up as one.** Each indent segment
+  belongs to the ancestor at its level (`Guide`, a row key and a level;
+  an open node's toggle line is its own guide). The pointer over a
+  segment or a toggle (`setHoveredGuide`) lights the segment at that
+  level on every row of the ancestor's subtree and the ancestor's toggle
+  line, in `grey500` like the old tree; without a pointer, the focused
+  row's parent branch is lit while the tree has focus. A click on a lit
+  segment closes that branch and focuses its ancestor (`closeGuideBranch`),
+  the old tree's click on the line; the keyboard gets there with Left
+  repeated. Rows read `useOuTreeRowGuide(key)` for `litLevel` and
+  `isGuideAncestor`; the shell paints the segment and takes its click
+  without the row's `onClick`.
 - **A failed first page means the node did not open.** `isOpen` is false
   while a node's children status is `failed`, unless the node has
   matching children, which it keeps listing; either way the row's body

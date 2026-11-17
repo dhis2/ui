@@ -2,9 +2,17 @@ import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React from 'react'
 
+interface ToggleOptions {
+    /** The toggle's line, the node's own guide, is lit. */
+    lit?: boolean
+    /** The pointer entered or left the toggle. */
+    onHoverChange?: (hovered: boolean) => void
+    dataTest?: string
+}
+
 export type OuTreeToggleProps =
-    | { leaf: true; open?: never; dataTest?: string }
-    | { leaf?: false; open: boolean; dataTest?: string }
+    | ({ leaf: true; open?: never } & ToggleOptions)
+    | ({ leaf?: false; open: boolean } & ToggleOptions)
 
 // Ported from components/node/src/toggle.js for the flat list. A leaf has
 // no toggle and gets the toggle's space, so labels line up. The row takes
@@ -12,12 +20,16 @@ export type OuTreeToggleProps =
 export const OuTreeToggle = ({
     leaf = false,
     open = false,
+    lit = false,
+    onHoverChange,
     dataTest,
 }: OuTreeToggleProps) => (
     <div
-        className={cx('toggle', { open })}
+        className={cx('toggle', { open, lit })}
         data-test={dataTest}
         aria-hidden={leaf || undefined}
+        onPointerEnter={onHoverChange && (() => onHoverChange(true))}
+        onPointerLeave={onHoverChange && (() => onHoverChange(false))}
     >
         {leaf ? null : (
             <span>
@@ -48,6 +60,9 @@ export const OuTreeToggle = ({
             }
             .open::after {
                 content: '';
+            }
+            .lit::after {
+                background: ${colors.grey500};
             }
             span {
                 display: block;

@@ -31,6 +31,16 @@ export interface TreeStateOptions {
 
 export type TreeMode = 'browse' | 'search'
 
+/**
+ * A guide line segment: the indent at `level` on the row with `key`, or
+ * an open node's own toggle line when `key` is the node and `level` its
+ * depth. It belongs to the branch of the ancestor at that level.
+ */
+export interface Guide {
+    key: string
+    level: number
+}
+
 type ResultsPageStatus =
     | { status: 'loading' }
     | { status: 'loaded' }
@@ -138,6 +148,19 @@ export interface TreeState extends Subscribable {
     focusParent(): number | undefined
     /** The next row, if it is deeper than the focused one. */
     focusChild(): number | undefined
+    /**
+     * The guide the pointer is over, or none. Its branch lights up: the
+     * segment at its level on every row of the ancestor's subtree and the
+     * ancestor's toggle line. Without one, the focused row's parent
+     * branch is lit while the tree has focus.
+     */
+    setHoveredGuide(guide: Guide | undefined): void
+    /** Closes the branch a guide belongs to and focuses its ancestor. */
+    closeGuideBranch(guide: Guide): void
+    /** The level lit on this row, if it is in the lit branch. */
+    litLevel(key: string): number | undefined
+    /** Whether this node is the lit branch's ancestor: its toggle line is lit. */
+    isGuideAncestor(key: string): boolean
     /** Whether a pruned-tree node has children on the way to a result. */
     hasMatchingChildren(id: string): boolean
     /**
@@ -205,6 +228,7 @@ export const createTreeState = ({
     let focusedKey: string | undefined
     let focusedIndex: number | undefined
     let hasFocus = false
+    let hoveredGuide: Guide | undefined
     let debounce: ReturnType<typeof setTimeout> | undefined
     let searchStatus: SearchStatus = { status: 'idle' }
     let rootsStatus: RootsStatus = { status: 'loading' }
@@ -221,6 +245,8 @@ export const createTreeState = ({
         version += 1
         listeners.forEach((listener) => listener())
     }
+    // Own changes plus the store's, so either re-renders subscribers.
+    const getVersion = () => version + store.getVersion()
 
     const flat = (): FlatRows => {
         const current = store.getVersion()
@@ -628,6 +654,108 @@ export const createTreeState = ({
         notify()
     }
 
+    // -- Lit guide --
+
+    // A guide's branch: the ancestor at its level and the rows of its
+    // subtree, [from, to).
+    interface LitBranch {
+        ancestor: number
+        level: number
+        from: number
+        to: number
+    }
+    const branchOf = (guide: Guide): LitBranch | undefined => {
+        const { rows, indexByKey } = flat()
+        const start = indexByKey.get(guide.key)
+        if (start === undefined) {
+            return undefined
+        }
+        let ancestor = start
+        while (ancestor >= 0 && rows[ancestor].depth > guide.level) {
+            ancestor -= 1
+        }
+        if (ancestor < 0 || rows[ancestor].depth !== guide.level) {
+            return undefined
+        }
+        let to = ancestor + 1
+        while (to < rows.length && rows[to].depth > guide.level) {
+            to += 1
+        }
+        return { ancestor, level: guide.level, from: ancestor + 1, to }
+    }
+    const focusedParentGuide = (): Guide | undefined => {
+        const index = getFocusedIndex()
+        if (!hasFocus || index === undefined) {
+            return undefined
+        }
+        const { rows } = flat()
+        const depth = rows[index].depth
+        return depth === 0
+            ? undefined
+            : { key: rowKey(rows[index]), level: depth - 1 }
+    }
+    // Resolved once per tree version and guide, as every row asks.
+    let litMemo:
+        | { version: number; guide: Guide | undefined; branch?: LitBranch }
+        | undefined
+    const litBranch = (): LitBranch | undefined => {
+        const guide = hoveredGuide ?? focusedParentGuide()
+        const current = getVersion()
+        if (
+            !litMemo ||
+            litMemo.version !== current ||
+            litMemo.guide?.key !== guide?.key ||
+            litMemo.guide?.level !== guide?.level
+        ) {
+            litMemo = {
+                version: current,
+                guide,
+                branch: guide && branchOf(guide),
+            }
+        }
+        return litMemo.branch
+    }
+    const litLevel = (key: string): number | undefined => {
+        const branch = litBranch()
+        if (!branch) {
+            return undefined
+        }
+        const index = flat().indexByKey.get(key)
+        return index !== undefined && index >= branch.from && index < branch.to
+            ? branch.level
+            : undefined
+    }
+    const isGuideAncestor = (key: string): boolean => {
+        const branch = litBranch()
+        return (
+            branch !== undefined &&
+            flat().indexByKey.get(key) === branch.ancestor
+        )
+    }
+    const setHoveredGuide = (guide: Guide | undefined) => {
+        if (
+            guide?.key === hoveredGuide?.key &&
+            guide?.level === hoveredGuide?.level
+        ) {
+            return
+        }
+        hoveredGuide = guide
+        notify()
+    }
+    const closeGuideBranch = (guide: Guide) => {
+        const branch = branchOf(guide)
+        hoveredGuide = undefined
+        if (!branch) {
+            notify()
+            return
+        }
+        const row = flat().rows[branch.ancestor]
+        focusRow(branch.ancestor)
+        if (row.kind === 'node') {
+            close(row.id)
+        }
+    }
+
     // -- Loading what scrolls into view --
 
     const ensureChildrenLoaded = (firstRow: number, lastRow: number) => {
@@ -717,6 +845,10 @@ export const createTreeState = ({
         focusPrevious,
         focusParent,
         focusChild,
+        setHoveredGuide,
+        closeGuideBranch,
+        litLevel,
+        isGuideAncestor,
         hasMatchingChildren,
         toggleRevealed,
         getRowCount,
@@ -738,7 +870,6 @@ export const createTreeState = ({
                 }
             }
         },
-        // Own changes plus the store's, so either re-renders subscribers.
-        getVersion: () => version + store.getVersion(),
+        getVersion,
     }
 }

@@ -476,4 +476,20 @@ describe('OuTreeList keyboard', () => {
 
         expect(retry).toHaveBeenCalledWith('ou-6', 2)
     })
+
+    it('a click on a guide segment closes that branch and focuses its ancestor', async () => {
+        renderList({ rootIds: ['ou-1'], initiallyOpen: ['ou-1', 'ou-2'] })
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(5))
+        const deepRow = rowsOfKind('node')[2]
+        const guide = deepRow.querySelector('.indent[data-level="0"]')!
+
+        await userEvent.hover(guide)
+        expect(
+            rowsOfKind('node')[4].querySelector('.indent[data-level="0"]')
+        ).toHaveClass('lit')
+        await userEvent.click(guide)
+
+        expect(rowsOfKind('node')).toHaveLength(1)
+        expect(active()).toBe(rowsOfKind('node')[0])
+    })
 })

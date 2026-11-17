@@ -50,6 +50,7 @@ const setup = ({
             jest.spyOn(tree, 'toggle')
             jest.spyOn(tree, 'open')
             jest.spyOn(tree, 'setFocused')
+            jest.spyOn(tree, 'setHoveredGuide')
             jest.spyOn(tree.store, 'retryChildrenPage')
         }
         // A row exists only once its node is stored, as in the list.
@@ -176,6 +177,19 @@ describe('OuTreeNodeRow', () => {
         expect(ref.tree.setFocused).toHaveBeenCalledTimes(3)
         expect(ref.tree.setFocused).toHaveBeenCalledWith('ou-1')
         expect(row).toHaveAttribute('aria-expanded', 'true')
+    })
+
+    it("hovering the toggle names the node's own guide", async () => {
+        const ref = setup()
+        await ready()
+
+        await userEvent.hover(screen.getByTestId('t-toggle'))
+        expect(ref.tree.setHoveredGuide).toHaveBeenLastCalledWith({
+            key: 'ou-1',
+            level: 0,
+        })
+        await userEvent.unhover(screen.getByTestId('t-toggle'))
+        expect(ref.tree.setHoveredGuide).toHaveBeenLastCalledWith(undefined)
     })
 
     it('has its element id and no shortcut while it has no control', async () => {

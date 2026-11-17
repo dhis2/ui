@@ -120,6 +120,38 @@ describe('OuTreeRowShell', () => {
         expect(onClick.mock.calls[0][0].target).toBe(screen.getByText('x'))
     })
 
+    it('lights the segment of the lit level, reports guide hover and takes the guide click without the row', async () => {
+        const onGuideHover = jest.fn()
+        const onGuideClick = jest.fn()
+        const onClick = jest.fn()
+        render(
+            <OuTreeRowShell
+                depth={3}
+                litLevel={1}
+                onGuideHover={onGuideHover}
+                onGuideClick={onGuideClick}
+                onClick={onClick}
+                dataTest="t"
+            >
+                x
+            </OuTreeRowShell>
+        )
+        const indents = screen.getByTestId('t').querySelectorAll('.indent')
+
+        expect(indents[0]).not.toHaveClass('lit')
+        expect(indents[1]).toHaveClass('lit')
+        expect(indents[2]).not.toHaveClass('lit')
+
+        await userEvent.hover(indents[2])
+        expect(onGuideHover).toHaveBeenLastCalledWith(2)
+        await userEvent.unhover(indents[2])
+        expect(onGuideHover).toHaveBeenLastCalledWith(undefined)
+
+        await userEvent.click(indents[0])
+        expect(onGuideClick).toHaveBeenCalledWith(0)
+        expect(onClick).not.toHaveBeenCalled()
+    })
+
     it('omits aria-expanded when undefined', () => {
         render(
             <OuTreeRowShell depth={0} dataTest="t">

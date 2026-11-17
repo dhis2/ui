@@ -67,6 +67,10 @@ controls, the eye or a retry; Tab cycles them and Escape returns to the
 tree. From the search input, Down moves focus to the tree and Escape
 clears the search.
 
+A guide line is a branch: hover a segment or an open node's toggle and the
+whole branch lights up; click it to close the branch. The focused row's
+branch is lit while the tree has focus.
+
 The \`Building block:\` stories show the pieces the tree is composed of, each
 in each state, with no tree behind them.
 `

@@ -6,6 +6,7 @@ import {
     useOuTreeActions,
     useOuTreeRowElementId,
     useOuTreeRowFocused,
+    useOuTreeRowGuide,
 } from '../tree'
 import { OuTreeRetrySkeleton } from './ou-tree-retry-skeleton'
 import { OuTreeRowShell } from './ou-tree-row-shell'
@@ -23,10 +24,12 @@ export const OuTreeErrorRow = memo(function OuTreeErrorRow({
     row,
     dataTest = 'dhis2-uicore-outree',
 }: OuTreeErrorRowProps) {
-    const { store, retryResultsPage } = useOuTreeActions()
+    const { store, retryResultsPage, setHoveredGuide, closeGuideBranch } =
+        useOuTreeActions()
     const key = rowKey(row)
     const elementId = useOuTreeRowElementId(key)
     const focused = useOuTreeRowFocused(key)
+    const { litLevel } = useOuTreeRowGuide(key)
     const onRetry =
         row.kind === 'children-error'
             ? () => store.retryChildrenPage(row.parentId, row.page)
@@ -36,6 +39,13 @@ export const OuTreeErrorRow = memo(function OuTreeErrorRow({
             depth={row.depth}
             elementId={elementId}
             focused={focused}
+            litLevel={litLevel}
+            onGuideHover={(level) =>
+                setHoveredGuide(
+                    level === undefined ? undefined : { key, level }
+                )
+            }
+            onGuideClick={(level) => closeGuideBranch({ key, level })}
             ariaLabel={i18n.t('Could not load. Retry')}
             keyshortcuts="Shift+Enter"
             rowKind={row.kind}

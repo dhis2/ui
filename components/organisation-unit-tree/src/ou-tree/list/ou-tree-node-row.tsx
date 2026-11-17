@@ -7,6 +7,7 @@ import {
     useOuTreeMatchSplitter,
     useOuTreeNode,
     useOuTreeRowElementId,
+    useOuTreeRowGuide,
     useOuTreeSearchTerm,
 } from '../tree'
 import { OuTreeMatchedText } from './ou-tree-matched-text'
@@ -83,6 +84,9 @@ interface NodeBodyProps {
     loading: boolean
     failed: boolean
     onRetry: () => void
+    /** The toggle's line is the lit guide. */
+    lit: boolean
+    onToggleHover: (hovered: boolean) => void
     dataTest: string
     /** The label slot. */
     children: React.ReactNode
@@ -98,6 +102,8 @@ const NodeBody = ({
     loading,
     failed,
     onRetry,
+    lit,
+    onToggleHover,
     dataTest,
     children,
 }: NodeBodyProps) => {
@@ -114,6 +120,8 @@ const NodeBody = ({
                 leaf={node.leaf}
                 open={isOpen}
                 loading={isOpen && loading}
+                lit={lit}
+                onHoverChange={onToggleHover}
                 dataTest={dataTest}
             />
             {children}
@@ -136,8 +144,16 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
         isHovered,
         isFocused,
     } = useOuTreeNode(row.id)
-    const { open, toggle, toggleRevealed, setHovered, setFocused } =
-        useOuTreeActions()
+    const {
+        open,
+        toggle,
+        toggleRevealed,
+        setHovered,
+        setFocused,
+        setHoveredGuide,
+        closeGuideBranch,
+    } = useOuTreeActions()
+    const { litLevel, isGuideAncestor } = useOuTreeRowGuide(row.id)
     const searchTerm = useOuTreeSearchTerm()
     const splitMatches = useOuTreeMatchSplitter()
     const elementId = useOuTreeRowElementId(row.id)
@@ -177,6 +193,13 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
             id={row.id}
             ariaExpanded={node.leaf ? undefined : isOpen}
             keyshortcuts={showsEye || failed ? 'Shift+Enter' : undefined}
+            litLevel={litLevel}
+            onGuideHover={(level) =>
+                setHoveredGuide(
+                    level === undefined ? undefined : { key: row.id, level }
+                )
+            }
+            onGuideClick={(level) => closeGuideBranch({ key: row.id, level })}
             onHoverChange={(hovered) =>
                 setHovered(hovered ? row.id : undefined)
             }
@@ -189,6 +212,12 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
                 loading={loading}
                 failed={failed}
                 onRetry={() => open(row.id)}
+                lit={isGuideAncestor}
+                onToggleHover={(hovered) =>
+                    setHoveredGuide(
+                        hovered ? { key: row.id, level: row.depth } : undefined
+                    )
+                }
                 dataTest={dataTest}
             >
                 {renderLabel ? (

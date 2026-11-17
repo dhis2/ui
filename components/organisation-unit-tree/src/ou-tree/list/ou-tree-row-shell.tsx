@@ -13,6 +13,12 @@ export interface OuTreeRowShellProps {
     ariaBusy?: boolean
     /** Announced as `aria-keyshortcuts`: how to reach the row's controls. */
     keyshortcuts?: string
+    /** The indent level whose guide segment is lit on this row. */
+    litLevel?: number
+    /** The pointer entered the guide segment at a level, or left it. */
+    onGuideHover?: (level: number | undefined) => void
+    /** A click on the guide segment at a level; the row does not get it. */
+    onGuideClick?: (level: number) => void
     rowKind?:
         | 'node'
         | 'children-skeleton'
@@ -38,6 +44,9 @@ export const OuTreeRowShell = ({
     ariaLabel,
     ariaBusy,
     keyshortcuts,
+    litLevel,
+    onGuideHover,
+    onGuideClick,
     rowKind,
     id,
     onHoverChange,
@@ -65,9 +74,18 @@ export const OuTreeRowShell = ({
         {Array.from({ length: depth }, (_, level) => (
             <span
                 key={level}
-                className="indent"
+                className={cx('indent', { lit: level === litLevel })}
                 data-level={level}
                 aria-hidden
+                onPointerEnter={onGuideHover && (() => onGuideHover(level))}
+                onPointerLeave={onGuideHover && (() => onGuideHover(undefined))}
+                onClick={
+                    onGuideClick &&
+                    ((event) => {
+                        event.stopPropagation()
+                        onGuideClick(level)
+                    })
+                }
             />
         ))}
         {children}
@@ -95,6 +113,12 @@ export const OuTreeRowShell = ({
                 inset-inline-start: 11px;
                 width: 1px;
                 background: ${colors.grey400};
+            }
+            .indent.lit {
+                cursor: pointer;
+            }
+            .indent.lit::after {
+                background: ${colors.grey500};
             }
         `}</style>
     </div>
