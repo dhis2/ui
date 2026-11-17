@@ -123,6 +123,66 @@ const rendersTheSame = (a: Row, b: Row): boolean => {
 }
 
 /**
+ * The row from the previous build with the same key, while it still
+ * renders the same, so a row keeps its object across rebuilds.
+ */
+const reuseUnchanged = (
+    previousByKey: ReadonlyMap<string, Row>,
+    row: Row
+): Row => {
+    const earlier = previousByKey.get(rowKey(row))
+    return earlier && rendersTheSame(earlier, row) ? earlier : row
+}
+
+// Every id the walk meets comes from the store: a root it loaded, a
+// child slot it filled, an ancestor it saved with the results.
+const nodeOf = (store: NodeStore, id: string): StoredNode => {
+    const node = store.getNode(id)
+    if (!node) {
+        throw new Error(`OuTree: node ${id} is listed but not in the store`)
+    }
+    return node
+}
+
+/** One row per result not received yet, at the given depth. */
+const resultPlaceholderRows = (
+    { loaded, total, pageSize, failedPage }: SearchRowsInput,
+    depth: number
+): Row[] => {
+    if (total === undefined) {
+        // Page one has not answered, so the total is unknown; its retry
+        // row is the only placeholder, and only if it failed.
+        return failedPage
+            ? [
+                  {
+                      kind: 'result-error',
+                      index: 0,
+                      page: failedPage.page,
+                      error: failedPage.error,
+                      depth,
+                  },
+              ]
+            : []
+    }
+    const rows: Row[] = []
+    for (let index = loaded; index < total; index += 1) {
+        const page = resultsPageOf(index, pageSize)
+        if (page === failedPage?.page) {
+            rows.push({
+                kind: 'result-error',
+                index,
+                page,
+                error: failedPage.error,
+                depth,
+            })
+        } else {
+            rows.push({ kind: 'result-skeleton', index, depth })
+        }
+    }
+    return rows
+}
+
+/**
  * The tree as a flat list of rows, depth-first, depth counted from the
  * root.
  *
@@ -145,17 +205,10 @@ export const flattenRows = ({
 }: FlattenRowsInput): FlatRows => {
     const rows: Row[] = []
     const indexById = new Map<string, number>()
-
-    // The previous build's row for the same key, while it still renders
-    // the same, so a row keeps its object across rebuilds.
     const previousByKey = new Map<string, Row>()
     previous?.rows.forEach((row) => previousByKey.set(rowKey(row), row))
-    const reuseUnchanged = (row: Row): Row => {
-        const earlier = previousByKey.get(rowKey(row))
-        return earlier && rendersTheSame(earlier, row) ? earlier : row
-    }
     const push = (row: Row) => {
-        rows.push(reuseUnchanged(row))
+        rows.push(reuseUnchanged(previousByKey, row))
     }
     const pushNode = (
         node: StoredNode,
@@ -213,18 +266,8 @@ export const flattenRows = ({
         })
     }
 
-    // Every id the walk meets comes from the store: a root it loaded, a
-    // child slot it filled, an ancestor it saved with the results.
-    const nodeOf = (id: string): StoredNode => {
-        const node = store.getNode(id)
-        if (!node) {
-            throw new Error(`OuTree: node ${id} is listed but not in the store`)
-        }
-        return node
-    }
-
     const walkFull = (id: string, depth: number) => {
-        const node = nodeOf(id)
+        const node = nodeOf(store, id)
         const children = pushNode(node, depth, 'full')
         if (openIds.has(id)) {
             pushChildSlots(node, depth, children)
@@ -232,7 +275,7 @@ export const flattenRows = ({
     }
 
     const walkPruned = (search: SearchRowsInput, id: string, depth: number) => {
-        const node = nodeOf(id)
+        const node = nodeOf(store, id)
         const children = pushNode(node, depth, 'pruned')
         if (!openIds.has(id)) {
             return
@@ -260,49 +303,12 @@ export const flattenRows = ({
         }
     }
 
-    // One row per result not received yet, at the depth of the last row.
-    const pushResultPlaceholders = ({
-        loaded,
-        total,
-        pageSize,
-        failedPage,
-    }: SearchRowsInput) => {
-        const depth = rows.length > 0 ? rows[rows.length - 1].depth : 0
-        if (total === undefined) {
-            // Page one has not answered, so the total is unknown; its retry
-            // row is the only placeholder, and only if it failed.
-            if (failedPage) {
-                push({
-                    kind: 'result-error',
-                    index: 0,
-                    page: failedPage.page,
-                    error: failedPage.error,
-                    depth,
-                })
-            }
-            return
-        }
-        for (let index = loaded; index < total; index += 1) {
-            const page = resultsPageOf(index, pageSize)
-            if (page === failedPage?.page) {
-                push({
-                    kind: 'result-error',
-                    index,
-                    page,
-                    error: failedPage.error,
-                    depth,
-                })
-            } else {
-                push({ kind: 'result-skeleton', index, depth })
-            }
-        }
-    }
-
     if (search) {
         for (const rootId of search.pruned.roots) {
             walkPruned(search, rootId, 0)
         }
-        pushResultPlaceholders(search)
+        const depth = rows.length > 0 ? rows[rows.length - 1].depth : 0
+        resultPlaceholderRows(search, depth).forEach(push)
     } else {
         for (const root of rootNodes) {
             walkFull(root.id, 0)
