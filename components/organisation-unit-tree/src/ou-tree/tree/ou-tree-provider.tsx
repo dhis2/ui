@@ -5,6 +5,7 @@ import React, {
     useMemo,
     useRef,
 } from 'react'
+import { OuTreeDomProvider } from './ou-tree-dom'
 import { useNodeStore } from './ou-tree-node-store-provider'
 import { createTreeState, TreeState } from './tree-state'
 
@@ -49,7 +50,11 @@ export const OuTreeProvider = ({
     useEffect(() => {
         tree.loadInitial()
     }, [tree])
-    return <TreeContext.Provider value={tree}>{children}</TreeContext.Provider>
+    return (
+        <TreeContext.Provider value={tree}>
+            <OuTreeDomProvider>{children}</OuTreeDomProvider>
+        </TreeContext.Provider>
+    )
 }
 
 /** The tree from the nearest OuTreeProvider. */
