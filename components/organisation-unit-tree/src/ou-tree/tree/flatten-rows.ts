@@ -7,8 +7,11 @@ import {
 import { type PrunedTree, resultsPageOf } from './pruned-tree'
 import { rowKey } from './row-key'
 
-/** Pruned: a node of the filtered tree. Browse: batch 3's node. */
-export type NodeView = 'browse' | 'pruned'
+/**
+ * How a node lists its children. Full: all of them. Pruned: a node of the
+ * pruned tree, its matching children until revealed.
+ */
+export type NodeView = 'full' | 'pruned'
 
 /**
  * A row is one tree's view of a position in it: a shared store object
@@ -19,7 +22,7 @@ export type NodeView = 'browse' | 'pruned'
  * and rows are rebuilt from scratch on every change.
  */
 export type Row =
-    /** A node, browse or pruned, as a row. */
+    /** A node, full or pruned, as a row. */
     | {
           kind: 'node'
           id: string
@@ -60,7 +63,7 @@ export type Row =
 export interface FilteredView {
     pruned: PrunedTree
     resultIds: ReadonlySet<string>
-    /** Pruned-tree nodes showing all their children, as browse rows, when open. */
+    /** Pruned-tree nodes listing all their children when open. */
     revealedIds: ReadonlySet<string>
     /** Results received so far. */
     loaded: number
@@ -216,9 +219,9 @@ export const flattenRows = ({
         return node
     }
 
-    const walkBrowse = (id: string, depth: number) => {
+    const walkFull = (id: string, depth: number) => {
         const node = nodeOf(id)
-        const children = pushNode(node, depth, 'browse')
+        const children = pushNode(node, depth, 'full')
         if (openIds.has(id)) {
             pushChildSlots(node, depth, children)
         }
@@ -249,7 +252,7 @@ export const flattenRows = ({
         if (filtered && filtered.pruned.placed.has(id)) {
             walkPruned(filtered, id, depth)
         } else {
-            walkBrowse(id, depth)
+            walkFull(id, depth)
         }
     }
 
@@ -298,7 +301,7 @@ export const flattenRows = ({
         pushResultPlaceholders(filtered)
     } else {
         for (const root of rootNodes) {
-            walkBrowse(root.id, 0)
+            walkFull(root.id, 0)
         }
     }
     return { rows, indexById }

@@ -63,7 +63,7 @@ const setup = ({
                     id,
                     depth: 0,
                     children: status,
-                    view: 'browse',
+                    view: 'full',
                     result: false,
                 }}
                 renderLabel={renderLabel}

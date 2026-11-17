@@ -370,7 +370,7 @@ describe('flattenRows in filtered mode', () => {
         return { store, rows, filtered }
     }
 
-    it('walks the pruned tree under open nodes, marking results, with no browse children', async () => {
+    it('walks the pruned tree under open nodes, marking results, with no full children', async () => {
         const { rows } = await setup(['ou-8'])
 
         expect(rows({}).rows.map(describeRow)).toEqual([
@@ -393,7 +393,7 @@ describe('flattenRows in filtered mode', () => {
         ])
     })
 
-    it('uses the browse walk under an open pruned node without matching children', async () => {
+    it('uses the full walk under an open pruned node without matching children', async () => {
         const { store, rows } = await setup(['ou-6'])
         store.requestChildrenPage('ou-6', 1)
         await flush()
@@ -457,7 +457,7 @@ describe('flattenRows in filtered mode', () => {
         ])
     })
 
-    it('indexes pruned and browse node rows alike', async () => {
+    it('indexes pruned and full node rows alike', async () => {
         const { store, rows } = await setup(['ou-10'])
         store.requestChildrenPage('ou-6', 1)
         await flush()

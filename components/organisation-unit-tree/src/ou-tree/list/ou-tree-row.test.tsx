@@ -38,7 +38,7 @@ const nodeRow: Row = {
     id: 'ou-1',
     depth: 0,
     children: { status: 'none' },
-    view: 'browse',
+    view: 'full',
     result: false,
 }
 

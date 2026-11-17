@@ -8,7 +8,7 @@ describe('rowKey', () => {
                 id: 'ou-1',
                 depth: 0,
                 children: { status: 'none' },
-                view: 'browse',
+                view: 'full',
                 result: false,
             })
         ).toBe('ou-1')
