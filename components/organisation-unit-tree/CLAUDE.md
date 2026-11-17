@@ -161,15 +161,13 @@ in other packages.
   with its own control there is batch 5's problem to solve with the row's
   focus model.
 - **Rows are one tree's view of a position; the store's objects are
-  shared.** `flattenRows` rebuilds the rows on every change and reuses the
-  previous build's object for a row that would render the same
-  (`rendersTheSame`), so memoised rows skip and the virtualiser keeps its
-  measurements. The comparison is shallow: the store's objects are
-  reference-stable, the rest of a row is the tree's own primitives (depth,
-  view, result). A later batch could shrink a node row to kind, id, depth
-  and view and let the row component read everything else through
-  `useOuTreeNode`, as it already does for most fields; then reuse is the
-  key plus depth. Batch 5 is the natural moment, as rows change for focus.
+  shared.** A node row is kind, id, depth and view, nothing from the
+  store: the row component reads the node, its children status and
+  whether it is a result through `useOuTreeNode`. `flattenRows` rebuilds
+  the rows on every change and reuses the previous build's object for a
+  row that would render the same (`rendersTheSame`: key, depth and view
+  for a node), so memoised rows skip and the virtualiser keeps its
+  measurements.
 - **Use `useOuTreeActions` in components that act on the tree but must not
   re-render when it changes**, such as rows; `useOuTree` subscribes to every
   change.

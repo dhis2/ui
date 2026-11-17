@@ -14,24 +14,17 @@ import { rowKey } from './row-key'
 export type NodeView = 'full' | 'pruned'
 
 /**
- * A row is one tree's view of a position in it: a shared store object
- * (a node, a parent's children status) composed with what only this tree
- * knows, its depth from this tree's root, its view in this tree's search,
- * whether it is a result for this tree's term. The same node can sit in
- * several trees at once, so none of that can live on the store's objects,
- * and rows are rebuilt from scratch on every change.
+ * A row is one tree's view of a position in it: what only this tree knows
+ * about a node or an empty slot, its depth from this tree's root, its view
+ * in this tree's search. The same node can sit in several trees at once,
+ * so none of that can live on the store's objects, and rows are rebuilt
+ * from scratch on every change. A node row carries nothing else: the row
+ * component reads the node, its children status and whether it is a
+ * result through the tree's hooks.
  */
 export type Row =
     /** A node, full or pruned, as a row. */
-    | {
-          kind: 'node'
-          id: string
-          depth: number
-          children: ChildrenStatus
-          view: NodeView
-          /** A direct search result, as opposed to an ancestor of one. */
-          result: boolean
-      }
+    | { kind: 'node'; id: string; depth: number; view: NodeView }
     /** An empty slot of a parent's children whose page is not loaded. */
     | {
           kind: 'children-skeleton'
@@ -97,10 +90,8 @@ export interface FlatRows {
  * Whether two rows with the same key would render the same, so the earlier
  * object can stand in for the later one: a memoised row component then
  * skips, and the virtualiser keeps its measurement. Rows are new objects
- * every rebuild, so their identity cannot say this; the comparison is
- * shallow, since the store's objects are reference-stable (`children` is
- * replaced only when that parent's children change) and the rest are the
- * tree's own primitives.
+ * every rebuild, so their identity cannot say this; the fields are the
+ * tree's own primitives, so the comparison is shallow.
  */
 const rendersTheSame = (a: Row, b: Row): boolean => {
     if (a.kind !== b.kind || a.depth !== b.depth) {
@@ -108,12 +99,7 @@ const rendersTheSame = (a: Row, b: Row): boolean => {
     }
     switch (b.kind) {
         case 'node':
-            return (
-                a.kind === 'node' &&
-                a.children === b.children &&
-                a.view === b.view &&
-                a.result === b.result
-            )
+            return a.kind === 'node' && a.view === b.view
         case 'children-skeleton':
         case 'result-skeleton':
             return true
@@ -217,16 +203,8 @@ export const flattenRows = ({
         depth: number,
         view: NodeView
     ): ChildrenStatus => {
-        const children = store.getChildren(node.id)
-        push({
-            kind: 'node',
-            id: node.id,
-            depth,
-            children,
-            view,
-            result: search?.resultIds.has(node.id) ?? false,
-        })
-        return children
+        push({ kind: 'node', id: node.id, depth, view })
+        return store.getChildren(node.id)
     }
 
     // The rows of an open node's children list: a filled slot is a node, an

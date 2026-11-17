@@ -18,13 +18,17 @@ const flush = () => new Promise((resolve) => setTimeout(resolve, 0))
 const openSet = (...ids: string[]) => new Set(ids)
 const rootNodesOf = (store: NodeStore, ids: string[]) =>
     ids.flatMap((id) => store.getNode(id) ?? [])
-const describeRow = (row: Row) => {
+const describeRow = (
+    row: Row,
+    store: NodeStore,
+    resultIds: ReadonlySet<string> = new Set()
+) => {
     const indent = '  '.repeat(row.depth)
     switch (row.kind) {
         case 'node':
-            return `${indent}${row.id}:${row.children.status}${
+            return `${indent}${row.id}:${store.getChildren(row.id).status}${
                 row.view === 'pruned' ? ':pruned' : ''
-            }${row.result ? '*' : ''}`
+            }${resultIds.has(row.id) ? '*' : ''}`
         case 'children-skeleton':
         case 'result-skeleton':
             return `${indent}${row.kind}#${row.index}`
@@ -38,7 +42,7 @@ const summary = (store: NodeStore, rootIds: string[], ...open: string[]) =>
         rootNodes: rootNodesOf(store, rootIds),
         openIds: openSet(...open),
         store,
-    }).rows.map(describeRow)
+    }).rows.map((row) => describeRow(row, store))
 
 describe('flattenRows', () => {
     const zambia = async (...open: string[]) => {
@@ -211,7 +215,7 @@ describe('flattenRows', () => {
 })
 
 describe('flattenRows row identity', () => {
-    it('reuses node rows whose depth and children status are unchanged', async () => {
+    it('reuses node rows whose depth and view are unchanged, whatever their children status', async () => {
         const { api } = createTestTreeApi({
             orgUnits: zambiaOrgUnits,
             pageSize: 2,
@@ -235,10 +239,9 @@ describe('flattenRows row identity', () => {
             previous: first,
         })
 
-        // ou-1 and ou-13 are unchanged; ou-2's children status changed.
+        // ou-2's children status changed, but a row does not carry it.
         expect(second.rows[0]).toBe(first.rows[0])
-        expect(second.rows[1]).not.toBe(first.rows[1])
-        expect(second.rows[1]).toMatchObject({ kind: 'node', id: 'ou-2' })
+        expect(second.rows[1]).toBe(first.rows[1])
         const ou13 = second.rows[second.indexByKey.get('ou-13') as number]
         expect(ou13).toBe(first.rows[first.indexByKey.get('ou-13') as number])
     })
@@ -358,21 +361,28 @@ describe('flattenRows in search mode', () => {
             overrides: Partial<SearchRowsInput>,
             previous?: FlatRows,
             open = ['ou-1', 'ou-2', 'ou-6']
-        ) =>
-            flattenRows({
+        ) => {
+            const flat = flattenRows({
                 rootNodes: rootNodesOf(store, ['ou-1']),
                 openIds: openSet(...open),
                 store,
                 previous,
                 search: { ...search, ...overrides },
             })
+            return {
+                ...flat,
+                described: flat.rows.map((row) =>
+                    describeRow(row, store, search.resultIds)
+                ),
+            }
+        }
         return { store, rows, search }
     }
 
     it('walks the pruned tree under open nodes, marking results, with no full children', async () => {
         const { rows } = await setup(['ou-8'])
 
-        expect(rows({}).rows.map(describeRow)).toEqual([
+        expect(rows({}).described).toEqual([
             'ou-1:none:pruned',
             '  ou-2:none:pruned',
             '    ou-6:none:pruned',
@@ -383,9 +393,7 @@ describe('flattenRows in search mode', () => {
     it('shows nothing under a closed pruned node', async () => {
         const { rows } = await setup(['ou-8'])
 
-        expect(
-            rows({}, undefined, ['ou-1', 'ou-2']).rows.map(describeRow)
-        ).toEqual([
+        expect(rows({}, undefined, ['ou-1', 'ou-2']).described).toEqual([
             'ou-1:none:pruned',
             '  ou-2:none:pruned',
             '    ou-6:none:pruned',
@@ -397,7 +405,7 @@ describe('flattenRows in search mode', () => {
         store.requestChildrenPage('ou-6', 1)
         await flush()
 
-        expect(rows({}).rows.map(describeRow)).toEqual([
+        expect(rows({}).described).toEqual([
             'ou-1:none:pruned',
             '  ou-2:none:pruned',
             '    ou-6:loaded:pruned*',
@@ -414,7 +422,7 @@ describe('flattenRows in search mode', () => {
         const { store, rows } = await setup(['ou-10'])
         const revealed = { revealedIds: new Set(['ou-6']) }
 
-        expect(rows(revealed).rows.map(describeRow)).toEqual([
+        expect(rows(revealed).described).toEqual([
             'ou-1:none:pruned',
             '  ou-2:none:pruned',
             '    ou-6:none:pruned',
@@ -422,9 +430,7 @@ describe('flattenRows in search mode', () => {
         ])
 
         store.requestChildrenPage('ou-6', 1)
-        expect(rows(revealed).rows.map(describeRow)[2]).toBe(
-            '    ou-6:loading:pruned'
-        )
+        expect(rows(revealed).described[2]).toBe('    ou-6:loading:pruned')
         expect(rows(revealed).rows).toHaveLength(4)
         await flush()
         expect(rows(revealed).rows).toHaveLength(9)
@@ -436,14 +442,12 @@ describe('flattenRows in search mode', () => {
         await flush()
         const revealed = { revealedIds: new Set(['ou-6']) }
 
-        expect(
-            rows(revealed, undefined, ['ou-1', 'ou-2']).rows.map(describeRow)
-        ).toEqual([
+        expect(rows(revealed, undefined, ['ou-1', 'ou-2']).described).toEqual([
             'ou-1:none:pruned',
             '  ou-2:none:pruned',
             '    ou-6:loaded:pruned',
         ])
-        expect(rows(revealed).rows.map(describeRow)).toEqual([
+        expect(rows(revealed).described).toEqual([
             'ou-1:none:pruned',
             '  ou-2:none:pruned',
             '    ou-6:loaded:pruned',
@@ -470,7 +474,7 @@ describe('flattenRows in search mode', () => {
     it('appends result placeholders after the last row, at its depth', async () => {
         const { rows } = await setup(['ou-8', 'ou-10'])
 
-        expect(rows({ total: 5 }).rows.map(describeRow).slice(5)).toEqual([
+        expect(rows({ total: 5 }).described.slice(5)).toEqual([
             '      result-skeleton#2',
             '      result-skeleton#3',
             '      result-skeleton#4',
@@ -482,9 +486,9 @@ describe('flattenRows in search mode', () => {
         const error = new Error('boom')
 
         expect(
-            rows({ total: 5, failedPage: { page: 2, error } })
-                .rows.map(describeRow)
-                .slice(5)
+            rows({ total: 5, failedPage: { page: 2, error } }).described.slice(
+                5
+            )
         ).toEqual([
             '      result-error@2',
             '      result-error@2',

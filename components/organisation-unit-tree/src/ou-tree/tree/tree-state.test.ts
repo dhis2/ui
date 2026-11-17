@@ -125,10 +125,9 @@ describe('createTreeState', () => {
                 kind: 'node',
                 id: 'ou-1',
                 depth: 0,
-                children: { status: 'loading' },
                 view: 'full',
-                result: false,
             })
+            expect(tree.store.getChildren('ou-1').status).toBe('loading')
             tree.close('ou-1')
             tree.open('ou-1')
             await flush()
@@ -171,20 +170,15 @@ describe('createTreeState', () => {
             await flush()
 
             expect(tree.isOpen('p')).toBe(false)
-            expect(tree.getRow(0)).toMatchObject({
-                id: 'p',
-                children: { status: 'failed' },
-            })
+            expect(tree.getRow(0)).toMatchObject({ id: 'p' })
+            expect(tree.store.getChildren('p').status).toBe('failed')
 
             tree.toggle('p')
 
             expect(childrenRequests).toHaveLength(2)
             expect(tree.isOpen('p')).toBe(true)
-            expect(tree.getRow(0)).toMatchObject({
-                children: { status: 'loading' },
-                view: 'full',
-                result: false,
-            })
+            expect(tree.getRow(0)).toMatchObject({ view: 'full' })
+            expect(tree.store.getChildren('p').status).toBe('loading')
         })
 
         it('does not request children of a leaf', async () => {

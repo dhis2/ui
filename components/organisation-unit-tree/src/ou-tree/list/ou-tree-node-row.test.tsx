@@ -53,7 +53,7 @@ const setup = ({
             jest.spyOn(tree.store, 'retryChildrenPage')
         }
         // A row exists only once its node is stored, as in the list.
-        const { node, childrenStatus: status } = useOuTreeNode(id)
+        const { node } = useOuTreeNode(id)
         if (!node) {
             return null
         }
@@ -63,9 +63,7 @@ const setup = ({
                     kind: 'node',
                     id,
                     depth: 0,
-                    children: status,
                     view: 'full',
-                    result: false,
                 }}
                 renderLabel={renderLabel}
                 dataTest="t"

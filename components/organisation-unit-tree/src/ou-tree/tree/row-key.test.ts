@@ -7,9 +7,7 @@ describe('rowKey', () => {
                 kind: 'node',
                 id: 'ou-1',
                 depth: 0,
-                children: { status: 'none' },
                 view: 'full',
-                result: false,
             })
         ).toBe('ou-1')
     })

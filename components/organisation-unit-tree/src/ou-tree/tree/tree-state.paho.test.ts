@@ -54,7 +54,9 @@ describe('tree state over the PAHO stand-in', () => {
         const seen = Array.from({ length: 4 }, (_, index) => {
             const row = tree.getRow(index)
             return row.kind === 'node'
-                ? `${store.getNode(row.id)?.displayName}${row.result ? '*' : ''}`
+                ? `${store.getNode(row.id)?.displayName}${
+                      tree.isResult(row.id) ? '*' : ''
+                  }`
                 : row.kind
         })
         expect(seen).toEqual([
