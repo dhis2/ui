@@ -59,8 +59,8 @@ export type Row =
           depth: number
       }
 
-/** The search mode's view of the tree. */
-export interface SearchView {
+/** What the row walk needs to know about a search. */
+export interface SearchRowsInput {
     pruned: PrunedTree
     resultIds: ReadonlySet<string>
     /** Pruned-tree nodes listing all their children when open. */
@@ -84,7 +84,7 @@ export interface FlattenRowsInput {
      * pruned row wherever it appears, also among all the children of a
      * revealed ancestor, so opening it shows its matching children.
      */
-    search?: SearchView
+    search?: SearchRowsInput
 }
 
 export interface FlatRows {
@@ -231,7 +231,7 @@ export const flattenRows = ({
         }
     }
 
-    const walkPruned = (search: SearchView, id: string, depth: number) => {
+    const walkPruned = (search: SearchRowsInput, id: string, depth: number) => {
         const node = nodeOf(id)
         const children = pushNode(node, depth, 'pruned')
         if (!openIds.has(id)) {
@@ -266,7 +266,7 @@ export const flattenRows = ({
         total,
         pageSize,
         failedPage,
-    }: SearchView) => {
+    }: SearchRowsInput) => {
         const depth = rows.length > 0 ? rows[rows.length - 1].depth : 0
         if (total === undefined) {
             // Page one has not answered, so the total is unknown; its retry

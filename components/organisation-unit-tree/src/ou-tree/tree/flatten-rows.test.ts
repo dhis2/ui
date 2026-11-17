@@ -6,7 +6,7 @@ import {
 } from '../__fixtures__'
 import { createNodeStore, NodeStore } from '../node-store'
 import {
-    type SearchView,
+    type SearchRowsInput,
     type FlatRows,
     flattenRows,
     type Row,
@@ -347,7 +347,7 @@ describe('flattenRows in search mode', () => {
             shownRootIds: new Set(['ou-1']),
             store,
         })
-        const search: SearchView = {
+        const search: SearchRowsInput = {
             pruned,
             resultIds: new Set(resultIds),
             revealedIds: new Set(),
@@ -356,7 +356,7 @@ describe('flattenRows in search mode', () => {
             pageSize: 2,
         }
         const rows = (
-            view: Partial<SearchView>,
+            overrides: Partial<SearchRowsInput>,
             previous?: FlatRows,
             open = ['ou-1', 'ou-2', 'ou-6']
         ) =>
@@ -365,7 +365,7 @@ describe('flattenRows in search mode', () => {
                 openIds: openSet(...open),
                 store,
                 previous,
-                search: { ...search, ...view },
+                search: { ...search, ...overrides },
             })
         return { store, rows, search }
     }

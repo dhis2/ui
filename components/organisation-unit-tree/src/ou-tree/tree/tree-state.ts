@@ -9,7 +9,7 @@ import {
 import { createMatchSplitter, type MatchSplitter } from '../search'
 import { excludeNestedRoots } from './exclude-nested-roots'
 import {
-    type SearchView,
+    type SearchRowsInput,
     type FlatRows,
     flattenRows,
     type Row,
@@ -158,8 +158,8 @@ export const createTreeState = ({
         listeners.forEach((listener) => listener())
     }
 
-    const searchView = (state: SearchState): SearchView => {
-        let failedPage: SearchView['failedPage']
+    const searchRowsInput = (state: SearchState): SearchRowsInput => {
+        let failedPage: SearchRowsInput['failedPage']
         state.pages.forEach((status, page) => {
             if (status.status === 'failed') {
                 failedPage = { page, error: status.error }
@@ -186,7 +186,7 @@ export const createTreeState = ({
                     openIds,
                     store,
                     previous: memo?.flat,
-                    search: search && searchView(search),
+                    search: search && searchRowsInput(search),
                 }),
             }
             stale = false
