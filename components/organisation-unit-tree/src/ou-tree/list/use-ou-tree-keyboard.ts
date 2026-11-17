@@ -27,14 +27,23 @@ const FOCUSABLE = 'button, a[href], input, select, textarea, [tabindex]'
 const focusablesOf = (row: Element): HTMLElement[] =>
     Array.from(row.querySelectorAll<HTMLElement>(FOCUSABLE))
 
-const MOVES = new Set(['ArrowDown', 'ArrowUp', 'Home', 'End'])
+const MOVES = new Set([
+    'ArrowDown',
+    'ArrowUp',
+    'ArrowLeft',
+    'ArrowRight',
+    'Home',
+    'End',
+])
 
 /**
  * The treeview keys for the container: the arrows, Home and End move the
  * focused row, Right and Left open, close and step between levels, Enter
- * toggles, Shift+Enter moves DOM focus into the focused row's first
- * control. Inside a row, Tab cycles its controls and Escape returns to
- * the tree; a move key returns to the tree and moves.
+ * toggles a node and clicks the first control of any other row,
+ * Shift+Enter moves DOM focus into the focused row's first control.
+ * Inside a row reached that way, Tab cycles its controls and Escape
+ * returns to the tree; a move key returns to the tree and moves. Without
+ * a focused row, a move key starts at the first visible one.
  */
 export const useOuTreeKeyboard = ({
     scrollRef,
@@ -100,7 +109,10 @@ export const useOuTreeKeyboard = ({
                 const row = (event.target as Element).closest(
                     '[role="treeitem"]'
                 )
-                if (event.key === 'Tab' && row) {
+                // A control in the tab order, such as the roots retry,
+                // was not entered from the tree: Tab leaves it as usual.
+                const entered = (event.target as HTMLElement).tabIndex < 0
+                if (event.key === 'Tab' && row && entered) {
                     event.preventDefault()
                     const controls = focusablesOf(row)
                     const at = controls.indexOf(event.target as HTMLElement)
@@ -122,8 +134,16 @@ export const useOuTreeKeyboard = ({
                     scrollToIndex(index)
                 }
             }
-            const row =
-                focusedIndex === undefined ? undefined : getRow(focusedIndex)
+            if (focusedIndex === undefined) {
+                if (MOVES.has(event.key)) {
+                    moved(focusRow(firstVisibleIndex ?? 0))
+                }
+                return
+            }
+            const row = getRow(focusedIndex)
+            const element = activeDescendantId
+                ? document.getElementById(activeDescendantId)
+                : null
             const node =
                 row?.kind === 'node' ? store.getNode(row.id) : undefined
             switch (event.key) {
@@ -152,16 +172,20 @@ export const useOuTreeKeyboard = ({
                 case 'Enter':
                     event.preventDefault()
                     if (event.shiftKey) {
-                        const element = activeDescendantId
-                            ? document.getElementById(activeDescendantId)
-                            : null
                         if (element) {
                             focusablesOf(element)[0]?.focus()
                         }
                         return
                     }
-                    if (node && !node.leaf) {
-                        toggle(node.id)
+                    if (node) {
+                        if (!node.leaf) {
+                            toggle(node.id)
+                        }
+                        return
+                    }
+                    // Any other row: its control, the retry, is its action.
+                    if (element) {
+                        focusablesOf(element)[0]?.click()
                     }
                     return
                 case ' ':
@@ -174,6 +198,8 @@ export const useOuTreeKeyboard = ({
         },
         [
             focusedIndex,
+            firstVisibleIndex,
+            focusRow,
             getRow,
             store,
             isOpen,

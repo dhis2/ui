@@ -1,6 +1,13 @@
 import { CustomDataProvider } from '@dhis2/app-runtime'
 import '@testing-library/jest-dom'
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import {
+    act,
+    fireEvent,
+    render,
+    screen,
+    waitFor,
+    within,
+} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import React, { useEffect } from 'react'
 import {
@@ -38,16 +45,18 @@ const renderList = ({
     rootIds,
     initiallyOpen,
     gist = realGist,
+    childrenPages = children,
     renderLabel,
 }: {
     rootIds: string[]
     initiallyOpen?: string[]
     gist?: typeof realGist
+    childrenPages?: typeof children
     renderLabel?: RenderLabel
 }) =>
     render(
         <CustomDataProvider
-            data={{ [TREE_RESOURCE]: children, [GIST_RESOURCE]: gist }}
+            data={{ [TREE_RESOURCE]: childrenPages, [GIST_RESOURCE]: gist }}
         >
             <OuTreeNodeStoreProvider>
                 <OuTreeProvider rootIds={rootIds} initiallyOpen={initiallyOpen}>
@@ -217,6 +226,7 @@ describe('OuTreeList in search mode', () => {
         await waitFor(() =>
             expect(screen.getAllByTestId('t-toggle')).toHaveLength(4)
         )
+        // The first row keeps its eye: a click on the eye focused it.
         expect(names()).toEqual([
             'Zambia',
             'Central Province',
@@ -226,8 +236,9 @@ describe('OuTreeList in search mode', () => {
         ])
 
         // Kabwe District's eye: both its children.
-        await userEvent.hover(screen.getAllByTestId('t-row')[2])
-        await userEvent.click(screen.getByTestId('t-reveal'))
+        const kabwe = screen.getAllByTestId('t-row')[2]
+        await userEvent.hover(kabwe)
+        await userEvent.click(within(kabwe).getByTestId('t-reveal'))
         await waitFor(() => expect(names()).toHaveLength(6))
         expect(names().slice(2, 5)).toEqual([
             'Kabwe District',
@@ -384,5 +395,85 @@ describe('OuTreeList keyboard', () => {
         expect(document.activeElement).toBe(tree())
         expect(active()).toBe(rowsOfKind('node')[2])
         expect(rowsOfKind('node')[2]).toHaveClass('focused')
+    })
+
+    it('Left and Right pressed inside a row return to the tree and act', async () => {
+        renderList({ rootIds: ['ou-1'] })
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(1))
+        act(() => captured.actions?.search('Clinic'))
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(11))
+        focusTree()
+        press('ArrowDown')
+        press('Enter', { shiftKey: true })
+        expect(document.activeElement).toBe(screen.getByTestId('t-reveal'))
+
+        expect(press('ArrowLeft')).toBe(false)
+
+        expect(document.activeElement).toBe(tree())
+        expect(active()).toHaveAttribute('aria-expanded', 'false')
+    })
+
+    it('does not trap Tab on a control that is in the tab order, such as the roots retry', async () => {
+        const gist = jest
+            .fn()
+            .mockRejectedValueOnce(new Error('x'))
+            .mockImplementation(realGist) as unknown as typeof realGist
+        renderList({ rootIds: ['ou-1'], gist })
+        const retry = await screen.findByTestId('t-retry')
+        act(() => retry.focus())
+
+        expect(fireEvent.keyDown(retry, { key: 'Tab' })).toBe(true)
+        expect(fireEvent.keyDown(retry, { key: 'Tab', shiftKey: true })).toBe(
+            true
+        )
+    })
+
+    it('Down with the tree focused but no active row starts at the first visible row', async () => {
+        const gist = jest
+            .fn()
+            .mockImplementation(
+                (...args: Parameters<typeof realGist>) =>
+                    new Promise((resolve) =>
+                        setTimeout(() => resolve(realGist(...args)), 20)
+                    )
+            ) as unknown as typeof realGist
+        renderList({ rootIds: ['ou-1'], initiallyOpen: ['ou-1'], gist })
+        focusTree()
+        expect(tree()).not.toHaveAttribute('aria-activedescendant')
+        await waitFor(() => expect(rowsOfKind('node')).toHaveLength(3))
+
+        press('ArrowDown')
+
+        expect(active()).toBe(rowsOfKind('node')[0])
+    })
+
+    it('Enter on an error row retries its page', async () => {
+        // Pages of two (the store takes the page size from the pager), the
+        // second page of Serenje failing.
+        const failingPageTwo: typeof children = (type, query) => {
+            const params: Record<string, unknown> = {
+                ...(query.params as Record<string, unknown>),
+                pageSize: 2,
+            }
+            return query.id === 'ou-6/children' && Number(params.page) === 2
+                ? Promise.reject(new Error('x'))
+                : children(type, { ...query, params })
+        }
+        renderList({
+            rootIds: ['ou-6'],
+            initiallyOpen: ['ou-6'],
+            childrenPages: failingPageTwo,
+        })
+        await waitFor(() =>
+            expect(rowsOfKind('children-error').length).toBeGreaterThan(0)
+        )
+        const retry = jest.spyOn(captured.actions!.store, 'retryChildrenPage')
+        focusTree()
+        act(() => captured.actions?.setFocused('children-error:ou-6:2'))
+        expect(active()).toBe(rowsOfKind('children-error')[0])
+
+        press('Enter')
+
+        expect(retry).toHaveBeenCalledWith('ou-6', 2)
     })
 })
