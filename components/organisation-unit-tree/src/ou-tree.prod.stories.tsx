@@ -144,11 +144,8 @@ export const LongNames = () => (
     </Tree>
 )
 
-const renderLabel: RenderLabel = ({ node, toggle }) => (
-    <OuTreeNodeLabel
-        clickable={!node.leaf}
-        onClick={node.leaf ? undefined : toggle}
-    >
+const renderLabel: RenderLabel = ({ node }) => (
+    <OuTreeNodeLabel clickable={!node.leaf}>
         {node.leaf ? '• ' : ''}
         {node.displayName}
         <span style={{ color: colors.grey600 }}> L{node.level}</span>
@@ -309,10 +306,10 @@ const Captioned = ({
 export const Toggle = () => (
     <Stack>
         <Captioned caption="closed">
-            <OuTreeToggle open={false} onToggle={noop} />
+            <OuTreeToggle open={false} />
         </Captioned>
         <Captioned caption="open">
-            <OuTreeToggle open onToggle={noop} />
+            <OuTreeToggle open />
         </Captioned>
         <Captioned caption="leaf (the toggle's space, nothing in it)">
             <OuTreeToggle leaf />
@@ -509,9 +506,7 @@ export const NodeLabel = () => (
             <OuTreeNodeLabel>Central Province</OuTreeNodeLabel>
         </Captioned>
         <Captioned caption="clickable">
-            <OuTreeNodeLabel clickable onClick={noop}>
-                Central Province
-            </OuTreeNodeLabel>
+            <OuTreeNodeLabel clickable>Central Province</OuTreeNodeLabel>
         </Captioned>
         <Captioned caption="wrapping in 160px">
             <div
@@ -533,14 +528,14 @@ export const RowShell = () => (
         <Captioned caption="depths 0 to 3, each with an open toggle and a label">
             {[0, 1, 2, 3].map((depth) => (
                 <OuTreeRowShell key={depth} depth={depth}>
-                    <OuTreeToggle open onToggle={noop} />
+                    <OuTreeToggle open />
                     <OuTreeNodeLabel>Depth {depth}</OuTreeNodeLabel>
                 </OuTreeRowShell>
             ))}
         </Captioned>
         <Captioned caption="depth 2 with a wrapped label, in 240px" width={240}>
             <OuTreeRowShell depth={2}>
-                <OuTreeToggle open onToggle={noop} />
+                <OuTreeToggle open />
                 <OuTreeNodeLabel>{LONG_NAME}</OuTreeNodeLabel>
             </OuTreeRowShell>
         </Captioned>

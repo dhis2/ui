@@ -54,9 +54,14 @@ describe('OuTreeErrorRow', () => {
             </CustomDataProvider>
         )
 
-        expect(screen.getByTestId('t-row')).toHaveAttribute(
-            'data-row-kind',
-            'children-error'
+        const row = screen.getByRole('treeitem', {
+            name: 'Could not load. Retry',
+        })
+        expect(row).toBe(screen.getByTestId('t-row'))
+        expect(row).toHaveAttribute('data-row-kind', 'children-error')
+        expect(row).toHaveAttribute(
+            'id',
+            expect.stringMatching(/^outree-\d+-children-error:ou-1:0$/)
         )
         expect(screen.getByTestId('t-toggle-space')).toBeInTheDocument()
         await userEvent.click(screen.getByRole('button', { name: 'Retry' }))

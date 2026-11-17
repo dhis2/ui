@@ -1,5 +1,12 @@
+import i18n from '@dhis2/d2-i18n'
 import React, { memo } from 'react'
-import { type Row, useOuTreeActions } from '../tree'
+import {
+    type Row,
+    rowKey,
+    useOuTreeActions,
+    useOuTreeRowElementId,
+    useOuTreeRowFocused,
+} from '../tree'
 import { OuTreeRetrySkeleton } from './ou-tree-retry-skeleton'
 import { OuTreeRowShell } from './ou-tree-row-shell'
 import { OuTreeToggle } from './ou-tree-toggle'
@@ -17,6 +24,9 @@ export const OuTreeErrorRow = memo(function OuTreeErrorRow({
     dataTest = 'dhis2-uicore-outree',
 }: OuTreeErrorRowProps) {
     const { store, retryResultsPage } = useOuTreeActions()
+    const key = rowKey(row)
+    const elementId = useOuTreeRowElementId(key)
+    const focused = useOuTreeRowFocused(key)
     const onRetry =
         row.kind === 'children-error'
             ? () => store.retryChildrenPage(row.parentId, row.page)
@@ -24,6 +34,10 @@ export const OuTreeErrorRow = memo(function OuTreeErrorRow({
     return (
         <OuTreeRowShell
             depth={row.depth}
+            elementId={elementId}
+            focused={focused}
+            ariaLabel={i18n.t('Could not load. Retry')}
+            keyshortcuts="Shift+Enter"
             rowKind={row.kind}
             dataTest={`${dataTest}-row`}
         >

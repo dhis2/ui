@@ -1,11 +1,18 @@
-import { colors } from '@dhis2/ui-constants'
+import { colors, theme } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React from 'react'
 
 export interface OuTreeRowShellProps {
     depth: number
-    role?: 'treeitem' | 'presentation'
+    /** The element id `aria-activedescendant` names. */
+    elementId?: string
+    /** Shows the focus ring: the focused row while the tree has focus. */
+    focused?: boolean
     ariaExpanded?: boolean
+    ariaLabel?: string
+    ariaBusy?: boolean
+    /** Announced as `aria-keyshortcuts`: how to reach the row's controls. */
+    keyshortcuts?: string
     rowKind?:
         | 'node'
         | 'children-skeleton'
@@ -16,33 +23,44 @@ export interface OuTreeRowShellProps {
     id?: string
     /** Called with true when the pointer enters the row and false when it leaves. */
     onHoverChange?: (hovered: boolean) => void
+    onClick?: (event: React.MouseEvent<HTMLDivElement>) => void
     dataTest?: string
     className?: string
     children: React.ReactNode
 }
 
-/** The element every row sits in, with one indent element per level. */
+/** The element every row sits in, a treeitem with one indent element per level. */
 export const OuTreeRowShell = ({
     depth,
-    role = 'presentation',
+    elementId,
+    focused = false,
     ariaExpanded,
+    ariaLabel,
+    ariaBusy,
+    keyshortcuts,
     rowKind,
     id,
     onHoverChange,
+    onClick,
     dataTest,
     className,
     children,
 }: OuTreeRowShellProps) => (
     <div
-        className={cx('shell', className)}
-        role={role}
+        id={elementId}
+        className={cx('shell', { focused }, className)}
+        role="treeitem"
         aria-level={depth + 1}
         aria-expanded={ariaExpanded}
+        aria-label={ariaLabel}
+        aria-busy={ariaBusy || undefined}
+        aria-keyshortcuts={keyshortcuts}
         data-row-kind={rowKind}
         data-id={id}
         data-test={dataTest}
         onPointerEnter={onHoverChange && (() => onHoverChange(true))}
         onPointerLeave={onHoverChange && (() => onHoverChange(false))}
+        onClick={onClick}
     >
         {Array.from({ length: depth }, (_, level) => (
             <span
@@ -58,6 +76,10 @@ export const OuTreeRowShell = ({
                 min-height: 24px;
                 display: flex;
                 align-items: flex-start;
+                border-radius: 3px;
+            }
+            .focused {
+                box-shadow: inset 0 0 0 2px ${theme.focus};
             }
             .indent {
                 flex-shrink: 0;

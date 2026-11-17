@@ -20,7 +20,7 @@ describe('OuTreeRowShell', () => {
         ).toEqual(['0', '1', '2'])
         expect(indents[0]).toHaveAttribute('aria-hidden', 'true')
         expect(shell).toHaveAttribute('aria-level', '4')
-        expect(shell).toHaveAttribute('role', 'presentation')
+        expect(shell).toHaveAttribute('role', 'treeitem')
     })
 
     it('reports hover changes through onHoverChange', async () => {
@@ -58,7 +58,6 @@ describe('OuTreeRowShell', () => {
         render(
             <OuTreeRowShell
                 depth={0}
-                role="treeitem"
                 ariaExpanded={false}
                 rowKind="node"
                 id="ou-1"
@@ -72,6 +71,53 @@ describe('OuTreeRowShell', () => {
         expect(shell).toHaveAttribute('aria-expanded', 'false')
         expect(shell).toHaveAttribute('data-row-kind', 'node')
         expect(shell).toHaveAttribute('data-id', 'ou-1')
+    })
+
+    it('renders the element id, the focus ring, the label, busy and the shortcut', () => {
+        const { rerender } = render(
+            <OuTreeRowShell
+                depth={0}
+                elementId="outree-1-ou-1"
+                focused
+                ariaLabel="Loading"
+                ariaBusy
+                keyshortcuts="Shift+Enter"
+                dataTest="t"
+            >
+                x
+            </OuTreeRowShell>
+        )
+        const shell = screen.getByTestId('t')
+
+        expect(shell).toHaveAttribute('id', 'outree-1-ou-1')
+        expect(shell).toHaveClass('focused')
+        expect(shell).toHaveAttribute('aria-label', 'Loading')
+        expect(shell).toHaveAttribute('aria-busy', 'true')
+        expect(shell).toHaveAttribute('aria-keyshortcuts', 'Shift+Enter')
+
+        rerender(
+            <OuTreeRowShell depth={0} dataTest="t">
+                x
+            </OuTreeRowShell>
+        )
+        expect(shell).not.toHaveAttribute('id')
+        expect(shell).not.toHaveClass('focused')
+        expect(shell).not.toHaveAttribute('aria-busy')
+        expect(shell).not.toHaveAttribute('aria-keyshortcuts')
+    })
+
+    it('calls onClick with the click event', async () => {
+        const onClick = jest.fn()
+        render(
+            <OuTreeRowShell depth={0} onClick={onClick} dataTest="t">
+                <span>x</span>
+            </OuTreeRowShell>
+        )
+
+        await userEvent.click(screen.getByText('x'))
+
+        expect(onClick).toHaveBeenCalledTimes(1)
+        expect(onClick.mock.calls[0][0].target).toBe(screen.getByText('x'))
     })
 
     it('omits aria-expanded when undefined', () => {

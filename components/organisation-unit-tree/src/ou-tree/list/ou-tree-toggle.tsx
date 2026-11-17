@@ -3,22 +3,21 @@ import cx from 'classnames'
 import React from 'react'
 
 export type OuTreeToggleProps =
-    | { leaf: true; open?: never; onToggle?: never; dataTest?: string }
-    | { leaf?: false; open: boolean; onToggle: () => void; dataTest?: string }
+    | { leaf: true; open?: never; dataTest?: string }
+    | { leaf?: false; open: boolean; dataTest?: string }
 
 // Ported from components/node/src/toggle.js for the flat list. A leaf has
-// no toggle and gets the toggle's space, so labels line up.
+// no toggle and gets the toggle's space, so labels line up. The row takes
+// the click.
 export const OuTreeToggle = ({
     leaf = false,
     open = false,
-    onToggle,
     dataTest,
 }: OuTreeToggleProps) => (
     <div
         className={cx('toggle', { open })}
         data-test={dataTest}
         aria-hidden={leaf || undefined}
-        onClick={onToggle}
     >
         {leaf ? null : (
             <span>

@@ -49,6 +49,7 @@ const setup = ({
             ref.tree = tree
             jest.spyOn(tree, 'toggle')
             jest.spyOn(tree, 'open')
+            jest.spyOn(tree, 'setFocused')
             jest.spyOn(tree.store, 'retryChildrenPage')
         }
         // A row exists only once its node is stored, as in the list.
@@ -107,6 +108,7 @@ const setupSearch = ({
             ref.tree = tree
             jest.spyOn(tree, 'toggle')
             jest.spyOn(tree, 'open')
+            jest.spyOn(tree, 'setFocused')
             jest.spyOn(tree.store, 'retryChildrenPage')
         }
         const { getRow, getRowIndex } = useOuTree()
@@ -163,19 +165,30 @@ describe('OuTreeNodeRow', () => {
         )
     })
 
-    it('toggles from the toggle and from the label of a parent', async () => {
+    it('toggles and focuses from a click on the toggle, the label or the row itself', async () => {
         const ref = setup()
-        await ready()
+        const row = await ready()
 
         await userEvent.click(screen.getByTestId('t-toggle'))
         await userEvent.click(screen.getByTestId('t-label'))
+        await userEvent.click(row)
 
-        expect(ref.tree.toggle).toHaveBeenCalledTimes(2)
+        expect(ref.tree.toggle).toHaveBeenCalledTimes(3)
         expect(ref.tree.toggle).toHaveBeenCalledWith('ou-1')
-        expect(screen.getByTestId('t-row')).toHaveAttribute(
-            'aria-expanded',
-            'false'
+        expect(ref.tree.setFocused).toHaveBeenCalledTimes(3)
+        expect(ref.tree.setFocused).toHaveBeenCalledWith('ou-1')
+        expect(row).toHaveAttribute('aria-expanded', 'true')
+    })
+
+    it('has its element id and no shortcut while it has no control', async () => {
+        setup()
+        const row = await ready()
+
+        expect(row).toHaveAttribute(
+            'id',
+            expect.stringMatching(/^outree-\d+-ou-1$/)
         )
+        expect(row).not.toHaveAttribute('aria-keyshortcuts')
     })
 
     it('does not toggle from the label of a leaf', async () => {
@@ -211,6 +224,20 @@ describe('OuTreeNodeRow', () => {
             'aria-expanded',
             'false'
         )
+    })
+
+    it('does not toggle from the retry button, and announces the shortcut to reach it', async () => {
+        const ref = setup({ children: failing })
+        const row = await ready()
+        act(() => ref.tree.open('ou-1'))
+        await screen.findByTestId('t-retry')
+        ;(ref.tree.open as jest.Mock).mockClear()
+
+        expect(row).toHaveAttribute('aria-keyshortcuts', 'Shift+Enter')
+        await userEvent.click(screen.getByTestId('t-retry'))
+
+        expect(ref.tree.toggle).not.toHaveBeenCalled()
+        expect(ref.tree.open).toHaveBeenCalledWith('ou-1')
     })
 
     it('opens the node again, requesting page one again, when the retry button is clicked', async () => {
@@ -280,6 +307,19 @@ describe('OuTreeNodeRow in search mode', () => {
         expect(screen.getByTestId('t-label')).not.toHaveClass('result')
         expect(screen.queryByTestId('t-match')).toBeNull()
         expect(screen.getByTestId('t-reveal')).toBeInTheDocument()
+    })
+
+    it('does not toggle from the eye, and announces the shortcut while the eye shows', async () => {
+        const ref = setupSearch({ id: 'ou-2', term: 'Kabwe' })
+        const row = await ready()
+        expect(row).not.toHaveAttribute('aria-keyshortcuts')
+        await userEvent.hover(row)
+
+        expect(row).toHaveAttribute('aria-keyshortcuts', 'Shift+Enter')
+        await userEvent.click(screen.getByTestId('t-reveal'))
+
+        expect(ref.tree.toggle).not.toHaveBeenCalled()
+        expect(ref.tree.isRevealed('ou-2')).toBe(true)
     })
 
     it('shows the eye while the row is focused, without hover', async () => {

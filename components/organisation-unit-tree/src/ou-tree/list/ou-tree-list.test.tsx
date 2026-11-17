@@ -74,6 +74,7 @@ describe('OuTreeList', () => {
         expect(screen.getByRole('tree')).toBe(screen.getByTestId('t'))
         expect(rowsOfKind('roots')).toHaveLength(2)
         expect(screen.getAllByTestId('t-skeleton')).toHaveLength(2)
+        expect(screen.getAllByRole('treeitem', { busy: true })).toHaveLength(2)
         await waitFor(() => expect(rowsOfKind('node')).toHaveLength(2))
 
         expect(rowsOfKind('roots')).toHaveLength(0)

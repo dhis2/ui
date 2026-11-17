@@ -6,7 +6,6 @@ export interface OuTreeNodeToggleProps {
     leaf: boolean
     open: boolean
     loading: boolean
-    onToggle: () => void
     dataTest?: string
 }
 
@@ -18,7 +17,6 @@ export const OuTreeNodeToggle = ({
     leaf,
     open,
     loading,
-    onToggle,
     dataTest = 'dhis2-uicore-outree',
 }: OuTreeNodeToggleProps) => {
     if (leaf) {
@@ -27,11 +25,5 @@ export const OuTreeNodeToggle = ({
     if (loading) {
         return <OuTreeLoader dataTest={`${dataTest}-loader`} />
     }
-    return (
-        <OuTreeToggle
-            open={open}
-            onToggle={onToggle}
-            dataTest={`${dataTest}-toggle`}
-        />
-    )
+    return <OuTreeToggle open={open} dataTest={`${dataTest}-toggle`} />
 }

@@ -6,6 +6,7 @@ import {
     useOuTreeActions,
     useOuTreeMatchSplitter,
     useOuTreeNode,
+    useOuTreeRowElementId,
     useOuTreeSearchTerm,
 } from '../tree'
 import { OuTreeMatchedText } from './ou-tree-matched-text'
@@ -47,7 +48,6 @@ export interface OuTreeNodeRowProps {
 interface DefaultLabelProps {
     node: StoredNode
     clickable: boolean
-    onToggle: () => void
     isResult: boolean
     splitMatches: MatchSplitter | undefined
     dataTest: string
@@ -57,14 +57,12 @@ interface DefaultLabelProps {
 const DefaultLabel = ({
     node,
     clickable,
-    onToggle,
     isResult,
     splitMatches,
     dataTest,
 }: DefaultLabelProps) => (
     <OuTreeNodeLabel
         clickable={clickable}
-        onClick={clickable ? onToggle : undefined}
         result={isResult}
         dataTest={`${dataTest}-label`}
     >
@@ -84,7 +82,6 @@ interface NodeBodyProps {
     isOpen: boolean
     loading: boolean
     failed: boolean
-    onToggle: () => void
     onRetry: () => void
     dataTest: string
     /** The label slot. */
@@ -100,7 +97,6 @@ const NodeBody = ({
     isOpen,
     loading,
     failed,
-    onToggle,
     onRetry,
     dataTest,
     children,
@@ -118,7 +114,6 @@ const NodeBody = ({
                 leaf={node.leaf}
                 open={isOpen}
                 loading={isOpen && loading}
-                onToggle={onToggle}
                 dataTest={dataTest}
             />
             {children}
@@ -141,9 +136,11 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
         isHovered,
         isFocused,
     } = useOuTreeNode(row.id)
-    const { open, toggle, toggleRevealed, setHovered } = useOuTreeActions()
+    const { open, toggle, toggleRevealed, setHovered, setFocused } =
+        useOuTreeActions()
     const searchTerm = useOuTreeSearchTerm()
     const splitMatches = useOuTreeMatchSplitter()
+    const elementId = useOuTreeRowElementId(row.id)
     if (!node) {
         // Rows are built from stored nodes and nodes are never removed.
         throw new Error(`Node row ${row.id} has no node in the store`)
@@ -162,17 +159,31 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
     // it shows while the pointer is over the row or the row is focused.
     const showsEye =
         pruned && hasMatchingChildren && isOpen && (isHovered || isFocused)
+    // A click anywhere on the row focuses it and toggles it; a click on a
+    // button inside the row was the button's.
+    const onClick = (event: React.MouseEvent<HTMLDivElement>) => {
+        if ((event.target as Element).closest('button')) {
+            return
+        }
+        setFocused(row.id)
+        if (clickable) {
+            toggle(row.id)
+        }
+    }
 
     return (
         <OuTreeRowShell
             depth={row.depth}
-            role="treeitem"
+            elementId={elementId}
+            focused={isFocused}
             rowKind="node"
             id={row.id}
             ariaExpanded={node.leaf ? undefined : isOpen}
+            keyshortcuts={showsEye || failed ? 'Shift+Enter' : undefined}
             onHoverChange={(hovered) =>
                 setHovered(hovered ? row.id : undefined)
             }
+            onClick={onClick}
             dataTest={`${dataTest}-row`}
         >
             <NodeBody
@@ -180,7 +191,6 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
                 isOpen={isOpen}
                 loading={loading}
                 failed={failed}
-                onToggle={onToggle}
                 onRetry={() => open(row.id)}
                 dataTest={dataTest}
             >
@@ -199,7 +209,6 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
                     <DefaultLabel
                         node={node}
                         clickable={clickable}
-                        onToggle={onToggle}
                         isResult={isResult}
                         splitMatches={splitMatches}
                         dataTest={dataTest}
