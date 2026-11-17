@@ -60,6 +60,13 @@ on arrival and a result opens to all of its children. Hover an open node
 with matching children for the eye that swaps them for all its children.
 Clearing the input puts the tree back as it was.
 
+The tree is one tab stop. Up and Down move the focused row, Home and End
+jump, Right opens a node or steps into it, Left closes a node or steps out
+to its parent, Enter toggles. Shift+Enter moves focus into the row's
+controls, the eye or a retry; Tab cycles them and Escape returns to the
+tree. From the search input, Down moves focus to the tree and Escape
+clears the search.
+
 The \`Building block:\` stories show the pieces the tree is composed of, each
 in each state, with no tree behind them.
 `

@@ -134,13 +134,35 @@ in other packages.
   `OuTreeRetrySkeleton` is itself the bar, `OuTreeRetryNode` is a failed
   node's row body around the label slot, and `OuTreeRevealToggle` sits
   after the label of an open node with matching children while the
-  pointer is over its row. Hover is tree state: `OuTreeRowShell` reports
-  pointer enter and leave through `onHoverChange`, the node row calls
-  `setHovered`, and `useOuTreeNode` exposes `isHovered`; batch 5's focus
-  model adds the focused row the same way. `OuTreeSearchInput` is glue (an
-  `InputField` over `useOuTreeSearch`), not part of `OuTree`; an app with
-  its own input uses the hook. In Storybook the pieces are the
+  pointer is over its row or the row is focused. Hover is tree state:
+  `OuTreeRowShell` reports pointer enter and leave through
+  `onHoverChange`, the node row calls `setHovered`, and `useOuTreeNode`
+  exposes `isHovered`. The row shell takes the click (`onClick`): the node
+  row focuses and toggles from it, ignoring clicks that came from a button
+  inside the row, so the label and the toggle are plain spans.
+  `OuTreeSearchInput` is glue (an `InputField` over `useOuTreeSearch`,
+  with `role="searchbox"`), not part of `OuTree`; an app with its own
+  input uses the hook. In Storybook the pieces are the
   `Building block:` stories of the `OuTree` entry, after the tree's own.
+- **Focus is tree state and the container holds DOM focus.** The tree is
+  one tab stop: `OuTreeContainer` has `tabIndex=0` and names the focused
+  row through `aria-activedescendant`, since rows scroll out of the DOM
+  under virtualisation. The focused row is kept by key (`focusedKey`)
+  with its last index as the fallback when the key is gone;
+  `useOuTreeNode` exposes `isFocused`, `useOuTreeRowFocused(key)` serves
+  the other rows, and `useOuTreeRowElementId(key)` gives a row its element
+  id from the provider's `treeId`. The treeview moves (`focusNext`,
+  `focusPrevious`, `focusFirst`, `focusLast`, `focusParent`, `focusChild`)
+  return the new index so the glue can scroll to it. `useOuTreeKeyboard`
+  maps the keys: Up, Down, Home and End move; Right opens or steps into;
+  Left closes or steps out; Enter toggles; Shift+Enter moves DOM focus into
+  the row's first control (`aria-keyshortcuts` says so on rows that have
+  one), Tab cycles the row's controls, Escape returns to the tree. The eye
+  and the retry buttons have `tabIndex=-1`, reached that way. Space is
+  reserved for selection. Every row is a `treeitem`: skeleton rows busy
+  and labelled "Loading", error rows labelled by their retry. In the
+  search input, Down moves focus to the tree (through the provider's focus
+  target, `useOuTreeFocusTarget`) and Escape clears.
 - **A failed first page means the node did not open.** `isOpen` is false
   while a node's children status is `failed`, unless the node has
   matching children, which it keeps listing; either way the row's body
@@ -201,8 +223,8 @@ in other packages.
 
 ## Status
 
-`OuTree` renders browse mode and search mode and is reachable through its
-stories. It is
+`OuTree` renders browse mode and search mode, operable from the keyboard,
+and is reachable through its stories. It is
 deliberately **not exported**, neither from this package's `src/index.js` nor
 from `@dhis2/ui`, because this package is published. Exporting it is a separate, deliberate change:
 add it to `src/index.js` and `types/index.d.ts` here, and to
