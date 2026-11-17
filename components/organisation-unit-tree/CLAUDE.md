@@ -171,6 +171,15 @@ in other packages.
 - **Use `useOuTreeActions` in components that act on the tree but must not
   re-render when it changes**, such as rows; `useOuTree` subscribes to every
   change.
+- **A broken contract throws; it is never dropped, defaulted or warned
+  about.** When the backend or the store violates an invariant the code
+  relies on (a result without its root or ancestors, a listed id the
+  store does not hold), throw an `Error` naming the ids and the contract.
+  A silent fallback draws a tree that looks right and is not, which comes
+  back as a vague bug report years later; a throw in a fetch handler
+  surfaces in the console and in error reporting, leaves that page
+  `loading`, and does not crash the app. Fallbacks are only for input the
+  tree is specified to tolerate, such as a root id the user cannot see.
 - **One `OuTreeNodeStoreProvider` per app.** Every tree shares its store; a
   tree without it throws. It holds one store per `shortName` value.
 
