@@ -32,6 +32,15 @@ describe('OuTreeContainer', () => {
         expect(onBlur).toHaveBeenCalledTimes(1)
     })
 
+    it('draws its own focus ring only while it names no row', () => {
+        render(<OuTreeContainer dataTest="t">x</OuTreeContainer>)
+        const css = document.body.innerHTML
+
+        expect(css).toContain(
+            '.container:focus-visible:not([aria-activedescendant])'
+        )
+    })
+
     it('has no tab stop and no active descendant by default', () => {
         render(<OuTreeContainer dataTest="t">x</OuTreeContainer>)
         const tree = screen.getByRole('tree')

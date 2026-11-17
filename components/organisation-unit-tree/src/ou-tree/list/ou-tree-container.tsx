@@ -1,3 +1,4 @@
+import { theme } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import React, { forwardRef } from 'react'
 
@@ -55,6 +56,10 @@ export const OuTreeContainer = forwardRef<HTMLDivElement, OuTreeContainerProps>(
                     }
                     .container:focus {
                         outline: none;
+                    }
+                    /* The focused row shows the ring; without one, the box does. */
+                    .container:focus-visible:not([aria-activedescendant]) {
+                        box-shadow: inset 0 0 0 2px ${theme.focus};
                     }
                 `}</style>
             </div>
