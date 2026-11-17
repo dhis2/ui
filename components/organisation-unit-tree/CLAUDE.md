@@ -88,8 +88,10 @@ in other packages.
 - **Any search resets the tree, and so does clearing one.** `search(term)`
   replaces the whole search state and empties the open set; `clearSearch`
   restores `initiallyOpen`. Result pages are requested in order, one at a
-  time, when a `result-skeleton` row is in range; a late answer for another
-  term is dropped. The pruned tree (`tree/pruned-tree.ts`) is built from the
+  time, when a `result-skeleton` row or the last received result's row is
+  in range (results arrive in tree order, so a revealed node's children
+  from later pages always come after it); a late answer for another term
+  is dropped. The pruned tree (`tree/pruned-tree.ts`) is built from the
   results and their paths only, appended in arrival order, from the given
   roots the store has. `setSearchInput` trims, gates by `SEARCH_MIN_LENGTH`
   and debounces by `SEARCH_DEBOUNCE_MS` (`tree/search-constants.ts`);
