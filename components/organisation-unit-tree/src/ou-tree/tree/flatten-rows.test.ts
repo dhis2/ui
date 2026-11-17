@@ -12,6 +12,7 @@ import {
     type Row,
 } from './flatten-rows'
 import { addResults, createPrunedTree } from './pruned-tree'
+import { rowKey } from './row-key'
 
 const flush = () => new Promise((resolve) => setTimeout(resolve, 0))
 const openSet = (...ids: string[]) => new Set(ids)
@@ -194,20 +195,18 @@ describe('flattenRows', () => {
         ])
     })
 
-    it('maps every node id to its row index', async () => {
-        const store = await zambia('ou-1')
+    it('indexes every row by its key, a node by its id', async () => {
+        const store = await zambia('ou-1', 'ou-2', 'ou-6')
 
-        const { indexById } = flattenRows({
+        const { rows, indexByKey } = flattenRows({
             rootNodes: rootNodesOf(store, ['ou-1']),
-            openIds: openSet('ou-1'),
+            openIds: openSet('ou-1', 'ou-2', 'ou-6'),
             store,
         })
 
-        expect([...indexById.entries()]).toEqual([
-            ['ou-1', 0],
-            ['ou-2', 1],
-            ['ou-13', 2],
-        ])
+        expect([...indexByKey.keys()]).toEqual(rows.map(rowKey))
+        expect(indexByKey.get('ou-12')).toBe(4)
+        expect(indexByKey.get('children-skeleton:ou-6:2')).toBe(6)
     })
 })
 
@@ -240,8 +239,8 @@ describe('flattenRows row identity', () => {
         expect(second.rows[0]).toBe(first.rows[0])
         expect(second.rows[1]).not.toBe(first.rows[1])
         expect(second.rows[1]).toMatchObject({ kind: 'node', id: 'ou-2' })
-        const ou13 = second.rows[second.indexById.get('ou-13') as number]
-        expect(ou13).toBe(first.rows[first.indexById.get('ou-13') as number])
+        const ou13 = second.rows[second.indexByKey.get('ou-13') as number]
+        expect(ou13).toBe(first.rows[first.indexByKey.get('ou-13') as number])
     })
 
     it('reuses skeleton and error rows below a node that opens', async () => {
@@ -462,10 +461,10 @@ describe('flattenRows in search mode', () => {
         store.requestChildrenPage('ou-6', 1)
         await flush()
 
-        const { indexById } = rows({ revealedIds: new Set(['ou-6']) })
+        const { indexByKey } = rows({ revealedIds: new Set(['ou-6']) })
 
-        expect(indexById.get('ou-6')).toBe(2)
-        expect(indexById.get('ou-10')).toBe(4)
+        expect(indexByKey.get('ou-6')).toBe(2)
+        expect(indexByKey.get('ou-10')).toBe(4)
     })
 
     it('appends result placeholders after the last row, at its depth', async () => {

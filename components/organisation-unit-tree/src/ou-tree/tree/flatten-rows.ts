@@ -89,7 +89,8 @@ export interface FlattenRowsInput {
 
 export interface FlatRows {
     rows: Row[]
-    indexById: Map<string, number>
+    /** Every row's index by its key; a node's key is its id. */
+    indexByKey: Map<string, number>
 }
 
 /**
@@ -204,10 +205,11 @@ export const flattenRows = ({
     search,
 }: FlattenRowsInput): FlatRows => {
     const rows: Row[] = []
-    const indexById = new Map<string, number>()
+    const indexByKey = new Map<string, number>()
     const previousByKey = new Map<string, Row>()
     previous?.rows.forEach((row) => previousByKey.set(rowKey(row), row))
     const push = (row: Row) => {
+        indexByKey.set(rowKey(row), rows.length)
         rows.push(reuseUnchanged(previousByKey, row))
     }
     const pushNode = (
@@ -216,7 +218,6 @@ export const flattenRows = ({
         view: NodeView
     ): ChildrenStatus => {
         const children = store.getChildren(node.id)
-        indexById.set(node.id, rows.length)
         push({
             kind: 'node',
             id: node.id,
@@ -314,5 +315,5 @@ export const flattenRows = ({
             walkFull(root.id, 0)
         }
     }
-    return { rows, indexById }
+    return { rows, indexByKey }
 }

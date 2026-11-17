@@ -14,6 +14,8 @@ export interface OuTreeNodeHandle {
     hasMatchingChildren: boolean
     /** The pointer is over the node's row. */
     isHovered: boolean
+    /** The node's row is the focused row and the tree has focus. */
+    isFocused: boolean
 }
 
 /**
@@ -50,6 +52,10 @@ export const useOuTreeNode = (id: string): OuTreeNodeHandle => {
         tree.subscribe,
         useCallback(() => tree.isHovered(id), [tree, id])
     )
+    const isFocused = useSyncExternalStore(
+        tree.subscribe,
+        useCallback(() => tree.isFocused(id), [tree, id])
+    )
     return useMemo(
         () => ({
             node,
@@ -59,6 +65,7 @@ export const useOuTreeNode = (id: string): OuTreeNodeHandle => {
             isRevealed,
             hasMatchingChildren,
             isHovered,
+            isFocused,
         }),
         [
             node,
@@ -68,6 +75,7 @@ export const useOuTreeNode = (id: string): OuTreeNodeHandle => {
             isRevealed,
             hasMatchingChildren,
             isHovered,
+            isFocused,
         ]
     )
 }

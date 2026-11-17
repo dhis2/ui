@@ -386,3 +386,122 @@ describe('hovered row', () => {
         expect(listener).toHaveBeenCalledTimes(1)
     })
 })
+
+describe('focused row', () => {
+    it('has no focused row until one is set', async () => {
+        const { tree } = setup(['ou-1'])
+        expect(tree.getFocusedIndex()).toBeUndefined()
+        await flush()
+
+        expect(tree.getFocusedIndex()).toBeUndefined()
+        expect(tree.getFocusedKey()).toBeUndefined()
+        expect(tree.focusRow(0)).toBe(0)
+        expect(tree.getFocusedIndex()).toBe(0)
+        expect(tree.getFocusedKey()).toBe('ou-1')
+    })
+
+    it('moves with next, previous, first and last, and stays put at the ends', async () => {
+        const { tree } = setup(['ou-1'], { initiallyOpen: ['ou-1'] })
+        await flush()
+        const listener = jest.fn()
+        tree.subscribe(listener)
+
+        expect(tree.focusFirst()).toBe(0)
+        expect(tree.focusNext()).toBe(1)
+        expect(tree.focusNext()).toBe(2)
+        expect(tree.focusNext()).toBeUndefined()
+        expect(tree.getFocusedIndex()).toBe(2)
+        expect(tree.focusLast()).toBe(2)
+        expect(tree.focusPrevious()).toBe(1)
+        expect(tree.focusFirst()).toBe(0)
+        expect(tree.focusPrevious()).toBeUndefined()
+        expect(tree.getFocusedIndex()).toBe(0)
+        // One notification per move, none for a move that went nowhere.
+        expect(listener).toHaveBeenCalledTimes(6)
+    })
+
+    it('focusChild moves to the next row only when it is deeper; focusParent to the nearest shallower row', async () => {
+        const { tree } = setup(['ou-1'], { initiallyOpen: ['ou-1'] })
+        await flush()
+
+        tree.focusRow(0)
+        expect(tree.focusChild()).toBe(1)
+        expect(tree.focusChild()).toBeUndefined()
+        expect(tree.getFocusedIndex()).toBe(1)
+        tree.focusRow(2)
+        expect(tree.focusParent()).toBe(0)
+        expect(tree.focusParent()).toBeUndefined()
+        expect(tree.getFocusedIndex()).toBe(0)
+    })
+
+    it('keeps the row by key when rows above it change', async () => {
+        const { tree } = setup(['ou-13', 'ou-2'])
+        await flush()
+        tree.focusRow(1)
+        expect(tree.getFocusedKey()).toBe('ou-2')
+
+        tree.open('ou-13')
+        await flush()
+
+        expect(tree.getRowIndex('ou-2')).toBeGreaterThan(1)
+        expect(tree.getFocusedIndex()).toBe(tree.getRowIndex('ou-2'))
+        expect(tree.getFocusedKey()).toBe('ou-2')
+    })
+
+    it('falls back to the index when the focused key is gone', async () => {
+        const { tree } = setup(['ou-6'], { pageSize: 2 })
+        await flush()
+        tree.open('ou-6')
+        await flush()
+        tree.setFocused('children-skeleton:ou-6:2')
+        expect(tree.getFocusedIndex()).toBe(3)
+
+        tree.ensureChildrenLoaded(3, 3)
+        await flush()
+
+        expect(tree.getRow(3).kind).toBe('node')
+        expect(tree.getFocusedIndex()).toBe(3)
+        expect(tree.getFocusedKey()).toBe(ids(tree)[3])
+    })
+
+    it('clamps the remembered index to the rows that are left', async () => {
+        const { tree } = setup(['ou-1'], { initiallyOpen: ['ou-1'] })
+        await flush()
+        tree.focusRow(2)
+
+        tree.close('ou-1')
+
+        expect(tree.getFocusedIndex()).toBe(0)
+    })
+
+    it('isFocused is true only while the tree has focus', async () => {
+        const { tree } = setup(['ou-1'])
+        await flush()
+        const listener = jest.fn()
+        tree.subscribe(listener)
+
+        tree.setFocused('ou-1')
+        expect(tree.isFocused('ou-1')).toBe(false)
+        tree.setHasFocus(true)
+        expect(tree.isFocused('ou-1')).toBe(true)
+        expect(tree.isFocused('ou-13')).toBe(false)
+        tree.setHasFocus(true)
+        tree.setHasFocus(false)
+        expect(tree.isFocused('ou-1')).toBe(false)
+        expect(listener).toHaveBeenCalledTimes(3)
+    })
+
+    it('a search resets the focus, and so does clearing it', async () => {
+        const { tree } = setup(['ou-1'])
+        await flush()
+        tree.focusRow(0)
+
+        tree.search('Clinic')
+        expect(tree.getFocusedIndex()).toBeUndefined()
+        await flush()
+        tree.focusRow(1)
+        tree.clearSearch()
+
+        expect(tree.getFocusedIndex()).toBeUndefined()
+    })
+})

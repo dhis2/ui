@@ -9,6 +9,10 @@ export type OuTreeHandle = {
     rootIds: string[]
     mode: TreeMode
     searchStatus: SearchStatus
+    /** The focused row's index, or undefined. */
+    focusedIndex: number | undefined
+    /** The focused row's key, or undefined. */
+    focusedKey: string | undefined
     /** Changes whenever the tree does; a key for memoisation downstream. */
     version: number
 } & Pick<
@@ -37,6 +41,8 @@ export const useOuTree = (): OuTreeHandle => {
             rootIds: tree.rootIds,
             mode: tree.getMode(),
             searchStatus: tree.getSearchStatus(),
+            focusedIndex: tree.getFocusedIndex(),
+            focusedKey: tree.getFocusedKey(),
             getRow: tree.getRow,
             getRowIndex: tree.getRowIndex,
             open: tree.open,
