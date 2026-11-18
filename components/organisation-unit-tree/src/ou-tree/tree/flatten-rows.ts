@@ -275,7 +275,7 @@ export const flattenRows = ({
 
     // A pruned-tree node keeps its pruned view wherever it is listed.
     const walkChild = (id: string, depth: number) => {
-        if (search && search.pruned.placed.has(id)) {
+        if (search?.pruned.placed.has(id)) {
             walkPruned(search, id, depth)
         } else {
             walkFull(id, depth)

@@ -702,8 +702,7 @@ export const createTreeState = ({
         const guide = hoveredGuide ?? focusedParentGuide()
         const current = getVersion()
         if (
-            !litMemo ||
-            litMemo.version !== current ||
+            litMemo?.version !== current ||
             litMemo.guide?.key !== guide?.key ||
             litMemo.guide?.level !== guide?.level
         ) {
