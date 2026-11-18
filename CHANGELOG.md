@@ -1,3 +1,11 @@
+## [10.21.1](https://github.com/dhis2/ui/compare/v10.21.0...v10.21.1) (2026-11-18)
+
+
+### Bug Fixes
+
+* **icons:** forward ariaLabel to the svg as aria-label ([#1791](https://github.com/dhis2/ui/issues/1791)) ([7be79f6](https://github.com/dhis2/ui/commit/7be79f685ee67c96636c168f633dae7d815e5a21)), closes [#1462](https://github.com/dhis2/ui/issues/1462)
+* **select:** improve disabled state handling and accessibility ([#1789](https://github.com/dhis2/ui/issues/1789)) ([fe87063](https://github.com/dhis2/ui/commit/fe870638a60c44e45ae3c8dfffdf473f9f21a4ef))
+
 # [10.21.0](https://github.com/dhis2/ui/compare/v10.20.0...v10.21.0) (2026-11-17)
 
 
