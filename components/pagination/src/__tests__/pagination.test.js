@@ -16,6 +16,14 @@ describe('<Pagination />', () => {
             render(<Pagination {...props} />)
         })
 
+        it('renders a navigation landmark', () => {
+            const { getByRole } = render(<Pagination {...props} />)
+
+            expect(
+                getByRole('navigation', { name: 'Pagination' })
+            ).toBeInTheDocument()
+        })
+
         it('renders a PageSelect and PageSizeSelect by default', () => {
             const { getByTestId } = render(<Pagination {...props} />)
 
@@ -123,8 +131,12 @@ describe('<Pagination />', () => {
                     'dhis2-uiwidgets-pagination-page-select'
                 ).querySelector('.select .root')
             ).not.toHaveClass('disabled')
-            expect(getByRole('button', { name: 'Previous' })).not.toBeDisabled()
-            expect(getByRole('button', { name: 'Next' })).not.toBeDisabled()
+            expect(
+                getByRole('button', { name: 'Go to previous page' })
+            ).not.toHaveAttribute('aria-disabled')
+            expect(
+                getByRole('button', { name: 'Go to next page' })
+            ).not.toHaveAttribute('aria-disabled')
         })
 
         it('disables all elements when disabled is true', () => {
@@ -147,8 +159,12 @@ describe('<Pagination />', () => {
                     'dhis2-uiwidgets-pagination-page-select'
                 ).querySelector('.select .root')
             ).toHaveClass('disabled')
-            expect(getByRole('button', { name: 'Previous' })).toBeDisabled()
-            expect(getByRole('button', { name: 'Next' })).toBeDisabled()
+            expect(
+                getByRole('button', { name: 'Go to previous page' })
+            ).toHaveAttribute('aria-disabled', 'true')
+            expect(
+                getByRole('button', { name: 'Go to next page' })
+            ).toHaveAttribute('aria-disabled', 'true')
         })
 
         it('disables previous button when on the first page', () => {
@@ -159,8 +175,12 @@ describe('<Pagination />', () => {
                     onPageSizeChange={() => {}}
                 />
             )
-            expect(getByRole('button', { name: 'Previous' })).toBeDisabled()
-            expect(getByRole('button', { name: 'Next' })).not.toBeDisabled()
+            expect(
+                getByRole('button', { name: 'Go to previous page' })
+            ).toHaveAttribute('aria-disabled', 'true')
+            expect(
+                getByRole('button', { name: 'Go to next page' })
+            ).not.toHaveAttribute('aria-disabled')
         })
 
         it('disables next button when on the last page', () => {
@@ -171,8 +191,12 @@ describe('<Pagination />', () => {
                     onPageSizeChange={() => {}}
                 />
             )
-            expect(getByRole('button', { name: 'Previous' })).not.toBeDisabled()
-            expect(getByRole('button', { name: 'Next' })).toBeDisabled()
+            expect(
+                getByRole('button', { name: 'Go to previous page' })
+            ).not.toHaveAttribute('aria-disabled')
+            expect(
+                getByRole('button', { name: 'Go to next page' })
+            ).toHaveAttribute('aria-disabled', 'true')
         })
     })
 
@@ -205,8 +229,12 @@ describe('<Pagination />', () => {
             const { getByRole } = render(
                 <Pagination {...props} {...mockPagers.noTotalAtLastPage} />
             )
-            expect(getByRole('button', { name: 'Previous' })).not.toBeDisabled()
-            expect(getByRole('button', { name: 'Next' })).toBeDisabled()
+            expect(
+                getByRole('button', { name: 'Go to previous page' })
+            ).not.toHaveAttribute('aria-disabled')
+            expect(
+                getByRole('button', { name: 'Go to next page' })
+            ).toHaveAttribute('aria-disabled', 'true')
         })
     })
 })
