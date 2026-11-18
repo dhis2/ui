@@ -5,6 +5,7 @@ export interface HelpProps {
     className?: string
     dataTest?: string
     error?: boolean
+    id?: string
     valid?: boolean
     warning?: boolean
 }

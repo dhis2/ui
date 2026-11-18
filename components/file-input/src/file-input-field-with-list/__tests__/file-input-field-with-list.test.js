@@ -27,4 +27,23 @@ describe('<FileInputFieldWithList />', () => {
             expect.objectContaining({})
         )
     })
+
+    it('should announce added and removed files', () => {
+        const file = new File(['content'], 'test.md')
+        const renderWithFiles = (files) => (
+            <FileInputFieldWithList
+                name="foo"
+                multiple
+                files={files}
+                onChange={jest.fn()}
+            />
+        )
+        const { rerender } = render(renderWithFiles([]))
+
+        rerender(renderWithFiles([file]))
+        expect(screen.getByRole('status')).toHaveTextContent('test.md added')
+
+        rerender(renderWithFiles([]))
+        expect(screen.getByRole('status')).toHaveTextContent('test.md removed')
+    })
 })

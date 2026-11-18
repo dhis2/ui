@@ -17,6 +17,10 @@ export interface FieldProps {
      */
     helpText?: string
     /**
+     * id passed to the help text element
+     */
+    helpTextId?: string
+    /**
      * Label at the top of the field
      */
     label?: string
@@ -36,6 +40,10 @@ export interface FieldProps {
      * Feedback given related to validation status of field
      */
     validationText?: string
+    /**
+     * id passed to the validation text element
+     */
+    validationTextId?: string
     /**
      * Field status. Mutually exclusive with `valid` and `error` props
      */

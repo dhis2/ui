@@ -515,12 +515,14 @@ import { Field } from '@dhis2/ui'
 |disabled|boolean|||Disabled status, shown when mouse is over label|
 |error|custom|||Field status. Mutually exclusive with `valid` and `warning` props|
 |helpText|string|||Useful text within the field|
+|helpTextId|string|||id passed to the help text element|
 |label|string|||Label at the top of the field|
 |labelId|string|||id passed to the label element|
 |name|string|||`name` will become the target of the `for`/`htmlFor` attribute on the `<label>` element|
 |required|boolean|||Inidcates this field is required|
 |valid|custom|||Field status. Mutually exclusive with `error` and `warning` props|
 |validationText|string|||Feedback given related to validation status of field|
+|validationTextId|string|||id passed to the validation text element|
 |warning|custom|||Field status. Mutually exclusive with `valid` and `error` props|
 
 ### FieldGroup
@@ -589,6 +591,8 @@ import { FileInput } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |accept|string|``'*'``||The `accept` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept)|
+|ariaDescribedBy|string|||Sets an aria-describedby attribute on the button|
+|ariaLabelledBy|string|||Sets an aria-labelledby attribute on the button|
 |buttonLabel|string||||
 |className|string||||
 |dataTest|string|``'dhis2-uicore-fileinput'``|||
@@ -639,6 +643,7 @@ import { FileInputField } from '@dhis2/ui'
 |placeholder|string │ function|``() => i18n.t('No file uploaded yet')``||Placeholder below the button|
 |required|boolean|||Adds an asterisk to indicate this field is required|
 |small|custom|||Size of the button. Mutually exclusive with the `large` prop|
+|statusMessage|string|||Message announced to screen readers, e.g. when files are added to or removed from the list|
 |tabIndex|string||||
 |valid|custom|||Applies 'valid' styling to the validation text. Mutually exclusive with `warning` and `error` props|
 |validationText|string|||Text below the button that provides validation feedback|
@@ -767,6 +772,7 @@ import { Help } from '@dhis2/ui'
 |className|string||||
 |dataTest|string|``'dhis2-uicore-help'``|||
 |error|custom||||
+|id|string||||
 |valid|custom||||
 |warning|custom||||
 

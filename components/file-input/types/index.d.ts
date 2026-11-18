@@ -25,6 +25,14 @@ export interface FileInputProps {
      * The `accept` attribute of the [native file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept)
      */
     accept?: string
+    /**
+     * Sets an aria-describedby attribute on the button
+     */
+    ariaDescribedBy?: string
+    /**
+     * Sets an aria-labelledby attribute on the button
+     */
+    ariaLabelledBy?: string
     buttonLabel?: string
     className?: string
     dataTest?: string
@@ -133,6 +141,10 @@ export interface FileInputFieldProps {
      * Size of the button. Mutually exclusive with the `large` prop
      */
     small?: boolean
+    /**
+     * Message announced to screen readers, e.g. when files are added to or removed from the list
+     */
+    statusMessage?: string
     tabIndex?: string
     /**
      * Applies 'valid' styling to the validation text. Mutually exclusive with `warning` and `error` props

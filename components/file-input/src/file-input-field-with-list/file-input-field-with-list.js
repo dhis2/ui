@@ -13,7 +13,56 @@ const translate = (prop, interpolationObject) => {
 
     return prop
 }
+
+const isSameFile = (a, b) =>
+    a.name === b.name &&
+    a.lastModified === b.lastModified &&
+    a.size === b.size &&
+    a.type === b.type
+
+const excludeFiles = (files, filesToExclude) =>
+    files.filter((file) => !filesToExclude.some((x) => isSameFile(x, file)))
+
+const getFileNames = (files) => files.map((file) => file.name).join(', ')
+
 class FileInputFieldWithList extends Component {
+    state = {
+        statusMessage: '',
+    }
+
+    componentDidUpdate(prevProps) {
+        const { files = [] } = this.props
+        const { files: prevFiles = [] } = prevProps
+
+        if (files === prevFiles) {
+            return
+        }
+
+        this.setState({
+            statusMessage: this.getStatusMessage(prevFiles, files),
+        })
+    }
+
+    getStatusMessage(prevFiles, files) {
+        const added = excludeFiles(files, prevFiles)
+        const removed = excludeFiles(prevFiles, files)
+        const messages = []
+
+        if (added.length > 0) {
+            messages.push(
+                i18n.t('{{- files}} added', { files: getFileNames(added) })
+            )
+        }
+
+        if (removed.length > 0) {
+            messages.push(
+                i18n.t('{{- files}} removed', { files: getFileNames(removed) })
+            )
+        }
+
+        return messages.join('. ')
+    }
+
     handleChange = ({ files: fileList }, event) => {
         const { onChange, name } = this.props
 
@@ -33,18 +82,7 @@ class FileInputFieldWithList extends Component {
             return newFiles
         }
 
-        return files
-            .filter(
-                (file) =>
-                    !newFiles.some(
-                        (x) =>
-                            x.name === file.name &&
-                            x.lastModified === file.lastModified &&
-                            x.size === file.size &&
-                            x.type === file.type
-                    )
-            )
-            .concat(newFiles)
+        return excludeFiles(files, newFiles).concat(newFiles)
     }
 
     handleRemove = ({ file: fileToRemove }, event) => {
@@ -117,6 +155,7 @@ class FileInputFieldWithList extends Component {
                 placeholder={translate(placeholder)}
                 required={required}
                 small={small}
+                statusMessage={this.state.statusMessage}
                 tabIndex={tabIndex}
                 valid={valid}
                 validationText={validationText}

@@ -10,10 +10,12 @@ const Field = ({
     className,
     disabled,
     helpText,
+    helpTextId,
     label,
     labelId,
     name,
     validationText,
+    validationTextId,
     required,
     dataTest = 'dhis2-uicore-field',
     valid,
@@ -37,10 +39,15 @@ const Field = ({
             {children}
         </Box>
 
-        {helpText && <Help dataTest={`${dataTest}-help`}>{helpText}</Help>}
+        {helpText && (
+            <Help id={helpTextId} dataTest={`${dataTest}-help`}>
+                {helpText}
+            </Help>
+        )}
 
         {validationText && (
             <Help
+                id={validationTextId}
                 error={error}
                 warning={warning}
                 valid={valid}
@@ -68,6 +75,9 @@ Field.propTypes = {
     /** Useful text within the field */
     helpText: PropTypes.string,
 
+    /** id passed to the help text element */
+    helpTextId: PropTypes.string,
+
     /** Label at the top of the field */
     label: PropTypes.string,
 
@@ -85,6 +95,9 @@ Field.propTypes = {
 
     /** Feedback given related to validation status of field */
     validationText: PropTypes.string,
+
+    /** id passed to the validation text element */
+    validationTextId: PropTypes.string,
 
     /** Field status. Mutually exclusive with `valid` and `error` props */
     warning: sharedPropTypes.statusPropType,
