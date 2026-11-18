@@ -35,6 +35,42 @@ const MOVES = new Set([
     'End',
 ])
 
+/** Focuses the control after (or before) one of a row's controls, cycling. */
+const cycleControls = (row: Element, from: HTMLElement, backwards: boolean) => {
+    const controls = focusablesOf(row)
+    const at = controls.indexOf(from)
+    const step = backwards ? -1 : 1
+    controls[(at + step + controls.length) % controls.length]?.focus()
+}
+
+/**
+ * A key pressed inside a row's control: Escape and Tab stay in the row,
+ * a move key returns focus to the container and is then the tree's.
+ * Returns true when the key is done with.
+ */
+const keyInsideControl = (event: React.KeyboardEvent<HTMLElement>) => {
+    const container = event.currentTarget
+    const target = event.target as HTMLElement
+    if (event.key === 'Escape') {
+        event.preventDefault()
+        container.focus()
+        return true
+    }
+    // A control in the tab order, such as the roots retry, was not
+    // entered from the tree: Tab leaves it as usual.
+    const row = target.closest('[role="treeitem"]')
+    if (event.key === 'Tab' && row && target.tabIndex < 0) {
+        event.preventDefault()
+        cycleControls(row, target, event.shiftKey)
+        return true
+    }
+    if (!MOVES.has(event.key)) {
+        return true
+    }
+    container.focus()
+    return false
+}
+
 /**
  * The treeview keys for the container: the arrows, Home and End move the
  * focused row, Right and Left open, close and step between levels, Enter
@@ -97,36 +133,12 @@ export const useOuTreeKeyboard = ({
 
     const onKeyDown = useCallback<React.KeyboardEventHandler<HTMLElement>>(
         (event) => {
-            const container = event.currentTarget
-            if (event.target !== container) {
-                // Inside a row's control.
-                if (event.key === 'Escape') {
-                    event.preventDefault()
-                    container.focus()
-                    return
-                }
-                const row = (event.target as Element).closest(
-                    '[role="treeitem"]'
-                )
-                // A control in the tab order, such as the roots retry,
-                // was not entered from the tree: Tab leaves it as usual.
-                const entered = (event.target as HTMLElement).tabIndex < 0
-                if (event.key === 'Tab' && row && entered) {
-                    event.preventDefault()
-                    const controls = focusablesOf(row)
-                    const at = controls.indexOf(event.target as HTMLElement)
-                    const step = event.shiftKey ? -1 : 1
-                    controls[
-                        (at + step + controls.length) % controls.length
-                    ]?.focus()
-                    return
-                }
-                if (!MOVES.has(event.key)) {
-                    return
-                }
-                container.focus()
+            if (
+                event.target !== event.currentTarget &&
+                keyInsideControl(event)
+            ) {
+                return
             }
-
             const moved = (index: number | undefined) => {
                 event.preventDefault()
                 if (index !== undefined) {
@@ -140,59 +152,60 @@ export const useOuTreeKeyboard = ({
                 return
             }
             const row = getRow(focusedIndex)
-            const element = activeDescendantId
-                ? document.getElementById(activeDescendantId)
-                : null
             const node =
                 row?.kind === 'node' ? store.getNode(row.id) : undefined
-            switch (event.key) {
-                case 'ArrowDown':
-                    return moved(focusNext())
-                case 'ArrowUp':
-                    return moved(focusPrevious())
-                case 'Home':
-                    return moved(focusFirst())
-                case 'End':
-                    return moved(focusLast())
-                case 'ArrowRight':
-                    if (node && !node.leaf && !isOpen(node.id)) {
-                        event.preventDefault()
-                        open(node.id)
-                        return
+            // Right opens a closed node, else steps into it; Left closes an
+            // open node, else steps out to the parent.
+            const stepRight = () => {
+                if (!node || node.leaf) {
+                    return undefined
+                }
+                if (!isOpen(node.id)) {
+                    open(node.id)
+                    return undefined
+                }
+                return focusChild()
+            }
+            const stepLeft = () => {
+                if (node && isOpen(node.id)) {
+                    close(node.id)
+                    return undefined
+                }
+                return focusParent()
+            }
+            // Enter toggles a node; on any other row its control, the retry,
+            // is its action. Shift+Enter moves into the first control.
+            const enter = () => {
+                const element = activeDescendantId
+                    ? document.getElementById(activeDescendantId)
+                    : null
+                const control = element && focusablesOf(element)[0]
+                if (event.shiftKey) {
+                    control?.focus()
+                } else if (node) {
+                    if (!node.leaf) {
+                        toggle(node.id)
                     }
-                    return moved(node && !node.leaf ? focusChild() : undefined)
-                case 'ArrowLeft':
-                    if (node && isOpen(node.id)) {
-                        event.preventDefault()
-                        close(node.id)
-                        return
-                    }
-                    return moved(focusParent())
-                case 'Enter':
-                    event.preventDefault()
-                    if (event.shiftKey) {
-                        if (element) {
-                            focusablesOf(element)[0]?.focus()
-                        }
-                        return
-                    }
-                    if (node) {
-                        if (!node.leaf) {
-                            toggle(node.id)
-                        }
-                        return
-                    }
-                    // Any other row: its control, the retry, is its action.
-                    if (element) {
-                        focusablesOf(element)[0]?.click()
-                    }
-                    return
-                case ' ':
-                    // Reserved for selection; the page must not scroll.
-                    event.preventDefault()
-                    return
-                default:
-                    return
+                } else {
+                    control?.click()
+                }
+            }
+            const moves: Record<string, () => number | undefined> = {
+                ArrowDown: focusNext,
+                ArrowUp: focusPrevious,
+                Home: focusFirst,
+                End: focusLast,
+                ArrowRight: stepRight,
+                ArrowLeft: stepLeft,
+            }
+            if (event.key in moves) {
+                moved(moves[event.key]())
+            } else if (event.key === 'Enter') {
+                event.preventDefault()
+                enter()
+            } else if (event.key === ' ') {
+                // Reserved for selection; the page must not scroll.
+                event.preventDefault()
             }
         },
         [
