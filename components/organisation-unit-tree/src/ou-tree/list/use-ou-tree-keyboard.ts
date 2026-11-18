@@ -15,7 +15,6 @@ export interface OuTreeKeyboardOptions {
 }
 
 export interface OuTreeKeyboard {
-    tabIndex: 0
     activeDescendantId: string | undefined
     onKeyDown: React.KeyboardEventHandler<HTMLElement>
     onFocus: React.FocusEventHandler<HTMLElement>
@@ -217,5 +216,5 @@ export const useOuTreeKeyboard = ({
         ]
     )
 
-    return { tabIndex: 0, activeDescendantId, onKeyDown, onFocus, onBlur }
+    return { activeDescendantId, onKeyDown, onFocus, onBlur }
 }
