@@ -20,6 +20,10 @@ export interface OuTreeVirtualRows {
     totalSize: number
     /** The ref of each positioned row element, which also has `data-index`. */
     measureElement: (element: Element | null) => void
+    /** Scrolls the row into view, as little as needed. */
+    scrollToIndex: (index: number) => void
+    /** The first row in the viewport, before overscan; undefined without rows. */
+    firstVisibleIndex: number | undefined
 }
 
 /**
@@ -57,6 +61,11 @@ export const useOuTreeVirtualRows = ({
 
     const totalSize = virtualizer.getTotalSize()
     const { measureElement } = virtualizer
+    const scrollToIndex = useCallback(
+        (index: number) => virtualizer.scrollToIndex(index, { align: 'auto' }),
+        [virtualizer]
+    )
+    const firstVisibleIndex = virtualizer.range?.startIndex
     return useMemo(
         () => ({
             virtualItems: items.map(({ index, start, key }) => ({
@@ -66,7 +75,9 @@ export const useOuTreeVirtualRows = ({
             })),
             totalSize,
             measureElement,
+            scrollToIndex,
+            firstVisibleIndex,
         }),
-        [items, totalSize, measureElement]
+        [items, totalSize, measureElement, scrollToIndex, firstVisibleIndex]
     )
 }

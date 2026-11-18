@@ -19,6 +19,7 @@ describe('OuTreeRevealToggle', () => {
         expect(button).toBe(screen.getByTestId('t-reveal'))
         expect(button).not.toHaveAttribute('data-hover-only')
         expect(button.parentElement).not.toHaveAttribute('tabindex')
+        expect(button).toHaveAttribute('tabindex', '-1')
         await userEvent.click(button)
         expect(onToggle).toHaveBeenCalledTimes(1)
 

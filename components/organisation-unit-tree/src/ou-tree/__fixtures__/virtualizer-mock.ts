@@ -1,4 +1,5 @@
 export const measureElement = jest.fn()
+export const scrollToIndex = jest.fn()
 export const useVirtualizer = jest.fn(
     (options: {
         count: number
@@ -12,6 +13,11 @@ export const useVirtualizer = jest.fn(
                 key: options.getItemKey ? options.getItemKey(index) : index,
             })),
         getTotalSize: () => options.count * 24,
+        range:
+            options.count > 0
+                ? { startIndex: 0, endIndex: options.count - 1 }
+                : null,
         measureElement,
+        scrollToIndex,
     })
 )

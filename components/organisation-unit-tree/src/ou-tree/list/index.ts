@@ -5,6 +5,11 @@ export {
     type OuTreeVirtualRowsOptions,
     useOuTreeVirtualRows,
 } from './use-ou-tree-virtual-rows'
+export {
+    type OuTreeKeyboard,
+    type OuTreeKeyboardOptions,
+    useOuTreeKeyboard,
+} from './use-ou-tree-keyboard'
 export { OuTreeContainer, type OuTreeContainerProps } from './ou-tree-container'
 export {
     OuTreeVirtualSizer,

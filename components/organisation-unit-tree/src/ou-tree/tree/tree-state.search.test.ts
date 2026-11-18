@@ -17,7 +17,7 @@ const rows = (tree: TreeState) =>
         switch (row.kind) {
             case 'node':
                 return `${row.id}${row.view === 'pruned' ? ':pruned' : ''}${
-                    row.result ? '*' : ''
+                    tree.isResult(row.id) ? '*' : ''
                 }`
             case 'result-error':
             case 'children-error':

@@ -37,9 +37,7 @@ const nodeRow: Row = {
     kind: 'node',
     id: 'ou-1',
     depth: 0,
-    children: { status: 'none' },
     view: 'full',
-    result: false,
 }
 
 describe('OuTreeRow', () => {

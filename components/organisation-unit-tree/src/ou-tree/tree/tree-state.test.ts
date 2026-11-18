@@ -125,10 +125,9 @@ describe('createTreeState', () => {
                 kind: 'node',
                 id: 'ou-1',
                 depth: 0,
-                children: { status: 'loading' },
                 view: 'full',
-                result: false,
             })
+            expect(tree.store.getChildren('ou-1').status).toBe('loading')
             tree.close('ou-1')
             tree.open('ou-1')
             await flush()
@@ -171,20 +170,15 @@ describe('createTreeState', () => {
             await flush()
 
             expect(tree.isOpen('p')).toBe(false)
-            expect(tree.getRow(0)).toMatchObject({
-                id: 'p',
-                children: { status: 'failed' },
-            })
+            expect(tree.getRow(0)).toMatchObject({ id: 'p' })
+            expect(tree.store.getChildren('p').status).toBe('failed')
 
             tree.toggle('p')
 
             expect(childrenRequests).toHaveLength(2)
             expect(tree.isOpen('p')).toBe(true)
-            expect(tree.getRow(0)).toMatchObject({
-                children: { status: 'loading' },
-                view: 'full',
-                result: false,
-            })
+            expect(tree.getRow(0)).toMatchObject({ view: 'full' })
+            expect(tree.store.getChildren('p').status).toBe('loading')
         })
 
         it('does not request children of a leaf', async () => {
@@ -384,5 +378,219 @@ describe('hovered row', () => {
         tree.setHovered('ou-1')
 
         expect(listener).toHaveBeenCalledTimes(1)
+    })
+})
+
+describe('focused row', () => {
+    it('has no focused row until one is set', async () => {
+        const { tree } = setup(['ou-1'])
+        expect(tree.getFocusedIndex()).toBeUndefined()
+        await flush()
+
+        expect(tree.getFocusedIndex()).toBeUndefined()
+        expect(tree.getFocusedKey()).toBeUndefined()
+        expect(tree.focusRow(0)).toBe(0)
+        expect(tree.getFocusedIndex()).toBe(0)
+        expect(tree.getFocusedKey()).toBe('ou-1')
+    })
+
+    it('moves with next, previous, first and last, and stays put at the ends', async () => {
+        const { tree } = setup(['ou-1'], { initiallyOpen: ['ou-1'] })
+        await flush()
+        const listener = jest.fn()
+        tree.subscribe(listener)
+
+        expect(tree.focusFirst()).toBe(0)
+        expect(tree.focusNext()).toBe(1)
+        expect(tree.focusNext()).toBe(2)
+        expect(tree.focusNext()).toBeUndefined()
+        expect(tree.getFocusedIndex()).toBe(2)
+        expect(tree.focusLast()).toBe(2)
+        expect(tree.focusPrevious()).toBe(1)
+        expect(tree.focusFirst()).toBe(0)
+        expect(tree.focusPrevious()).toBeUndefined()
+        expect(tree.getFocusedIndex()).toBe(0)
+        // One notification per move, none for a move that went nowhere.
+        expect(listener).toHaveBeenCalledTimes(6)
+    })
+
+    it('focusChild moves to the next row only when it is deeper; focusParent to the nearest shallower row', async () => {
+        const { tree } = setup(['ou-1'], { initiallyOpen: ['ou-1'] })
+        await flush()
+
+        tree.focusRow(0)
+        expect(tree.focusChild()).toBe(1)
+        expect(tree.focusChild()).toBeUndefined()
+        expect(tree.getFocusedIndex()).toBe(1)
+        tree.focusRow(2)
+        expect(tree.focusParent()).toBe(0)
+        expect(tree.focusParent()).toBeUndefined()
+        expect(tree.getFocusedIndex()).toBe(0)
+    })
+
+    it('keeps the row by key when rows above it change', async () => {
+        const { tree } = setup(['ou-13', 'ou-2'])
+        await flush()
+        tree.focusRow(1)
+        expect(tree.getFocusedKey()).toBe('ou-2')
+
+        tree.open('ou-13')
+        await flush()
+
+        expect(tree.getRowIndex('ou-2')).toBeGreaterThan(1)
+        expect(tree.getFocusedIndex()).toBe(tree.getRowIndex('ou-2'))
+        expect(tree.getFocusedKey()).toBe('ou-2')
+    })
+
+    it('falls back to the index when the focused key is gone', async () => {
+        const { tree } = setup(['ou-6'], { pageSize: 2 })
+        await flush()
+        tree.open('ou-6')
+        await flush()
+        tree.setFocused('children-skeleton:ou-6:2')
+        expect(tree.getFocusedIndex()).toBe(3)
+
+        tree.ensureChildrenLoaded(3, 3)
+        await flush()
+
+        expect(tree.getRow(3).kind).toBe('node')
+        expect(tree.getFocusedIndex()).toBe(3)
+        expect(tree.getFocusedKey()).toBe(ids(tree)[3])
+    })
+
+    it('falls back to where the key was last found, after rows above it moved it', async () => {
+        const { tree } = setup(['ou-13', 'ou-6'], { pageSize: 2 })
+        await flush()
+        tree.open('ou-6')
+        await flush()
+        tree.setFocused('children-skeleton:ou-6:2')
+        expect(tree.getFocusedIndex()).toBe(4)
+
+        tree.open('ou-13')
+        await flush()
+        const shifted = tree.getFocusedIndex() as number
+        expect(shifted).toBeGreaterThan(4)
+        tree.ensureChildrenLoaded(shifted, shifted)
+        await flush()
+
+        expect(tree.getRow(shifted).kind).toBe('node')
+        expect(tree.getFocusedIndex()).toBe(shifted)
+    })
+
+    it('clamps the remembered index to the rows that are left', async () => {
+        const { tree } = setup(['ou-1'], { initiallyOpen: ['ou-1'] })
+        await flush()
+        tree.focusRow(2)
+
+        tree.close('ou-1')
+
+        expect(tree.getFocusedIndex()).toBe(0)
+    })
+
+    it('isFocused is true only while the tree has focus', async () => {
+        const { tree } = setup(['ou-1'])
+        await flush()
+        const listener = jest.fn()
+        tree.subscribe(listener)
+
+        tree.setFocused('ou-1')
+        expect(tree.isFocused('ou-1')).toBe(false)
+        tree.setHasFocus(true)
+        expect(tree.isFocused('ou-1')).toBe(true)
+        expect(tree.isFocused('ou-13')).toBe(false)
+        tree.setHasFocus(true)
+        tree.setHasFocus(false)
+        expect(tree.isFocused('ou-1')).toBe(false)
+        expect(listener).toHaveBeenCalledTimes(3)
+    })
+
+    it('a search resets the focus, and so does clearing it', async () => {
+        const { tree } = setup(['ou-1'])
+        await flush()
+        tree.focusRow(0)
+
+        tree.search('Clinic')
+        expect(tree.getFocusedIndex()).toBeUndefined()
+        await flush()
+        tree.focusRow(1)
+        tree.clearSearch()
+
+        expect(tree.getFocusedIndex()).toBeUndefined()
+    })
+})
+
+describe('lit guide', () => {
+    // ou-1 (0), ou-2 (1), ou-3 (2), ou-6 (2), ou-13 (1).
+    const deep = async () => {
+        const { tree } = setup(['ou-1'], { initiallyOpen: ['ou-1', 'ou-2'] })
+        await flush()
+        expect(ids(tree)).toEqual(['ou-1', 'ou-2', 'ou-3', 'ou-6', 'ou-13'])
+        return tree
+    }
+
+    it('a hovered guide segment lights that level along the ancestor branch, and the ancestor toggle', async () => {
+        const tree = await deep()
+        const listener = jest.fn()
+        tree.subscribe(listener)
+
+        tree.setHoveredGuide({ key: 'ou-3', level: 0 })
+
+        expect(tree.litLevel('ou-1')).toBeUndefined()
+        expect(tree.litLevel('ou-2')).toBe(0)
+        expect(tree.litLevel('ou-3')).toBe(0)
+        expect(tree.litLevel('ou-13')).toBe(0)
+        expect(tree.isGuideAncestor('ou-1')).toBe(true)
+        expect(tree.isGuideAncestor('ou-2')).toBe(false)
+
+        tree.setHoveredGuide({ key: 'ou-3', level: 1 })
+        expect(tree.litLevel('ou-3')).toBe(1)
+        expect(tree.litLevel('ou-6')).toBe(1)
+        expect(tree.litLevel('ou-13')).toBeUndefined()
+        expect(tree.isGuideAncestor('ou-2')).toBe(true)
+
+        tree.setHoveredGuide(undefined)
+        expect(tree.litLevel('ou-3')).toBeUndefined()
+        expect(listener).toHaveBeenCalledTimes(3)
+    })
+
+    it("an open node's own toggle is its guide: hovering it lights its subtree", async () => {
+        const tree = await deep()
+
+        tree.setHoveredGuide({ key: 'ou-2', level: 1 })
+
+        expect(tree.isGuideAncestor('ou-2')).toBe(true)
+        expect(tree.litLevel('ou-3')).toBe(1)
+        expect(tree.litLevel('ou-2')).toBeUndefined()
+    })
+
+    it("the focused row's parent branch is lit while the tree has focus; a hovered guide wins", async () => {
+        const tree = await deep()
+        tree.focusRow(2)
+        expect(tree.litLevel('ou-6')).toBeUndefined()
+
+        tree.setHasFocus(true)
+        expect(tree.litLevel('ou-6')).toBe(1)
+        expect(tree.litLevel('ou-3')).toBe(1)
+        expect(tree.isGuideAncestor('ou-2')).toBe(true)
+
+        tree.setHoveredGuide({ key: 'ou-13', level: 0 })
+        expect(tree.litLevel('ou-6')).toBe(0)
+
+        tree.setHoveredGuide(undefined)
+        tree.focusRow(0)
+        expect(tree.litLevel('ou-2')).toBeUndefined()
+        expect(tree.isGuideAncestor('ou-1')).toBe(false)
+    })
+
+    it('closeGuideBranch closes the ancestor, focuses it and forgets the hovered guide', async () => {
+        const tree = await deep()
+        tree.setHoveredGuide({ key: 'ou-6', level: 0 })
+
+        tree.closeGuideBranch({ key: 'ou-6', level: 0 })
+
+        expect(tree.isOpen('ou-1')).toBe(false)
+        expect(ids(tree)).toEqual(['ou-1'])
+        expect(tree.getFocusedKey()).toBe('ou-1')
+        expect(tree.litLevel('ou-1')).toBeUndefined()
     })
 })

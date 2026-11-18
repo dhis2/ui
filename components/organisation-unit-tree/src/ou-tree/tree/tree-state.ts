@@ -20,6 +20,7 @@ import {
     type PrunedTree,
     resultsPageOf,
 } from './pruned-tree'
+import { rowKey } from './row-key'
 import { SEARCH_DEBOUNCE_MS, SEARCH_MIN_LENGTH } from './search-constants'
 
 export interface TreeStateOptions {
@@ -29,6 +30,16 @@ export interface TreeStateOptions {
 }
 
 export type TreeMode = 'browse' | 'search'
+
+/**
+ * A guide line segment: the indent at `level` on the row with `key`, or
+ * an open node's own toggle line when `key` is the node and `level` its
+ * depth. It belongs to the branch of the ancestor at that level.
+ */
+export interface Guide {
+    key: string
+    level: number
+}
 
 type ResultsPageStatus =
     | { status: 'loading' }
@@ -109,6 +120,47 @@ export interface TreeState extends Subscribable {
     isHovered(id: string): boolean
     /** Marks the row the pointer is over, or none. */
     setHovered(id: string | undefined): void
+    /**
+     * The focused row: the one `aria-activedescendant` names while the
+     * tree has focus. Kept by row key, with its last index as the fallback
+     * when the key is gone (a skeleton that became a node).
+     */
+    getFocusedIndex(): number | undefined
+    /** The key of the focused row. */
+    getFocusedKey(): string | undefined
+    /** Whether the row is focused and the tree has DOM focus. */
+    isFocused(key: string): boolean
+    /** Focuses a row by key, as a pointer down on it does. */
+    setFocused(key: string): void
+    /** Whether the tree's container has DOM focus; set by the glue. */
+    setHasFocus(hasFocus: boolean): void
+    /**
+     * The treeview moves. Each focuses the row it names and returns its
+     * index, or returns undefined and changes nothing when there is no
+     * such row.
+     */
+    focusRow(index: number): number | undefined
+    focusFirst(): number | undefined
+    focusLast(): number | undefined
+    focusNext(): number | undefined
+    focusPrevious(): number | undefined
+    /** The nearest earlier row of a smaller depth. */
+    focusParent(): number | undefined
+    /** The next row, if it is deeper than the focused one. */
+    focusChild(): number | undefined
+    /**
+     * The guide the pointer is over, or none. Its branch lights up: the
+     * segment at its level on every row of the ancestor's subtree and the
+     * ancestor's toggle line. Without one, the focused row's parent
+     * branch is lit while the tree has focus.
+     */
+    setHoveredGuide(guide: Guide | undefined): void
+    /** Closes the branch a guide belongs to and focuses its ancestor. */
+    closeGuideBranch(guide: Guide): void
+    /** The level lit on this row, if it is in the lit branch. */
+    litLevel(key: string): number | undefined
+    /** Whether this node is the lit branch's ancestor: its toggle line is lit. */
+    isGuideAncestor(key: string): boolean
     /** Whether a pruned-tree node has children on the way to a result. */
     hasMatchingChildren(id: string): boolean
     /**
@@ -173,6 +225,10 @@ export const createTreeState = ({
     let search: SearchState | undefined
     let searchInput = ''
     let hoveredId: string | undefined
+    let focusedKey: string | undefined
+    let focusedIndex: number | undefined
+    let hasFocus = false
+    let hoveredGuide: Guide | undefined
     let debounce: ReturnType<typeof setTimeout> | undefined
     let searchStatus: SearchStatus = { status: 'idle' }
     let rootsStatus: RootsStatus = { status: 'loading' }
@@ -189,6 +245,8 @@ export const createTreeState = ({
         version += 1
         listeners.forEach((listener) => listener())
     }
+    // Own changes plus the store's, so either re-renders subscribers.
+    const getVersion = () => version + store.getVersion()
 
     const flat = (): FlatRows => {
         const current = store.getVersion()
@@ -396,6 +454,7 @@ export const createTreeState = ({
         }
         search = undefined
         openIds.clear()
+        resetFocus()
         initiallyOpen.forEach((id) => openIds.add(id))
         initiallyOpen.forEach(requestFirstPage)
         invalidate()
@@ -425,6 +484,7 @@ export const createTreeState = ({
             closedIds: new Set(),
         }
         openIds.clear()
+        resetFocus()
         invalidate()
         if (rootIds.length === 0) {
             // An empty tree has nothing to search: loaded, with no results.
@@ -506,17 +566,206 @@ export const createTreeState = ({
         notify()
     }
 
+    // -- Focus --
+
+    const resetFocus = () => {
+        focusedKey = undefined
+        focusedIndex = undefined
+    }
+
+    const getFocusedIndex = (): number | undefined => {
+        const { rows, indexByKey } = flat()
+        if (focusedKey === undefined || rows.length === 0) {
+            return undefined
+        }
+        const byKey = indexByKey.get(focusedKey)
+        if (byKey !== undefined) {
+            // Where the row was last seen, for when its key is gone.
+            focusedIndex = byKey
+            return byKey
+        }
+        return Math.min(focusedIndex ?? 0, rows.length - 1)
+    }
+
+    const getFocusedKey = (): string | undefined => {
+        const index = getFocusedIndex()
+        return index === undefined ? undefined : rowKey(flat().rows[index])
+    }
+
+    const focusRow = (index: number): number | undefined => {
+        const { rows } = flat()
+        if (index < 0 || index >= rows.length) {
+            return undefined
+        }
+        focusedKey = rowKey(rows[index])
+        focusedIndex = index
+        notify()
+        return index
+    }
+
+    const focusFirst = () => focusRow(0)
+    const focusLast = () => focusRow(flat().rows.length - 1)
+    const focusNext = () => {
+        const index = getFocusedIndex()
+        return index === undefined ? undefined : focusRow(index + 1)
+    }
+    const focusPrevious = () => {
+        const index = getFocusedIndex()
+        return index === undefined ? undefined : focusRow(index - 1)
+    }
+    const focusParent = () => {
+        const index = getFocusedIndex()
+        if (index === undefined) {
+            return undefined
+        }
+        const { rows } = flat()
+        const depth = rows[index].depth
+        for (let parent = index - 1; parent >= 0; parent -= 1) {
+            if (rows[parent].depth < depth) {
+                return focusRow(parent)
+            }
+        }
+        return undefined
+    }
+    const focusChild = () => {
+        const index = getFocusedIndex()
+        if (index === undefined) {
+            return undefined
+        }
+        const { rows } = flat()
+        const next = rows[index + 1]
+        return next && next.depth > rows[index].depth
+            ? focusRow(index + 1)
+            : undefined
+    }
+
+    const setFocused = (key: string) => {
+        const index = flat().indexByKey.get(key)
+        if (index !== undefined) {
+            focusRow(index)
+        }
+    }
+
+    const setHasFocus = (value: boolean) => {
+        if (value === hasFocus) {
+            return
+        }
+        hasFocus = value
+        notify()
+    }
+
+    // -- Lit guide --
+
+    // A guide's branch: the ancestor at its level and the rows of its
+    // subtree, [from, to).
+    interface LitBranch {
+        ancestor: number
+        level: number
+        from: number
+        to: number
+    }
+    const branchOf = (guide: Guide): LitBranch | undefined => {
+        const { rows, indexByKey } = flat()
+        const start = indexByKey.get(guide.key)
+        if (start === undefined) {
+            return undefined
+        }
+        let ancestor = start
+        while (ancestor >= 0 && rows[ancestor].depth > guide.level) {
+            ancestor -= 1
+        }
+        if (ancestor < 0 || rows[ancestor].depth !== guide.level) {
+            return undefined
+        }
+        let to = ancestor + 1
+        while (to < rows.length && rows[to].depth > guide.level) {
+            to += 1
+        }
+        return { ancestor, level: guide.level, from: ancestor + 1, to }
+    }
+    const focusedParentGuide = (): Guide | undefined => {
+        const index = getFocusedIndex()
+        if (!hasFocus || index === undefined) {
+            return undefined
+        }
+        const { rows } = flat()
+        const depth = rows[index].depth
+        return depth === 0
+            ? undefined
+            : { key: rowKey(rows[index]), level: depth - 1 }
+    }
+    // Resolved once per tree version and guide, as every row asks.
+    let litMemo:
+        | { version: number; guide: Guide | undefined; branch?: LitBranch }
+        | undefined
+    const litBranch = (): LitBranch | undefined => {
+        const guide = hoveredGuide ?? focusedParentGuide()
+        const current = getVersion()
+        if (
+            litMemo?.version !== current ||
+            litMemo.guide?.key !== guide?.key ||
+            litMemo.guide?.level !== guide?.level
+        ) {
+            litMemo = {
+                version: current,
+                guide,
+                branch: guide && branchOf(guide),
+            }
+        }
+        return litMemo.branch
+    }
+    const litLevel = (key: string): number | undefined => {
+        const branch = litBranch()
+        if (!branch) {
+            return undefined
+        }
+        const index = flat().indexByKey.get(key)
+        return index !== undefined && index >= branch.from && index < branch.to
+            ? branch.level
+            : undefined
+    }
+    const isGuideAncestor = (key: string): boolean => {
+        const branch = litBranch()
+        return (
+            branch !== undefined &&
+            flat().indexByKey.get(key) === branch.ancestor
+        )
+    }
+    const setHoveredGuide = (guide: Guide | undefined) => {
+        if (
+            guide?.key === hoveredGuide?.key &&
+            guide?.level === hoveredGuide?.level
+        ) {
+            return
+        }
+        hoveredGuide = guide
+        notify()
+    }
+    const closeGuideBranch = (guide: Guide) => {
+        const branch = branchOf(guide)
+        hoveredGuide = undefined
+        if (!branch) {
+            notify()
+            return
+        }
+        const row = flat().rows[branch.ancestor]
+        focusRow(branch.ancestor)
+        if (row.kind === 'node') {
+            close(row.id)
+        }
+    }
+
     // -- Loading what scrolls into view --
 
     const ensureChildrenLoaded = (firstRow: number, lastRow: number) => {
-        const { rows, indexById } = flat()
+        const { rows, indexByKey } = flat()
         const first = Math.max(0, firstRow)
         const last = Math.min(rows.length - 1, lastRow)
         const wanted = new Set<string>()
         const lastResultRow =
             search?.lastResultId === undefined
                 ? undefined
-                : indexById.get(search.lastResultId)
+                : indexByKey.get(search.lastResultId)
         let resultsWanted =
             lastResultRow !== undefined &&
             lastResultRow >= first &&
@@ -583,11 +832,27 @@ export const createTreeState = ({
         isRevealed: (id) => search?.revealedIds.has(id) ?? false,
         isHovered: (id) => id === hoveredId,
         setHovered,
+        getFocusedIndex,
+        getFocusedKey,
+        isFocused: (key) => hasFocus && getFocusedKey() === key,
+        setFocused,
+        setHasFocus,
+        focusRow,
+        focusFirst,
+        focusLast,
+        focusNext,
+        focusPrevious,
+        focusParent,
+        focusChild,
+        setHoveredGuide,
+        closeGuideBranch,
+        litLevel,
+        isGuideAncestor,
         hasMatchingChildren,
         toggleRevealed,
         getRowCount,
         getRow,
-        getRowIndex: (id) => flat().indexById.get(id),
+        getRowIndex: (id) => flat().indexByKey.get(id),
         ensureChildrenLoaded,
         loadInitial,
         retryRoots: loadRoots,
@@ -604,7 +869,6 @@ export const createTreeState = ({
                 }
             }
         },
-        // Own changes plus the store's, so either re-renders subscribers.
-        getVersion: () => version + store.getVersion(),
+        getVersion,
     }
 }

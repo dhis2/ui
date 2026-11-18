@@ -16,6 +16,7 @@ describe('OuTreeRetryNode', () => {
 
         expect(button).toBe(screen.getByTestId('t-retry'))
         expect(button.parentElement).not.toHaveAttribute('tabindex')
+        expect(button).toHaveAttribute('tabindex', '-1')
         await userEvent.click(button)
         expect(onRetry).toHaveBeenCalledTimes(1)
     })

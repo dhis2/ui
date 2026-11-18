@@ -35,6 +35,7 @@ class InputField extends React.Component {
             loading,
             value,
             tabIndex,
+            role,
             helpText,
             validationText,
             inputWidth,
@@ -78,6 +79,7 @@ class InputField extends React.Component {
                         loading={loading}
                         dense={dense}
                         tabIndex={tabIndex}
+                        role={role}
                         initialFocus={initialFocus}
                         readOnly={readOnly}
                         autoComplete={autoComplete}
@@ -128,6 +130,8 @@ const InputFieldProps = {
     readOnly: PropTypes.bool,
     /** Indicates this input is required */
     required: PropTypes.bool,
+    /** Sets a role attribute on the input */
+    role: PropTypes.string,
     /** The [native `step` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-step), for use when `type` is `'number'` */
     step: PropTypes.string,
     tabIndex: PropTypes.string,

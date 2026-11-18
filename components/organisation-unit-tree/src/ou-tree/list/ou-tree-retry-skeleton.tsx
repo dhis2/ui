@@ -6,6 +6,8 @@ import React from 'react'
 
 export interface OuTreeRetrySkeletonProps {
     onRetry: () => void
+    /** In the tab order; otherwise the row's inner focus reaches it. */
+    tabbable?: boolean
     dataTest?: string
 }
 
@@ -16,6 +18,7 @@ export interface OuTreeRetrySkeletonProps {
  */
 export const OuTreeRetrySkeleton = ({
     onRetry,
+    tabbable = false,
     dataTest,
 }: OuTreeRetrySkeletonProps) => (
     <Tooltip
@@ -28,6 +31,7 @@ export const OuTreeRetrySkeleton = ({
                 {...tooltip}
                 ref={ref as React.RefObject<HTMLButtonElement>}
                 type="button"
+                tabIndex={tabbable ? 0 : -1}
                 aria-label={i18n.t('Retry')}
                 data-test={dataTest}
                 onClick={onRetry}

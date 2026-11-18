@@ -3,7 +3,7 @@ import cx from 'classnames'
 import React from 'react'
 
 export interface OuTreeNodeLabelProps {
-    onClick?: () => void
+    /** Shows the pointer cursor; the row takes the click. */
     clickable?: boolean
     /** Paints the result background. */
     result?: boolean
@@ -12,17 +12,12 @@ export interface OuTreeNodeLabelProps {
 }
 
 export const OuTreeNodeLabel = ({
-    onClick,
     clickable,
     result,
     dataTest,
     children,
 }: OuTreeNodeLabelProps) => (
-    <span
-        className={cx('label', { clickable, result })}
-        data-test={dataTest}
-        onClick={onClick}
-    >
+    <span className={cx('label', { clickable, result })} data-test={dataTest}>
         {children}
         <style jsx>{`
             .label {

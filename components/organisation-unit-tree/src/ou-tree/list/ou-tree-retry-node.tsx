@@ -14,7 +14,8 @@ export interface OuTreeRetryNodeProps {
 /**
  * A failed node's row body: a button with the error icon in the toggle's
  * place, the label slot and, shown on hover and focus, the sync icon.
- * Clicking opens the node again, which reloads its children.
+ * Clicking opens the node again, which reloads its children. Out of the
+ * tab order: the row's inner focus reaches it.
  */
 export const OuTreeRetryNode = ({
     onRetry,
@@ -31,6 +32,7 @@ export const OuTreeRetryNode = ({
                 {...tooltip}
                 ref={ref as React.RefObject<HTMLButtonElement>}
                 type="button"
+                tabIndex={-1}
                 data-test={dataTest}
                 onClick={onRetry}
             >

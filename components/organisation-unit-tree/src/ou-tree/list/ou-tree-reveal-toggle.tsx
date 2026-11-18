@@ -12,7 +12,7 @@ export interface OuTreeRevealToggleProps {
 
 /**
  * The eye after a pruned node's label: shows all the node's children, or
- * hides them again.
+ * hides them again. Out of the tab order: the row's inner focus reaches it.
  */
 export const OuTreeRevealToggle = ({
     revealed,
@@ -30,6 +30,7 @@ export const OuTreeRevealToggle = ({
                     {...tooltip}
                     ref={ref as React.RefObject<HTMLButtonElement>}
                     type="button"
+                    tabIndex={-1}
                     aria-label={name}
                     data-test={dataTest}
                     onClick={onToggle}

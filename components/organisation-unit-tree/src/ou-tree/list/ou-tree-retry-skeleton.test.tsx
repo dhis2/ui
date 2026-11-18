@@ -12,7 +12,16 @@ describe('OuTreeRetrySkeleton', () => {
 
         expect(button).toBe(screen.getByTestId('t-retry'))
         expect(button.parentElement).not.toHaveAttribute('tabindex')
+        expect(button).toHaveAttribute('tabindex', '-1')
         await userEvent.click(button)
         expect(onRetry).toHaveBeenCalledTimes(1)
+    })
+
+    it('is in the tab order when tabbable', () => {
+        render(
+            <OuTreeRetrySkeleton tabbable onRetry={jest.fn()} dataTest="t" />
+        )
+
+        expect(screen.getByRole('button')).toHaveAttribute('tabindex', '0')
     })
 })

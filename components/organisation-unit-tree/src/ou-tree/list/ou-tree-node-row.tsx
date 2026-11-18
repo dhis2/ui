@@ -6,6 +6,8 @@ import {
     useOuTreeActions,
     useOuTreeMatchSplitter,
     useOuTreeNode,
+    useOuTreeRowElementId,
+    useOuTreeRowGuide,
     useOuTreeSearchTerm,
 } from '../tree'
 import { OuTreeMatchedText } from './ou-tree-matched-text'
@@ -47,7 +49,6 @@ export interface OuTreeNodeRowProps {
 interface DefaultLabelProps {
     node: StoredNode
     clickable: boolean
-    onToggle: () => void
     isResult: boolean
     splitMatches: MatchSplitter | undefined
     dataTest: string
@@ -57,14 +58,12 @@ interface DefaultLabelProps {
 const DefaultLabel = ({
     node,
     clickable,
-    onToggle,
     isResult,
     splitMatches,
     dataTest,
 }: DefaultLabelProps) => (
     <OuTreeNodeLabel
         clickable={clickable}
-        onClick={clickable ? onToggle : undefined}
         result={isResult}
         dataTest={`${dataTest}-label`}
     >
@@ -84,8 +83,10 @@ interface NodeBodyProps {
     isOpen: boolean
     loading: boolean
     failed: boolean
-    onToggle: () => void
     onRetry: () => void
+    /** The toggle's line is the lit guide. */
+    lit: boolean
+    onToggleHover: (hovered: boolean) => void
     dataTest: string
     /** The label slot. */
     children: React.ReactNode
@@ -100,8 +101,9 @@ const NodeBody = ({
     isOpen,
     loading,
     failed,
-    onToggle,
     onRetry,
+    lit,
+    onToggleHover,
     dataTest,
     children,
 }: NodeBodyProps) => {
@@ -118,7 +120,8 @@ const NodeBody = ({
                 leaf={node.leaf}
                 open={isOpen}
                 loading={isOpen && loading}
-                onToggle={onToggle}
+                lit={lit}
+                onHoverChange={onToggleHover}
                 dataTest={dataTest}
             />
             {children}
@@ -139,10 +142,21 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
         isRevealed,
         hasMatchingChildren,
         isHovered,
+        isFocused,
     } = useOuTreeNode(row.id)
-    const { open, toggle, toggleRevealed, setHovered } = useOuTreeActions()
+    const {
+        open,
+        toggle,
+        toggleRevealed,
+        setHovered,
+        setFocused,
+        setHoveredGuide,
+        closeGuideBranch,
+    } = useOuTreeActions()
+    const { litLevel, isGuideAncestor } = useOuTreeRowGuide(row.id)
     const searchTerm = useOuTreeSearchTerm()
     const splitMatches = useOuTreeMatchSplitter()
+    const elementId = useOuTreeRowElementId(row.id)
     if (!node) {
         // Rows are built from stored nodes and nodes are never removed.
         throw new Error(`Node row ${row.id} has no node in the store`)
@@ -158,19 +172,38 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
     const loading = showsAllChildren && childrenStatus.status === 'loading'
     const clickable = !node.leaf && !failed
     // The eye swaps a visible list of matching children for all of them;
-    // it shows while the pointer is over the row.
-    const showsEye = pruned && hasMatchingChildren && isOpen && isHovered
+    // it shows while the pointer is over the row or the row is focused.
+    const showsEye =
+        pruned && hasMatchingChildren && isOpen && (isHovered || isFocused)
+    // A click anywhere on the row focuses it, and toggles it unless the
+    // click was a button's inside the row.
+    const onClick = (event: React.MouseEvent<HTMLDivElement>) => {
+        setFocused(row.id)
+        if (clickable && !(event.target as Element).closest('button')) {
+            toggle(row.id)
+        }
+    }
 
     return (
         <OuTreeRowShell
             depth={row.depth}
-            role="treeitem"
+            elementId={elementId}
+            focused={isFocused}
             rowKind="node"
             id={row.id}
             ariaExpanded={node.leaf ? undefined : isOpen}
+            keyshortcuts={showsEye || failed ? 'Shift+Enter' : undefined}
+            litLevel={litLevel}
+            onGuideHover={(level) =>
+                setHoveredGuide(
+                    level === undefined ? undefined : { key: row.id, level }
+                )
+            }
+            onGuideClick={(level) => closeGuideBranch({ key: row.id, level })}
             onHoverChange={(hovered) =>
                 setHovered(hovered ? row.id : undefined)
             }
+            onClick={onClick}
             dataTest={`${dataTest}-row`}
         >
             <NodeBody
@@ -178,8 +211,13 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
                 isOpen={isOpen}
                 loading={loading}
                 failed={failed}
-                onToggle={onToggle}
                 onRetry={() => open(row.id)}
+                lit={isGuideAncestor}
+                onToggleHover={(hovered) =>
+                    setHoveredGuide(
+                        hovered ? { key: row.id, level: row.depth } : undefined
+                    )
+                }
                 dataTest={dataTest}
             >
                 {renderLabel ? (
@@ -197,7 +235,6 @@ export const OuTreeNodeRow = memo(function OuTreeNodeRow({
                     <DefaultLabel
                         node={node}
                         clickable={clickable}
-                        onToggle={onToggle}
                         isResult={isResult}
                         splitMatches={splitMatches}
                         dataTest={dataTest}

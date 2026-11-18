@@ -14,6 +14,17 @@ export type OuTreeActions = Pick<
     | 'search'
     | 'clearSearch'
     | 'setHovered'
+    | 'setFocused'
+    | 'setHasFocus'
+    | 'focusRow'
+    | 'focusFirst'
+    | 'focusLast'
+    | 'focusNext'
+    | 'focusPrevious'
+    | 'focusParent'
+    | 'focusChild'
+    | 'setHoveredGuide'
+    | 'closeGuideBranch'
     | 'store'
 >
 
@@ -36,6 +47,17 @@ export const useOuTreeActions = (): OuTreeActions => {
             search: tree.search,
             clearSearch: tree.clearSearch,
             setHovered: tree.setHovered,
+            setFocused: tree.setFocused,
+            setHasFocus: tree.setHasFocus,
+            focusRow: tree.focusRow,
+            focusFirst: tree.focusFirst,
+            focusLast: tree.focusLast,
+            focusNext: tree.focusNext,
+            focusPrevious: tree.focusPrevious,
+            focusParent: tree.focusParent,
+            focusChild: tree.focusChild,
+            setHoveredGuide: tree.setHoveredGuide,
+            closeGuideBranch: tree.closeGuideBranch,
             store: tree.store,
         }),
         [tree]
