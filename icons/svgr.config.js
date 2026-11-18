@@ -10,10 +10,11 @@ module.exports = {
     // Do not pass props on to the root svg node
     expandProps: false,
 
-    // Pass the color prop on to the root svg node
+    // Pass these props on to the root svg node
     svgProps: {
         color: '{color}',
         ['data-test']: '{dataTest}',
+        ['aria-label']: '{ariaLabel}',
     },
 
     // Compress svgs
