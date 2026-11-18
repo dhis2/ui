@@ -28,9 +28,6 @@ describe('<Input>', () => {
     it('forwards a role to the input', () => {
         render(<InputField name="search" role="searchbox" />)
 
-        expect(screen.getByRole('searchbox')).toHaveAttribute(
-            'name',
-            'search'
-        )
+        expect(screen.getByRole('searchbox')).toHaveAttribute('name', 'search')
     })
 })
