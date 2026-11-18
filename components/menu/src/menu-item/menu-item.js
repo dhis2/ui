@@ -73,6 +73,10 @@ const MenuItem = ({
                     break
                 case 'ArrowLeft':
                 case 'Escape': // close flyout menu
+                    // Without an open submenu Escape is left to the surrounding container
+                    if (event.key === 'Escape' && !openSubMenus.length) {
+                        break
+                    }
                     event.preventDefault()
                     openSubMenus[openSubMenus.length - 1]?.focus()
                     openSubMenus[openSubMenus.length - 1]?.children[0].click()

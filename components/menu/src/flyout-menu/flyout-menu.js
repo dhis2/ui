@@ -42,9 +42,9 @@ const FlyoutMenu = ({
         }
 
         const handleKeyDown = (event) => {
-            if (event.key === 'Escape') {
+            if (event.key === 'Escape' && closeMenu) {
                 event.preventDefault()
-                closeMenu && closeMenu()
+                closeMenu()
             }
         }
 
