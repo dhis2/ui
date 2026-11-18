@@ -54,6 +54,7 @@ export const Container = forwardRef(function Container(
             data-test={dataTest}
             ref={ref}
             aria-controls={`${name}-listbox`}
+            aria-disabled={disabled ? 'true' : 'false'}
             aria-expanded={expanded.toString()}
             aria-haspopup="listbox"
             aria-labelledby={labelledBy}
