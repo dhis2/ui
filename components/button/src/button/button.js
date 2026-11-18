@@ -52,6 +52,7 @@ export const Button = ({
         onKeyDown && onKeyDown({ value, name }, event)
 
     const iconOnly = icon && !children
+    const hasLabel = Boolean(children) || children === 0
     const buttonClassName = cx(className, {
         primary,
         secondary,
@@ -88,7 +89,14 @@ export const Button = ({
                 </span>
             )}
             {icon && <span className="button-icon">{icon}</span>}
-            {children}
+            {/*
+             * The label is wrapped in an element so that React never uses a
+             * bare text node as the reference for inserting the loader or the
+             * icon. Browser translation (e.g. Google Translate) replaces text
+             * nodes with <font> elements, after which such an insert throws
+             * and crashes the app. See LIBS-876.
+             */}
+            {hasLabel && <span className="button-label">{children}</span>}
             <style jsx>{styles}</style>
         </button>
     )
