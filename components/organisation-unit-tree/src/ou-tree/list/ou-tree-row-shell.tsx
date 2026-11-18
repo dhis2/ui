@@ -35,7 +35,10 @@ export interface OuTreeRowShellProps {
     children: React.ReactNode
 }
 
-/** The element every row sits in, a treeitem with one indent element per level. */
+/**
+ * The element every row sits in, a treeitem with one indent element per
+ * level. Nothing is selectable yet, so every row says so.
+ */
 export const OuTreeRowShell = ({
     depth,
     elementId,
@@ -59,6 +62,7 @@ export const OuTreeRowShell = ({
         id={elementId}
         className={cx('shell', { focused }, className)}
         role="treeitem"
+        aria-selected={false}
         aria-level={depth + 1}
         aria-expanded={ariaExpanded}
         aria-label={ariaLabel}

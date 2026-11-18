@@ -21,6 +21,7 @@ describe('OuTreeRowShell', () => {
         expect(indents[0]).toHaveAttribute('aria-hidden', 'true')
         expect(shell).toHaveAttribute('aria-level', '4')
         expect(shell).toHaveAttribute('role', 'treeitem')
+        expect(shell).toHaveAttribute('aria-selected', 'false')
     })
 
     it('reports hover changes through onHoverChange', async () => {
