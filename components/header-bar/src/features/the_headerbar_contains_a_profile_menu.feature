@@ -57,14 +57,14 @@ Feature: The HeaderBar contains a profile menu
         When the user opens the menu
         Then contains a link to log out the user
         And there is no loading mask
+        When the user clicks the link to log out
+        Then the user is logged out with a POST to the logout URL
 
     # The following are omitted because of testing complications
-    # around navigation:
+    # around the short-lived loading state and the Cache API:
 
-    # Then the user clicks the link to log out
     # Then a loading mask covers the screen
     # And clearSensitiveCaches is called
-    # Then the window navigates to the logout URL
 
     Scenario: The profile menu closes when the user clicks outside
         Given the HeaderBar loads without an error
