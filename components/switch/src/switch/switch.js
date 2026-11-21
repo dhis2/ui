@@ -88,6 +88,7 @@ class Switch extends Component {
             >
                 <input
                     aria-label={ariaLabel}
+                    aria-checked={checked}
                     type="checkbox"
                     role={role}
                     ref={this.ref}
