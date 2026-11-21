@@ -20,8 +20,22 @@ export const Autocomplete = ({
     searchResults,
 }) => {
     const wrapper = useRef(null)
+    const menuWrapper = useRef(null)
     const [menuWidth] = useSize(wrapper)
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
+
+    const handleInputKeyDown = (_, event) => {
+        if (event.key !== 'ArrowDown') {
+            return
+        }
+
+        const menu = menuWrapper.current?.querySelector('[role="menu"]')
+
+        if (menu) {
+            event.preventDefault()
+            menu.focus()
+        }
+    }
 
     return (
         <>
@@ -31,6 +45,7 @@ export const Autocomplete = ({
                     loading={loading}
                     placeholder={placeholder}
                     onChange={({ value }) => onSearch(value)}
+                    onKeyDown={handleInputKeyDown}
                     value={search}
                     inputWidth={inputWidth}
                     disabled={offline}
@@ -44,16 +59,18 @@ export const Autocomplete = ({
                     menuRef={wrapper}
                     dataTest={`${dataTest}-menu`}
                 >
-                    <Menu>
-                        {searchResults.map((result) => (
-                            <MenuItem
-                                key={result.id}
-                                label={result.displayName}
-                                value={result.id}
-                                onClick={({ value }) => onSelect(value)}
-                            />
-                        ))}
-                    </Menu>
+                    <div ref={menuWrapper}>
+                        <Menu>
+                            {searchResults.map((result) => (
+                                <MenuItem
+                                    key={result.id}
+                                    label={result.displayName}
+                                    value={result.id}
+                                    onClick={({ value }) => onSelect(value)}
+                                />
+                            ))}
+                        </Menu>
+                    </div>
                 </MenuPopup>
             )}
         </>
