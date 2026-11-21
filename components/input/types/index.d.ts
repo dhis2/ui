@@ -40,6 +40,10 @@ export interface InputProps {
      * The [native `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete)
      */
     autoComplete?: string
+    /**
+     * Soft maximum character length. Displays a counter showing current/max characters. Counter turns red when exceeded but typing is not prevented
+     */
+    characterCountLimit?: number
     className?: string
     /**
      * Makes the input clearable
@@ -188,6 +192,10 @@ export interface InputFieldProps {
      * The [native `max` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-max), for use when `type` is `'number'`
      */
     max?: string
+    /**
+     * Soft maximum character length. Displays a counter showing current/max characters. Counter turns red when exceeded but typing is not prevented
+     */
+    characterCountLimit?: number
     /**
      * The [native `min` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-min), for use when `type` is `'number'`
      */
