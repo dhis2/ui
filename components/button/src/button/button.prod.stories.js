@@ -303,3 +303,67 @@ Loading.parameters = {
         },
     },
 }
+
+const variantComparisonRows = [
+    { label: 'Basic', props: {} },
+    { label: 'Primary', props: { primary: true } },
+    { label: 'Secondary', props: { secondary: true } },
+    { label: 'Destructive', props: { destructive: true } },
+    {
+        label: 'Destructive secondary',
+        props: { destructive: true, secondary: true },
+    },
+]
+
+const variantComparisonColumns = [
+    { label: 'Default', children: 'Label', props: {} },
+    {
+        label: 'W icon',
+        children: 'Label',
+        props: { icon: DemoIcon24 },
+    },
+    {
+        label: 'Small',
+        children: 'Label',
+        props: { small: true },
+    },
+    {
+        label: 'Small w icon',
+        children: 'Label',
+        props: { small: true, icon: DemoIcon16 },
+    },
+    {
+        label: 'Loading',
+        children: 'Loading...',
+        props: { loading: true },
+    },
+]
+
+export const VariantComparison = () => (
+    <div
+        style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(5, max-content)',
+            alignItems: 'center',
+            gap: '12px 16px',
+        }}
+    >
+        {variantComparisonRows.map(({ label: rowLabel, props: rowProps }) => (
+            <React.Fragment key={rowLabel}>
+                {variantComparisonColumns.map(
+                    ({ label: columnLabel, children, props: columnProps }) => (
+                        <Button
+                            key={`${rowLabel}-${columnLabel}`}
+                            name={`${rowLabel} ${columnLabel} button`}
+                            {...rowProps}
+                            {...columnProps}
+                        >
+                            {children}
+                        </Button>
+                    )
+                )}
+            </React.Fragment>
+        ))}
+    </div>
+)
+VariantComparison.storyName = 'Variant comparison'
