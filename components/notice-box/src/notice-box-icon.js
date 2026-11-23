@@ -25,7 +25,7 @@ export const NoticeBoxIcon = ({
 
     if (icon != null) {
         return (
-            <div data-test={dataTest}>
+            <div data-test={dataTest} aria-hidden="true">
                 {icon}
                 <style jsx>{`
                     div {
@@ -59,7 +59,7 @@ export const NoticeBoxIcon = ({
     }
 
     return (
-        <div data-test={dataTest}>
+        <div data-test={dataTest} aria-hidden="true">
             <Icon color={color} />
 
             <style jsx>{`

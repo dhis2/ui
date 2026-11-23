@@ -2,6 +2,13 @@
 host     = https://www.transifex.com
 lang_map = fa_AF: prs, uz@Cyrl: uz_UZ_Cyrl, uz@Latn: uz_UZ_Latn
 
+[o:hisp-uio:p:app-component-ui:r:alert]
+file_filter  = components/alert/i18n/<lang>.po
+source_file  = components/alert/i18n/en.pot
+source_lang  = en
+type         = PO
+minimum_perc = 0
+
 [o:hisp-uio:p:app-component-ui:r:button]
 file_filter  = components/button/i18n/<lang>.po
 source_file  = components/button/i18n/en.pot

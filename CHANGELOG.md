@@ -1,3 +1,32 @@
+## [10.21.1](https://github.com/dhis2/ui/compare/v10.21.0...v10.21.1) (2026-11-18)
+
+
+### Bug Fixes
+
+* **icons:** forward ariaLabel to the svg as aria-label ([#1791](https://github.com/dhis2/ui/issues/1791)) ([7be79f6](https://github.com/dhis2/ui/commit/7be79f685ee67c96636c168f633dae7d815e5a21)), closes [#1462](https://github.com/dhis2/ui/issues/1462)
+* **select:** improve disabled state handling and accessibility ([#1789](https://github.com/dhis2/ui/issues/1789)) ([fe87063](https://github.com/dhis2/ui/commit/fe870638a60c44e45ae3c8dfffdf473f9f21a4ef))
+
+# [10.21.0](https://github.com/dhis2/ui/compare/v10.20.0...v10.21.0) (2026-11-17)
+
+
+### Features
+
+* **notice-box:** enhance accessibility ([#1767](https://github.com/dhis2/ui/issues/1767)) ([4fe5133](https://github.com/dhis2/ui/commit/4fe51335c60ca8a941ea3e23d6479e4ca56633fa))
+
+# [10.20.0](https://github.com/dhis2/ui/compare/v10.19.4...v10.20.0) (2026-10-22)
+
+
+### Bug Fixes
+
+* update tx config ([#1783](https://github.com/dhis2/ui/issues/1783)) ([6263472](https://github.com/dhis2/ui/commit/626347258bf7922683ac76e107e73b81973366cd))
+
+
+### Features
+
+* **alert:** enhance screen reader accessibility ([#1773](https://github.com/dhis2/ui/issues/1773)) ([df52325](https://github.com/dhis2/ui/commit/df52325653134b197a6d2b0eff439639fa445d2b))
+* **segmented-control:** improve accessibility ([#1766](https://github.com/dhis2/ui/issues/1766)) ([700b934](https://github.com/dhis2/ui/commit/700b93476d5bb166bf9c4c5c923d5912b715519c))
+* **selector-bar:** enhance focus management and interaction handling ([#1772](https://github.com/dhis2/ui/issues/1772)) ([24db729](https://github.com/dhis2/ui/commit/24db729ddf084e103442520751a115ca549a4483))
+
 ## [10.19.4](https://github.com/dhis2/ui/compare/v10.19.3...v10.19.4) (2026-10-19)
 
 

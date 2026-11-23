@@ -1,5 +1,6 @@
 import '@testing-library/jest-dom'
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import React from 'react'
 import { SelectorBarItem } from '../selector-bar-item/index.js'
 import { SelectorBar } from './selector-bar.js'
@@ -120,5 +121,162 @@ describe('SelectorBar', () => {
             'dhis2-ui-selectorbaritem-clear-icon'
         )
         expect(clearIcon).not.toBeNull()
+    })
+
+    it('should open a closed item when its trigger is clicked', () => {
+        const setOpen = jest.fn()
+        render(
+            <SelectorBar>
+                <SelectorBarItem
+                    label="label"
+                    noValueMessage="msg"
+                    open={false}
+                    setOpen={setOpen}
+                >
+                    Content
+                </SelectorBarItem>
+            </SelectorBar>
+        )
+
+        fireEvent.click(screen.getByRole('button', { name: /label/ }))
+        expect(setOpen).toHaveBeenCalledWith(true)
+    })
+
+    it('should close an open item when Space is pressed on its trigger', async () => {
+        const user = userEvent.setup()
+        const setOpen = jest.fn()
+        render(
+            <SelectorBar>
+                <SelectorBarItem
+                    label="label"
+                    noValueMessage="msg"
+                    open={true}
+                    setOpen={setOpen}
+                >
+                    Content
+                </SelectorBarItem>
+            </SelectorBar>
+        )
+        screen.getByRole('button', { name: /label/ }).focus()
+        await user.keyboard(' ')
+
+        expect(setOpen).toHaveBeenCalledWith(false)
+    })
+
+    it('should not toggle the item when a click originates inside the popup', () => {
+        const setOpen = jest.fn()
+        render(
+            <SelectorBar>
+                <SelectorBarItem
+                    label="label"
+                    noValueMessage="msg"
+                    open={true}
+                    setOpen={setOpen}
+                >
+                    <button type="button">Inside the popup</button>
+                </SelectorBarItem>
+            </SelectorBar>
+        )
+        fireEvent.click(screen.getByText('Inside the popup'))
+
+        expect(setOpen).not.toHaveBeenCalled()
+    })
+
+    it('should focus the clear selection button itself, not its wrapper', async () => {
+        const user = userEvent.setup()
+        const onClearSelectionClick = jest.fn()
+        render(
+            <SelectorBar onClearSelectionClick={onClearSelectionClick}>
+                <SelectorBarItem
+                    label="label"
+                    noValueMessage="msg"
+                    open={false}
+                    setOpen={noop}
+                >
+                    Content
+                </SelectorBarItem>
+            </SelectorBar>
+        )
+
+        const item = screen.getByRole('button', { name: /label/ })
+        const clearBtn = screen.getByText('Clear selections')
+
+        item.focus()
+        fireEvent.keyDown(item, { key: 'ArrowRight' })
+
+        expect(clearBtn).toHaveFocus()
+        expect(clearBtn.parentElement).not.toHaveAttribute('tabindex')
+
+        await user.keyboard('{Enter}')
+        expect(onClearSelectionClick).toHaveBeenCalled()
+    })
+
+    it('should move focus between items with the arrow keys', () => {
+        render(
+            <SelectorBar>
+                <SelectorBarItem
+                    label="first"
+                    noValueMessage="msg"
+                    open={false}
+                    setOpen={noop}
+                >
+                    Content
+                </SelectorBarItem>
+                <SelectorBarItem
+                    label="second"
+                    noValueMessage="msg"
+                    open={false}
+                    setOpen={noop}
+                >
+                    Content
+                </SelectorBarItem>
+            </SelectorBar>
+        )
+
+        const first = screen.getByRole('button', { name: /first/ })
+        const second = screen.getByRole('button', { name: /second/ })
+
+        expect(first).toHaveAttribute('tabindex', '-1')
+
+        first.focus()
+        fireEvent.keyDown(first, { key: 'ArrowRight' })
+        expect(second).toHaveFocus()
+
+        fireEvent.keyDown(second, { key: 'ArrowLeft' })
+        expect(first).toHaveFocus()
+    })
+
+    it('should skip the clear selection button once it becomes disabled', () => {
+        const children = (
+            <SelectorBarItem
+                label="label"
+                noValueMessage="msg"
+                open={false}
+                setOpen={noop}
+            >
+                Content
+            </SelectorBarItem>
+        )
+        const { rerender } = render(
+            <SelectorBar onClearSelectionClick={noop}>{children}</SelectorBar>
+        )
+
+        const item = screen.getByRole('button', { name: /label/ })
+        const clearBtn = screen.getByText('Clear selections')
+
+        item.focus()
+        fireEvent.keyDown(item, { key: 'ArrowRight' })
+        expect(clearBtn).toHaveFocus()
+
+        rerender(
+            <SelectorBar disableClearSelections onClearSelectionClick={noop}>
+                {children}
+            </SelectorBar>
+        )
+
+        item.focus()
+        fireEvent.keyDown(item, { key: 'ArrowRight' })
+
+        expect(item).toHaveFocus()
     })
 })

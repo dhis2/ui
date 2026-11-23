@@ -152,7 +152,7 @@ jobs:
                   echo "Computed CI Build ID=${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_CI_BUILD_ID || '' }}"
 
             - name: End-to-End tests
-              uses: cypress-io/github-action@v6
+              uses: cypress-io/github-action@v7
               with:
                   # This should be a command that starts the server to test against.
                   start: 'yarn cy:start'

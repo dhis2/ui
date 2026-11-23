@@ -40,7 +40,7 @@ const Icon = ({ icon, success, warning, critical, info, dataTest }) => {
     }
 
     return (
-        <div data-test={dataTest}>
+        <div data-test={dataTest} aria-hidden="true">
             {React.isValidElement(icon) ? (
                 icon
             ) : (

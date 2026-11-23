@@ -1337,7 +1337,8 @@ import { NoticeBox } from '@dhis2/ui'
 |dataTest|string|``'dhis2-uicore-noticebox'``|||
 |dense|boolean|``false``||Uses 16px icons and tighter padding and internal spacing|
 |error|custom|||Applies 'error' message styles. Mutually exclusive with the `valid` and `warning` props|
-|icon|node|||Replaces the default status icon; `error`, `warning`, and `valid` still set box colors|
+|icon|node|||Replaces the default status icon; `error`, `warning`, and `valid` still set box colors. Treated as decorative and hidden from screen readers|
+|role|'note' │ 'status' │ 'alert'|``'note'``||Use `alert` for errors after a user action, e.g. a failed save, not on page load. Use `status` only if the content changes while the box is shown|
 |title|string||||
 |valid|custom|||Applies 'valid' message styles. Mutually exclusive with the `error` and `warning` props|
 |warning|custom|||Applies 'warning' message styles. Mutually exclusive with the `error` and `valid` props|
