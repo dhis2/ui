@@ -34,6 +34,7 @@ export function SimpleSingleSelectField(props) {
             ? {
                   value,
                   label: selectedOption?.label ?? valueLabel ?? '',
+                  icon: selectedOption?.icon,
               }
             : undefined
 
@@ -77,7 +78,7 @@ SimpleSingleSelectField.propTypes = {
     /** necessary for IDs that are required for accessibility **/
     name: PropTypes.string.isRequired,
 
-    /** An array of options **/
+    /** An array of options: `{ label, value, icon?, disabled?, component? }` **/
     options: PropTypes.arrayOf(optionProp).isRequired,
 
     /** A callback that will be called with the new value or an empty string **/

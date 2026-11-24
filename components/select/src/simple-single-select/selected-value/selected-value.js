@@ -1,7 +1,9 @@
 import { IconChevronDown16 } from '@dhis2/ui-icons'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Filter } from '../menu/filter.js'
+import { OptionIcon } from '../option-icon.js'
 import { ClearButton } from './clear-button.js'
 import { Container } from './container.js'
 import { Placeholder } from './placeholder.js'
@@ -12,6 +14,7 @@ export function SelectedValue({
     comboBoxId,
     name,
     selectedLabel,
+    selectedIcon,
     onKeyDown,
     autoFocus,
     clearable,
@@ -43,6 +46,7 @@ export function SelectedValue({
 }) {
     const dataTestPrefix = `${dataTest}-selectedvalue`
     const showFilter = filterable && expanded
+    const showIcon = !!(selectedLabel && selectedIcon)
 
     return (
         <Container
@@ -82,7 +86,9 @@ export function SelectedValue({
                 />
             ) : (
                 <div
-                    className="selected-option-label"
+                    className={cx('selected-option-label', {
+                        'with-icon': showIcon,
+                    })}
                     tabIndex={disabled ? undefined : '-1'}
                 >
                     {!selectedLabel && !prefix && placeholder && (
@@ -91,6 +97,8 @@ export function SelectedValue({
                             placeholder={placeholder}
                         />
                     )}
+
+                    {showIcon && <OptionIcon icon={selectedIcon} />}
 
                     {selectedLabel}
                 </div>
@@ -126,6 +134,11 @@ export function SelectedValue({
                     overflow-y: auto;
                     max-height: ${inputMaxHeight};
                     flex: 1;
+                }
+
+                .selected-option-label.with-icon {
+                    display: flex;
+                    align-items: center;
                 }
 
                 .clear-button-container {
@@ -169,6 +182,7 @@ SelectedValue.propTypes = {
     labelledBy: PropTypes.string,
     placeholder: PropTypes.string,
     prefix: PropTypes.string,
+    selectedIcon: PropTypes.node,
     tabIndex: PropTypes.string,
     valid: PropTypes.bool,
     warning: PropTypes.bool,

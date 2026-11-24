@@ -344,25 +344,33 @@ export const SingleSelect: React.FC<SingleSelectProps>
 type SimpleSingleSelectCustomOptionProp = (props: {
     value: string
     label: string
+    icon?: React.ReactNode
     index: number
     disabled: boolean
     highlighted: boolean
 }) => JSX.Element
+
+export interface SimpleSingleSelectOption {
+    label: string
+    value: string
+    component?: SimpleSingleSelectCustomOptionProp
+    disabled?: boolean
+    icon?: React.ReactNode
+}
 
 export interface SimpleSingleSelectProps {
     /** necessary for IDs that are required for accessibility **/
     name: string
 
     /** An array of options **/
-    options: Array<{
+    options: SimpleSingleSelectOption[]
+
+    /** A callback that will be called with the newly selected option **/
+    onChange: (selected: {
         label: string
         value: string
-        component?: SimpleSingleSelectCustomOptionProp
-        disabled?: boolean
-    }>
-
-    /** A callback that will be called with the new value or an empty string **/
-    onChange: (value: string) => void
+        icon?: React.ReactNode
+    }) => void
 
     /** Will focus the select initially **/
     autoFocus?: boolean
@@ -454,6 +462,7 @@ export interface SimpleSingleSelectProps {
     selected?: {
         label: string
         value: string
+        icon?: React.ReactNode
     }
 
     /**
@@ -492,7 +501,7 @@ export interface SimpleSingleSelectFieldProps {
     name: string
 
     /** An array of options **/
-    options: optionProp[]
+    options: SimpleSingleSelectOption[]
 
     /** A callback that will be called with the new value or an empty string **/
     onChange: (value: string) => void
@@ -562,7 +571,7 @@ export interface SimpleSingleSelectFieldProps {
 
     /** Allows to override what's rendered inside the `button[role="option"]`.
      * Can be overriden on an individual option basis **/
-    optionComponent?: React.ReactNode
+    optionComponent?: SimpleSingleSelectCustomOptionProp
 
     /** For a11y: How aggressively the user should be updated about changes in options **/
     optionUpdateStrategy?: 'off' | 'polite' | 'assertive'

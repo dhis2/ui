@@ -60,6 +60,7 @@ export const OptionsList = forwardRef(function OptionsList(
                         value,
                         label,
                         component,
+                        icon,
                         disabled: optionDisabled = false,
                     },
                     index
@@ -75,6 +76,7 @@ export const OptionsList = forwardRef(function OptionsList(
                             key={value}
                             value={value}
                             label={label}
+                            icon={icon}
                             index={index}
                             comboBoxId={comboBoxId}
                             disabled={disabled || optionDisabled}

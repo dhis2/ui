@@ -130,6 +130,7 @@ export function SimpleSingleSelect({
 
     const selectedValue = selected?.value || ''
     const selectedLabel = selected?.label || ''
+    const selectedIcon = selected?.icon
     const openMenu = useCallback(() => {
         const selectedOptionIndex = options.findIndex(
             (option) => option.value === selectedValue
@@ -243,6 +244,7 @@ export function SimpleSingleSelect({
                 warning={warning}
                 valid={valid}
                 selectedLabel={selectedLabel}
+                selectedIcon={selectedIcon}
                 onBlur={onBlur}
                 onClear={onClear}
                 onClick={toggleMenu}
@@ -289,10 +291,10 @@ SimpleSingleSelect.propTypes = {
     /** necessary for IDs that are required for accessibility **/
     name: PropTypes.string.isRequired,
 
-    /** An array of options **/
+    /** An array of options: `{ label, value, icon?, disabled?, component? }` **/
     options: PropTypes.arrayOf(optionProp).isRequired,
 
-    /** A callback that will be called with the new value or an empty string **/
+    /** Will be called with the selected option: `{ label, value, icon }` **/
     onChange: PropTypes.func.isRequired,
 
     /** Will focus the select initially **/
@@ -371,9 +373,11 @@ SimpleSingleSelect.propTypes = {
     /** String that will be displayed before the label of the selected option **/
     prefix: PropTypes.string,
 
+    /** The selected option. `icon` is rendered before the label **/
     selected: PropTypes.shape({
         label: PropTypes.string.isRequired,
         value: PropTypes.string.isRequired,
+        icon: PropTypes.node,
     }),
 
     /** Standard HTML tab-index attribute that will be put on the combobox's root element **/

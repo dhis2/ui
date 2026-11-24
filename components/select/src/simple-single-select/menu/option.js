@@ -2,21 +2,25 @@ import { colors, spacers } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef } from 'react'
+import { OptionIcon } from '../option-icon.js'
 
 const VISIBILE_INTERSECTION_RATIO = 0.99
 
-function DefaultStyle({ label, disabled, highlighted }) {
+function DefaultStyle({ label, icon, disabled, highlighted }) {
     return (
         <span
             className={cx('option', {
                 disabled,
                 active: highlighted,
+                'with-icon': !!icon,
             })}
         >
+            {icon && <OptionIcon icon={icon} />}
+
             {label}
 
             <style jsx>{`
-                span {
+                .option {
                     display: block;
                     cursor: pointer;
                     font-size: 14px;
@@ -27,25 +31,30 @@ function DefaultStyle({ label, disabled, highlighted }) {
                     line-height: ${spacers.dp16};
                 }
 
-                span:hover {
+                .option:hover {
                     background-color: ${colors.grey200};
                 }
 
-                span:active,
-                span.active {
+                .option:active,
+                .option.active {
                     background-color: ${colors.teal700};
                     color: ${colors.white};
                     cursor: auto;
                 }
 
-                span.disabled {
+                .option.disabled {
                     color: ${colors.grey500};
                     cursor: not-allowed;
                     user-select: none;
                 }
 
-                span.disabled:hover {
+                .option.disabled:hover {
                     background-color: initial;
+                }
+
+                .option.with-icon {
+                    display: flex;
+                    align-items: center;
                 }
             `}</style>
         </span>
@@ -56,6 +65,7 @@ DefaultStyle.propTypes = {
     label: PropTypes.string.isRequired,
     disabled: PropTypes.bool,
     highlighted: PropTypes.bool,
+    icon: PropTypes.node,
 }
 
 export function Option({
@@ -68,6 +78,7 @@ export function Option({
     dataTest,
     disabled,
     highlighted,
+    icon,
     listBoxRef,
     onBecameVisible,
     ...rest
@@ -114,13 +125,14 @@ export function Option({
             aria-label={label}
             onClick={() => {
                 if (!disabled) {
-                    onClick({ value, label })
+                    onClick({ value, label, icon })
                 }
             }}
         >
             <StyleComponent
                 value={value}
                 label={label}
+                icon={icon}
                 index={index}
                 disabled={disabled}
                 highlighted={highlighted}
@@ -154,6 +166,7 @@ Option.propTypes = {
     dataTest: PropTypes.string,
     disabled: PropTypes.bool,
     highlighted: PropTypes.bool,
+    icon: PropTypes.node,
     listBoxRef: PropTypes.shape({
         current: PropTypes.instanceOf(HTMLElement),
     }),

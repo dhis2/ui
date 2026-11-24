@@ -5,4 +5,5 @@ export const optionProp = PropTypes.shape({
     value: PropTypes.string.isRequired,
     component: PropTypes.elementType,
     disabled: PropTypes.bool,
+    icon: PropTypes.node,
 })
