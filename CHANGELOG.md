@@ -1,3 +1,10 @@
+# [10.22.0](https://github.com/dhis2/ui/compare/v10.21.1...v10.22.0) (2026-11-24)
+
+
+### Features
+
+* **status-icon:** add aria-label prop for accessibility and update component logic ([#1781](https://github.com/dhis2/ui/issues/1781)) ([5e42c01](https://github.com/dhis2/ui/commit/5e42c01611f429d439ba0d95d0938905af82dac0))
+
 ## [10.21.1](https://github.com/dhis2/ui/compare/v10.21.0...v10.21.1) (2026-11-18)
 
 
