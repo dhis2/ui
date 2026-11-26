@@ -60,7 +60,26 @@ describe('validator: dhis2Username', () => {
         testValidatorValues(dhis2Username, invalidUsernameMessage, [
             'あいうえお',
             'some_username^%&*(',
+            'josé.silva',
+            'пользователь',
+            'user name',
         ])
+    })
+
+    // LIBS-637: the message must explain every rule the pattern enforces
+    describe('invalid username message', () => {
+        it('mentions the allowed letters, digits and separators', () => {
+            expect(invalidUsernameMessage).toContain('a-z or A-Z')
+            expect(invalidUsernameMessage).toContain('without accents')
+            expect(invalidUsernameMessage).toContain('0-9')
+            expect(invalidUsernameMessage).toContain('. _ - @')
+        })
+
+        it('mentions the separator position rules', () => {
+            expect(invalidUsernameMessage).toContain(
+                'cannot start or end with a separator or have two separators in a row'
+            )
+        })
     })
 
     describe('rejects non-string data types', () => {
