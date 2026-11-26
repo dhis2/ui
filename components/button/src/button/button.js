@@ -6,6 +6,7 @@ import React, { useEffect, useRef } from 'react'
 import styles from './button.styles.js'
 
 export const Button = ({
+    ariaLabel,
     children,
     className,
     dataTest = 'dhis2-uicore-button',
@@ -37,9 +38,9 @@ export const Button = ({
         }
     }, [initialFocus, ref.current])
 
-    const { 'aria-label': ariaLabel, title } = otherProps
+    const { 'aria-label': ariaLabelAttribute, title } = otherProps
 
-    if (!children && !title && !ariaLabel) {
+    if (!children && !title && !ariaLabel && !ariaLabelAttribute) {
         console.debug(
             'Button component has no children but is missing title and ariaLabel attribute.'
         )
@@ -68,6 +69,7 @@ export const Button = ({
             ref={ref}
             name={name}
             className={buttonClassName}
+            aria-label={ariaLabel}
             data-test={dataTest}
             disabled={disabled || loading}
             tabIndex={tabIndex}
@@ -95,6 +97,11 @@ export const Button = ({
 }
 
 Button.propTypes = {
+    /**
+     * Sets the `aria-label` attribute on the `<button>` element. Use it for icon-only buttons without a `title`.
+     * A native `aria-label` prop is also passed through and takes precedence
+     */
+    ariaLabel: PropTypes.string,
     /** Component to render inside the button */
     children: PropTypes.node,
     /** A className that will be passed to the `<button>` element */
