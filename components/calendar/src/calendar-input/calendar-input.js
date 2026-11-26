@@ -188,7 +188,11 @@ export const CalendarInput = ({
                 <Layer onBackdropClick={() => setOpen(false)}>
                     <Popper
                         reference={ref}
-                        placement="bottom-start"
+                        placement={
+                            languageDirection === 'rtl'
+                                ? 'bottom-end'
+                                : 'bottom-start'
+                        }
                         modifiers={[offsetModifier]}
                         onFirstUpdate={(component) => {
                             popperRef.current = component?.elements?.popper

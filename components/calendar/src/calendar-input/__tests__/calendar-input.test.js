@@ -249,6 +249,71 @@ describe('Calendar Input', () => {
         expect(calendar).toHaveAttribute('dir', 'rtl')
     })
 
+    // LIBS-822: Popper's `-start`/`-end` are physical (left/right) edges, so the
+    // popover must use `bottom-end` in RTL to line up with the input's right edge.
+    describe('popover placement (LIBS-822)', () => {
+        const openCalendar = async (props) => {
+            const screen = render(
+                <CalendarInput
+                    calendar="gregory"
+                    onDateSelect={jest.fn()}
+                    {...props}
+                />
+            )
+            const dateInput = within(
+                screen.getByTestId('dhis2-uicore-input')
+            ).getByRole('textbox')
+            fireEvent.focus(dateInput)
+            await screen.findByTestId('calendar')
+            return screen.getByTestId('dhis2-uicore-popper')
+        }
+
+        afterEach(() => {
+            document.documentElement.removeAttribute('dir')
+        })
+
+        it('aligns the popover with the left of the input in LTR', async () => {
+            const popper = await openCalendar({ dir: 'ltr' })
+            await waitFor(() =>
+                expect(popper).toHaveAttribute(
+                    'data-popper-placement',
+                    'bottom-start'
+                )
+            )
+        })
+
+        it('aligns the popover with the right of the input when dir is rtl', async () => {
+            const popper = await openCalendar({ dir: 'rtl' })
+            await waitFor(() =>
+                expect(popper).toHaveAttribute(
+                    'data-popper-placement',
+                    'bottom-end'
+                )
+            )
+        })
+
+        it('aligns the popover with the right of the input for an RTL locale', async () => {
+            const popper = await openCalendar({ locale: 'ar' })
+            await waitFor(() =>
+                expect(popper).toHaveAttribute(
+                    'data-popper-placement',
+                    'bottom-end'
+                )
+            )
+        })
+
+        it('aligns the popover with the right of the input when the page is RTL', async () => {
+            document.documentElement.dir = 'rtl'
+            const popper = await openCalendar({ dir: 'rtl' })
+            await waitFor(() =>
+                expect(popper).toHaveAttribute(
+                    'data-popper-placement',
+                    'bottom-end'
+                )
+            )
+        })
+    })
+
     it('renders day labels using the numberingSystem prop', async () => {
         jest.useFakeTimers()
         jest.setSystemTime(new Date('2024-10-22T09:05:00.000Z'))
