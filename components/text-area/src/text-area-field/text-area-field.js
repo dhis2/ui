@@ -6,6 +6,7 @@ import React from 'react'
 import { TextArea } from '../text-area/index.js'
 
 const TextAreaField = ({
+    ariaLabel,
     className,
     onChange,
     onFocus,
@@ -48,6 +49,7 @@ const TextAreaField = ({
     >
         <Box width={inputWidth} minWidth="220px">
             <TextArea
+                ariaLabel={ariaLabel}
                 onFocus={onFocus}
                 onKeyDown={onKeyDown}
                 onBlur={onBlur}
@@ -73,6 +75,8 @@ const TextAreaField = ({
 )
 
 TextAreaField.propTypes = {
+    /** Add an aria-label attribute to the textarea element. Use it when the textarea has no visible label */
+    ariaLabel: PropTypes.string,
     /** Grow the text area in response to overflow instead of adding a scroll bar */
     autoGrow: PropTypes.bool,
     className: PropTypes.string,

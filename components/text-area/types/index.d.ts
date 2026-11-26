@@ -24,6 +24,10 @@ type TextAreaKeyHandler = TextAreaEventHandler<
 
 export interface TextAreaProps {
     /**
+     * Add an aria-label attribute to the textarea element. Use it when the textarea has no visible label
+     */
+    ariaLabel?: string
+    /**
      * Grow the text area in response to overflow instead of adding a scroll bar
      */
     autoGrow?: boolean
@@ -109,6 +113,10 @@ export class TextArea extends React.Component<TextAreaProps, any> {
 }
 
 export interface TextAreaFieldProps {
+    /**
+     * Add an aria-label attribute to the textarea element. Use it when the textarea has no visible label
+     */
+    ariaLabel?: string
     /**
      * Grow the text area in response to overflow instead of adding a scroll bar
      */
