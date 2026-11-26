@@ -115,6 +115,7 @@ export class TextArea extends Component {
 
     render() {
         const {
+            ariaLabel,
             className,
             dense,
             disabled,
@@ -139,6 +140,7 @@ export class TextArea extends Component {
                 <textarea
                     id={name}
                     name={name}
+                    aria-label={ariaLabel}
                     placeholder={placeholder}
                     ref={this.textareaRef}
                     value={value}
@@ -180,6 +182,8 @@ export class TextArea extends Component {
 }
 
 TextArea.propTypes = {
+    /** Add an aria-label attribute to the textarea element. Use it when the textarea has no visible label */
+    ariaLabel: PropTypes.string,
     /** Grow the text area in response to overflow instead of adding a scroll bar */
     autoGrow: PropTypes.bool,
     className: PropTypes.string,

@@ -14,6 +14,7 @@ import { TextArea } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
+|ariaLabel|string|||Add an aria-label attribute to the textarea element. Use it when the textarea has no visible label|
 |autoGrow|boolean|||Grow the text area in response to overflow instead of adding a scroll bar|
 |className|string||||
 |dataTest|string|``'dhis2-uicore-textarea'``|||
@@ -53,6 +54,7 @@ import { TextAreaField } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
+|ariaLabel|string|||Add an aria-label attribute to the textarea element. Use it when the textarea has no visible label|
 |autoGrow|boolean|||Grow the text area in response to overflow instead of adding a scroll bar|
 |className|string||||
 |dataTest|string|``'dhis2-uiwidgets-textareafield'``|||

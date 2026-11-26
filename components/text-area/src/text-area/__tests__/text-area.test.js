@@ -17,4 +17,18 @@ describe('<TextArea>', () => {
 
         expect(onKeyDown).toHaveBeenCalledTimes(1)
     })
+
+    it('should set aria-label on the textarea from the ariaLabel prop', () => {
+        render(<TextArea name="comment" ariaLabel="Comment" />)
+
+        expect(
+            screen.getByRole('textbox', { name: 'Comment' })
+        ).toHaveAttribute('aria-label', 'Comment')
+    })
+
+    it('should not set aria-label when ariaLabel is not provided', () => {
+        render(<TextArea name="comment" />)
+
+        expect(screen.getByRole('textbox')).not.toHaveAttribute('aria-label')
+    })
 })
