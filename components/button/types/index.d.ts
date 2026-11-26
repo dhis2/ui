@@ -102,8 +102,13 @@ export interface BaseButtonProps {
     onKeyDown?: ButtonEventHandler<React.KeyboardEvent<HTMLButtonElement>>
 }
 
-export type ButtonProps = BaseButtonProps &
-    Omit<React.ComponentPropsWithoutRef<'button'>, keyof BaseButtonProps>
+export type ButtonProps = BaseButtonProps & {
+    /**
+     * Sets the `aria-label` attribute on the `<button>` element. Use it for icon-only buttons without a `title`.
+     * A native `aria-label` prop is also passed through and takes precedence
+     */
+    ariaLabel?: string
+} & Omit<React.ComponentPropsWithoutRef<'button'>, keyof BaseButtonProps>
 
 export const Button: React.FC<ButtonProps>
 

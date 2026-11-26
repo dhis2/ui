@@ -91,6 +91,7 @@ import { Button } from '@dhis2/ui'
 
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
+|ariaLabel|string|||Sets the `aria-label` attribute on the `<button>` element. Use it for icon-only buttons without a `title`.<br/>A native `aria-label` prop is also passed through and takes precedence|
 |children|node|||Component to render inside the button|
 |className|string|||A className that will be passed to the `<button>` element|
 |dataTest|string|``'dhis2-uicore-button'``||A string that will be applied as a `data-test` attribute on the button element<br/>for identification during testing|

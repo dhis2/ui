@@ -79,7 +79,45 @@ describe('<Button>', () => {
         )
         const buttonElement = wrapper.find('button').getDOMNode()
         expect(buttonElement).toHaveAttribute('title', 'title for button')
-        expect(buttonElement).toHaveAttribute('ariaLabel', 'test aria label')
+        expect(buttonElement).toHaveAttribute('aria-label', 'test aria label')
+        expect(buttonElement).not.toHaveAttribute('arialabel')
+    })
+
+    describe('aria-label (LIBS-734)', () => {
+        it('gives the button an accessible name from the ariaLabel prop', () => {
+            render(<Button ariaLabel="Close" icon={<svg />} />)
+
+            expect(
+                screen.getByRole('button', { name: 'Close' })
+            ).toBeInTheDocument()
+        })
+
+        it('still accepts the native aria-label prop', () => {
+            render(<Button aria-label="Close" icon={<svg />} />)
+
+            expect(
+                screen.getByRole('button', { name: 'Close' })
+            ).toBeInTheDocument()
+        })
+
+        it('uses the native aria-label when both props are passed', () => {
+            render(
+                <Button ariaLabel="Close" aria-label="Close dialog">
+                    {/* No children */}
+                </Button>
+            )
+
+            expect(screen.getByRole('button')).toHaveAttribute(
+                'aria-label',
+                'Close dialog'
+            )
+        })
+
+        it('does not warn about a missing label when only ariaLabel is set', () => {
+            render(<Button ariaLabel="Close">{/* No children */}</Button>)
+
+            expect(consoleSpy).not.toHaveBeenCalled()
+        })
     })
 
     describe('toggle', () => {
