@@ -566,7 +566,7 @@ export interface SimpleSingleSelectFieldProps {
 
     /** Allows to override what's rendered inside the `button[role="option"]`.
      * Can be overriden on an individual option basis **/
-    optionComponent?: SimpleSingleSelectCustomOptionProp
+    optionComponent?: React.ReactNode
 
     /** For a11y: How aggressively the user should be updated about changes in options **/
     optionUpdateStrategy?: 'off' | 'polite' | 'assertive'

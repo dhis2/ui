@@ -20,7 +20,7 @@ function DefaultStyle({ label, icon, disabled, highlighted }) {
             {label}
 
             <style jsx>{`
-                .option {
+                span {
                     display: block;
                     cursor: pointer;
                     font-size: 14px;
@@ -31,28 +31,28 @@ function DefaultStyle({ label, icon, disabled, highlighted }) {
                     line-height: ${spacers.dp16};
                 }
 
-                .option:hover {
+                span:hover {
                     background-color: ${colors.grey200};
                 }
 
-                .option:active,
-                .option.active {
+                span:active,
+                span.active {
                     background-color: ${colors.teal700};
                     color: ${colors.white};
                     cursor: auto;
                 }
 
-                .option.disabled {
+                span.disabled {
                     color: ${colors.grey500};
                     cursor: not-allowed;
                     user-select: none;
                 }
 
-                .option.disabled:hover {
+                span.disabled:hover {
                     background-color: initial;
                 }
 
-                .option.with-icon {
+                span.with-icon {
                     display: flex;
                     align-items: center;
                 }
@@ -78,7 +78,6 @@ export function Option({
     dataTest,
     disabled,
     highlighted,
-    icon,
     listBoxRef,
     onBecameVisible,
     ...rest
@@ -132,7 +131,6 @@ export function Option({
             <StyleComponent
                 value={value}
                 label={label}
-                icon={icon}
                 index={index}
                 disabled={disabled}
                 highlighted={highlighted}
@@ -166,7 +164,6 @@ Option.propTypes = {
     dataTest: PropTypes.string,
     disabled: PropTypes.bool,
     highlighted: PropTypes.bool,
-    icon: PropTypes.node,
     listBoxRef: PropTypes.shape({
         current: PropTypes.instanceOf(HTMLElement),
     }),

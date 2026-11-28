@@ -10,11 +10,18 @@ export function OptionIcon({ icon }) {
             <style jsx>{`
                 span {
                     display: flex;
+                    align-items: center;
+                    justify-content: center;
                     margin-inline-end: ${spacers.dp8};
                     width: ${spacers.dp16};
                     height: ${spacers.dp16};
                     overflow: hidden;
                     flex-shrink: 0;
+                }
+
+                span > :global(*) {
+                    max-width: 100%;
+                    max-height: 100%;
                 }
             `}</style>
         </span>

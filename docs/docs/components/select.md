@@ -280,7 +280,7 @@ These props accept any absolute or font-relative CSS length, e.g. `'200px'` or `
 - The selected value only shows the icon when the selected option is in `options`.
 - Use icons when they help users recognize an option faster, for example program icons.
 - Icons are decorative and hidden from screen readers. The label is always required.
-- Use 16px icons.
+- Use 16px icons. Larger icons are scaled down.
 
 ### State: Error
 
