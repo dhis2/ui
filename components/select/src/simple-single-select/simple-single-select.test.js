@@ -517,6 +517,57 @@ describe('<SimpleSingleSelect />', () => {
         expect(combobox).toContainElement(withTextBar)
     })
 
+    describe('icons', () => {
+        it('should display the icon of the selected option', () => {
+            render(
+                <SimpleSingleSelect
+                    name="simple"
+                    selected={{ value: 'bar', label: 'Bar' }}
+                    onChange={() => null}
+                    options={[
+                        { value: 'foo', label: 'Foo' },
+                        {
+                            value: 'bar',
+                            label: 'Bar',
+                            icon: <span data-test="icon-bar" />,
+                        },
+                    ]}
+                />
+            )
+
+            const combobox = screen.getByRole('combobox')
+            const icon = screen.getByTestId('icon-bar')
+
+            expect(combobox).toContainElement(icon)
+            expect(icon.parentNode).toHaveAttribute('aria-hidden', 'true')
+        })
+
+        it('should display option icons in the menu', () => {
+            render(
+                <SimpleSingleSelect
+                    name="simple"
+                    onChange={() => null}
+                    options={[
+                        {
+                            value: 'foo',
+                            label: 'Foo',
+                            icon: <span data-test="icon-foo" />,
+                        },
+                        { value: 'bar', label: 'Bar' },
+                    ]}
+                />
+            )
+
+            fireEvent.click(screen.getByRole('combobox'))
+
+            const option = screen.getByRole('option', { name: 'Foo' })
+            const icon = screen.getByTestId('icon-foo')
+
+            expect(option).toContainElement(icon)
+            expect(icon.parentNode).toHaveAttribute('aria-hidden', 'true')
+        })
+    })
+
     /***************************
      *                         *
      *  =====================  *

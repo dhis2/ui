@@ -137,8 +137,8 @@ import { SimpleSingleSelect } from '@dhis2/ui'
 |Name|Type|Default|Required|Description|
 |---|---|---|---|---|
 |name|string||*|necessary for IDs that are required for accessibility *|
-|options|`arrayOf(custom)`||*|An array of options *|
-|onChange|function||*|A callback that will be called with the new value or an empty string *|
+|options|`arrayOf(custom)`||*|An array of options: `{ label, value, icon?, disabled?, component? }` *|
+|onChange|function||*|Will be called with the selected option: `{ label, value, icon }` *|
 |autoFocus|boolean|``false``||Will focus the select initially *|
 |className|string|``''``||Additional class names that will be applied to the root element *|
 |clearText|custom(function)|``''``||This will allow us to put an aria-label on the clear button *|
@@ -164,7 +164,7 @@ import { SimpleSingleSelect } from '@dhis2/ui'
 |optionUpdateStrategy|'off' │ 'polite' │ 'assertive'|``'polite'``||For a11y: How aggressively the user should be updated about changes in options *|
 |placeholder|string|``''``||String to show when there's no selected option *|
 |prefix|string|``''``||String that will be displayed before the label of the selected option *|
-|selected|\{<br/>  "label": "string",<br/>  "value": "string"<br/>}|``{ label: '', value: '' }``|||
+|selected|\{<br/>  "label": "string",<br/>  "value": "string",<br/>  "icon": "node"<br/>}|``{ label: '', value: '' }``||The selected option. `icon` is rendered before the label *|
 |tabIndex|string │ number|``'0'``||Standard HTML tab-index attribute that will be put on the combobox's root element *|
 |valid|custom|``false``||Applies 'valid' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props *|
 |warning|custom|``false``||Applies 'warning' appearance for validation feedback. Mutually exclusive with `warning` and `valid` props *|
@@ -192,7 +192,7 @@ import { SimpleSingleSelectField } from '@dhis2/ui'
 |---|---|---|---|---|
 |label|string||*|Label displayed above the input *|
 |name|string||*|necessary for IDs that are required for accessibility *|
-|options|`arrayOf(custom)`||*|An array of options *|
+|options|`arrayOf(custom)`||*|An array of options: `{ label, value, icon?, disabled?, component? }` *|
 |onChange|function||*|A callback that will be called with the new value or an empty string *|
 |autoFocus|boolean|||Will focus the select initially *|
 |className|string|||Additional class names that will be applied to the root element *|

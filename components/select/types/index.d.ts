@@ -344,22 +344,26 @@ export const SingleSelect: React.FC<SingleSelectProps>
 type SimpleSingleSelectCustomOptionProp = (props: {
     value: string
     label: string
+    icon?: React.ReactNode
     index: number
     disabled: boolean
     highlighted: boolean
 }) => JSX.Element
+
+export interface SimpleSingleSelectOption {
+    label: string
+    value: string
+    component?: SimpleSingleSelectCustomOptionProp
+    disabled?: boolean
+    icon?: React.ReactNode
+}
 
 export interface SimpleSingleSelectProps {
     /** necessary for IDs that are required for accessibility **/
     name: string
 
     /** An array of options **/
-    options: Array<{
-        label: string
-        value: string
-        component?: SimpleSingleSelectCustomOptionProp
-        disabled?: boolean
-    }>
+    options: SimpleSingleSelectOption[]
 
     /** A callback that will be called with the new value or an empty string **/
     onChange: (value: string) => void
@@ -492,7 +496,7 @@ export interface SimpleSingleSelectFieldProps {
     name: string
 
     /** An array of options **/
-    options: optionProp[]
+    options: SimpleSingleSelectOption[]
 
     /** A callback that will be called with the new value or an empty string **/
     onChange: (value: string) => void

@@ -257,6 +257,31 @@ These props accept any absolute or font-relative CSS length, e.g. `'200px'` or `
 - Use a prefix when there is limited space and a label above the select would take up too much space.
 - Prefix labels should be short and clear.
 
+### Icons
+
+<Demo
+    path="simple-single-select--with-icons"
+    height="250px"
+/>
+
+```jsx
+<SimpleSingleSelect
+    name="place"
+    selected={selected}
+    onChange={setSelected}
+    options={[
+        { value: 'home', label: 'Home', icon: <IconHome16 /> },
+        { value: 'calendar', label: 'Calendar', icon: <IconCalendar16 /> },
+    ]}
+/>
+```
+
+- `SimpleSingleSelect` options can show an icon before the label, both in the menu and in the selected value.
+- The selected value only shows the icon when the selected option is in `options`.
+- Use icons when they help users recognize an option faster, for example program icons.
+- Icons are decorative and hidden from screen readers. The label is always required.
+- Use 16px icons. Larger icons are scaled down.
+
 ### State: Error
 
 <Demo

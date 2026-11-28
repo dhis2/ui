@@ -130,6 +130,9 @@ export function SimpleSingleSelect({
 
     const selectedValue = selected?.value || ''
     const selectedLabel = selected?.label || ''
+    const selectedIcon = options.find(
+        (option) => option.value === selectedValue
+    )?.icon
     const openMenu = useCallback(() => {
         const selectedOptionIndex = options.findIndex(
             (option) => option.value === selectedValue
@@ -243,6 +246,7 @@ export function SimpleSingleSelect({
                 warning={warning}
                 valid={valid}
                 selectedLabel={selectedLabel}
+                selectedIcon={selectedIcon}
                 onBlur={onBlur}
                 onClear={onClear}
                 onClick={toggleMenu}
@@ -289,7 +293,7 @@ SimpleSingleSelect.propTypes = {
     /** necessary for IDs that are required for accessibility **/
     name: PropTypes.string.isRequired,
 
-    /** An array of options **/
+    /** An array of options: `{ label, value, icon?, disabled?, component? }` **/
     options: PropTypes.arrayOf(optionProp).isRequired,
 
     /** A callback that will be called with the new value or an empty string **/
