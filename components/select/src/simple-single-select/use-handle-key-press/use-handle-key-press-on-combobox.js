@@ -33,7 +33,6 @@ function useSelectOption(findIndexCallback, { options, onChange, value }) {
         onChange({
             label: nextOption.label,
             value: nextOption.value,
-            icon: nextOption.icon,
         })
     }, [findIndexCallback, options, onChange, value])
 }

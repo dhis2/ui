@@ -522,15 +522,15 @@ describe('<SimpleSingleSelect />', () => {
             render(
                 <SimpleSingleSelect
                     name="simple"
-                    selected={{
-                        value: 'bar',
-                        label: 'Bar',
-                        icon: <span data-test="icon-bar" />,
-                    }}
+                    selected={{ value: 'bar', label: 'Bar' }}
                     onChange={() => null}
                     options={[
                         { value: 'foo', label: 'Foo' },
-                        { value: 'bar', label: 'Bar' },
+                        {
+                            value: 'bar',
+                            label: 'Bar',
+                            icon: <span data-test="icon-bar" />,
+                        },
                     ]}
                 />
             )
@@ -565,28 +565,6 @@ describe('<SimpleSingleSelect />', () => {
 
             expect(option).toContainElement(icon)
             expect(icon.parentNode).toHaveAttribute('aria-hidden', 'true')
-        })
-
-        it('should pass the icon to onChange when an option is clicked', () => {
-            const onChange = jest.fn()
-            const icon = <span data-test="icon-foo" />
-
-            render(
-                <SimpleSingleSelect
-                    name="simple"
-                    onChange={onChange}
-                    options={[{ value: 'foo', label: 'Foo', icon }]}
-                />
-            )
-
-            fireEvent.click(screen.getByRole('combobox'))
-            fireEvent.click(screen.getByRole('option', { name: 'Foo' }))
-
-            expect(onChange).toHaveBeenCalledWith({
-                value: 'foo',
-                label: 'Foo',
-                icon,
-            })
         })
     })
 

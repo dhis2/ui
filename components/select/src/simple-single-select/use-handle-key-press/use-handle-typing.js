@@ -53,7 +53,6 @@ export function useHandleTyping({
                     onChange({
                         label: nextSelectedOption.label,
                         value: nextSelectedOption.value,
-                        icon: nextSelectedOption.icon,
                     })
                 }
             }

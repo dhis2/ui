@@ -34,7 +34,6 @@ export function SimpleSingleSelectField(props) {
             ? {
                   value,
                   label: selectedOption?.label ?? valueLabel ?? '',
-                  icon: selectedOption?.icon,
               }
             : undefined
 

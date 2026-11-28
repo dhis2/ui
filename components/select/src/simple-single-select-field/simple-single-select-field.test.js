@@ -145,27 +145,4 @@ describe('<SimpleSingleSelectField />', () => {
         expect(Field.mock.calls[0][0].warning).toBe(undefined)
         expect(Field.mock.calls[0][0].valid).toBe(true)
     })
-
-    it('should pass the icon of the selected option', () => {
-        const icon = <span />
-
-        render(
-            <SimpleSingleSelectField
-                label="Label text"
-                name="foo"
-                value="bar"
-                options={[
-                    { value: 'foo', label: 'Foo' },
-                    { value: 'bar', label: 'Bar', icon },
-                ]}
-                onChange={() => null}
-            />
-        )
-
-        expect(SimpleSingleSelect.mock.calls[0][0].selected).toEqual({
-            value: 'bar',
-            label: 'Bar',
-            icon,
-        })
-    })
 })

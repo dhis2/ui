@@ -365,12 +365,8 @@ export interface SimpleSingleSelectProps {
     /** An array of options **/
     options: SimpleSingleSelectOption[]
 
-    /** A callback that will be called with the newly selected option **/
-    onChange: (selected: {
-        label: string
-        value: string
-        icon?: React.ReactNode
-    }) => void
+    /** A callback that will be called with the new value or an empty string **/
+    onChange: (value: string) => void
 
     /** Will focus the select initially **/
     autoFocus?: boolean
@@ -462,7 +458,6 @@ export interface SimpleSingleSelectProps {
     selected?: {
         label: string
         value: string
-        icon?: React.ReactNode
     }
 
     /**
